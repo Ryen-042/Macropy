@@ -1,2 +1,32 @@
 # Macropy
-Keyboard listener, word expander, and automation manager.
+Keyboard listener, hotkey manager, word expander, task automation, and more!
+
+## Why did I write this script?
+A lot of times I found myself repeating one or more tasks. Some of these tasks are tedious and may be performed more than one time a day. Other tasks may be faster if they are performed without interacting with GUI elements. Combine all this a long with my low performance laptop and you can see why I have written this script.
+
+## Features:
+This script can be categorized as a Keyboard Listener. However, unlike normal keyboard listeners provided by existing modules like `keyboard`, `pynput`, etc., this script has two huge advantages. The first is the ability to use any key combination for triggering a hotkey, and multiple key combinations can be specified easily to trigger the same hotkey. The second advantage is the ability to use any keyboard keys (even keys like `FN`) as long as the key is reported by the os.
+
+This script relies heavily on windows API. It focuses mainly on tasks that involves windows explorer. All these tasks are triggered with a hotkey. There is also support for word expansion where you type a colon followed by an abbreviation and a substitution will be added accordingly.
+
+Below are some of the windows explorer tasks that the script can perform:
+- Creating a new file -> `Ctrl + Shift + ['m' or 'M']`.
+- Copying the full path to the selected files in the active explorer/desktop window -> `Shift + F2`.
+- Merging the selected images from the active explorer window into a PDF file -> `Ctrl + Shift + ['p' or 'P']`.
+- Converting the selected powerpoint files from the active explorer window into PDF files -> `Backtick + ['p' or 'P']`.
+- Converting the selected word files from the active explorer window into PDF files -> `Backtick + ['o' or 'O']`.
+- Converting `.mp3` audio files into `.wav` files.
+- Flattening directories by moving all the files/folders inside to the same level.
+
+Next are some supported window manipulation operations:
+- Move the window around (up, right, down, right) -> `Backtick + (↑ or → or ↓ or ←)`.
+- Making the window always on top -> `FN + Ctrl + ['a', 'A']`.
+- Decreasing/increasing the opacity of a window -> `Backtick + (['+', '='] or ['-', '_'])`.
+- Scrolling up/down (by sending mouse wheel scrolls) -> While ScrLck is active: `W or A or S or D`.
+
+Listing some of the supported system manipulation operations:
+- Putting the device into sleep mode -> `Win + FN + Ctrl + ['s', 'S']`.
+- Shutdown the system -> `Win + FN + Ctrl + ['q', 'Q']`.
+- Increasing/Decreasing the system volume -> `Ctrl + Shift + (['=', '+'] Or  ['-', '_'])`.
+- Increasing/Decreasing brightness -> `Backtick + ('F2' Or  'F3')`.
+- Flashing screen.
