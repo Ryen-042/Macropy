@@ -2,12 +2,12 @@
 Keyboard listener, hotkey manager, word expander, task automation, and more!
 
 ## Why did I write this script?
-A lot of times I found myself repeating one or more tasks. Some of these tasks are tedious and may be performed more than one time a day. Other tasks may be faster if they are performed without interacting with GUI elements. Combine all this a long with my low performance laptop and you can see why I have written this script.
+A lot of times I found myself repeating one or more tasks. Some of these tasks are tedious and may be performed more than one time a day. Other tasks may be faster if they are performed without interacting with GUI elements. Combine all this with my low-performance laptop and you can see why I have written this script.
 
 ## Features:
 This script can be categorized as a Keyboard Listener. However, unlike normal keyboard listeners provided by existing modules like `keyboard`, `pynput`, etc., this script has two huge advantages. The first is the ability to use any key combination for triggering a hotkey, and multiple key combinations can be specified easily to trigger the same hotkey. The second advantage is the ability to use any keyboard keys (even keys like `FN`) as long as the key is reported by the os.
 
-This script relies heavily on windows API. It focuses mainly on tasks that involves windows explorer. All these tasks are triggered with a hotkey. There is also support for word expansion where you type a colon followed by an abbreviation and a substitution will be added accordingly.
+This script relies heavily on windows API and focuses on tasks that involve windows explorer. These tasks are triggered by a hotkey. There is also support for word expansion where you type a colon followed by an abbreviation, and a substitution will be added accordingly.
 
 Below are some of the windows explorer tasks that the script can perform:
 - Creating a new file -> `Ctrl + Shift + ['m' or 'M']`.
@@ -26,7 +26,13 @@ Next are some supported window manipulation operations:
 
 Listing some of the supported system manipulation operations:
 - Putting the device into sleep mode -> `Win + FN + Ctrl + ['s', 'S']`.
-- Shutdown the system -> `Win + FN + Ctrl + ['q', 'Q']`.
+- Shut down the system -> `Win + FN + Ctrl + ['q', 'Q']`.
 - Increasing/Decreasing the system volume -> `Ctrl + Shift + (['=', '+'] Or  ['-', '_'])`.
 - Increasing/Decreasing brightness -> `Backtick + ('F2' Or  'F3')`.
-- Flashing screen.
+
+## Extra:
+- The script does not receive keyboard events when the active process is elevated. A notification message will be printed every 10 seconds with a sound when this happens. You can run the script with elevated privileges to receive keyboard events in this scenario.
+- To terminate the script, press the hotkey -> `FN + ESC`.
+- To make sure the script is running by showing a toast notification, press the hotkey -> `FN + /`.
+- To clear the terminal, press the hotkey -> `Ctrl + FN + C`.
+- To suppress the terminal output, press the hotkey -> `FN + Alt + S`.
