@@ -77,15 +77,19 @@ def NormalKeyPress(event):
                                                     'placement': 'appLogoOverride'},
                                             image = {'src': r"E:\UnKnown\Programming\Python\Year 22\Automation\Macropy\pyCom\keyboard (0.5).png",
                                                      'placement': 'hero'},
-                                            audio={'silent': 'true'})).start()
+                                            audio = {'silent': 'true'})).start()
     
     #+ Putting the device into sleep mode.
     elif ctrlHouse.modifiers.WIN and ctrlHouse.modifiers.FN and ctrlHouse.modifiers.CTRL and event.KeyID == kbcon.VK_S: # Win + FN + Ctrl + ['s', 'S']
         PThread(target=sysHelper.GoToSleep).start()
     
-    #+ Shutdown the system.
+    #+ Shutting down the system.
     elif ctrlHouse.modifiers.WIN and ctrlHouse.modifiers.FN and ctrlHouse.modifiers.CTRL and event.KeyID == kbcon.VK_Q: # Win + FN + Ctrl + ['q', 'Q']
         PThread(target=sysHelper.Shutdown).start()
+    
+    #+ Without this, the system-defined `FN + F2/F3` hotkeys for decreasing/increasing the volume does not work.
+    if event.KeyID in (win32con.VK_VOLUME_UP, win32con.VK_VOLUME_DOWN):
+        PThread(target=kbHelper.SimulateKeyPress, args=[(win32con.VK_VOLUME_UP, win32con.VK_VOLUME_DOWN)[event.KeyID == win32con.VK_VOLUME_DOWN]]).start()
     
     #+ Incresing/Decreasing the system volume.
     elif ctrlHouse.modifiers.CTRL and ctrlHouse.modifiers.SHIFT and event.KeyID in (kbcon.VK_EQUALS, kbcon.VK_MINUS): # Ctrl + Shift + (['=', '+'] Or  ['-', '_'])
@@ -136,7 +140,7 @@ def NormalKeyPress(event):
         else:
             suppress_key = False
     
-    #+ Copying the full path to the selected file in the active explorer/desktop window.
+    #+ Copying the full path to the selected files in the active explorer/desktop window.
     elif ctrlHouse.modifiers.SHIFT and event.KeyID == win32con.VK_F2: # Shift + 'F2'
         if win32gui.GetClassName(win32gui.GetForegroundWindow()) in ("CabinetWClass", "WorkerW"):
             PThread(target=expHelper.CopySelectedFileNames).start()
@@ -299,8 +303,8 @@ def KeyPress(event):
     PThread(target=ExpanderKeyPress, args=[event]).start()
     
     #+ Printing some relevant information about the pressed key and hardware metrics.
-    PThread(target=lambda event: not DebuggingHouse.silent and (print(f"Thread Count: {threading.active_count()} |", event.Ascii,  event.Key, event.KeyID, event.ScanCode, "|", event.Injected, event.IsInjected(), "|", event.Extended, event.IsExtended(), "|", event.IsTransition(), event.Transition, "|", event.Message, f"'{event.MessageName}'", "|", event.Alt, event.IsAlt(), DebuggingHouse.counter), print(ctrlHouse.modifiers, ctrlHouse.locks, end="\n\n\n"),
-                                  sysHelper.DisplayCPUsage(), print("\n")), args=[event]).start()
+    PThread(target=lambda event: not DebuggingHouse.silent and (print(f"Thread Count: {threading.active_count()} |", f"Asc={event.Ascii}, Key={event.Key}, ID={event.KeyID}, SC={event.ScanCode} | Inj={event.Injected} | Ext={event.Extended} | Trans={event.IsTransition()} | Msg='{event.MessageName}' ({event.Message}) | Alt={event.Alt} | Counter={DebuggingHouse.counter}"),
+                                                                print(ctrlHouse.modifiers, "|", ctrlHouse.locks, end="\n\n\n"), sysHelper.DisplayCPUsage(), print("\n")), args=[event]).start()
     
     #+ Getting the return value from the NormalKeyPress thread to determine whether to retrun the pressed key or suppress it.
     return PThread.outputQueue.get()
