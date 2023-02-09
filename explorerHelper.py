@@ -238,6 +238,7 @@ def CreateFile(active_explorer: CDispatch) -> int:
 
 def ImagesToPDF(active_explorer: CDispatch) -> None:
     """Combines the selected images from the active explorer window into a PDF file with an incremental name then select it."""
+    
     import img2pdf
     
     initializer_called = PThread.CoInitialize()
@@ -370,6 +371,7 @@ def MP3ToWAV():
             new_filepath = os.path.splitext(file_path)[0] + ".wav"
             if os.path.exists(new_filepath):
                 print("Failure, file already exists: %s" % new_filepath)
+                
                 continue
             
             # Run a command and wait for it to complete.
