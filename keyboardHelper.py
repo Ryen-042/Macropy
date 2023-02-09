@@ -179,7 +179,7 @@ def SendTextWithCaret(text, caret="{!}"):
     # This doesn't work properly if the caret is not at the beggining (`HOME`) before inserting the text.
     # mid_pos = len(text) // 2
     # if caret_pos <= mid_pos:
-    #     SimulateKeyPress(win32con.VK_HOME, kbcon.SC_HOME)
+    #     SimulateKeyPress(win32con.VK_HOME,  kbcon.SC_HOME)
     #     SimulateKeyPress(win32con.VK_RIGHT, kbcon.SC_RIGHT, caret_pos)
     # else:
     SimulateKeyPress(win32con.VK_LEFT, kbcon.SC_LEFT, len(text) - caret_pos)
