@@ -60,6 +60,7 @@ def IsProcessElevated(hwnd=0):
 
 def RequestElevation():
     """Restarts the current python process with elevated privileges."""
+    
     # Source  : https://stackoverflow.com/questions/130763/request-uac-elevation-from-within-a-python-script
     # See also: https://stackoverflow.com/questions/19672352/how-to-run-script-with-elevated-privilege-on-windows
     
@@ -111,6 +112,7 @@ def DisplayCPUsage():
 
 def EnableDPI_Awareness():
     """Enables `DPI Awareness` for the current thread to allow for accurate dimensions reporting."""
+    
     # Creator note: behavior on later OSes is undefined, although when I run it on my Windows 10 machine, it seems to work with effects identical to SetProcessDpiAwareness(1)
     # Source: https://stackoverflow.com/questions/44398075/can-dpi-scaling-be-enabled-disabled-programmatically-on-a-per-session-basis/44422362#44422362
     # Source: https://stackoverflow.com/questions/32541475/win32api-is-not-giving-the-correct-coordinates-with-getcursorpos-in-python
@@ -250,6 +252,7 @@ def Shutdown():
     EWX_HYBRID_SHUTDOWN = 0x00400000
     win32api.ExitWindowsEx(win32con.EWX_SHUTDOWN | EWX_HYBRID_SHUTDOWN)
     
+    # Make sure that the script is terminating while the system is shutting down.
     TerminateScript()
 
 def GetProcessExe(hwnd):
@@ -257,5 +260,3 @@ def GetProcessExe(hwnd):
     
     return win32process.GetModuleFileNameEx(win32api.OpenProcess(win32con.PROCESS_ALL_ACCESS, 0,
                                                                  win32process.GetWindowThreadProcessId(hwnd)[1]), 0)
-
-
