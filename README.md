@@ -1,6 +1,8 @@
 # Macropy
 Keyboard listener, hotkey manager, word expander, task automation, and more!
 
+![Elevated Process Checker](https://github.com/Ryen-042/Macropy/blob/main/Images/Output.png)
+
 ## Why did I write this script?
 A lot of times I found myself repeating one or more tasks. Some of these tasks are tedious and may be performed more than one time a day. Other tasks may be faster if they are performed without interacting with GUI elements. Combine all this with my low-performance laptop and you can see why I have written this script.
 
@@ -32,6 +34,9 @@ Listing some of the supported system manipulation operations:
 
 ## Extra:
 - The script does not receive keyboard events when the active process is elevated. A notification message will be printed every 10 seconds with a sound when this happens. You can run the script with elevated privileges to receive keyboard events in this scenario.
+
+![Elevated Process Checker](https://github.com/Ryen-042/Macropy/blob/main/Images/Elevated_Checker.png)
+
 - To terminate the script, press the hotkey -> `FN + ESC`.
 - To make sure the script is running by showing a toast notification, press the hotkey -> `FN + /`.
 - To clear the terminal, press the hotkey -> `Ctrl + FN + C`.
