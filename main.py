@@ -73,9 +73,9 @@ def NormalKeyPress(event):
         # notify() doesn't work properly here. Use toast() inside a thread instead.
         PThread(target = lambda: toast('Script is Running.', 'The script is running in the background.', buttons=buttons,
                                         on_click = lambda args: sysHelper.TerminateScript(args["arguments"][0] == "0"),
-                                        icon = {"src": r"E:\UnKnown\Programming\Python\Year 22\Automation\Macropy\pyCom\keyboard.png",
+                                        icon = {"src": os.path.join(os.path.split(__file__)[0], "Images", "keyboard.png"),
                                                 'placement': 'appLogoOverride'},
-                                        image = {'src': r"E:\UnKnown\Programming\Python\Year 22\Automation\Macropy\pyCom\keyboard (0.5).png",
+                                        image = {'src': os.path.join(os.path.split(__file__)[0], "Images", "keyboard (0.5).png"),
                                                     'placement': 'hero'},
                                         audio = {'silent': 'true'})).start()
     
