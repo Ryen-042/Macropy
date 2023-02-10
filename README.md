@@ -20,11 +20,11 @@ This script relies heavily on windows API and focuses on tasks that involve wind
 - Copying the full path to the selected files in the active explorer/desktop window -> `Shift + F2`.
 - Merging the selected images from the active explorer window into a PDF file -> `Ctrl + Shift + ['p' or 'P']`.
 
-![Merging Images Into PDF](https://github.com/Ryen-042/Macropy/blob/main/Images/Images_To_PDF.gif)
+![Merging Images Into PDF](https://github.com/Ryen-042/Macropy/blob/main/Images/Merging_Images_To_PDF.gif)
 
 - Converting the selected powerpoint files from the active explorer window into PDF files -> `Backtick + ['p' or 'P']`.
 
-![Converting Powerpoint Files To PDF](https://github.com/Ryen-042/Macropy/blob/main/Images/Powerpoint_To_PDF.gif)
+![Converting Powerpoint Files To PDF](https://github.com/Ryen-042/Macropy/blob/main/Images/Converting_Powerpoint_To_PDF.gif)
 
 - Converting the selected word files from the active explorer window into PDF files -> `Backtick + ['o' or 'O']`.
 - Converting `.mp3` audio files into `.wav` files.
