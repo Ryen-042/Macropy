@@ -1,8 +1,8 @@
 """This modules provides functions for manipulating keyboard presses and text expansion."""
 
 import win32gui, win32ui, win32api, win32con, winsound, pywintypes
-import keyboard
-from common import WindowHouse as winHouse, KB_Con as kbcon
+import keyboard, os
+from common import WindowHouse as winHouse, ControllerHouse as ctrlHouse, KB_Con as kbcon
 from time import sleep
 from typing import Callable
 
@@ -138,11 +138,11 @@ def FindAndSendKeysToWindow(target_className:str, key, send_function) -> None:
 def SimulateHotKeyPress(keys_id_dict: dict[int, int]):
     """
     Description:
-        Simulates hotkey press by sending a keyDown event for each specified key and then sending keyUp events.
+        Simulates hotkey press by sending a keyDown event for each of the specified keys and then sending keyUp events.
     ---
     Parameters:
         `keys_id_dict -> dict(int, int)`:
-            Holds the keyID and scancode of the specified keys.
+            Holds the `keyID` and `scancode` of the specified keys.
     """
     
     for key_id, key_scancode in keys_id_dict.items():
@@ -184,15 +184,38 @@ def SendTextWithCaret(text, caret="{!}"):
     # else:
     SimulateKeyPress(win32con.VK_LEFT, kbcon.SC_LEFT, len(text) - caret_pos)
 
-def ExpandText(text, abbr_len):
-    """Substitutes an abbreviated text with another one. The abbreviated text is represented by its length."""
+def ExpandText():
+    """Replacing an abbreviated text with its respective substitution specified by the pressed characters `ctrlHouse.pressed_chars`."""
     
-    # Send ('`' => "Oem_3") then delete it before expansion to silence any suggestions like in the browser.
+    # Sending ('`' => "Oem_3") then delete it before expansion to silence any suggestions like in the browser address bar.
     SimulateKeyPress(kbcon.VK_BACKTICK, kbcon.SC_BACKTICK)
     
-    # Delete the abbreviation and the '`' character.
-    SimulateKeyPress(win32con.VK_BACK, kbcon.SC_BACK, abbr_len+1)
+    # Deleting the abbreviation and the '`' character.
+    SimulateKeyPress(win32con.VK_BACK, kbcon.SC_BACK, len(ctrlHouse.pressed_chars)+1)
     
-    # Substitute the abbreviation with the specified text.
-    keyboard.write(text)
+    # Substituting the abbreviation with its respective text.
+    keyboard.write(ctrlHouse.abbreviations.get(ctrlHouse.pressed_chars))
+    
+    # Resetting the stored pressed keys.
+    ctrlHouse.pressed_chars = ""
+    
+    winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+
+def OpenLocation():
+    """Opens a file or a directory specified by the pressed characters `ctrlHouse.pressed_chars`."""
+    
+    # Opening the file/folder.
+    os.startfile(ctrlHouse.locations.get(ctrlHouse.pressed_chars))
+    
+    # Resetting the stored pressed keys.
+    ctrlHouse.pressed_chars = ""
+    
+    winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+
+def CrudeOpenWith(keys_list):
+    SimulateKeyPressSequence(keys_list)
+    
+    # Resetting the stored pressed keys.
+    ctrlHouse.pressed_chars = ""
+    
     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)

@@ -30,7 +30,7 @@ from time import sleep, time
 from common import ControllerHouse as ctrlHouse, PThread, DebuggingHouse, KB_Con as kbcon
 # from GUI_Helper import TTS_House
 from pynput.keyboard import Key as kbKey
-from win11toast import toast # , notify, update_progress
+from win11toast import toast
 
 #! If you want to run code continuously in the background: https://stackoverflow.com/questions/9705982/pythonw-exe-or-python-exe
     # pythonw YOUR-FILE.pyw
@@ -66,18 +66,18 @@ def NormalKeyPress(event):
     
     #+ Displaying a notification window indicating that the script is still running.
     elif ctrlHouse.modifiers.FN and event.KeyID == kbcon.VK_SLASH:  # FN + (['/', '?'] => 'Oem_2')
-            buttons = ( {'activationType': 'protocol', 'arguments': "0:", 'content': 'Exit Script', "hint-buttonStyle": "Critical"},
-                        {'activationType': 'protocol', 'arguments': os.path.split(__file__)[0], 'content': 'Open Script Folder'},
-                        {'activationType': 'protocol', 'arguments': "1:", 'content': 'Nice Work', "hint-buttonStyle": "Success"})
-            
-            # notify() doesn't work properly here. Use toast() inside a thread instead.
-            PThread(target = lambda: toast('Script is Running.', 'The script is running in the background.', buttons=buttons,
-                                            on_click = lambda args: sysHelper.TerminateScript(args["arguments"][0] == "0"),
-                                            icon = {"src": r"E:\UnKnown\Programming\Python\Year 22\Automation\Macropy\pyCom\keyboard.png",
-                                                    'placement': 'appLogoOverride'},
-                                            image = {'src': r"E:\UnKnown\Programming\Python\Year 22\Automation\Macropy\pyCom\keyboard (0.5).png",
-                                                     'placement': 'hero'},
-                                            audio = {'silent': 'true'})).start()
+        buttons = ( {'activationType': 'protocol', 'arguments': "0:", 'content': 'Exit Script', "hint-buttonStyle": "Critical"},
+                    {'activationType': 'protocol', 'arguments': os.path.split(__file__)[0], 'content': 'Open Script Folder'},
+                    {'activationType': 'protocol', 'arguments': "1:", 'content': 'Nice Work', "hint-buttonStyle": "Success"})
+        
+        # notify() doesn't work properly here. Use toast() inside a thread instead.
+        PThread(target = lambda: toast('Script is Running.', 'The script is running in the background.', buttons=buttons,
+                                        on_click = lambda args: sysHelper.TerminateScript(args["arguments"][0] == "0"),
+                                        icon = {"src": r"E:\UnKnown\Programming\Python\Year 22\Automation\Macropy\pyCom\keyboard.png",
+                                                'placement': 'appLogoOverride'},
+                                        image = {'src': r"E:\UnKnown\Programming\Python\Year 22\Automation\Macropy\pyCom\keyboard (0.5).png",
+                                                    'placement': 'hero'},
+                                        audio = {'silent': 'true'})).start()
     
     #+ Putting the device into sleep mode.
     elif ctrlHouse.modifiers.WIN and ctrlHouse.modifiers.FN and ctrlHouse.modifiers.CTRL and event.KeyID == kbcon.VK_S: # Win + FN + Ctrl + ['s', 'S']
@@ -221,20 +221,6 @@ def NormalKeyPress(event):
     PThread.outputQueue.put(not suppress_key)
     return not suppress_key
 
-def KeyRelease(event):
-    """
-    Description:
-        The callback function responsible for handling the `KeyRelease` events.
-    ---
-    Parameters:
-        `event`:
-            A keyboard event object.
-    """
-    
-    # Updating states of modifier keys.
-    ctrlHouse.UpdateModifierKeys(event, "&")
-    
-    return True
 
 ### Word listening operations ###
 def ExpanderKeyPress(event):
@@ -248,9 +234,13 @@ def ExpanderKeyPress(event):
     """
     
     #+ If the first stored character is not one of the defined prefixes, don't check anything else; this is not a valid word for expansion.
-    if not ctrlHouse.pressed_chars.startswith(":"):
+    if not ctrlHouse.pressed_chars.startswith((":", "!")):
         if event.Ascii == kbcon.AS_COLON:
             ctrlHouse.pressed_chars = ":"
+            print(ctrlHouse.pressed_chars)
+        
+        elif event.Ascii == kbcon.AS_EXCLAM:
+            ctrlHouse.pressed_chars = "!"
             print(ctrlHouse.pressed_chars)
         return True
     
@@ -261,7 +251,7 @@ def ExpanderKeyPress(event):
         print(f"Ascii: {event.Ascii} | Key: {event.Key}")
         
         # To allow for `ctrl` + character keys, you need to check here for them individually. The same `event.Key` value is returned but `event.Ascii` is 0.
-        ctrlHouse.pressed_chars = "" # Reset stored pressed keys.
+        ctrlHouse.pressed_chars = "" # Resetting the stored pressed keys.
         return True
     
     #+ Pop characters if `backspace` is pressed.
@@ -276,12 +266,17 @@ def ExpanderKeyPress(event):
     
     #+ Check if the pressed characters match any of the defined abbreviations, and if so, replace them accordingly.
     if ctrlHouse.pressed_chars in ctrlHouse.abbreviations:
-        PThread(target=kbHelper.ExpandText, args=[ctrlHouse.abbreviations.get(ctrlHouse.pressed_chars), len(ctrlHouse.pressed_chars)]).start()
+        PThread(target=kbHelper.ExpandText).start()
     
     ### Executing some operations based on the pressed characters. ###
+    #+ Opening a file or a directory.
+    elif ctrlHouse.pressed_chars in ctrlHouse.locations:
+        PThread(target=kbHelper.OpenLocation).start()
+    
     #+ This is a crude way of opening a file using a specific program (open with).
     elif ctrlHouse.pressed_chars == ":\\\\":
-        PThread(target=kbHelper.SimulateKeyPressSequence, args=[(("alt+4", ctrlHouse.keyboard_send), (win32con.VK_DOWN, kbcon.SC_DOWN), (win32con.VK_DOWN, kbcon.SC_DOWN), (win32con.VK_RETURN, kbcon.SC_RETURN))]).start()
+        # PThread(target=kbHelper.SimulateKeySequencePresses, args=[[(win32con.VK_LMENU, 56), (52, 5), (40, 80), (40, 80), (13, 28)]]).start()
+        PThread(target=kbHelper.CrudeOpenWith, args=[(("alt+4", ctrlHouse.keyboard_send), (win32con.VK_DOWN, kbcon.SC_DOWN), (win32con.VK_DOWN, kbcon.SC_DOWN), (win32con.VK_RETURN, kbcon.SC_RETURN))]).start()
     
     return True
 
@@ -308,6 +303,22 @@ def KeyPress(event):
     
     #+ Getting the return value from the NormalKeyPress thread to determine whether to retrun the pressed key or suppress it.
     return PThread.outputQueue.get()
+
+
+def KeyRelease(event):
+    """
+    Description:
+        The callback function responsible for handling the `KeyRelease` events.
+    ---
+    Parameters:
+        `event`:
+            A keyboard event object.
+    """
+    
+    # Updating states of modifier keys.
+    ctrlHouse.UpdateModifierKeys(event, "&")
+    
+    return True
 
 
 def main():
