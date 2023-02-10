@@ -101,7 +101,7 @@ class KB_Con(IntEnum):
     
     # Symbol keys
     AS_EXCLAM               = 33
-    AS_DOUBLE_QUOTES        = 34;  VK_DOUBLE_QUOTES = 222;       SC_DOUBLE_QUOTES = 40
+    AS_DOUBLE_QUOTES        = 34;   VK_DOUBLE_QUOTES = 222;       SC_DOUBLE_QUOTES = 40
     AS_HASH                 = 35
     AS_DOLLAR               = 36
     AS_PERCENT              = 37
@@ -111,25 +111,25 @@ class KB_Con(IntEnum):
     AS_CLOSE_PAREN          = 41
     AS_ASTERISK             = 42
     AS_PLUS                 = 43
-    AS_COMMA                = 44;  VK_COMMA  = 188;                SC_COMMA  = 51
-    AS_MINUS                = 45;  VK_MINUS  = 189;                SC_MINUS  = 12
-    AS_PERIOD               = 46;  VK_PERIOD = 190;                SC_PERIOD = 52
-    AS_SLASH                = 47;  VK_SLASH  = 191;                SC_SLASH  = 53
+    AS_COMMA                = 44;   VK_COMMA  = 188;                SC_COMMA  = 51
+    AS_MINUS                = 45;   VK_MINUS  = 189;                SC_MINUS  = 12
+    AS_PERIOD               = 46;   VK_PERIOD = 190;                SC_PERIOD = 52
+    AS_SLASH                = 47;   VK_SLASH  = 191;                SC_SLASH  = 53
     
     AS_COLON                = 58
-    AS_SEMICOLON            = 59;  VK_SEMICOLON = 186;             SC_SEMICOLON = 39
+    AS_SEMICOLON            = 59;   VK_SEMICOLON = 186;             SC_SEMICOLON = 39
     AS_LESS_THAN            = 60
-    AS_EQUALS               = 61;  VK_EQUALS = 187;                SC_EQUALS = 13
+    AS_EQUALS               = 61;   VK_EQUALS = 187;                SC_EQUALS = 13
     AS_GREATER_THAN         = 62
     AS_QUESTION_MARK        = 63
     AS_AT                   = 64
     
-    AS_OPEN_SQUARE_BRACKET  = 91;  VK_OPEN_SQUARE_BRACKET = 219;   SC_OPEN_SQUARE_BRACKET = 26
-    AS_BACKSLASH            = 92;  VK_BACKSLASH = 220;             SC_BACKSLASH = 43
-    AS_CLOSE_SQUARE_BRACKET = 93;  VK_CLOSE_SQUARE_BRACKET = 221;  SC_CLOSE_SQUARE_BRACKET = 27
+    AS_OPEN_SQUARE_BRACKET  = 91;   VK_OPEN_SQUARE_BRACKET = 219;   SC_OPEN_SQUARE_BRACKET = 26
+    AS_BACKSLASH            = 92;   VK_BACKSLASH = 220;             SC_BACKSLASH = 43
+    AS_CLOSE_SQUARE_BRACKET = 93;   VK_CLOSE_SQUARE_BRACKET = 221;  SC_CLOSE_SQUARE_BRACKET = 27
     AS_CARET                = 94
     AS_UNDERSCORE           = 95
-    AS_BACKTICK             = 96;  VK_BACKTICK = 192;              SC_BACKTICK = 41 # '`'
+    AS_BACKTICK             = 96;   VK_BACKTICK = 192;              SC_BACKTICK = 41 # '`'
     
     AS_OPEN_CURLY_BRACE     = 123
     AS_PIPE                 = 124
@@ -138,14 +138,16 @@ class KB_Con(IntEnum):
     
     
     # Miscellaneous keys
-    SC_RETURN = 28 # Enter
-    SC_BACK   = 14 # Backspace
-    SC_MENU   = 56 # 'LMenu' and 'RMenu'
-    SC_HOME   = 71
-    SC_UP     = 72
-    SC_RIGHT  = 77
-    SC_DOWN   = 80
-    SC_LEFT   = 75
+    SC_RETURN      = 28 # Enter
+    SC_BACK        = 14 # Backspace
+    SC_MENU        = 56 # 'LMenu' and 'RMenu'
+    SC_HOME        = 71
+    SC_UP          = 72
+    SC_RIGHT       = 77
+    SC_DOWN        = 80
+    SC_LEFT        = 75
+    SC_VOLUME_UP   = 48
+    SC_VOLUME_DOWN = 46
 
 
 class GenericDataClass:
@@ -247,8 +249,14 @@ class ControllerHouse():
     
     # Abbreviations for expansion:
     abbreviations = {":py"    : "python",
-                     ":name" : "My name is something",
-                     ":gmail" : "testmail123@gmail.com"}
+                     ":name" : "name place holder",
+                     ":gmail" : "testmail123@host.com"}
+    
+    locations = {"!cmd":    r"C:\Windows\System32\cmd.exe",
+                 "!paint":  r"C:\Windows\System32\mspaint.exe",
+                 "!prog":   r"C:\Program Files"}
+    
+    
     
     # https://nitratine.net/blog/post/simulate-keypresses-in-python/
     pynput_kb = kbController()
@@ -272,6 +280,7 @@ class ControllerHouse():
     @staticmethod
     def UpdateModifierKeys(event, operator="|") -> None:
         """Used for updating the states of modifier keys. Pass the operator `|` in `KeyPress` events, and `&` in `KeyRelease` events."""
+        
         # Updating the state of a modifier in `KeyPress` event is different than in `KeyRelease` event.
         # The difference is just the opperator ('|' for `KeyPress`, '&' for `KeyRelease`), and the check is inverted in case of `KeyRelease`.
         # We can divide this function into two like this:
@@ -284,6 +293,7 @@ class ControllerHouse():
         ControllerHouse.modifiers.WIN      = ControllerHouse.operations[operator](ControllerHouse.modifiers.WIN,      (operator=="&") ^ (event.KeyID in [win32con.VK_LWIN,     win32con.VK_RWIN]))     # ['Lwin', 'Rwin']
         ControllerHouse.modifiers.FN       = ControllerHouse.operations[operator](ControllerHouse.modifiers.FN,       (operator=="&") ^ (event.KeyID == 255)) # FN Key
         ControllerHouse.modifiers.BACKTICK = ControllerHouse.operations[operator](ControllerHouse.modifiers.BACKTICK, (operator=="&") ^ (event.KeyID == KB_Con.VK_BACKTICK)) # 'Oem_3'
+
 
 @static_class
 class ShellAutomationObjectWrapper:
@@ -460,14 +470,14 @@ def ReadFromClipboard(CF=win32clipboard.CF_TEXT): # CF: Clipboard format.
 
 def SendToClipboard(data, CF=win32clipboard.CF_UNICODETEXT):
     """Copy the given data to the clipboard."""
+    
     win32clipboard.OpenClipboard()
     win32clipboard.EmptyClipboard()
     win32clipboard.SetClipboardData(CF, data)
     win32clipboard.CloseClipboard()
 
+
 if __name__ == "__main__":
-    from time import sleep
-    
     def test_debounce():
         print("started")
         

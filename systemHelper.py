@@ -259,4 +259,4 @@ def GetProcessExe(hwnd):
     """Given a window handle, returns the process executable path."""
     
     return win32process.GetModuleFileNameEx(win32api.OpenProcess(win32con.PROCESS_ALL_ACCESS, 0,
-                                                                 win32process.GetWindowThreadProcessId(hwnd)[1]), 0)
+                                                                win32process.GetWindowThreadProcessId(hwnd)[1]), 0)

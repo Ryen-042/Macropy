@@ -56,10 +56,10 @@ class TTS_House(metaclass=Singleton):
             self.curr_text = self.textQueue.pop()
             
             # Save the text to a temporary file
-            if os.path.exists("temp.wav"):
-                outFileName = "temp1.wav"
+            if os.path.exists(os.path.join("SFX", "TTStemp.wav")):
+                outFileName = os.path.join("SFX", "TTStemp1.wav")
             else:
-                outFileName = "temp.wav"
+                outFileName = os.path.join("SFX", "TTStemp.wav")
             
             self.engine.save_to_file(self.curr_text, outFileName)
             self.engine.runAndWait()
@@ -72,9 +72,9 @@ class TTS_House(metaclass=Singleton):
             
             # Delete other temp file if it does exist.
             if outFileName[4] == "1":
-                os.remove("temp.wav")
-            elif os.path.exists("temp1.wav"):
-                os.remove("temp1.wav")
+                os.remove(os.path.join("SFX", "TTStemp.wav"))
+            elif os.path.exists(os.path.join("SFX", "TTStemp1.wav")):
+                os.remove(os.path.join("SFX", "TTStemp1.wav"))
             
             # Wait until the audio finishes playing or the queue is empty
             while True:
