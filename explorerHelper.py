@@ -59,6 +59,9 @@ def GetExplorerAddress(active_explorer: CDispatch) -> str:
     if not active_explorer:
         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
     
+    if not active_explorer:
+        return ""
+    
     return win32gui.GetWindowText(active_explorer.HWND) # About 10 times faster.
     # return active_explorer.Document.Folder.Self.Path
 
