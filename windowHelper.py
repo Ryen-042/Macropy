@@ -1,6 +1,6 @@
 """This module provides functions for dealing with windows."""
 
-import win32gui, win32con, winsound
+import win32gui, win32con, winsound, pywintypes
 from time import sleep
 
 def GetHandleByClassName(className: str, check_all=False) -> list[int] | int | None:
@@ -114,3 +114,57 @@ def MoveActiveWindow(hwnd=None, delta_x=0, delta_y=0, width=0, height=0):
     # win32gui.MoveWindow(hwnd, curr_x + x, curr_y + y, curr_width + width, curr_height + height, True)
     win32gui.SetWindowPos(hwnd, win32con.HWND_TOP, curr_x + delta_x, curr_y + delta_y,
                           curr_width + width, curr_height + height, win32con.SWP_NOACTIVATE | flags)
+
+def ChangeWindowOpacity(hwnd=0, opcode=1, increment=5) -> int:
+    """
+    Description:
+        Increments (`opcode=any non-zero value`) or decrements (`opcode=0`) the opacity of the specified window by an (`increment`) value.
+        
+        If the specified window handle is `0` or `None`, the foreground window is selected.
+    
+    ---
+    Return:
+        `int`: The new opacity value. If -1 returned, then the operation has failed.
+    """
+    
+    if not hwnd:
+        hwnd = win32gui.GetForegroundWindow()
+    
+    # Get the extended window style of the specified window.
+    # The specific extended style that controls whether a window is layered or not is WS_EX_LAYERED.
+    # To change the opacity of a window, it is necessary to set the WS_EX_LAYERED style so that the window becomes a layered window.
+    exstyle = win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE)
+    
+    # Check if the specified window is a layered window or not.
+    if exstyle & win32con.WS_EX_LAYERED == win32con.WS_EX_LAYERED:
+        # The `GetLayeredWindowAttributes` method can only retrieve the opacity value of a layered window. Passing a non-layered window raises an exception.
+        try:
+            alpha = win32gui.GetLayeredWindowAttributes(hwnd)[1] + (-increment if not opcode else increment)
+        
+        except pywintypes.error as e:
+            print("Warning! This window does not support changing the opacity")
+            return -1
+    
+    # The specified window is not a layered window. This means that it is opaque.
+    else:
+        alpha = 255 + (-increment if not opcode else increment)
+    
+    # Clipping the alpha value to a valid range from 0 to 255.
+    alpha = max(min(alpha, 255), 25)
+    
+    # If the opacity is 1.0 or higher, then unset the WS_EX_LAYERED style from the window to make it opaque.
+    if alpha == 255:
+        exstyle &= ~win32con.WS_EX_LAYERED
+    
+    else:
+        # Setting the WS_EX_LAYERED style on the window to make it transparent.
+        exstyle |= win32con.WS_EX_LAYERED
+    
+    # Modifying the extended window style of the specified window.
+    win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE, exstyle)
+    
+    # Setting the window's alpha value to the new value. Note that the `SetLayeredWindowAttributes` method Can only be used on a layered window.
+    if exstyle & win32con.WS_EX_LAYERED == win32con.WS_EX_LAYERED:
+        win32gui.SetLayeredWindowAttributes(hwnd, 0, alpha, win32con.LWA_ALPHA)
+    
+    return alpha
