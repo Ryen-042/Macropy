@@ -8,6 +8,7 @@ from traceback import format_tb, format_exc
 from pynput.keyboard import Controller as kbController
 from pynput.mouse import Controller as mController
 from time import time, sleep
+from collections import deque
 
 
 class KB_Con(IntEnum):
@@ -226,6 +227,8 @@ class WindowHouse:
     
     classNames: dict[str, int] = {"MediaPlayerClassicW": None}
     
+    closedExplorers = deque(maxlen=10)
+    
     @staticmethod
     def GetClassNameHandle(className) -> int | None:
         return WindowHouse.classNames.get(className, None)
@@ -234,7 +237,8 @@ class WindowHouse:
     def SetClassNameHandle(className, value):
         WindowHouse.classNames[className] = value
 
-class ControllerHouse():
+@static_class
+class ControllerHouse:
     """A dataclass used for storing information related to keyboard keys."""
     
     modifiers = GenericDataClass(name="Modifiers", CTRL=False, SHIFT=False, ALT=False, WIN=False, FN=False, BACKTICK=False)
