@@ -27,7 +27,7 @@ import windowHelper     as winHelper
 import keyboardHelper   as kbHelper
 import threading, sys
 from time import sleep, time
-from common import ControllerHouse as ctrlHouse, PThread, DebuggingHouse, KB_Con as kbcon
+from common import ControllerHouse as ctrlHouse, WindowHouse as winHouse, PThread, DebuggingHouse, KB_Con as kbcon
 # from GUI_Helper import TTS_House
 from pynput.keyboard import Key as kbKey
 from win11toast import toast
@@ -99,9 +99,23 @@ def NormalKeyPress(event):
     elif ctrlHouse.modifiers.BACKTICK and event.KeyID in (win32con.VK_F2, win32con.VK_F3):  # '`' + ('F2' Or  'F3')
         PThread(target=sysHelper.ChangeBrightness, args=[event.KeyID == win32con.VK_F3]).start()
     
-    #+  Incresing/Decreasing the active window opacity.
+    #+ Clearing console output.
+    elif ctrlHouse.modifiers.FN and ctrlHouse.modifiers.CTRL and event.KeyID == kbcon.VK_C: # FN + Ctrl + ['c', 'C']
+        PThread(target=os.system, args=['cls']).start()
+    
+    #+ Toggle the terminal output.
+    elif ctrlHouse.modifiers.FN and ctrlHouse.modifiers.ALT and event.KeyID == kbcon.VK_S: # FN + ALT + ['s', 'S']
+        DebuggingHouse.silent ^= 1
+        if DebuggingHouse.silent:
+            winsound.PlaySound(r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+        else:
+            winsound.PlaySound(r"SFX\pedantic-490.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    
+    
+    ### Window management Operations ###
+    #+  Incresing/Decreasing the opacity of the active window.
     elif ctrlHouse.modifiers.BACKTICK and event.KeyID in (kbcon.VK_EQUALS, kbcon.VK_MINUS): # '`' + (['=', '+'] Or  ['-', '_'])
-        PThread(target=sysHelper.ChangeWindowOpacity, args=[0, event.KeyID == kbcon.VK_EQUALS]).start()
+        PThread(target=winHelper.ChangeWindowOpacity, args=[0, event.KeyID == kbcon.VK_EQUALS]).start()
     
     #+ Toggling the `AlwaysOnTop` state for the focused window.
     elif ctrlHouse.modifiers.FN and ctrlHouse.modifiers.CTRL and event.KeyID == kbcon.VK_A: # FN + Ctrl + ['a', 'A']
@@ -120,19 +134,6 @@ def NormalKeyPress(event):
         else:
             PThread(target=winHelper.MoveActiveWindow, kwargs={win32con.VK_UP: {'delta_y': -dist}, win32con.VK_RIGHT: {'delta_x': dist}, win32con.VK_DOWN: {'delta_y': dist}, win32con.VK_LEFT: {'delta_x': -dist}}.get(event.KeyID)).start()
     
-    #+ Clearing console output.
-    elif ctrlHouse.modifiers.FN and ctrlHouse.modifiers.CTRL and event.KeyID == kbcon.VK_C: # FN + Ctrl + ['c', 'C']
-        PThread(target=os.system, args=['cls']).start()
-    
-    #+ Toggle the terminal output.
-    elif ctrlHouse.modifiers.FN and ctrlHouse.modifiers.ALT and event.KeyID == kbcon.VK_S: # FN + ALT + ['s', 'S']
-        DebuggingHouse.silent ^= 1
-        if DebuggingHouse.silent:
-            winsound.PlaySound(r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
-        else:
-            winsound.PlaySound(r"SFX\pedantic-490.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
-    
-    ### Automation operations ###
     #+ Creating a new file.
     elif ctrlHouse.modifiers.CTRL and ctrlHouse.modifiers.SHIFT and event.KeyID == kbcon.VK_M:    # Ctrl + Shift + ['m', 'M']
         if win32gui.GetClassName(win32gui.GetForegroundWindow()) in ("CabinetWClass", "WorkerW"):
@@ -168,6 +169,31 @@ def NormalKeyPress(event):
         else:
             suppress_key = False
     
+    #+ Storing the address of the closed windows explorer.
+    elif (ctrlHouse.modifiers.CTRL and event.KeyID == kbcon.VK_W) or (win32con.VK_MENU and event.KeyID == win32con.VK_F4): # ([Ctrl + 'W'] Or [Alt + 'F4'])
+        if win32gui.GetClassName(win32gui.GetForegroundWindow()) == "CabinetWClass":
+            explorerAddress = win32gui.GetWindowText(win32gui.GetForegroundWindow())
+            if explorerAddress in winHouse.closedExplorers:
+                winHouse.closedExplorers.remove(explorerAddress)
+            winHouse.closedExplorers.append(explorerAddress)
+        suppress_key = False
+    
+    #+ Opening closed windows explorer.
+    elif ctrlHouse.modifiers.CTRL and ctrlHouse.modifiers.FN and event.KeyID == kbcon.VK_T: # Ctrl + 'FN' + ['t', 'T']
+        if winHouse.closedExplorers:
+            PThread(target=os.startfile, args=[winHouse.closedExplorers.pop()]).start()
+        else:
+            suppress_key = False
+    
+    ### Starting other scripts ###
+    #+ Starting the image processing script.
+    elif ctrlHouse.modifiers.BACKTICK and event.KeyID == kbcon.VK_BACKSLASH: # '`' + ['\' ("Oem_5")]
+        PThread(target=lambda: not winHelper.GetHandleByTitle("Image Window") and (winsound.PlaySound(r"C:\Windows\Media\Windows Proximity Notification.wav", winsound.SND_FILENAME|winsound.SND_ASYNC), subprocess.call(("python", os.path.join(os.path.split(__file__)[0], "image_inverter.py"))))).start()
+    
+    #+ Starting the web browser script.
+    elif ctrlHouse.modifiers.BACKTICK and event.KeyID == kbcon.VK_M: # '`' + ['m', 'M']
+        PThread(target=lambda: (winsound.PlaySound(r"C:\Windows\Media\Windows Proximity Notification.wav", winsound.SND_FILENAME|winsound.SND_ASYNC), subprocess.call(("python", os.path.join(os.path.split(__file__)[0], "webrowser.py"))))).start()
+    
     #+ Pausing the running TTS.
     # elif ctrlHouse.modifiers.FN and ctrlHouse.modifiers.SHIFT and event.KeyID == kbcon.VK_R: # 'FN' + Shift + ['r', 'R']
     #     winsound.PlaySound(r"C:\Windows\Media\Windows Proximity Notification.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
@@ -186,13 +212,6 @@ def NormalKeyPress(event):
     # elif ctrlHouse.modifiers.FN and event.KeyID == kbcon.VK_R: # 'FN' + ['r', 'R']
     #     PThread(target=ttsHouse.ScheduleSpeak).start()
     
-    #+ Starting the image processing script.
-    elif ctrlHouse.modifiers.BACKTICK and event.KeyID == kbcon.VK_BACKSLASH: # '`' + ['\' ("Oem_5")]
-        PThread(target=lambda: not winHelper.GetHandleByTitle("Image Window") and (winsound.PlaySound(r"C:\Windows\Media\Windows Proximity Notification.wav", winsound.SND_FILENAME|winsound.SND_ASYNC), subprocess.call(("python", os.path.join(os.path.split(__file__)[0], "image_inverter.py"))))).start()
-    
-    #+ Starting the web browser script.
-    elif ctrlHouse.modifiers.BACKTICK and event.KeyID == kbcon.VK_M: # '`' + ['m', 'M']
-        PThread(target=lambda: (winsound.PlaySound(r"C:\Windows\Media\Windows Proximity Notification.wav", winsound.SND_FILENAME|winsound.SND_ASYNC), subprocess.call(("python", os.path.join(os.path.split(__file__)[0], "webrowser.py"))))).start()
     
     ### Keyboard/Mouse control operations ###
     #+ Sending arrow keys to the top MPC-HC window.
@@ -203,7 +222,7 @@ def NormalKeyPress(event):
     elif ctrlHouse.modifiers.BACKTICK and event.KeyID == win32con.VK_SPACE: # '`' + Space:
         PThread(target=kbHelper.FindAndSendKeysToWindow, args=["MediaPlayerClassicW", kbKey.space, ctrlHouse.pynput_kb.press]).start()
     
-    #+ Toggling ScrLck.
+    #+ Toggling ScrLck (Useful if your keyboard doesn't contain the ScrLck key).
     elif ctrlHouse.modifiers.FN and event.KeyID == win32con.VK_TAB: # FN + 'Tab`
         PThread(target=kbHelper.SimulateKeyPress, args=[win32con.VK_SCROLL, 0x46]).start()
     
