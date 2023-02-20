@@ -23,11 +23,15 @@ This script relies heavily on windows API and focuses on tasks that involve wind
 
 ![Merging Images Into PDF](https://github.com/Ryen-042/Macropy/blob/main/Images/Merging_Images_To_PDF.gif)
 
+- Converting the selected word files from the active explorer window into PDF files -> `Backtick + ['o' or 'O']`.
+
 - Converting the selected powerpoint files from the active explorer window into PDF files -> `Backtick + ['p' or 'P']`.
 
 ![Converting Powerpoint Files To PDF](https://github.com/Ryen-042/Macropy/blob/main/Images/Converting_Powerpoint_To_PDF.gif)
 
-- Converting the selected word files from the active explorer window into PDF files -> `Backtick + ['o' or 'O']`.
+- Reopening closed file explorer windows (currently only keeps track of closed explorers by `Alt + F4` or `Ctrl + W`).
+
+![Reopening Closed Explorer](https://github.com/Ryen-042/Macropy/blob/main/Images/Reopening_Closed_Explorer.gif)
 
 - Converting `.mp3` audio files into `.wav` files.
 
@@ -60,7 +64,7 @@ This script relies heavily on windows API and focuses on tasks that involve wind
 <ins>Next are some of the supported text expansion operations</ins>:
 - Expanding text (e.g., try pressing the next keys -> `:name`).
 
-![Text Expansion](https://github.com/Ryen-042/Macropy/blob/main/Images/Text_Expansion.png)
+![Text Expansion](https://github.com/Ryen-042/Macropy/blob/main/Images/Expanding_Text.gif)
 
 - Opening a file or a folder (e.g., try pressing the next keys -> `!paint`).
 
