@@ -27,7 +27,7 @@ import windowHelper     as winHelper
 import keyboardHelper   as kbHelper
 import threading, sys
 from time import sleep, time
-from common import ControllerHouse as ctrlHouse, WindowHouse as winHouse, PThread, DebuggingHouse, KB_Con as kbcon
+from common import ControllerHouse as ctrlHouse, WindowHouse as winHouse, PThread, DebuggingHouse as debugHouse, KB_Con as kbcon
 # from GUI_Helper import TTS_House
 from pynput.keyboard import Key as kbKey
 from win11toast import toast
@@ -38,31 +38,30 @@ from win11toast import toast
     # TASKKILL /F /IM pythonw.exe
 
 
-def NormalKeyPress(event):
+def HotkeyPressEvent(event) -> bool:
     """
     Description:
-        The callback function responsible for handling normal key press events.
+        The callback function responsible for handling hotkey press events.
     ---
     Parameters:
         `event`:
             A keyboard event object.
+    ---
+    Return:
+        `return_the_key -> bool`: Whether to return or suppress the pressed key.
     """
     
     # A counter used for debugging purposes only. Counter reset after 10k counts.
-    DebuggingHouse.counter = (DebuggingHouse.counter + 1) % 10000
+    debugHouse.counter = (debugHouse.counter + 1) % 10000
     
     #! Used for determining whether to return the pressed key or suppress it.
-    suppress_key = True
+    return_the_key = False
     
-    #! Updating states of modifier keys.
-    ctrlHouse.UpdateModifierKeys(event, "|")
     
     ### Script/System management operations ###
     #+ Exitting the script.
     if ctrlHouse.modifiers.FN and event.KeyID == win32con.VK_ESCAPE: # FN + 'Esc'
         PThread(target=sysHelper.TerminateScript).start()
-        PThread.outputQueue.put(False)
-        return False
     
     #+ Displaying a notification window indicating that the script is still running.
     elif ctrlHouse.modifiers.FN and event.KeyID == kbcon.VK_SLASH:  # FN + (['/', '?'] => 'Oem_2')
@@ -88,7 +87,7 @@ def NormalKeyPress(event):
         PThread(target=sysHelper.Shutdown).start()
     
     #+ Without this, the system-defined `FN + F2/F3` hotkeys for decreasing/increasing the volume does not work.
-    if event.KeyID in (win32con.VK_VOLUME_UP, win32con.VK_VOLUME_DOWN):
+    elif event.KeyID in (win32con.VK_VOLUME_UP, win32con.VK_VOLUME_DOWN):
         PThread(target=kbHelper.SimulateKeyPress, args=[(win32con.VK_VOLUME_UP, win32con.VK_VOLUME_DOWN)[event.KeyID == win32con.VK_VOLUME_DOWN]]).start()
     
     #+ Incresing/Decreasing the system volume.
@@ -105,8 +104,16 @@ def NormalKeyPress(event):
     
     #+ Toggle the terminal output.
     elif ctrlHouse.modifiers.FN and ctrlHouse.modifiers.ALT and event.KeyID == kbcon.VK_S: # FN + ALT + ['s', 'S']
-        DebuggingHouse.silent ^= 1
-        if DebuggingHouse.silent:
+        debugHouse.silent ^= 1
+        if debugHouse.silent:
+            winsound.PlaySound(r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+        else:
+            winsound.PlaySound(r"SFX\pedantic-490.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    
+    #+ Disable the keyboard keys. The hotkeys and text expainsion operations will still work.
+    elif ctrlHouse.modifiers.FN and ctrlHouse.modifiers.ALT and event.KeyID == kbcon.VK_D: # FN + ALT + ['d', 'D']
+        debugHouse.suppress_all_keys ^= 1
+        if debugHouse.suppress_all_keys:
             winsound.PlaySound(r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
         else:
             winsound.PlaySound(r"SFX\pedantic-490.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
@@ -139,35 +146,35 @@ def NormalKeyPress(event):
         if win32gui.GetClassName(win32gui.GetForegroundWindow()) in ("CabinetWClass", "WorkerW"):
             PThread(target=expHelper.CtrlShift_M).start()
         else:
-            suppress_key = False
+            return_the_key = True
     
     #+ Copying the full path to the selected files in the active explorer/desktop window.
     elif ctrlHouse.modifiers.SHIFT and event.KeyID == win32con.VK_F2: # Shift + 'F2'
         if win32gui.GetClassName(win32gui.GetForegroundWindow()) in ("CabinetWClass", "WorkerW"):
             PThread(target=expHelper.CopySelectedFileNames).start()
         else:
-            suppress_key = False
+            return_the_key = True
     
     #+ Merging the selected images from the active explorer window into a PDF file.
     elif ctrlHouse.modifiers.CTRL and ctrlHouse.modifiers.SHIFT and event.KeyID == kbcon.VK_P: # Ctrl + Shift + ['p', 'P']
         if win32gui.GetClassName(win32gui.GetForegroundWindow()) == "CabinetWClass":
             PThread(target=expHelper.CtrlShift_P).start()
         else:
-            suppress_key = False
+            return_the_key = True
     
     #+ Converting the selected powerpoint files from the active explorer window into PDF files.
     elif ctrlHouse.modifiers.BACKTICK and event.KeyID == kbcon.VK_P: # '`' + ['p', 'P']
         if win32gui.GetClassName(win32gui.GetForegroundWindow()) == "CabinetWClass":
             PThread(target=expHelper.OfficeFileToPDF, args=["Powerpoint"]).start()
-        else:
-            suppress_key = False
+        # else:
+        #     return_the_key = True
     
     #+ Converting the selected word files from the active explorer window into PDF files.
     elif ctrlHouse.modifiers.BACKTICK and event.KeyID == kbcon.VK_O: # '`' + ['o', 'O']
         if win32gui.GetClassName(win32gui.GetForegroundWindow()) == "CabinetWClass":
             PThread(target=expHelper.OfficeFileToPDF, args=["Word"]).start()
-        else:
-            suppress_key = False
+        # else:
+        #     return_the_key = True
     
     #+ Storing the address of the closed windows explorer.
     elif (ctrlHouse.modifiers.CTRL and event.KeyID == kbcon.VK_W) or (win32con.VK_MENU and event.KeyID == win32con.VK_F4): # ([Ctrl + 'W'] Or [Alt + 'F4'])
@@ -175,15 +182,17 @@ def NormalKeyPress(event):
             explorerAddress = win32gui.GetWindowText(win32gui.GetForegroundWindow())
             if explorerAddress in winHouse.closedExplorers:
                 winHouse.closedExplorers.remove(explorerAddress)
+            
             winHouse.closedExplorers.append(explorerAddress)
-        suppress_key = False
+        
+        return_the_key = True
     
     #+ Opening closed windows explorer.
     elif ctrlHouse.modifiers.CTRL and ctrlHouse.modifiers.FN and event.KeyID == kbcon.VK_T: # Ctrl + 'FN' + ['t', 'T']
         if winHouse.closedExplorers:
             PThread(target=os.startfile, args=[winHouse.closedExplorers.pop()]).start()
-        else:
-            suppress_key = False
+        # else:
+        #     return_the_key = True
     
     ### Starting other scripts ###
     #+ Starting the image processing script.
@@ -226,23 +235,18 @@ def NormalKeyPress(event):
     elif ctrlHouse.modifiers.FN and event.KeyID == win32con.VK_TAB: # FN + 'Tab`
         PThread(target=kbHelper.SimulateKeyPress, args=[win32con.VK_SCROLL, 0x46]).start()
     
-    #+ Scrolling by simulating mouse scroll events. ["W", "S", "A", "D"]
-    elif ctrlHouse.locks.SCROLL and event.KeyID in [kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D]: # ScrLk_ON + (['w', 'W'] Or ['s', 'S'] Or ['a', 'A'] Or ['d', 'D']):
-        dist = 1
-        if ctrlHouse.modifiers.ALT: # If `Alt` is pressed, increase the schrolling distance - `Shift` here doesn't work :(.
-            dist = 3
-        PThread(target=ctrlHouse.pynput_mouse.scroll, args=[*{kbcon.VK_W: (0,  dist), kbcon.VK_S: (0, -dist), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start() # Up
-    
     #! If no condition was matched, then just return the typed key.
     else:
-        suppress_key = ctrlHouse.modifiers.FN
+        # Always suppress the pressed key if `FN` is also pressed. `not debugHouse.suppress_all_keys` adds support for suppressing all keyboard presses.
+        # `or ctrlHouse.modifiers.SHIFT` is necessary for enabling text expansion operations while suppressing all keyboard presses.
+        return_the_key = not ctrlHouse.modifiers.FN and not debugHouse.suppress_all_keys or ctrlHouse.modifiers.SHIFT
     
-    PThread.outputQueue.put(not suppress_key)
-    return not suppress_key
+    PThread.outputQueue.put(return_the_key)
+    return return_the_key
 
 
 ### Word listening operations ###
-def ExpanderKeyPress(event):
+def ExpanderEvent(event):
     """
     Description:
         The callback function responsible for handling the word expansion events.
@@ -256,32 +260,35 @@ def ExpanderKeyPress(event):
     if not ctrlHouse.pressed_chars.startswith((":", "!")):
         if event.Ascii == kbcon.AS_COLON:
             ctrlHouse.pressed_chars = ":"
-            print(ctrlHouse.pressed_chars)
+            print(f"\n{ctrlHouse.pressed_chars}\n\033[F\033[A", end="")
         
         elif event.Ascii == kbcon.AS_EXCLAM:
             ctrlHouse.pressed_chars = "!"
-            print(ctrlHouse.pressed_chars)
+            print(f"\n{ctrlHouse.pressed_chars}\n\033[F\033[A", end="")
+        
         return True
     
-    #- Most of the function and modifier keys like ctrl, shift, end, home, ect... have Ascii values equal to zero.
-    #- The key Ascii is a non-zero value, but the key is not a normal character. These keys are [Space, Enter, Tab, ESC].
+    #- Most of the function and modifier keys like ctrl, shift, end, home, etc... that have zero Ascii values.
+    #- Also, there are some other keys with non-zero Ascii values. These keys are [Space, Enter, Tab, ESC].
     #? If one of the above is true, then return the key without checking anything else. Note that `Enter` key is returned as `\r`.
     if event.Ascii == 0 or event.KeyID in [win32con.VK_SPACE, win32con.VK_RETURN, win32con.VK_TAB, win32con.VK_ESCAPE]:
-        print(f"Ascii: {event.Ascii} | Key: {event.Key}")
+        # Clear the displayed pressed character keys.
+        print(f"\n{' '*len(ctrlHouse.pressed_chars)}\n\033[F\033[A", end="")
         
         # To allow for `ctrl` + character keys, you need to check here for them individually. The same `event.Key` value is returned but `event.Ascii` is 0.
         ctrlHouse.pressed_chars = "" # Resetting the stored pressed keys.
+        
         return True
     
     #+ Pop characters if `backspace` is pressed.
     if event.KeyID == win32con.VK_BACK and len(ctrlHouse.pressed_chars):
         ctrlHouse.pressed_chars = ctrlHouse.pressed_chars[:-1] # Remove the last character
-        print(ctrlHouse.pressed_chars)
+        print(f"\n{ctrlHouse.pressed_chars} \n\033[F\033[A", end="")
         return True
     
     #+ If key is not filtered above, then it is a valid character key.
     ctrlHouse.pressed_chars += chr(event.Ascii)
-    print(ctrlHouse.pressed_chars)
+    print(f"\n{ctrlHouse.pressed_chars}\n\033[F\033[A", end="")
     
     #+ Check if the pressed characters match any of the defined abbreviations, and if so, replace them accordingly.
     if ctrlHouse.pressed_chars in ctrlHouse.abbreviations:
@@ -308,17 +315,43 @@ def KeyPress(event):
     
     #! Distinguish between real user input and keyboard input generated by programmes/scripts.
     if event.Injected == 16:
-        return True
+        return True # Don't suppress the key.
+    
+    #! Updating states of modifier keys.
+    ctrlHouse.UpdateModifierKeys(event, "|")
     
     # print(f"KeyPress event. Thread count: {threading.active_count()}")
     
-    #+ Running multiple keydown events simultaneously.
-    PThread(target=NormalKeyPress, args=[event]).start()
-    PThread(target=ExpanderKeyPress, args=[event]).start()
-    
-    #+ Printing some relevant information about the pressed key and hardware metrics.
-    PThread(target=lambda event: not DebuggingHouse.silent and (print(f"Thread Count: {threading.active_count()} |", f"Asc={event.Ascii}, Key={event.Key}, ID={event.KeyID}, SC={event.ScanCode} | Inj={event.Injected} | Ext={event.Extended} | Trans={event.IsTransition()} | Msg='{event.MessageName}' ({event.Message}) | Alt={event.Alt} | Counter={DebuggingHouse.counter}"),
+    # Hotkey events require pressing at least one modifier key.
+    if any(ctrlHouse.modifiers):
+        #+ For the hotkey events.
+        PThread(target=HotkeyPressEvent, args=[event]).start()
+        
+        #+ Printing some relevant information about the pressed key and hardware metrics.
+        PThread(target=lambda event: not debugHouse.silent and (not debugHouse.prev_event and debugHouse.TogglePrevEvent() and print("\n"), print(f"Thread Count: {threading.active_count()} |", f"Asc={event.Ascii}, Key={event.Key}, ID={event.KeyID}, SC={event.ScanCode} | Inj={event.Injected} | Ext={event.Extended} | Trans={event.IsTransition()} | Msg='{event.MessageName}' ({event.Message}) | Alt={event.Alt} | Counter={debugHouse.counter}"),
                                                                 print(ctrlHouse.modifiers, "|", ctrlHouse.locks, end="\n\n\n"), sysHelper.DisplayCPUsage(), print("\n")), args=[event]).start()
+    
+    #+ Scrolling by simulating mouse scroll events. ["W", "S", "A", "D"]
+    elif ctrlHouse.locks.SCROLL and event.KeyID in [kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D]: # ScrLk_ON + (['w', 'W'] Or ['s', 'S'] Or ['a', 'A'] Or ['d', 'D']):
+        dist = 1
+        if ctrlHouse.modifiers.ALT: # If `Alt` is pressed, increase the schrolling distance - `Shift` here doesn't work :(.
+            dist = 3
+        PThread(target=ctrlHouse.pynput_mouse.scroll, args=[*{kbcon.VK_W: (0,  dist), kbcon.VK_S: (0, -dist), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start() # Up
+    
+    else:
+        print("\033[F")
+        
+        if debugHouse.prev_event:
+            print("\033[F\033[K\033[F\033[K", end="")
+        
+        debugHouse.prev_event = 0
+        
+        sysHelper.DisplayCPUsage()
+        
+        PThread.outputQueue.put(True and not debugHouse.suppress_all_keys)
+    
+    #+ For the text expansion events.
+    PThread(target=ExpanderEvent, args=[event]).start()
     
     #+ Getting the return value from the NormalKeyPress thread to determine whether to retrun the pressed key or suppress it.
     return PThread.outputQueue.get()
@@ -347,7 +380,7 @@ def main():
     print(f"Initializing script...")
     
     #+ Initializing the uncaught exception logger.
-    sys.excepthook = DebuggingHouse.LogUncaughtExceptions
+    sys.excepthook = debugHouse.LogUncaughtExceptions
     
     #+ Initializing the COM library for the main thread. Sets the current thread to be a COM apartment thread: https://stackoverflow.com/questions/21141217/how-to-launch-win32-applications-in-separate-threads-in-python
     #? As long as the Automation object is used in the same thread in which it was created, the COM library is already initialized and you do not need to call the CoInitialize function so this line is redundant.
@@ -385,7 +418,7 @@ def main():
     # pythoncom.PumpMessages()
     
     # 2. Using `PumpWaitingMessages()` => Blocks until an event arrive then returns.
-    while not DebuggingHouse.terminate_script:
+    while not debugHouse.terminate_script:
         pythoncom.PumpWaitingMessages()
     
     ##! Reaching this point means that the script is being terminated.
@@ -428,7 +461,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] in ("-p", "--profile", "--prof"):
         import cProfile, pstats
         
-        DebuggingHouse.silent = True
+        debugHouse.silent = True
         
         with cProfile.Profile() as profile:
             main()
