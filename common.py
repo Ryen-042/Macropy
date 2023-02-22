@@ -155,14 +155,17 @@ class GenericDataClass:
     """A generic data class that can be customized at initialization."""
     
     def __init__(self, name=None, **kwargs):
-        self.name = name
+        self.class_name = name
         
         for key, value in kwargs.items():
             setattr(self, key, value)
     
+    def __iter__(self):
+        return iter([v for k, v in vars(self).items() if k != 'class_name'])
+    
     def __repr__(self):
         attributes = ', '.join(f'{key}={value}' for key, value in vars(self).items() if key != "name")
-        return f'{self.name or self.__class__.__name__}({attributes})'
+        return f'{self.class_name or self.__class__.__name__}({attributes})'
 
 
 # Source: https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python
@@ -190,9 +193,11 @@ def static_class(cls):
 
 @static_class
 class DebuggingHouse:
-    counter = 0     # For debugging purposes only.
-    silent  = False # For suppressing terminal output.
-    terminate_script = False
+    counter           = 0     # For debugging purposes only.
+    silent            = False # For suppressing terminal output.
+    prev_event        = 0     # {1: "Hotkey event", 0: "No event"}
+    suppress_all_keys = 0     # For suppressing all keyboard keys.
+    terminate_script  = False
     
     @staticmethod
     def ShowErrorMessage(msg: str) -> int:
@@ -220,6 +225,11 @@ class DebuggingHouse:
         print(f'\nUncaught exception: """{message}"""', end="\n\n")
         
         return DebuggingHouse.ShowErrorMessage(message)
+    
+    @staticmethod
+    def TogglePrevEvent():
+        DebuggingHouse.prev_event ^= 1
+        return DebuggingHouse.prev_event
 
 @static_class
 class WindowHouse:
