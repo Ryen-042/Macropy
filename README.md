@@ -83,4 +83,6 @@ This script relies heavily on windows API and focuses on tasks that involve wind
 
 - To suppress/silence the terminal output, press the hotkey -> `FN + Alt + S`.
 
+- To suppress keyboard keys (hotkeys still works), press the hotkey -> `Ctrl + Alt + D`.
+
 - The script will not allow more than one active instance at a time.
