@@ -336,7 +336,10 @@ def KeyPress(event):
         dist = 1
         if ctrlHouse.modifiers.ALT: # If `Alt` is pressed, increase the schrolling distance - `Shift` here doesn't work :(.
             dist = 3
+        
         PThread(target=ctrlHouse.pynput_mouse.scroll, args=[*{kbcon.VK_W: (0,  dist), kbcon.VK_S: (0, -dist), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start() # Up
+        
+        PThread.outputQueue.put(True and not debugHouse.suppress_all_keys)
     
     else:
         print("\033[F")
