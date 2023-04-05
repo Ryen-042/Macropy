@@ -37,8 +37,7 @@ if USE_CYTHON:
         Extension("macropy.keyboardHelper",  ["macropy/cython_extensions/keyboardHelper/keyboardHelper.pyx"]),
         Extension("macropy.scriptController",  ["macropy/cython_extensions/scriptController/scriptController.pyx"]),
         Extension("macropy.systemHelper",  ["macropy/cython_extensions/systemHelper/systemHelper.pyx"]),
-        Extension("macropy.windowHelper",  ["macropy/cython_extensions/windowHelper/windowHelper.pyx"]),
-        
+        Extension("macropy.windowHelper",  ["macropy/cython_extensions/windowHelper/windowHelper.pyx"])
     ]
     cmdclass.update({ 'build_ext': build_ext })
 else:
@@ -60,6 +59,7 @@ with open('requirements.txt', 'r') as f:
     for line in f.read().split():
         requirements.append(line.split(">=")[0])
 
+# https://stackoverflow.com/questions/58533084/what-keyword-arguments-does-setuptools-setup-accept
 setup(
     name="macropy",
     version="0.0.17",
@@ -67,16 +67,8 @@ setup(
     author="Ahmed Tarek",
     author_email="ahmedtarek4377@gmail.com",
     url="https://github.com/Ryen-042/macropy",
-    packages=["macropy", "macropy.common", "macropy.eventListeners", "macropy.explorerHelper", "macropy.imageInverter", 
-              "macropy.keyboardHelper", "macropy.scriptController", "macropy.systemHelper", "macropy.windowHelper"],
-    package_data={"stub":  ["macropy/common.pyi",
-                            "macropy/eventListeners.pyi",
-                            "macropy/explorerHelper.pyi",
-                            "macropy/imageInverter.pyi",
-                            "macropy/keyboardHelper.pyi",
-                            "macropy/scriptController.pyi",
-                            "macropy/systemHelper.pyi",
-                            "macropy/windowHelper.pyi"]},
+    packages=["macropy"],
+    package_data={"macropy": ["Images/static/*", "SFX/*"],},
     cmdclass = cmdclass,
     ext_modules=ext_modules,
     long_description=open('README.md').read(),
