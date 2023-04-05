@@ -1,12 +1,14 @@
 """This module provides system/script-specific functions."""
 
-import win32gui, win32api, win32process, win32con, winsound
+import win32gui, win32api, win32process, win32con, winsound, win32security
 import wmi, ctypes, os, sys, psutil
+from win11toast import toast #, notify, update_progress
 from time import sleep
-from common import PThread, DebuggingHouse, ReadFromClipboard
+from common import PThread, Management
+import windowHelper as winHelper
 
 @PThread.Throttle(15)
-def TerminateScript(condition=True):
+def TerminateScript(condition=True, graceful=False):
     """
     Description:
         Terminates the running main script process.
@@ -14,18 +16,22 @@ def TerminateScript(condition=True):
     Parameters:
         `condition -> bool`:
             If `True`, the script is terminated, otherwise, nothing happens.
+        
+        `graceful -> bool`:
+            `True` : Only changing the state of the global variable `DebuggingHouse.terminate_script` (works as signal for the user to terminate the script theirself).
+            `False`: The script is terminated immediately.
     """
     
     if condition:
         print('Exitting...')
         winsound.PlaySound(r"SFX\crack_the_whip.wav", winsound.SND_FILENAME)
         
-        DebuggingHouse.terminate_script = True
+        Management.terminate_script = True
         
         #! os._exit() vs sys.exit():
             #- `sys.exit()` raises `SystemExit` exception, this causes the interpreter to exit.
             #- `os._exit()` exits script immediately.
-        if len(sys.argv) == 1 or not sys.argv[1] in ("-p", "--profile", "--prof"):
+        if not graceful and (len(sys.argv) == 1 or not sys.argv[1] in ("-p", "--profile", "--prof")):
             os._exit(1)
 
 def IsProcessElevated(hwnd=0):
@@ -72,7 +78,7 @@ def RequestElevation():
 def ScheduleElevatedProcessChecker(delay=10):
     """Reprots each `delay` time if the active process window is elevated while the current python process is not elevated."""
     
-    while not DebuggingHouse.terminate_script:
+    while not Management.terminate_script:
         if IsProcessElevated():
             if IsProcessElevated(-1):
                 print("The script has elevated privileges. No need for further checks.")
@@ -138,10 +144,23 @@ def EnableDPI_Awareness():
     # success = ctypes.windll.user32.SetProcessDPIAware()
     return errorCode
 
+def SendScriptWorkingNotification():
+    buttons = ( {'activationType': 'protocol', 'arguments': "0:", 'content': 'Exit Script', "hint-buttonStyle": "Critical"},
+                {'activationType': 'protocol', 'arguments':os.path.dirname( __file__), 'content': 'Open Script Folder'},
+                {'activationType': 'protocol', 'arguments': "1:", 'content': 'Nice Work', "hint-buttonStyle": "Success"})
+    
+    # notify() doesn't work properly here. Use toast() inside a thread instead.
+    toast(  'Script is Running.', 'The script is running in the background.', buttons=buttons,
+            on_click = lambda args: TerminateScript(args["arguments"][0] == "0"),
+            icon  = {"src": os.path.join(os.path.dirname(__file__), "keyboard.png"), 'placement': 'appLogoOverride'},
+            image = {'src': os.path.join(os.path.dirname(__file__), "keyboard (0.5).png"), 'placement': 'hero'},
+            audio = {'silent': 'true'})
+
+@PThread.Throttle(0.05)
 def ChangeBrightness(opcode=1, increment=5):
     """Increments (`opcode=any non-zero value`) or decrements (`opcode=0`) the screen brightness by an (`increment`) percent."""
     
-    initializer_called = PThread.CoInitialize()
+    # initializer_called = PThread.CoInitialize()
     
     # Connectting to WMI.
     c = wmi.WMI(namespace="wmi")
@@ -158,8 +177,8 @@ def ChangeBrightness(opcode=1, increment=5):
     # Setting the screen brightness to the new value.
     c.WmiMonitorBrightnessMethods()[0].WmiSetBrightness(Brightness=brightness, Timeout=0)
     
-    print(f"Current -> New Brightness: {current_brightness} -> {brightness}")
-    PThread.CoUninitialize(initializer_called)
+    print(f"Current & New Brightness: {current_brightness} -> {brightness}")
+    # PThread.CoUninitialize(initializer_called)
 
 def ScreenOff():
     win32gui.SendMessage(win32con.HWND_BROADCAST, win32con.WM_SYSCOMMAND, win32con.SC_MONITORPOWER, 2)
@@ -186,8 +205,10 @@ def GoToSleep():
     print("Device is now active.")
 
 @PThread.Throttle(15)
-def Shutdown():
-    import win32security
+def Shutdown(request_confirmation=False):
+    if request_confirmation:
+        if winHelper.ShowMessageBox("Do you really want to shutdown?", "Confirm Shutdown", 2, win32con.MB_ICONQUESTION) != 6:
+            return
     
     # Source: https://stackoverflow.com/questions/34039845/how-to-shutdown-a-computer-using-python/62595482#62595482
     win32security.AdjustTokenPrivileges(win32security.OpenProcessToken(win32api.GetCurrentProcess(),
@@ -196,6 +217,8 @@ def Shutdown():
                                                  win32security.SE_PRIVILEGE_ENABLED)])
     
     # API: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-exitwindowsex
+    # win32api.ExitWindowsEx(win32con.EWX_POWEROFF)
+    
     EWX_HYBRID_SHUTDOWN = 0x00400000
     win32api.ExitWindowsEx(win32con.EWX_SHUTDOWN | EWX_HYBRID_SHUTDOWN)
     
