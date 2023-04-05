@@ -10,7 +10,9 @@ The `macropy/cython_extensions` directory contains all the cython code for all t
 - `xxx.pyx`: Python source code written in Cython, which can later be compiled into a `.c` file.
 - `xxx.c`: The compiled version of the cython extension module, which can later be compiled into `.pyd` binary source files.
 
-The actual files that are imported and used are the `.pyd` files. I have uploaded the `.c` files that were generated with Cython, so it is not necessary to have Cython to recompile the existing extension modules.
+The actual files that are imported and used are the `.pyd` files. I have uploaded the `.c` files that were generated with Cython, so it is not necessary to have Cython to recompile the existing extension modules. To build the Cython extensions, run:
+
+    python setup.py build_ext --inplace
 
 By default, `setup.py` builds the extension from the `.pyx` files and falls back to the `.c` files if Cython is not installed. If you wish to build using the `.c` files (for example, to ensure that the build doesn't fail due to particular Cython version issues), you must set `USE_CYTHON=False` in `setup.py`.
 
