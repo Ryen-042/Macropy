@@ -3,6 +3,21 @@ Keyboard listener, hotkey manager, word expander, task automation, and more!
 
 ![Terminal Output](https://github.com/Ryen-042/Macropy/blob/main/Images/Output.png)
 
+## Big Update - Cython
+Cython is used to compile python code and make it faster. Cython creates `.c` files that can be compiled into python binary extension modules.
+
+The `macropy/cython_extensions` directory contains all the cython code for all the script module. For each module, there are two files:
+- `xxx.pyx`: Python source code written in Cython, which can later be compiled into a `.c` file.
+- `xxx.c`: The compiled version of the cython extension module, which can later be compiled into `.pyd` binary source files.
+
+The actual files that are imported and used are the `.pyd` files. I have uploaded the `.c` files that were generated with Cython, so it is not necessary to have Cython to recompile the existing extension modules.
+
+By default, `setup.py` builds the extension from the `.pyx` files and falls back to the `.c` files if Cython is not installed. If you wish to build using the `.c` files (for example, to ensure that the build doesn't fail due to particular Cython version issues), you must set `USE_CYTHON=False` in `setup.py`.
+
+To use this script, you can simply run the `__main__.py` file, or install it by running:
+
+    python setup.py install
+
 ## Why did I write this script?
 A lot of times I found myself repeating one or more tasks. Some of these tasks are tedious and may be performed more than one time a day. Other tasks may be faster if they are performed without interacting with GUI elements. Combine all this with my low-performance laptop and you can see why I have written this script.
 
