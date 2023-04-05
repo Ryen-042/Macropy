@@ -65,7 +65,6 @@ def GetExplorerAddress(active_explorer: CDispatch) -> str:
     return win32gui.GetWindowText(active_explorer.HWND) # About 10 times faster.
     # return active_explorer.Document.Folder.Self.Path
 
-
 def GetActiveExplorer(explorer_windows: CDispatch, check_desktop=True) -> CDispatch | str:
     """
     Description:
@@ -73,6 +72,7 @@ def GetActiveExplorer(explorer_windows: CDispatch, check_desktop=True) -> CDispa
     ---
     Returns:
         - `CDispatch`: The active explorer/desktop window object.
+        
         - `str`: The class name of the active window if it was not an explorer window.
     """
     
@@ -252,7 +252,7 @@ def ImagesToPDF(active_explorer: CDispatch) -> None:
         selected_files_paths = sorted(GetSelectedItemsFromActiveExplorer(active_explorer, paths_only=True, filter=lambda f: f.endswith(('.png', '.jpg', '.jpeg'))))
         if selected_files_paths:
             winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
-            directory = os.path.split(selected_files_paths[0])[0]
+            directory = os.path.dirname(selected_files_paths[0])
             file_fullpath = GetUniqueName(directory, "New PDF", extension=".pdf")
             with open(file_fullpath,"wb") as pdf_output_file:
                 pdf_output_file.write(img2pdf.convert(selected_files_paths))
@@ -355,45 +355,60 @@ def CtrlShift_P(explorer: CDispatch=None):
     
     PThread.CoUninitialize(initializer_called)
 
-def MP3ToWAV():
-    """Converts the selected audio files from the active explorer window into `.wav` files."""
+def GenericFileConverter(active_explorer: CDispatch, filter_func: Callable[[str], bool], convert_func: Callable[[str, str], None], new_extension="") -> None:
+    """
+    Description:
+        Converts the selected files from the active explorer window using the specified filter and convert functions.
+    ---
+    Parameters:
+        `active_explorer -> CDispatch`:
+            The active explorer window object.
+        
+        `filter_func -> Callable[[str], bool]`:
+            A function that takes a file path and returns a boolean indicating whether the file should be processed or not.
+        
+        `convert_func -> Callable[[str, str], None]`:
+            A function that takes the input file path and the output file path and performs the conversion.
+        
+        `new_extension -> str`:
+            The new file extension for the converted files (you can treat it as a suffix added at the end of filenames).
+    """
     
     initializer_called = PThread.CoInitialize()
-    active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
+    if not isinstance(active_explorer, CDispatch):
+        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
     
     if not isinstance(active_explorer, CDispatch):
         PThread.CoUninitialize(initializer_called)
         return
     
-    selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer, paths_only=True,
-                                                                        filter=lambda f: f.endswith(".mp3"))
+    selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer, paths_only=True, filter=filter_func)
     
     if selected_files_paths:
         winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+        
         for file_path in selected_files_paths:
-            new_filepath = os.path.splitext(file_path)[0] + ".wav"
+            new_filepath = os.path.splitext(file_path)[0] + new_extension
+            
             if os.path.exists(new_filepath):
                 print("Failure, file already exists: %s" % new_filepath)
-                
                 continue
             
-            # Run a command and wait for it to complete.
-            subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', file_path, new_filepath])
-            
-            print("Success: %s" % new_filepath)
+            convert_func(file_path, new_filepath)
+            print(new_filepath)
         
         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
     
     PThread.CoUninitialize(initializer_called)
 
-
-def FlattenDirectories(files_only=False):
+def FlattenDirectories(active_explorer: CDispatch, files_only=False) -> None:
     """Flattens the selected folders from the active explorer window to the explorer current location."""
     
     initializer_called = PThread.CoInitialize()
     
     # If no automation object was passed (i.e., `None` was passed), create one.
-    active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), False)
+    if not isinstance(active_explorer, CDispatch):
+        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), False)
     
     if not isinstance(active_explorer, CDispatch):
         PThread.CoUninitialize(initializer_called)
@@ -418,8 +433,3 @@ def FlattenDirectories(files_only=False):
                 os.rename(target_src, target_dst)
     
     PThread.CoUninitialize(initializer_called)
-
-if __name__ == "__main__":
-    # MP3ToWAV(None)
-    # FlattenDirectories(None)
-    pass
