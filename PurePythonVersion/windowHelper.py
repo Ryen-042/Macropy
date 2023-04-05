@@ -1,6 +1,6 @@
 """This module provides functions for dealing with windows."""
 
-import win32gui, win32con, winsound, pywintypes
+import win32gui, win32con, winsound, pywintypes, ctypes
 from time import sleep
 
 def GetHandleByClassName(className: str, check_all=False) -> list[int] | int | None:
@@ -37,6 +37,43 @@ def GetHandleByTitle(title: str) -> int | None:
         hwnd = win32gui.GetWindow(hwnd, win32con.GW_HWNDNEXT)
     
     return None
+
+def ShowMessageBox(msg: str, title="Warning", msgbox_type=1, icon=win32con.MB_ICONERROR) -> int:
+        """
+        Description:
+            Display an error message window with the message.
+        ---
+        Parameters:
+            `msg -> str`:
+                The error message to display.
+            
+            `Title -> str`:
+                The title of the message box.
+            
+            `msgbox_type -> int`:
+                The type of the message box (affects the number of buttons). Possible types are:
+                    
+                    `1`: One button: `Ok`.
+                    
+                    `2`: Two buttons: `Yes`, `No`.
+                    
+                    `3`: Two buttons: `OK`, `CANCEL`.
+                    
+                    `4`: Two buttons: `Retry`, `Cancel`.
+                    
+                    `5`: Three buttons: `Yes`, `No`, `Cancel`.
+            
+            `icon -> int`:
+                The icon of the message box.
+        ---
+        Returns:
+            `int`: `1` is returned when the error message is closed.
+        """
+        type = {1:win32con.MB_OK, 2:win32con.MB_YESNO, 3:win32con.MB_OKCANCEL,
+                4:win32con.MB_RETRYCANCEL, 5:win32con.MB_YESNOCANCEL}.get(msgbox_type)
+        
+        # https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messageboxa
+        return ctypes.windll.user32.MessageBoxW(None, msg, title, type | icon | win32con.MB_TOPMOST)
 
 def AlwaysOnTop():
     """Toggles `AlwaysOnTop` on or off for the active window."""
