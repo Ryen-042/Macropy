@@ -1,14 +1,14 @@
 # Macropy
 Keyboard listener, hotkey manager, word expander, task automation, and more!
 
-![Terminal Output](Images/Output.png)
+![Terminal Output](https://github.com/Ryen-042/Macropy/blob/main/Images/Output.png?raw=true)
 
 ## Big Update - Cython
 Cython is used to compile python source code and make it faster. Cython creates `.c` files that can be compiled into python binary extension modules.
 
-The `macropy/cython_extensions` directory contains all the cython code for all the script module. For each module, there are two files:
+The `macropy/cython_extensions` directory contains all the Cython code for all the script modules. For each module, there are two files:
 - `xxx.pyx`: Python source code written in Cython, which can later be compiled into a `.c` file.
-- `xxx.c`: The compiled version of the cython extension module, which can later be compiled into `.pyd` binary source files.
+- `xxx.c`: The compiled version of the Cython extension module, which can later be compiled into `.pyd` binary source files.
 
 The actual files that are imported and used are the `.pyd` files. I have uploaded the `.c` files that were generated with Cython, so it is not necessary to have Cython to recompile the existing extension modules. To build the Cython extensions, run:
 
@@ -38,23 +38,23 @@ This script relies heavily on windows API and focuses on tasks that involve wind
 <ins>Below are some of the windows explorer operations that the script can perform</ins>:
 - Creating a new file -> `Ctrl + Shift + ['m' or 'M']`.
 
-![Creating A New File](Images/New_File.gif)
+![Creating A New File](https://github.com/Ryen-042/Macropy/blob/main/Images/New_File.gif?raw=true)
 
 - Copying the full path to the selected files in the active explorer/desktop window -> `Shift + F2`.
 
 - Merging the selected images from the active explorer window into a PDF file -> `Ctrl + Shift + ['p' or 'P']`.
 
-![Merging Images Into PDF](Images/Merging_Images_To_PDF.gif)
+![Merging Images Into PDF](https://github.com/Ryen-042/Macropy/blob/main/Images/Merging_Images_To_PDF.gif?raw=true)
 
 - Converting the selected word files from the active explorer window into PDF files -> `Backtick + ['o' or 'O']`.
 
 - Converting the selected powerpoint files from the active explorer window into PDF files -> `Backtick + ['p' or 'P']`.
 
-![Converting Powerpoint Files To PDF](Images/Converting_Powerpoint_To_PDF.gif)
+![Converting Powerpoint Files To PDF](https://github.com/Ryen-042/Macropy/blob/main/Images/Converting_Powerpoint_To_PDF.gif?raw=true)
 
 - Reopening closed file explorer windows (currently only keeps track of closed explorers by `Alt + F4` or `Ctrl + W`).
 
-![Reopening Closed Explorer](Images/Reopening_Closed_Explorer.gif)
+![Reopening Closed Explorer](https://github.com/Ryen-042/Macropy/blob/main/Images/Reopening_Closed_Explorer.gif?raw=true)
 
 - Converting `.mp3` audio files into `.wav` files.
 
@@ -63,13 +63,13 @@ This script relies heavily on windows API and focuses on tasks that involve wind
 <ins>Next are some of the supported window manipulation operations</ins>:
 - Moving the window around (up, right, down, right) -> `Backtick + (↑ or → or ↓ or ←)`.
 
-![Moving Window Around](Images/Moving_Window.gif)
+![Moving Window Around](https://github.com/Ryen-042/Macropy/blob/main/Images/Moving_Window.gif?raw=true)
 
 - Making the window always on top -> `FN + Ctrl + ['a', 'A']`.
 
 - Decreasing/increasing the opacity of a window -> `Backtick + (['+', '='] or ['-', '_'])`.
 
-![Changing Opacity](Images/Changing_Opacity.gif)
+![Changing Opacity](https://github.com/Ryen-042/Macropy/blob/main/Images/Changing_Opacity.gif?raw=true)
 
 <ins>Next are some of the supported system manipulation operations</ins>:
 - Putting the device into sleep mode -> `Win + FN + Ctrl + ['s', 'S']`.
@@ -87,16 +87,16 @@ This script relies heavily on windows API and focuses on tasks that involve wind
 <ins>Next are some of the supported text expansion operations</ins>:
 - Expanding text (e.g., try pressing the next keys -> `:name`).
 
-![Text Expansion](Images/Expanding_Text.gif)
+![Text Expansion](https://github.com/Ryen-042/Macropy/blob/main/Images/Expanding_Text.gif?raw=true)
 
 - Opening a file or a folder (e.g., try pressing the next keys -> `!paint`).
 
-![Opening Paint](Images/Opening_Paint.gif)
+![Opening Paint](https://github.com/Ryen-042/Macropy/blob/main/Images/Opening_Paint.gif?raw=true)
 
 ## Extra
 - The script does not receive keyboard events when the active process is elevated. A notification message will be printed every 10 seconds with a sound when this happens. You can run the script with elevated privileges to receive keyboard events in this scenario.
 
-![Elevated Process Checker](Images/Elevated_Checker.png)
+![Elevated Process Checker](https://github.com/Ryen-042/Macropy/blob/main/Images/Elevated_Checker.png?raw=true)
 
 - To terminate the script, press the hotkey -> `FN + ESC`.
 
@@ -106,6 +106,6 @@ This script relies heavily on windows API and focuses on tasks that involve wind
 
 - To suppress/silence the terminal output, press the hotkey -> `FN + Alt + S`.
 
-- To suppress keyboard keys (hotkeys still works), press the hotkey -> `Ctrl + Alt + D`.
+- To suppress keyboard keys (hotkeys still work), press the hotkey -> `Ctrl + Alt + D`.
 
 - The script will not allow more than one active instance at a time.
