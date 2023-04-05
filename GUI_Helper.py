@@ -1,40 +1,41 @@
-import keyboard, winsound, pyttsx3, os
+import winsound
+import keyboard, pyttsx3, os
 from threading import Thread, Condition
-from common import Singleton, ReadFromClipboard
+from common import static_class, ReadFromClipboard
 
 # Hide pygame welcome message.
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 from pygame import mixer
 
-class TTS_House(metaclass=Singleton):
-    def __init__(self):
-        # Initializing a queue for holding incoming text.
-        self.textQueue = set()
-        self.curr_text = ""
-        
-        # Initializing the TTS enginge.
-        self.engine = pyttsx3.init()
-        
-        # Configuring the volume and rate of the speech.
-        self.engine.setProperty('volume', 1.0)
-        self.engine.setProperty('rate', 250)
-        
-        # `status` variable for stoping or pausing the speech.
-        self.status = 1 #  1:play | 2:pause | 3:stopped
-        
-        # For not triggering the operations multiple times.
-        self.op_called = True
-        
-        # Initializing pygame mixer.
-        mixer.init()
-        
-        self.condition = Condition()
+@static_class
+class TTS_House:
+    # Initializing a queue for holding incoming text.
+    textQueue = set()
+    curr_text = ""
     
-    def ScheduleSpeak(self):
-        keyboard.press("ctrl")
-        keyboard.press("c")
-        keyboard.release("c")
-        keyboard.release("ctrl")
+    # Initializing the TTS enginge.
+    engine = pyttsx3.init()
+    
+    # Configuring the volume and rate of the speech.
+    engine.setProperty('volume', 1.0)
+    engine.setProperty('rate', 250)
+    
+    # `status` variable for stoping or pausing the speech.
+    status = 1 #  1:play | 2:pause | 3:stopped
+    
+    # For not triggering the operations multiple times.
+    op_called = True
+    
+    # Initializing pygame mixer.
+    mixer.init()
+    
+    condition = Condition()
+    
+    @staticmethod
+    def ScheduleSpeak():
+        # os.system(r'"c:\Program Files\Ditto\Ditto.exe" /disconnect') # Disconnect Ditto from the clipboard to prevent the copied text from being saved.
+        keyboard.send("ctrl+c")
+        # os.system(r'"c:\Program Files\Ditto\Ditto.exe" /connect')    # Reconnect Ditto to the clipboard.
         
         # Read copied text from clipboard
         text = ReadFromClipboard()
@@ -42,62 +43,71 @@ class TTS_House(metaclass=Singleton):
             winsound.PlaySound(r"SFX\record-scratch-2.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
             return
         
+        text = text.replace("\n", " ")
+        
         # Add the copied text to the text queue
-        if text != self.curr_text:
-            self.textQueue.add(text)
+        if text != TTS_House.curr_text:
+            TTS_House.textQueue.add(text)
         
         # Not busy means that no threads are running so create one.
-        if not mixer.music.get_busy():
-            Thread(target=self.SpeakAllTextFromQueue).start()
+        if len(TTS_House.textQueue) and not mixer.music.get_busy():
+            Thread(target=TTS_House.SpeakAllTextFromQueue).start()
     
-    def SpeakAllTextFromQueue(self):
+    @staticmethod
+    def SpeakAllTextFromQueue():
         while True:
             # Get the next item from the queue
-            self.curr_text = self.textQueue.pop()
+            TTS_House.curr_text = TTS_House.textQueue.pop()
             
             # Save the text to a temporary file
-            if os.path.exists(os.path.join("SFX", "TTStemp.wav")):
-                outFileName = os.path.join("SFX", "TTStemp1.wav")
-            else:
-                outFileName = os.path.join("SFX", "TTStemp.wav")
+            if os.path.exists(os.path.join("SFX", "tts_temp.wav")):    # temp exists, temp1 doesn't.
+                outFileName = os.path.join("SFX", "tts_temp1.wav")
             
-            self.engine.save_to_file(self.curr_text, outFileName)
-            self.engine.runAndWait()
+            elif os.path.exists(os.path.join("SFX", "tts_temp1.wav")): # temp1 exists, temp doesn't .
+                outFileName = os.path.join("SFX", "tts_temp.wav")
+            
+            else:                                                      # Both files exist (only at the start of the program)
+                os.remove(os.path.join("SFX", "tts_temp.wav"))
+                os.remove(os.path.join("SFX", "tts_temp1.wav"))
+                outFileName = os.path.join("SFX", "tts_temp.wav")
+            
+            TTS_House.engine.save_to_file(TTS_House.curr_text, outFileName)
+            TTS_House.engine.runAndWait()
             
             # Load and play the temporary file using pygame mixer.
             mixer.music.load(outFileName)
             mixer.music.play()
-            self.status = 1
-            self.op_called = True
+            TTS_House.status = 1
+            TTS_House.op_called = True
             
             # Delete other temp file if it does exist.
-            if outFileName[4] == "1":
-                os.remove(os.path.join("SFX", "TTStemp.wav"))
-            elif os.path.exists(os.path.join("SFX", "TTStemp1.wav")):
-                os.remove(os.path.join("SFX", "TTStemp1.wav"))
+            if outFileName[-5] == "1":
+                os.remove(os.path.join("SFX", "tts_temp.wav"))
+            elif os.path.exists(os.path.join("SFX", "tts_temp1.wav")):
+                os.remove(os.path.join("SFX", "tts_temp1.wav"))
             
             # Wait until the audio finishes playing or the queue is empty
             while True:
-                if not self.op_called:
-                    match self.status:
+                if not TTS_House.op_called:
+                    match TTS_House.status:
                         case 2:
                             mixer.music.pause()
-                            with self.condition:
-                                self.condition.wait()
+                            with TTS_House.condition:
+                                TTS_House.condition.wait()
                                 mixer.music.unpause()
-                                self.status = 1
+                                TTS_House.status = 1
                         case 3:
                             mixer.music.stop()
-                            self.textQueue.clear()
+                            TTS_House.textQueue.clear()
                             break
-                    self.op_called = True
+                    TTS_House.op_called = True
                 elif not mixer.music.get_busy():
                     break
             
             # If the queue is empty, stop the speaking thread
-            if not len(self.textQueue):
+            if not len(TTS_House.textQueue):
                 break
-        self.curr_text = ""
+        TTS_House.curr_text = ""
 
 
 if __name__ == "__main__":
