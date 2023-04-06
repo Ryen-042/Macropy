@@ -1,7 +1,7 @@
 """This module provides functions for manipulating Windows Explorer and Desktop."""
 
 from win32com.client import CDispatch
-from typing import Callable
+from typing import Callable, Optional
 
 def _filter(target: str, patterns: tuple[str]) -> bool:
     """Returns `True` if the target string ends with any of the patterns, `False` otherwise."""
@@ -27,15 +27,15 @@ def GetUniqueName(directory: str, filename="New File", sequence_pattern=" (%s)",
     """
     ...
 
-def GetActiveExplorer(explorer_windows: CDispatch, check_desktop=True) -> CDispatch:
+def GetActiveExplorer(explorer_windows: Optional[CDispatch], check_desktop=True) -> CDispatch:
     """Returns the active (focused) explorer/desktop window object."""
     ...
 
-def GetExplorerAddress(active_explorer: CDispatch=None) -> str:
+def GetExplorerAddress(active_explorer: Optional[CDispatch]) -> str:
     """Returns the address of the active explorer window."""
     ...
 
-def GetSelectedItemsFromActiveExplorer(active_explorer: CDispatch=None, patterns: tuple[str] = None) -> list[str]:
+def GetSelectedItemsFromActiveExplorer(active_explorer: Optional[CDispatch], patterns: Optional[tuple[str]]) -> list[str]:
     """
     Description:
         Returns the absolute paths of the selected items in the active explorer window.
@@ -52,7 +52,7 @@ def GetSelectedItemsFromActiveExplorer(active_explorer: CDispatch=None, patterns
     """
     ...
 
-def CopySelectedFileNames(active_explorer: CDispatch=None, check_desktop=True) -> list[str]:
+def CopySelectedFileNames(active_explorer: Optional[CDispatch], check_desktop=True) -> list[str]:
     """
     Description:
         Copies the absolute paths of the selected files from the active explorer/desktop window.
@@ -91,7 +91,7 @@ def SelectFilesFromDirectory(directory: str, file_names: list[str]) -> None:
     """Given an absolute directory path and the names of its items (names relative to the path), if an explorer window with the specified directory is present, use it, otherwise open a new one, then select all the items specified."""
     ...
 
-def CreateFile(active_explorer: CDispatch=None) -> int:
+def CreateFile(active_explorer: Optional[CDispatch]) -> int:
     """
     Description:
         Creates a new file with an incremental name in the active explorer/desktop window then select it.
@@ -104,12 +104,12 @@ def CreateFile(active_explorer: CDispatch=None) -> int:
     """
     ...
 
-def ImagesToPDF(active_explorer: CDispatch=None) -> None:
+def ImagesToPDF(active_explorer: Optional[CDispatch]) -> None:
     """Combines the selected images from the active explorer window into a PDF file with an incremental name then select it.
     Please note that the function sorts the file names alphabetically before merging."""
     ...
 
-def OfficeFileToPDF(active_explorer: CDispatch=None, office_application="Powerpoint") -> None:
+def OfficeFileToPDF(active_explorer: Optional[CDispatch], office_application="Powerpoint") -> None:
     """
     Description:
         Converts the selected files from the active explorer window that are associated with the specified office application into a PDF format.
@@ -125,7 +125,7 @@ def OfficeFileToPDF(active_explorer: CDispatch=None, office_application="Powerpo
     """
     ...
 
-def GenericFileConverter(active_explorer: CDispatch=None, patterns: tuple[str]=None, convert_func:Callable[[str, str], None]=None, new_extension="") -> None:
+def GenericFileConverter(active_explorer: Optional[CDispatch], patterns: Optional[tuple[str]], convert_func: Optional[Callable[[str, str], None]], new_extension="") -> None:
     """
     Description:
         Converts the selected files from the active explorer window using the specified filter and convert functions.
@@ -152,6 +152,6 @@ def GenericFileConverter(active_explorer: CDispatch=None, patterns: tuple[str]=N
     """
     ...
 
-def FlattenDirectories(active_explorer: CDispatch=None, files_only=False) -> None:
+def FlattenDirectories(active_explorer: Optional[CDispatch], files_only=False) -> None:
     """Flattens the selected folders from the active explorer window to the explorer current location."""
     ...
