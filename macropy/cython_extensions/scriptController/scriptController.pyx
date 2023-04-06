@@ -31,7 +31,7 @@ def AcquireScriptLock():
     return handle
 
 
-cpdef void main():
+cpdef void begin_script():
     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
     
     # Making sure that this is the only running instance of the main function. If not, then terminate this one.
@@ -133,7 +133,7 @@ cpdef void main():
     sysHelper.TerminateScript(graceful=False)
 
 
-cpdef void main_with_profiling():
+cpdef void begin_script_with_profiling():
     """Starts the main script with profiling."""
     
     import cProfile, pstats
@@ -141,7 +141,7 @@ cpdef void main_with_profiling():
     print("PROFILING ENABLED.")
     
     with cProfile.Profile() as profile:
-        main()
+        begin_script()
     
     from datetime import datetime as dt
     
