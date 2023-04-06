@@ -1321,8 +1321,8 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
 /* Module declarations from 'macropy.scriptController' */
-static void __pyx_f_7macropy_16scriptController_main(int __pyx_skip_dispatch); /*proto*/
-static void __pyx_f_7macropy_16scriptController_main_with_profiling(int __pyx_skip_dispatch); /*proto*/
+static void __pyx_f_7macropy_16scriptController_begin_script(int __pyx_skip_dispatch); /*proto*/
+static void __pyx_f_7macropy_16scriptController_begin_script_with_profiling(int __pyx_skip_dispatch); /*proto*/
 #define __Pyx_MODULE_NAME "macropy.scriptController"
 extern int __pyx_module_is_main_macropy__scriptController;
 int __pyx_module_is_main_macropy__scriptController = 0;
@@ -1537,8 +1537,8 @@ static PyObject *__pyx_n_s_win32event;
 static PyObject *__pyx_n_s_winerror;
 static PyObject *__pyx_n_s_winsound;
 static PyObject *__pyx_pf_7macropy_16scriptController_AcquireScriptLock(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_7macropy_16scriptController_2main(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_7macropy_16scriptController_4main_with_profiling(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_7macropy_16scriptController_2begin_script(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_7macropy_16scriptController_4begin_script_with_profiling(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_float_0_2;
 static PyObject *__pyx_int_1;
 static PyObject *__pyx_int_10;
@@ -1885,13 +1885,13 @@ static PyObject *__pyx_pf_7macropy_16scriptController_AcquireScriptLock(CYTHON_U
 /* "macropy/cython_extensions/scriptController/scriptController.pyx":34
  * 
  * 
- * cpdef void main():             # <<<<<<<<<<<<<<
+ * cpdef void begin_script():             # <<<<<<<<<<<<<<
  *     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
  * 
  */
 
-static PyObject *__pyx_pw_7macropy_16scriptController_3main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static void __pyx_f_7macropy_16scriptController_main(CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_7macropy_16scriptController_3begin_script(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static void __pyx_f_7macropy_16scriptController_begin_script(CYTHON_UNUSED int __pyx_skip_dispatch) {
   PyObject *__pyx_v_mutexHandle = NULL;
   PyObject *__pyx_v_threading = NULL;
   PyObject *__pyx_v_sys = NULL;
@@ -1928,7 +1928,7 @@ static void __pyx_f_7macropy_16scriptController_main(CYTHON_UNUSED int __pyx_ski
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("main", 0);
+  __Pyx_RefNannySetupContext("begin_script", 0);
 
   /* "macropy/cython_extensions/scriptController/scriptController.pyx":38
  * 
@@ -3062,7 +3062,7 @@ static void __pyx_f_7macropy_16scriptController_main(CYTHON_UNUSED int __pyx_ski
   /* "macropy/cython_extensions/scriptController/scriptController.pyx":34
  * 
  * 
- * cpdef void main():             # <<<<<<<<<<<<<<
+ * cpdef void begin_script():             # <<<<<<<<<<<<<<
  *     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
  * 
  */
@@ -3075,7 +3075,7 @@ static void __pyx_f_7macropy_16scriptController_main(CYTHON_UNUSED int __pyx_ski
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_WriteUnraisable("macropy.scriptController.main", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("macropy.scriptController.begin_script", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_mutexHandle);
   __Pyx_XDECREF(__pyx_v_threading);
@@ -3099,29 +3099,29 @@ static void __pyx_f_7macropy_16scriptController_main(CYTHON_UNUSED int __pyx_ski
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16scriptController_3main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_7macropy_16scriptController_2main[] = "main() -> void\nThe main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components.";
-static PyObject *__pyx_pw_7macropy_16scriptController_3main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_7macropy_16scriptController_3begin_script(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_7macropy_16scriptController_2begin_script[] = "begin_script() -> void\nThe main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components.";
+static PyObject *__pyx_pw_7macropy_16scriptController_3begin_script(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("main (wrapper)", 0);
-  __pyx_r = __pyx_pf_7macropy_16scriptController_2main(__pyx_self);
+  __Pyx_RefNannySetupContext("begin_script (wrapper)", 0);
+  __pyx_r = __pyx_pf_7macropy_16scriptController_2begin_script(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16scriptController_2main(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_7macropy_16scriptController_2begin_script(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("main", 0);
+  __Pyx_RefNannySetupContext("begin_script", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16scriptController_main(0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16scriptController_begin_script(0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3130,7 +3130,7 @@ static PyObject *__pyx_pf_7macropy_16scriptController_2main(CYTHON_UNUSED PyObje
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("macropy.scriptController.main", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.scriptController.begin_script", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3141,13 +3141,13 @@ static PyObject *__pyx_pf_7macropy_16scriptController_2main(CYTHON_UNUSED PyObje
 /* "macropy/cython_extensions/scriptController/scriptController.pyx":136
  * 
  * 
- * cpdef void main_with_profiling():             # <<<<<<<<<<<<<<
+ * cpdef void begin_script_with_profiling():             # <<<<<<<<<<<<<<
  *     """Starts the main script with profiling."""
  * 
  */
 
-static PyObject *__pyx_pw_7macropy_16scriptController_5main_with_profiling(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static void __pyx_f_7macropy_16scriptController_main_with_profiling(CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_7macropy_16scriptController_5begin_script_with_profiling(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static void __pyx_f_7macropy_16scriptController_begin_script_with_profiling(CYTHON_UNUSED int __pyx_skip_dispatch) {
   PyObject *__pyx_v_cProfile = NULL;
   PyObject *__pyx_v_pstats = NULL;
   PyObject *__pyx_v_profile = NULL;
@@ -3169,7 +3169,7 @@ static void __pyx_f_7macropy_16scriptController_main_with_profiling(CYTHON_UNUSE
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("main_with_profiling", 0);
+  __Pyx_RefNannySetupContext("begin_script_with_profiling", 0);
 
   /* "macropy/cython_extensions/scriptController/scriptController.pyx":139
  *     """Starts the main script with profiling."""
@@ -3202,7 +3202,7 @@ static void __pyx_f_7macropy_16scriptController_main_with_profiling(CYTHON_UNUSE
  *     print("PROFILING ENABLED.")
  * 
  *     with cProfile.Profile() as profile:             # <<<<<<<<<<<<<<
- *         main()
+ *         begin_script()
  * 
  */
   /*with:*/ {
@@ -3255,17 +3255,17 @@ static void __pyx_f_7macropy_16scriptController_main_with_profiling(CYTHON_UNUSE
           /* "macropy/cython_extensions/scriptController/scriptController.pyx":144
  * 
  *     with cProfile.Profile() as profile:
- *         main()             # <<<<<<<<<<<<<<
+ *         begin_script()             # <<<<<<<<<<<<<<
  * 
  *     from datetime import datetime as dt
  */
-          __pyx_f_7macropy_16scriptController_main(0);
+          __pyx_f_7macropy_16scriptController_begin_script(0);
 
           /* "macropy/cython_extensions/scriptController/scriptController.pyx":143
  *     print("PROFILING ENABLED.")
  * 
  *     with cProfile.Profile() as profile:             # <<<<<<<<<<<<<<
- *         main()
+ *         begin_script()
  * 
  */
         }
@@ -3292,7 +3292,7 @@ static void __pyx_f_7macropy_16scriptController_main_with_profiling(CYTHON_UNUSE
   }
 
   /* "macropy/cython_extensions/scriptController/scriptController.pyx":146
- *         main()
+ *         begin_script()
  * 
  *     from datetime import datetime as dt             # <<<<<<<<<<<<<<
  * 
@@ -3678,7 +3678,7 @@ static void __pyx_f_7macropy_16scriptController_main_with_profiling(CYTHON_UNUSE
   /* "macropy/cython_extensions/scriptController/scriptController.pyx":136
  * 
  * 
- * cpdef void main_with_profiling():             # <<<<<<<<<<<<<<
+ * cpdef void begin_script_with_profiling():             # <<<<<<<<<<<<<<
  *     """Starts the main script with profiling."""
  * 
  */
@@ -3692,7 +3692,7 @@ static void __pyx_f_7macropy_16scriptController_main_with_profiling(CYTHON_UNUSE
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_WriteUnraisable("macropy.scriptController.main_with_profiling", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("macropy.scriptController.begin_script_with_profiling", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_cProfile);
   __Pyx_XDECREF(__pyx_v_pstats);
@@ -3704,29 +3704,29 @@ static void __pyx_f_7macropy_16scriptController_main_with_profiling(CYTHON_UNUSE
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16scriptController_5main_with_profiling(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_7macropy_16scriptController_4main_with_profiling[] = "main_with_profiling() -> void\nStarts the main script with profiling.";
-static PyObject *__pyx_pw_7macropy_16scriptController_5main_with_profiling(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_7macropy_16scriptController_5begin_script_with_profiling(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_7macropy_16scriptController_4begin_script_with_profiling[] = "begin_script_with_profiling() -> void\nStarts the main script with profiling.";
+static PyObject *__pyx_pw_7macropy_16scriptController_5begin_script_with_profiling(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("main_with_profiling (wrapper)", 0);
-  __pyx_r = __pyx_pf_7macropy_16scriptController_4main_with_profiling(__pyx_self);
+  __Pyx_RefNannySetupContext("begin_script_with_profiling (wrapper)", 0);
+  __pyx_r = __pyx_pf_7macropy_16scriptController_4begin_script_with_profiling(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16scriptController_4main_with_profiling(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_7macropy_16scriptController_4begin_script_with_profiling(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("main_with_profiling", 0);
+  __Pyx_RefNannySetupContext("begin_script_with_profiling", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16scriptController_main_with_profiling(0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16scriptController_begin_script_with_profiling(0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3735,7 +3735,7 @@ static PyObject *__pyx_pf_7macropy_16scriptController_4main_with_profiling(CYTHO
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("macropy.scriptController.main_with_profiling", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.scriptController.begin_script_with_profiling", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3744,8 +3744,8 @@ static PyObject *__pyx_pf_7macropy_16scriptController_4main_with_profiling(CYTHO
 }
 
 static PyMethodDef __pyx_methods[] = {
-  {"main", (PyCFunction)__pyx_pw_7macropy_16scriptController_3main, METH_NOARGS, __pyx_doc_7macropy_16scriptController_2main},
-  {"main_with_profiling", (PyCFunction)__pyx_pw_7macropy_16scriptController_5main_with_profiling, METH_NOARGS, __pyx_doc_7macropy_16scriptController_4main_with_profiling},
+  {"begin_script", (PyCFunction)__pyx_pw_7macropy_16scriptController_3begin_script, METH_NOARGS, __pyx_doc_7macropy_16scriptController_2begin_script},
+  {"begin_script_with_profiling", (PyCFunction)__pyx_pw_7macropy_16scriptController_5begin_script_with_profiling, METH_NOARGS, __pyx_doc_7macropy_16scriptController_4begin_script_with_profiling},
   {0, 0, 0, 0}
 };
 
@@ -4032,7 +4032,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     print("PROFILING ENABLED.")
  * 
  *     with cProfile.Profile() as profile:             # <<<<<<<<<<<<<<
- *         main()
+ *         begin_script()
  * 
  */
   __pyx_tuple__14 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 143, __pyx_L1_error)
