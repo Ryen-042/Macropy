@@ -6,10 +6,10 @@ def AcquireScriptLock() -> int:
     ...
 
 
-def main() -> None:
+def begin_script() -> None:
     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
     ...
 
-def main_with_profiling() -> None:
+def begin_script_with_profiling() -> None:
     """Starts the main script with profiling."""
     ...
