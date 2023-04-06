@@ -386,7 +386,7 @@ class PThread(threading.Thread):
         """
         ...
 
-def ReadFromClipboard(CF: win32clipboard.CF_TEXT) -> str: # CF: Clipboard format.
+def ReadFromClipboard(CF= win32clipboard.CF_TEXT) -> str: # CF: Clipboard format.
     """Reads the top of the clipboard if it was the same type as the specified."""
     ...
 
