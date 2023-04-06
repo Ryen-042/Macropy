@@ -57,7 +57,7 @@ cpdef str GetUniqueName(str directory, str filename="New File", str sequence_pat
     
     return filename % b
 
-cpdef GetActiveExplorer(explorer_windows, bint check_desktop=True):
+cpdef GetActiveExplorer(explorer_windows=None, bint check_desktop=True):
     """Returns the active (focused) explorer/desktop window object."""
     
     cdef bint initializer_called = PThread.CoInitialize()
@@ -454,7 +454,8 @@ cpdef void GenericFileConverter(active_explorer=None, tuple patterns=None, conve
         PThread.CoUninitialize()
 
 cpdef void FlattenDirectories(active_explorer=None, bint files_only=False):
-    """Flattens the selected folders from the active explorer window to the current directory."""
+    """Flattens the selected folders from the active explorer window to the explorer current location."""
+    
     
     cdef bint initializer_called = PThread.CoInitialize()
     
