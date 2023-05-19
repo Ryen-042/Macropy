@@ -7,7 +7,7 @@ def TerminateScript(graceful=False) -> None:
     ---
     Parameters:
         `graceful -> bool`:
-            `True` : Only changing the state of the global variable `DebuggingHouse.terminate_script` (works as signal for the user to terminate the script themself).
+            `True` : Does not terminate the script. Only sets the global Event variable `DebuggingHouse.terminateEvent`.
             `False`: Forcefully terminating the script.
     """
     ...
@@ -42,7 +42,7 @@ def EnableDPI_Awareness() -> int:
     """Enables `DPI Awareness` for the current thread to allow for accurate dimensions reporting."""
     ...
 
-def SendScriptWorkingNotification() -> None:
+def SendScriptWorkingNotification(near_module=True) -> None:
     """Sends a notification to the user that the script is working."""
     ...
 
