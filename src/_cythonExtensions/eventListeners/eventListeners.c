@@ -1466,6 +1466,7 @@ static const char __pyx_k_get[] = "get";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_put[] = "put";
 static const char __pyx_k_CTRL[] = "CTRL";
+static const char __pyx_k_VK_1[] = "VK_1";
 static const char __pyx_k_VK_A[] = "VK_A";
 static const char __pyx_k_VK_C[] = "VK_C";
 static const char __pyx_k_VK_D[] = "VK_D";
@@ -1593,6 +1594,7 @@ static const char __pyx_k_OpenLocation[] = "OpenLocation";
 static const char __pyx_k_SND_FILENAME[] = "SND_FILENAME";
 static const char __pyx_k_Thread_Count[] = "Thread Count: ";
 static const char __pyx_k_VK_BACKSLASH[] = "VK_BACKSLASH";
+static const char __pyx_k_VK_SEMICOLON[] = "VK_SEMICOLON";
 static const char __pyx_k_VK_VOLUME_UP[] = "VK_VOLUME_UP";
 static const char __pyx_k_active_count[] = "active_count";
 static const char __pyx_k_systemHelper[] = "systemHelper";
@@ -1729,6 +1731,7 @@ static PyObject *__pyx_n_s_Transition;
 static PyObject *__pyx_n_s_UpdateLocks;
 static PyObject *__pyx_n_s_UpdateModifiers_KeyDown;
 static PyObject *__pyx_n_s_UpdateModifiers_KeyUp;
+static PyObject *__pyx_n_s_VK_1;
 static PyObject *__pyx_n_s_VK_A;
 static PyObject *__pyx_n_s_VK_ADD;
 static PyObject *__pyx_n_s_VK_BACK;
@@ -1753,6 +1756,7 @@ static PyObject *__pyx_n_s_VK_RETURN;
 static PyObject *__pyx_n_s_VK_RIGHT;
 static PyObject *__pyx_n_s_VK_S;
 static PyObject *__pyx_n_s_VK_SCROLL;
+static PyObject *__pyx_n_s_VK_SEMICOLON;
 static PyObject *__pyx_n_s_VK_SLASH;
 static PyObject *__pyx_n_s_VK_SPACE;
 static PyObject *__pyx_n_s_VK_SUBTRACT;
@@ -1853,7 +1857,6 @@ static PyObject *__pyx_int_2;
 static PyObject *__pyx_int_4;
 static PyObject *__pyx_int_7;
 static PyObject *__pyx_int_15;
-static PyObject *__pyx_int_16;
 static PyObject *__pyx_int_70;
 static PyObject *__pyx_int_10000;
 static PyObject *__pyx_int_neg_1;
@@ -1902,7 +1905,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_HotkeyPressEvent
   /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":29
  *     """
  * 
- *     cdef bint suppress_key = mgmt.suppress_all_keys # and not (ctrlHouse.modifiers & ctrlHouse.SHIFT) and not (ctrlHouse.modifiers & ctrlHouse.FN) and             # <<<<<<<<<<<<<<
+ *     cdef bint suppress_key = mgmt.suppress_all_keys # and not (ctrlHouse.modifiers & ctrlHouse.FN) and             # <<<<<<<<<<<<<<
  * 
  *     ### Script/System management operations ###
  */
@@ -7199,7 +7202,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_ExpanderEvent(Py
  *     if not ctrlHouse.pressed_chars.startswith((":", "!")):
  *         if event.Ascii == kbcon.AS_COLON:             # <<<<<<<<<<<<<<
  *             ctrlHouse.pressed_chars = ":"
- *             # print(f"\n{ctrlHouse.pressed_chars}\n\033[F\033[A", end="")
+ * 
  */
     __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_Ascii); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -7219,122 +7222,230 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_ExpanderEvent(Py
  *     if not ctrlHouse.pressed_chars.startswith((":", "!")):
  *         if event.Ascii == kbcon.AS_COLON:
  *             ctrlHouse.pressed_chars = ":"             # <<<<<<<<<<<<<<
- *             # print(f"\n{ctrlHouse.pressed_chars}\n\033[F\033[A", end="")
- *             print(ctrlHouse.pressed_chars, end="\r")
+ * 
+ *         elif event.Ascii == kbcon.AS_EXCLAM:
  */
       __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars, __pyx_kp_s__6) < 0) __PYX_ERR(0, 251, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":253
- *             ctrlHouse.pressed_chars = ":"
- *             # print(f"\n{ctrlHouse.pressed_chars}\n\033[F\033[A", end="")
- *             print(ctrlHouse.pressed_chars, end="\r")             # <<<<<<<<<<<<<<
- * 
- *         elif event.Ascii == kbcon.AS_EXCLAM:
- */
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 253, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_GIVEREF(__pyx_t_8);
-      PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_8);
-      __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 253, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, __pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
       /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":250
  *     #+ If the first stored character is not one of the defined prefixes, don't check anything else; this is not a valid word for expansion.
  *     if not ctrlHouse.pressed_chars.startswith((":", "!")):
  *         if event.Ascii == kbcon.AS_COLON:             # <<<<<<<<<<<<<<
  *             ctrlHouse.pressed_chars = ":"
- *             # print(f"\n{ctrlHouse.pressed_chars}\n\033[F\033[A", end="")
+ * 
  */
       goto __pyx_L5;
     }
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":255
- *             print(ctrlHouse.pressed_chars, end="\r")
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":253
+ *             ctrlHouse.pressed_chars = ":"
  * 
  *         elif event.Ascii == kbcon.AS_EXCLAM:             # <<<<<<<<<<<<<<
  *             ctrlHouse.pressed_chars = "!"
- *             print(ctrlHouse.pressed_chars, end="\r")
+ * 
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_Ascii); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 255, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_AS_EXCLAM); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 255, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_Ascii); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_AS_EXCLAM); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 255, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_8 = PyObject_RichCompare(__pyx_t_2, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 253, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 255, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 253, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     if (__pyx_t_3) {
 
-      /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":256
+      /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":254
  * 
  *         elif event.Ascii == kbcon.AS_EXCLAM:
  *             ctrlHouse.pressed_chars = "!"             # <<<<<<<<<<<<<<
- *             print(ctrlHouse.pressed_chars, end="\r")
  * 
+ *         # If all keys are suppressed, ":" and "!" cannot be pressed (because shift is suppressed, along with the ";" and "1" keys). Thus, we need to check if shift is pressed.
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 256, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 254, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      if (__Pyx_PyObject_SetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars, __pyx_kp_s__7) < 0) __PYX_ERR(0, 256, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars, __pyx_kp_s__7) < 0) __PYX_ERR(0, 254, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":257
- *         elif event.Ascii == kbcon.AS_EXCLAM:
- *             ctrlHouse.pressed_chars = "!"
- *             print(ctrlHouse.pressed_chars, end="\r")             # <<<<<<<<<<<<<<
- * 
- *         return True
- */
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 257, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = PyTuple_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 257, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_GIVEREF(__pyx_t_2);
-      PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_2);
-      __pyx_t_2 = 0;
-      __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 257, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_8, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-      /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":255
- *             print(ctrlHouse.pressed_chars, end="\r")
+      /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":253
+ *             ctrlHouse.pressed_chars = ":"
  * 
  *         elif event.Ascii == kbcon.AS_EXCLAM:             # <<<<<<<<<<<<<<
  *             ctrlHouse.pressed_chars = "!"
- *             print(ctrlHouse.pressed_chars, end="\r")
+ * 
  */
+      goto __pyx_L5;
+    }
+
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":258
+ *         # If all keys are suppressed, ":" and "!" cannot be pressed (because shift is suppressed, along with the ";" and "1" keys). Thus, we need to check if shift is pressed.
+ *         # Any new prefixes that require shift to be pressed should be added here.
+ *         elif (ctrlHouse.modifiers & ctrlHouse.SHIFT):             # <<<<<<<<<<<<<<
+ *             if event.KeyID == kbcon.VK_SEMICOLON:
+ *                 ctrlHouse.pressed_chars = ":"
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_SHIFT); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __pyx_t_8 = PyNumber_And(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    if (__pyx_t_3) {
+
+      /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":259
+ *         # Any new prefixes that require shift to be pressed should be added here.
+ *         elif (ctrlHouse.modifiers & ctrlHouse.SHIFT):
+ *             if event.KeyID == kbcon.VK_SEMICOLON:             # <<<<<<<<<<<<<<
+ *                 ctrlHouse.pressed_chars = ":"
+ * 
+ */
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 259, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_SEMICOLON); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_2 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 259, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      if (__pyx_t_3) {
+
+        /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":260
+ *         elif (ctrlHouse.modifiers & ctrlHouse.SHIFT):
+ *             if event.KeyID == kbcon.VK_SEMICOLON:
+ *                 ctrlHouse.pressed_chars = ":"             # <<<<<<<<<<<<<<
+ * 
+ *             elif event.KeyID == kbcon.VK_1:
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars, __pyx_kp_s__6) < 0) __PYX_ERR(0, 260, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+        /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":259
+ *         # Any new prefixes that require shift to be pressed should be added here.
+ *         elif (ctrlHouse.modifiers & ctrlHouse.SHIFT):
+ *             if event.KeyID == kbcon.VK_SEMICOLON:             # <<<<<<<<<<<<<<
+ *                 ctrlHouse.pressed_chars = ":"
+ * 
+ */
+        goto __pyx_L6;
+      }
+
+      /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":262
+ *                 ctrlHouse.pressed_chars = ":"
+ * 
+ *             elif event.KeyID == kbcon.VK_1:             # <<<<<<<<<<<<<<
+ *                 ctrlHouse.pressed_chars = "!"
+ * 
+ */
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 262, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 262, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 262, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      if (__pyx_t_3) {
+
+        /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":263
+ * 
+ *             elif event.KeyID == kbcon.VK_1:
+ *                 ctrlHouse.pressed_chars = "!"             # <<<<<<<<<<<<<<
+ * 
+ *         else:
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars, __pyx_kp_s__7) < 0) __PYX_ERR(0, 263, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+        /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":262
+ *                 ctrlHouse.pressed_chars = ":"
+ * 
+ *             elif event.KeyID == kbcon.VK_1:             # <<<<<<<<<<<<<<
+ *                 ctrlHouse.pressed_chars = "!"
+ * 
+ */
+      }
+      __pyx_L6:;
+
+      /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":258
+ *         # If all keys are suppressed, ":" and "!" cannot be pressed (because shift is suppressed, along with the ";" and "1" keys). Thus, we need to check if shift is pressed.
+ *         # Any new prefixes that require shift to be pressed should be added here.
+ *         elif (ctrlHouse.modifiers & ctrlHouse.SHIFT):             # <<<<<<<<<<<<<<
+ *             if event.KeyID == kbcon.VK_SEMICOLON:
+ *                 ctrlHouse.pressed_chars = ":"
+ */
+      goto __pyx_L5;
+    }
+
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":266
+ * 
+ *         else:
+ *             return True             # <<<<<<<<<<<<<<
+ * 
+ *         print(ctrlHouse.pressed_chars, end="\r")
+ */
+    /*else*/ {
+      __pyx_r = 1;
+      goto __pyx_L0;
     }
     __pyx_L5:;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":259
- *             print(ctrlHouse.pressed_chars, end="\r")
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":268
+ *             return True
  * 
+ *         print(ctrlHouse.pressed_chars, end="\r")             # <<<<<<<<<<<<<<
+ *         return True
+ * 
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_GIVEREF(__pyx_t_8);
+    PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_8);
+    __pyx_t_8 = 0;
+    __pyx_t_8 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 268, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":269
+ * 
+ *         print(ctrlHouse.pressed_chars, end="\r")
  *         return True             # <<<<<<<<<<<<<<
  * 
  *     #- Most of the function and modifier keys (ctrl, shift, end, home, etc...) have zero Ascii values.
@@ -7351,132 +7462,132 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_ExpanderEvent(Py
  */
   }
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":264
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":274
  *     #- Also, there are some other keys with non-zero Ascii values. These keys are [Space, Enter, Tab, ESC].
  *     #? If one of the above is true, then return the key without checking anything else. Note that the `Enter` key is returned as `\r`.
  *     if event.Ascii == 0 or event.KeyID in (win32con.VK_SPACE, win32con.VK_RETURN, win32con.VK_TAB, win32con.VK_ESCAPE):             # <<<<<<<<<<<<<<
  *         # Clear the displayed pressed character keys.
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_Ascii); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_EqObjC(__pyx_t_1, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_Ascii); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   if (!__pyx_t_4) {
   } else {
     __pyx_t_3 = __pyx_t_4;
-    goto __pyx_L7_bool_binop_done;
+    goto __pyx_L8_bool_binop_done;
   }
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_SPACE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_SPACE); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!__pyx_t_9) {
-  } else {
-    __pyx_t_4 = __pyx_t_9;
-    goto __pyx_L9_bool_binop_done;
-  }
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RETURN); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!__pyx_t_9) {
-  } else {
-    __pyx_t_4 = __pyx_t_9;
-    goto __pyx_L9_bool_binop_done;
-  }
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_TAB); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!__pyx_t_9) {
-  } else {
-    __pyx_t_4 = __pyx_t_9;
-    goto __pyx_L9_bool_binop_done;
-  }
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_ESCAPE); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __pyx_t_9;
-  __pyx_L9_bool_binop_done:;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (!__pyx_t_9) {
+  } else {
+    __pyx_t_4 = __pyx_t_9;
+    goto __pyx_L10_bool_binop_done;
+  }
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_RETURN); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (!__pyx_t_9) {
+  } else {
+    __pyx_t_4 = __pyx_t_9;
+    goto __pyx_L10_bool_binop_done;
+  }
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_TAB); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (!__pyx_t_9) {
+  } else {
+    __pyx_t_4 = __pyx_t_9;
+    goto __pyx_L10_bool_binop_done;
+  }
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_ESCAPE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_4 = __pyx_t_9;
+  __pyx_L10_bool_binop_done:;
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_9 = (__pyx_t_4 != 0);
   __pyx_t_3 = __pyx_t_9;
-  __pyx_L7_bool_binop_done:;
+  __pyx_L8_bool_binop_done:;
   if (__pyx_t_3) {
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":266
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":276
  *     if event.Ascii == 0 or event.KeyID in (win32con.VK_SPACE, win32con.VK_RETURN, win32con.VK_TAB, win32con.VK_ESCAPE):
  *         # Clear the displayed pressed character keys.
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")             # <<<<<<<<<<<<<<
  * 
  *         # To allow for `ctrl` + character keys, you need to check here for them individually. The same `event.Key` value is returned but `event.Ascii` is 0.
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_5 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 266, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = PyNumber_Multiply(__pyx_kp_s__10, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_2);
-    PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
-    __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 266, __pyx_L1_error)
-    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 266, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __pyx_t_5 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_8 = PyNumber_Multiply(__pyx_kp_s__10, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_8);
+    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_8);
+    __pyx_t_8 = 0;
+    __pyx_t_8 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 276, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, __pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":269
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":279
  * 
  *         # To allow for `ctrl` + character keys, you need to check here for them individually. The same `event.Key` value is returned but `event.Ascii` is 0.
  *         ctrlHouse.pressed_chars = "" # Resetting the stored pressed keys.             # <<<<<<<<<<<<<<
  * 
  *         return True
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 269, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars, __pyx_kp_s__4) < 0) __PYX_ERR(0, 269, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars, __pyx_kp_s__4) < 0) __PYX_ERR(0, 279, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":271
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":281
  *         ctrlHouse.pressed_chars = "" # Resetting the stored pressed keys.
  * 
  *         return True             # <<<<<<<<<<<<<<
@@ -7486,7 +7597,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_ExpanderEvent(Py
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":264
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":274
  *     #- Also, there are some other keys with non-zero Ascii values. These keys are [Space, Enter, Tab, ESC].
  *     #? If one of the above is true, then return the key without checking anything else. Note that the `Enter` key is returned as `\r`.
  *     if event.Ascii == 0 or event.KeyID in (win32con.VK_SPACE, win32con.VK_RETURN, win32con.VK_TAB, win32con.VK_ESCAPE):             # <<<<<<<<<<<<<<
@@ -7495,93 +7606,93 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_ExpanderEvent(Py
  */
   }
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":278
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":288
  * 
  *     #+ Pop characters if `backspace` is pressed.
  *     if event.KeyID == win32con.VK_BACK and len(ctrlHouse.pressed_chars):             # <<<<<<<<<<<<<<
  *         ctrlHouse.pressed_chars = ctrlHouse.pressed_chars[:-1] # Remove the last character
  *         print(ctrlHouse.pressed_chars + " ", end="\r")
  */
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 278, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_BACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_win32con); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_VK_BACK); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __pyx_t_8 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   if (__pyx_t_9) {
   } else {
     __pyx_t_3 = __pyx_t_9;
-    goto __pyx_L14_bool_binop_done;
+    goto __pyx_L15_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __pyx_t_5 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 278, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_9 = (__pyx_t_5 != 0);
   __pyx_t_3 = __pyx_t_9;
-  __pyx_L14_bool_binop_done:;
+  __pyx_L15_bool_binop_done:;
   if (__pyx_t_3) {
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":279
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":289
  *     #+ Pop characters if `backspace` is pressed.
  *     if event.KeyID == win32con.VK_BACK and len(ctrlHouse.pressed_chars):
  *         ctrlHouse.pressed_chars = ctrlHouse.pressed_chars[:-1] # Remove the last character             # <<<<<<<<<<<<<<
  *         print(ctrlHouse.pressed_chars + " ", end="\r")
  *         return True
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 279, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 289, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetSlice(__pyx_t_2, 0, -1L, NULL, NULL, &__pyx_slice__11, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 289, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 279, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetSlice(__pyx_t_8, 0, -1L, NULL, NULL, &__pyx_slice__11, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 289, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars, __pyx_t_1) < 0) __PYX_ERR(0, 279, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 289, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars, __pyx_t_2) < 0) __PYX_ERR(0, 289, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":280
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":290
  *     if event.KeyID == win32con.VK_BACK and len(ctrlHouse.pressed_chars):
  *         ctrlHouse.pressed_chars = ctrlHouse.pressed_chars[:-1] # Remove the last character
  *         print(ctrlHouse.pressed_chars + " ", end="\r")             # <<<<<<<<<<<<<<
  *         return True
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_kp_s__10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_2);
-    PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
-    __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 280, __pyx_L1_error)
-    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 280, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 290, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 290, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __pyx_t_8 = PyNumber_Add(__pyx_t_2, __pyx_kp_s__10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 290, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 290, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_8);
+    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_8);
+    __pyx_t_8 = 0;
+    __pyx_t_8 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 290, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 290, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, __pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 290, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":281
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":291
  *         ctrlHouse.pressed_chars = ctrlHouse.pressed_chars[:-1] # Remove the last character
  *         print(ctrlHouse.pressed_chars + " ", end="\r")
  *         return True             # <<<<<<<<<<<<<<
@@ -7591,7 +7702,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_ExpanderEvent(Py
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":278
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":288
  * 
  *     #+ Pop characters if `backspace` is pressed.
  *     if event.KeyID == win32con.VK_BACK and len(ctrlHouse.pressed_chars):             # <<<<<<<<<<<<<<
@@ -7600,331 +7711,331 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_ExpanderEvent(Py
  */
   }
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":284
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":294
  * 
  *     #+ If the key is not filtered above, then it is a valid character key.
  *     ctrlHouse.pressed_chars += event.Key.lower() # chr(event.Ascii).lower()             # <<<<<<<<<<<<<<
  *     print(ctrlHouse.pressed_chars, end="\r")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 284, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_Key); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_lower); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 284, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = NULL;
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_Key); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_lower); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_7);
-    if (likely(__pyx_t_1)) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_7);
+    if (likely(__pyx_t_2)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-      __Pyx_INCREF(__pyx_t_1);
+      __Pyx_INCREF(__pyx_t_2);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_7, function);
     }
   }
-  __pyx_t_8 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 284, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = PyNumber_InPlaceAdd(__pyx_t_2, __pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_InPlaceAdd(__pyx_t_8, __pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 284, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars, __pyx_t_7) < 0) __PYX_ERR(0, 284, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars, __pyx_t_7) < 0) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":285
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":295
  *     #+ If the key is not filtered above, then it is a valid character key.
  *     ctrlHouse.pressed_chars += event.Key.lower() # chr(event.Ascii).lower()
  *     print(ctrlHouse.pressed_chars, end="\r")             # <<<<<<<<<<<<<<
  * 
  *     #+ Check if the pressed characters match any of the defined abbreviations, and if so, replace them accordingly.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 285, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = PyTuple_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 285, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_7);
-  PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_7);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_7);
   __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":288
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":298
  * 
  *     #+ Check if the pressed characters match any of the defined abbreviations, and if so, replace them accordingly.
  *     if ctrlHouse.pressed_chars in ctrlHouse.abbreviations:             # <<<<<<<<<<<<<<
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  *         kbHelper.ExpandText()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 288, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_abbreviations); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 298, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_t_7, __pyx_t_8, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_abbreviations); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_t_7, __pyx_t_1, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_9 = (__pyx_t_3 != 0);
   if (__pyx_t_9) {
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":289
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":299
  *     #+ Check if the pressed characters match any of the defined abbreviations, and if so, replace them accordingly.
  *     if ctrlHouse.pressed_chars in ctrlHouse.abbreviations:
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")             # <<<<<<<<<<<<<<
  *         kbHelper.ExpandText()
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 289, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 289, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 299, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_5 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 299, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_7 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 299, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_1 = PyNumber_Multiply(__pyx_kp_s__10, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 299, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_GIVEREF(__pyx_t_1);
+    PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_1);
+    __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 299, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_7, __pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 299, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_5 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 289, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 289, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = PyNumber_Multiply(__pyx_kp_s__10, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 289, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 289, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_GIVEREF(__pyx_t_8);
-    PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_8);
-    __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 289, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 289, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 289, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":290
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":300
  *     if ctrlHouse.pressed_chars in ctrlHouse.abbreviations:
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  *         kbHelper.ExpandText()             # <<<<<<<<<<<<<<
  * 
  *     ### Executing some operations based on the pressed characters. ###
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_kbHelper); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 290, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_ExpandText); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 290, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_kbHelper); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ExpandText); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 300, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = NULL;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
-      __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_7);
-      if (likely(__pyx_t_8)) {
+      __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_7);
+      if (likely(__pyx_t_1)) {
         PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-        __Pyx_INCREF(__pyx_t_8);
+        __Pyx_INCREF(__pyx_t_1);
         __Pyx_INCREF(function);
         __Pyx_DECREF_SET(__pyx_t_7, function);
       }
     }
-    __pyx_t_2 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
-    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 290, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_8 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 300, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":288
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":298
  * 
  *     #+ Check if the pressed characters match any of the defined abbreviations, and if so, replace them accordingly.
  *     if ctrlHouse.pressed_chars in ctrlHouse.abbreviations:             # <<<<<<<<<<<<<<
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  *         kbHelper.ExpandText()
  */
-    goto __pyx_L16;
+    goto __pyx_L17;
   }
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":294
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":304
  *     ### Executing some operations based on the pressed characters. ###
  *     #+ Opening a file or a directory.
  *     elif ctrlHouse.pressed_chars in ctrlHouse.locations:             # <<<<<<<<<<<<<<
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  *         kbHelper.OpenLocation()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 294, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 294, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 294, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_locations); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_9 = (__Pyx_PySequence_ContainsTF(__pyx_t_7, __pyx_t_8, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 294, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_locations); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __pyx_t_9 = (__Pyx_PySequence_ContainsTF(__pyx_t_7, __pyx_t_1, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (__pyx_t_9 != 0);
   if (__pyx_t_3) {
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":295
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":305
  *     #+ Opening a file or a directory.
  *     elif ctrlHouse.pressed_chars in ctrlHouse.locations:
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")             # <<<<<<<<<<<<<<
  *         kbHelper.OpenLocation()
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 295, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 295, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_5 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 305, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_7 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_1 = PyNumber_Multiply(__pyx_kp_s__10, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_GIVEREF(__pyx_t_1);
+    PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_1);
+    __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 305, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_7, __pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_5 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 295, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 295, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = PyNumber_Multiply(__pyx_kp_s__10, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 295, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 295, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_GIVEREF(__pyx_t_8);
-    PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_8);
-    __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 295, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 295, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":296
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":306
  *     elif ctrlHouse.pressed_chars in ctrlHouse.locations:
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  *         kbHelper.OpenLocation()             # <<<<<<<<<<<<<<
  * 
  *     #+ This is a crude way of opening a file using a specific program (open with).
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_kbHelper); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 296, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_OpenLocation); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 296, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_kbHelper); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_OpenLocation); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = NULL;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
-      __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_7);
-      if (likely(__pyx_t_8)) {
+      __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_7);
+      if (likely(__pyx_t_1)) {
         PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-        __Pyx_INCREF(__pyx_t_8);
+        __Pyx_INCREF(__pyx_t_1);
         __Pyx_INCREF(function);
         __Pyx_DECREF_SET(__pyx_t_7, function);
       }
     }
-    __pyx_t_2 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
-    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 296, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_8 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 306, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":294
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":304
  *     ### Executing some operations based on the pressed characters. ###
  *     #+ Opening a file or a directory.
  *     elif ctrlHouse.pressed_chars in ctrlHouse.locations:             # <<<<<<<<<<<<<<
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  *         kbHelper.OpenLocation()
  */
-    goto __pyx_L16;
+    goto __pyx_L17;
   }
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":299
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":309
  * 
  *     #+ This is a crude way of opening a file using a specific program (open with).
  *     elif ctrlHouse.pressed_chars == ":\\\\":             # <<<<<<<<<<<<<<
  *         # PThread(target=kbHelper.SimulateKeyPressSequence, args=[((win32con.VK_LMENU, 56), (52, 5), (40, 80), (40, 80), (13, 28))]).start()
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 299, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_7, __pyx_kp_s__12, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_7, __pyx_kp_s__12, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__pyx_t_3) {
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":301
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":311
  *     elif ctrlHouse.pressed_chars == ":\\\\":
  *         # PThread(target=kbHelper.SimulateKeyPressSequence, args=[((win32con.VK_LMENU, 56), (52, 5), (40, 80), (40, 80), (13, 28))]).start()
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")             # <<<<<<<<<<<<<<
  *         kbHelper.CrudeOpenWith(4, 2)
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 301, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 311, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_5 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 301, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PyNumber_Multiply(__pyx_kp_s__10, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 301, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_7);
-    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_7);
-    __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 301, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 301, __pyx_L1_error)
-    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 301, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 311, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_5 = PyObject_Length(__pyx_t_8); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 311, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __pyx_t_8 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 311, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __pyx_t_7 = PyNumber_Multiply(__pyx_kp_s__10, __pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 311, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __pyx_t_8 = PyTuple_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 311, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_GIVEREF(__pyx_t_7);
+    PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_7);
+    __pyx_t_7 = 0;
+    __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 311, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 311, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":302
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":312
  *         # PThread(target=kbHelper.SimulateKeyPressSequence, args=[((win32con.VK_LMENU, 56), (52, 5), (40, 80), (40, 80), (13, 28))]).start()
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  *         kbHelper.CrudeOpenWith(4, 2)             # <<<<<<<<<<<<<<
  * 
  *     return True
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_kbHelper); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 302, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_CrudeOpenWith); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 302, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_kbHelper); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CrudeOpenWith); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 312, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 302, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":299
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":309
  * 
  *     #+ This is a crude way of opening a file using a specific program (open with).
  *     elif ctrlHouse.pressed_chars == ":\\\\":             # <<<<<<<<<<<<<<
@@ -7932,9 +8043,9 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_ExpanderEvent(Py
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  */
   }
-  __pyx_L16:;
+  __pyx_L17:;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":304
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":314
  *         kbHelper.CrudeOpenWith(4, 2)
  * 
  *     return True             # <<<<<<<<<<<<<<
@@ -8005,7 +8116,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_2Expander
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/eventListeners/eventListeners.pyx":307
+/* "src/_cythonExtensions/eventListeners/eventListeners.pyx":317
  * 
  * 
  * def KeyPress(event: KeyboardEvent) -> bool:             # <<<<<<<<<<<<<<
@@ -8048,16 +8159,16 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("KeyPress", 0);
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":311
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":321
  * 
  *     #! Updating states of lock keys.
  *     ctrlHouse.UpdateLocks(event)             # <<<<<<<<<<<<<<
  * 
  *     #! Distinguish between real user input and keyboard input generated by programs/scripts.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_UpdateLocks); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_UpdateLocks); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -8072,40 +8183,39 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_event) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_event);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":314
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":324
  * 
  *     #! Distinguish between real user input and keyboard input generated by programs/scripts.
- *     if event.Injected == 16:             # <<<<<<<<<<<<<<
+ *     if event.Injected == True:             # <<<<<<<<<<<<<<
  *         # Don't process the key further and don't suppress it.
  *         PThread.msgQueue.put(False)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_Injected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_Injected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_t_1, __pyx_int_16, 16, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 314, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, Py_True, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 324, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 324, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":316
- *     if event.Injected == 16:
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":326
+ *     if event.Injected == True:
  *         # Don't process the key further and don't suppress it.
  *         PThread.msgQueue.put(False)             # <<<<<<<<<<<<<<
  * 
  *         return False
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_msgQueue); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 316, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_msgQueue); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_put); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_put); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -8120,12 +8230,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     }
     __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_2, Py_False) : __Pyx_PyObject_CallOneArg(__pyx_t_1, Py_False);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 316, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":318
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":328
  *         PThread.msgQueue.put(False)
  * 
  *         return False             # <<<<<<<<<<<<<<
@@ -8137,25 +8247,25 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     __pyx_r = Py_False;
     goto __pyx_L0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":314
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":324
  * 
  *     #! Distinguish between real user input and keyboard input generated by programs/scripts.
- *     if event.Injected == 16:             # <<<<<<<<<<<<<<
+ *     if event.Injected == True:             # <<<<<<<<<<<<<<
  *         # Don't process the key further and don't suppress it.
  *         PThread.msgQueue.put(False)
  */
   }
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":321
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":331
  * 
  *     #! Updating states of modifier keys.
  *     ctrlHouse.UpdateModifiers_KeyDown(event)             # <<<<<<<<<<<<<<
  * 
  *     #+ For the text expansion events.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 321, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_UpdateModifiers_KeyDown); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 321, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_UpdateModifiers_KeyDown); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -8170,38 +8280,38 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_1, __pyx_v_event) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_event);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 321, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":324
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":334
  * 
  *     #+ For the text expansion events.
  *     PThread(target=ExpanderEvent, args=[event]).start()             # <<<<<<<<<<<<<<
  * 
  *     # Hotkey events require pressing at least one modifier key.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ExpanderEvent); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ExpanderEvent); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_target, __pyx_t_5) < 0) __PYX_ERR(0, 324, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_target, __pyx_t_5) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_v_event);
   __Pyx_GIVEREF(__pyx_v_event);
   PyList_SET_ITEM(__pyx_t_5, 0, __pyx_v_event);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_args, __pyx_t_5) < 0) __PYX_ERR(0, 324, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_args, __pyx_t_5) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -8216,54 +8326,54 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 324, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":327
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":337
  * 
  *     # Hotkey events require pressing at least one modifier key.
  *     if ctrlHouse.modifiers:             # <<<<<<<<<<<<<<
  *         #+ For the hotkey events.
  *         PThread(target=HotkeyPressEvent, args=[event]).start()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":329
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":339
  *     if ctrlHouse.modifiers:
  *         #+ For the hotkey events.
  *         PThread(target=HotkeyPressEvent, args=[event]).start()             # <<<<<<<<<<<<<<
  * 
  *     #++ Scrolling by simulating mouse scroll events. ('W'*, 'S'*, 'A'*, 'D'*)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 329, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 329, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_HotkeyPressEvent); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 329, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_HotkeyPressEvent); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_target, __pyx_t_2) < 0) __PYX_ERR(0, 329, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_target, __pyx_t_2) < 0) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 329, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_v_event);
     __Pyx_GIVEREF(__pyx_v_event);
     PyList_SET_ITEM(__pyx_t_2, 0, __pyx_v_event);
-    if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_args, __pyx_t_2) < 0) __PYX_ERR(0, 329, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_args, __pyx_t_2) < 0) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 329, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 329, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -8278,12 +8388,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 329, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":327
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":337
  * 
  *     # Hotkey events require pressing at least one modifier key.
  *     if ctrlHouse.modifiers:             # <<<<<<<<<<<<<<
@@ -8293,86 +8403,86 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     goto __pyx_L4;
   }
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":332
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":342
  * 
  *     #++ Scrolling by simulating mouse scroll events. ('W'*, 'S'*, 'A'*, 'D'*)
  *     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D):             # <<<<<<<<<<<<<<
  *         dist = 1
  *         PThread(target=ctrlHouse.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_locks); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_locks); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SCROLL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SCROLL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_And(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_And(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
   } else {
     __pyx_t_4 = __pyx_t_6;
     goto __pyx_L5_bool_binop_done;
   }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_W); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_W); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (!__pyx_t_7) {
   } else {
     __pyx_t_6 = __pyx_t_7;
     goto __pyx_L7_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_S); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_S); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (!__pyx_t_7) {
   } else {
     __pyx_t_6 = __pyx_t_7;
     goto __pyx_L7_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_A); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_A); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (!__pyx_t_7) {
   } else {
     __pyx_t_6 = __pyx_t_7;
     goto __pyx_L7_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_D); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_D); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_6 = __pyx_t_7;
   __pyx_L7_bool_binop_done:;
@@ -8382,7 +8492,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_4) {
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":333
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":343
  *     #++ Scrolling by simulating mouse scroll events. ('W'*, 'S'*, 'A'*, 'D'*)
  *     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D):
  *         dist = 1             # <<<<<<<<<<<<<<
@@ -8392,32 +8502,32 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     __Pyx_INCREF(__pyx_int_1);
     __pyx_v_dist = __pyx_int_1;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":334
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":344
  *     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D):
  *         dist = 1
  *         PThread(target=ctrlHouse.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start()             # <<<<<<<<<<<<<<
  * 
  *         # Suppress the pressed key.
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SendMouseScroll); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SendMouseScroll); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_target, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_target, __pyx_t_8) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_3 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_VK_W); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_VK_W); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_INCREF(__pyx_v_dist);
     __Pyx_GIVEREF(__pyx_v_dist);
@@ -8425,17 +8535,17 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     __Pyx_INCREF(__pyx_int_1);
     __Pyx_GIVEREF(__pyx_int_1);
     PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_int_1);
-    if (PyDict_SetItem(__pyx_t_3, __pyx_t_10, __pyx_t_9) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_t_10, __pyx_t_9) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_VK_S); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_VK_S); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_9 = PyNumber_Negative(__pyx_v_dist); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_9 = PyNumber_Negative(__pyx_v_dist); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_GIVEREF(__pyx_t_9);
     PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9);
@@ -8443,17 +8553,17 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     __Pyx_GIVEREF(__pyx_int_1);
     PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_int_1);
     __pyx_t_9 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_t_10, __pyx_t_11) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_t_10, __pyx_t_11) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_VK_A); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_VK_A); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __pyx_t_11 = PyNumber_Negative(__pyx_v_dist); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_11 = PyNumber_Negative(__pyx_v_dist); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_GIVEREF(__pyx_t_11);
     PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_11);
@@ -8461,15 +8571,15 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     __Pyx_GIVEREF(__pyx_int_0);
     PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_int_0);
     __pyx_t_11 = 0;
-    if (PyDict_SetItem(__pyx_t_3, __pyx_t_10, __pyx_t_9) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_t_10, __pyx_t_9) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_VK_D); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_VK_D); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_INCREF(__pyx_v_dist);
     __Pyx_GIVEREF(__pyx_v_dist);
@@ -8477,25 +8587,25 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
     PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_int_0);
-    if (PyDict_SetItem(__pyx_t_3, __pyx_t_10, __pyx_t_9) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_t_10, __pyx_t_9) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_10 = __Pyx_PyDict_GetItemDefault(__pyx_t_3, __pyx_t_9, Py_None); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyDict_GetItemDefault(__pyx_t_3, __pyx_t_9, Py_None); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_8 = PySequence_List(__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_8 = PySequence_List(__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_args, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_args, __pyx_t_8) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_8 = NULL;
@@ -8510,24 +8620,24 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     }
     __pyx_t_1 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":337
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":347
  * 
  *         # Suppress the pressed key.
  *         PThread.msgQueue.put(True)             # <<<<<<<<<<<<<<
  * 
  *     else:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PThread); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PThread); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 347, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_msgQueue); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_msgQueue); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 347, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_put); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_put); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 347, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_8 = NULL;
@@ -8542,12 +8652,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     }
     __pyx_t_1 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_8, Py_True) : __Pyx_PyObject_CallOneArg(__pyx_t_5, Py_True);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":332
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":342
  * 
  *     #++ Scrolling by simulating mouse scroll events. ('W'*, 'S'*, 'A'*, 'D'*)
  *     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D):             # <<<<<<<<<<<<<<
@@ -8557,7 +8667,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     goto __pyx_L4;
   }
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":340
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":350
  * 
  *     else:
  *         PThread.msgQueue.put(mgmt.suppress_all_keys)             # <<<<<<<<<<<<<<
@@ -8565,17 +8675,17 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
  *         return mgmt.suppress_all_keys
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PThread); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PThread); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_msgQueue); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_msgQueue); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_put); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_put); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_mgmt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_mgmt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_suppress_all_keys); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_suppress_all_keys); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_8 = NULL;
@@ -8591,12 +8701,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
     __pyx_t_1 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_8, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":342
+    /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":352
  *         PThread.msgQueue.put(mgmt.suppress_all_keys)
  * 
  *         return mgmt.suppress_all_keys             # <<<<<<<<<<<<<<
@@ -8604,9 +8714,9 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
  *     return False
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_mgmt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_mgmt); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 352, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_suppress_all_keys); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 342, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_suppress_all_keys); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 352, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_r = __pyx_t_5;
@@ -8615,7 +8725,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
   }
   __pyx_L4:;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":344
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":354
  *         return mgmt.suppress_all_keys
  * 
  *     return False             # <<<<<<<<<<<<<<
@@ -8627,7 +8737,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":307
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":317
  * 
  * 
  * def KeyPress(event: KeyboardEvent) -> bool:             # <<<<<<<<<<<<<<
@@ -8654,7 +8764,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_4KeyPress
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/eventListeners/eventListeners.pyx":347
+/* "src/_cythonExtensions/eventListeners/eventListeners.pyx":357
  * 
  * 
  * cpdef bint KeyRelease(event):             # <<<<<<<<<<<<<<
@@ -8674,16 +8784,16 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_KeyRelease(PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("KeyRelease", 0);
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":361
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":371
  * 
  *     # Updating states of modifier keys.
  *     ctrlHouse.UpdateModifiers_KeyUp(event)             # <<<<<<<<<<<<<<
  * 
  *     return False
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 361, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_UpdateModifiers_KeyUp); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 361, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_UpdateModifiers_KeyUp); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -8698,12 +8808,12 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_KeyRelease(PyObj
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_event) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_event);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 361, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":363
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":373
  *     ctrlHouse.UpdateModifiers_KeyUp(event)
  * 
  *     return False             # <<<<<<<<<<<<<<
@@ -8711,7 +8821,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14eventListeners_KeyRelease(PyObj
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":347
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":357
  * 
  * 
  * cpdef bint KeyRelease(event):             # <<<<<<<<<<<<<<
@@ -8754,7 +8864,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14eventListeners_6KeyRelea
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("KeyRelease", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_7macropy_16cythonExtensions_14eventListeners_KeyRelease(__pyx_v_event, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_7macropy_16cythonExtensions_14eventListeners_KeyRelease(__pyx_v_event, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 357, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8908,6 +9018,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_UpdateLocks, __pyx_k_UpdateLocks, sizeof(__pyx_k_UpdateLocks), 0, 0, 1, 1},
   {&__pyx_n_s_UpdateModifiers_KeyDown, __pyx_k_UpdateModifiers_KeyDown, sizeof(__pyx_k_UpdateModifiers_KeyDown), 0, 0, 1, 1},
   {&__pyx_n_s_UpdateModifiers_KeyUp, __pyx_k_UpdateModifiers_KeyUp, sizeof(__pyx_k_UpdateModifiers_KeyUp), 0, 0, 1, 1},
+  {&__pyx_n_s_VK_1, __pyx_k_VK_1, sizeof(__pyx_k_VK_1), 0, 0, 1, 1},
   {&__pyx_n_s_VK_A, __pyx_k_VK_A, sizeof(__pyx_k_VK_A), 0, 0, 1, 1},
   {&__pyx_n_s_VK_ADD, __pyx_k_VK_ADD, sizeof(__pyx_k_VK_ADD), 0, 0, 1, 1},
   {&__pyx_n_s_VK_BACK, __pyx_k_VK_BACK, sizeof(__pyx_k_VK_BACK), 0, 0, 1, 1},
@@ -8932,6 +9043,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_VK_RIGHT, __pyx_k_VK_RIGHT, sizeof(__pyx_k_VK_RIGHT), 0, 0, 1, 1},
   {&__pyx_n_s_VK_S, __pyx_k_VK_S, sizeof(__pyx_k_VK_S), 0, 0, 1, 1},
   {&__pyx_n_s_VK_SCROLL, __pyx_k_VK_SCROLL, sizeof(__pyx_k_VK_SCROLL), 0, 0, 1, 1},
+  {&__pyx_n_s_VK_SEMICOLON, __pyx_k_VK_SEMICOLON, sizeof(__pyx_k_VK_SEMICOLON), 0, 0, 1, 1},
   {&__pyx_n_s_VK_SLASH, __pyx_k_VK_SLASH, sizeof(__pyx_k_VK_SLASH), 0, 0, 1, 1},
   {&__pyx_n_s_VK_SPACE, __pyx_k_VK_SPACE, sizeof(__pyx_k_VK_SPACE), 0, 0, 1, 1},
   {&__pyx_n_s_VK_SUBTRACT, __pyx_k_VK_SUBTRACT, sizeof(__pyx_k_VK_SUBTRACT), 0, 0, 1, 1},
@@ -9077,39 +9189,39 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":279
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":289
  *     #+ Pop characters if `backspace` is pressed.
  *     if event.KeyID == win32con.VK_BACK and len(ctrlHouse.pressed_chars):
  *         ctrlHouse.pressed_chars = ctrlHouse.pressed_chars[:-1] # Remove the last character             # <<<<<<<<<<<<<<
  *         print(ctrlHouse.pressed_chars + " ", end="\r")
  *         return True
  */
-  __pyx_slice__11 = PySlice_New(Py_None, __pyx_int_neg_1, Py_None); if (unlikely(!__pyx_slice__11)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_slice__11 = PySlice_New(Py_None, __pyx_int_neg_1, Py_None); if (unlikely(!__pyx_slice__11)) __PYX_ERR(0, 289, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__11);
   __Pyx_GIVEREF(__pyx_slice__11);
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":302
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":312
  *         # PThread(target=kbHelper.SimulateKeyPressSequence, args=[((win32con.VK_LMENU, 56), (52, 5), (40, 80), (40, 80), (13, 28))]).start()
  *         print(" " * len(ctrlHouse.pressed_chars), end="\r")
  *         kbHelper.CrudeOpenWith(4, 2)             # <<<<<<<<<<<<<<
  * 
  *     return True
  */
-  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_int_4, __pyx_int_2); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_int_4, __pyx_int_2); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":307
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":317
  * 
  * 
  * def KeyPress(event: KeyboardEvent) -> bool:             # <<<<<<<<<<<<<<
  *     """The main callback function for handling the `KeyPress` events. Used mainly for allowing multiple `KeyPress` callbacks to run simultaneously."""
  * 
  */
-  __pyx_tuple__14 = PyTuple_Pack(2, __pyx_n_s_event, __pyx_n_s_dist); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 307, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(2, __pyx_n_s_event, __pyx_n_s_dist); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_eventListe, __pyx_n_s_KeyPress, 307, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 307, __pyx_L1_error)
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_eventListe, __pyx_n_s_KeyPress, 317, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -9127,7 +9239,6 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   __pyx_int_4 = PyInt_FromLong(4); if (unlikely(!__pyx_int_4)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_7 = PyInt_FromLong(7); if (unlikely(!__pyx_int_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_15 = PyInt_FromLong(15); if (unlikely(!__pyx_int_15)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_16 = PyInt_FromLong(16); if (unlikely(!__pyx_int_16)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_70 = PyInt_FromLong(70); if (unlikely(!__pyx_int_70)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_10000 = PyInt_FromLong(10000L); if (unlikely(!__pyx_int_10000)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -9603,16 +9714,16 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_threading, __pyx_t_1) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":307
+  /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":317
  * 
  * 
  * def KeyPress(event: KeyboardEvent) -> bool:             # <<<<<<<<<<<<<<
  *     """The main callback function for handling the `KeyPress` events. Used mainly for allowing multiple `KeyPress` callbacks to run simultaneously."""
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_14eventListeners_5KeyPress, NULL, __pyx_n_s_macropy_cythonExtensions_eventLi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 307, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_14eventListeners_5KeyPress, NULL, __pyx_n_s_macropy_cythonExtensions_eventLi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_KeyPress, __pyx_t_1) < 0) __PYX_ERR(0, 307, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_KeyPress, __pyx_t_1) < 0) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "src/_cythonExtensions/eventListeners/eventListeners.pyx":1

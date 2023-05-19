@@ -1,5 +1,7 @@
-import sys
+import sys, os
 from setuptools import setup, Extension
+
+os.chdir(os.path.dirname(__file__))
 
 USE_CYTHON = True
 """

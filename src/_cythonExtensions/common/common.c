@@ -1140,7 +1140,7 @@ enum __pyx_t_7macropy_16cythonExtensions_6common_KB_Con {
   __pyx_e_7macropy_16cythonExtensions_6common_SC_VOLUME_DOWN = 46
 };
 
-/* "src/_cythonExtensions/common/common.pyx":534
+/* "src/_cythonExtensions/common/common.pyx":527
  * 
  * 
  * cpdef str ReadFromClipboard(int CF=win32clipboard.CF_TEXT): # CF: Clipboard format.             # <<<<<<<<<<<<<<
@@ -1152,7 +1152,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_6common_ReadFromClipboard {
   int CF;
 };
 
-/* "src/_cythonExtensions/common/common.pyx":548
+/* "src/_cythonExtensions/common/common.pyx":541
  * 
  * 
  * cpdef void SendToClipboard(data, int CF=win32clipboard.CF_UNICODETEXT):             # <<<<<<<<<<<<<<
@@ -1164,7 +1164,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_6common_SendToClipboard {
   int CF;
 };
 
-/* "src/_cythonExtensions/common/common.pyx":467
+/* "src/_cythonExtensions/common/common.pyx":460
  * 
  *     @staticmethod
  *     def Throttle(wait_time: float):             # <<<<<<<<<<<<<<
@@ -1177,7 +1177,7 @@ struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct__Throttl
 };
 
 
-/* "src/_cythonExtensions/common/common.pyx":473
+/* "src/_cythonExtensions/common/common.pyx":466
  *         """
  * 
  *         def decorator(function):             # <<<<<<<<<<<<<<
@@ -1192,7 +1192,7 @@ struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_1_decora
 };
 
 
-/* "src/_cythonExtensions/common/common.pyx":474
+/* "src/_cythonExtensions/common/common.pyx":467
  * 
  *         def decorator(function):
  *             def throttled(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -1207,7 +1207,7 @@ struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_2_thrott
 };
 
 
-/* "src/_cythonExtensions/common/common.pyx":494
+/* "src/_cythonExtensions/common/common.pyx":487
  * 
  *     @staticmethod
  *     def Debounce(wait_time: float):             # <<<<<<<<<<<<<<
@@ -1220,7 +1220,7 @@ struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_3_Deboun
 };
 
 
-/* "src/_cythonExtensions/common/common.pyx":505
+/* "src/_cythonExtensions/common/common.pyx":498
  *         """
  * 
  *         def decorator(function: Callable):             # <<<<<<<<<<<<<<
@@ -1235,7 +1235,7 @@ struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_4_decora
 };
 
 
-/* "src/_cythonExtensions/common/common.pyx":506
+/* "src/_cythonExtensions/common/common.pyx":499
  * 
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -4080,8 +4080,8 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_11WindowHouse_4Rem
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":262
- *     # pynput_mouse = mController()
+/* "src/_cythonExtensions/common/common.pyx":259
+ * 
  * 
  *     def UpdateModifiers_KeyDown(event) -> None:             # <<<<<<<<<<<<<<
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
@@ -4116,523 +4116,523 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("UpdateModifiers_KeyDown", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":265
+  /* "src/_cythonExtensions/common/common.pyx":262
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
  * 
  *         ControllerHouse.modifiers |= (             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":266
+  /* "src/_cythonExtensions/common/common.pyx":263
  * 
  *         ControllerHouse.modifiers |= (
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LCONTROL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LCONTROL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_12, 12, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_12, 12, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":267
+  /* "src/_cythonExtensions/common/common.pyx":264
  *         ControllerHouse.modifiers |= (
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 267, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RCONTROL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 267, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RCONTROL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_11, 11, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 267, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_11, 11, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":266
+  /* "src/_cythonExtensions/common/common.pyx":263
  * 
  *         ControllerHouse.modifiers |= (
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":268
+  /* "src/_cythonExtensions/common/common.pyx":265
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_LSHIFT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_LSHIFT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":267
+  /* "src/_cythonExtensions/common/common.pyx":264
  *         ControllerHouse.modifiers |= (
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  */
-  __pyx_t_4 = PyNumber_Or(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 267, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Or(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":269
+  /* "src/_cythonExtensions/common/common.pyx":266
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RSHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RSHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":268
+  /* "src/_cythonExtensions/common/common.pyx":265
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":270
+  /* "src/_cythonExtensions/common/common.pyx":267
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_LMENU); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_LMENU); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_6, 6, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_6, 6, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":269
+  /* "src/_cythonExtensions/common/common.pyx":266
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  */
-  __pyx_t_4 = PyNumber_Or(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Or(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":271
+  /* "src/_cythonExtensions/common/common.pyx":268
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RMENU); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RMENU); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_5, 5, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_5, 5, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":270
+  /* "src/_cythonExtensions/common/common.pyx":267
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":272
+  /* "src/_cythonExtensions/common/common.pyx":269
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 269, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 272, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 269, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_LWIN); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 272, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_LWIN); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 269, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 272, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 269, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_3, 3, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 272, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_3, 3, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 269, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":271
+  /* "src/_cythonExtensions/common/common.pyx":268
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  */
-  __pyx_t_4 = PyNumber_Or(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Or(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":273
+  /* "src/_cythonExtensions/common/common.pyx":270
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN             # <<<<<<<<<<<<<<
  *             (event.KeyID == 255)                  << 1  | # FN
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 273, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 273, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RWIN); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 273, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RWIN); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 273, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 273, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":272
+  /* "src/_cythonExtensions/common/common.pyx":269
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":274
+  /* "src/_cythonExtensions/common/common.pyx":271
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN             # <<<<<<<<<<<<<<
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
  *         )
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyInt_EqObjC(__pyx_t_5, __pyx_int_255, 0xFF, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_EqObjC(__pyx_t_5, __pyx_int_255, 0xFF, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":273
+  /* "src/_cythonExtensions/common/common.pyx":270
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN             # <<<<<<<<<<<<<<
  *             (event.KeyID == 255)                  << 1  | # FN
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
  */
-  __pyx_t_4 = PyNumber_Or(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 273, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Or(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":275
+  /* "src/_cythonExtensions/common/common.pyx":272
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK             # <<<<<<<<<<<<<<
  *         )
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 275, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_PyInt_From_enum____pyx_t_7macropy_16cythonExtensions_6common_KB_Con(__pyx_e_7macropy_16cythonExtensions_6common_VK_BACKTICK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_enum____pyx_t_7macropy_16cythonExtensions_6common_KB_Con(__pyx_e_7macropy_16cythonExtensions_6common_VK_BACKTICK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 275, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":274
+  /* "src/_cythonExtensions/common/common.pyx":271
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN             # <<<<<<<<<<<<<<
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
  *         )
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":265
+  /* "src/_cythonExtensions/common/common.pyx":262
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
  * 
  *         ControllerHouse.modifiers |= (             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  */
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_modifiers, __pyx_t_3) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_modifiers, __pyx_t_3) < 0) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":278
+  /* "src/_cythonExtensions/common/common.pyx":275
  *         )
  * 
  *         ControllerHouse.modifiers |= (             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":279
+  /* "src/_cythonExtensions/common/common.pyx":276
  * 
  *         ControllerHouse.modifiers |= (
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_LCTRL_RCTRL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_LCTRL_RCTRL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_NeObjC(__pyx_t_1, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_NeObjC(__pyx_t_1, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_13, 13, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_13, 13, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":280
+  /* "src/_cythonExtensions/common/common.pyx":277
  *         ControllerHouse.modifiers |= (
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_LSHIFT_RSHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_LSHIFT_RSHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_And(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_And(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_4, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_4, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_5, __pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_5, __pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":279
+  /* "src/_cythonExtensions/common/common.pyx":276
  * 
  *         ControllerHouse.modifiers |= (
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  */
-  __pyx_t_5 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":281
+  /* "src/_cythonExtensions/common/common.pyx":278
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
  *         )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_LALT_RALT); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_LALT_RALT); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_And(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_And(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_NeObjC(__pyx_t_4, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_NeObjC(__pyx_t_4, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_2, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_2, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":280
+  /* "src/_cythonExtensions/common/common.pyx":277
  *         ControllerHouse.modifiers |= (
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
  */
-  __pyx_t_2 = PyNumber_Or(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Or(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":282
+  /* "src/_cythonExtensions/common/common.pyx":279
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM             # <<<<<<<<<<<<<<
  *         )
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_LWIN_RWIN); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_LWIN_RWIN); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_And(__pyx_t_5, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_And(__pyx_t_5, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_NeObjC(__pyx_t_4, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_NeObjC(__pyx_t_4, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_4, 4, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_4, 4, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":281
+  /* "src/_cythonExtensions/common/common.pyx":278
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
  *         )
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":278
+  /* "src/_cythonExtensions/common/common.pyx":275
  *         )
  * 
  *         ControllerHouse.modifiers |= (             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  */
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_modifiers, __pyx_t_4) < 0) __PYX_ERR(0, 278, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_modifiers, __pyx_t_4) < 0) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":262
- *     # pynput_mouse = mController()
+  /* "src/_cythonExtensions/common/common.pyx":259
+ * 
  * 
  *     def UpdateModifiers_KeyDown(event) -> None:             # <<<<<<<<<<<<<<
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
@@ -4656,7 +4656,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":285
+/* "src/_cythonExtensions/common/common.pyx":282
  *         )
  * 
  *     def UpdateModifiers_KeyUp(event) -> None:             # <<<<<<<<<<<<<<
@@ -4692,539 +4692,539 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("UpdateModifiers_KeyUp", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":288
+  /* "src/_cythonExtensions/common/common.pyx":285
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
  * 
  *         ControllerHouse.modifiers &= ~(             # <<<<<<<<<<<<<<
  *             (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":290
+  /* "src/_cythonExtensions/common/common.pyx":287
  *         ControllerHouse.modifiers &= ~(
  *             (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 290, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 290, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LCONTROL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 290, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LCONTROL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 290, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_12, 12, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 290, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_12, 12, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":289
+  /* "src/_cythonExtensions/common/common.pyx":286
  * 
  *         ControllerHouse.modifiers &= ~(
  *             (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  */
-  __pyx_t_3 = __Pyx_PyInt_OrCObj(__pyx_int_9360, __pyx_t_4, 0x2490, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 289, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_OrCObj(__pyx_int_9360, __pyx_t_4, 0x2490, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":291
+  /* "src/_cythonExtensions/common/common.pyx":288
  *             (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RCONTROL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RCONTROL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_4, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_4, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_11, 11, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_11, 11, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":290
+  /* "src/_cythonExtensions/common/common.pyx":287
  *         ControllerHouse.modifiers &= ~(
  *             (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 290, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":292
+  /* "src/_cythonExtensions/common/common.pyx":289
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 289, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 289, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LSHIFT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LSHIFT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 289, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 289, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 289, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":291
+  /* "src/_cythonExtensions/common/common.pyx":288
  *             (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  */
-  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":293
+  /* "src/_cythonExtensions/common/common.pyx":290
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 290, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 290, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RSHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RSHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 290, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_4, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_4, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 290, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 290, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":292
+  /* "src/_cythonExtensions/common/common.pyx":289
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 289, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":294
+  /* "src/_cythonExtensions/common/common.pyx":291
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LMENU); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LMENU); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_6, 6, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_6, 6, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":293
+  /* "src/_cythonExtensions/common/common.pyx":290
  *             (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  */
-  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 290, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":295
+  /* "src/_cythonExtensions/common/common.pyx":292
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RMENU); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RMENU); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_4, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_4, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_5, 5, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_5, 5, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":294
+  /* "src/_cythonExtensions/common/common.pyx":291
  *             (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":296
+  /* "src/_cythonExtensions/common/common.pyx":293
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LWIN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_LWIN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_3, 3, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_3, 3, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":295
+  /* "src/_cythonExtensions/common/common.pyx":292
  *             (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  */
-  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":297
+  /* "src/_cythonExtensions/common/common.pyx":294
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN             # <<<<<<<<<<<<<<
  *             (event.KeyID == 255)                  << 1  | # FN
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RWIN); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RWIN); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_4, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_4, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":296
+  /* "src/_cythonExtensions/common/common.pyx":293
  *             (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":298
+  /* "src/_cythonExtensions/common/common.pyx":295
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN             # <<<<<<<<<<<<<<
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
  *         )
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_t_5, __pyx_int_255, 0xFF, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_t_5, __pyx_int_255, 0xFF, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":297
+  /* "src/_cythonExtensions/common/common.pyx":294
  *             (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN             # <<<<<<<<<<<<<<
  *             (event.KeyID == 255)                  << 1  | # FN
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
  */
-  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":299
+  /* "src/_cythonExtensions/common/common.pyx":296
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK             # <<<<<<<<<<<<<<
  *         )
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 296, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_PyInt_From_enum____pyx_t_7macropy_16cythonExtensions_6common_KB_Con(__pyx_e_7macropy_16cythonExtensions_6common_VK_BACKTICK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_enum____pyx_t_7macropy_16cythonExtensions_6common_KB_Con(__pyx_e_7macropy_16cythonExtensions_6common_VK_BACKTICK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 296, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 296, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":298
+  /* "src/_cythonExtensions/common/common.pyx":295
  *             (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
  *             (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
  *             (event.KeyID == 255)                  << 1  | # FN             # <<<<<<<<<<<<<<
  *             (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
  *         )
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":288
+  /* "src/_cythonExtensions/common/common.pyx":285
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
  * 
  *         ControllerHouse.modifiers &= ~(             # <<<<<<<<<<<<<<
  *             (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN
  *             (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
  */
-  __pyx_t_4 = PyNumber_Invert(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Invert(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_InPlaceAnd(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_InPlaceAnd(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_modifiers, __pyx_t_1) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_modifiers, __pyx_t_1) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":302
+  /* "src/_cythonExtensions/common/common.pyx":299
  *         )
  * 
  *         ControllerHouse.modifiers &= ~( # Reseeting CTRL, SHIFT, ALT, WIN             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":303
+  /* "src/_cythonExtensions/common/common.pyx":300
  * 
  *         ControllerHouse.modifiers &= ~( # Reseeting CTRL, SHIFT, ALT, WIN
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_LCTRL_RCTRL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_LCTRL_RCTRL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_NeObjC(__pyx_t_4, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_NeObjC(__pyx_t_4, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_13, 13, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_13, 13, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":304
+  /* "src/_cythonExtensions/common/common.pyx":301
  *         ControllerHouse.modifiers &= ~( # Reseeting CTRL, SHIFT, ALT, WIN
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_LSHIFT_RSHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_LSHIFT_RSHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_And(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_And(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_5, __pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_5, __pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":303
+  /* "src/_cythonExtensions/common/common.pyx":300
  * 
  *         ControllerHouse.modifiers &= ~( # Reseeting CTRL, SHIFT, ALT, WIN
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  */
-  __pyx_t_5 = PyNumber_Or(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Or(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":305
+  /* "src/_cythonExtensions/common/common.pyx":302
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
  *         )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_LALT_RALT); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_LALT_RALT); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_And(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_And(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_2, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_2, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":304
+  /* "src/_cythonExtensions/common/common.pyx":301
  *         ControllerHouse.modifiers &= ~( # Reseeting CTRL, SHIFT, ALT, WIN
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
  */
-  __pyx_t_2 = PyNumber_Or(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Or(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":306
+  /* "src/_cythonExtensions/common/common.pyx":303
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM             # <<<<<<<<<<<<<<
  *         )
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_LWIN_RWIN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_LWIN_RWIN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_And(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_And(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_NeObjC(__pyx_t_3, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_4, 4, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_t_4, __pyx_int_4, 4, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":305
+  /* "src/_cythonExtensions/common/common.pyx":302
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  *             ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
  *         )
  */
-  __pyx_t_4 = PyNumber_Or(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Or(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":302
+  /* "src/_cythonExtensions/common/common.pyx":299
  *         )
  * 
  *         ControllerHouse.modifiers &= ~( # Reseeting CTRL, SHIFT, ALT, WIN             # <<<<<<<<<<<<<<
  *             ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
  *             ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
  */
-  __pyx_t_3 = PyNumber_Invert(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Invert(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceAnd(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_InPlaceAnd(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_modifiers, __pyx_t_4) < 0) __PYX_ERR(0, 302, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_modifiers, __pyx_t_4) < 0) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":285
+  /* "src/_cythonExtensions/common/common.pyx":282
  *         )
  * 
  *     def UpdateModifiers_KeyUp(event) -> None:             # <<<<<<<<<<<<<<
@@ -5249,7 +5249,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":310
+/* "src/_cythonExtensions/common/common.pyx":307
  * 
  *     @staticmethod
  *     def UpdateLocks(event) -> None:             # <<<<<<<<<<<<<<
@@ -5285,121 +5285,121 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("UpdateLocks", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":313
+  /* "src/_cythonExtensions/common/common.pyx":310
  *         """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
  * 
  *         ControllerHouse.locks ^= (             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL
  *             (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_locks); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_locks); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":314
+  /* "src/_cythonExtensions/common/common.pyx":311
  * 
  *         ControllerHouse.locks ^= (
  *             (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL
  *             (event.KeyID == win32con.VK_NUMLOCK)        # NUMLOCK
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_CAPITAL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_CAPITAL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_t_3, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":315
+  /* "src/_cythonExtensions/common/common.pyx":312
  *         ControllerHouse.locks ^= (
  *             (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL
  *             (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_NUMLOCK)        # NUMLOCK
  *         )
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 315, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 315, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_SCROLL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 315, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_SCROLL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 315, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 315, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_LshiftObjC(__pyx_t_1, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":314
+  /* "src/_cythonExtensions/common/common.pyx":311
  * 
  *         ControllerHouse.locks ^= (
  *             (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL
  *             (event.KeyID == win32con.VK_NUMLOCK)        # NUMLOCK
  */
-  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":316
+  /* "src/_cythonExtensions/common/common.pyx":313
  *             (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL
  *             (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL
  *             (event.KeyID == win32con.VK_NUMLOCK)        # NUMLOCK             # <<<<<<<<<<<<<<
  *         )
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_event, __pyx_n_s_KeyID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_NUMLOCK); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_NUMLOCK); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":315
+  /* "src/_cythonExtensions/common/common.pyx":312
  *         ControllerHouse.locks ^= (
  *             (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL
  *             (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_NUMLOCK)        # NUMLOCK
  *         )
  */
-  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 315, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Or(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":313
+  /* "src/_cythonExtensions/common/common.pyx":310
  *         """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
  * 
  *         ControllerHouse.locks ^= (             # <<<<<<<<<<<<<<
  *             (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL
  *             (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL
  */
-  __pyx_t_4 = PyNumber_InPlaceXor(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_InPlaceXor(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_locks, __pyx_t_4) < 0) __PYX_ERR(0, 313, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_locks, __pyx_t_4) < 0) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":310
+  /* "src/_cythonExtensions/common/common.pyx":307
  * 
  *     @staticmethod
  *     def UpdateLocks(event) -> None:             # <<<<<<<<<<<<<<
@@ -5424,7 +5424,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":320
+/* "src/_cythonExtensions/common/common.pyx":317
  * 
  *     @staticmethod
  *     def SendMouseScroll(steps=1, direction=1) -> None:             # <<<<<<<<<<<<<<
@@ -5476,7 +5476,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_15ControllerHouse_
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SendMouseScroll") < 0)) __PYX_ERR(0, 320, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SendMouseScroll") < 0)) __PYX_ERR(0, 317, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -5493,7 +5493,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_15ControllerHouse_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SendMouseScroll", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 320, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("SendMouseScroll", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 317, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.common.ControllerHouse.SendMouseScroll", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5521,29 +5521,29 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("SendMouseScroll", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":337
+  /* "src/_cythonExtensions/common/common.pyx":330
  * 
  *         # API doc: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mouse_event
  *         win32api.mouse_event((win32con.MOUSEEVENTF_HWHEEL, win32con.MOUSEEVENTF_WHEEL)[direction], 0, 0, steps * win32con.WHEEL_DELTA, 0)             # <<<<<<<<<<<<<<
  * 
  *     @staticmethod
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32api); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32api); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_mouse_event); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_mouse_event); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_MOUSEEVENTF_HWHEEL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_MOUSEEVENTF_HWHEEL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_MOUSEEVENTF_WHEEL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_MOUSEEVENTF_WHEEL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4);
@@ -5551,15 +5551,15 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_5);
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_v_direction); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_v_direction); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_WHEEL_DELTA); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_WHEEL_DELTA); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Multiply(__pyx_v_steps, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_v_steps, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -5577,7 +5577,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[6] = {__pyx_t_4, __pyx_t_5, __pyx_int_0, __pyx_int_0, __pyx_t_2, __pyx_int_0};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_6, 5+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_6, 5+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 330, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5587,7 +5587,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[6] = {__pyx_t_4, __pyx_t_5, __pyx_int_0, __pyx_int_0, __pyx_t_2, __pyx_int_0};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_6, 5+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_6, 5+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 330, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5595,7 +5595,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   } else
   #endif
   {
-    __pyx_t_7 = PyTuple_New(5+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(5+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 330, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -5615,14 +5615,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
     PyTuple_SET_ITEM(__pyx_t_7, 4+__pyx_t_6, __pyx_int_0);
     __pyx_t_5 = 0;
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 330, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":320
+  /* "src/_cythonExtensions/common/common.pyx":317
  * 
  *     @staticmethod
  *     def SendMouseScroll(steps=1, direction=1) -> None:             # <<<<<<<<<<<<<<
@@ -5648,7 +5648,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":340
+/* "src/_cythonExtensions/common/common.pyx":333
  * 
  *     @staticmethod
  *     def PrintModifiers() -> None:             # <<<<<<<<<<<<<<
@@ -5683,277 +5683,277 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PrintModifiers", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":343
+  /* "src/_cythonExtensions/common/common.pyx":336
  *         """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
  * 
  *         print(f"CTRL={bool(ControllerHouse.modifiers & ControllerHouse.CTRL)}", end=", ")             # <<<<<<<<<<<<<<
  *         print(f"SHIFT={bool(ControllerHouse.modifiers & ControllerHouse.SHIFT)}", end=", ")
  *         print(f"ALT={bool(ControllerHouse.modifiers & ControllerHouse.ALT)}", end=", ")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CTRL_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CTRL_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_CTRL, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_CTRL, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 343, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 336, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":344
+  /* "src/_cythonExtensions/common/common.pyx":337
  * 
  *         print(f"CTRL={bool(ControllerHouse.modifiers & ControllerHouse.CTRL)}", end=", ")
  *         print(f"SHIFT={bool(ControllerHouse.modifiers & ControllerHouse.SHIFT)}", end=", ")             # <<<<<<<<<<<<<<
  *         print(f"ALT={bool(ControllerHouse.modifiers & ControllerHouse.ALT)}", end=", ")
  *         print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SHIFT_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SHIFT_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_And(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_And(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_SHIFT, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_SHIFT, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 337, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":345
+  /* "src/_cythonExtensions/common/common.pyx":338
  *         print(f"CTRL={bool(ControllerHouse.modifiers & ControllerHouse.CTRL)}", end=", ")
  *         print(f"SHIFT={bool(ControllerHouse.modifiers & ControllerHouse.SHIFT)}", end=", ")
  *         print(f"ALT={bool(ControllerHouse.modifiers & ControllerHouse.ALT)}", end=", ")             # <<<<<<<<<<<<<<
  *         print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")
  *         print(f"FN={bool(ControllerHouse.modifiers & ControllerHouse.FN)}", end=", ")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ALT_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ALT_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_ALT, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_ALT, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 345, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 338, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":346
+  /* "src/_cythonExtensions/common/common.pyx":339
  *         print(f"SHIFT={bool(ControllerHouse.modifiers & ControllerHouse.SHIFT)}", end=", ")
  *         print(f"ALT={bool(ControllerHouse.modifiers & ControllerHouse.ALT)}", end=", ")
  *         print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")             # <<<<<<<<<<<<<<
  *         print(f"FN={bool(ControllerHouse.modifiers & ControllerHouse.FN)}", end=", ")
  *         print(f"BACKTICK={bool(ControllerHouse.modifiers & ControllerHouse.BACKTICK)}", end=" | ")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_WIN_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_WIN_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_And(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_And(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_WIN, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_WIN, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "src/_cythonExtensions/common/common.pyx":347
- *         print(f"ALT={bool(ControllerHouse.modifiers & ControllerHouse.ALT)}", end=", ")
- *         print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")
- *         print(f"FN={bool(ControllerHouse.modifiers & ControllerHouse.FN)}", end=", ")             # <<<<<<<<<<<<<<
- *         print(f"BACKTICK={bool(ControllerHouse.modifiers & ControllerHouse.BACKTICK)}", end=" | ")
- * 
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_FN_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_FN, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
-  __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 347, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "src/_cythonExtensions/common/common.pyx":348
- *         print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")
- *         print(f"FN={bool(ControllerHouse.modifiers & ControllerHouse.FN)}", end=", ")
- *         print(f"BACKTICK={bool(ControllerHouse.modifiers & ControllerHouse.BACKTICK)}", end=" | ")             # <<<<<<<<<<<<<<
- * 
- *     @staticmethod
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_BACKTICK_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_And(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_BACKTICK, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
-  __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__10) < 0) __PYX_ERR(0, 348, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "src/_cythonExtensions/common/common.pyx":340
+ *         print(f"ALT={bool(ControllerHouse.modifiers & ControllerHouse.ALT)}", end=", ")
+ *         print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")
+ *         print(f"FN={bool(ControllerHouse.modifiers & ControllerHouse.FN)}", end=", ")             # <<<<<<<<<<<<<<
+ *         print(f"BACKTICK={bool(ControllerHouse.modifiers & ControllerHouse.BACKTICK)}", end=" | ")
+ * 
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_FN_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_FN, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "src/_cythonExtensions/common/common.pyx":341
+ *         print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")
+ *         print(f"FN={bool(ControllerHouse.modifiers & ControllerHouse.FN)}", end=", ")
+ *         print(f"BACKTICK={bool(ControllerHouse.modifiers & ControllerHouse.BACKTICK)}", end=" | ")             # <<<<<<<<<<<<<<
+ * 
+ *     @staticmethod
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modifiers); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_BACKTICK_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = PyNumber_And(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_BACKTICK, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__10) < 0) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "src/_cythonExtensions/common/common.pyx":333
  * 
  *     @staticmethod
  *     def PrintModifiers() -> None:             # <<<<<<<<<<<<<<
@@ -5976,7 +5976,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":351
+/* "src/_cythonExtensions/common/common.pyx":344
  * 
  *     @staticmethod
  *     def PrintLockKeys() -> None:             # <<<<<<<<<<<<<<
@@ -6011,133 +6011,133 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PrintLockKeys", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":354
+  /* "src/_cythonExtensions/common/common.pyx":347
  *         """Prints the states of the lock keys after extracting them from the packed int `locks`."""
  * 
  *         print(f"CAPSLOCK={bool(ControllerHouse.locks & ControllerHouse.CAPITAL)}", end=", ")             # <<<<<<<<<<<<<<
  *         print(f"SCROLL={bool(ControllerHouse.locks & ControllerHouse.SCROLL)}", end=", ")
  *         print(f"NUMLOCK={bool(ControllerHouse.locks & ControllerHouse.NUMLOCK)}")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_locks); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_locks); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CAPITAL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CAPITAL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_CAPSLOCK, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_CAPSLOCK, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 354, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 347, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":355
+  /* "src/_cythonExtensions/common/common.pyx":348
  * 
  *         print(f"CAPSLOCK={bool(ControllerHouse.locks & ControllerHouse.CAPITAL)}", end=", ")
  *         print(f"SCROLL={bool(ControllerHouse.locks & ControllerHouse.SCROLL)}", end=", ")             # <<<<<<<<<<<<<<
  *         print(f"NUMLOCK={bool(ControllerHouse.locks & ControllerHouse.NUMLOCK)}")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_locks); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_locks); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SCROLL_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SCROLL_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_And(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_And(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_SCROLL, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_SCROLL, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 355, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 355, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_kp_s__9) < 0) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":356
+  /* "src/_cythonExtensions/common/common.pyx":349
  *         print(f"CAPSLOCK={bool(ControllerHouse.locks & ControllerHouse.CAPITAL)}", end=", ")
  *         print(f"SCROLL={bool(ControllerHouse.locks & ControllerHouse.SCROLL)}", end=", ")
  *         print(f"NUMLOCK={bool(ControllerHouse.locks & ControllerHouse.NUMLOCK)}")             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_locks); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_locks); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ControllerHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_NUMLOCK_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_NUMLOCK_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_And(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_NUMLOCK, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_kp_u_NUMLOCK, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 356, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":351
+  /* "src/_cythonExtensions/common/common.pyx":344
  * 
  *     @staticmethod
  *     def PrintLockKeys() -> None:             # <<<<<<<<<<<<<<
@@ -6160,7 +6160,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_15ControllerHouse_
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":376
+/* "src/_cythonExtensions/common/common.pyx":369
  * 
  *     @staticmethod
  *     def __getattr__(name: str):             # <<<<<<<<<<<<<<
@@ -6179,7 +6179,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_28ShellAutomationO
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__getattr__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyString_Type), 1, "name", 1))) __PYX_ERR(0, 376, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyString_Type), 1, "name", 1))) __PYX_ERR(0, 369, __pyx_L1_error)
   __pyx_r = __pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationObjectWrapper___getattr__(__pyx_self, ((PyObject*)__pyx_v_name));
 
   /* function exit code */
@@ -6210,7 +6210,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__getattr__", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":378
+  /* "src/_cythonExtensions/common/common.pyx":371
  *     def __getattr__(name: str):
  *         # Acquire lock before accessing the Automation object
  *         with ShellAutomationObjectWrapper._lock:             # <<<<<<<<<<<<<<
@@ -6218,14 +6218,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
  * 
  */
   /*with:*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ShellAutomationObjectWrapper); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 378, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ShellAutomationObjectWrapper); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 378, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 378, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 378, __pyx_L3_error)
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 371, __pyx_L3_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -6239,7 +6239,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
     }
     __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 378, __pyx_L3_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 371, __pyx_L3_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -6254,7 +6254,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
         __Pyx_XGOTREF(__pyx_t_8);
         /*try:*/ {
 
-          /* "src/_cythonExtensions/common/common.pyx":379
+          /* "src/_cythonExtensions/common/common.pyx":372
  *         # Acquire lock before accessing the Automation object
  *         with ShellAutomationObjectWrapper._lock:
  *             return getattr(ShellAutomationObjectWrapper.explorer, name)             # <<<<<<<<<<<<<<
@@ -6262,19 +6262,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
  * 
  */
           __Pyx_XDECREF(__pyx_r);
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ShellAutomationObjectWrapper); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 379, __pyx_L7_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ShellAutomationObjectWrapper); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 372, __pyx_L7_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_explorer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 379, __pyx_L7_error)
+          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_explorer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L7_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_2 = __Pyx_GetAttr(__pyx_t_1, __pyx_v_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 379, __pyx_L7_error)
+          __pyx_t_2 = __Pyx_GetAttr(__pyx_t_1, __pyx_v_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 372, __pyx_L7_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __pyx_r = __pyx_t_2;
           __pyx_t_2 = 0;
           goto __pyx_L11_try_return;
 
-          /* "src/_cythonExtensions/common/common.pyx":378
+          /* "src/_cythonExtensions/common/common.pyx":371
  *     def __getattr__(name: str):
  *         # Acquire lock before accessing the Automation object
  *         with ShellAutomationObjectWrapper._lock:             # <<<<<<<<<<<<<<
@@ -6289,20 +6289,20 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("macropy.cythonExtensions.common.ShellAutomationObjectWrapper.__getattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_1, &__pyx_t_4) < 0) __PYX_ERR(0, 378, __pyx_L9_except_error)
+          if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_1, &__pyx_t_4) < 0) __PYX_ERR(0, 371, __pyx_L9_except_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 378, __pyx_L9_except_error)
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 371, __pyx_L9_except_error)
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 378, __pyx_L9_except_error)
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 371, __pyx_L9_except_error)
           __Pyx_GOTREF(__pyx_t_9);
           __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          if (__pyx_t_10 < 0) __PYX_ERR(0, 378, __pyx_L9_except_error)
+          if (__pyx_t_10 < 0) __PYX_ERR(0, 371, __pyx_L9_except_error)
           __pyx_t_11 = ((!(__pyx_t_10 != 0)) != 0);
           if (__pyx_t_11) {
             __Pyx_GIVEREF(__pyx_t_2);
@@ -6310,7 +6310,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
             __Pyx_XGIVEREF(__pyx_t_4);
             __Pyx_ErrRestoreWithState(__pyx_t_2, __pyx_t_1, __pyx_t_4);
             __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_4 = 0; 
-            __PYX_ERR(0, 378, __pyx_L9_except_error)
+            __PYX_ERR(0, 371, __pyx_L9_except_error)
           }
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -6341,7 +6341,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
         if (__pyx_t_3) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__11, NULL);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 378, __pyx_L1_error)
+          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 371, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -6353,7 +6353,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
         if (__pyx_t_3) {
           __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__11, NULL);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 378, __pyx_L1_error)
+          if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 371, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
@@ -6370,7 +6370,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
     __pyx_L16:;
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":376
+  /* "src/_cythonExtensions/common/common.pyx":369
  * 
  *     @staticmethod
  *     def __getattr__(name: str):             # <<<<<<<<<<<<<<
@@ -6394,7 +6394,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_28ShellAutomationO
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":396
+/* "src/_cythonExtensions/common/common.pyx":389
  *     """A queue used for message passing between threads."""
  * 
  *     def __init__(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -6449,7 +6449,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_1__init__
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t used_pos_args = (pos_args < 1) ? pos_args : 1;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, used_pos_args, "__init__") < 0)) __PYX_ERR(0, 396, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, used_pos_args, "__init__") < 0)) __PYX_ERR(0, 389, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) < 1) {
       goto __pyx_L5_argtuple_error;
@@ -6460,7 +6460,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_1__init__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 396, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 389, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_args); __pyx_v_args = 0;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
@@ -6489,48 +6489,48 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread___init__(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":397
+  /* "src/_cythonExtensions/common/common.pyx":390
  * 
  *     def __init__(self, *args, **kwargs):
  *         threading.Thread.__init__(self, *args, **kwargs)             # <<<<<<<<<<<<<<
  *         self.parent = threading.current_thread()
  *         self.coInitializeCalled = False
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_self);
   __Pyx_GIVEREF(__pyx_v_self);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_self);
-  __pyx_t_3 = PyNumber_Add(__pyx_t_2, __pyx_v_args); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_t_2, __pyx_v_args); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_2 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":398
+  /* "src/_cythonExtensions/common/common.pyx":391
  *     def __init__(self, *args, **kwargs):
  *         threading.Thread.__init__(self, *args, **kwargs)
  *         self.parent = threading.current_thread()             # <<<<<<<<<<<<<<
  *         self.coInitializeCalled = False
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 398, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 398, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -6545,22 +6545,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread___init__(
   }
   __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 398, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_parent, __pyx_t_4) < 0) __PYX_ERR(0, 398, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_parent, __pyx_t_4) < 0) __PYX_ERR(0, 391, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":399
+  /* "src/_cythonExtensions/common/common.pyx":392
  *         threading.Thread.__init__(self, *args, **kwargs)
  *         self.parent = threading.current_thread()
  *         self.coInitializeCalled = False             # <<<<<<<<<<<<<<
  * 
  *     # Propagating exceptions from a thread and showing an error message.
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_coInitializeCalled, Py_False) < 0) __PYX_ERR(0, 399, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_coInitializeCalled, Py_False) < 0) __PYX_ERR(0, 392, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":396
+  /* "src/_cythonExtensions/common/common.pyx":389
  *     """A queue used for message passing between threads."""
  * 
  *     def __init__(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -6584,7 +6584,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread___init__(
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":402
+/* "src/_cythonExtensions/common/common.pyx":395
  * 
  *     # Propagating exceptions from a thread and showing an error message.
  *     def run(self):             # <<<<<<<<<<<<<<
@@ -6638,7 +6638,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("run", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":405
+  /* "src/_cythonExtensions/common/common.pyx":398
  *         cdef str error_msg, class_name
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -6654,44 +6654,44 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "src/_cythonExtensions/common/common.pyx":406
+      /* "src/_cythonExtensions/common/common.pyx":399
  * 
  *         try:
  *             self.ret = self._target(*self._args, **self._kwargs)             # <<<<<<<<<<<<<<
  * 
  *         except BaseException as e:
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_target); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 406, __pyx_L3_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_target); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 399, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_args_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 406, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_args_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 399, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PySequence_Tuple(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 406, __pyx_L3_error)
+      __pyx_t_6 = __Pyx_PySequence_Tuple(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 399, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_kwargs_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 406, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_kwargs_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 399, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_7);
       if (unlikely(__pyx_t_7 == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-        __PYX_ERR(0, 406, __pyx_L3_error)
+        __PYX_ERR(0, 399, __pyx_L3_error)
       }
       if (likely(PyDict_CheckExact(__pyx_t_7))) {
-        __pyx_t_5 = PyDict_Copy(__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 406, __pyx_L3_error)
+        __pyx_t_5 = PyDict_Copy(__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 399, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       } else {
-        __pyx_t_5 = PyObject_CallFunctionObjArgs((PyObject*)&PyDict_Type, __pyx_t_7, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 406, __pyx_L3_error)
+        __pyx_t_5 = PyObject_CallFunctionObjArgs((PyObject*)&PyDict_Type, __pyx_t_7, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 399, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
-      __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 406, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 399, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_ret, __pyx_t_7) < 0) __PYX_ERR(0, 406, __pyx_L3_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_ret, __pyx_t_7) < 0) __PYX_ERR(0, 399, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "src/_cythonExtensions/common/common.pyx":405
+      /* "src/_cythonExtensions/common/common.pyx":398
  *         cdef str error_msg, class_name
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -6709,7 +6709,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":408
+    /* "src/_cythonExtensions/common/common.pyx":401
  *             self.ret = self._target(*self._args, **self._kwargs)
  * 
  *         except BaseException as e:             # <<<<<<<<<<<<<<
@@ -6719,7 +6719,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
     __pyx_t_8 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_BaseException);
     if (__pyx_t_8) {
       __Pyx_AddTraceback("macropy.cythonExtensions.common.PThread.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_5, &__pyx_t_6) < 0) __PYX_ERR(0, 408, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_5, &__pyx_t_6) < 0) __PYX_ERR(0, 401, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_6);
@@ -6727,14 +6727,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
       __pyx_v_e = __pyx_t_5;
       /*try:*/ {
 
-        /* "src/_cythonExtensions/common/common.pyx":409
+        /* "src/_cythonExtensions/common/common.pyx":402
  * 
  *         except BaseException as e:
  *             error_msg = format_exc()             # <<<<<<<<<<<<<<
  *             class_name = str(type(e)).split("'")[1]
  *             print(f'Warning! An error occurred in thread {self.name}.\nClass: {class_name}\nValue: {str(e)}\n\n"""\n{error_msg}"""')
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_format_exc); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 409, __pyx_L14_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_format_exc); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 402, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_9);
         __pyx_t_10 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_9))) {
@@ -6748,23 +6748,23 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
         }
         __pyx_t_4 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 409, __pyx_L14_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 402, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        if (!(likely(PyString_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 409, __pyx_L14_error)
+        if (!(likely(PyString_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 402, __pyx_L14_error)
         __pyx_v_error_msg = ((PyObject*)__pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "src/_cythonExtensions/common/common.pyx":410
+        /* "src/_cythonExtensions/common/common.pyx":403
  *         except BaseException as e:
  *             error_msg = format_exc()
  *             class_name = str(type(e)).split("'")[1]             # <<<<<<<<<<<<<<
  *             print(f'Warning! An error occurred in thread {self.name}.\nClass: {class_name}\nValue: {str(e)}\n\n"""\n{error_msg}"""')
  *             winHelper.ShowMessageBox(error_msg)
  */
-        __pyx_t_9 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), ((PyObject *)Py_TYPE(__pyx_v_e))); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 410, __pyx_L14_error)
+        __pyx_t_9 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), ((PyObject *)Py_TYPE(__pyx_v_e))); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 403, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_split); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 410, __pyx_L14_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_split); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 403, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __pyx_t_9 = NULL;
@@ -6779,24 +6779,24 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
         }
         __pyx_t_4 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_9, __pyx_kp_s__12) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_kp_s__12);
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 410, __pyx_L14_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 403, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 410, __pyx_L14_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 403, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (!(likely(PyString_CheckExact(__pyx_t_10))||((__pyx_t_10) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_10)->tp_name), 0))) __PYX_ERR(0, 410, __pyx_L14_error)
+        if (!(likely(PyString_CheckExact(__pyx_t_10))||((__pyx_t_10) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_10)->tp_name), 0))) __PYX_ERR(0, 403, __pyx_L14_error)
         __pyx_v_class_name = ((PyObject*)__pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "src/_cythonExtensions/common/common.pyx":411
+        /* "src/_cythonExtensions/common/common.pyx":404
  *             error_msg = format_exc()
  *             class_name = str(type(e)).split("'")[1]
  *             print(f'Warning! An error occurred in thread {self.name}.\nClass: {class_name}\nValue: {str(e)}\n\n"""\n{error_msg}"""')             # <<<<<<<<<<<<<<
  *             winHelper.ShowMessageBox(error_msg)
  * 
  */
-        __pyx_t_10 = PyTuple_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 411, __pyx_L14_error)
+        __pyx_t_10 = PyTuple_New(9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 404, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_11 = 0;
         __pyx_t_12 = 127;
@@ -6804,9 +6804,9 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
         __pyx_t_11 += 37;
         __Pyx_GIVEREF(__pyx_kp_u_Warning_An_error_occurred_in_thr);
         PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_kp_u_Warning_An_error_occurred_in_thr);
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_name_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 411, __pyx_L14_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_name_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 404, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 411, __pyx_L14_error)
+        __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 404, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_t_12 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) > __pyx_t_12) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) : __pyx_t_12;
@@ -6818,7 +6818,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
         __pyx_t_11 += 9;
         __Pyx_GIVEREF(__pyx_kp_u_Class);
         PyTuple_SET_ITEM(__pyx_t_10, 2, __pyx_kp_u_Class);
-        __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_v_class_name, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 411, __pyx_L14_error)
+        __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_v_class_name, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 404, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_9);
         __pyx_t_12 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) > __pyx_t_12) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) : __pyx_t_12;
         __pyx_t_11 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_9);
@@ -6829,9 +6829,9 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
         __pyx_t_11 += 8;
         __Pyx_GIVEREF(__pyx_kp_u_Value);
         PyTuple_SET_ITEM(__pyx_t_10, 4, __pyx_kp_u_Value);
-        __pyx_t_9 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_e); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 411, __pyx_L14_error)
+        __pyx_t_9 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_e); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 404, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_9, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 411, __pyx_L14_error)
+        __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_9, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 404, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __pyx_t_12 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_12) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_12;
@@ -6843,7 +6843,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
         __pyx_t_11 += 6;
         __Pyx_GIVEREF(__pyx_kp_u__13);
         PyTuple_SET_ITEM(__pyx_t_10, 6, __pyx_kp_u__13);
-        __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_error_msg, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 411, __pyx_L14_error)
+        __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_error_msg, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 404, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_12 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_12) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_12;
         __pyx_t_11 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4);
@@ -6854,24 +6854,24 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
         __pyx_t_11 += 3;
         __Pyx_GIVEREF(__pyx_kp_u__7);
         PyTuple_SET_ITEM(__pyx_t_10, 8, __pyx_kp_u__7);
-        __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_10, 9, __pyx_t_11, __pyx_t_12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 411, __pyx_L14_error)
+        __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_10, 9, __pyx_t_11, __pyx_t_12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 404, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 411, __pyx_L14_error)
+        __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 404, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-        /* "src/_cythonExtensions/common/common.pyx":412
+        /* "src/_cythonExtensions/common/common.pyx":405
  *             class_name = str(type(e)).split("'")[1]
  *             print(f'Warning! An error occurred in thread {self.name}.\nClass: {class_name}\nValue: {str(e)}\n\n"""\n{error_msg}"""')
  *             winHelper.ShowMessageBox(error_msg)             # <<<<<<<<<<<<<<
  * 
  *             # Management.LogUncaughtExceptions(*sys.exc_info())
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_winHelper); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 412, __pyx_L14_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_winHelper); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 405, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ShowMessageBox); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 412, __pyx_L14_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ShowMessageBox); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 405, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_t_4 = NULL;
@@ -6886,13 +6886,13 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
         }
         __pyx_t_10 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_4, __pyx_v_error_msg) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_error_msg);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 412, __pyx_L14_error)
+        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 405, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       }
 
-      /* "src/_cythonExtensions/common/common.pyx":408
+      /* "src/_cythonExtensions/common/common.pyx":401
  *             self.ret = self._target(*self._args, **self._kwargs)
  * 
  *         except BaseException as e:             # <<<<<<<<<<<<<<
@@ -6950,7 +6950,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "src/_cythonExtensions/common/common.pyx":405
+    /* "src/_cythonExtensions/common/common.pyx":398
  *         cdef str error_msg, class_name
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -6970,7 +6970,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
     __pyx_L8_try_end:;
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":402
+  /* "src/_cythonExtensions/common/common.pyx":395
  * 
  *     # Propagating exceptions from a thread and showing an error message.
  *     def run(self):             # <<<<<<<<<<<<<<
@@ -6999,7 +6999,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_2run(CYTH
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":418
+/* "src/_cythonExtensions/common/common.pyx":411
  * 
  *     @staticmethod
  *     def InMainThread() -> bool:             # <<<<<<<<<<<<<<
@@ -7033,7 +7033,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_4InMainTh
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("InMainThread", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":421
+  /* "src/_cythonExtensions/common/common.pyx":414
  *         """Returns where the current thread is the main thread for the current process."""
  * 
  *         return threading.get_ident() == PThread.mainThreadId             # <<<<<<<<<<<<<<
@@ -7041,9 +7041,9 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_4InMainTh
  *     @staticmethod
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 421, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_get_ident); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 421, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_get_ident); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -7058,22 +7058,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_4InMainTh
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 421, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 421, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_mainThreadId); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 421, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_mainThreadId); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 421, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 414, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/common/common.pyx":418
+  /* "src/_cythonExtensions/common/common.pyx":411
  * 
  *     @staticmethod
  *     def InMainThread() -> bool:             # <<<<<<<<<<<<<<
@@ -7094,7 +7094,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_4InMainTh
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":424
+/* "src/_cythonExtensions/common/common.pyx":417
  * 
  *     @staticmethod
  *     def GetParentThread() -> int:             # <<<<<<<<<<<<<<
@@ -7130,16 +7130,16 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("GetParentThread", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":435
+  /* "src/_cythonExtensions/common/common.pyx":428
  *         """
  * 
  *         if threading.current_thread().name != "MainThread":             # <<<<<<<<<<<<<<
  *             if hasattr(threading.current_thread(), 'parent'):
  *                 return threading.current_thread().parent.ident
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 435, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 428, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 428, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -7154,26 +7154,26 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 435, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 428, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_name_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_name_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 428, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_MainThread, Py_NE)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 435, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_MainThread, Py_NE)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 428, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
 
-    /* "src/_cythonExtensions/common/common.pyx":436
+    /* "src/_cythonExtensions/common/common.pyx":429
  * 
  *         if threading.current_thread().name != "MainThread":
  *             if hasattr(threading.current_thread(), 'parent'):             # <<<<<<<<<<<<<<
  *                 return threading.current_thread().parent.ident
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 436, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 429, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 436, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 429, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -7188,15 +7188,15 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
     }
     __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 436, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 429, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_HasAttr(__pyx_t_3, __pyx_n_s_parent); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 436, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_HasAttr(__pyx_t_3, __pyx_n_s_parent); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 429, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_5 = (__pyx_t_4 != 0);
     if (__pyx_t_5) {
 
-      /* "src/_cythonExtensions/common/common.pyx":437
+      /* "src/_cythonExtensions/common/common.pyx":430
  *         if threading.current_thread().name != "MainThread":
  *             if hasattr(threading.current_thread(), 'parent'):
  *                 return threading.current_thread().parent.ident             # <<<<<<<<<<<<<<
@@ -7204,9 +7204,9 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
  *             else:
  */
       __Pyx_XDECREF(__pyx_r);
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 437, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 430, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 437, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 430, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = NULL;
@@ -7221,20 +7221,20 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
       }
       __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 437, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 430, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_parent); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 437, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_parent); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 430, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ident); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 437, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ident); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 430, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "src/_cythonExtensions/common/common.pyx":436
+      /* "src/_cythonExtensions/common/common.pyx":429
  * 
  *         if threading.current_thread().name != "MainThread":
  *             if hasattr(threading.current_thread(), 'parent'):             # <<<<<<<<<<<<<<
@@ -7243,7 +7243,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
  */
     }
 
-    /* "src/_cythonExtensions/common/common.pyx":440
+    /* "src/_cythonExtensions/common/common.pyx":433
  * 
  *             else:
  *                 return -1 # Unknown. The current thread does not have a `parent` property.             # <<<<<<<<<<<<<<
@@ -7257,7 +7257,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
       goto __pyx_L0;
     }
 
-    /* "src/_cythonExtensions/common/common.pyx":435
+    /* "src/_cythonExtensions/common/common.pyx":428
  *         """
  * 
  *         if threading.current_thread().name != "MainThread":             # <<<<<<<<<<<<<<
@@ -7266,7 +7266,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
  */
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":443
+  /* "src/_cythonExtensions/common/common.pyx":436
  * 
  *         else:
  *             return 0 # "MainThread"             # <<<<<<<<<<<<<<
@@ -7280,7 +7280,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
     goto __pyx_L0;
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":424
+  /* "src/_cythonExtensions/common/common.pyx":417
  * 
  *     @staticmethod
  *     def GetParentThread() -> int:             # <<<<<<<<<<<<<<
@@ -7301,7 +7301,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_6GetParen
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":446
+/* "src/_cythonExtensions/common/common.pyx":439
  * 
  *     @staticmethod
  *     def CoInitialize() -> bool:             # <<<<<<<<<<<<<<
@@ -7338,16 +7338,16 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("CoInitialize", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":449
+  /* "src/_cythonExtensions/common/common.pyx":442
  *         """Initializes the COM library for the current thread if it was not previously initialized."""
  * 
  *         if not PThread.InMainThread() and not threading.current_thread().coInitializeCalled:             # <<<<<<<<<<<<<<
  *             print(f"CoInitialize called from: {threading.current_thread().name}")
  *             threading.current_thread().coInitializeCalled = True
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 449, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_InMainThread); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 449, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_InMainThread); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -7362,10 +7362,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
   }
   __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 449, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 449, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_6 = ((!__pyx_t_5) != 0);
   if (__pyx_t_6) {
@@ -7373,9 +7373,9 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L4_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_threading); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 449, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_threading); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 449, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -7390,29 +7390,29 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 449, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_coInitializeCalled); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 449, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_coInitializeCalled); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 449, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = ((!__pyx_t_6) != 0);
   __pyx_t_1 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "src/_cythonExtensions/common/common.pyx":450
+    /* "src/_cythonExtensions/common/common.pyx":443
  * 
  *         if not PThread.InMainThread() and not threading.current_thread().coInitializeCalled:
  *             print(f"CoInitialize called from: {threading.current_thread().name}")             # <<<<<<<<<<<<<<
  *             threading.current_thread().coInitializeCalled = True
  *             pythoncom.CoInitialize()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 450, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 443, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 450, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 443, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -7427,33 +7427,33 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
     }
     __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 450, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 443, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_name_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 450, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_name_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 443, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 450, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 443, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_kp_u_CoInitialize_called_from, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 450, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_kp_u_CoInitialize_called_from, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 443, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 450, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 443, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":451
+    /* "src/_cythonExtensions/common/common.pyx":444
  *         if not PThread.InMainThread() and not threading.current_thread().coInitializeCalled:
  *             print(f"CoInitialize called from: {threading.current_thread().name}")
  *             threading.current_thread().coInitializeCalled = True             # <<<<<<<<<<<<<<
  *             pythoncom.CoInitialize()
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_threading); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 451, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_threading); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 444, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 451, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 444, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -7468,22 +7468,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
     }
     __pyx_t_3 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 451, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 444, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_coInitializeCalled, Py_True) < 0) __PYX_ERR(0, 451, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_coInitializeCalled, Py_True) < 0) __PYX_ERR(0, 444, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":452
+    /* "src/_cythonExtensions/common/common.pyx":445
  *             print(f"CoInitialize called from: {threading.current_thread().name}")
  *             threading.current_thread().coInitializeCalled = True
  *             pythoncom.CoInitialize()             # <<<<<<<<<<<<<<
  * 
  *             return True
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pythoncom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 452, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pythoncom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 445, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 452, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 445, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -7498,12 +7498,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
     }
     __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 452, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 445, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":454
+    /* "src/_cythonExtensions/common/common.pyx":447
  *             pythoncom.CoInitialize()
  * 
  *             return True             # <<<<<<<<<<<<<<
@@ -7515,7 +7515,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "src/_cythonExtensions/common/common.pyx":449
+    /* "src/_cythonExtensions/common/common.pyx":442
  *         """Initializes the COM library for the current thread if it was not previously initialized."""
  * 
  *         if not PThread.InMainThread() and not threading.current_thread().coInitializeCalled:             # <<<<<<<<<<<<<<
@@ -7524,7 +7524,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
  */
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":456
+  /* "src/_cythonExtensions/common/common.pyx":449
  *             return True
  * 
  *         return False             # <<<<<<<<<<<<<<
@@ -7536,7 +7536,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/common/common.pyx":446
+  /* "src/_cythonExtensions/common/common.pyx":439
  * 
  *     @staticmethod
  *     def CoInitialize() -> bool:             # <<<<<<<<<<<<<<
@@ -7557,7 +7557,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8CoInitia
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":459
+/* "src/_cythonExtensions/common/common.pyx":452
  * 
  *     @staticmethod
  *     def CoUninitialize() -> None:             # <<<<<<<<<<<<<<
@@ -7592,16 +7592,16 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_10CoUnini
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("CoUninitialize", 0);
 
-  /* "src/_cythonExtensions/common/common.pyx":461
+  /* "src/_cythonExtensions/common/common.pyx":454
  *     def CoUninitialize() -> None:
  *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:             # <<<<<<<<<<<<<<
  *             print(f"CoUninitialize called from: {threading.current_thread().name}")
  *             pythoncom.CoUninitialize()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 461, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_threading); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 461, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -7616,26 +7616,26 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_10CoUnini
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 461, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_coInitializeCalled); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 461, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_coInitializeCalled); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 461, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 454, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
 
-    /* "src/_cythonExtensions/common/common.pyx":462
+    /* "src/_cythonExtensions/common/common.pyx":455
  *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:
  *             print(f"CoUninitialize called from: {threading.current_thread().name}")             # <<<<<<<<<<<<<<
  *             pythoncom.CoUninitialize()
  *             threading.current_thread().coInitializeCalled = False
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 462, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 462, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -7650,33 +7650,33 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_10CoUnini
     }
     __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 462, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_name_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 462, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_name_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 462, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_CoUninitialize_called_from, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 462, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_kp_u_CoUninitialize_called_from, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 462, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":463
+    /* "src/_cythonExtensions/common/common.pyx":456
  *         if threading.current_thread().coInitializeCalled:
  *             print(f"CoUninitialize called from: {threading.current_thread().name}")
  *             pythoncom.CoUninitialize()             # <<<<<<<<<<<<<<
  *             threading.current_thread().coInitializeCalled = False
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pythoncom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 463, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pythoncom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 456, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 463, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 456, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -7691,21 +7691,21 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_10CoUnini
     }
     __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 463, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 456, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":464
+    /* "src/_cythonExtensions/common/common.pyx":457
  *             print(f"CoUninitialize called from: {threading.current_thread().name}")
  *             pythoncom.CoUninitialize()
  *             threading.current_thread().coInitializeCalled = False             # <<<<<<<<<<<<<<
  * 
  *     @staticmethod
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 464, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 457, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 464, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_current_thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 457, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -7720,13 +7720,13 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_10CoUnini
     }
     __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 464, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 457, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_coInitializeCalled, Py_False) < 0) __PYX_ERR(0, 464, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_coInitializeCalled, Py_False) < 0) __PYX_ERR(0, 457, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":461
+    /* "src/_cythonExtensions/common/common.pyx":454
  *     def CoUninitialize() -> None:
  *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:             # <<<<<<<<<<<<<<
@@ -7735,7 +7735,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_10CoUnini
  */
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":459
+  /* "src/_cythonExtensions/common/common.pyx":452
  * 
  *     @staticmethod
  *     def CoUninitialize() -> None:             # <<<<<<<<<<<<<<
@@ -7758,7 +7758,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_10CoUnini
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":467
+/* "src/_cythonExtensions/common/common.pyx":460
  * 
  *     @staticmethod
  *     def Throttle(wait_time: float):             # <<<<<<<<<<<<<<
@@ -7779,7 +7779,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_13Throttl
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Throttle (wrapper)", 0);
   assert(__pyx_arg_wait_time); {
-    __pyx_v_wait_time = __pyx_PyFloat_AsDouble(__pyx_arg_wait_time); if (unlikely((__pyx_v_wait_time == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L3_error)
+    __pyx_v_wait_time = __pyx_PyFloat_AsDouble(__pyx_arg_wait_time); if (unlikely((__pyx_v_wait_time == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 460, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7794,7 +7794,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_13Throttl
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":473
+/* "src/_cythonExtensions/common/common.pyx":466
  *         """
  * 
  *         def decorator(function):             # <<<<<<<<<<<<<<
@@ -7816,7 +7816,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":474
+/* "src/_cythonExtensions/common/common.pyx":467
  * 
  *         def decorator(function):
  *             def throttled(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -7847,7 +7847,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":475
+/* "src/_cythonExtensions/common/common.pyx":468
  *         def decorator(function):
  *             def throttled(*args, **kwargs):
  *                 def call_function():             # <<<<<<<<<<<<<<
@@ -7883,7 +7883,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   __pyx_outer_scope = (struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_2_throttled *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "src/_cythonExtensions/common/common.pyx":476
+  /* "src/_cythonExtensions/common/common.pyx":469
  *             def throttled(*args, **kwargs):
  *                 def call_function():
  *                     return function(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -7891,27 +7891,27 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
  *                 if PThread._throttle_lock.acquire(blocking = False):
  */
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_function)) { __Pyx_RaiseClosureNameError("function"); __PYX_ERR(0, 476, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_args)) { __Pyx_RaiseClosureNameError("args"); __PYX_ERR(0, 476, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_function)) { __Pyx_RaiseClosureNameError("function"); __PYX_ERR(0, 469, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_args)) { __Pyx_RaiseClosureNameError("args"); __PYX_ERR(0, 469, __pyx_L1_error) }
   if (unlikely(__pyx_cur_scope->__pyx_v_args == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 476, __pyx_L1_error)
+    __PYX_ERR(0, 469, __pyx_L1_error)
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_kwargs)) { __Pyx_RaiseClosureNameError("kwargs"); __PYX_ERR(0, 476, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_kwargs)) { __Pyx_RaiseClosureNameError("kwargs"); __PYX_ERR(0, 469, __pyx_L1_error) }
   if (unlikely(__pyx_cur_scope->__pyx_v_kwargs == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-    __PYX_ERR(0, 476, __pyx_L1_error)
+    __PYX_ERR(0, 469, __pyx_L1_error)
   }
-  __pyx_t_1 = PyDict_Copy(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 476, __pyx_L1_error)
+  __pyx_t_1 = PyDict_Copy(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 469, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_function, __pyx_cur_scope->__pyx_v_args, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 476, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_function, __pyx_cur_scope->__pyx_v_args, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 469, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/common/common.pyx":475
+  /* "src/_cythonExtensions/common/common.pyx":468
  *         def decorator(function):
  *             def throttled(*args, **kwargs):
  *                 def call_function():             # <<<<<<<<<<<<<<
@@ -7931,7 +7931,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":474
+/* "src/_cythonExtensions/common/common.pyx":467
  * 
  *         def decorator(function):
  *             def throttled(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -7956,7 +7956,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_2_throttled *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 474, __pyx_L1_error)
+    __PYX_ERR(0, 467, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -7970,52 +7970,52 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_kwargs);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_kwargs);
 
-  /* "src/_cythonExtensions/common/common.pyx":475
+  /* "src/_cythonExtensions/common/common.pyx":468
  *         def decorator(function):
  *             def throttled(*args, **kwargs):
  *                 def call_function():             # <<<<<<<<<<<<<<
  *                     return function(*args, **kwargs)
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Throttle_9decorator_9throttled_1call_function, 0, __pyx_n_s_PThread_Throttle_locals_decorato, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 475, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Throttle_9decorator_9throttled_1call_function, 0, __pyx_n_s_PThread_Throttle_locals_decorato, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 468, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_call_function = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":478
+  /* "src/_cythonExtensions/common/common.pyx":471
  *                     return function(*args, **kwargs)
  * 
  *                 if PThread._throttle_lock.acquire(blocking = False):             # <<<<<<<<<<<<<<
  *                     if time() - throttled._last_time_called >= wait_time:
  *                         call_function()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 478, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 471, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_throttle_lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 478, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_throttle_lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 471, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_acquire); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 478, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_acquire); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 471, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 478, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 471, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_blocking, Py_False) < 0) __PYX_ERR(0, 478, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 478, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_blocking, Py_False) < 0) __PYX_ERR(0, 471, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 471, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 478, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 471, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
 
-    /* "src/_cythonExtensions/common/common.pyx":479
+    /* "src/_cythonExtensions/common/common.pyx":472
  * 
  *                 if PThread._throttle_lock.acquire(blocking = False):
  *                     if time() - throttled._last_time_called >= wait_time:             # <<<<<<<<<<<<<<
  *                         call_function()
  *                         throttled._last_time_called = time()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 479, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 472, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_1 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -8029,44 +8029,44 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
     }
     __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 479, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 472, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_throttled)) { __Pyx_RaiseClosureNameError("throttled"); __PYX_ERR(0, 479, __pyx_L1_error) }
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_throttled, __pyx_n_s_last_time_called); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 479, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_throttled)) { __Pyx_RaiseClosureNameError("throttled"); __PYX_ERR(0, 472, __pyx_L1_error) }
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_throttled, __pyx_n_s_last_time_called); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 472, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = PyNumber_Subtract(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 479, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Subtract(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 472, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_wait_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 479, __pyx_L1_error)
+    __pyx_t_2 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_wait_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 472, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 479, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 472, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 479, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 472, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_4) {
 
-      /* "src/_cythonExtensions/common/common.pyx":480
+      /* "src/_cythonExtensions/common/common.pyx":473
  *                 if PThread._throttle_lock.acquire(blocking = False):
  *                     if time() - throttled._last_time_called >= wait_time:
  *                         call_function()             # <<<<<<<<<<<<<<
  *                         throttled._last_time_called = time()
  *                     PThread._throttle_lock.release()
  */
-      __pyx_t_3 = __pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle_9decorator_9throttled_call_function(__pyx_v_call_function); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 480, __pyx_L1_error)
+      __pyx_t_3 = __pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle_9decorator_9throttled_call_function(__pyx_v_call_function); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 473, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "src/_cythonExtensions/common/common.pyx":481
+      /* "src/_cythonExtensions/common/common.pyx":474
  *                     if time() - throttled._last_time_called >= wait_time:
  *                         call_function()
  *                         throttled._last_time_called = time()             # <<<<<<<<<<<<<<
  *                     PThread._throttle_lock.release()
  * 
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 481, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 474, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_1 = NULL;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -8080,14 +8080,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
       }
       __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 481, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 474, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_throttled)) { __Pyx_RaiseClosureNameError("throttled"); __PYX_ERR(0, 481, __pyx_L1_error) }
-      if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_throttled, __pyx_n_s_last_time_called, __pyx_t_3) < 0) __PYX_ERR(0, 481, __pyx_L1_error)
+      if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_throttled)) { __Pyx_RaiseClosureNameError("throttled"); __PYX_ERR(0, 474, __pyx_L1_error) }
+      if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_throttled, __pyx_n_s_last_time_called, __pyx_t_3) < 0) __PYX_ERR(0, 474, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "src/_cythonExtensions/common/common.pyx":479
+      /* "src/_cythonExtensions/common/common.pyx":472
  * 
  *                 if PThread._throttle_lock.acquire(blocking = False):
  *                     if time() - throttled._last_time_called >= wait_time:             # <<<<<<<<<<<<<<
@@ -8096,19 +8096,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
  */
     }
 
-    /* "src/_cythonExtensions/common/common.pyx":482
+    /* "src/_cythonExtensions/common/common.pyx":475
  *                         call_function()
  *                         throttled._last_time_called = time()
  *                     PThread._throttle_lock.release()             # <<<<<<<<<<<<<<
  * 
  *                 else: # Lock is already acquired by another thread, so return without calling the wrapped function
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 475, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_throttle_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 482, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_throttle_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 475, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_release); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_release); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 475, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -8123,12 +8123,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
     }
     __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 482, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 475, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":478
+    /* "src/_cythonExtensions/common/common.pyx":471
  *                     return function(*args, **kwargs)
  * 
  *                 if PThread._throttle_lock.acquire(blocking = False):             # <<<<<<<<<<<<<<
@@ -8138,7 +8138,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
     goto __pyx_L3;
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":485
+  /* "src/_cythonExtensions/common/common.pyx":478
  * 
  *                 else: # Lock is already acquired by another thread, so return without calling the wrapped function
  *                     return             # <<<<<<<<<<<<<<
@@ -8152,7 +8152,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   }
   __pyx_L3:;
 
-  /* "src/_cythonExtensions/common/common.pyx":474
+  /* "src/_cythonExtensions/common/common.pyx":467
  * 
  *         def decorator(function):
  *             def throttled(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -8177,7 +8177,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":473
+/* "src/_cythonExtensions/common/common.pyx":466
  *         """
  * 
  *         def decorator(function):             # <<<<<<<<<<<<<<
@@ -8198,7 +8198,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_1_decorator *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 473, __pyx_L1_error)
+    __PYX_ERR(0, 466, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -8209,29 +8209,29 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_function);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_function);
 
-  /* "src/_cythonExtensions/common/common.pyx":474
+  /* "src/_cythonExtensions/common/common.pyx":467
  * 
  *         def decorator(function):
  *             def throttled(*args, **kwargs):             # <<<<<<<<<<<<<<
  *                 def call_function():
  *                     return function(*args, **kwargs)
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Throttle_9decorator_1throttled, 0, __pyx_n_s_PThread_Throttle_locals_decorato_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 474, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Throttle_9decorator_1throttled, 0, __pyx_n_s_PThread_Throttle_locals_decorato_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 467, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_throttled = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":487
+  /* "src/_cythonExtensions/common/common.pyx":480
  *                     return
  * 
  *             throttled._last_time_called = 0             # <<<<<<<<<<<<<<
  * 
  *             return throttled
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_throttled, __pyx_n_s_last_time_called, __pyx_int_0) < 0) __PYX_ERR(0, 487, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_throttled, __pyx_n_s_last_time_called, __pyx_int_0) < 0) __PYX_ERR(0, 480, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":489
+  /* "src/_cythonExtensions/common/common.pyx":482
  *             throttled._last_time_called = 0
  * 
  *             return throttled             # <<<<<<<<<<<<<<
@@ -8243,7 +8243,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   __pyx_r = __pyx_cur_scope->__pyx_v_throttled;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/common/common.pyx":473
+  /* "src/_cythonExtensions/common/common.pyx":466
  *         """
  * 
  *         def decorator(function):             # <<<<<<<<<<<<<<
@@ -8263,7 +8263,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Throttle
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":467
+/* "src/_cythonExtensions/common/common.pyx":460
  * 
  *     @staticmethod
  *     def Throttle(wait_time: float):             # <<<<<<<<<<<<<<
@@ -8285,25 +8285,25 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_12Throttl
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct__Throttle *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 467, __pyx_L1_error)
+    __PYX_ERR(0, 460, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_wait_time = __pyx_v_wait_time;
 
-  /* "src/_cythonExtensions/common/common.pyx":473
+  /* "src/_cythonExtensions/common/common.pyx":466
  *         """
  * 
  *         def decorator(function):             # <<<<<<<<<<<<<<
  *             def throttled(*args, **kwargs):
  *                 def call_function():
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Throttle_1decorator, 0, __pyx_n_s_PThread_Throttle_locals_decorato_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Throttle_1decorator, 0, __pyx_n_s_PThread_Throttle_locals_decorato_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 466, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_decorator = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":491
+  /* "src/_cythonExtensions/common/common.pyx":484
  *             return throttled
  * 
  *         return decorator             # <<<<<<<<<<<<<<
@@ -8315,7 +8315,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_12Throttl
   __pyx_r = __pyx_v_decorator;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/common/common.pyx":467
+  /* "src/_cythonExtensions/common/common.pyx":460
  * 
  *     @staticmethod
  *     def Throttle(wait_time: float):             # <<<<<<<<<<<<<<
@@ -8336,7 +8336,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_12Throttl
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":494
+/* "src/_cythonExtensions/common/common.pyx":487
  * 
  *     @staticmethod
  *     def Debounce(wait_time: float):             # <<<<<<<<<<<<<<
@@ -8357,7 +8357,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_15Debounc
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Debounce (wrapper)", 0);
   assert(__pyx_arg_wait_time); {
-    __pyx_v_wait_time = __pyx_PyFloat_AsDouble(__pyx_arg_wait_time); if (unlikely((__pyx_v_wait_time == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 494, __pyx_L3_error)
+    __pyx_v_wait_time = __pyx_PyFloat_AsDouble(__pyx_arg_wait_time); if (unlikely((__pyx_v_wait_time == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 487, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -8372,7 +8372,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_15Debounc
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":505
+/* "src/_cythonExtensions/common/common.pyx":498
  *         """
  * 
  *         def decorator(function: Callable):             # <<<<<<<<<<<<<<
@@ -8394,7 +8394,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":506
+/* "src/_cythonExtensions/common/common.pyx":499
  * 
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -8425,7 +8425,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":507
+/* "src/_cythonExtensions/common/common.pyx":500
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):
  *                 def call_function():             # <<<<<<<<<<<<<<
@@ -8461,17 +8461,17 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   __pyx_outer_scope = (struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_5_debounced *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "src/_cythonExtensions/common/common.pyx":508
+  /* "src/_cythonExtensions/common/common.pyx":501
  *             def debounced(*args, **kwargs):
  *                 def call_function():
  *                     debounced._timer = None             # <<<<<<<<<<<<<<
  *                     return function(*args, **kwargs)
  * 
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 508, __pyx_L1_error) }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer, Py_None) < 0) __PYX_ERR(0, 508, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 501, __pyx_L1_error) }
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer, Py_None) < 0) __PYX_ERR(0, 501, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":509
+  /* "src/_cythonExtensions/common/common.pyx":502
  *                 def call_function():
  *                     debounced._timer = None
  *                     return function(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -8479,27 +8479,27 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
  *                 if debounced._timer is not None:
  */
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_function)) { __Pyx_RaiseClosureNameError("function"); __PYX_ERR(0, 509, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_args)) { __Pyx_RaiseClosureNameError("args"); __PYX_ERR(0, 509, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_function)) { __Pyx_RaiseClosureNameError("function"); __PYX_ERR(0, 502, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_args)) { __Pyx_RaiseClosureNameError("args"); __PYX_ERR(0, 502, __pyx_L1_error) }
   if (unlikely(__pyx_cur_scope->__pyx_v_args == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 509, __pyx_L1_error)
+    __PYX_ERR(0, 502, __pyx_L1_error)
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_kwargs)) { __Pyx_RaiseClosureNameError("kwargs"); __PYX_ERR(0, 509, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_kwargs)) { __Pyx_RaiseClosureNameError("kwargs"); __PYX_ERR(0, 502, __pyx_L1_error) }
   if (unlikely(__pyx_cur_scope->__pyx_v_kwargs == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-    __PYX_ERR(0, 509, __pyx_L1_error)
+    __PYX_ERR(0, 502, __pyx_L1_error)
   }
-  __pyx_t_1 = PyDict_Copy(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_1 = PyDict_Copy(__pyx_cur_scope->__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_function, __pyx_cur_scope->__pyx_v_args, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 509, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_function, __pyx_cur_scope->__pyx_v_args, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/common/common.pyx":507
+  /* "src/_cythonExtensions/common/common.pyx":500
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):
  *                 def call_function():             # <<<<<<<<<<<<<<
@@ -8519,7 +8519,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":506
+/* "src/_cythonExtensions/common/common.pyx":499
  * 
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -8548,7 +8548,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_5_debounced *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 506, __pyx_L1_error)
+    __PYX_ERR(0, 499, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -8562,44 +8562,44 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_kwargs);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_kwargs);
 
-  /* "src/_cythonExtensions/common/common.pyx":507
+  /* "src/_cythonExtensions/common/common.pyx":500
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):
  *                 def call_function():             # <<<<<<<<<<<<<<
  *                     debounced._timer = None
  *                     return function(*args, **kwargs)
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Debounce_9decorator_9debounced_1call_function, 0, __pyx_n_s_PThread_Debounce_locals_decorato, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 507, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Debounce_9decorator_9debounced_1call_function, 0, __pyx_n_s_PThread_Debounce_locals_decorato, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 500, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_call_function = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":511
+  /* "src/_cythonExtensions/common/common.pyx":504
  *                     return function(*args, **kwargs)
  * 
  *                 if debounced._timer is not None:             # <<<<<<<<<<<<<<
  *                     debounced._timer.cancel()
  * 
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 511, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 511, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 504, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 504, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = (__pyx_t_1 != Py_None);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (__pyx_t_3) {
 
-    /* "src/_cythonExtensions/common/common.pyx":512
+    /* "src/_cythonExtensions/common/common.pyx":505
  * 
  *                 if debounced._timer is not None:
  *                     debounced._timer.cancel()             # <<<<<<<<<<<<<<
  * 
  *                 debounced._timer = threading.Timer(wait_time, call_function)
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 512, __pyx_L1_error) }
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 512, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 505, __pyx_L1_error) }
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 505, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cancel); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 512, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cancel); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 505, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -8614,12 +8614,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 512, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 505, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":511
+    /* "src/_cythonExtensions/common/common.pyx":504
  *                     return function(*args, **kwargs)
  * 
  *                 if debounced._timer is not None:             # <<<<<<<<<<<<<<
@@ -8628,19 +8628,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
  */
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":514
+  /* "src/_cythonExtensions/common/common.pyx":507
  *                     debounced._timer.cancel()
  * 
  *                 debounced._timer = threading.Timer(wait_time, call_function)             # <<<<<<<<<<<<<<
  *                 debounced._timer.start()
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_threading); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 514, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_threading); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_Timer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 514, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_Timer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_wait_time); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 514, __pyx_L1_error)
+  __pyx_t_5 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_wait_time); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -8657,7 +8657,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_5, __pyx_v_call_function};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 514, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 507, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -8666,14 +8666,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_5, __pyx_v_call_function};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 514, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 507, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else
   #endif
   {
-    __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 514, __pyx_L1_error)
+    __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 507, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -8684,26 +8684,26 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
     __Pyx_GIVEREF(__pyx_v_call_function);
     PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_v_call_function);
     __pyx_t_5 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 514, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 507, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 514, __pyx_L1_error) }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer, __pyx_t_1) < 0) __PYX_ERR(0, 514, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 507, __pyx_L1_error) }
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer, __pyx_t_1) < 0) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":515
+  /* "src/_cythonExtensions/common/common.pyx":508
  * 
  *                 debounced._timer = threading.Timer(wait_time, call_function)
  *                 debounced._timer.start()             # <<<<<<<<<<<<<<
  * 
  *             def runNoWait(*args, **kwargs):
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 515, __pyx_L1_error) }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 515, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 508, __pyx_L1_error) }
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 508, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_start); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 515, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_start); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 508, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -8718,12 +8718,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   }
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 515, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 508, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":506
+  /* "src/_cythonExtensions/common/common.pyx":499
  * 
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -8750,7 +8750,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":517
+/* "src/_cythonExtensions/common/common.pyx":510
  *                 debounced._timer.start()
  * 
  *             def runNoWait(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -8798,32 +8798,32 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   __pyx_outer_scope = (struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_4_decorator *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "src/_cythonExtensions/common/common.pyx":519
+  /* "src/_cythonExtensions/common/common.pyx":512
  *             def runNoWait(*args, **kwargs):
  *                 # If the timer is running, cancel it.
  *                 if debounced._timer is not None:             # <<<<<<<<<<<<<<
  *                     debounced._timer.cancel()
  *                     debounced._timer = None
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 519, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 519, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 512, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 512, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = (__pyx_t_1 != Py_None);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (__pyx_t_3) {
 
-    /* "src/_cythonExtensions/common/common.pyx":520
+    /* "src/_cythonExtensions/common/common.pyx":513
  *                 # If the timer is running, cancel it.
  *                 if debounced._timer is not None:
  *                     debounced._timer.cancel()             # <<<<<<<<<<<<<<
  *                     debounced._timer = None
  * 
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 520, __pyx_L1_error) }
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 520, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 513, __pyx_L1_error) }
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_timer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 513, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cancel); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 520, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cancel); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 513, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -8838,22 +8838,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 520, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 513, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":521
+    /* "src/_cythonExtensions/common/common.pyx":514
  *                 if debounced._timer is not None:
  *                     debounced._timer.cancel()
  *                     debounced._timer = None             # <<<<<<<<<<<<<<
  * 
  *                 # Now, no timer is running so call the function.
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 521, __pyx_L1_error) }
-    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_timer, Py_None) < 0) __PYX_ERR(0, 521, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_debounced)) { __Pyx_RaiseClosureNameError("debounced"); __PYX_ERR(0, 514, __pyx_L1_error) }
+    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_timer, Py_None) < 0) __PYX_ERR(0, 514, __pyx_L1_error)
 
-    /* "src/_cythonExtensions/common/common.pyx":519
+    /* "src/_cythonExtensions/common/common.pyx":512
  *             def runNoWait(*args, **kwargs):
  *                 # If the timer is running, cancel it.
  *                 if debounced._timer is not None:             # <<<<<<<<<<<<<<
@@ -8862,22 +8862,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
  */
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":524
+  /* "src/_cythonExtensions/common/common.pyx":517
  * 
  *                 # Now, no timer is running so call the function.
  *                 function(*args, **kwargs)             # <<<<<<<<<<<<<<
  * 
  *             debounced._timer = None
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_function)) { __Pyx_RaiseClosureNameError("function"); __PYX_ERR(0, 524, __pyx_L1_error) }
-  __pyx_t_1 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 524, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_function)) { __Pyx_RaiseClosureNameError("function"); __PYX_ERR(0, 517, __pyx_L1_error) }
+  __pyx_t_1 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_v_function, __pyx_v_args, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 524, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_v_function, __pyx_v_args, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":517
+  /* "src/_cythonExtensions/common/common.pyx":510
  *                 debounced._timer.start()
  * 
  *             def runNoWait(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -8900,7 +8900,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":505
+/* "src/_cythonExtensions/common/common.pyx":498
  *         """
  * 
  *         def decorator(function: Callable):             # <<<<<<<<<<<<<<
@@ -8922,7 +8922,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_4_decorator *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 505, __pyx_L1_error)
+    __PYX_ERR(0, 498, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -8933,50 +8933,50 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_function);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_function);
 
-  /* "src/_cythonExtensions/common/common.pyx":506
+  /* "src/_cythonExtensions/common/common.pyx":499
  * 
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):             # <<<<<<<<<<<<<<
  *                 def call_function():
  *                     debounced._timer = None
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Debounce_9decorator_1debounced, 0, __pyx_n_s_PThread_Debounce_locals_decorato_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 506, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Debounce_9decorator_1debounced, 0, __pyx_n_s_PThread_Debounce_locals_decorato_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 499, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_debounced = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":517
+  /* "src/_cythonExtensions/common/common.pyx":510
  *                 debounced._timer.start()
  * 
  *             def runNoWait(*args, **kwargs):             # <<<<<<<<<<<<<<
  *                 # If the timer is running, cancel it.
  *                 if debounced._timer is not None:
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Debounce_9decorator_3runNoWait, 0, __pyx_n_s_PThread_Debounce_locals_decorato_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 517, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Debounce_9decorator_3runNoWait, 0, __pyx_n_s_PThread_Debounce_locals_decorato_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 510, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_runNoWait = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":526
+  /* "src/_cythonExtensions/common/common.pyx":519
  *                 function(*args, **kwargs)
  * 
  *             debounced._timer = None             # <<<<<<<<<<<<<<
  *             debounced.runNoWait = runNoWait
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_timer, Py_None) < 0) __PYX_ERR(0, 526, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_timer, Py_None) < 0) __PYX_ERR(0, 519, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":527
+  /* "src/_cythonExtensions/common/common.pyx":520
  * 
  *             debounced._timer = None
  *             debounced.runNoWait = runNoWait             # <<<<<<<<<<<<<<
  * 
  *             return debounced
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_runNoWait, __pyx_v_runNoWait) < 0) __PYX_ERR(0, 527, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_debounced, __pyx_n_s_runNoWait, __pyx_v_runNoWait) < 0) __PYX_ERR(0, 520, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":529
+  /* "src/_cythonExtensions/common/common.pyx":522
  *             debounced.runNoWait = runNoWait
  * 
  *             return debounced             # <<<<<<<<<<<<<<
@@ -8988,7 +8988,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   __pyx_r = __pyx_cur_scope->__pyx_v_debounced;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/common/common.pyx":505
+  /* "src/_cythonExtensions/common/common.pyx":498
  *         """
  * 
  *         def decorator(function: Callable):             # <<<<<<<<<<<<<<
@@ -9009,7 +9009,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_8Debounce
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":494
+/* "src/_cythonExtensions/common/common.pyx":487
  * 
  *     @staticmethod
  *     def Debounce(wait_time: float):             # <<<<<<<<<<<<<<
@@ -9032,33 +9032,33 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_14Debounc
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_7macropy_16cythonExtensions_6common___pyx_scope_struct_3_Debounce *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 494, __pyx_L1_error)
+    __PYX_ERR(0, 487, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_wait_time = __pyx_v_wait_time;
 
-  /* "src/_cythonExtensions/common/common.pyx":505
+  /* "src/_cythonExtensions/common/common.pyx":498
  *         """
  * 
  *         def decorator(function: Callable):             # <<<<<<<<<<<<<<
  *             def debounced(*args, **kwargs):
  *                 def call_function():
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 505, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Callable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 505, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Callable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_function, __pyx_t_2) < 0) __PYX_ERR(0, 505, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_function, __pyx_t_2) < 0) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Debounce_1decorator, 0, __pyx_n_s_PThread_Debounce_locals_decorato_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 505, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_8Debounce_1decorator, 0, __pyx_n_s_PThread_Debounce_locals_decorato_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_decorator = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":531
+  /* "src/_cythonExtensions/common/common.pyx":524
  *             return debounced
  * 
  *         return decorator             # <<<<<<<<<<<<<<
@@ -9070,7 +9070,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_14Debounc
   __pyx_r = __pyx_v_decorator;
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/common/common.pyx":494
+  /* "src/_cythonExtensions/common/common.pyx":487
  * 
  *     @staticmethod
  *     def Debounce(wait_time: float):             # <<<<<<<<<<<<<<
@@ -9092,7 +9092,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_7PThread_14Debounc
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":534
+/* "src/_cythonExtensions/common/common.pyx":527
  * 
  * 
  * cpdef str ReadFromClipboard(int CF=win32clipboard.CF_TEXT): # CF: Clipboard format.             # <<<<<<<<<<<<<<
@@ -9121,16 +9121,16 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(C
     }
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":537
+  /* "src/_cythonExtensions/common/common.pyx":530
  *     """Reads the top of the clipboard if it was the same type as the specified."""
  * 
  *     win32clipboard.OpenClipboard()             # <<<<<<<<<<<<<<
  *     if win32clipboard.IsClipboardFormatAvailable(CF):
  *         clipboard_data = win32clipboard.GetClipboardData()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 537, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_OpenClipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 537, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_OpenClipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -9145,24 +9145,24 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(C
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 537, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":538
+  /* "src/_cythonExtensions/common/common.pyx":531
  * 
  *     win32clipboard.OpenClipboard()
  *     if win32clipboard.IsClipboardFormatAvailable(CF):             # <<<<<<<<<<<<<<
  *         clipboard_data = win32clipboard.GetClipboardData()
  *         win32clipboard.EmptyClipboard()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 538, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 531, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_IsClipboardFormatAvailable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 538, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_IsClipboardFormatAvailable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 531, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_CF); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 538, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_CF); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 531, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -9177,23 +9177,23 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(C
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 538, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 538, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 531, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_5) {
 
-    /* "src/_cythonExtensions/common/common.pyx":539
+    /* "src/_cythonExtensions/common/common.pyx":532
  *     win32clipboard.OpenClipboard()
  *     if win32clipboard.IsClipboardFormatAvailable(CF):
  *         clipboard_data = win32clipboard.GetClipboardData()             # <<<<<<<<<<<<<<
  *         win32clipboard.EmptyClipboard()
  *         win32clipboard.CloseClipboard()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 539, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 532, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_GetClipboardData); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 539, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_GetClipboardData); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 532, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -9208,22 +9208,22 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(C
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 539, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 532, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_clipboard_data = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":540
+    /* "src/_cythonExtensions/common/common.pyx":533
  *     if win32clipboard.IsClipboardFormatAvailable(CF):
  *         clipboard_data = win32clipboard.GetClipboardData()
  *         win32clipboard.EmptyClipboard()             # <<<<<<<<<<<<<<
  *         win32clipboard.CloseClipboard()
  *     else:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 540, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 533, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_EmptyClipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 540, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_EmptyClipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 533, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -9238,21 +9238,21 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(C
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 540, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 533, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":541
+    /* "src/_cythonExtensions/common/common.pyx":534
  *         clipboard_data = win32clipboard.GetClipboardData()
  *         win32clipboard.EmptyClipboard()
  *         win32clipboard.CloseClipboard()             # <<<<<<<<<<<<<<
  *     else:
  *         return ""
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 541, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 534, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CloseClipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 541, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CloseClipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 534, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -9267,12 +9267,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(C
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 541, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 534, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/_cythonExtensions/common/common.pyx":538
+    /* "src/_cythonExtensions/common/common.pyx":531
  * 
  *     win32clipboard.OpenClipboard()
  *     if win32clipboard.IsClipboardFormatAvailable(CF):             # <<<<<<<<<<<<<<
@@ -9282,7 +9282,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(C
     goto __pyx_L3;
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":543
+  /* "src/_cythonExtensions/common/common.pyx":536
  *         win32clipboard.CloseClipboard()
  *     else:
  *         return ""             # <<<<<<<<<<<<<<
@@ -9297,7 +9297,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(C
   }
   __pyx_L3:;
 
-  /* "src/_cythonExtensions/common/common.pyx":545
+  /* "src/_cythonExtensions/common/common.pyx":538
  *         return ""
  * 
  *     return clipboard_data             # <<<<<<<<<<<<<<
@@ -9305,12 +9305,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(C
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(PyString_CheckExact(__pyx_v_clipboard_data))||((__pyx_v_clipboard_data) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_v_clipboard_data)->tp_name), 0))) __PYX_ERR(0, 545, __pyx_L1_error)
+  if (!(likely(PyString_CheckExact(__pyx_v_clipboard_data))||((__pyx_v_clipboard_data) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_v_clipboard_data)->tp_name), 0))) __PYX_ERR(0, 538, __pyx_L1_error)
   __Pyx_INCREF(__pyx_v_clipboard_data);
   __pyx_r = ((PyObject*)__pyx_v_clipboard_data);
   goto __pyx_L0;
 
-  /* "src/_cythonExtensions/common/common.pyx":534
+  /* "src/_cythonExtensions/common/common.pyx":527
  * 
  * 
  * cpdef str ReadFromClipboard(int CF=win32clipboard.CF_TEXT): # CF: Clipboard format.             # <<<<<<<<<<<<<<
@@ -9365,7 +9365,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_1ReadFromClipboard
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ReadFromClipboard") < 0)) __PYX_ERR(0, 534, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ReadFromClipboard") < 0)) __PYX_ERR(0, 527, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -9376,14 +9376,14 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_1ReadFromClipboard
       }
     }
     if (values[0]) {
-      __pyx_v_CF = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_CF == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 534, __pyx_L3_error)
+      __pyx_v_CF = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_CF == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 527, __pyx_L3_error)
     } else {
       __pyx_v_CF = __pyx_k__26;
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ReadFromClipboard", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 534, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ReadFromClipboard", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 527, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.common.ReadFromClipboard", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -9408,7 +9408,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_ReadFromClipboard(
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.CF = __pyx_v_CF;
-  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 534, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_6common_ReadFromClipboard(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 527, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9425,7 +9425,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_ReadFromClipboard(
   return __pyx_r;
 }
 
-/* "src/_cythonExtensions/common/common.pyx":548
+/* "src/_cythonExtensions/common/common.pyx":541
  * 
  * 
  * cpdef void SendToClipboard(data, int CF=win32clipboard.CF_UNICODETEXT):             # <<<<<<<<<<<<<<
@@ -9453,16 +9453,16 @@ static void __pyx_f_7macropy_16cythonExtensions_6common_SendToClipboard(PyObject
     }
   }
 
-  /* "src/_cythonExtensions/common/common.pyx":551
+  /* "src/_cythonExtensions/common/common.pyx":544
  *     """Copies the given data to the clipboard."""
  * 
  *     win32clipboard.OpenClipboard()             # <<<<<<<<<<<<<<
  *     win32clipboard.EmptyClipboard()
  *     win32clipboard.SetClipboardData(CF, data)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 551, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_OpenClipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 551, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_OpenClipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -9477,21 +9477,21 @@ static void __pyx_f_7macropy_16cythonExtensions_6common_SendToClipboard(PyObject
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 551, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":552
+  /* "src/_cythonExtensions/common/common.pyx":545
  * 
  *     win32clipboard.OpenClipboard()
  *     win32clipboard.EmptyClipboard()             # <<<<<<<<<<<<<<
  *     win32clipboard.SetClipboardData(CF, data)
  *     win32clipboard.CloseClipboard()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_EmptyClipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_EmptyClipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -9506,23 +9506,23 @@ static void __pyx_f_7macropy_16cythonExtensions_6common_SendToClipboard(PyObject
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 552, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":553
+  /* "src/_cythonExtensions/common/common.pyx":546
  *     win32clipboard.OpenClipboard()
  *     win32clipboard.EmptyClipboard()
  *     win32clipboard.SetClipboardData(CF, data)             # <<<<<<<<<<<<<<
  *     win32clipboard.CloseClipboard()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 546, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SetClipboardData); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SetClipboardData); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 546, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_CF); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_CF); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 546, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -9539,7 +9539,7 @@ static void __pyx_f_7macropy_16cythonExtensions_6common_SendToClipboard(PyObject
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_2, __pyx_v_data};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 546, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -9548,14 +9548,14 @@ static void __pyx_f_7macropy_16cythonExtensions_6common_SendToClipboard(PyObject
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_2, __pyx_v_data};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 546, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 546, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -9566,21 +9566,21 @@ static void __pyx_f_7macropy_16cythonExtensions_6common_SendToClipboard(PyObject
     __Pyx_GIVEREF(__pyx_v_data);
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_v_data);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 553, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 546, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":554
+  /* "src/_cythonExtensions/common/common.pyx":547
  *     win32clipboard.EmptyClipboard()
  *     win32clipboard.SetClipboardData(CF, data)
  *     win32clipboard.CloseClipboard()             # <<<<<<<<<<<<<<
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 554, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 547, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CloseClipboard); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 554, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CloseClipboard); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 547, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -9595,12 +9595,12 @@ static void __pyx_f_7macropy_16cythonExtensions_6common_SendToClipboard(PyObject
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 547, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":548
+  /* "src/_cythonExtensions/common/common.pyx":541
  * 
  * 
  * cpdef void SendToClipboard(data, int CF=win32clipboard.CF_UNICODETEXT):             # <<<<<<<<<<<<<<
@@ -9660,7 +9660,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_3SendToClipboard(P
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SendToClipboard") < 0)) __PYX_ERR(0, 548, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SendToClipboard") < 0)) __PYX_ERR(0, 541, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -9673,14 +9673,14 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_6common_3SendToClipboard(P
     }
     __pyx_v_data = values[0];
     if (values[1]) {
-      __pyx_v_CF = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_CF == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 548, __pyx_L3_error)
+      __pyx_v_CF = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_CF == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 541, __pyx_L3_error)
     } else {
       __pyx_v_CF = __pyx_k__27;
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SendToClipboard", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 548, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("SendToClipboard", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 541, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.common.SendToClipboard", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -9706,7 +9706,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_6common_2SendToClipboard(C
   __pyx_t_1.__pyx_n = 1;
   __pyx_t_1.CF = __pyx_v_CF;
   __pyx_f_7macropy_16cythonExtensions_6common_SendToClipboard(__pyx_v_data, 0, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 548, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 541, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -12665,7 +12665,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 153, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 132, __pyx_L1_error)
   __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 158, __pyx_L1_error)
-  __pyx_builtin_BaseException = __Pyx_GetBuiltinName(__pyx_n_s_BaseException); if (!__pyx_builtin_BaseException) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_builtin_BaseException = __Pyx_GetBuiltinName(__pyx_n_s_BaseException); if (!__pyx_builtin_BaseException) __PYX_ERR(0, 401, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 33, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -12699,94 +12699,94 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__2);
   __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_call, 131, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 131, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":378
+  /* "src/_cythonExtensions/common/common.pyx":371
  *     def __getattr__(name: str):
  *         # Acquire lock before accessing the Automation object
  *         with ShellAutomationObjectWrapper._lock:             # <<<<<<<<<<<<<<
  *             return getattr(ShellAutomationObjectWrapper.explorer, name)
  * 
  */
-  __pyx_tuple__11 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 378, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
-  /* "src/_cythonExtensions/common/common.pyx":475
+  /* "src/_cythonExtensions/common/common.pyx":468
  *         def decorator(function):
  *             def throttled(*args, **kwargs):
  *                 def call_function():             # <<<<<<<<<<<<<<
  *                     return function(*args, **kwargs)
  * 
  */
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_call_function, 475, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 475, __pyx_L1_error)
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_call_function, 468, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 468, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":474
+  /* "src/_cythonExtensions/common/common.pyx":467
  * 
  *         def decorator(function):
  *             def throttled(*args, **kwargs):             # <<<<<<<<<<<<<<
  *                 def call_function():
  *                     return function(*args, **kwargs)
  */
-  __pyx_tuple__15 = PyTuple_Pack(4, __pyx_n_s_args, __pyx_n_s_kwargs, __pyx_n_s_call_function, __pyx_n_s_call_function); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 474, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(4, __pyx_n_s_args, __pyx_n_s_kwargs, __pyx_n_s_call_function, __pyx_n_s_call_function); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 467, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_throttled, 474, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 474, __pyx_L1_error)
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_throttled, 467, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 467, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":473
+  /* "src/_cythonExtensions/common/common.pyx":466
  *         """
  * 
  *         def decorator(function):             # <<<<<<<<<<<<<<
  *             def throttled(*args, **kwargs):
  *                 def call_function():
  */
-  __pyx_tuple__17 = PyTuple_Pack(3, __pyx_n_s_function, __pyx_n_s_throttled, __pyx_n_s_throttled); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(3, __pyx_n_s_function, __pyx_n_s_throttled, __pyx_n_s_throttled); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 466, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_decorator, 473, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_decorator, 466, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 466, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":507
+  /* "src/_cythonExtensions/common/common.pyx":500
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):
  *                 def call_function():             # <<<<<<<<<<<<<<
  *                     debounced._timer = None
  *                     return function(*args, **kwargs)
  */
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_call_function, 507, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 507, __pyx_L1_error)
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_call_function, 500, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 500, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":506
+  /* "src/_cythonExtensions/common/common.pyx":499
  * 
  *         def decorator(function: Callable):
  *             def debounced(*args, **kwargs):             # <<<<<<<<<<<<<<
  *                 def call_function():
  *                     debounced._timer = None
  */
-  __pyx_tuple__20 = PyTuple_Pack(4, __pyx_n_s_args, __pyx_n_s_kwargs, __pyx_n_s_call_function, __pyx_n_s_call_function); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 506, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(4, __pyx_n_s_args, __pyx_n_s_kwargs, __pyx_n_s_call_function, __pyx_n_s_call_function); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 499, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_debounced, 506, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 506, __pyx_L1_error)
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_debounced, 499, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 499, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":517
+  /* "src/_cythonExtensions/common/common.pyx":510
  *                 debounced._timer.start()
  * 
  *             def runNoWait(*args, **kwargs):             # <<<<<<<<<<<<<<
  *                 # If the timer is running, cancel it.
  *                 if debounced._timer is not None:
  */
-  __pyx_tuple__22 = PyTuple_Pack(2, __pyx_n_s_args, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 517, __pyx_L1_error)
+  __pyx_tuple__22 = PyTuple_Pack(2, __pyx_n_s_args, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 510, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
-  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_runNoWait, 517, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 517, __pyx_L1_error)
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_runNoWait, 510, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 510, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":505
+  /* "src/_cythonExtensions/common/common.pyx":498
  *         """
  * 
  *         def decorator(function: Callable):             # <<<<<<<<<<<<<<
  *             def debounced(*args, **kwargs):
  *                 def call_function():
  */
-  __pyx_tuple__24 = PyTuple_Pack(5, __pyx_n_s_function, __pyx_n_s_debounced, __pyx_n_s_debounced, __pyx_n_s_runNoWait, __pyx_n_s_runNoWait); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 505, __pyx_L1_error)
+  __pyx_tuple__24 = PyTuple_Pack(5, __pyx_n_s_function, __pyx_n_s_debounced, __pyx_n_s_debounced, __pyx_n_s_runNoWait, __pyx_n_s_runNoWait); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__24);
   __Pyx_GIVEREF(__pyx_tuple__24);
-  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_decorator, 505, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 505, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_decorator, 498, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 498, __pyx_L1_error)
 
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
@@ -12850,170 +12850,170 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__37);
   __Pyx_GIVEREF(__pyx_tuple__37);
 
-  /* "src/_cythonExtensions/common/common.pyx":262
- *     # pynput_mouse = mController()
+  /* "src/_cythonExtensions/common/common.pyx":259
+ * 
  * 
  *     def UpdateModifiers_KeyDown(event) -> None:             # <<<<<<<<<<<<<<
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
  * 
  */
-  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_n_s_event); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_n_s_event); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
-  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_UpdateModifiers_KeyDown, 262, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_UpdateModifiers_KeyDown, 259, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 259, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":285
+  /* "src/_cythonExtensions/common/common.pyx":282
  *         )
  * 
  *     def UpdateModifiers_KeyUp(event) -> None:             # <<<<<<<<<<<<<<
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
  * 
  */
-  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_n_s_event); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_n_s_event); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__40);
   __Pyx_GIVEREF(__pyx_tuple__40);
-  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_UpdateModifiers_KeyUp, 285, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_UpdateModifiers_KeyUp, 282, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 282, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":310
+  /* "src/_cythonExtensions/common/common.pyx":307
  * 
  *     @staticmethod
  *     def UpdateLocks(event) -> None:             # <<<<<<<<<<<<<<
  *         """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
  * 
  */
-  __pyx_tuple__42 = PyTuple_Pack(1, __pyx_n_s_event); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __pyx_tuple__42 = PyTuple_Pack(1, __pyx_n_s_event); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 307, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__42);
   __Pyx_GIVEREF(__pyx_tuple__42);
-  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_UpdateLocks, 310, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_UpdateLocks, 307, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 307, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":320
+  /* "src/_cythonExtensions/common/common.pyx":317
  * 
  *     @staticmethod
  *     def SendMouseScroll(steps=1, direction=1) -> None:             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
-  __pyx_tuple__44 = PyTuple_Pack(2, __pyx_n_s_steps, __pyx_n_s_direction); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 320, __pyx_L1_error)
+  __pyx_tuple__44 = PyTuple_Pack(2, __pyx_n_s_steps, __pyx_n_s_direction); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__44);
   __Pyx_GIVEREF(__pyx_tuple__44);
-  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_SendMouseScroll, 320, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 320, __pyx_L1_error)
-  __pyx_tuple__46 = PyTuple_Pack(2, ((PyObject *)__pyx_int_1), ((PyObject *)__pyx_int_1)); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 320, __pyx_L1_error)
+  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_SendMouseScroll, 317, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_tuple__46 = PyTuple_Pack(2, ((PyObject *)__pyx_int_1), ((PyObject *)__pyx_int_1)); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__46);
   __Pyx_GIVEREF(__pyx_tuple__46);
 
-  /* "src/_cythonExtensions/common/common.pyx":340
+  /* "src/_cythonExtensions/common/common.pyx":333
  * 
  *     @staticmethod
  *     def PrintModifiers() -> None:             # <<<<<<<<<<<<<<
  *         """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
  * 
  */
-  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_PrintModifiers, 340, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_PrintModifiers, 333, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(0, 333, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":351
+  /* "src/_cythonExtensions/common/common.pyx":344
  * 
  *     @staticmethod
  *     def PrintLockKeys() -> None:             # <<<<<<<<<<<<<<
  *         """Prints the states of the lock keys after extracting them from the packed int `locks`."""
  * 
  */
-  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_PrintLockKeys, 351, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 351, __pyx_L1_error)
+  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_PrintLockKeys, 344, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 344, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":376
+  /* "src/_cythonExtensions/common/common.pyx":369
  * 
  *     @staticmethod
  *     def __getattr__(name: str):             # <<<<<<<<<<<<<<
  *         # Acquire lock before accessing the Automation object
  *         with ShellAutomationObjectWrapper._lock:
  */
-  __pyx_tuple__49 = PyTuple_Pack(1, __pyx_n_s_name_2); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 376, __pyx_L1_error)
+  __pyx_tuple__49 = PyTuple_Pack(1, __pyx_n_s_name_2); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__49);
   __Pyx_GIVEREF(__pyx_tuple__49);
-  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_getattr, 376, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 376, __pyx_L1_error)
+  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_getattr, 369, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 369, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":396
+  /* "src/_cythonExtensions/common/common.pyx":389
  *     """A queue used for message passing between threads."""
  * 
  *     def __init__(self, *args, **kwargs):             # <<<<<<<<<<<<<<
  *         threading.Thread.__init__(self, *args, **kwargs)
  *         self.parent = threading.current_thread()
  */
-  __pyx_tuple__51 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_args, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_tuple__51 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_args, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__51);
   __Pyx_GIVEREF(__pyx_tuple__51);
-  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_init, 396, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_init, 389, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 389, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":402
+  /* "src/_cythonExtensions/common/common.pyx":395
  * 
  *     # Propagating exceptions from a thread and showing an error message.
  *     def run(self):             # <<<<<<<<<<<<<<
  *         cdef str error_msg, class_name
  * 
  */
-  __pyx_tuple__53 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_error_msg, __pyx_n_s_class_name, __pyx_n_s_e); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 402, __pyx_L1_error)
+  __pyx_tuple__53 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_error_msg, __pyx_n_s_class_name, __pyx_n_s_e); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__53);
   __Pyx_GIVEREF(__pyx_tuple__53);
-  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_run, 402, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 402, __pyx_L1_error)
+  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_run, 395, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 395, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":418
+  /* "src/_cythonExtensions/common/common.pyx":411
  * 
  *     @staticmethod
  *     def InMainThread() -> bool:             # <<<<<<<<<<<<<<
  *         """Returns where the current thread is the main thread for the current process."""
  * 
  */
-  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_InMainThread, 418, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 418, __pyx_L1_error)
+  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_InMainThread, 411, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 411, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":424
+  /* "src/_cythonExtensions/common/common.pyx":417
  * 
  *     @staticmethod
  *     def GetParentThread() -> int:             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
-  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_GetParentThread, 424, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_GetParentThread, 417, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 417, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":446
+  /* "src/_cythonExtensions/common/common.pyx":439
  * 
  *     @staticmethod
  *     def CoInitialize() -> bool:             # <<<<<<<<<<<<<<
  *         """Initializes the COM library for the current thread if it was not previously initialized."""
  * 
  */
-  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_CoInitialize, 446, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 446, __pyx_L1_error)
+  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_CoInitialize, 439, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 439, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":459
+  /* "src/_cythonExtensions/common/common.pyx":452
  * 
  *     @staticmethod
  *     def CoUninitialize() -> None:             # <<<<<<<<<<<<<<
  *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:
  */
-  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_CoUninitialize, 459, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 459, __pyx_L1_error)
+  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_CoUninitialize, 452, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 452, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":467
+  /* "src/_cythonExtensions/common/common.pyx":460
  * 
  *     @staticmethod
  *     def Throttle(wait_time: float):             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
-  __pyx_tuple__59 = PyTuple_Pack(4, __pyx_n_s_wait_time, __pyx_n_s_wait_time, __pyx_n_s_decorator, __pyx_n_s_decorator); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_tuple__59 = PyTuple_Pack(4, __pyx_n_s_wait_time, __pyx_n_s_wait_time, __pyx_n_s_decorator, __pyx_n_s_decorator); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 460, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__59);
   __Pyx_GIVEREF(__pyx_tuple__59);
-  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_Throttle, 467, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_Throttle, 460, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 460, __pyx_L1_error)
 
-  /* "src/_cythonExtensions/common/common.pyx":494
+  /* "src/_cythonExtensions/common/common.pyx":487
  * 
  *     @staticmethod
  *     def Debounce(wait_time: float):             # <<<<<<<<<<<<<<
  *         """
  *         Decorator that will debounce a function so that it is called after `wait_time` seconds.
  */
-  __pyx_tuple__61 = PyTuple_Pack(4, __pyx_n_s_wait_time, __pyx_n_s_wait_time, __pyx_n_s_decorator, __pyx_n_s_decorator); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 494, __pyx_L1_error)
+  __pyx_tuple__61 = PyTuple_Pack(4, __pyx_n_s_wait_time, __pyx_n_s_wait_time, __pyx_n_s_decorator, __pyx_n_s_decorator); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 487, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__61);
   __Pyx_GIVEREF(__pyx_tuple__61);
-  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_Debounce, 494, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 494, __pyx_L1_error)
+  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src__cythonExtensions_common_com, __pyx_n_s_Debounce, 487, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 487, __pyx_L1_error)
 
   /* "EnumBase":28
  * class __Pyx_EnumBase(int):
@@ -13161,7 +13161,7 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct__Throttle) < 0) __PYX_ERR(0, 467, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct__Throttle) < 0) __PYX_ERR(0, 460, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct__Throttle.tp_print = 0;
   #endif
@@ -13169,7 +13169,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct__Throttle.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_7macropy_16cythonExtensions_6common___pyx_scope_struct__Throttle = &__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct__Throttle;
-  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_1_decorator) < 0) __PYX_ERR(0, 473, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_1_decorator) < 0) __PYX_ERR(0, 466, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_1_decorator.tp_print = 0;
   #endif
@@ -13177,7 +13177,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_1_decorator.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_7macropy_16cythonExtensions_6common___pyx_scope_struct_1_decorator = &__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_1_decorator;
-  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_2_throttled) < 0) __PYX_ERR(0, 474, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_2_throttled) < 0) __PYX_ERR(0, 467, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_2_throttled.tp_print = 0;
   #endif
@@ -13185,7 +13185,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_2_throttled.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_7macropy_16cythonExtensions_6common___pyx_scope_struct_2_throttled = &__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_2_throttled;
-  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_3_Debounce) < 0) __PYX_ERR(0, 494, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_3_Debounce) < 0) __PYX_ERR(0, 487, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_3_Debounce.tp_print = 0;
   #endif
@@ -13193,7 +13193,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_3_Debounce.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_7macropy_16cythonExtensions_6common___pyx_scope_struct_3_Debounce = &__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_3_Debounce;
-  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_4_decorator) < 0) __PYX_ERR(0, 505, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_4_decorator) < 0) __PYX_ERR(0, 498, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_4_decorator.tp_print = 0;
   #endif
@@ -13201,7 +13201,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_4_decorator.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_7macropy_16cythonExtensions_6common___pyx_scope_struct_4_decorator = &__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_4_decorator;
-  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_5_debounced) < 0) __PYX_ERR(0, 506, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_5_debounced) < 0) __PYX_ERR(0, 499, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7macropy_16cythonExtensions_6common___pyx_scope_struct_5_debounced.tp_print = 0;
   #endif
@@ -14551,151 +14551,151 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_abbreviations, __pyx_t_7) < 0) __PYX_ERR(0, 255, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":262
- *     # pynput_mouse = mController()
+  /* "src/_cythonExtensions/common/common.pyx":259
+ * 
  * 
  *     def UpdateModifiers_KeyDown(event) -> None:             # <<<<<<<<<<<<<<
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
  * 
  */
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 262, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_1UpdateModifiers_KeyDown, 0, __pyx_n_s_ControllerHouse_UpdateModifiers, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__39)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 262, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_1UpdateModifiers_KeyDown, 0, __pyx_n_s_ControllerHouse_UpdateModifiers, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__39)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_UpdateModifiers_KeyDown, __pyx_t_2) < 0) __PYX_ERR(0, 262, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_UpdateModifiers_KeyDown, __pyx_t_2) < 0) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":285
+  /* "src/_cythonExtensions/common/common.pyx":282
  *         )
  * 
  *     def UpdateModifiers_KeyUp(event) -> None:             # <<<<<<<<<<<<<<
  *         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_3UpdateModifiers_KeyUp, 0, __pyx_n_s_ControllerHouse_UpdateModifiers_2, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__41)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 285, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_3UpdateModifiers_KeyUp, 0, __pyx_n_s_ControllerHouse_UpdateModifiers_2, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__41)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_UpdateModifiers_KeyUp, __pyx_t_7) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_UpdateModifiers_KeyUp, __pyx_t_7) < 0) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":310
+  /* "src/_cythonExtensions/common/common.pyx":307
  * 
  *     @staticmethod
  *     def UpdateLocks(event) -> None:             # <<<<<<<<<<<<<<
  *         """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
  * 
  */
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 307, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 310, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_5UpdateLocks, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ControllerHouse_UpdateLocks, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__43)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 310, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 307, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_5UpdateLocks, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ControllerHouse_UpdateLocks, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__43)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 307, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":309
+  /* "src/_cythonExtensions/common/common.pyx":306
  *         )
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def UpdateLocks(event) -> None:
  *         """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
  */
-  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 306, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_UpdateLocks, __pyx_t_7) < 0) __PYX_ERR(0, 310, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_UpdateLocks, __pyx_t_7) < 0) __PYX_ERR(0, 307, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":320
+  /* "src/_cythonExtensions/common/common.pyx":317
  * 
  *     @staticmethod
  *     def SendMouseScroll(steps=1, direction=1) -> None:             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 320, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 320, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_7SendMouseScroll, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ControllerHouse_SendMouseScroll, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__45)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 320, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_7SendMouseScroll, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ControllerHouse_SendMouseScroll, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__45)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_tuple__46);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":319
+  /* "src/_cythonExtensions/common/common.pyx":316
  *         )
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def SendMouseScroll(steps=1, direction=1) -> None:
  *         """
  */
-  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 319, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_SendMouseScroll, __pyx_t_7) < 0) __PYX_ERR(0, 320, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_SendMouseScroll, __pyx_t_7) < 0) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":340
+  /* "src/_cythonExtensions/common/common.pyx":333
  * 
  *     @staticmethod
  *     def PrintModifiers() -> None:             # <<<<<<<<<<<<<<
  *         """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
  * 
  */
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_9PrintModifiers, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ControllerHouse_PrintModifiers, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__47)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_9PrintModifiers, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ControllerHouse_PrintModifiers, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__47)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":339
+  /* "src/_cythonExtensions/common/common.pyx":332
  *         win32api.mouse_event((win32con.MOUSEEVENTF_HWHEEL, win32con.MOUSEEVENTF_WHEEL)[direction], 0, 0, steps * win32con.WHEEL_DELTA, 0)
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def PrintModifiers() -> None:
  *         """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
  */
-  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_PrintModifiers, __pyx_t_7) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_PrintModifiers, __pyx_t_7) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":351
+  /* "src/_cythonExtensions/common/common.pyx":344
  * 
  *     @staticmethod
  *     def PrintLockKeys() -> None:             # <<<<<<<<<<<<<<
  *         """Prints the states of the lock keys after extracting them from the packed int `locks`."""
  * 
  */
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 351, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 351, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_11PrintLockKeys, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ControllerHouse_PrintLockKeys, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 351, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_15ControllerHouse_11PrintLockKeys, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ControllerHouse_PrintLockKeys, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":350
+  /* "src/_cythonExtensions/common/common.pyx":343
  *         print(f"BACKTICK={bool(ControllerHouse.modifiers & ControllerHouse.BACKTICK)}", end=" | ")
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def PrintLockKeys() -> None:
  *         """Prints the states of the lock keys after extracting them from the packed int `locks`."""
  */
-  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_PrintLockKeys, __pyx_t_7) < 0) __PYX_ERR(0, 351, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_PrintLockKeys, __pyx_t_7) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "src/_cythonExtensions/common/common.pyx":199
@@ -14722,24 +14722,24 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":360
+  /* "src/_cythonExtensions/common/common.pyx":353
  * 
  * @static_class
  * class ShellAutomationObjectWrapper:             # <<<<<<<<<<<<<<
  *     """Thread-safe wrapper class for accessing an Automation object in a multithreaded environment."""
  *     # The wrapper object acquires a lock before accessing the Automation object, ensuring that only one thread can access it at a time.
  */
-  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_ShellAutomationObjectWrapper, __pyx_n_s_ShellAutomationObjectWrapper, (PyObject *) NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_kp_s_Thread_safe_wrapper_class_for_ac); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 360, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_ShellAutomationObjectWrapper, __pyx_n_s_ShellAutomationObjectWrapper, (PyObject *) NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_kp_s_Thread_safe_wrapper_class_for_ac); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "src/_cythonExtensions/common/common.pyx":369
+  /* "src/_cythonExtensions/common/common.pyx":362
  *     # The lock is automatically acquired at the beginning of the block and released when the block ends.
  * 
  *     explorer = Dispatch("Shell.Application")             # <<<<<<<<<<<<<<
  *     """An explorer Automation object."""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_Dispatch); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 369, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_Dispatch); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 362, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
@@ -14753,22 +14753,22 @@ if (!__Pyx_RefNanny) {
   }
   __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_3, __pyx_kp_s_Shell_Application) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_kp_s_Shell_Application);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_explorer, __pyx_t_2) < 0) __PYX_ERR(0, 369, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_explorer, __pyx_t_2) < 0) __PYX_ERR(0, 362, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":372
+  /* "src/_cythonExtensions/common/common.pyx":365
  *     """An explorer Automation object."""
  * 
  *     _lock = threading.Lock()             # <<<<<<<<<<<<<<
  *     """A lock object used to ensure that only one thread can access the Automation object at a time."""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_threading); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 372, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_threading); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 365, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_Lock); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 372, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_Lock); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 365, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_7 = NULL;
@@ -14783,96 +14783,96 @@ if (!__Pyx_RefNanny) {
   }
   __pyx_t_2 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 372, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 365, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_lock, __pyx_t_2) < 0) __PYX_ERR(0, 372, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_lock, __pyx_t_2) < 0) __PYX_ERR(0, 365, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":376
+  /* "src/_cythonExtensions/common/common.pyx":369
  * 
  *     @staticmethod
  *     def __getattr__(name: str):             # <<<<<<<<<<<<<<
  *         # Acquire lock before accessing the Automation object
  *         with ShellAutomationObjectWrapper._lock:
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 376, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name_2, __pyx_n_u_str) < 0) __PYX_ERR(0, 376, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_28ShellAutomationObjectWrapper_1__getattr__, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ShellAutomationObjectWrapper___g, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 376, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name_2, __pyx_n_u_str) < 0) __PYX_ERR(0, 369, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_28ShellAutomationObjectWrapper_1__getattr__, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_ShellAutomationObjectWrapper___g, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":375
+  /* "src/_cythonExtensions/common/common.pyx":368
  *     """A lock object used to ensure that only one thread can access the Automation object at a time."""
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def __getattr__(name: str):
  *         # Acquire lock before accessing the Automation object
  */
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 375, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_getattr, __pyx_t_2) < 0) __PYX_ERR(0, 376, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_getattr, __pyx_t_2) < 0) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":360
+  /* "src/_cythonExtensions/common/common.pyx":353
  * 
  * @static_class
  * class ShellAutomationObjectWrapper:             # <<<<<<<<<<<<<<
  *     """Thread-safe wrapper class for accessing an Automation object in a multithreaded environment."""
  *     # The wrapper object acquires a lock before accessing the Automation object, ensuring that only one thread can access it at a time.
  */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_ShellAutomationObjectWrapper, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 360, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_ShellAutomationObjectWrapper, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "src/_cythonExtensions/common/common.pyx":359
+  /* "src/_cythonExtensions/common/common.pyx":352
  * 
  * 
  * @static_class             # <<<<<<<<<<<<<<
  * class ShellAutomationObjectWrapper:
  *     """Thread-safe wrapper class for accessing an Automation object in a multithreaded environment."""
  */
-  __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_6common_static_class(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 359, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_6common_static_class(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 352, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ShellAutomationObjectWrapper, __pyx_t_3) < 0) __PYX_ERR(0, 360, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ShellAutomationObjectWrapper, __pyx_t_3) < 0) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":383
+  /* "src/_cythonExtensions/common/common.pyx":376
  * 
  * # Source: https://stackoverflow.com/questions/6552097/threading-how-to-get-parent-id-name
  * class PThread(threading.Thread):             # <<<<<<<<<<<<<<
  *     """An extension of threading.Thread. Stores some relevant information about the threads."""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 383, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_threading); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 383, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Thread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 383, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 383, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare(__pyx_t_3, __pyx_t_1, __pyx_n_s_PThread, __pyx_n_s_PThread, (PyObject *) NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_kp_s_An_extension_of_threading_Thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 383, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare(__pyx_t_3, __pyx_t_1, __pyx_n_s_PThread, __pyx_n_s_PThread, (PyObject *) NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_kp_s_An_extension_of_threading_Thread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "src/_cythonExtensions/common/common.pyx":387
+  /* "src/_cythonExtensions/common/common.pyx":380
  * 
  *     # Used in the Throttle decorator to make it thread-safe.
  *     _throttle_lock = threading.Lock()             # <<<<<<<<<<<<<<
  *     """A lock object used to ensure that only one thread can access the critical section in the Throttle decorator."""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_threading); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_threading); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 380, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_Lock); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_Lock); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 380, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_6 = NULL;
@@ -14887,22 +14887,22 @@ if (!__Pyx_RefNanny) {
   }
   __pyx_t_7 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 387, __pyx_L1_error)
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 380, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_throttle_lock, __pyx_t_7) < 0) __PYX_ERR(0, 387, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_throttle_lock, __pyx_t_7) < 0) __PYX_ERR(0, 380, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":390
+  /* "src/_cythonExtensions/common/common.pyx":383
  *     """A lock object used to ensure that only one thread can access the critical section in the Throttle decorator."""
  * 
  *     mainThreadId = threading.main_thread().ident             # <<<<<<<<<<<<<<
  *     """The ID of the main thread."""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_threading); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_threading); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_main_thread); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_main_thread); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -14917,25 +14917,25 @@ if (!__Pyx_RefNanny) {
   }
   __pyx_t_7 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 390, __pyx_L1_error)
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_ident); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_ident); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_mainThreadId, __pyx_t_6) < 0) __PYX_ERR(0, 390, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_mainThreadId, __pyx_t_6) < 0) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":393
+  /* "src/_cythonExtensions/common/common.pyx":386
  *     """The ID of the main thread."""
  * 
  *     msgQueue: Queue[bool] = queue.Queue()             # <<<<<<<<<<<<<<
  *     """A queue used for message passing between threads."""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_queue); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 393, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_queue); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_Queue); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 393, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_Queue); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_7 = NULL;
@@ -14950,264 +14950,264 @@ if (!__Pyx_RefNanny) {
   }
   __pyx_t_6 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 393, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_msgQueue, __pyx_t_6) < 0) __PYX_ERR(0, 393, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_msgQueue, __pyx_t_6) < 0) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":396
+  /* "src/_cythonExtensions/common/common.pyx":389
  *     """A queue used for message passing between threads."""
  * 
  *     def __init__(self, *args, **kwargs):             # <<<<<<<<<<<<<<
  *         threading.Thread.__init__(self, *args, **kwargs)
  *         self.parent = threading.current_thread()
  */
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_1__init__, 0, __pyx_n_s_PThread___init, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_1__init__, 0, __pyx_n_s_PThread___init, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_init, __pyx_t_6) < 0) __PYX_ERR(0, 396, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_init, __pyx_t_6) < 0) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":402
+  /* "src/_cythonExtensions/common/common.pyx":395
  * 
  *     # Propagating exceptions from a thread and showing an error message.
  *     def run(self):             # <<<<<<<<<<<<<<
  *         cdef str error_msg, class_name
  * 
  */
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_3run, 0, __pyx_n_s_PThread_run, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 402, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_3run, 0, __pyx_n_s_PThread_run, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_run, __pyx_t_6) < 0) __PYX_ERR(0, 402, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_run, __pyx_t_6) < 0) __PYX_ERR(0, 395, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":418
+  /* "src/_cythonExtensions/common/common.pyx":411
  * 
  *     @staticmethod
  *     def InMainThread() -> bool:             # <<<<<<<<<<<<<<
  *         """Returns where the current thread is the main thread for the current process."""
  * 
  */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 418, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 411, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_return, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 418, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_5InMainThread, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_InMainThread, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__55)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 418, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_return, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 411, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_5InMainThread, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_InMainThread, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__55)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 411, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":417
+  /* "src/_cythonExtensions/common/common.pyx":410
  *             # logging.error(f"Warning! An error occurred in thread {self.name}. Traceback:{str(e)}", exc_info=True)
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def InMainThread() -> bool:
  *         """Returns where the current thread is the main thread for the current process."""
  */
-  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 417, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 410, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_InMainThread, __pyx_t_6) < 0) __PYX_ERR(0, 418, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_InMainThread, __pyx_t_6) < 0) __PYX_ERR(0, 411, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":424
+  /* "src/_cythonExtensions/common/common.pyx":417
  * 
  *     @staticmethod
  *     def GetParentThread() -> int:             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 417, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_return, __pyx_n_u_int) < 0) __PYX_ERR(0, 424, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_7GetParentThread, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_GetParentThread, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 424, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_return, __pyx_n_u_int) < 0) __PYX_ERR(0, 417, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_7GetParentThread, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_GetParentThread, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 417, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":423
+  /* "src/_cythonExtensions/common/common.pyx":416
  *         return threading.get_ident() == PThread.mainThreadId
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def GetParentThread() -> int:
  *         """
  */
-  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 423, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_GetParentThread, __pyx_t_6) < 0) __PYX_ERR(0, 424, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_GetParentThread, __pyx_t_6) < 0) __PYX_ERR(0, 417, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":446
+  /* "src/_cythonExtensions/common/common.pyx":439
  * 
  *     @staticmethod
  *     def CoInitialize() -> bool:             # <<<<<<<<<<<<<<
  *         """Initializes the COM library for the current thread if it was not previously initialized."""
  * 
  */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 446, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 439, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_return, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 446, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_9CoInitialize, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_CoInitialize, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__57)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 446, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_return, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 439, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_9CoInitialize, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_CoInitialize, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__57)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 439, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":445
+  /* "src/_cythonExtensions/common/common.pyx":438
  *             return 0 # "MainThread"
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def CoInitialize() -> bool:
  *         """Initializes the COM library for the current thread if it was not previously initialized."""
  */
-  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 445, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_CoInitialize, __pyx_t_6) < 0) __PYX_ERR(0, 446, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_CoInitialize, __pyx_t_6) < 0) __PYX_ERR(0, 439, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":459
+  /* "src/_cythonExtensions/common/common.pyx":452
  * 
  *     @staticmethod
  *     def CoUninitialize() -> None:             # <<<<<<<<<<<<<<
  *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:
  */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 459, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 452, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 459, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_11CoUninitialize, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_CoUninitialize, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 459, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 452, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_11CoUninitialize, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_CoUninitialize, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 452, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":458
+  /* "src/_cythonExtensions/common/common.pyx":451
  *         return False
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def CoUninitialize() -> None:
  *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
  */
-  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 458, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_CoUninitialize, __pyx_t_6) < 0) __PYX_ERR(0, 459, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_CoUninitialize, __pyx_t_6) < 0) __PYX_ERR(0, 452, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":467
+  /* "src/_cythonExtensions/common/common.pyx":460
  * 
  *     @staticmethod
  *     def Throttle(wait_time: float):             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 467, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 460, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_wait_time, __pyx_n_u_float) < 0) __PYX_ERR(0, 467, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_13Throttle, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_Throttle, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 467, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_wait_time, __pyx_n_u_float) < 0) __PYX_ERR(0, 460, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_13Throttle, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_Throttle, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 460, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":466
+  /* "src/_cythonExtensions/common/common.pyx":459
  *             threading.current_thread().coInitializeCalled = False
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def Throttle(wait_time: float):
  *         """
  */
-  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 466, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 459, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_Throttle, __pyx_t_6) < 0) __PYX_ERR(0, 467, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_Throttle, __pyx_t_6) < 0) __PYX_ERR(0, 460, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":494
+  /* "src/_cythonExtensions/common/common.pyx":487
  * 
  *     @staticmethod
  *     def Debounce(wait_time: float):             # <<<<<<<<<<<<<<
  *         """
  *         Decorator that will debounce a function so that it is called after `wait_time` seconds.
  */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 494, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 487, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_wait_time, __pyx_n_u_float) < 0) __PYX_ERR(0, 494, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_15Debounce, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_Debounce, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 494, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_wait_time, __pyx_n_u_float) < 0) __PYX_ERR(0, 487, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_6common_7PThread_15Debounce, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_n_s_PThread_Debounce, NULL, __pyx_n_s_macropy_cythonExtensions_common, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 487, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":493
+  /* "src/_cythonExtensions/common/common.pyx":486
  *         return decorator
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def Debounce(wait_time: float):
  *         """
  */
-  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 493, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 486, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_Debounce, __pyx_t_6) < 0) __PYX_ERR(0, 494, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_Debounce, __pyx_t_6) < 0) __PYX_ERR(0, 487, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":383
+  /* "src/_cythonExtensions/common/common.pyx":376
  * 
  * # Source: https://stackoverflow.com/questions/6552097/threading-how-to-get-parent-id-name
  * class PThread(threading.Thread):             # <<<<<<<<<<<<<<
  *     """An extension of threading.Thread. Stores some relevant information about the threads."""
  * 
  */
-  __pyx_t_6 = __Pyx_Py3ClassCreate(__pyx_t_3, __pyx_n_s_PThread, __pyx_t_1, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 383, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_Py3ClassCreate(__pyx_t_3, __pyx_n_s_PThread, __pyx_t_1, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_PThread, __pyx_t_6) < 0) __PYX_ERR(0, 383, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_PThread, __pyx_t_6) < 0) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/_cythonExtensions/common/common.pyx":534
+  /* "src/_cythonExtensions/common/common.pyx":527
  * 
  * 
  * cpdef str ReadFromClipboard(int CF=win32clipboard.CF_TEXT): # CF: Clipboard format.             # <<<<<<<<<<<<<<
  *     """Reads the top of the clipboard if it was the same type as the specified."""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 534, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 527, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CF_TEXT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 534, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CF_TEXT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 527, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 534, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 527, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_k__26 = __pyx_t_8;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 534, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 527, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CF_TEXT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 534, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CF_TEXT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 527, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 534, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 527, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_k__26 = __pyx_t_8;
 
-  /* "src/_cythonExtensions/common/common.pyx":548
+  /* "src/_cythonExtensions/common/common.pyx":541
  * 
  * 
  * cpdef void SendToClipboard(data, int CF=win32clipboard.CF_UNICODETEXT):             # <<<<<<<<<<<<<<
  *     """Copies the given data to the clipboard."""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 548, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 541, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CF_UNICODETEXT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 548, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CF_UNICODETEXT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 541, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 548, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 541, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_k__27 = __pyx_t_8;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 548, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 541, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CF_UNICODETEXT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 548, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CF_UNICODETEXT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 541, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 548, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 541, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_k__27 = __pyx_t_8;
 

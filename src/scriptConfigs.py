@@ -1,5 +1,7 @@
 """This module contains the configuration variables used by the script."""
 
+# If you want to use a prefix other than '!' and ':', to be able to use key expansion when 'suppress_all_keys' is set,
+# you need to add an extra check in the 'eventListeners.ExpanderEvent' function.
 LOCATIONS = {
             "!cmd":    r"C:\Windows\System32\cmd.exe",
             "!paint":  r"C:\Windows\System32\mspaint.exe",
