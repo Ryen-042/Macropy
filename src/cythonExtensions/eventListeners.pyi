@@ -1,6 +1,6 @@
 """This contains the keyboard listeners responsible for handling hotkey press and release events."""
 
-from pyWinhook.HookManager import KeyboardEvent
+from hookManager import KeyboardEvent
 
 def HotkeyPressEvent(event: KeyboardEvent) -> bool:
     """
@@ -8,11 +8,11 @@ def HotkeyPressEvent(event: KeyboardEvent) -> bool:
         The callback function responsible for handling hotkey press events.
     ---
     Parameters:
-        `event`:
+        `event -> KeyboardEvent`:
             A keyboard event object.
     ---
     Return:
-        `return_the_key -> bool`: Whether to return or suppress the pressed key.
+        `suppress_key -> bool`: Whether to suppress the pressed key or return it.
     """
     ...
 
@@ -22,8 +22,11 @@ def ExpanderEvent(event: KeyboardEvent) -> bool:
         The callback function responsible for handling the word expansion events.
     ---
     Parameters:
-        `event`:
+        `event -> KeyboardEvent`:
             A keyboard event object.
+    ---
+    Output:
+        `bool`: Always return True.
     """
     ...
 
@@ -37,7 +40,10 @@ def KeyRelease(event: KeyboardEvent) -> bool:
         The callback function responsible for handling the `KeyRelease` events.
     ---
     Parameters:
-        `event`:
+        `event -> KeyboardEvent`:
             A keyboard event object.
+    ---
+    Output:
+        `bool`: Always return False.
     """
     ...
