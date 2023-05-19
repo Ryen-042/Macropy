@@ -3,11 +3,9 @@ from collections import deque
 import queue
 from enum import IntEnum
 from typing import Callable
-from pynput.keyboard import Controller as kbController
-from pynput.mouse import Controller as mController
 import threading, win32clipboard
 from win32com.client import CDispatch
-from pyWinhook.HookManager import KeyboardEvent
+from hookManager import HookManager, KeyboardEvent
 
 class KB_Con(IntEnum):
     """
@@ -134,8 +132,8 @@ class Management:
     suppress_all_keys : bool
     """For suppressing all keyboard keys. Defaults to False."""
     
-    terminate_script : bool
-    """Used as indicating the the script is still running. Set it to begin the termination process. Defaults to False."""
+    terminateEvent: threading.Event
+    """An `Event` object that is set when the hotkey for terminating the script is pressed."""
     
     @staticmethod
     def LogUncaughtExceptions(exc_type, exc_value, exc_traceback) -> int:
@@ -280,11 +278,6 @@ class ControllerHouse:
     """A dictionary of abbreviations and their corresponding paths."""
     
     
-    pynput_kb      : kbController
-    pynput_mouse   : mController
-    keyboard_send  : Callable
-    keyboard_write : Callable
-    
     @staticmethod
     def UpdateModifiers_KeyDown(event: KeyboardEvent) -> None:
         """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
@@ -301,8 +294,17 @@ class ControllerHouse:
         ...
     
     @staticmethod
-    def SendMouseScroll(dist: int) -> None:
-        """Sends a mouse scroll event with the given distance."""
+    def SendMouseScroll(steps=1, direction=1) -> None:
+        """
+        Description:
+            Sends a mouse scroll event with the specified number of steps and direction.
+        ---
+        Parameters:
+            `steps: int = 1`
+                The number of steps to scroll. Can take negative values.
+            `direction: int = 1`
+                The direction to scroll in. `1` for vertical, `0` for horizontal.
+        """
         ...
     
     @staticmethod
@@ -330,6 +332,9 @@ class PThread(threading.Thread):
     
     throttle_lock: threading.Lock
     """A lock object used to ensure that only one thread can access the critical section in the Throttle decorator."""
+    
+    mainThreadId = threading.main_thread().ident
+    """The ID of the main thread."""
     
     msgQueue: queue.Queue[bool]
     """A queue used for message passing between threads."""
@@ -363,9 +368,6 @@ class PThread(threading.Thread):
         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
         ...
     
-    
-    # Source: https://github.com/salesforce/decorator-operations/blob/master/decoratorOperations/throttle_functions/throttle.py
-    # For a comparison between Throttling and Debouncing: https://stackoverflow.com/questions/25991367/difference-between-throttling-and-debouncing-a-function
     @staticmethod
     def Throttle(wait_time: float):
         """
@@ -374,15 +376,16 @@ class PThread(threading.Thread):
         """
         ...
     
-    # Source: https://github.com/salesforce/decorator-operations/blob/master/decoratorOperations/debounce_functions/debounce.py
     @staticmethod
     def Debounce(wait_time: float):
         """
         Decorator that will debounce a function so that it is called after `wait_time` seconds.
         If the decorated function is called multiple times within a time slot, it will debounce
-        (wait for a new time slot from the last call).
+        (wait for a new time slot from the last call without executing the associated function).
         
-        If no calls arrive after wait_time seconds from the last call, then execute the last call.
+        If no calls arrive after `wait_time` seconds from the last call, then execute the last call.
+        
+        A function decorated with this decorator can also be called immediately using `func_name.runNoWait()`.
         """
         ...
 
