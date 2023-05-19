@@ -30,26 +30,26 @@ if sys.version_info[0] == 2:
 
 if USE_CYTHON:
     ext_modules += [
-        Extension("macropy.common",  ["macropy/cython_extensions/common/common.pyx"]),
-        Extension("macropy.eventListeners",  ["macropy/cython_extensions/eventListeners/eventListeners.pyx"]),
-        Extension("macropy.explorerHelper",  ["macropy/cython_extensions/explorerHelper/explorerHelper.pyx"]),
-        Extension("macropy.imageInverter",  ["macropy/cython_extensions/imageInverter/imageInverter.pyx"]),
-        Extension("macropy.keyboardHelper",  ["macropy/cython_extensions/keyboardHelper/keyboardHelper.pyx"]),
-        Extension("macropy.scriptController",  ["macropy/cython_extensions/scriptController/scriptController.pyx"]),
-        Extension("macropy.systemHelper",  ["macropy/cython_extensions/systemHelper/systemHelper.pyx"]),
-        Extension("macropy.windowHelper",  ["macropy/cython_extensions/windowHelper/windowHelper.pyx"])
+        Extension("macropy.cythonExtensions.common",  ["src/_cythonExtensions/common/common.pyx"]),
+        Extension("macropy.cythonExtensions.eventListeners",  ["src/_cythonExtensions/eventListeners/eventListeners.pyx"]),
+        Extension("macropy.cythonExtensions.explorerHelper",  ["src/_cythonExtensions/explorerHelper/explorerHelper.pyx"]),
+        Extension("macropy.cythonExtensions.imageInverter",  ["src/_cythonExtensions/imageInverter/imageInverter.pyx"]),
+        Extension("macropy.cythonExtensions.keyboardHelper",  ["src/_cythonExtensions/keyboardHelper/keyboardHelper.pyx"]),
+        Extension("macropy.cythonExtensions.scriptController",  ["src/_cythonExtensions/scriptController/scriptController.pyx"]),
+        Extension("macropy.cythonExtensions.systemHelper",  ["src/_cythonExtensions/systemHelper/systemHelper.pyx"]),
+        Extension("macropy.cythonExtensions.windowHelper",  ["src/_cythonExtensions/windowHelper/windowHelper.pyx"])
     ]
     cmdclass.update({ "build_ext": build_ext })
 else:
     ext_modules += [
-        Extension("macropy.common",  ["macropy/cython_extensions/common/common.c"]),
-        Extension("macropy.eventListeners",  ["macropy/cython_extensions/eventListeners/eventListeners.c"]),
-        Extension("macropy.explorerHelper",  ["macropy/cython_extensions/explorerHelper/explorerHelper.c"]),
-        Extension("macropy.imageInverter",  ["macropy/cython_extensions/imageInverter/imageInverter.c"]),
-        Extension("macropy.keyboardHelper",  ["macropy/cython_extensions/keyboardHelper/keyboardHelper.c"]),
-        Extension("macropy.scriptController",  ["macropy/cython_extensions/scriptController/scriptController.c" ]),
-        Extension("macropy.systemHelper",  ["macropy/cython_extensions/systemHelper/systemHelper.c"]),
-        Extension("macropy.windowHelper",  ["macropy/cython_extensions/windowHelper/windowHelper.c"])
+        Extension("macropy.cythonExtensions.common",  ["src/_cythonExtensions/common/common.c"]),
+        Extension("macropy.cythonExtensions.eventListeners",  ["src/_cythonExtensions/eventListeners/eventListeners.c"]),
+        Extension("macropy.cythonExtensions.explorerHelper",  ["src/_cythonExtensions/explorerHelper/explorerHelper.c"]),
+        Extension("macropy.cythonExtensions.imageInverter",  ["src/_cythonExtensions/imageInverter/imageInverter.c"]),
+        Extension("macropy.cythonExtensions.keyboardHelper",  ["src/_cythonExtensions/keyboardHelper/keyboardHelper.c"]),
+        Extension("macropy.cythonExtensions.scriptController",  ["src/_cythonExtensions/scriptController/scriptController.c" ]),
+        Extension("macropy.cythonExtensions.systemHelper",  ["src/_cythonExtensions/systemHelper/systemHelper.c"]),
+        Extension("macropy.cythonExtensions.windowHelper",  ["src/_cythonExtensions/windowHelper/windowHelper.c"])
     ]
 
 requirements = [ ]
@@ -62,11 +62,12 @@ with open("requirements.txt", "r") as f:
 # https://stackoverflow.com/questions/58533084/what-keyword-arguments-does-setuptools-setup-accept
 setup(
     name="kb_macropy",
-    version="0.0.24",
+    version="1.0.25",
     description="Keyboard listener and automation script.",
     author="Ahmed Tarek",
     author_email="ahmedtarek4377@gmail.com",
     url="https://github.com/Ryen-042/macropy",
+    package_dir={"macropy": "src"},
     packages=["macropy"],
     package_data={"macropy": ["Images/static/*", "SFX/*"],},
     cmdclass = cmdclass,
