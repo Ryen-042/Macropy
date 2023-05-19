@@ -62,7 +62,7 @@ with open("requirements.txt", "r") as f:
 # https://stackoverflow.com/questions/58533084/what-keyword-arguments-does-setuptools-setup-accept
 setup(
     name="kb_macropy",
-    version="1.0.25",
+    version="1.1.1",
     description="Keyboard listener and automation script.",
     author="Ahmed Tarek",
     author_email="ahmedtarek4377@gmail.com",

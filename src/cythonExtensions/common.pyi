@@ -2,10 +2,9 @@
 from collections import deque
 import queue
 from enum import IntEnum
-from typing import Callable
 import threading, win32clipboard
 from win32com.client import CDispatch
-from hookManager import HookManager, KeyboardEvent
+from hookManager import KeyboardEvent
 
 class KB_Con(IntEnum):
     """
@@ -368,6 +367,9 @@ class PThread(threading.Thread):
         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
         ...
     
+    
+    # Source: https://github.com/salesforce/decorator-operations/blob/master/decoratorOperations/throttle_functions/throttle.py
+    # For a comparison between Throttling and Debouncing: https://stackoverflow.com/questions/25991367/difference-between-throttling-and-debouncing-a-function
     @staticmethod
     def Throttle(wait_time: float):
         """
