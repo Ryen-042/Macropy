@@ -75,7 +75,7 @@ cpdef enum KB_Con:
     
     # Symbol keys
     AS_EXCLAM               = 33
-    AS_DOUBLE_QUOTES        = 34,   VK_DOUBLE_QUOTES = 222,       SC_DOUBLE_QUOTES = 40
+    AS_DOUBLE_QUOTES        = 34,   VK_SINGLE_QUOTES = 222,       SC_SINGLE_QUOTES = 40
     AS_HASH                 = 35
     AS_DOLLAR               = 36
     AS_PERCENT              = 37
@@ -197,7 +197,7 @@ class WindowHouse:
 
 @static_class
 class ControllerHouse:
-    """A static data class for storing information and functions for managing and controlling keyboard."""
+    """A static data class that stores information for managing and controlling keyboard."""
     
     modifiers = 0
     """An int packing the states of the keyboard modifier keys (pressed or not).
@@ -228,6 +228,7 @@ class ControllerHouse:
     CTRL_FN         = 0b10000000000010 # 8194
     CTRL_WIN        = 0b10000000001100 # 8204
     LCTRL_RCTRL     = 0b01100000000000 # 6144
+    SHIFT_ALT       = 0b00010010000000 # 1152
     SHIFT_FN        = 0b00010000000010 # 1026
     LSHIFT_RSHIFT   = 0b00001100000000 # 768
     ALT_FN          = 0b00000010000010 # 130
@@ -242,111 +243,120 @@ class ControllerHouse:
     
     # Masks for extracting individual lock keys from the `locks` packed int.
     CAPITAL = 0b100
-    SCROLL = 0b10
+    SCROLL  = 0b10
     NUMLOCK = 0b1
     
     pressed_chars = ""
-    """Holds the pressed character keys for the key expansion events."""
-
+    """Stores the pressed character keys for the key expansion events."""
     
-    locations = configs.LOCATIONS
-    """A dictionary of abbreviations and their corresponding path address."""
+    heldMouseBtn = 0 # 0 = None, 1 = Left, 2 = Right, 3 = Middle
+    """Stores the mouse button that is currently being held down."""
     
     abbreviations = configs.ABBREVIATIONS
     """A dictionary of abbreviations and their corresponding expansion."""
     
+    locations = configs.LOCATIONS
+    """A dictionary of abbreviations and their corresponding path address."""
     
-    def UpdateModifiers_KeyDown(event) -> None:
-        """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
-        
-        ControllerHouse.modifiers |= (
-            (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
-            (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
-            (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
-            (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
-            (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
-            (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
-            (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
-            (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
-            (event.KeyID == 255)                  << 1  | # FN
-            (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
-        )
-        
-        ControllerHouse.modifiers |= (
-            ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
-            ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
-            ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
-            ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
-        )
+    # https://nitratine.net/blog/post/simulate-keypresses-in-python/
+    # pynput_kb = kbController()
+    # pynput_mouse = mController()
+
+cpdef inline void UpdateModifiers_KeyDown(KeyboardEvent event):
+    """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
     
-    def UpdateModifiers_KeyUp(event) -> None:
-        """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
-        
-        ControllerHouse.modifiers &= ~(
-            (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN
-            (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
-            (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
-            (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
-            (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
-            (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
-            (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
-            (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
-            (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
-            (event.KeyID == 255)                  << 1  | # FN
-            (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
-        )
-        
-        ControllerHouse.modifiers &= ~( # Reseeting CTRL, SHIFT, ALT, WIN
-            ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
-            ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
-            ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
-            ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
-        )
+    ControllerHouse.modifiers |= (
+        (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
+        (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
+        (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
+        (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
+        (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
+        (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
+        (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
+        (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
+        (event.KeyID == 255)                  << 1  | # FN
+        (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
+    )
     
-    @staticmethod
-    def UpdateLocks(event) -> None:
-        """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
-        
-        ControllerHouse.locks ^= (
-            (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL
-            (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL
-            (event.KeyID == win32con.VK_NUMLOCK)        # NUMLOCK
-        )
+    ControllerHouse.modifiers |= (
+        ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
+        ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
+        ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
+        ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
+    )
+
+cpdef inline void UpdateModifiers_KeyUp(KeyboardEvent event):
+    """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
     
-    @staticmethod
-    def SendMouseScroll(steps=1, direction=1) -> None:
-        """
-        Description:
-            Sends a mouse scroll event with the specified number of steps and direction.
-        ---
-        Parameters:
-            `steps: int = 1`
-                The number of steps to scroll. Can take negative values.
-            `direction: int = 1`
-                The direction to scroll in. `1` for vertical, `0` for horizontal.
-        """
-        
-        # API doc: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mouse_event
-        win32api.mouse_event((win32con.MOUSEEVENTF_HWHEEL, win32con.MOUSEEVENTF_WHEEL)[direction], 0, 0, steps * win32con.WHEEL_DELTA, 0)
+    ControllerHouse.modifiers &= ~(
+        (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN
+        (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
+        (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
+        (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
+        (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
+        (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
+        (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
+        (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
+        (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
+        (event.KeyID == 255)                  << 1  | # FN
+        (event.KeyID == KB_Con.VK_BACKTICK)           # BACKTICK
+    )
     
-    @staticmethod
-    def PrintModifiers() -> None:
-        """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
-        
-        print(f"CTRL={bool(ControllerHouse.modifiers & ControllerHouse.CTRL)}", end=", ")
-        print(f"SHIFT={bool(ControllerHouse.modifiers & ControllerHouse.SHIFT)}", end=", ")
-        print(f"ALT={bool(ControllerHouse.modifiers & ControllerHouse.ALT)}", end=", ")
-        print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")
-        print(f"FN={bool(ControllerHouse.modifiers & ControllerHouse.FN)}", end=", ")
-        print(f"BACKTICK={bool(ControllerHouse.modifiers & ControllerHouse.BACKTICK)}", end=" | ")
+    ControllerHouse.modifiers &= ~( # Reseeting CTRL, SHIFT, ALT, WIN
+        ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
+        ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
+        ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
+        ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
+    )
+
+cpdef inline void UpdateLocks(KeyboardEvent event):
+    """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
     
-    @staticmethod
-    def PrintLockKeys() -> None:
-        """Prints the states of the lock keys after extracting them from the packed int `locks`."""
+    ControllerHouse.locks ^= (
+        (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL
+        (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL
+        (event.KeyID == win32con.VK_NUMLOCK)        # NUMLOCK
+    )
+
+cpdef void SendMouseScroll(steps=1, direction=1, wheelDelta=40):
+    """
+    Description:
+        Sends a mouse scroll event with the specified number of steps and direction.
+    ---
+    Parameters:
+        `steps: int = 1`:
+            The number of steps to scroll. Can take negative values.
         
-        print(f"CAPSLOCK={bool(ControllerHouse.locks & ControllerHouse.CAPITAL)}", end=", ")
-        print(f"SCROLL={bool(ControllerHouse.locks & ControllerHouse.SCROLL)}", end=", ")
-        print(f"NUMLOCK={bool(ControllerHouse.locks & ControllerHouse.NUMLOCK)}")
+        `direction: int = 1`:
+            The direction to scroll in. `1` for vertical, `0` for horizontal.
+        
+        `wheelDelta: int = 40`:
+            The amount of scroll per step.
+    """
+    
+    # keyboard.press("ctrl")
+    # ControllerHouse.pynput_mouse.scroll(0, dist)
+    # keyboard.release("ctrl")
+    
+    # API doc: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mouse_event
+    win32api.mouse_event((win32con.MOUSEEVENTF_HWHEEL, win32con.MOUSEEVENTF_WHEEL)[direction], 0, 0, steps * wheelDelta, 0) # win32con.WHEEL_DELTA
+
+cpdef inline void PrintModifiers():
+    """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
+    
+    print(f"CTRL={bool(ControllerHouse.modifiers & ControllerHouse.CTRL)}", end=", ")
+    print(f"SHIFT={bool(ControllerHouse.modifiers & ControllerHouse.SHIFT)}", end=", ")
+    print(f"ALT={bool(ControllerHouse.modifiers & ControllerHouse.ALT)}", end=", ")
+    print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")
+    print(f"FN={bool(ControllerHouse.modifiers & ControllerHouse.FN)}", end=", ")
+    print(f"BACKTICK={bool(ControllerHouse.modifiers & ControllerHouse.BACKTICK)}", end=" | ")
+
+cpdef inline void PrintLockKeys():
+    """Prints the states of the lock keys after extracting them from the packed int `locks`."""
+    
+    print(f"CAPSLOCK={bool(ControllerHouse.locks & ControllerHouse.CAPITAL)}", end=", ")
+    print(f"SCROLL={bool(ControllerHouse.locks & ControllerHouse.SCROLL)}", end=", ")
+    print(f"NUMLOCK={bool(ControllerHouse.locks & ControllerHouse.NUMLOCK)}")
 
 
 @static_class
@@ -522,6 +532,83 @@ class PThread(threading.Thread):
             return debounced
         
         return decorator
+
+
+cdef class BaseEvent:
+    """
+    Description:
+        The base class for all events.
+    ---
+    Parameters:
+        `EventID -> int`: The event ID (the message code).
+        
+        `EventName -> str`: The name of the event (message).
+        
+        `Flags -> int`: The flags associated with the event.
+    """
+    
+    cdef public int EventId, Flags
+    cdef public str EventName
+    
+    def __init__(self, event_id: int, event_name: str, flags: int):
+        self.EventId   = event_id
+        self.EventName = event_name
+        self.Flags     = flags
+
+
+cdef class KeyboardEvent(BaseEvent):
+    """
+    Description:
+        Holds information about a keyboard event.
+    ---
+    Parameters:
+        `EventID -> int`: The event ID (the message code).
+        
+        `EventName -> str`: The name of the event (message).
+        
+        `Key -> str`: The name of the key.
+        
+        `KeyID -> int`: The virtual key code.
+        
+        `Scancode -> int`: The key scancode.
+        
+        `Ascii -> int`: The ASCII value of the key.
+        
+        `Flags -> int`: The flags associated with the event.
+        
+        `Injected -> bool`: Whether or not the event was injected.
+        
+        `Extended -> bool`: Whether or not the event is an extended key event.
+        
+        `Shift -> bool`: Whether or not the shift key is pressed.
+        
+        `Alt -> bool`: Whether or not the alt key is pressed.
+        
+        `Transition -> bool`: Whether or not the key is transitioning from up to down.
+    """
+    
+    cdef public int KeyID, Scancode, Ascii
+    cdef public str Key
+    cdef public bint Injected, Extended, Shift, Alt, Transition
+    
+    def __init__(self, event_id: int, event_name: str, vkey_code: int, scancode: int, key_ascii: int, key_name: str,
+                 flags: int, injected: bint, extended: bint, shift: bint, alt: bint, transition: bint):
+        
+        super(KeyboardEvent, self).__init__(event_id, event_name, flags)
+        
+        self.KeyID = vkey_code
+        self.Scancode = scancode
+        self.Ascii = key_ascii
+        self.Key = key_name
+        self.Injected = injected
+        self.Extended = extended
+        self.Transition = transition
+        self.Shift = shift
+        self.Alt = alt
+    
+    def __repr__(self):
+        return f"Key={self.Key}, ID={self.KeyID}, SC={self.Scancode}, Asc={self.Ascii} | Inj={self.Injected}, Ext={self.Extended}, Shift={self.Shift}, Alt={self.Alt}, Trans={self.Transition}, Flags={self.Flags} | EvtId={self.EventId}, EvtName='{self.EventName}'"
+
 
 
 cpdef str ReadFromClipboard(int CF=win32clipboard.CF_TEXT): # CF: Clipboard format.

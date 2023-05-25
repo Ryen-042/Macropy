@@ -4,7 +4,6 @@ import queue
 from enum import IntEnum
 import threading, win32clipboard
 from win32com.client import CDispatch
-from hookManager import KeyboardEvent
 
 class KB_Con(IntEnum):
     """
@@ -68,7 +67,7 @@ class KB_Con(IntEnum):
     
     # Symbol keys
     AS_EXCLAM               = 33
-    AS_DOUBLE_QUOTES        = 34;   VK_DOUBLE_QUOTES = 222;       SC_DOUBLE_QUOTES = 40
+    AS_DOUBLE_QUOTES        = 34;   VK_SINGLE_QUOTES = 222;       SC_SINGLE_QUOTES = 40
     AS_HASH                 = 35
     AS_DOLLAR               = 36
     AS_PERCENT              = 37
@@ -166,7 +165,7 @@ class WindowHouse:
         ...
 
 class ControllerHouse:
-    """A static data class for storing information and functions for managing and controlling keyboard."""
+    """A static data class that stores information for managing and controlling keyboard."""
     
     modifiers: int
     """An int packing the states of the keyboard modifier keys (pressed or not).
@@ -174,101 +173,107 @@ class ControllerHouse:
     0b00_0000_0000 => CTRL = 8192 | LCTRL = 4096 | RCTRL = 2048 | SHIFT = 1024 | LSHIFT = 512 | RSHIFT = 256 | ALT = 128 | LALT = 64 | RALT = 32 | WIN = 16 | LWIN = 8 | RWIN = 4 | FN = 2 | BACKTICK = 1"""
     
     # Masks for extracting individual keys from the `modifiers` packed int.
-    CTRL     : int
+    CTRL = 0b10000000000000 # 1 << 13 = 8192
     """A mask for extracting the CTRL flag from the `modifiers` packed int."""
     
-    LCTRL    : int
+    LCTRL = 0b1000000000000 # 1 << 12 = 4096
     """A mask for extracting the LCTRL flag from the `modifiers` packed int."""
     
-    RCTRL    : int
+    RCTRL = 0b100000000000  # 1 << 11 = 2048
     """A mask for extracting the RCTRL flag from the `modifiers` packed int."""
     
-    SHIFT    : int
+    SHIFT = 0b10000000000   # 1 << 10 = 1024
     """A mask for extracting the SHIFT flag from the `modifiers` packed int."""
     
-    LSHIFT   : int
+    LSHIFT = 0b1000000000   # 1 << 9  = 512
     """A mask for extracting the LSHIFT flag from the `modifiers` packed int."""
     
-    RSHIFT   : int
+    RSHIFT = 0b100000000    # 1 << 8  = 256
     """A mask for extracting the RSHIFT flag from the `modifiers` packed int."""
-    ALT      : int
+    ALT = 0b10000000        # 1 << 7  = 128
     """A mask for extracting the ALT flag from the `modifiers` packed int."""
     
-    LALT     : int
+    LALT = 0b1000000        # 1 << 6  = 64
     """A mask for extracting the LALT flag from the `modifiers` packed int."""
     
-    RALT     : int
+    RALT = 0b100000         # 1 << 5  = 32
     """A mask for extracting the RALT flag from the `modifiers` packed int."""
     
-    WIN     : int
+    WIN = 0b10000           # 1 << 4  = 16
     """A mask for extracting the WIN flag from the `modifiers` packed int."""
     
-    LWIN     : int
+    LWIN = 0b1000           # 1 << 3  = 8
     """A mask for extracting the LWIN flag from the `modifiers` packed int."""
     
-    RWIN     : int
+    RWIN = 0b100            # 1 << 2  = 4
     """A mask for extracting the RWIN flag from the `modifiers` packed int."""
     
-    FN       : int
+    FN = 0b10               # 1 << 1  = 2
     """A mask for extracting the FN flag from the `modifiers` packed int."""
     
-    BACKTICK : int
+    BACKTICK = 0b1          # 1 << 0  = 1
     """A mask for extracting the BACKTICK flag from the `modifiers` packed int."""
     
     ## Composite Modifier keys masks
-    CTRL_ALT_FN_WIN : int
+    CTRL_ALT_FN_WIN = 0b10000010010010 # 8338
     """A mask for extracting the CTRL, ALT, FN and WIN flags from the `modifiers` packed int."""
     
-    CTRL_ALT_WIN    : int
+    CTRL_ALT_WIN    = 0b10000010010000 # 8336
     """A mask for extracting the CTRL, ALT and WIN flags from the `modifiers` packed int."""
     
-    CTRL_FN_WIN     : int
+    CTRL_FN_WIN     = 0b10000000010010 # 8210
     """A mask for extracting the CTRL, FN amd WIN flags from the `modifiers` packed int."""
     
-    CTRL_SHIFT      : int
+    CTRL_SHIFT      = 0b10010000000000 # 9216
     """A mask for extracting the CTRL and SHIFT flags from the `modifiers` packed int."""
     
-    CTRL_FN         : int
+    CTRL_FN         = 0b10000000000010 # 8194
     """A mask for extracting the CTRL and FN flags from the `modifiers` packed int."""
     
-    CTRL_WIN        : int
+    CTRL_WIN        = 0b10000000001100 # 8204
     """A mask for extracting the CTRL and WIN flags from the `modifiers` packed int."""
 	
-    LCTRL_RCTRL     : int
+    LCTRL_RCTRL     = 0b01100000000000 # 6144
     """A mask for extracting the LCTRL and RCTRL flags from the `modifiers` packed int."""
     
-    SHIFT_FN        : int
+    SHIFT_ALT       = 0b00010010000000 # 1152
+    """A mask for extracting the SHIFT and ALT flags from the `modifiers` packed int."""
+    
+    SHIFT_FN        = 0b00010000000010 # 1026
     """A mask for extracting the SHIFT and FN flags from the `modifiers` packed int."""
     
-    LSHIFT_RSHIFT   : int
+    LSHIFT_RSHIFT   = 0b00001100000000 # 768
     """A mask for extracting the LSHIFT and RSHIFT flags from the `modifiers` packed int."""
     
-    ALT_FN          : int
+    ALT_FN          = 0b00000010000010 # 130
     """A mask for extracting the ALT and FN flags from the `modifiers` packed int."""
     
-    LALT_RALT       : int
+    LALT_RALT       = 0b00000001100000 # 96
     """A mask for extracting the LALT and RALT flags from the `modifiers` packed int."""
     
-    FN_WIN          : int
+    FN_WIN          = 0b00000000010010 # 18
     """A mask for extracting the FN and WIN flags from the `modifiers` packed int."""
     
-    LWIN_RWIN       : int
+    LWIN_RWIN       = 0b00000000001100 # 12
     """A mask for extracting the LWIN and RWIN flags from the `modifiers` packed int."""
     
     locks : int
     """An int packing the states of the keyboard lock keys (on or off)."""
     
-    CAPITAL : int
+    CAPITAL = 0b100
     """A mask for extracting the CAPITAL (CAPSLOCK) flag from the `locks` packed int."""
     
-    SCROLL  : int
+    SCROLL  = 0b10
     """A mask for extracting the SCROLL flag from the `locks` packed int."""
     
-    NUMLOCK : int
+    NUMLOCK = 0b1
     """A mask for extracting the NUMLOCK flag from the `locks` packed int."""
     
     pressed_chars : str
-    """Holds the pressed character keys for the key expansion events."""
+    """Stores the pressed character keys for the key expansion events."""
+    
+    heldMouseBtn : int
+    """Stores the mouse button that is currently being held down."""
     
     abbreviations : dict[str, str]
     """A dictionary of abbreviations and their corresponding expansions."""
@@ -276,45 +281,43 @@ class ControllerHouse:
     locations : dict[str, str]
     """A dictionary of abbreviations and their corresponding paths."""
     
-    
-    @staticmethod
-    def UpdateModifiers_KeyDown(event: KeyboardEvent) -> None:
-        """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
-        ...
-    
-    @staticmethod
-    def UpdateModifiers_KeyUp(event: KeyboardEvent) -> None:
-        """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
-        ...
-    
-    @staticmethod
-    def UpdateLocks(event: KeyboardEvent) -> None:
-        """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
-        ...
-    
-    @staticmethod
-    def SendMouseScroll(steps=1, direction=1) -> None:
-        """
-        Description:
-            Sends a mouse scroll event with the specified number of steps and direction.
-        ---
-        Parameters:
-            `steps: int = 1`
-                The number of steps to scroll. Can take negative values.
-            `direction: int = 1`
-                The direction to scroll in. `1` for vertical, `0` for horizontal.
-        """
-        ...
-    
-    @staticmethod
-    def PrintModifiers() -> None:
-        """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
-        ...
-    
-    @staticmethod
-    def PrintLockKeys() -> None:
-        """Prints the states of the lock keys after extracting them from the packed int `locks`."""
-        ...
+
+def UpdateModifiers_KeyDown(event: KeyboardEvent) -> None:
+    """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
+    ...
+
+def UpdateModifiers_KeyUp(event: KeyboardEvent) -> None:
+    """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
+    ...
+
+def UpdateLocks(event: KeyboardEvent) -> None:
+    """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
+    ...
+
+def SendMouseScroll(steps=1, direction=1, wheelDelta=40) -> None:
+    """
+    Description:
+        Sends a mouse scroll event with the specified number of steps and direction.
+    ---
+    Parameters:
+        `steps: int = 1`:
+            The number of steps to scroll. Can take negative values.
+        
+        `direction: int = 1`:
+            The direction to scroll in. `1` for vertical, `0` for horizontal.
+        
+        `wheelDelta: int = 40`:
+            The amount of scroll per step.
+    """
+    ...
+
+def PrintModifiers() -> None:
+    """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
+    ...
+
+def PrintLockKeys() -> None:
+    """Prints the states of the lock keys after extracting them from the packed int `locks`."""
+    ...
 
 class ShellAutomationObjectWrapper:
     """Thread-safe wrapper class for accessing an Automation object in a multithreaded environment."""
@@ -390,6 +393,74 @@ class PThread(threading.Thread):
         A function decorated with this decorator can also be called immediately using `func_name.runNoWait()`.
         """
         ...
+
+
+class BaseEvent:
+    """
+    Description:
+        The base class for all events.
+    ---
+    Parameters:
+        `EventID -> int`: The event ID (the message code).
+        
+        `EventName -> str`: The name of the event (message).
+        
+        `Flags -> int`: The flags associated with the event.
+    """
+    
+    def __init__(self, event_id: int, event_name: str, flags: int):
+        self.EventId   = int
+        self.EventName = str
+        self.Flags     = int
+
+
+class KeyboardEvent(BaseEvent):
+    """
+    Description:
+        Holds information about a keyboard event.
+    ---
+    Parameters:
+        `EventID -> int`: The event ID (the message code).
+        
+        `EventName -> str`: The name of the event (message).
+        
+        `Key -> str`: The name of the key.
+        
+        `KeyID -> int`: The virtual key code.
+        
+        `Scancode -> int`: The key scancode.
+        
+        `Ascii -> int`: The ASCII value of the key.
+        
+        `Flags -> int`: The flags associated with the event.
+        
+        `Injected -> bool`: Whether or not the event was injected.
+        
+        `Extended -> bool`: Whether or not the event is an extended key event.
+        
+        `Shift -> bool`: Whether or not the shift key is pressed.
+        
+        `Alt -> bool`: Whether or not the alt key is pressed.
+        
+        `Transition -> bool`: Whether or not the key is transitioning from up to down.
+    """
+    
+    def __init__(self, event_id: int, event_name: str, vkey_code: int, scancode: int, key_ascii: int, key_name: str,
+                 flags: int, injected: bool, extended: bool, shift: bool, alt: bool, transition: bool):
+        
+        self.KeyID = vkey_code
+        self.Scancode = scancode
+        self.Ascii = key_ascii
+        self.Key = key_name
+        self.Injected = injected
+        self.Extended = extended
+        self.Transition = transition
+        self.Shift = shift
+        self.Alt = alt
+    
+    def __repr__(self):
+        return f"Key={self.Key}, ID={self.KeyID}, SC={self.Scancode}, Asc={self.Ascii} | Inj={self.Injected}, Ext={self.Extended}, Shift={self.Shift}, Alt={self.Alt}, Trans={self.Transition}, Flags={self.Flags} | EvtId={self.EventId}, EvtName='{self.EventName}'"
+
 
 def ReadFromClipboard(CF= win32clipboard.CF_TEXT) -> str: # CF: Clipboard format.
     """Reads the top of the clipboard if it was the same type as the specified."""
