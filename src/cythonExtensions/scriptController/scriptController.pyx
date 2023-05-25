@@ -5,7 +5,7 @@
 
 import os
 
-def AcquireScriptLock():
+def AcquireScriptLock() -> int:
     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
     If another instance of the script is already running, this instance will be terminated."""
     
@@ -31,7 +31,6 @@ def AcquireScriptLock():
     
     return handle
 
-
 cpdef void begin_script():
     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
     
@@ -40,7 +39,7 @@ cpdef void begin_script():
     print("Script lock acquired.")
     
     import threading
-    import winsound, pythoncom #, pyWinhook
+    import winsound, pythoncom
     from cythonExtensions.systemHelper import systemHelper as sysHelper
     from cythonExtensions.commonUtils.commonUtils import Management as mgmt, PThread
     from cythonExtensions.eventListeners.eventListeners import KeyPress, KeyRelease
@@ -86,7 +85,6 @@ cpdef void begin_script():
     
     ## Installing the low level hook.
     if not hookManager.InstallHook(kbHook.KeyboardHook):
-        import os
         print("Failed to install hook!")
         os._exit(1)
     
@@ -100,10 +98,10 @@ cpdef void begin_script():
     hookManager.UninstallHook()
     
     # Wait for a certain number of seconds before forcefully stopping the running threads.
-    countdown_start = time()
+    cdef float countdown_start = time()
     
     # Get a list of all running threads
-    alive_threads = threading.enumerate()
+    cdef list alive_threads = threading.enumerate()
     
     # Count the number of threads in the list
     cdef int still_alive = len(alive_threads)
