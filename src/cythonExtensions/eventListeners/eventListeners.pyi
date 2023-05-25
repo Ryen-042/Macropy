@@ -1,6 +1,6 @@
 """This contains the keyboard listeners responsible for handling hotkey press and release events."""
 
-from cythonExtensions.hookManager.hookManager import KeyboardEvent
+from cythonExtensions.commonUtils.commonUtils import KeyboardEvent
 
 def HotkeyPressEvent(event: KeyboardEvent) -> bool:
     """

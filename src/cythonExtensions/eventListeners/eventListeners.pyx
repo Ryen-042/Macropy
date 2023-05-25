@@ -9,11 +9,13 @@ from cythonExtensions.explorerHelper import explorerHelper as expHelper
 from cythonExtensions.systemHelper import systemHelper   as sysHelper
 from cythonExtensions.windowHelper import windowHelper   as winHelper
 from cythonExtensions.keyboardHelper import keyboardHelper as kbHelper
+from cythonExtensions.mouseHelper import mouseHelper    as msHelper
 from cythonExtensions.commonUtils.commonUtils import ControllerHouse as ctrlHouse, WindowHouse as winHouse, PThread, Management as mgmt, KB_Con as kbcon
-from cythonExtensions.hookManager.hookManager import KeyboardEvent
+from cythonExtensions.commonUtils import commonUtils
+from cythonExtensions.commonUtils.commonUtils cimport KeyboardEvent
 import threading
 
-cpdef bint HotkeyPressEvent(event):
+cpdef bint HotkeyPressEvent(KeyboardEvent event):
     """
     Description:
         The callback function responsible for handling hotkey press events.
@@ -67,7 +69,7 @@ cpdef bint HotkeyPressEvent(event):
     
     #+ Clearing console output: # FN + Ctrl + 'C'*
     elif (ctrlHouse.modifiers & ctrlHouse.CTRL_FN) == ctrlHouse.CTRL_FN and event.KeyID == kbcon.VK_C:
-        PThread(target=os.system, args=['cls']).start()
+        os.system("cls")
         
         suppress_key = True
     
@@ -109,12 +111,13 @@ cpdef bint HotkeyPressEvent(event):
     
     #+ Moving the active window: '`' + [↑ | → | ↓ | ←] + {Alt | Shift | Win}
     elif (ctrlHouse.modifiers & ctrlHouse.BACKTICK) and event.KeyID in (win32con.VK_UP, win32con.VK_RIGHT, win32con.VK_DOWN, win32con.VK_LEFT):
-        dist = 7
         
         if ctrlHouse.modifiers & ctrlHouse.ALT: # If `Alt` is pressed, increase the movement distance.
             dist = 15
         elif ctrlHouse.modifiers & ctrlHouse.SHIFT: # If `Shift` is pressed, decrease the movemen distance.
             dist = 2
+        else:
+            dist = 7
         
         if ctrlHouse.modifiers & ctrlHouse.WIN: # If `Win` is pressed, changing window size instead of moving it.
             PThread(target=winHelper.MoveActiveWindow, kwargs={win32con.VK_UP: {'height': dist}, win32con.VK_RIGHT: {'width': dist}, win32con.VK_DOWN: {'height': -dist}, win32con.VK_LEFT: {'width': -dist}}.get(event.KeyID)).start()
@@ -127,6 +130,7 @@ cpdef bint HotkeyPressEvent(event):
     elif (ctrlHouse.modifiers & ctrlHouse.CTRL_SHIFT) == ctrlHouse.CTRL_SHIFT and event.KeyID == kbcon.VK_M:
         if win32gui.GetClassName(win32gui.GetForegroundWindow()) in ("CabinetWClass", "WorkerW"):
             PThread(target=expHelper.CreateFile).start()
+            
             suppress_key = True
     
     #+ Copying the full path to the selected files in the active explorer/desktop window: Shift + F2
@@ -140,6 +144,7 @@ cpdef bint HotkeyPressEvent(event):
     elif (ctrlHouse.modifiers & ctrlHouse.CTRL_SHIFT) == ctrlHouse.CTRL_SHIFT and event.KeyID == kbcon.VK_P:
         if win32gui.GetClassName(win32gui.GetForegroundWindow()) == "CabinetWClass":
             PThread(target=expHelper.ImagesToPDF).start()
+            
             suppress_key = True
     
     #+ Converting the selected powerpoint files from the active explorer window into PDF files: '`' + 'P'*
@@ -183,19 +188,74 @@ cpdef bint HotkeyPressEvent(event):
         
         suppress_key = True
     
+    #+ Pausing the running TTS: 'FN' + Shift + 'R'*
+    # elif (ctrlHouse.modifiers & ctrlHouse.SHIFT_FN) == ctrlHouse.SHIFT_FN and event.KeyID == kbcon.VK_R:
+    #     winsound.PlaySound(r"C:\Windows\Media\Windows Proximity Notification.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    #     if ttsHouse.status == 1:    # If status = Running, then pause.
+    #         ttsHouse.status = 2
+    #         ttsHouse.op_called = False
+    #     elif ttsHouse.status == 2:  # If status = Paused, then continue playing.
+    #         with ttsHouse.condition:
+    #             ttsHouse.condition.notify()
+        
+    #     suppress_key = True
+    
+    #+ Stopping the TTS reader: Alt + FN + 'R'*
+    # elif (ctrlHouse.modifiers & ctrlHouse.ALT_FN) == ctrlHouse.ALT_FN and event.KeyID == kbcon.VK_R:
+    #     ttsHouse.status = 3
+    #     ttsHouse.op_called = False
+        
+    #     suppress_key = True
+    
+    #+ Reading selected text aloud: FN + 'R'*
+    # elif (ctrlHouse.modifiers & ctrlHouse.FN) and event.KeyID == kbcon.VK_R:
+    #     PThread(target=ttsHouse.ScheduleSpeak).start()
+        
+    #     suppress_key = True
     
     ### Keyboard/Mouse control operations ###
     #+ Scrolling by simulating mouse scroll events. ScrollLock + Alt + ('W'*, 'S'*, 'A'*, 'D'*)
+    # Don't use shift as it causes the scrolling to be horizontal.
     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and (ctrlHouse.modifiers & ctrlHouse.ALT) and event.KeyID in (kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D):
-        dist = 4
-        PThread(target=ctrlHouse.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start()
+        dist = 3
+        
+        PThread(target=commonUtils.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start()
+        
+        suppress_key = True
+    
+    #+ Sending mouse holding click: ScrollLock + BACKTICK + ('E'*, 'Q'*)
+    elif (ctrlHouse.locks & ctrlHouse.SCROLL) and (ctrlHouse.modifiers & ctrlHouse.BACKTICK) and event.KeyID in (kbcon.VK_E, kbcon.VK_Q):
+        # Release the previously held mouse button.
+        if ctrlHouse.heldMouseBtn:
+            PThread(target=msHelper.sendMouseClick, args=[0, 0, ctrlHouse.heldMouseBtn, 3]).start()
+        
+        # If the same button is requested to be held again, then its release (above) is enough.
+        if (1, 2)[event.KeyID == kbcon.VK_E] == ctrlHouse.heldMouseBtn:
+            ctrlHouse.heldMouseBtn = 0
+        
+        else:
+            ctrlHouse.heldMouseBtn = (1, 2)[event.KeyID == kbcon.VK_E]
+            PThread(target=msHelper.sendMouseClick, args=[0, 0, ctrlHouse.heldMouseBtn, 2]).start()
         
         suppress_key = True
     
     #+ Zooming in by simulating mouse scroll events: ScrollLock + Ctrl + ('E'*, 'Q'*)
     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and (ctrlHouse.modifiers & ctrlHouse.CTRL) and event.KeyID in (kbcon.VK_E, kbcon.VK_Q):
         dist = 1
-        PThread(target=ctrlHouse.SendMouseScroll, args=[(-dist, dist)[event.KeyID == kbcon.VK_E], 1]).start()
+        PThread(target=commonUtils.SendMouseScroll, args=[(-dist, dist)[event.KeyID == kbcon.VK_E], 1, 20]).start()
+        
+        suppress_key = True
+    
+    #+ Moving the mouse cursor: [Alt | Shift] + [";" | "'" | "/" | "."]
+    elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_SEMICOLON, kbcon.VK_SINGLE_QUOTES, kbcon.VK_SLASH, kbcon.VK_PERIOD):
+        if ctrlHouse.modifiers & ctrlHouse.ALT: # If `Alt` is pressed, increase the movement distance.
+            dist = 20
+        elif ctrlHouse.modifiers & ctrlHouse.SHIFT: # If `Shift` is pressed, decrease the movemen distance.
+            dist = 5
+        else:
+            dist = 40
+        
+        PThread(target=msHelper.moveCursor, args=[*{kbcon.VK_SEMICOLON: (0, -dist), kbcon.VK_SINGLE_QUOTES: (dist, 0), kbcon.VK_SLASH: (0, dist), kbcon.VK_PERIOD: (-dist, 0)}.get(event.KeyID)]).start()
         
         suppress_key = True
     
@@ -207,10 +267,10 @@ cpdef bint HotkeyPressEvent(event):
         
         suppress_key = True
     
-    #+ Toggling ScrLck (useful when the keyboard doesn't have the ScrLck key): [FN | Win] + CapsLock
+    #+ Toggling ScrollLock (useful when the keyboard doesn't have the ScrLck key): [FN | Win] + CapsLock
     elif event.KeyID == win32con.VK_CAPITAL and (ctrlHouse.modifiers & ctrlHouse.FN_WIN):
+        winsound.PlaySound(r"SFX\pedantic-490.wav" if not ctrlHouse.locks & ctrlHouse.SCROLL else r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
         PThread(target=kbHelper.SimulateKeyPress, args=[win32con.VK_SCROLL, 0x46]).start()
-        winsound.PlaySound(r"SFX\pedantic-490.wav" if ctrlHouse.locks & ctrlHouse.SCROLL else r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
         
         suppress_key = True
     
@@ -220,7 +280,7 @@ cpdef bint HotkeyPressEvent(event):
 
 
 ### Word listening operations ###
-cpdef bint ExpanderEvent(event):
+cpdef bint ExpanderEvent(KeyboardEvent event):
     """
     Description:
         The callback function responsible for handling the word expansion events.
@@ -235,9 +295,9 @@ cpdef bint ExpanderEvent(event):
     
     #+ Printing some relevant information about the pressed key and hardware metrics.
     if not mgmt.silent:
-        print(f"Thread Count: {threading.active_count()} |", f"Key={event.Key}, ID={event.KeyID}, SC={event.Scancode}, Asc={event.Ascii} | Inj={event.Injected}, Ext={event.Extended}, Shift={event.Shift}, Alt={event.Alt}, Trans={event.Transition}, Flags={event.Flags} | EvtId={event.EventId}, EvtName='{event.EventName}' | Counter={mgmt.counter}")
-        ctrlHouse.PrintModifiers()
-        ctrlHouse.PrintLockKeys()
+        print(f"Thread Count: {threading.active_count()} |", event, f"| Counter={mgmt.counter}")
+        commonUtils.PrintModifiers()
+        commonUtils.PrintLockKeys()
         print("")
         
         # sysHelper.DisplayCPUsage(), print("\n")
@@ -254,7 +314,7 @@ cpdef bint ExpanderEvent(event):
             ctrlHouse.pressed_chars = "!"
         
         # If all keys are suppressed, ":" and "!" cannot be pressed (because shift is suppressed, along with the ";" and "1" keys). Thus, we need to check if shift is pressed.
-        # Any new prefixes that require shift to be pressed should be added here.
+		# Any new prefixes that require shift to be pressed should be added here.
         elif (ctrlHouse.modifiers & ctrlHouse.SHIFT):
             if event.KeyID == kbcon.VK_SEMICOLON:
                 ctrlHouse.pressed_chars = ":"
@@ -314,11 +374,11 @@ cpdef bint ExpanderEvent(event):
     return True
 
 
-def KeyPress(event: KeyboardEvent) -> bool:
+cpdef bint KeyPress(KeyboardEvent event):
     """The main callback function for handling the `KeyPress` events. Used mainly for allowing multiple `KeyPress` callbacks to run simultaneously."""
     
     #! Updating states of lock keys.
-    ctrlHouse.UpdateLocks(event)
+    commonUtils.UpdateLocks(event)
     
     #! Distinguish between real user input and keyboard input generated by programs/scripts.
     if event.Injected == True:
@@ -328,7 +388,7 @@ def KeyPress(event: KeyboardEvent) -> bool:
         return False
     
     #! Updating states of modifier keys.
-    ctrlHouse.UpdateModifiers_KeyDown(event)
+    commonUtils.UpdateModifiers_KeyDown(event)
     
     #+ For the text expansion events.
     PThread(target=ExpanderEvent, args=[event]).start()
@@ -341,9 +401,36 @@ def KeyPress(event: KeyboardEvent) -> bool:
     #++ Scrolling by simulating mouse scroll events. ('W'*, 'S'*, 'A'*, 'D'*)
     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D):
         dist = 1
-        PThread(target=ctrlHouse.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start()
+        PThread(target=commonUtils.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start()
         
         # Suppress the pressed key.
+        PThread.msgQueue.put(True)
+    
+    #+ Moving the mouse cursor: [";" | "'" | "/" | "."] + {Alt | Shift}
+    elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_SEMICOLON, kbcon.VK_SINGLE_QUOTES, kbcon.VK_SLASH, kbcon.VK_PERIOD):
+        dist = 10
+        
+        PThread(target=msHelper.moveCursor, args=[*{kbcon.VK_SEMICOLON: (0, -dist), kbcon.VK_SINGLE_QUOTES: (dist, 0), kbcon.VK_SLASH: (0, dist), kbcon.VK_PERIOD: (-dist, 0)}.get(event.KeyID)]).start()
+        
+        PThread.msgQueue.put(True)
+    
+    
+    #+ Zooming in by simulating mouse scroll events: ScrollLock + ('E'*, 'Q'*)
+        # PThread(target=kbHelper.SimulateHotKeyPress, args=[({win32con.VK_CONTROL:29, kbcon.VK_MINUS: kbcon.AS_MINUS}, {win32con.VK_CONTROL:29, kbcon.VK_EQUALS: kbcon.AS_EQUALS})[event.KeyID == kbcon.VK_E]]).start()
+    
+    #+ Sending mouse click: ScrollLock + ('E'*, 'Q'*)
+    elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_E, kbcon.VK_Q):
+        
+        # Release the previously held mouse button.
+        if ctrlHouse.heldMouseBtn:
+            PThread(target=msHelper.sendMouseClick, args=[0, 0, ctrlHouse.heldMouseBtn, 3]).start()
+        
+        # If the same button is requested to be pressed, then its release (above) is enough.
+        if (1, 2)[event.KeyID == kbcon.VK_E] != ctrlHouse.heldMouseBtn:
+            PThread(target=msHelper.sendMouseClick, args=[0, 0, (1, 2)[event.KeyID == kbcon.VK_E]]).start()
+        
+        ctrlHouse.heldMouseBtn = 0
+        
         PThread.msgQueue.put(True)
     
     else:
@@ -354,7 +441,7 @@ def KeyPress(event: KeyboardEvent) -> bool:
     return False
 
 
-cpdef bint KeyRelease(event):
+cpdef bint KeyRelease(KeyboardEvent event):
     """
     Description:
         The callback function responsible for handling the `KeyRelease` events.
@@ -368,6 +455,6 @@ cpdef bint KeyRelease(event):
     """
     
     # Updating states of modifier keys.
-    ctrlHouse.UpdateModifiers_KeyUp(event)
+    commonUtils.UpdateModifiers_KeyUp(event)
     
     return False
