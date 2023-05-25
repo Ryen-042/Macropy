@@ -453,7 +453,7 @@ cpdef void GenericFileConverter(active_explorer=None, tuple patterns=None, conve
     if initializer_called:
         PThread.CoUninitialize()
 
-cpdef void FlattenDirectories(active_explorer=None, bint files_only=False):
+cpdef void FlattenDirectories(active_explorer=None):
     """Flattens the selected folders from the active explorer window to the explorer current location."""
     
     

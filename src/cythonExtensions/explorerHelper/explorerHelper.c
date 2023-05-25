@@ -1106,14 +1106,13 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
 /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":456
  *         PThread.CoUninitialize()
  * 
- * cpdef void FlattenDirectories(active_explorer=None, bint files_only=False):             # <<<<<<<<<<<<<<
+ * cpdef void FlattenDirectories(active_explorer=None):             # <<<<<<<<<<<<<<
  *     """Flattens the selected folders from the active explorer window to the explorer current location."""
  * 
  */
 struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_FlattenDirectories {
   int __pyx_n;
   PyObject *active_explorer;
-  int files_only;
 };
 
 /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":56
@@ -1777,7 +1776,6 @@ static const char __pyx_k_extension[] = "extension";
 static const char __pyx_k_Powerpoint[] = "Powerpoint";
 static const char __pyx_k_SelectItem[] = "SelectItem";
 static const char __pyx_k_file_names[] = "file_names";
-static const char __pyx_k_files_only[] = "files_only";
 static const char __pyx_k_writelines[] = "writelines";
 static const char __pyx_k_Application[] = ".Application";
 static const char __pyx_k_File_Dialog[] = "File Dialog";
@@ -1916,7 +1914,6 @@ static PyObject *__pyx_n_s_explorer_windows;
 static PyObject *__pyx_n_s_extension;
 static PyObject *__pyx_n_s_file_names;
 static PyObject *__pyx_n_s_filename;
-static PyObject *__pyx_n_s_files_only;
 static PyObject *__pyx_n_s_get;
 static PyObject *__pyx_n_s_img2pdf;
 static PyObject *__pyx_n_s_import;
@@ -1969,7 +1966,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
 static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_14ImagesToPDF(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_active_explorer); /* proto */
 static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_16OfficeFileToPDF(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_active_explorer, PyObject *__pyx_v_office_application); /* proto */
 static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_18GenericFileConverter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_active_explorer, PyObject *__pyx_v_patterns, PyObject *__pyx_v_convert_func, PyObject *__pyx_v_new_extension); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_20FlattenDirectories(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_active_explorer, int __pyx_v_files_only); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_20FlattenDirectories(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_active_explorer); /* proto */
 static __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_get = {0, &__pyx_n_s_get, 0, 0, 0};
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_17;
@@ -8853,7 +8850,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  *     if initializer_called:
  *         PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
- * cpdef void FlattenDirectories(active_explorer=None, bint files_only=False):
+ * cpdef void FlattenDirectories(active_explorer=None):
  */
     __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 454, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -9052,7 +9049,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
 /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":456
  *         PThread.CoUninitialize()
  * 
- * cpdef void FlattenDirectories(active_explorer=None, bint files_only=False):             # <<<<<<<<<<<<<<
+ * cpdef void FlattenDirectories(active_explorer=None):             # <<<<<<<<<<<<<<
  *     """Flattens the selected folders from the active explorer window to the explorer current location."""
  * 
  */
@@ -9976,7 +9973,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":456
  *         PThread.CoUninitialize()
  * 
- * cpdef void FlattenDirectories(active_explorer=None, bint files_only=False):             # <<<<<<<<<<<<<<
+ * cpdef void FlattenDirectories(active_explorer=None):             # <<<<<<<<<<<<<<
  *     """Flattens the selected folders from the active explorer window to the explorer current location."""
  * 
  */
@@ -10006,10 +10003,9 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
 
 /* Python wrapper */
 static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_21FlattenDirectories(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_20FlattenDirectories[] = "FlattenDirectories(active_explorer=None, bool files_only=False) -> void\nFlattens the selected folders from the active explorer window to the explorer current location.";
+static char __pyx_doc_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_20FlattenDirectories[] = "FlattenDirectories(active_explorer=None) -> void\nFlattens the selected folders from the active explorer window to the explorer current location.";
 static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_21FlattenDirectories(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_active_explorer = 0;
-  int __pyx_v_files_only;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -10017,15 +10013,13 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("FlattenDirectories (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_active_explorer,&__pyx_n_s_files_only,0};
-    PyObject* values[2] = {0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_active_explorer,0};
+    PyObject* values[1] = {0};
     values[0] = ((PyObject *)Py_None);
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
         case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
         CYTHON_FALLTHROUGH;
         case  0: break;
@@ -10038,20 +10032,12 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
           PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_active_explorer);
           if (value) { values[0] = value; kw_args--; }
         }
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (kw_args > 0) {
-          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_files_only);
-          if (value) { values[1] = value; kw_args--; }
-        }
       }
       if (unlikely(kw_args > 0)) {
         if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "FlattenDirectories") < 0)) __PYX_ERR(0, 456, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
         case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
         CYTHON_FALLTHROUGH;
         case  0: break;
@@ -10059,28 +10045,23 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
       }
     }
     __pyx_v_active_explorer = values[0];
-    if (values[1]) {
-      __pyx_v_files_only = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_files_only == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 456, __pyx_L3_error)
-    } else {
-      __pyx_v_files_only = ((int)0);
-    }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("FlattenDirectories", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 456, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("FlattenDirectories", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 456, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.FlattenDirectories", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_20FlattenDirectories(__pyx_self, __pyx_v_active_explorer, __pyx_v_files_only);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_20FlattenDirectories(__pyx_self, __pyx_v_active_explorer);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_20FlattenDirectories(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_active_explorer, int __pyx_v_files_only) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_20FlattenDirectories(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_active_explorer) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_FlattenDirectories __pyx_t_1;
@@ -10090,9 +10071,8 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("FlattenDirectories", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1.__pyx_n = 2;
+  __pyx_t_1.__pyx_n = 1;
   __pyx_t_1.active_explorer = __pyx_v_active_explorer;
-  __pyx_t_1.files_only = __pyx_v_files_only;
   __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_FlattenDirectories(0, &__pyx_t_1); 
   __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 456, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -10254,7 +10234,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_extension, __pyx_k_extension, sizeof(__pyx_k_extension), 0, 0, 1, 1},
   {&__pyx_n_s_file_names, __pyx_k_file_names, sizeof(__pyx_k_file_names), 0, 0, 1, 1},
   {&__pyx_n_s_filename, __pyx_k_filename, sizeof(__pyx_k_filename), 0, 0, 1, 1},
-  {&__pyx_n_s_files_only, __pyx_k_files_only, sizeof(__pyx_k_files_only), 0, 0, 1, 1},
   {&__pyx_n_s_get, __pyx_k_get, sizeof(__pyx_k_get), 0, 0, 1, 1},
   {&__pyx_n_s_img2pdf, __pyx_k_img2pdf, sizeof(__pyx_k_img2pdf), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},

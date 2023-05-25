@@ -22,8 +22,8 @@ SHOW_PRESSED_KEYS = False
 ENABLE_DPI_AWARENESS = True
 """A boolean value that determines whether the script should be granted DPI awareness or not."""
 
-ENABLE_LOGGING = False
+ENABLE_LOGGING = True
 """A boolean value that determines whether the script should log and show error messages or not."""
 
-ENABLE_ELEVATED_PRIVILEGES_CHECKER = False
+ENABLE_ELEVATED_PRIVILEGES_CHECKER = True
 """A boolean value that determines whether the script should check for if the foreground window has elevated privileges or not."""
