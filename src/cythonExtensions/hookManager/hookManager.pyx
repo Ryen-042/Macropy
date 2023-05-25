@@ -3,18 +3,13 @@
 
 import ctypes, win32gui, win32api, win32con, atexit
 import ctypes.wintypes
-from cythonExtensions.commonUtils.commonUtils import PThread
-from threading import get_ident
-from typing import Callable, Any
+from cythonExtensions.commonUtils.commonUtils cimport KeyboardEvent
+from cythonExtensions.commonUtils.commonUtils import PThread, KeyboardEvent
 
 # https://learn.microsoft.com/en-us/windows/win32/winmsg/about-hooks
-class KeyboardMapper:
-    """
-    Contains functions and constants related to keyboard events used to map between names and codes and other conversions.
-    """
+cpdef enum HookTypes:
     # Constants that represent different types of Windows hooks that can be set using the SetWindowsHookEx function.
-    WH_MIN             = -1   # The minimum value for a hook type. It is not a valid hook type itself.
-    WH_MSGFILTER       = -1   # A hook type that allows you to monitor messages sent to a window or dialog box procedure.
+    WH_MSGFILTER       = -1   # A hook type that allows you to monitor messages sent to a window or dialog box procedure. This is also the minmum value for a hook type.
     WH_JOURNALRECORD   = 0    # A hook type that is used to record input events.
     WH_JOURNALPLAYBACK = 1    # A hook type that is used to replay the input events recorded by the WH_JOURNALRECORD hook type.
     WH_KEYBOARD        = 2    # A hook type that is used to monitor keystrokes. It can be used to implement a keylogger or to perform other keyboard-related tasks.
@@ -29,21 +24,20 @@ class KeyboardMapper:
     WH_CALLWNDPROCRET  = 12   # A hook type that is similar to WH_CALLWNDPROC, but it monitors messages after they have been processed by the procedure.
     WH_KEYBOARD_LL     = 13   # A hook type that is similar to WH_KEYBOARD, but it is a low-level keyboard hook that can be used to monitor keystrokes from all processes.
     WH_MAX             = 15   # The maximum value for a hook type. It is not a valid hook type itself.
-    
+
+cpdef enum KB_MsgTypes:
     # Constants that represent different types of keyboard-related Windows messages that can be received by a window or a message loop.
-    WM_KEYFIRST    = 0x0100 # Defines the minimum value for the range of keyboard-related messages. 
-    WM_KEYDOWN     = 0x0100 # A keyboard key was pressed.
-    WM_KEYUP       = 0x0101 # A keyboard key was released.
-    WM_CHAR        = 0x0102 # A keyboard key was pressed down and released, and it represents a printable character.
-    WM_DEADCHAR    = 0x0103 # A keyboard key was pressed down and released, and it represents a dead character.
-    WM_SYSKEYDOWN  = 0x0104 # A keyboard key was pressed while the ALT key was held down.
-    WM_SYSKEYUP    = 0x0105 # A keyboard key was released after the ALT key was held down.
-    WM_SYSCHAR     = 0x0106 # A keyboard key was pressed down and released, and it represents a printable character while the ALT key was held down.
-    WM_SYSDEADCHAR = 0x0107 # A keyboard key was pressed down and released, and it represents a dead character while the ALT key was held down.
-    WM_KEYLAST     = 0x0108 # Defines the maximum value for the range of keyboard-related messages.
-    
-    # Mapping of virtual key names to key codes. Most of the function or utility keys in this dict are not affected by shift. Only the OEM keys are.
-    vKeyNameToId = {
+    WM_KEYDOWN     = 0x0100   # A keyboard key was pressed.
+    WM_KEYUP       = 0x0101   # A keyboard key was released.
+    WM_CHAR        = 0x0102   # A keyboard key was pressed down and released, and it represents a printable character.
+    WM_DEADCHAR    = 0x0103   # A keyboard key was pressed down and released, and it represents a dead character.
+    WM_SYSKEYDOWN  = 0x0104   # A keyboard key was pressed while the ALT key was held down.
+    WM_SYSKEYUP    = 0x0105   # A keyboard key was released after the ALT key was held down.
+    WM_SYSCHAR     = 0x0106   # A keyboard key was pressed down and released, and it represents a printable character while the ALT key was held down.
+    WM_SYSDEADCHAR = 0x0107   # A keyboard key was pressed down and released, and it represents a dead character while the ALT key was held down.
+    WM_KEYLAST     = 0x0108   # Defines the maximum value for the range of keyboard-related messages.
+
+cdef dict vKeyNameToId = {
         "VK_LBUTTON":           0x01,  "VK_RBUTTON":          0x02,  "VK_CANCEL":              0x03,  "VK_MBUTTON":        0x04, 
         "VK_BACK":              0x08,  "VK_TAB":              0x09,  "VK_CLEAR":               0x0C,  "VK_RETURN":         0x0D,  "VK_SHIFT":        0x10,
         "VK_CONTROL":           0x11,  "VK_MENU":             0x12,  "VK_PAUSE":               0x13,  "VK_CAPITAL":        0x14,  "VK_KANA":         0x15,
@@ -74,252 +68,85 @@ class KeyboardMapper:
         "VK_OEM_6":             0xDD,  "VK_OEM_7":            0xDE,  "VK_OEM_8":               0xDF,  "VK_OEM_102":        0xE2,
         
         "VK_PROCESSKEY":        0xE5,  "VK_PACKET":           0xE7,  "VK_FN":                  0xFF}
-    
-    # Note that OEM_102 have the same character value as VK_OEM_5.
-    oemCodeToCharName          = {0xBA: ";", 0xBB: "=", 0xBC: ",", 0xBD: "-", 0xBE: ".", 0xBF: "/", 0xC0: "`", 0xDB: "[", 0xDC: "\\", 0xDD: "]", 0xDE: "'", 0xDF: chr(0xDF), 0xE2: "\\"}
-    oemCodeToCharNameWithShift = {0xBA: ":", 0xBB: "+", 0xBC: "<", 0xBD: "_", 0xBE: ">", 0xBF: "?", 0xC0: "~", 0xDB: "{", 0xDC: "|",  0xDD: "}", 0xDE: '"', 0xDF: chr(0xDF), 0xE2: "|"}
-    
-    # vKeyCodeToCharName = {
-    #     65: "A",  97  : "a",
-    #     66: "B",  98  : "b",
-    #     67: "C",  99  : "c",
-    #     68: "D",  100 : "d",
-    #     69: "E",  101 : "e",
-    #     70: "F",  102 : "f",
-    #     71: "G",  103 : "g",
-    #     72: "H",  104 : "h",
-    #     73: "I",  105 : "i",
-    #     74: "J",  106 : "j",
-    #     75: "K",  107 : "k",
-    #     76: "L",  108 : "l",
-    #     77: "M",  109 : "m",
-    #     78: "N",  110 : "n",
-    #     79: "O",  111 : "o",
-    #     80: "P",  112 : "p",
-    #     81: "Q",  113 : "q",
-    #     82: "R",  114 : "r",
-    #     83: "S",  115 : "s",
-    #     84: "T",  116 : "t",
-    #     85: "U",  117 : "u",
-    #     86: "V",  118 : "v",
-    #     87: "W",  119 : "w",
-    #     88: "X",  120 : "x",
-    #     89: "Y",  121 : "y",
-    #     90: "Z",  122 : "z",
-    # }
-    
-    numRowCodeToSymbol = {48: ")", 49: "!", 50: "@", 51: "#", 52: "$", 53: "%", 54: "^", 55: "&", 56: "*", 57: "("}
-    
-    # Inverse of previous mapping. Used to convert virtual key codes to their names.
-    vKeyCodeToName= {v: k for k, v in vKeyNameToId.items()}
-    
-    # Mapping of message numerical codes to message names.
-    eventIdToName = {
-        WM_KEYDOWN    : "key down",      WM_KEYUP       : "key up",
-        WM_CHAR       : "key char",      WM_DEADCHAR    : "key dead char",
-        WM_SYSKEYDOWN : "key sys down",  WM_SYSKEYUP    : "key sys up",
-        WM_SYSCHAR    : "key sys char",  WM_SYSDEADCHAR : "key sys dead char"}
-    
-    @staticmethod
-    def GetEventNameById(eventId: int) -> str:
-        """
-        Description:
-            Converts an event code to its name.
-        ---
-        Parameters:
-            `eventId -> int`: A keyboard event code (message code).
-        ---
-        Returns:
-            `str`: The name of the event.
-        """
-        
-        return KeyboardMapper.eventIdToName.get(eventId, "")
+"""Mapping of virtual key names to key codes. Most of the function or utility keys in this dict are not affected by shift. Only the OEM keys are."""
 
-    @staticmethod
-    def GetKeyIdByName(vkey_name: str) -> int:
-        """
-        Description:
-            Converts a virtual key name to its numerical code value.
-        ---
-        Parameters:
-            `vkey_name -> str`: A virtual key name.
-        ---
-        Returns:
-            `int`: The code of the virtual key name.
-        """
-        
-        return KeyboardMapper.vKeyNameToId.get(vkey_name, 0)
-    
-    
-    # Create a buffer to store a key name.
-    buf = ctypes.create_unicode_buffer(32)
-    
-    @staticmethod
-    def GetKeyNameByScancode(scancode: int) -> str:
-        """
-        Returns the key name for the given scancode.
-        """
-        
-        # A Windows API function that converts a scancode to a key name.
-        ctypes.windll.user32.GetKeyNameTextW(ctypes.c_long(scancode << 16), KeyboardMapper.buf, 32)
-        
-        return KeyboardMapper.buf.value.strip()
-    
-    # Define data types and function signature for GetKeyState, which is used to check if a key is pressed.
-    # GetKeyState = ctypes.windll.user32.GetKeyState
-    # GetKeyState.argtypes = [ctypes.c_int]
-    # GetKeyState.restype = ctypes.c_short
-    # To get a key state: state = KeyboardMapper.GetKeyState(vkey_code)
-    
-    @staticmethod
-    def GetKeyAsciiByCode(vkey_code: int) -> int:
-        '''
-        Returns the ASCII value for the given virtual key code.
-        '''
-        
-        # Get the scancode and ASCII value using MapVirtualKey. Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mapvirtualkeya
-        # scancode = win32api.MapVirtualKey(vkey_code, 0)
-        vkey_ascii = win32api.MapVirtualKey(vkey_code, 2)
-        
-        # Returning the key's ASCII value.
-        return vkey_ascii
-    
-    @staticmethod
-    def GetKeyAsciiAndName(vkey_code: int, shiftPressed=False) -> tuple:
-        """
-        Description:
-            Returns the ascii value and key name for the given key code.
-        ---
-        Parameters:
-            `vkey_code -> int`: A virtual key code.
-            `scancode -> int`: The key scancode.
-            `shiftPressed -> bool`: Whether or not the shift key is pressed.
-        ---
-        Returns:
-            `tuple[int, str]`: The ascii and name of the virtual key.
-        """
-        
-        # If the key is a number, return its ascii and string representation with respect to `shiftPressed`.
-        if (0x30 <= vkey_code <= 0x39):
-            if shiftPressed:
-                text = KeyboardMapper.numRowCodeToSymbol[vkey_code]
-                return (ord(text), text)
-            
-            # VK_0 : VK_9 have the same code as the ASCII of "0" : "9" (0x30 : 0x39).
-            return (vkey_code, chr(vkey_code))
-        
-        # The key is letter.
-        elif 0x41 <= vkey_code <= 0x5A:
-            if shiftPressed or win32api.GetKeyState(win32con.VK_CAPITAL): # A capital letter.
-                # VK_A : VK_Z have the same code as the ASCII of "A" : "Z" (0x41 : 0x5A).
-                return (vkey_code, chr(vkey_code))
-            
-            # VK_a : VK_z have an ASCII value equal to the virtual code + 32.
-            return (vkey_code + 32, chr(vkey_code + 32))
-        
-        # The key is not a letter or number. It must be one of the other VK_ keys.
-        else:
-            text = KeyboardMapper.vKeyCodeToName[vkey_code]
-            
-            if text.startswith("VK_OEM_"):
-                if shiftPressed:
-                    text = KeyboardMapper.oemCodeToCharNameWithShift[vkey_code]
-                    return (ord(text), text)
-                
-                text = KeyboardMapper.oemCodeToCharName[vkey_code]
-                return (ord(text), text)
-            
-            # A function or utility key.
-            else: # text.startswith("VK_"):
-                return (win32api.MapVirtualKey(vkey_code, 2), text[3:].title())
+# Note that OEM_102 have the same character value as VK_OEM_5.
+cdef dict oemCodeToCharName          = {0xBA: ";", 0xBB: "=", 0xBC: ",", 0xBD: "-", 0xBE: ".", 0xBF: "/", 0xC0: "`", 0xDB: "[", 0xDC: "\\", 0xDD: "]", 0xDE: "'", 0xDF: chr(0xDF), 0xE2: "\\"}
+"""Mapping of OEM key codes to character names. These are the keys that are affected by shift."""
 
+cdef dict oemCodeToCharNameWithShift = {0xBA: ":", 0xBB: "+", 0xBC: "<", 0xBD: "_", 0xBE: ">", 0xBF: "?", 0xC0: "~", 0xDB: "{", 0xDC: "|",  0xDD: "}", 0xDE: '"', 0xDF: chr(0xDF), 0xE2: "|"}
+"""Mapping of OEM key codes to character names when shift is pressed."""
 
-class KeyboardEvent():
+cdef dict numRowCodeToSymbol = {48: ")", 49: "!", 50: "@", 51: "#", 52: "$", 53: "%", 54: "^", 55: "&", 56: "*", 57: "("}
+"""Mapping of number row key codes to their symbols when shift is pressed."""
+
+# Inverse of previous mapping. Used to convert virtual key codes to their names.
+cdef dict vKeyCodeToName= {v: k for k, v in vKeyNameToId.items()}
+"""Mapping of virtual key codes to their names."""
+
+cdef dict eventIdToName = {
+    KB_MsgTypes.WM_KEYDOWN    : "key down",      KB_MsgTypes.WM_KEYUP       : "key up",
+    KB_MsgTypes.WM_CHAR       : "key char",      KB_MsgTypes.WM_DEADCHAR    : "key dead char",
+    KB_MsgTypes.WM_SYSKEYDOWN : "key sys down",  KB_MsgTypes.WM_SYSKEYUP    : "key sys up",
+    KB_MsgTypes.WM_SYSCHAR    : "key sys char",  KB_MsgTypes.WM_SYSDEADCHAR : "key sys dead char"}
+"""Mapping of event codes to their names."""
+
+cdef inline tuple GetKeyAsciiAndName(int vkey_code, bint shiftPressed=False):
     """
     Description:
-        Holds information about a keyboard event.
+        Returns the ascii value and key name for the given key code.
     ---
     Parameters:
-        `EventID -> int`: The event ID (the message code).
+        `vkey_code -> int`: A virtual key code.
         
-        `EventName -> str`: The name of the event (message).
+        `scancode -> int`: The key scancode.
         
-        `Key -> str`: The name of the key.
-        
-        `KeyID -> int`: The virtual key code.
-        
-        `Scancode -> int`: The key scancode.
-        
-        `Ascii -> int`: The ASCII value of the key.
-        
-        `Flags -> int`: The flags associated with the event.
-        
-        `Injected -> bool`: Whether or not the event was injected.
-        
-        `Extended -> bool`: Whether or not the event is an extended key event.
-        
-        `Shift -> bool`: Whether or not the shift key is pressed.
-        
-        `Alt -> bool`: Whether or not the alt key is pressed.
-        
-        `Transition -> bool`: Whether or not the key is transitioning from up to down.
+        `shiftPressed -> bool`: Whether or not the shift key is pressed.
+    
+    ---
+    Returns:
+        `tuple[int, str]`: The ascii and name of the virtual key.
     """
     
-    def __init__(self, event_id: int, event_name: str, key_name: str, vkey_code: int, scancode: int, vkey_ascii: int,
-                 flags: int, injected: bool, extended: bool, shift: bool, alt: bool, transition: bool):
-        """Initializes an instances of the class."""
+    # If the key is a number, return its ascii and string representation with respect to `shiftPressed`.
+    if (0x30 <= vkey_code <= 0x39):
+        if shiftPressed:
+            text = numRowCodeToSymbol[vkey_code]
+            return (ord(text), text)
         
-        self.EventId = event_id
-        self.EventName = event_name
-        self.Key = key_name
-        self.KeyID = vkey_code
-        self.Scancode = scancode
-        self.Ascii = vkey_ascii
-        self.Flags = flags
-        self.Injected = injected
-        self.Extended = extended
-        self.Shift = shift
-        self.Alt = alt
-        self.Transition = transition
+        # VK_0 : VK_9 have the same code as the ASCII of "0" : "9" (0x30 : 0x39).
+        return (vkey_code, chr(vkey_code))
     
-    # https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct#:~:text=The%20following%20table%20describes%20the%20layout%20of%20this%20value.
-    def IsExtended(self):
-        """
-        Returns whether the key is an extended key.
-        """
+    # The key is letter.
+    elif 0x41 <= vkey_code <= 0x5A:
+        if shiftPressed or win32api.GetKeyState(win32con.VK_CAPITAL): # A capital letter.
+            # VK_A : VK_Z have the same code as the ASCII of "A" : "Z" (0x41 : 0x5A).
+            return (vkey_code, chr(vkey_code))
         
-        return self.Flags & 0x01
+        # VK_a : VK_z have an ASCII value equal to the virtual code + 32.
+        return (vkey_code + 32, chr(vkey_code + 32))
     
-    def IsInjected(self):
-        """
-        Returns whether the key was injected (generated programatically).
-        """
+    # The key is not a letter or number. It must be one of the other VK_ keys.
+    else:
+        text = vKeyCodeToName[vkey_code]
         
-        return self.Flags & 0x10
-    
-    def IsAlt(self):
-        """
-        Returns whether the alt key was pressed.
-        """
+        if text.startswith("VK_OEM_"):
+            if shiftPressed:
+                text = oemCodeToCharNameWithShift[vkey_code]
+                return (ord(text), text)
+            
+            text = oemCodeToCharName[vkey_code]
+            return (ord(text), text)
         
-        return self.Flags & 0x20
-    
-    def IsTransition(self):
-        """
-        Returns whether the key is transitioning (i.e. from up to down or vice versa).
-        """
-        
-        return self.Flags & 0x80
-
-    # Key = property(fget=GetKeyName)
-    # Extended = property(fget=IsExtended)
-    # Injected = property(fget=IsInjected)
-    # Alt = property(fget=IsAlt)
-    # Transition = property(fget=IsTransition)
+        # A function or utility key.
+        else: # text.startswith("VK_"):
+            return (win32api.MapVirtualKey(vkey_code, 2), text[3:].title())
 
 
 # Define the KBDLLHOOKSTRUCT structure. Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct.
 class KBDLLHOOKSTRUCT(ctypes.Structure):
+    """A structure that contains information about a low-level keyboard input event."""
+    
     _fields_ = [
         ("vkCode", ctypes.c_ulong),
         ("scanCode", ctypes.c_ulong),
@@ -328,28 +155,35 @@ class KBDLLHOOKSTRUCT(ctypes.Structure):
         ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
     ]
 
+
 # By TwhK/Kheldar. Source: http://www.hackerthreads.org/Topic-42395
-class HookManager: 
+cdef class HookManager:
     """
-    A class that provcodees a simple interface to the Windows keyboard hook.
-    
-    - `InstallHook(callbackPointer) -> bool`:
-        Install a keyboard hook with the specified callback.
-        `callbackPointer`: a pointer to the function that will be called whenever a keyboard event occurs.
-        Returns `True` if everything was successful, and `False` if it failed.
-    
-    - `BeginListening()`:
-        Keeps the hook alive. This function should be called from a separate thread as it doesn't return until kbHook is None.
-    
-    - `UninstallHook()`:
-        Uninstalls the keyboard hook.
+    Description:
+        A class that manages windows event hooks.
+    ---
+    Methods:
+        `InstallHook(self, callBack: Callable[[int, int, KBDLLHOOKSTRUCT], Any], hookType=HookTypes.WH_KEYBOARD_LL) -> bool`:
+            Installs the specified callback hook. Returns `True` if everything was successful, and `False` if it failed.
+        
+        `BeginListening()`:
+            Starts listening for keyboard Windows. Must be called from the main thread.
+        
+        `UninstallHook()`:
+            "Uninstalls the hook specified by the hookId.
     """
+    
+    cdef int hookId
+    cdef hookPtr
+    # cdef HookPtr hook_ptr
     
     def __init__(self):
-        self.hookId = None
-        self.hook_ptr = None
+        self.hookId = 0
+        self.hookPtr = None
     
-    def InstallHook(self, keyboardHook: Callable[[int, int, KBDLLHOOKSTRUCT], Any], hookType=win32con.WH_KEYBOARD_LL):
+    cpdef bint InstallHook(self, callBack, int hookType=HookTypes.WH_KEYBOARD_LL):
+        """Installs the specified hook. Returns True if everything was successful, and False if it failed."""
+        
         # Defining a type signature for the given low level hook/handler.
         CMPFUNC = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_void_p))
         
@@ -362,13 +196,13 @@ class HookManager:
         )
         
         # Converting the Python hook into a C pointer.
-        self.hook_ptr = CMPFUNC(keyboardHook)
+        self.hookPtr = CMPFUNC(callBack)
         
         # Setting the windows hook with the given hook.
         # Hook both key up and key down events for common keys (non-system).
         self.hookId = ctypes.windll.user32.SetWindowsHookExW( # SetWindowsHookExA
             hookType,                       # Hook type.
-            self.hook_ptr,                  # Callback pointer.
+            self.hookPtr,                  # Callback pointer.
             win32gui.GetModuleHandle(None), # Handle to the current process.
             0)                              # Thread id (0 = current/main thread).
         
@@ -385,10 +219,13 @@ class HookManager:
         
         return True
     
-    def BeginListening(self):
+    cpdef void BeginListening(self):
         """Starts listening for keyboard Windows. Must be called from the main thread."""
         
-        if self.hookId is None:
+        if not PThread.InMainThread():
+            raise RuntimeError("Waranning! This method can only be called from the main thread.")
+        
+        if self.hookId is None or not self.hookId:
             "Warning: No hook is installed yet."
             return
         
@@ -403,10 +240,13 @@ class HookManager:
             ctypes.windll.user32.TranslateMessage(ctypes.byref(msg))
             ctypes.windll.user32.DispatchMessageW(ctypes.byref(msg))
     
-    def UninstallHook(self):
-        if self.hookId is None:
+    cpdef bint UninstallHook(self):
+        """Uninstalls the hook specified by the `hookId`."""
+
+        if self.hookId is None or not self.hookId:
             print("Warning: No hook is installed yet.")
             return False
+        
         ctypes.windll.user32.UnhookWindowsHookEx(self.hookId)
         
         # Unregister the function that was registered using atexit.
@@ -414,42 +254,47 @@ class HookManager:
         # of that function in the atexit call stack will be removed, as equality comparisons (==) are used internally.
         atexit.unregister(ctypes.windll.user32.UnhookWindowsHookEx)
         
-        self.hookId = None
+        self.hookId = 0
         
         return True
 
-class KeyboardHookManager:
-    """
-    A class for managing keyboard hooks and their event listeners.
-    """
+cdef class KeyboardHookManager:
+    """A class for managing keyboard hooks and their event listeners."""
+    
+    cdef public list keyDownListeners, keyUpListeners
+    cdef public int hookId
     
     def __init__(self):
-        self.keyDownListeners : list[Callable[[KeyboardEvent], bool]] = []
-        self.keyUpListeners   : list[Callable[[KeyboardEvent], bool]] = []
-        self.hookId = None
+        self.keyDownListeners = []
+        self.keyUpListeners = []
+        self.hookId = 0
 
-    def addKeyDownListener(self, listener: Callable[[KeyboardEvent], bool]):
+    cpdef void addKeyDownListener(self, listener):
         self.keyDownListeners.append(listener)
 
-    def addKeyUpListener(self, listener: Callable[[KeyboardEvent], bool]):
+    cpdef void addKeyUpListener(self, listener):
         self.keyUpListeners.append(listener)
 
-    def removeKeyDownListener(self, listener: Callable[[KeyboardEvent], bool]):
+    cpdef void removeKeyDownListener(self, listener):
         self.keyDownListeners.remove(listener)
 
-    def removeKeyUpListener(self, listener: Callable[[KeyboardEvent], bool]):
+    cpdef removeKeyUpListener(self, listener):
         self.keyUpListeners.remove(listener)
 
-    def KeyboardHook(self, nCode: int, wParam: int, lParam: KBDLLHOOKSTRUCT):
+    cpdef bint KeyboardHook(self, int nCode, int wParam, lParam):
         """
         Description:
             Processes a low level windows keyboard event.
         ---
-        Params:
+        Parameters:
             - `nCode`: The hook code passed to the hook procedure. The value of the hook code depends on the type of hook associated with the procedure.
             - `wParam`: The identifier of the keyboard message (event id). This parameter can be one of the following messages: `WM_KEYDOWN`, `WM_KEYUP`, `WM_SYSKEYDOWN`, or `WM_SYSKEYUP`.
             - `lParam`: A pointer to a `KBDLLHOOKSTRUCT` structure.
         """
+        
+        cdef int vkey_code, scancode, flags
+        cdef bint injected, extended, transition, shiftPressed, altPressed
+        cdef KeyboardEvent keyboardEvent
         
         # Checking if the event is valid. Docs: https://stackoverflow.com/questions/64449078/c-keyboard-hook-what-does-the-parameter-ncode-mean
         if nCode == win32con.HC_ACTION:
@@ -465,28 +310,27 @@ class KeyboardHookManager:
                 return False
             
             scancode = lParamStruct.scanCode
+            
             # eventTime = lParamStruct.time
             flags = lParamStruct.flags
             
             # Extracting key state flags from the packed int `flags`.
-            injected = bool(flags & 0x10)
+            # Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct#:~:text=The%20following%20table%20describes%20the%20layout%20of%20this%20value.
             extended = bool(flags & 0x1)
-            transition = bool(flags & 0x2)
+            injected = bool(flags & 0x10)
             altPressed = bool(flags & 0x20)
-            
-            eventName = KeyboardMapper.GetEventNameById(wParam)
+            transition = bool(flags & 0x82) # Always `False`?
             
             # To get the correct key ascii value, we need first to check if the shift is pressed.
             shiftPressed = ((win32api.GetAsyncKeyState(win32con.VK_SHIFT) & 0x8000) >> 15) | (vkey_code in [win32con.VK_LSHIFT, win32con.VK_RSHIFT])
+            keyAscii, keyName= GetKeyAsciiAndName(vkey_code, shiftPressed)
             
-            # Getting the key ascii value and key name.
-            vkey_ascii, keyName = KeyboardMapper.GetKeyAsciiAndName(vkey_code, shiftPressed)
+            eventName = eventIdToName[wParam]
             
             # Creating a keyboard event object.
-            keyboardEvent = KeyboardEvent(event_id=wParam, event_name=eventName, key_name=keyName,
-                                          vkey_code=vkey_code, scancode=scancode,
-                                          vkey_ascii=vkey_ascii, flags=flags,
-                                          injected=injected, extended=extended,
+            keyboardEvent = KeyboardEvent(event_id=wParam, event_name=eventName, vkey_code=vkey_code,
+                                          scancode=scancode, key_ascii=keyAscii, key_name=keyName,
+                                          flags=flags, injected=injected, extended=extended,
                                           shift=shiftPressed, alt=altPressed, transition=transition)
             
             # Key down/press event.
@@ -500,10 +344,6 @@ class KeyboardHookManager:
                     # Return True to suppress the key, False to propagate it.
                     # Note that, if you returned a boolean value instead of calling CallNextHookEx, you are effectively preventing any further processing of the keystroke by other hooks.
                     return PThread.msgQueue.get()
-                
-                # print(f"key={keyName}, vkey={vkey_code}, sc={scancode}, asc={vkey_ascii} | {chr(vkey_code)}, {win32api.MapVirtualKey(vkey_code, 2)}, "
-                #     f"injected={injected}, extended={extended}, shift={shiftPressed}, numlock={win32api.GetKeyState(win32con.VK_NUMLOCK)}, "
-                #     f"transition={transition}, alt={altPressed}, eventName={eventName}, {win32api.GetAsyncKeyState(win32con.VK_SHIFT) & 0x8000}")
             
             # Key up event.
             else:
@@ -512,62 +352,3 @@ class KeyboardHookManager:
                     PThread(target=listener, args=[keyboardEvent]).start()
                 
                 return False
-        
-        # Calling the next hook in the chain. Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-callnexthookex
-        return ctypes.windll.user32.CallNextHookEx(None, nCode, wParam, lParam)
-
-
-def InstallAndKeepAlive():
-    # Defining a type signature for the given low level hook/handler.
-    CMPFUNC = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_void_p))
-    
-    # Configuring the windows hook argtypes for 64-bit Python compatibility.
-    ctypes.windll.user32.SetWindowsHookExW.argtypes = (
-        ctypes.c_int,
-        ctypes.c_void_p, 
-        ctypes.c_void_p,
-        ctypes.c_uint
-    )
-    
-    kbHookManager = KeyboardHookManager
-    
-    # Converting the Python hook into a C pointer.
-    pointer = CMPFUNC(kbHookManager.KeyboardHook)
-    
-    # Setting the windows hook with the given hook.
-    hook_id = ctypes.windll.user32.SetWindowsHookExW(win32con.WH_KEYBOARD_LL, pointer, win32gui.GetModuleHandle(None), 0)
-    print(f"hook_id={hook_id}")
-    # Enter message loop to keep the hook running
-    msg = ctypes.wintypes.MSG()
-    while ctypes.windll.user32.GetMessageW(ctypes.byref(msg), None, 0, 0) != 0:
-        ctypes.windll.user32.TranslateMessage(ctypes.byref(msg))
-        ctypes.windll.user32.DispatchMessageW(ctypes.byref(msg))
-    
-    # Unhook the keyboard hook
-    ctypes.windll.user32.UnhookWindowsHookEx(hook_id)
-
-
-if __name__ == "__main__":
-    # Create a hook manager and a keyboard hook manager instances.
-    hookManager = HookManager()
-    kbHook = KeyboardHookManager()
-    
-    def onKeyPress(event: KeyboardEvent):
-        print(f"key={event.Key}, vkey={event.KeyID}, sc={event.Scancode}, asc={event.Ascii} | {chr(event.KeyID)}, {win32api.MapVirtualKey(event.KeyID, 2)}, "
-              f"injected={event.Injected}, extended={event.Extended}, shift={event.Shift}, numlock={win32api.GetKeyState(win32con.VK_NUMLOCK)}, "
-              f"transition={event.Transition}, alt={event.Alt}, eventName={event.EventName}, {win32api.GetAsyncKeyState(win32con.VK_SHIFT) & 0x8000}")
-        return True
-    
-    kbHook.addKeyDownListener(onKeyPress)
-    
-    # Install the hook.
-    if not hookManager.InstallHook(kbHook.KeyboardHook):
-        import os
-        print("Failed to install hook!")
-        os._exit(1)
-    
-    # Keep the hook alive.
-    hookManager.BeginListening()
-    
-    # Uninstall the hook.
-    hookManager.UninstallHook()
