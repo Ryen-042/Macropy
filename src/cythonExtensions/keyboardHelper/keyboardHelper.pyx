@@ -78,7 +78,7 @@ cpdef void SimulateKeyPressSequence(tuple keys_list, float delay=0.2):
             scancode(key)
         sleep(delay)
 
-cpdef void FindAndSendKeyToWindow(str target_className, key, send_function=None):
+cpdef int FindAndSendKeyToWindow(str target_className, key, send_function=None):
     """
     Description:
         Searches for a window with the specified class name, and, if found, sends the specified key using the passed function.
@@ -109,8 +109,8 @@ cpdef void FindAndSendKeyToWindow(str target_className, key, send_function=None)
         try:
             target_window = win32ui.FindWindow(target_className, None)
         except win32ui.error: # Window not found.
-            winHouse.SetHandleByClassName(target_className, None)
-            return
+            winHouse.SetHandleByClassName(target_className, 0)
+            return 0
         
         winHouse.SetHandleByClassName(target_className, target_window.GetSafeHwnd())
     
@@ -143,12 +143,14 @@ cpdef void FindAndSendKeyToWindow(str target_className, key, send_function=None)
             
             except pywintypes.error:
                 print(f"Exception occurred while trying set {win32gui.GetWindowText(hwnd)} as the forground process.")
-                return
+                return 0
         
         send_function(key)
     
     else:
         win32api.PostMessage(hwnd, win32con.WM_KEYDOWN, key, 0)
+    
+    return 1
 
 cpdef void SimulateHotKeyPress(dict keys_id_dict):
     """

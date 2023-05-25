@@ -30,7 +30,7 @@ def SimulateKeyPressSequence(keys_list: tuple[tuple[int, int] | tuple[Any, Calla
     """
     ...
 
-def FindAndSendKeyToWindow(target_className: str, key: Any, send_function: Callable[[Any], None]) -> None:
+def FindAndSendKeyToWindow(target_className: str, key: Any, send_function: Callable[[Any], None] | None) -> int:
     """
     Description:
         Searches for a window with the specified class name, and, if found, sends the specified key using the passed function.
