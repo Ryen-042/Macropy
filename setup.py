@@ -1,4 +1,5 @@
 import sys, os
+import glob
 from setuptools import setup, Extension
 
 os.chdir(os.path.dirname(__file__))
@@ -31,28 +32,18 @@ if sys.version_info[0] == 2:
     raise Exception("Python 2.x is not supported")
 
 if USE_CYTHON:
-    ext_modules += [
-        Extension("macropy.cythonExtensions.common",  ["src/_cythonExtensions/common/common.pyx"]),
-        Extension("macropy.cythonExtensions.eventListeners",  ["src/_cythonExtensions/eventListeners/eventListeners.pyx"]),
-        Extension("macropy.cythonExtensions.explorerHelper",  ["src/_cythonExtensions/explorerHelper/explorerHelper.pyx"]),
-        Extension("macropy.cythonExtensions.imageInverter",  ["src/_cythonExtensions/imageInverter/imageInverter.pyx"]),
-        Extension("macropy.cythonExtensions.keyboardHelper",  ["src/_cythonExtensions/keyboardHelper/keyboardHelper.pyx"]),
-        Extension("macropy.cythonExtensions.scriptController",  ["src/_cythonExtensions/scriptController/scriptController.pyx"]),
-        Extension("macropy.cythonExtensions.systemHelper",  ["src/_cythonExtensions/systemHelper/systemHelper.pyx"]),
-        Extension("macropy.cythonExtensions.windowHelper",  ["src/_cythonExtensions/windowHelper/windowHelper.pyx"])
-    ]
+    cython_extensions = glob.glob("src/cythonExtensions/**/*.pyx", recursive=True)
     cmdclass.update({ "build_ext": build_ext })
+
 else:
-    ext_modules += [
-        Extension("macropy.cythonExtensions.common",  ["src/_cythonExtensions/common/common.c"]),
-        Extension("macropy.cythonExtensions.eventListeners",  ["src/_cythonExtensions/eventListeners/eventListeners.c"]),
-        Extension("macropy.cythonExtensions.explorerHelper",  ["src/_cythonExtensions/explorerHelper/explorerHelper.c"]),
-        Extension("macropy.cythonExtensions.imageInverter",  ["src/_cythonExtensions/imageInverter/imageInverter.c"]),
-        Extension("macropy.cythonExtensions.keyboardHelper",  ["src/_cythonExtensions/keyboardHelper/keyboardHelper.c"]),
-        Extension("macropy.cythonExtensions.scriptController",  ["src/_cythonExtensions/scriptController/scriptController.c" ]),
-        Extension("macropy.cythonExtensions.systemHelper",  ["src/_cythonExtensions/systemHelper/systemHelper.c"]),
-        Extension("macropy.cythonExtensions.windowHelper",  ["src/_cythonExtensions/windowHelper/windowHelper.c"])
-    ]
+    cython_extensions = glob.glob("src/cythonExtensions/**/*.c", recursive=True)
+
+for extension_path in cython_extensions:
+    extension = os.path.splitext(os.path.basename(extension_path))
+    if extension[0] == "__init__":
+        continue
+    
+    ext_modules.append(Extension(f"macropy.cythonExtensions.{extension[0]}.{extension[0]}", [f"src/cythonExtensions/{extension[0]}/{extension[0]}{extension[1]}"]))
 
 requirements = [ ]
 """List of requirements to pass to setuptools.setup()"""
@@ -64,14 +55,14 @@ with open("requirements.txt", "r") as f:
 # https://stackoverflow.com/questions/58533084/what-keyword-arguments-does-setuptools-setup-accept
 setup(
     name="kb_macropy",
-    version="1.1.1",
+    version="1.1.5",
     description="Keyboard listener and automation script.",
     author="Ahmed Tarek",
     author_email="ahmedtarek4377@gmail.com",
     url="https://github.com/Ryen-042/macropy",
     package_dir={"macropy": "src"},
     packages=["macropy"],
-    package_data={"macropy": ["Images/static/*", "SFX/*"],},
+    package_data={"macropy": ["Images/static/*", "SFX/*"]},
     cmdclass = cmdclass,
     ext_modules=ext_modules,
     long_description=open("README.md").read(),

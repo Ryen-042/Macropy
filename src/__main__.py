@@ -13,7 +13,7 @@ def main():
     # locate and import any modules in that directory as well as any subdirectories within it.
     # sys.path.append("..")
     
-    from cythonExtensions.scriptController import begin_script_with_profiling, begin_script
+    from cythonExtensions.scriptController.scriptController import begin_script_with_profiling, begin_script
     
     if len(sys.argv) > 1 and sys.argv[1] in ("-p", "--profile", "--prof"):
         begin_script_with_profiling(False)
