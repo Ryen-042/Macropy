@@ -143,7 +143,104 @@ cpdef void begin_script():
     sysHelper.TerminateScript(graceful=False)
 
 
-cpdef void begin_script_with_profiling(save_near_module=True):
+from contextlib import contextmanager
+# Source: https://dev.to/rydra/getting-started-on-profiling-with-python-3a4
+# Useful: https://coderzcolumn.com/tutorials/python/yappi-yet-another-python-profiler, https://github.com/sumerc/yappi/blob/master/doc/api.md
+@contextmanager
+def profilerManager(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):
+    """
+    Description:
+        A context manager that can be used to profile a block of code.
+    ---
+    Parameters:
+        `filename -> str`
+            The output file name. Defaults to the date of running this context manager `"Y-m-d (Ip-M-S).prof"`.
+        
+        `engine -> str`
+            Selects one of the next two profilers: `yappi`, `cprofiler`.
+        
+        `clock -> str`
+            Sets the underlying clock type (`wall` or `cpu`).
+        
+        `output_type -> str`
+            The target type that the profile stats will be saved in. Can be either "pstat" or "callgrind".
+        
+        `profile_builtins -> bool`
+            Enable profiling for built-in functions.
+        
+        `profile_threads -> bool`
+            Enable profiling for all threads or just the main thread.
+        
+        `save_near_module -> bool`
+            Selects where to save the output file. `True` will save the file relative to this module's location,
+            and `False` will save it relative to the `__main__` module.
+    ---
+    Usage:
+    >>> with profile():
+            # Some code.
+    """
+    
+    from datetime import datetime as dt
+    
+    # Making a directory to store the profiling results.
+    cdef str output_location
+    if save_near_module:
+        output_location = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dumpfiles")
+    else:
+        output_location = os.path.join(os.getcwd(), "dumpfiles")
+    
+    os.makedirs(output_location, exist_ok=True)
+    
+    if not filename:
+        output_location = os.path.join(output_location, f"{dt.now().strftime('%Y-%m-%d (%I%p-%M-%S)')}.prof")
+    else:
+        output_location = os.path.join(output_location, filename)
+    
+    print("PROFILING ENABLED.")
+    
+    if engine == 'yappi':
+        import yappi
+        
+        try:
+            yappi.set_clock_type(clock)
+            yappi.start(builtins=profile_builtins, profile_threads=profile_threads)
+            
+            # The yield statement is used to temporarily suspend the execution of the context manager and return control to the caller.
+            # When the context manager is exited (either normally or due to an exception), the code after the yield statement is
+            # executed to clean up any resources used by the context manager.
+            yield
+        
+        finally:
+            yappi.stop()
+            
+            print(f"Dumping profile to: {output_location}\n")
+            
+            yappi.get_func_stats().save(output_location, type=output_type)
+            
+            yappi.get_thread_stats().print_all()
+    
+    else:
+        import cProfile
+        
+        profiler = cProfile.Profile()
+        try:
+            profiler.enable()
+            yield
+        
+        finally:
+            profiler.disable()
+            profiler.print_stats()
+            profiler.dump_stats(output_location)
+            
+            from pyprof2calltree import convert, visualize
+            
+            print("Saving the profiling results as `kgrind`...")
+            convert(profiler.getstats(), os.path.join(os.path.splitext(output_location)[0], 'profiling_results.kgrind'))
+            
+            print("visualize the profiling results...")
+            visualize(profiler.getstats())                           # run kcachegrind
+
+cpdef void begin_script_with_cProfile(save_near_module=False):
     """Starts the main script with profiling."""
     
     import cProfile, pstats
@@ -176,3 +273,10 @@ cpdef void begin_script_with_profiling(save_near_module=True):
     
     # Dumping the profiling results.
     profiling_results.dump_stats(dump_loc)
+
+
+cpdef void begin_script_with_profiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):
+    """Starts the main script with profiling."""
+    
+    with profilerManager(filename=filename, engine=engine, clock=clock, output_type=output_type, profile_builtins=profile_builtins, profile_threads=profile_threads, save_near_module=save_near_module):
+        begin_script()
