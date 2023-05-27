@@ -1,7 +1,7 @@
-"""Main module for the whole script. Starts the entire script by calling the `main()` function from the `scriptController` extension module."""
+"""Main module for the whole script. Starts the entire script by calling the `main()` function from the `scriptRunner` extension module."""
 
 def main():
-    """Starts the script by calling the `begin_script()` function from the `scriptController` extension module."""
+    """Starts the script by calling the `begin_script()` function from the `scriptRunner` extension module."""
     import sys, os
     
     #+ Changing the working directory to where this script is.
@@ -13,11 +13,15 @@ def main():
     # locate and import any modules in that directory as well as any subdirectories within it.
     # sys.path.append("..")
     
-    from cythonExtensions.scriptController.scriptController import begin_script_with_profiling, begin_script
-    
     if len(sys.argv) > 1 and sys.argv[1] in ("-p", "--profile", "--prof"):
-        begin_script_with_profiling(False)
+        from  cythonExtensions.scriptRunner.scriptRunner import begin_script, profilerManager
+        
+        with profilerManager(engine="yappi"):
+            begin_script()
+    
     else:
+        from cythonExtensions.scriptRunner.scriptRunner import begin_script
+        
         begin_script()
 
 if __name__ == '__main__':
