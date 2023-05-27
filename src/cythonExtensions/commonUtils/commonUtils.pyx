@@ -24,13 +24,13 @@ cpdef enum KB_Con:
     #     `SC`: Scancode
     # ---
     # Notes:
-    #     - From what I have seen, keys may send different `Ascii` values depending on the pressed modifier(s), but they send the same `keyID` and `scancode`.
+    #     - Keys may send different `Ascii` values depending on the pressed modifier(s), but they send the same `keyID` and `scancode`.
     #         - If you need a code that is independent of the pressed modifiers, use `keyID`.
-    #         - If you need a code that may have different values, use `Ascii` (ex, Ascii of: `=` is `61`, `+` (Shift + '=') is `41`.)
-    #     - `KeyID` and `scancode` constants are stored only one time for each physical key.
-    #         - These constants are named with respect to the sent key when the corresponding physical key is pressed with no modifiers.
-    #         - Letter keys are named with the uppercase letter, not the lowercase letters unlike what is mentioned above.
-    #     - Capital letters (Shift + letter key) have Ascii values equal to their VK values. As such, Only lowercase letters Ascii values are stored in this class.
+    #         - If you need a code that may have different values, use `Ascii`. Eg, Ascii of `=` is `61`, `+` (`Shift` + `=`) is `41`.
+    #     - The class has only one copy of `KeyID` and `scancode` constants for each physical key.
+    #         - These constants are named with respect to the pressed key with no modifiers.
+    #         - To keep the naming scheme consistent with capitalizing all characters, letter keys are named using the uppercase version.
+    #     - Capital letters (Shift + letter key) have Ascii values equal to their VK values. As such, the class only stores the Ascii of lowercase letters.
     # """
     
     # Letter keys - Uppercase letters
@@ -289,7 +289,7 @@ cpdef inline void UpdateModifiers_KeyUp(KeyboardEvent event):
     """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
     
     ControllerHouse.modifiers &= ~(
-        (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseeting CTRL, SHIFT, ALT, WIN
+        (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseting CTRL, SHIFT, ALT, WIN
         (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
         (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
         (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
@@ -484,7 +484,7 @@ class PThread(threading.Thread):
                         throttled._last_time_called = time()
                     PThread._throttle_lock.release()
                 
-                else: # Lock is already acquired by another thread, so return without calling the wrapped function
+                else: # Lock is already acquired by another thread, so return without calling the wrapped function.
                     return
             
             throttled._last_time_called = 0

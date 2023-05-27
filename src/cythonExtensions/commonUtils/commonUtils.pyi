@@ -16,13 +16,13 @@ class KB_Con(IntEnum):
         `SC`: Scancode
     ---
     Notes:
-        - From what I have seen, keys may send different `Ascii` values depending on the pressed modifier(s), but they send the same `keyID` and `scancode`.
+        - Keys may send different `Ascii` values depending on the pressed modifier(s), but they send the same `keyID` and `scancode`.
             - If you need a code that is independent of the pressed modifiers, use `keyID`.
-            - If you need a code that may have different values, use `Ascii` (ex, Ascii of: `=` is `61`, `+` (Shift + '=') is `41`.)
-        - `KeyID` and `scancode` constants are stored only one time for each physical key.
-            - These constants are named with respect to the sent key when the corresponding physical key is pressed with no modifiers.
-            - Letter keys are named with the uppercase letter, not the lowercase letters unlike what is mentioned above.
-        - Capital letters (Shift + letter key) have Ascii values equal to their VK values. As such, Only lowercase letters Ascii values are stored in this class.
+            - If you need a code that may have different values, use `Ascii`. Eg, Ascii of `=` is `61`, `+` (`Shift` + `=`) is `41`.
+        - The class has only one copy of `KeyID` and `scancode` constants for each physical key.
+            - These constants are named with respect to the pressed key with no modifiers.
+            - To keep the naming scheme consistent with capitalizing all characters, letter keys are named using the uppercase version.
+        - Capital letters (Shift + letter key) have Ascii values equal to their VK values. As such, the class only stores the Ascii of lowercase letters.
     """
     
     # Letter keys - Uppercase letters
