@@ -70,12 +70,12 @@ cpdef GetActiveExplorer(explorer_windows=None, bint check_desktop=True):
     
     # print(explorer_windows.Item().HWND, fg_hwnd, GetClassName(fg_hwnd), sep=" | ")
     
-    # Check if the active window has one of the Desktop window class names. This check is necessary because
-    # `GetForegroundWindow()` and `explorer_windows.Item().HWND` might not be the same even when the Desktop is the active window.
     output = None
     
     cdef str curr_className = win32gui.GetClassName(fg_hwnd)
     
+    # Check if the active window has one of the Desktop window class names. This check is necessary because
+    # `GetForegroundWindow()` and `explorer_windows.Item().HWND` might not be the same even when the Desktop is the active window.
     if check_desktop and curr_className in ("WorkerW", "Progman"):
         output = explorer_windows.Item() # Not passing a number to `Item()` returns the desktop window object.
     

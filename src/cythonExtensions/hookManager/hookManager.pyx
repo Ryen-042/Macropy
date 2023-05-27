@@ -7,7 +7,7 @@ from cythonExtensions.commonUtils.commonUtils cimport KeyboardEvent
 from cythonExtensions.commonUtils.commonUtils import PThread, KeyboardEvent
 
 # https://learn.microsoft.com/en-us/windows/win32/winmsg/about-hooks
-cpdef enum HookTypes:
+cdef enum HookTypes:
     # Constants that represent different types of Windows hooks that can be set using the SetWindowsHookEx function.
     WH_MSGFILTER       = -1   # A hook type that allows you to monitor messages sent to a window or dialog box procedure. This is also the minmum value for a hook type.
     WH_JOURNALRECORD   = 0    # A hook type that is used to record input events.
@@ -25,7 +25,7 @@ cpdef enum HookTypes:
     WH_KEYBOARD_LL     = 13   # A hook type that is similar to WH_KEYBOARD, but it is a low-level keyboard hook that can be used to monitor keystrokes from all processes.
     WH_MAX             = 15   # The maximum value for a hook type. It is not a valid hook type itself.
 
-cpdef enum KB_MsgTypes:
+cdef enum KB_MsgTypes:
     # Constants that represent different types of keyboard-related Windows messages that can be received by a window or a message loop.
     WM_KEYDOWN     = 0x0100   # A keyboard key was pressed.
     WM_KEYUP       = 0x0101   # A keyboard key was released.
@@ -142,7 +142,6 @@ cdef inline tuple GetKeyAsciiAndName(int vkey_code, bint shiftPressed=False):
         else: # text.startswith("VK_"):
             return (win32api.MapVirtualKey(vkey_code, 2), text[3:].title())
 
-
 # Define the KBDLLHOOKSTRUCT structure. Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct.
 class KBDLLHOOKSTRUCT(ctypes.Structure):
     """A structure that contains information about a low-level keyboard input event."""
@@ -154,7 +153,6 @@ class KBDLLHOOKSTRUCT(ctypes.Structure):
         ("time", ctypes.c_ulong),
         ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
     ]
-
 
 # By TwhK/Kheldar. Source: http://www.hackerthreads.org/Topic-42395
 cdef class HookManager:
@@ -202,7 +200,7 @@ cdef class HookManager:
         # Hook both key up and key down events for common keys (non-system).
         self.hookId = ctypes.windll.user32.SetWindowsHookExW( # SetWindowsHookExA
             hookType,                       # Hook type.
-            self.hookPtr,                  # Callback pointer.
+            self.hookPtr,                   # Callback pointer.
             win32gui.GetModuleHandle(None), # Handle to the current process.
             0)                              # Thread id (0 = current/main thread).
         
@@ -251,7 +249,7 @@ cdef class HookManager:
         
         # Unregister the function that was registered using atexit.
         # Note that if the function given to `atexit.unregister` has been registered more than once, every occurrence
-        # of that function in the atexit call stack will be removed, as equality comparisons (==) are used internally.
+        # of that function in the atexit call stack will be removed, as equality comparison (==) is used internally.
         atexit.unregister(ctypes.windll.user32.UnhookWindowsHookEx)
         
         self.hookId = 0
