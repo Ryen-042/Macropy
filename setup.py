@@ -62,7 +62,7 @@ for extension_path in cython_extensions:
     ext_modules.append(Extension(
         name = f"macropy.cythonExtensions.{extension[0]}.{extension[0]}",
         sources = [f"src/cythonExtensions/{extension[0]}/{extension[0]}{extension[1]}"],
-        define_macros=[("CYTHON_TRACE", "1")] if ENABLE_PROFILING else [ ],
+        define_macros = [("CYTHON_TRACE", "1")] if ENABLE_PROFILING else [ ],
     ))
 
 requirements = [ ]
@@ -75,7 +75,7 @@ with open("requirements.txt", "r") as f:
 # https://stackoverflow.com/questions/58533084/what-keyword-arguments-does-setuptools-setup-accept
 setup(
     name="kb_macropy",
-    version="1.1.7",
+    version="1.1.8",
     description="Keyboard listener and automation script.",
     author="Ahmed Tarek",
     author_email="ahmedtarek4377@gmail.com",
