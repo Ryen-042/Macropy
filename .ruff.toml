@@ -1,7 +1,5 @@
-[tool.ruff]
 ignore = ["W293","E702","E501","E401"]
 
-# Exclude a variety of commonly ignored directories.
 exclude = [
     ".bzr",
     ".direnv",
@@ -30,9 +28,6 @@ exclude = [
 
 respect-gitignore = true
 
-per-file-ignores = {}
-
 line-length = 120
 
-# Assume Python 3.11.
 target-version = "py311"
