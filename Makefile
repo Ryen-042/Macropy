@@ -1,4 +1,4 @@
-.PHONY: compile clean compile-force compile-profile publish-pypi ruff flake8 cython-lint
+.PHONY: compile clean compile-force compile-profile publish-pypi ruff flake8 cython-lint lint
 
 .DEFAULT_GOAL := compile;
 
