@@ -2,6 +2,7 @@
 
 from cythonExtensions.commonUtils.commonUtils import KeyboardEvent
 
+
 def HotkeyPressEvent(event: KeyboardEvent) -> bool:
     """
     Description:
@@ -15,6 +16,7 @@ def HotkeyPressEvent(event: KeyboardEvent) -> bool:
         `suppress_key -> bool`: Whether to suppress the pressed key or return it.
     """
     ...
+
 
 def ExpanderEvent(event: KeyboardEvent) -> bool:
     """
@@ -30,9 +32,11 @@ def ExpanderEvent(event: KeyboardEvent) -> bool:
     """
     ...
 
+
 def KeyPress(event: KeyboardEvent) -> bool:
     """The main callback function for handling the `KeyPress` events. Used mainly for allowing multiple `KeyPress` callbacks to run simultaneously."""
     ...
+
 
 def KeyRelease(event: KeyboardEvent) -> bool:
     """
