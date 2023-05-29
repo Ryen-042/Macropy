@@ -62,15 +62,16 @@ cpdef GetActiveExplorer(explorer_windows=None, bint check_desktop=True):
     
     cdef bint initializer_called = PThread.CoInitialize()
     
-    cdef int fg_hwnd = win32gui.GetForegroundWindow()
-    
     # No automation object was passed; create one.
     if not explorer_windows:
         explorer_windows = ShellWrapper.explorer.Windows()
     
-    # print(explorer_windows.Item().HWND, fg_hwnd, GetClassName(fg_hwnd), sep=" | ")
-    
     output = None
+    
+    cdef int fg_hwnd = win32gui.GetForegroundWindow()
+    
+    if not fg_hwnd:
+        return output
     
     cdef str curr_className = win32gui.GetClassName(fg_hwnd)
     
@@ -455,7 +456,6 @@ cpdef void GenericFileConverter(active_explorer=None, tuple patterns=None, conve
 
 cpdef void FlattenDirectories(active_explorer=None):
     """Flattens the selected folders from the active explorer window to the explorer current location."""
-    
     
     cdef bint initializer_called = PThread.CoInitialize()
     

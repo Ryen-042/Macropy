@@ -1002,7 +1002,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHel
   PyObject *send_function;
 };
 
-/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":174
+/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":173
  *         win32api.keybd_event(key_id, key_scancode, flags | win32con.KEYEVENTF_KEYUP, 0) # Simulate KeyUp event.
  * 
  * cpdef int GetCaretPosition(str text, str caret="{!}"):             # <<<<<<<<<<<<<<
@@ -1014,7 +1014,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHel
   PyObject *caret;
 };
 
-/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":182
+/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":181
  *     return (caret_pos != -1 and caret_pos) or len(text)
  * 
  * cpdef void SendTextWithCaret(str text, str caret="{!}"):             # <<<<<<<<<<<<<<
@@ -1026,7 +1026,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHel
   PyObject *caret;
 };
 
-/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":237
+/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":236
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  * cpdef void CrudeOpenWith(int tool_number=4, int prog_index=0):             # <<<<<<<<<<<<<<
@@ -3080,33 +3080,33 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_hwnd = __pyx_t_4;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":130
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":129
  * 
  *     # Send a key down event for the letter 'a' to the window
  *     if send_function:             # <<<<<<<<<<<<<<
  *         ## Method (No.2) for setting focus to a specific window. Works if the window is minimized or visible: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow
  *         win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_send_function); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_send_function); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 129, __pyx_L1_error)
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":132
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":131
  *     if send_function:
  *         ## Method (No.2) for setting focus to a specific window. Works if the window is minimized or visible: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow
  *         win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)             # <<<<<<<<<<<<<<
  * 
  *         # Sometimes it seems to fail but then work after another call.
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 132, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_ShowWindow); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 132, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_ShowWindow); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-    __pyx_t_13 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 132, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 132, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SW_RESTORE); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 132, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SW_RESTORE); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -3124,7 +3124,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_13, __pyx_t_12};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
@@ -3134,7 +3134,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_13, __pyx_t_12};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
@@ -3142,7 +3142,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     } else
     #endif
     {
-      __pyx_t_14 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 132, __pyx_L1_error)
+      __pyx_t_14 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 131, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_14);
       if (__pyx_t_3) {
         __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_14, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -3153,14 +3153,14 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
       PyTuple_SET_ITEM(__pyx_t_14, 1+__pyx_t_4, __pyx_t_12);
       __pyx_t_13 = 0;
       __pyx_t_12 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_14, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_14, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
     }
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":135
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":134
  * 
  *         # Sometimes it seems to fail but then work after another call.
  *         try:             # <<<<<<<<<<<<<<
@@ -3176,19 +3176,19 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
       __Pyx_XGOTREF(__pyx_t_9);
       /*try:*/ {
 
-        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":136
+        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":135
  *         # Sometimes it seems to fail but then work after another call.
  *         try:
  *             win32gui.SetForegroundWindow(hwnd)             # <<<<<<<<<<<<<<
  *         except pywintypes.error:
  *             sleep(0.5)
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 136, __pyx_L15_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 135, __pyx_L15_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_SetForegroundWindow); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 136, __pyx_L15_error)
+        __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_SetForegroundWindow); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 135, __pyx_L15_error)
         __Pyx_GOTREF(__pyx_t_14);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 136, __pyx_L15_error)
+        __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 135, __pyx_L15_error)
         __Pyx_GOTREF(__pyx_t_7);
         __pyx_t_12 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_14))) {
@@ -3203,12 +3203,12 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
         __pyx_t_1 = (__pyx_t_12) ? __Pyx_PyObject_Call2Args(__pyx_t_14, __pyx_t_12, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_14, __pyx_t_7);
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L15_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L15_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":135
+        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":134
  * 
  *         # Sometimes it seems to fail but then work after another call.
  *         try:             # <<<<<<<<<<<<<<
@@ -3229,7 +3229,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":137
+      /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":136
  *         try:
  *             win32gui.SetForegroundWindow(hwnd)
  *         except pywintypes.error:             # <<<<<<<<<<<<<<
@@ -3237,9 +3237,9 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
  *             win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
  */
       __Pyx_ErrFetch(&__pyx_t_1, &__pyx_t_14, &__pyx_t_7);
-      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_pywintypes); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 137, __pyx_L17_except_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_pywintypes); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 136, __pyx_L17_except_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_error); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 137, __pyx_L17_except_error)
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_error); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 136, __pyx_L17_except_error)
       __Pyx_GOTREF(__pyx_t_13);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_4 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_1, __pyx_t_13);
@@ -3248,19 +3248,19 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
       __pyx_t_1 = 0; __pyx_t_14 = 0; __pyx_t_7 = 0;
       if (__pyx_t_4) {
         __Pyx_AddTraceback("macropy.cythonExtensions.keyboardHelper.keyboardHelper.FindAndSendKeyToWindow", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_14, &__pyx_t_1) < 0) __PYX_ERR(0, 137, __pyx_L17_except_error)
+        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_14, &__pyx_t_1) < 0) __PYX_ERR(0, 136, __pyx_L17_except_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GOTREF(__pyx_t_14);
         __Pyx_GOTREF(__pyx_t_1);
 
-        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":138
+        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":137
  *             win32gui.SetForegroundWindow(hwnd)
  *         except pywintypes.error:
  *             sleep(0.5)             # <<<<<<<<<<<<<<
  *             win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
  * 
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_sleep); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 138, __pyx_L17_except_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_sleep); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 137, __pyx_L17_except_error)
         __Pyx_GOTREF(__pyx_t_12);
         __pyx_t_3 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_12))) {
@@ -3274,28 +3274,28 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
         }
         __pyx_t_13 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_12, __pyx_t_3, __pyx_float_0_5) : __Pyx_PyObject_CallOneArg(__pyx_t_12, __pyx_float_0_5);
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 138, __pyx_L17_except_error)
+        if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 137, __pyx_L17_except_error)
         __Pyx_GOTREF(__pyx_t_13);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
 
-        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":139
+        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":138
  *         except pywintypes.error:
  *             sleep(0.5)
  *             win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)             # <<<<<<<<<<<<<<
  * 
  *             try:
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 139, __pyx_L17_except_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 138, __pyx_L17_except_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_ShowWindow); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L17_except_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_ShowWindow); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 138, __pyx_L17_except_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        __pyx_t_12 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 139, __pyx_L17_except_error)
+        __pyx_t_12 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 138, __pyx_L17_except_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 139, __pyx_L17_except_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 138, __pyx_L17_except_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SW_RESTORE); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 139, __pyx_L17_except_error)
+        __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SW_RESTORE); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 138, __pyx_L17_except_error)
         __Pyx_GOTREF(__pyx_t_15);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_2 = NULL;
@@ -3313,7 +3313,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_3)) {
           PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_12, __pyx_t_15};
-          __pyx_t_13 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 139, __pyx_L17_except_error)
+          __pyx_t_13 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 138, __pyx_L17_except_error)
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_GOTREF(__pyx_t_13);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
@@ -3323,7 +3323,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
           PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_12, __pyx_t_15};
-          __pyx_t_13 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 139, __pyx_L17_except_error)
+          __pyx_t_13 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 138, __pyx_L17_except_error)
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_GOTREF(__pyx_t_13);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
@@ -3331,7 +3331,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
         } else
         #endif
         {
-          __pyx_t_16 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 139, __pyx_L17_except_error)
+          __pyx_t_16 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 138, __pyx_L17_except_error)
           __Pyx_GOTREF(__pyx_t_16);
           if (__pyx_t_2) {
             __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_16, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -3342,14 +3342,14 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
           PyTuple_SET_ITEM(__pyx_t_16, 1+__pyx_t_4, __pyx_t_15);
           __pyx_t_12 = 0;
           __pyx_t_15 = 0;
-          __pyx_t_13 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_16, NULL); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 139, __pyx_L17_except_error)
+          __pyx_t_13 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_16, NULL); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 138, __pyx_L17_except_error)
           __Pyx_GOTREF(__pyx_t_13);
           __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
         }
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
 
-        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":141
+        /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":140
  *             win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
  * 
  *             try:             # <<<<<<<<<<<<<<
@@ -3365,19 +3365,19 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
           __Pyx_XGOTREF(__pyx_t_19);
           /*try:*/ {
 
-            /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":142
+            /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":141
  * 
  *             try:
  *                 win32gui.SetForegroundWindow(hwnd)             # <<<<<<<<<<<<<<
  * 
  *             except pywintypes.error:
  */
-            __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 142, __pyx_L23_error)
+            __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 141, __pyx_L23_error)
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_16 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SetForegroundWindow); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 142, __pyx_L23_error)
+            __pyx_t_16 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SetForegroundWindow); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 141, __pyx_L23_error)
             __Pyx_GOTREF(__pyx_t_16);
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 142, __pyx_L23_error)
+            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 141, __pyx_L23_error)
             __Pyx_GOTREF(__pyx_t_3);
             __pyx_t_15 = NULL;
             if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_16))) {
@@ -3392,12 +3392,12 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
             __pyx_t_13 = (__pyx_t_15) ? __Pyx_PyObject_Call2Args(__pyx_t_16, __pyx_t_15, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_16, __pyx_t_3);
             __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 142, __pyx_L23_error)
+            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 141, __pyx_L23_error)
             __Pyx_GOTREF(__pyx_t_13);
             __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
 
-            /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":141
+            /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":140
  *             win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
  * 
  *             try:             # <<<<<<<<<<<<<<
@@ -3417,7 +3417,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":144
+          /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":143
  *                 win32gui.SetForegroundWindow(hwnd)
  * 
  *             except pywintypes.error:             # <<<<<<<<<<<<<<
@@ -3425,9 +3425,9 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
  *                 return 0
  */
           __Pyx_ErrFetch(&__pyx_t_13, &__pyx_t_16, &__pyx_t_3);
-          __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_n_s_pywintypes); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 144, __pyx_L25_except_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_n_s_pywintypes); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 143, __pyx_L25_except_error)
           __Pyx_GOTREF(__pyx_t_15);
-          __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_15, __pyx_n_s_error); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 144, __pyx_L25_except_error)
+          __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_15, __pyx_n_s_error); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 143, __pyx_L25_except_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
           __pyx_t_4 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_13, __pyx_t_12);
@@ -3436,19 +3436,19 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
           __pyx_t_13 = 0; __pyx_t_16 = 0; __pyx_t_3 = 0;
           if (__pyx_t_4) {
             __Pyx_AddTraceback("macropy.cythonExtensions.keyboardHelper.keyboardHelper.FindAndSendKeyToWindow", __pyx_clineno, __pyx_lineno, __pyx_filename);
-            if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_16, &__pyx_t_13) < 0) __PYX_ERR(0, 144, __pyx_L25_except_error)
+            if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_16, &__pyx_t_13) < 0) __PYX_ERR(0, 143, __pyx_L25_except_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_GOTREF(__pyx_t_16);
             __Pyx_GOTREF(__pyx_t_13);
 
-            /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":145
+            /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":144
  * 
  *             except pywintypes.error:
  *                 print(f"Exception occurred while trying set {win32gui.GetWindowText(hwnd)} as the forground process.")             # <<<<<<<<<<<<<<
  *                 return 0
  * 
  */
-            __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 145, __pyx_L25_except_error)
+            __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 144, __pyx_L25_except_error)
             __Pyx_GOTREF(__pyx_t_12);
             __pyx_t_20 = 0;
             __pyx_t_21 = 127;
@@ -3456,12 +3456,12 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
             __pyx_t_20 += 36;
             __Pyx_GIVEREF(__pyx_kp_u_Exception_occurred_while_trying);
             PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_kp_u_Exception_occurred_while_trying);
-            __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L25_except_error)
+            __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 144, __pyx_L25_except_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_22 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_GetWindowText); if (unlikely(!__pyx_t_22)) __PYX_ERR(0, 145, __pyx_L25_except_error)
+            __pyx_t_22 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_GetWindowText); if (unlikely(!__pyx_t_22)) __PYX_ERR(0, 144, __pyx_L25_except_error)
             __Pyx_GOTREF(__pyx_t_22);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L25_except_error)
+            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 144, __pyx_L25_except_error)
             __Pyx_GOTREF(__pyx_t_2);
             __pyx_t_23 = NULL;
             if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_22))) {
@@ -3476,10 +3476,10 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
             __pyx_t_15 = (__pyx_t_23) ? __Pyx_PyObject_Call2Args(__pyx_t_22, __pyx_t_23, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_22, __pyx_t_2);
             __Pyx_XDECREF(__pyx_t_23); __pyx_t_23 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-            if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 145, __pyx_L25_except_error)
+            if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 144, __pyx_L25_except_error)
             __Pyx_GOTREF(__pyx_t_15);
             __Pyx_DECREF(__pyx_t_22); __pyx_t_22 = 0;
-            __pyx_t_22 = __Pyx_PyObject_FormatSimple(__pyx_t_15, __pyx_empty_unicode); if (unlikely(!__pyx_t_22)) __PYX_ERR(0, 145, __pyx_L25_except_error)
+            __pyx_t_22 = __Pyx_PyObject_FormatSimple(__pyx_t_15, __pyx_empty_unicode); if (unlikely(!__pyx_t_22)) __PYX_ERR(0, 144, __pyx_L25_except_error)
             __Pyx_GOTREF(__pyx_t_22);
             __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
             __pyx_t_21 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_22) > __pyx_t_21) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_22) : __pyx_t_21;
@@ -3491,15 +3491,15 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
             __pyx_t_20 += 26;
             __Pyx_GIVEREF(__pyx_kp_u_as_the_forground_process);
             PyTuple_SET_ITEM(__pyx_t_12, 2, __pyx_kp_u_as_the_forground_process);
-            __pyx_t_22 = __Pyx_PyUnicode_Join(__pyx_t_12, 3, __pyx_t_20, __pyx_t_21); if (unlikely(!__pyx_t_22)) __PYX_ERR(0, 145, __pyx_L25_except_error)
+            __pyx_t_22 = __Pyx_PyUnicode_Join(__pyx_t_12, 3, __pyx_t_20, __pyx_t_21); if (unlikely(!__pyx_t_22)) __PYX_ERR(0, 144, __pyx_L25_except_error)
             __Pyx_GOTREF(__pyx_t_22);
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-            __pyx_t_12 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_22); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 145, __pyx_L25_except_error)
+            __pyx_t_12 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_22); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 144, __pyx_L25_except_error)
             __Pyx_GOTREF(__pyx_t_12);
             __Pyx_DECREF(__pyx_t_22); __pyx_t_22 = 0;
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-            /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":146
+            /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":145
  *             except pywintypes.error:
  *                 print(f"Exception occurred while trying set {win32gui.GetWindowText(hwnd)} as the forground process.")
  *                 return 0             # <<<<<<<<<<<<<<
@@ -3518,7 +3518,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
           goto __pyx_L25_except_error;
           __pyx_L25_except_error:;
 
-          /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":141
+          /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":140
  *             win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
  * 
  *             try:             # <<<<<<<<<<<<<<
@@ -3546,7 +3546,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
       goto __pyx_L17_except_error;
       __pyx_L17_except_error:;
 
-      /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":135
+      /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":134
  * 
  *         # Sometimes it seems to fail but then work after another call.
  *         try:             # <<<<<<<<<<<<<<
@@ -3572,7 +3572,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
       __pyx_L20_try_end:;
     }
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":148
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":147
  *                 return 0
  * 
  *         send_function(key)             # <<<<<<<<<<<<<<
@@ -3592,12 +3592,12 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     }
     __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_14, __pyx_t_7, __pyx_v_key) : __Pyx_PyObject_CallOneArg(__pyx_t_14, __pyx_v_key);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":130
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":129
  * 
  *     # Send a key down event for the letter 'a' to the window
  *     if send_function:             # <<<<<<<<<<<<<<
@@ -3607,7 +3607,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     goto __pyx_L14;
   }
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":151
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":150
  * 
  *     else:
  *         win32api.PostMessage(hwnd, win32con.WM_KEYDOWN, key, 0)             # <<<<<<<<<<<<<<
@@ -3615,16 +3615,16 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
  *     return 1
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_n_s_win32api); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 151, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_n_s_win32api); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 150, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_14, __pyx_n_s_PostMessage); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 151, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_14, __pyx_n_s_PostMessage); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 150, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-    __pyx_t_14 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 151, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyInt_From_int(__pyx_v_hwnd); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 150, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
-    __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_n_s_win32con); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 151, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_n_s_win32con); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 150, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
-    __pyx_t_16 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_WM_KEYDOWN); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 151, __pyx_L1_error)
+    __pyx_t_16 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_WM_KEYDOWN); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 150, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_16);
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
     __pyx_t_13 = NULL;
@@ -3642,7 +3642,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[5] = {__pyx_t_13, __pyx_t_14, __pyx_t_16, __pyx_v_key, __pyx_int_0};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 150, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -3652,7 +3652,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[5] = {__pyx_t_13, __pyx_t_14, __pyx_t_16, __pyx_v_key, __pyx_int_0};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_4, 4+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 150, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -3660,7 +3660,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     } else
     #endif
     {
-      __pyx_t_3 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 151, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(4+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 150, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       if (__pyx_t_13) {
         __Pyx_GIVEREF(__pyx_t_13); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_13); __pyx_t_13 = NULL;
@@ -3677,7 +3677,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
       PyTuple_SET_ITEM(__pyx_t_3, 3+__pyx_t_4, __pyx_int_0);
       __pyx_t_14 = 0;
       __pyx_t_16 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 150, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -3686,7 +3686,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
   }
   __pyx_L14:;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":153
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":152
  *         win32api.PostMessage(hwnd, win32con.WM_KEYDOWN, key, 0)
  * 
  *     return 1             # <<<<<<<<<<<<<<
@@ -3841,7 +3841,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":155
+/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":154
  *     return 1
  * 
  * cpdef void SimulateHotKeyPress(dict keys_id_dict):             # <<<<<<<<<<<<<<
@@ -3874,7 +3874,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("SimulateHotKeyPress", 0);
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":166
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":165
  *     cdef int key_id, key_scancode, flags
  * 
  *     for key_id, key_scancode in keys_id_dict.items():             # <<<<<<<<<<<<<<
@@ -3884,9 +3884,9 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   __pyx_t_2 = 0;
   if (unlikely(__pyx_v_keys_id_dict == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-    __PYX_ERR(0, 166, __pyx_L1_error)
+    __PYX_ERR(0, 165, __pyx_L1_error)
   }
-  __pyx_t_5 = __Pyx_dict_iterator(__pyx_v_keys_id_dict, 1, __pyx_n_s_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_dict_iterator(__pyx_v_keys_id_dict, 1, __pyx_n_s_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_5;
@@ -3894,63 +3894,63 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_5, &__pyx_t_6, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 166, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 165, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 165, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 165, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_v_key_id = __pyx_t_7;
     __pyx_v_key_scancode = __pyx_t_8;
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":167
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":166
  * 
  *     for key_id, key_scancode in keys_id_dict.items():
  *         flags = (key_id in extended_keys) * win32con.KEYEVENTF_EXTENDEDKEY             # <<<<<<<<<<<<<<
  *         win32api.keybd_event(key_id, key_scancode, flags, 0) # Simulate KeyDown event.
  * 
  */
-    __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_key_id); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_key_id); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (unlikely(__pyx_v_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_extended_keys == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 167, __pyx_L1_error)
+      __PYX_ERR(0, 166, __pyx_L1_error)
     }
-    __pyx_t_9 = (__Pyx_PySet_ContainsTF(__pyx_t_6, __pyx_v_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_extended_keys, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_9 = (__Pyx_PySet_ContainsTF(__pyx_t_6, __pyx_v_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_extended_keys, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyBool_FromLong(__pyx_t_9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyBool_FromLong(__pyx_t_9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_win32con); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_win32con); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_KEYEVENTF_EXTENDEDKEY); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_KEYEVENTF_EXTENDEDKEY); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Multiply(__pyx_t_6, __pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Multiply(__pyx_t_6, __pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_flags = __pyx_t_8;
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":168
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":167
  *     for key_id, key_scancode in keys_id_dict.items():
  *         flags = (key_id in extended_keys) * win32con.KEYEVENTF_EXTENDEDKEY
  *         win32api.keybd_event(key_id, key_scancode, flags, 0) # Simulate KeyDown event.             # <<<<<<<<<<<<<<
  * 
  *     for key_id, key_scancode in keys_id_dict.items():
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_win32api); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_win32api); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_keybd_event); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_keybd_event); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __pyx_t_10 = __Pyx_PyInt_From_int(__pyx_v_key_id); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyInt_From_int(__pyx_v_key_id); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_key_scancode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_key_scancode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_12 = __Pyx_PyInt_From_int(__pyx_v_flags); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyInt_From_int(__pyx_v_flags); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __pyx_t_13 = NULL;
     __pyx_t_8 = 0;
@@ -3967,7 +3967,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[5] = {__pyx_t_13, __pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_int_0};
-      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -3978,7 +3978,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[5] = {__pyx_t_13, __pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_int_0};
-      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -3987,7 +3987,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     } else
     #endif
     {
-      __pyx_t_14 = PyTuple_New(4+__pyx_t_8); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 168, __pyx_L1_error)
+      __pyx_t_14 = PyTuple_New(4+__pyx_t_8); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_14);
       if (__pyx_t_13) {
         __Pyx_GIVEREF(__pyx_t_13); PyTuple_SET_ITEM(__pyx_t_14, 0, __pyx_t_13); __pyx_t_13 = NULL;
@@ -4004,7 +4004,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
       __pyx_t_10 = 0;
       __pyx_t_11 = 0;
       __pyx_t_12 = 0;
-      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_14, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_14, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
     }
@@ -4013,7 +4013,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":170
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":169
  *         win32api.keybd_event(key_id, key_scancode, flags, 0) # Simulate KeyDown event.
  * 
  *     for key_id, key_scancode in keys_id_dict.items():             # <<<<<<<<<<<<<<
@@ -4023,9 +4023,9 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   __pyx_t_3 = 0;
   if (unlikely(__pyx_v_keys_id_dict == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-    __PYX_ERR(0, 170, __pyx_L1_error)
+    __PYX_ERR(0, 169, __pyx_L1_error)
   }
-  __pyx_t_5 = __Pyx_dict_iterator(__pyx_v_keys_id_dict, 1, __pyx_n_s_items, (&__pyx_t_2), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_dict_iterator(__pyx_v_keys_id_dict, 1, __pyx_n_s_items, (&__pyx_t_2), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_5;
@@ -4033,70 +4033,70 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   while (1) {
     __pyx_t_8 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_2, &__pyx_t_3, &__pyx_t_5, &__pyx_t_6, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_8 == 0)) break;
-    if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 170, __pyx_L1_error)
+    if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 170, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 170, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_v_key_id = __pyx_t_8;
     __pyx_v_key_scancode = __pyx_t_7;
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":171
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":170
  * 
  *     for key_id, key_scancode in keys_id_dict.items():
  *         flags = (key_id in extended_keys) * win32con.KEYEVENTF_EXTENDEDKEY             # <<<<<<<<<<<<<<
  *         win32api.keybd_event(key_id, key_scancode, flags | win32con.KEYEVENTF_KEYUP, 0) # Simulate KeyUp event.
  * 
  */
-    __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_key_id); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 171, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_key_id); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (unlikely(__pyx_v_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_extended_keys == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 171, __pyx_L1_error)
+      __PYX_ERR(0, 170, __pyx_L1_error)
     }
-    __pyx_t_9 = (__Pyx_PySet_ContainsTF(__pyx_t_6, __pyx_v_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_extended_keys, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 171, __pyx_L1_error)
+    __pyx_t_9 = (__Pyx_PySet_ContainsTF(__pyx_t_6, __pyx_v_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_extended_keys, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyBool_FromLong(__pyx_t_9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 171, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyBool_FromLong(__pyx_t_9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_win32con); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_win32con); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_KEYEVENTF_EXTENDEDKEY); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 171, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_KEYEVENTF_EXTENDEDKEY); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Multiply(__pyx_t_6, __pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Multiply(__pyx_t_6, __pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 171, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_flags = __pyx_t_7;
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":172
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":171
  *     for key_id, key_scancode in keys_id_dict.items():
  *         flags = (key_id in extended_keys) * win32con.KEYEVENTF_EXTENDEDKEY
  *         win32api.keybd_event(key_id, key_scancode, flags | win32con.KEYEVENTF_KEYUP, 0) # Simulate KeyUp event.             # <<<<<<<<<<<<<<
  * 
  * cpdef int GetCaretPosition(str text, str caret="{!}"):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_n_s_win32api); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_n_s_win32api); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_14, __pyx_n_s_keybd_event); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_14, __pyx_n_s_keybd_event); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-    __pyx_t_14 = __Pyx_PyInt_From_int(__pyx_v_key_id); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyInt_From_int(__pyx_v_key_id); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
-    __pyx_t_12 = __Pyx_PyInt_From_int(__pyx_v_key_scancode); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyInt_From_int(__pyx_v_key_scancode); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_flags); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_flags); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_win32con); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_win32con); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_KEYEVENTF_KEYUP); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_KEYEVENTF_KEYUP); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __pyx_t_10 = PyNumber_Or(__pyx_t_11, __pyx_t_13); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __pyx_t_10 = PyNumber_Or(__pyx_t_11, __pyx_t_13); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
@@ -4115,7 +4115,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[5] = {__pyx_t_13, __pyx_t_14, __pyx_t_12, __pyx_t_10, __pyx_int_0};
-      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 172, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -4126,7 +4126,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[5] = {__pyx_t_13, __pyx_t_14, __pyx_t_12, __pyx_t_10, __pyx_int_0};
-      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 172, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -4135,7 +4135,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     } else
     #endif
     {
-      __pyx_t_11 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 172, __pyx_L1_error)
+      __pyx_t_11 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 171, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       if (__pyx_t_13) {
         __Pyx_GIVEREF(__pyx_t_13); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_13); __pyx_t_13 = NULL;
@@ -4152,7 +4152,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
       __pyx_t_14 = 0;
       __pyx_t_12 = 0;
       __pyx_t_10 = 0;
-      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 172, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     }
@@ -4161,7 +4161,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":155
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":154
  *     return 1
  * 
  * cpdef void SimulateHotKeyPress(dict keys_id_dict):             # <<<<<<<<<<<<<<
@@ -4195,7 +4195,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("SimulateHotKeyPress (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_keys_id_dict), (&PyDict_Type), 1, "keys_id_dict", 1))) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_keys_id_dict), (&PyDict_Type), 1, "keys_id_dict", 1))) __PYX_ERR(0, 154, __pyx_L1_error)
   __pyx_r = __pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_6SimulateHotKeyPress(__pyx_self, ((PyObject*)__pyx_v_keys_id_dict));
 
   /* function exit code */
@@ -4216,7 +4216,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("SimulateHotKeyPress", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_SimulateHotKeyPress(__pyx_v_keys_id_dict, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_SimulateHotKeyPress(__pyx_v_keys_id_dict, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4233,7 +4233,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":174
+/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":173
  *         win32api.keybd_event(key_id, key_scancode, flags | win32con.KEYEVENTF_KEYUP, 0) # Simulate KeyUp event.
  * 
  * cpdef int GetCaretPosition(str text, str caret="{!}"):             # <<<<<<<<<<<<<<
@@ -4261,20 +4261,20 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     }
   }
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":179
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":178
  *     # return (caret_pos != -1 and len(text) - caret_pos) or -1
  * 
  *     cdef int caret_pos = text.find(caret)             # <<<<<<<<<<<<<<
  *     return (caret_pos != -1 and caret_pos) or len(text)
  * 
  */
-  __pyx_t_1 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyString_Type_find, __pyx_v_text, __pyx_v_caret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 179, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyString_Type_find, __pyx_v_text, __pyx_v_caret); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 179, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_caret_pos = __pyx_t_2;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":180
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":179
  * 
  *     cdef int caret_pos = text.find(caret)
  *     return (caret_pos != -1 and caret_pos) or len(text)             # <<<<<<<<<<<<<<
@@ -4292,13 +4292,13 @@ static int __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper
     goto __pyx_L3_bool_binop_done;
   }
   __pyx_L4_next_or:;
-  __pyx_t_4 = PyObject_Length(__pyx_v_text); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_v_text); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 179, __pyx_L1_error)
   __pyx_t_2 = __pyx_t_4;
   __pyx_L3_bool_binop_done:;
   __pyx_r = __pyx_t_2;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":174
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":173
  *         win32api.keybd_event(key_id, key_scancode, flags | win32con.KEYEVENTF_KEYUP, 0) # Simulate KeyUp event.
  * 
  * cpdef int GetCaretPosition(str text, str caret="{!}"):             # <<<<<<<<<<<<<<
@@ -4356,7 +4356,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GetCaretPosition") < 0)) __PYX_ERR(0, 174, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GetCaretPosition") < 0)) __PYX_ERR(0, 173, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4372,14 +4372,14 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("GetCaretPosition", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 174, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("GetCaretPosition", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 173, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.keyboardHelper.keyboardHelper.GetCaretPosition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_text), (&PyString_Type), 1, "text", 1))) __PYX_ERR(0, 174, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_caret), (&PyString_Type), 1, "caret", 1))) __PYX_ERR(0, 174, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_text), (&PyString_Type), 1, "text", 1))) __PYX_ERR(0, 173, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_caret), (&PyString_Type), 1, "caret", 1))) __PYX_ERR(0, 173, __pyx_L1_error)
   __pyx_r = __pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_8GetCaretPosition(__pyx_self, __pyx_v_text, __pyx_v_caret);
 
   /* function exit code */
@@ -4405,7 +4405,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.caret = __pyx_v_caret;
   __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_GetCaretPosition(__pyx_v_text, 0, &__pyx_t_2); 
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -4422,7 +4422,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":182
+/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":181
  *     return (caret_pos != -1 and caret_pos) or len(text)
  * 
  * cpdef void SendTextWithCaret(str text, str caret="{!}"):             # <<<<<<<<<<<<<<
@@ -4455,7 +4455,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   }
   __Pyx_INCREF(__pyx_v_text);
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":191
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":190
  *     """
  * 
  *     cdef int caret_pos = GetCaretPosition(text, caret)             # <<<<<<<<<<<<<<
@@ -4467,7 +4467,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_GetCaretPosition(__pyx_v_text, 0, &__pyx_t_2); 
   __pyx_v_caret_pos = __pyx_t_1;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":193
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":192
  *     cdef int caret_pos = GetCaretPosition(text, caret)
  * 
  *     text = text[:caret_pos] + text[caret_pos+len(caret):]             # <<<<<<<<<<<<<<
@@ -4476,34 +4476,34 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
  */
   if (unlikely(__pyx_v_text == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 193, __pyx_L1_error)
+    __PYX_ERR(0, 192, __pyx_L1_error)
   }
-  __pyx_t_3 = PySequence_GetSlice(__pyx_v_text, 0, __pyx_v_caret_pos); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_3 = PySequence_GetSlice(__pyx_v_text, 0, __pyx_v_caret_pos); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (unlikely(__pyx_v_text == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 193, __pyx_L1_error)
+    __PYX_ERR(0, 192, __pyx_L1_error)
   }
-  __pyx_t_4 = PyObject_Length(__pyx_v_caret); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 193, __pyx_L1_error)
-  __pyx_t_5 = PySequence_GetSlice(__pyx_v_text, (__pyx_v_caret_pos + __pyx_t_4), PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_v_caret); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_5 = PySequence_GetSlice(__pyx_v_text, (__pyx_v_caret_pos + __pyx_t_4), PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyNumber_Add(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Add(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF_SET(__pyx_v_text, ((PyObject*)__pyx_t_6));
   __pyx_t_6 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":194
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":193
  * 
  *     text = text[:caret_pos] + text[caret_pos+len(caret):]
  *     keyboard.write(text)             # <<<<<<<<<<<<<<
  * 
  *     if caret_pos == len(text):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_keyboard); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_keyboard); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_write); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_write); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -4518,23 +4518,23 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   }
   __pyx_t_6 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_5, __pyx_v_text) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_text);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 194, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":196
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":195
  *     keyboard.write(text)
  * 
  *     if caret_pos == len(text):             # <<<<<<<<<<<<<<
  *         return
  * 
  */
-  __pyx_t_4 = PyObject_Length(__pyx_v_text); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_v_text); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 195, __pyx_L1_error)
   __pyx_t_7 = ((__pyx_v_caret_pos == __pyx_t_4) != 0);
   if (__pyx_t_7) {
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":197
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":196
  * 
  *     if caret_pos == len(text):
  *         return             # <<<<<<<<<<<<<<
@@ -4543,7 +4543,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
  */
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":196
+    /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":195
  *     keyboard.write(text)
  * 
  *     if caret_pos == len(text):             # <<<<<<<<<<<<<<
@@ -4552,34 +4552,34 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
  */
   }
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":205
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":204
  *     #     SimulateKeyPress(win32con.VK_RIGHT, kbcon.SC_RIGHT, caret_pos)
  *     # else:
  *     SimulateKeyPress(win32con.VK_LEFT, kbcon.SC_LEFT, len(text) - caret_pos)             # <<<<<<<<<<<<<<
  * 
  * cpdef void ExpandText():
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_win32con); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_win32con); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_VK_LEFT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_VK_LEFT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SC_LEFT); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SC_LEFT); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_6); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_4 = PyObject_Length(__pyx_v_text); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_v_text); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 204, __pyx_L1_error)
   __pyx_t_9.__pyx_n = 2;
   __pyx_t_9.key_scancode = __pyx_t_8;
   __pyx_t_9.times = (__pyx_t_4 - __pyx_v_caret_pos);
   __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_SimulateKeyPress(__pyx_t_1, 0, &__pyx_t_9); 
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":182
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":181
  *     return (caret_pos != -1 and caret_pos) or len(text)
  * 
  * cpdef void SendTextWithCaret(str text, str caret="{!}"):             # <<<<<<<<<<<<<<
@@ -4639,7 +4639,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SendTextWithCaret") < 0)) __PYX_ERR(0, 182, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SendTextWithCaret") < 0)) __PYX_ERR(0, 181, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4655,14 +4655,14 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SendTextWithCaret", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 182, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("SendTextWithCaret", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 181, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.keyboardHelper.keyboardHelper.SendTextWithCaret", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_text), (&PyString_Type), 1, "text", 1))) __PYX_ERR(0, 182, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_caret), (&PyString_Type), 1, "caret", 1))) __PYX_ERR(0, 182, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_text), (&PyString_Type), 1, "text", 1))) __PYX_ERR(0, 181, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_caret), (&PyString_Type), 1, "caret", 1))) __PYX_ERR(0, 181, __pyx_L1_error)
   __pyx_r = __pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_10SendTextWithCaret(__pyx_self, __pyx_v_text, __pyx_v_caret);
 
   /* function exit code */
@@ -4687,7 +4687,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   __pyx_t_1.__pyx_n = 1;
   __pyx_t_1.caret = __pyx_v_caret;
   __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_SendTextWithCaret(__pyx_v_text, 0, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -4704,7 +4704,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":207
+/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":206
  *     SimulateKeyPress(win32con.VK_LEFT, kbcon.SC_LEFT, len(text) - caret_pos)
  * 
  * cpdef void ExpandText():             # <<<<<<<<<<<<<<
@@ -4730,97 +4730,97 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ExpandText", 0);
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":210
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":209
  *     """Replacing an abbreviated text with its respective substitution specified by the pressed characters `ctrlHouse.pressed_chars`."""
  * 
  *     text = ctrlHouse.pressed_chars             # <<<<<<<<<<<<<<
  * 
  *     # Sending ('`' => "Oem_3") then delete it before expansion to silence any suggestions like in the browser address bar.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_text = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":213
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":212
  * 
  *     # Sending ('`' => "Oem_3") then delete it before expansion to silence any suggestions like in the browser address bar.
  *     SimulateKeyPress(kbcon.VK_BACKTICK, kbcon.SC_BACKTICK)             # <<<<<<<<<<<<<<
  * 
  *     # Deleting the abbreviation and the '`' character.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_BACKTICK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_BACKTICK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SC_BACKTICK); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SC_BACKTICK); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5.__pyx_n = 1;
   __pyx_t_5.key_scancode = __pyx_t_4;
   __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_SimulateKeyPress(__pyx_t_3, 0, &__pyx_t_5); 
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":216
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":215
  * 
  *     # Deleting the abbreviation and the '`' character.
  *     SimulateKeyPress(win32con.VK_BACK, kbcon.SC_BACK, len(ctrlHouse.pressed_chars))             # <<<<<<<<<<<<<<
  * 
  *     # Substituting the abbreviation with its respective text.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_BACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_BACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SC_BACK); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SC_BACK); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_6 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5.__pyx_n = 2;
   __pyx_t_5.key_scancode = __pyx_t_3;
   __pyx_t_5.times = __pyx_t_6;
   __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_SimulateKeyPress(__pyx_t_4, 0, &__pyx_t_5); 
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":219
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":218
  * 
  *     # Substituting the abbreviation with its respective text.
  *     keyboard.write(ctrlHouse.abbreviations.get(text))             # <<<<<<<<<<<<<<
  * 
  *     # Resetting the stored pressed keys.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_keyboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_keyboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_write); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_write); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_abbreviations); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_abbreviations); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_get); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_get); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_t_9 = NULL;
@@ -4835,7 +4835,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   }
   __pyx_t_2 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_9, __pyx_v_text) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_text);
   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_8 = NULL;
@@ -4851,46 +4851,46 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   __pyx_t_1 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":222
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":221
  * 
  *     # Resetting the stored pressed keys.
  *     ctrlHouse.pressed_chars = ""             # <<<<<<<<<<<<<<
  * 
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars, __pyx_kp_s__2) < 0) __PYX_ERR(0, 222, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars, __pyx_kp_s__2) < 0) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":224
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":223
  *     ctrlHouse.pressed_chars = ""
  * 
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  * cpdef void OpenLocation():
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_winsound); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_winsound); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_winsound); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_winsound); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_winsound); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_winsound); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = PyNumber_Or(__pyx_t_8, __pyx_t_9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Or(__pyx_t_8, __pyx_t_9); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -4909,7 +4909,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_kp_s_SFX_knob_458_wav, __pyx_t_7};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_3, 2+__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_3, 2+__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -4918,14 +4918,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_kp_s_SFX_knob_458_wav, __pyx_t_7};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_3, 2+__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_3, 2+__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   } else
   #endif
   {
-    __pyx_t_8 = PyTuple_New(2+__pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_8 = PyTuple_New(2+__pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (__pyx_t_9) {
       __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -4936,14 +4936,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     __Pyx_GIVEREF(__pyx_t_7);
     PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_3, __pyx_t_7);
     __pyx_t_7 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":207
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":206
  *     SimulateKeyPress(win32con.VK_LEFT, kbcon.SC_LEFT, len(text) - caret_pos)
  * 
  * cpdef void ExpandText():             # <<<<<<<<<<<<<<
@@ -4988,7 +4988,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ExpandText", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_ExpandText(0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_ExpandText(0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5005,7 +5005,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":226
+/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":225
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  * cpdef void OpenLocation():             # <<<<<<<<<<<<<<
@@ -5028,29 +5028,29 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("OpenLocation", 0);
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":230
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":229
  * 
  *     # Opening the file/folder.
  *     os.startfile(ctrlHouse.locations.get(ctrlHouse.pressed_chars))             # <<<<<<<<<<<<<<
  * 
  *     # Resetting the stored pressed keys.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_startfile); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_startfile); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_locations); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_locations); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_pressed_chars); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -5066,7 +5066,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_6);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -5082,46 +5082,46 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":233
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":232
  * 
  *     # Resetting the stored pressed keys.
  *     ctrlHouse.pressed_chars = ""             # <<<<<<<<<<<<<<
  * 
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars, __pyx_kp_s__2) < 0) __PYX_ERR(0, 233, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars, __pyx_kp_s__2) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":235
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":234
  *     ctrlHouse.pressed_chars = ""
  * 
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  * cpdef void CrudeOpenWith(int tool_number=4, int prog_index=0):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Or(__pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Or(__pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5140,7 +5140,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_SFX_knob_458_wav, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5149,14 +5149,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_SFX_knob_458_wav, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 235, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -5167,14 +5167,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_7, __pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":226
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":225
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  * cpdef void OpenLocation():             # <<<<<<<<<<<<<<
@@ -5219,7 +5219,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("OpenLocation", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_OpenLocation(0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_OpenLocation(0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5236,7 +5236,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":237
+/* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":236
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  * cpdef void CrudeOpenWith(int tool_number=4, int prog_index=0):             # <<<<<<<<<<<<<<
@@ -5268,24 +5268,24 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     }
   }
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":252
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":251
  * 
  *     # In my case, the `open` tool is the forth item in the Quick Access Toolbar.
  *     SimulateKeyPressSequence(((f"alt+{tool_number}", keyboard.send), *((win32con.VK_DOWN, kbcon.SC_DOWN), ) * prog_index, (win32con.VK_RETURN, kbcon.SC_RETURN)))             # <<<<<<<<<<<<<<
  * 
  *     # Resetting the stored pressed keys.
  */
-  __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_tool_number, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_tool_number, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_kp_u_alt, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_kp_u_alt, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_keyboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_keyboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_send); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_send); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
@@ -5293,24 +5293,24 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_4);
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_2);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
   __pyx_t_2 = 0;
   __pyx_t_1 = __pyx_t_4;
   __pyx_t_4 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32con); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_DOWN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_DOWN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_SC_DOWN); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_SC_DOWN); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
@@ -5318,7 +5318,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1 * ((__pyx_v_prog_index<0) ? 0:__pyx_v_prog_index)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1 * ((__pyx_v_prog_index<0) ? 0:__pyx_v_prog_index)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   { Py_ssize_t __pyx_temp;
     for (__pyx_temp=0; __pyx_temp < __pyx_v_prog_index; __pyx_temp++) {
@@ -5328,19 +5328,19 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     }
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_PyList_Extend(__pyx_t_1, __pyx_t_3) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
+  if (__Pyx_PyList_Extend(__pyx_t_1, __pyx_t_3) < 0) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_RETURN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_VK_RETURN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SC_RETURN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SC_RETURN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
@@ -5348,50 +5348,50 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
   __pyx_t_4 = 0;
   __pyx_t_2 = 0;
-  if (__Pyx_ListComp_Append(__pyx_t_1, __pyx_t_3) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
+  if (__Pyx_ListComp_Append(__pyx_t_1, __pyx_t_3) < 0) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   {
     PyObject *__pyx_temp = PyList_AsTuple(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1);
-    __pyx_t_1 = __pyx_temp; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
+    __pyx_t_1 = __pyx_temp; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_SimulateKeyPressSequence(((PyObject*)__pyx_t_1), 0, NULL);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":255
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":254
  * 
  *     # Resetting the stored pressed keys.
  *     ctrlHouse.pressed_chars = ""             # <<<<<<<<<<<<<<
  * 
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctrlHouse); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars, __pyx_kp_s__2) < 0) __PYX_ERR(0, 255, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_pressed_chars, __pyx_kp_s__2) < 0) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":257
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":256
  *     ctrlHouse.pressed_chars = ""
  * 
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Or(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5410,7 +5410,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_kp_s_SFX_knob_458_wav, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5419,14 +5419,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_kp_s_SFX_knob_458_wav, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -5437,14 +5437,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelpe
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_6, __pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":237
+  /* "src/cythonExtensions/keyboardHelper/keyboardHelper.pyx":236
  *     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  * cpdef void CrudeOpenWith(int tool_number=4, int prog_index=0):             # <<<<<<<<<<<<<<
@@ -5506,7 +5506,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CrudeOpenWith") < 0)) __PYX_ERR(0, 237, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CrudeOpenWith") < 0)) __PYX_ERR(0, 236, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -5519,19 +5519,19 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
       }
     }
     if (values[0]) {
-      __pyx_v_tool_number = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_tool_number == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 237, __pyx_L3_error)
+      __pyx_v_tool_number = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_tool_number == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L3_error)
     } else {
       __pyx_v_tool_number = ((int)4);
     }
     if (values[1]) {
-      __pyx_v_prog_index = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_prog_index == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 237, __pyx_L3_error)
+      __pyx_v_prog_index = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_prog_index == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L3_error)
     } else {
       __pyx_v_prog_index = ((int)0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("CrudeOpenWith", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 237, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("CrudeOpenWith", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 236, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.keyboardHelper.keyboardHelper.CrudeOpenWith", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5558,7 +5558,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14keyboardHelper_14keyboar
   __pyx_t_1.tool_number = __pyx_v_tool_number;
   __pyx_t_1.prog_index = __pyx_v_prog_index;
   __pyx_f_7macropy_16cythonExtensions_14keyboardHelper_14keyboardHelper_CrudeOpenWith(0, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -5729,7 +5729,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 48, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 144, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;

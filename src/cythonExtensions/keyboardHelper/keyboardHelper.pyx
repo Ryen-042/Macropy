@@ -120,7 +120,6 @@ cpdef int FindAndSendKeyToWindow(str target_className, key, send_function=None):
     # target_window.ShowWindow(1)
     # target_window.SetForegroundWindow()
     
-    
     ## SetFocus(hwnd)
     ## BringWindowToTop(hwnd)
     ## SetForegroundWindow(hwnd)

@@ -184,10 +184,21 @@ class WindowHouse:
     
     @staticmethod
     def RememberActiveProcessTitle(fg_hwnd=0) -> None:
-        """Stores the title of the active window into the `closedExplorers` variable.
-        The title of a windows explorer window is the address of the opened directory."""
+        """
+        Stores the title of the active window into the `closedExplorers` variable.
+        The title of a windows explorer window is the address of the opened directory.
+        """
+        ...
         
-        cdef str explorerAddress = win32gui.GetWindowText(fg_hwnd or win32gui.GetForegroundWindow())
+        if not fg_hwnd:
+            fg_hwnd = win32gui.GetForegroundWindow()
+        
+        cdef str explorerAddress = win32gui.GetWindowText(fg_hwnd)
+        
+        if not explorerAddress:
+            print(f"Error: Could not get the title of the active window (id={fg_hwnd}) or the window does not have a title.")
+            
+            return
         
         if explorerAddress in WindowHouse.closedExplorers:
             WindowHouse.closedExplorers.remove(explorerAddress)
@@ -262,6 +273,7 @@ class ControllerHouse:
     # pynput_kb = kbController()
     # pynput_mouse = mController()
 
+
 cpdef inline void UpdateModifiers_KeyDown(KeyboardEvent event):
     """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
     
@@ -333,10 +345,6 @@ cpdef void SendMouseScroll(steps=1, direction=1, wheelDelta=40):
         `wheelDelta: int = 40`:
             The amount of scroll per step.
     """
-    
-    # keyboard.press("ctrl")
-    # ControllerHouse.pynput_mouse.scroll(0, dist)
-    # keyboard.release("ctrl")
     
     # API doc: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mouse_event
     win32api.mouse_event((win32con.MOUSEEVENTF_HWHEEL, win32con.MOUSEEVENTF_WHEEL)[direction], 0, 0, steps * wheelDelta, 0) # win32con.WHEEL_DELTA
@@ -608,7 +616,6 @@ cdef class KeyboardEvent(BaseEvent):
     
     def __repr__(self):
         return f"Key={self.Key}, ID={self.KeyID}, SC={self.Scancode}, Asc={self.Ascii} | Inj={self.Injected}, Ext={self.Extended}, Shift={self.Shift}, Alt={self.Alt}, Trans={self.Transition}, Flags={self.Flags} | EvtId={self.EventId}, EvtName='{self.EventName}'"
-
 
 
 cpdef str ReadFromClipboard(int CF=win32clipboard.CF_TEXT): # CF: Clipboard format.

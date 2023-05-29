@@ -64,5 +64,3 @@ cpdef void moveCursor(int dx=0, int dy=0):
     
     x, y= win32api.GetCursorPos()
     win32api.SetCursorPos((x + dx, y + dy))
-
-

@@ -1,5 +1,6 @@
 """This module contains functions for controlling the mouse."""
 
+
 def sendMouseClick(x=0, y=0, button=1, op=1) -> None:
     """
     Description:

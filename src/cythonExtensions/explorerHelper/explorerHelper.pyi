@@ -3,9 +3,11 @@
 from win32com.client import CDispatch
 from typing import Callable, Optional
 
+
 def _filter(target: str, patterns: tuple[str]) -> bool:
     """Returns `True` if the target string ends with any of the patterns, `False` otherwise."""
     ...
+
 
 def GetUniqueName(directory: str, filename="New File", sequence_pattern=" (%s)", extension=".txt") -> str:
     """
@@ -27,13 +29,16 @@ def GetUniqueName(directory: str, filename="New File", sequence_pattern=" (%s)",
     """
     ...
 
+
 def GetActiveExplorer(explorer_windows: Optional[CDispatch], check_desktop=True) -> CDispatch:
     """Returns the active (focused) explorer/desktop window object."""
     ...
 
+
 def GetExplorerAddress(active_explorer: Optional[CDispatch]) -> str:
     """Returns the address of the active explorer window."""
     ...
+
 
 def GetSelectedItemsFromActiveExplorer(active_explorer: Optional[CDispatch], patterns: Optional[tuple[str]]) -> list[str]:
     """
@@ -52,6 +57,7 @@ def GetSelectedItemsFromActiveExplorer(active_explorer: Optional[CDispatch], pat
     """
     ...
 
+
 def CopySelectedFileNames(active_explorer: Optional[CDispatch], check_desktop=True) -> list[str]:
     """
     Description:
@@ -62,8 +68,9 @@ def CopySelectedFileNames(active_explorer: Optional[CDispatch], check_desktop=Tr
     """
     ...
 
+
 # https://learn.microsoft.com/en-us/windows/win32/dlgbox/open-and-save-as-dialog-boxes
-def OpenFileDialog(dialog_type: int, default_extension="", default_filename="", extra_flags: int=0,
+def OpenFileDialog(dialog_type: int, default_extension="", default_filename="", extra_flags=0,
                    filter="", multiselect=False, title="File Dialog", initial_dir="") -> list[str]:
     """
     Description:
@@ -86,10 +93,12 @@ def OpenFileDialog(dialog_type: int, default_extension="", default_filename="", 
     """
     ...
 
+
 # https://mail.python.org/pipermail/python-win32/2012-September/012533.html
 def SelectFilesFromDirectory(directory: str, file_names: list[str]) -> None:
     """Given an absolute directory path and the names of its items (names relative to the path), if an explorer window with the specified directory is present, use it, otherwise open a new one, then select all the items specified."""
     ...
+
 
 def CreateFile(active_explorer: Optional[CDispatch]) -> int:
     """
@@ -104,10 +113,12 @@ def CreateFile(active_explorer: Optional[CDispatch]) -> int:
     """
     ...
 
+
 def ImagesToPDF(active_explorer: Optional[CDispatch]) -> None:
     """Combines the selected images from the active explorer window into a PDF file with an incremental name then select it.
     Please note that the function sorts the file names alphabetically before merging."""
     ...
+
 
 def OfficeFileToPDF(active_explorer: Optional[CDispatch], office_application="Powerpoint") -> None:
     """
@@ -124,6 +135,7 @@ def OfficeFileToPDF(active_explorer: Optional[CDispatch], office_application="Po
             Ex => `"Powerpoint": (".pptx", ".ppt")` | `"Word": (".docx", ".doc")`
     """
     ...
+
 
 def GenericFileConverter(active_explorer: Optional[CDispatch], patterns: Optional[tuple[str]], convert_func: Optional[Callable[[str, str], None]], new_extension="") -> None:
     """
@@ -151,6 +163,7 @@ def GenericFileConverter(active_explorer: Optional[CDispatch], patterns: Optiona
     >>> GenericFileConverter(None, (".mp3"), lambda f1, f2: subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', f1, f2]), ".wav")
     """
     ...
+
 
 def FlattenDirectories(active_explorer: Optional[CDispatch], files_only=False) -> None:
     """Flattens the selected folders from the active explorer window to the explorer current location."""

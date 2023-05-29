@@ -11,6 +11,7 @@ import cv2
 import winsound
 from datetime import datetime as dt
 
+
 def pil_image_to_bmp(image: PIL.Image.Image) -> bytes:
     """
     Description:
@@ -44,6 +45,7 @@ def pil_image_to_bmp(image: PIL.Image.Image) -> bytes:
     
     return data
 
+
 def send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None:
     """
     Description:
@@ -74,7 +76,8 @@ def send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None:
     win32clipboard.OpenClipboard()
     win32clipboard.EmptyClipboard()
     win32clipboard.SetClipboardData(win32clipboard.CF_DIB, image)
-    win32clipboard.CloseClipboard() 
+    win32clipboard.CloseClipboard()
+
 
 def pil_to_cv(image: PIL.Image.Image) -> np.ndarray:
     """
@@ -99,6 +102,7 @@ def pil_to_cv(image: PIL.Image.Image) -> np.ndarray:
     else:
         return cv2.cvtColor(cv2_main_image, cv2.COLOR_RGB2BGR)   # Converting RGB to BGR
 
+
 def cv_to_pil(cv2_main_image: np.ndarray) -> PIL.Image.Image:
     """
     Description:
@@ -119,6 +123,7 @@ def cv_to_pil(cv2_main_image: np.ndarray) -> PIL.Image.Image:
         # Converting BGR to RGB
         return PIL.Image.fromarray(cv2.cvtColor(cv2_main_image, cv2.COLOR_BGR2RGB))
 
+
 def image_invert(image: PIL.Image.Image) -> None:
     """
     Description:
@@ -131,20 +136,21 @@ def image_invert(image: PIL.Image.Image) -> None:
     # Check for alpha channel
     if image.mode == 'RGBA':
         # Splitting the image's channels.
-        r,g,b,a = image.split()
+        r, g, b, a = image.split()
         
         # Merging all the channels together except for the alpha channel.
-        rgb_image = PIL.Image.merge('RGB', (r,g,b))
+        rgb_image = PIL.Image.merge('RGB', (r, g, b))
         
         # Inverting the image colors.
         inverted_image = PIL.ImageOps.invert(rgb_image)
         
         # Splitting the inverted image's channel to combine them again with the alpha channel.
-        r2,g2,b2 = inverted_image.split()
-        inverted_image = PIL.Image.merge('RGBA', (r2,g2,b2,a))
+        r2, g2, b2 = inverted_image.split()
+        inverted_image = PIL.Image.merge('RGBA', (r2, g2, b2, a))
     else:
         inverted_image = PIL.ImageOps.invert(image)
     send_to_clipboard(inverted_image)
+
 
 def make_transparent(image: PIL.Image.Image) -> PIL.Image.Image:
     """
@@ -186,6 +192,7 @@ def make_transparent(image: PIL.Image.Image) -> PIL.Image.Image:
     image.putdata(output_image)
     
     return image
+
 
 # Avoid using global variables by storing them as class members:
 class MouseHelper:
@@ -267,6 +274,7 @@ class MouseHelper:
             self.cropping = False
             self.drawing = False
 
+
 def life_color_update(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:
     """
     Description:
@@ -289,7 +297,7 @@ def life_color_update(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:
     # Put text displaying the pixel color.
     cv2.putText(img=cv2_main_image, text=f"({x}, {y}) | {', '.join(cv2_main_image[y, x].astype(str))}",
                 org=(0, 15), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                color=(~cv2_main_image[y, x]).tolist(), fontScale=0.5) #fontFace, fontScale, color, thickness
+                color=(~cv2_main_image[y, x]).tolist(), fontScale=0.5) # fontFace, fontScale, color, thickness
     
     return cv2_main_image
 
@@ -314,7 +322,6 @@ def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(
         # Convert PIL image to OpenCv
         cv2_main_image = pil_to_cv(image)
         
-        
         # inverted = False # Color inversion status
         cv2.namedWindow("Image Window")
         cv2.imshow("Image Window", cv2_main_image)
@@ -338,7 +345,7 @@ def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(
             k = cv2.waitKey(1) & 0xFF
             
             # cv2.getWindowProperty() used to kill the image window after clicking the exit button in the title bar.
-            if k == win32con.VK_ESCAPE or cv2.getWindowProperty('Image Window',cv2.WND_PROP_VISIBLE) < 1: # ESC
+            if k == win32con.VK_ESCAPE or cv2.getWindowProperty('Image Window', cv2.WND_PROP_VISIBLE) < 1: # ESC
                 break
             
             # Cropping
@@ -349,7 +356,6 @@ def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(
                 mouse_helper.shape = cv2_main_image.shape
                 mouse_helper.mouse_selection_start, mouse_helper.mouse_selection_end = None, None
                 cv2.imshow('Image Window', cv2_main_image)
-            
             
             elif mouse_helper.drawing:
                 # cv2.circle(cv2_main_image, (mouse_helper.x, mouse_helper.y), 5, (0, 0, 255), -1)

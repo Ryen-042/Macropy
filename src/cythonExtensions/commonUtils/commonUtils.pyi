@@ -1,9 +1,11 @@
 """This module provides class definitions used in other modules."""
+
 from collections import deque
 import queue
 from enum import IntEnum
 import threading, win32clipboard
 from win32com.client import CDispatch
+
 
 class KB_Con(IntEnum):
     """
@@ -115,9 +117,11 @@ class KB_Con(IntEnum):
     SC_VOLUME_UP   = 48 # Make sure that this doesn't conflict with `KB_Con.SC_B` as both have the same value.
     SC_VOLUME_DOWN = 46
 
+
 def static_class(cls):
     """Class decorator that turns a class into a static class."""
     ...
+
 
 class Management:
     """A static data class for storing variables and functions used for managing to the script."""
@@ -160,9 +164,12 @@ class WindowHouse:
     
     @staticmethod
     def RememberActiveProcessTitle(fg_hwnd=0) -> None:
-        """Stores the title of the active window into the `closedExplorers` variable.
-        The title of a windows explorer window is the address of the opened directory."""
+        """
+        Stores the title of the active window into the `closedExplorers` variable.
+        The title of a windows explorer window is the address of the opened directory.
+        """
         ...
+
 
 class ControllerHouse:
     """A static data class that stores information for managing and controlling keyboard."""
@@ -214,7 +221,7 @@ class ControllerHouse:
     BACKTICK = 0b1          # 1 << 0  = 1
     """A mask for extracting the BACKTICK flag from the `modifiers` packed int."""
     
-    ## Composite Modifier keys masks
+    # Composite Modifier keys masks
     CTRL_ALT_FN_WIN = 0b10000010010010 # 8338
     """A mask for extracting the CTRL, ALT, FN and WIN flags from the `modifiers` packed int."""
     
@@ -232,7 +239,7 @@ class ControllerHouse:
     
     CTRL_WIN        = 0b10000000001100 # 8204
     """A mask for extracting the CTRL and WIN flags from the `modifiers` packed int."""
-	
+    
     LCTRL_RCTRL     = 0b01100000000000 # 6144
     """A mask for extracting the LCTRL and RCTRL flags from the `modifiers` packed int."""
     
@@ -280,19 +287,22 @@ class ControllerHouse:
     
     locations : dict[str, str]
     """A dictionary of abbreviations and their corresponding paths."""
-    
+
 
 def UpdateModifiers_KeyDown(event: KeyboardEvent) -> None:
     """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
     ...
 
+
 def UpdateModifiers_KeyUp(event: KeyboardEvent) -> None:
     """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
     ...
 
+
 def UpdateLocks(event: KeyboardEvent) -> None:
     """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
     ...
+
 
 def SendMouseScroll(steps=1, direction=1, wheelDelta=40) -> None:
     """
@@ -311,13 +321,16 @@ def SendMouseScroll(steps=1, direction=1, wheelDelta=40) -> None:
     """
     ...
 
+
 def PrintModifiers() -> None:
     """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
     ...
 
+
 def PrintLockKeys() -> None:
     """Prints the states of the lock keys after extracting them from the packed int `locks`."""
     ...
+
 
 class ShellAutomationObjectWrapper:
     """Thread-safe wrapper class for accessing an Automation object in a multithreaded environment."""
@@ -364,12 +377,10 @@ class PThread(threading.Thread):
         """Initializes the COM library for the current thread if it was not previously initialized."""
         ...
     
-    
     @staticmethod
     def CoUninitialize(initializer_called: bool) -> bool:
         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
         ...
-    
     
     # Source: https://github.com/salesforce/decorator-operations/blob/master/decoratorOperations/throttle_functions/throttle.py
     # For a comparison between Throttling and Debouncing: https://stackoverflow.com/questions/25991367/difference-between-throttling-and-debouncing-a-function
@@ -467,6 +478,6 @@ def ReadFromClipboard(CF= win32clipboard.CF_TEXT) -> str: # CF: Clipboard format
     ...
 
 
-def SendToClipboard(data, CF: int=win32clipboard.CF_UNICODETEXT):
+def SendToClipboard(data, CF=win32clipboard.CF_UNICODETEXT):
     """Copies the given data to the clipboard."""
     ...

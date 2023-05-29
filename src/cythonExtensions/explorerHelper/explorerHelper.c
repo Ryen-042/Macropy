@@ -999,7 +999,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
   int check_desktop;
 };
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":94
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":95
  *     return output
  * 
  * cpdef str GetExplorerAddress(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -1011,7 +1011,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
   PyObject *active_explorer;
 };
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":106
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":107
  *     return active_explorer.Document.Folder.Self.Path
  * 
  * cpdef list GetSelectedItemsFromActiveExplorer(active_explorer=None, tuple patterns=None):             # <<<<<<<<<<<<<<
@@ -1024,7 +1024,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
   PyObject *patterns;
 };
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":139
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":140
  *     return output
  * 
  * cpdef list CopySelectedFileNames(active_explorer=None, bint check_desktop=True):             # <<<<<<<<<<<<<<
@@ -1037,7 +1037,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
   int check_desktop;
 };
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":174
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":175
  * 
  * # https://learn.microsoft.com/en-us/windows/win32/dlgbox/open-and-save-as-dialog-boxes
  * cdef list OpenFileDialog(int dialog_type, str default_extension="", str default_filename="", int extra_flags=0,             # <<<<<<<<<<<<<<
@@ -1055,7 +1055,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
   PyObject *initial_dir;
 };
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":236
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":237
  *     shell.SHOpenFolderAndSelectItems(folder_pidl, to_show, 0)
  * 
  * cpdef int CreateFile(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -1067,7 +1067,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
   PyObject *active_explorer;
 };
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":274
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":275
  *     return output
  * 
  * cpdef ImagesToPDF(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -1079,7 +1079,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
   PyObject *active_explorer;
 };
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":307
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":308
  *         PThread.CoUninitialize()
  * 
  * cpdef void OfficeFileToPDF(active_explorer=None, str office_application="Powerpoint"):             # <<<<<<<<<<<<<<
@@ -1092,7 +1092,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
   PyObject *office_application;
 };
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":398
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":399
  *     winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  * cpdef void GenericFileConverter(active_explorer=None, tuple patterns=None, convert_func=None, str new_extension=""):             # <<<<<<<<<<<<<<
@@ -1107,7 +1107,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_14explorerHelper_14explorerHel
   PyObject *new_extension;
 };
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":456
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":457
  *         PThread.CoUninitialize()
  * 
  * cpdef void FlattenDirectories(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -1827,7 +1827,7 @@ static const char __pyx_k_Next_file_already_exists_s[] = "Next file already exis
 static const char __pyx_k_SHOpenFolderAndSelectItems[] = "SHOpenFolderAndSelectItems";
 static const char __pyx_k_ShellAutomationObjectWrapper[] = "ShellAutomationObjectWrapper";
 static const char __pyx_k_Failure_file_already_exists_s[] = "Failure, file already exists: %s";
-static const char __pyx_k_GenericFileConverter_line_398[] = "GenericFileConverter (line 398)";
+static const char __pyx_k_GenericFileConverter_line_399[] = "GenericFileConverter (line 399)";
 static const char __pyx_k_Description_Converts_the_select[] = "\n    Description:\n        Converts the selected files from the active explorer window using the specified filter and convert functions.\n    ---\n    Parameters:\n        `active_explorer -> CDispatch`:\n            The active explorer window object.\n        \n        `patterns -> tuple[str]`:\n            A tuple of file extensions to filter the selected files by.\n        \n        `convert_func -> Callable[[str, str], None]`:\n            A function that takes the input file path and the output file path and performs the conversion.\n        \n        `new_extension -> str`:\n            The new file extension for the converted files (you can treat it as a suffix added at the end of filenames).\n    ---\n    Examples:\n    >>> # To convert image files to .ico files\n    >>> GenericFileConverter(None, (\".png\", \".jpg\"), lambda f1, f2: PIL.Image.open(f1).resize((512, 512)).save(f2), \" - (512x512).ico\")\n    \n    >>> # To convert audio files to .wav files\n    >>> GenericFileConverter(None, (\".mp3\"), lambda f1, f2: subprocess.call([\"ffmpeg\", \"-loglevel\", \"error\", \"-hide_banner\", \"-nostats\",'-i', f1, f2]), \".wav\")\n    ";
 static const char __pyx_k_Description_Finds_the_next_unus[] = "\n    Description:\n        Finds the next unused incremental filename in the specified directory.\n    ---\n    Usage:\n        >>> GetUniqueName(directory, \"New File\", \" (%s)\", \".txt\")\n    ---\n    Returns:\n        `str`: A string in this format `f\"{directory}\\{filename}{pattern}{extension}\"`.\n    ---\n    Examples: (directory is omitted)\n        `\"New File.txt\" | \"New File (1).txt\" | \"New File (2).txt\" | ...`\n    \n    ---\n    Complexity:\n        Runs in `log(n)` time where `n` is the number of existing files in sequence.\n    ";
 static const char __pyx_k_This_extension_module_provides_f[] = "This extension module provides functions for manipulating Windows Explorer and Desktop.";
@@ -1852,7 +1852,7 @@ static PyObject *__pyx_kp_s_File_Dialog;
 static PyObject *__pyx_kp_s_File_s_not_found_in_s;
 static PyObject *__pyx_n_s_Flattened;
 static PyObject *__pyx_n_s_Folder;
-static PyObject *__pyx_kp_u_GenericFileConverter_line_398;
+static PyObject *__pyx_kp_u_GenericFileConverter_line_399;
 static PyObject *__pyx_n_s_GetClassName;
 static PyObject *__pyx_n_s_GetDisplayNameOf;
 static PyObject *__pyx_n_s_GetForegroundWindow;
@@ -2553,8 +2553,8 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   PyObject *__pyx_v_explorer_windows = ((PyObject *)Py_None);
   int __pyx_v_check_desktop = ((int)1);
   int __pyx_v_initializer_called;
-  int __pyx_v_fg_hwnd;
   PyObject *__pyx_v_output = NULL;
+  int __pyx_v_fg_hwnd;
   PyObject *__pyx_v_curr_className = 0;
   PyObject *__pyx_v_explorer_window = NULL;
   PyObject *__pyx_r = NULL;
@@ -2590,7 +2590,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  * 
  *     cdef bint initializer_called = PThread.CoInitialize()             # <<<<<<<<<<<<<<
  * 
- *     cdef int fg_hwnd = win32gui.GetForegroundWindow()
+ *     # No automation object was passed; create one.
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -2616,16 +2616,79 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_initializer_called = __pyx_t_4;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":65
- *     cdef bint initializer_called = PThread.CoInitialize()
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":66
+ * 
+ *     # No automation object was passed; create one.
+ *     if not explorer_windows:             # <<<<<<<<<<<<<<
+ *         explorer_windows = ShellWrapper.explorer.Windows()
+ * 
+ */
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_explorer_windows); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_5 = ((!__pyx_t_4) != 0);
+  if (__pyx_t_5) {
+
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":67
+ *     # No automation object was passed; create one.
+ *     if not explorer_windows:
+ *         explorer_windows = ShellWrapper.explorer.Windows()             # <<<<<<<<<<<<<<
+ * 
+ *     output = None
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_2)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_2);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_3, function);
+      }
+    }
+    __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF_SET(__pyx_v_explorer_windows, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":66
+ * 
+ *     # No automation object was passed; create one.
+ *     if not explorer_windows:             # <<<<<<<<<<<<<<
+ *         explorer_windows = ShellWrapper.explorer.Windows()
+ * 
+ */
+  }
+
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":69
+ *         explorer_windows = ShellWrapper.explorer.Windows()
+ * 
+ *     output = None             # <<<<<<<<<<<<<<
+ * 
+ *     cdef int fg_hwnd = win32gui.GetForegroundWindow()
+ */
+  __Pyx_INCREF(Py_None);
+  __pyx_v_output = Py_None;
+
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":71
+ *     output = None
  * 
  *     cdef int fg_hwnd = win32gui.GetForegroundWindow()             # <<<<<<<<<<<<<<
  * 
- *     # No automation object was passed; create one.
+ *     if not fg_hwnd:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_GetForegroundWindow); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_GetForegroundWindow); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -2640,89 +2703,57 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_fg_hwnd = __pyx_t_5;
+  __pyx_v_fg_hwnd = __pyx_t_6;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":68
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":73
+ *     cdef int fg_hwnd = win32gui.GetForegroundWindow()
  * 
- *     # No automation object was passed; create one.
- *     if not explorer_windows:             # <<<<<<<<<<<<<<
- *         explorer_windows = ShellWrapper.explorer.Windows()
+ *     if not fg_hwnd:             # <<<<<<<<<<<<<<
+ *         return output
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_explorer_windows); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 68, __pyx_L1_error)
-  __pyx_t_6 = ((!__pyx_t_4) != 0);
-  if (__pyx_t_6) {
+  __pyx_t_5 = ((!(__pyx_v_fg_hwnd != 0)) != 0);
+  if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":69
- *     # No automation object was passed; create one.
- *     if not explorer_windows:
- *         explorer_windows = ShellWrapper.explorer.Windows()             # <<<<<<<<<<<<<<
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":74
  * 
- *     # print(explorer_windows.Item().HWND, fg_hwnd, GetClassName(fg_hwnd), sep=" | ")
+ *     if not fg_hwnd:
+ *         return output             # <<<<<<<<<<<<<<
+ * 
+ *     cdef str curr_className = win32gui.GetClassName(fg_hwnd)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_explorer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_Windows); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-      if (likely(__pyx_t_3)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-        __Pyx_INCREF(__pyx_t_3);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_2, function);
-      }
-    }
-    __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF_SET(__pyx_v_explorer_windows, __pyx_t_1);
-    __pyx_t_1 = 0;
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_INCREF(__pyx_v_output);
+    __pyx_r = __pyx_v_output;
+    goto __pyx_L0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":68
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":73
+ *     cdef int fg_hwnd = win32gui.GetForegroundWindow()
  * 
- *     # No automation object was passed; create one.
- *     if not explorer_windows:             # <<<<<<<<<<<<<<
- *         explorer_windows = ShellWrapper.explorer.Windows()
+ *     if not fg_hwnd:             # <<<<<<<<<<<<<<
+ *         return output
  * 
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":73
- *     # print(explorer_windows.Item().HWND, fg_hwnd, GetClassName(fg_hwnd), sep=" | ")
- * 
- *     output = None             # <<<<<<<<<<<<<<
- * 
- *     cdef str curr_className = win32gui.GetClassName(fg_hwnd)
- */
-  __Pyx_INCREF(Py_None);
-  __pyx_v_output = Py_None;
-
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":75
- *     output = None
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":76
+ *         return output
  * 
  *     cdef str curr_className = win32gui.GetClassName(fg_hwnd)             # <<<<<<<<<<<<<<
  * 
  *     # Check if the active window has one of the Desktop window class names. This check is necessary because
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_GetClassName); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_GetClassName); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_fg_hwnd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_fg_hwnd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_7 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -2737,14 +2768,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(PyString_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (!(likely(PyString_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 76, __pyx_L1_error)
   __pyx_v_curr_className = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":79
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":80
  *     # Check if the active window has one of the Desktop window class names. This check is necessary because
  *     # `GetForegroundWindow()` and `explorer_windows.Item().HWND` might not be the same even when the Desktop is the active window.
  *     if check_desktop and curr_className in ("WorkerW", "Progman"):             # <<<<<<<<<<<<<<
@@ -2754,36 +2785,36 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __pyx_t_4 = (__pyx_v_check_desktop != 0);
   if (__pyx_t_4) {
   } else {
-    __pyx_t_6 = __pyx_t_4;
-    goto __pyx_L5_bool_binop_done;
+    __pyx_t_5 = __pyx_t_4;
+    goto __pyx_L6_bool_binop_done;
   }
   __Pyx_INCREF(__pyx_v_curr_className);
   __pyx_t_8 = __pyx_v_curr_className;
-  __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_t_8, __pyx_n_s_WorkerW, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_t_8, __pyx_n_s_WorkerW, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 80, __pyx_L1_error)
   __pyx_t_10 = (__pyx_t_9 != 0);
   if (!__pyx_t_10) {
   } else {
     __pyx_t_4 = __pyx_t_10;
-    goto __pyx_L7_bool_binop_done;
+    goto __pyx_L8_bool_binop_done;
   }
-  __pyx_t_10 = (__Pyx_PyString_Equals(__pyx_t_8, __pyx_n_s_Progman, Py_EQ)); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_10 = (__Pyx_PyString_Equals(__pyx_t_8, __pyx_n_s_Progman, Py_EQ)); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 80, __pyx_L1_error)
   __pyx_t_9 = (__pyx_t_10 != 0);
   __pyx_t_4 = __pyx_t_9;
-  __pyx_L7_bool_binop_done:;
+  __pyx_L8_bool_binop_done:;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_9 = (__pyx_t_4 != 0);
-  __pyx_t_6 = __pyx_t_9;
-  __pyx_L5_bool_binop_done:;
-  if (__pyx_t_6) {
+  __pyx_t_5 = __pyx_t_9;
+  __pyx_L6_bool_binop_done:;
+  if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":80
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":81
  *     # `GetForegroundWindow()` and `explorer_windows.Item().HWND` might not be the same even when the Desktop is the active window.
  *     if check_desktop and curr_className in ("WorkerW", "Progman"):
  *         output = explorer_windows.Item() # Not passing a number to `Item()` returns the desktop window object.             # <<<<<<<<<<<<<<
  * 
  *     else:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_explorer_windows, __pyx_n_s_Item); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_explorer_windows, __pyx_n_s_Item); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_2 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -2797,23 +2828,23 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF_SET(__pyx_v_output, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":79
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":80
  *     # Check if the active window has one of the Desktop window class names. This check is necessary because
  *     # `GetForegroundWindow()` and `explorer_windows.Item().HWND` might not be the same even when the Desktop is the active window.
  *     if check_desktop and curr_className in ("WorkerW", "Progman"):             # <<<<<<<<<<<<<<
  *         output = explorer_windows.Item() # Not passing a number to `Item()` returns the desktop window object.
  * 
  */
-    goto __pyx_L4;
+    goto __pyx_L5;
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":84
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":85
  *     else:
  *         # Check other explorer windows if any.
  *         for explorer_window in explorer_windows:             # <<<<<<<<<<<<<<
@@ -2825,26 +2856,26 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       __pyx_t_1 = __pyx_v_explorer_windows; __Pyx_INCREF(__pyx_t_1); __pyx_t_11 = 0;
       __pyx_t_12 = NULL;
     } else {
-      __pyx_t_11 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_explorer_windows); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __pyx_t_11 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_explorer_windows); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_12 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __pyx_t_12 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 85, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_12)) {
         if (likely(PyList_CheckExact(__pyx_t_1))) {
           if (__pyx_t_11 >= PyList_GET_SIZE(__pyx_t_1)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_11); __Pyx_INCREF(__pyx_t_3); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 84, __pyx_L1_error)
+          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_11); __Pyx_INCREF(__pyx_t_3); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 85, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         } else {
           if (__pyx_t_11 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_11); __Pyx_INCREF(__pyx_t_3); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 84, __pyx_L1_error)
+          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_11); __Pyx_INCREF(__pyx_t_3); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 85, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         }
@@ -2854,7 +2885,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 84, __pyx_L1_error)
+            else __PYX_ERR(0, 85, __pyx_L1_error)
           }
           break;
         }
@@ -2863,25 +2894,25 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       __Pyx_XDECREF_SET(__pyx_v_explorer_window, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":85
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":86
  *         # Check other explorer windows if any.
  *         for explorer_window in explorer_windows:
  *             if explorer_window.HWND == fg_hwnd:             # <<<<<<<<<<<<<<
  *                 output = explorer_window
  *                 break
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_explorer_window, __pyx_n_s_HWND); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_explorer_window, __pyx_n_s_HWND); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_fg_hwnd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_fg_hwnd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_7 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_7 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 86, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 86, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (__pyx_t_6) {
+      if (__pyx_t_5) {
 
-        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":86
+        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":87
  *         for explorer_window in explorer_windows:
  *             if explorer_window.HWND == fg_hwnd:
  *                 output = explorer_window             # <<<<<<<<<<<<<<
@@ -2891,16 +2922,16 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
         __Pyx_INCREF(__pyx_v_explorer_window);
         __Pyx_DECREF_SET(__pyx_v_output, __pyx_v_explorer_window);
 
-        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":87
+        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":88
  *             if explorer_window.HWND == fg_hwnd:
  *                 output = explorer_window
  *                 break             # <<<<<<<<<<<<<<
  * 
  *     if initializer_called:
  */
-        goto __pyx_L10_break;
+        goto __pyx_L11_break;
 
-        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":85
+        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":86
  *         # Check other explorer windows if any.
  *         for explorer_window in explorer_windows:
  *             if explorer_window.HWND == fg_hwnd:             # <<<<<<<<<<<<<<
@@ -2909,7 +2940,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
       }
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":84
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":85
  *     else:
  *         # Check other explorer windows if any.
  *         for explorer_window in explorer_windows:             # <<<<<<<<<<<<<<
@@ -2917,31 +2948,31 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  *                 output = explorer_window
  */
     }
-    __pyx_L10_break:;
+    __pyx_L11_break:;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
-  __pyx_L4:;
+  __pyx_L5:;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":89
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":90
  *                 break
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
  *         PThread.CoUninitialize()
  * 
  */
-  __pyx_t_6 = (__pyx_v_initializer_called != 0);
-  if (__pyx_t_6) {
+  __pyx_t_5 = (__pyx_v_initializer_called != 0);
+  if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":90
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":91
  * 
  *     if initializer_called:
  *         PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  *     return output
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_PThread); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_PThread); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_7 = NULL;
@@ -2956,12 +2987,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":89
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":90
  *                 break
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -2970,7 +3001,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":92
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":93
  *         PThread.CoUninitialize()
  * 
  *     return output             # <<<<<<<<<<<<<<
@@ -3115,7 +3146,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":94
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":95
  *     return output
  * 
  * cpdef str GetExplorerAddress(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -3145,30 +3176,30 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __Pyx_INCREF(__pyx_v_active_explorer);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":97
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":98
  *     """Returns the address of the active explorer window."""
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 98, __pyx_L1_error)
   __pyx_t_2 = ((!__pyx_t_1) != 0);
   if (__pyx_t_2) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":98
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":99
  * 
  *     if not active_explorer:
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)             # <<<<<<<<<<<<<<
  * 
  *     if not active_explorer:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_explorer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 98, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_explorer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_Windows); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_Windows); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -3183,19 +3214,19 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_6.__pyx_n = 2;
     __pyx_t_6.explorer_windows = __pyx_t_3;
     __pyx_t_6.check_desktop = 0;
-    __pyx_t_4 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
+    __pyx_t_4 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF_SET(__pyx_v_active_explorer, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":97
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":98
  *     """Returns the address of the active explorer window."""
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -3204,18 +3235,18 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":100
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":101
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         return ""
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 101, __pyx_L1_error)
   __pyx_t_1 = ((!__pyx_t_2) != 0);
   if (__pyx_t_1) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":101
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":102
  * 
  *     if not active_explorer:
  *         return ""             # <<<<<<<<<<<<<<
@@ -3227,7 +3258,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     __pyx_r = __pyx_kp_s_;
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":100
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":101
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -3236,7 +3267,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":104
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":105
  * 
  *     # return win32gui.GetWindowText(active_explorer.HWND) # About 10 times faster but sometimes fails to return the full path.
  *     return active_explorer.Document.Folder.Self.Path             # <<<<<<<<<<<<<<
@@ -3244,23 +3275,23 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  * cpdef list GetSelectedItemsFromActiveExplorer(active_explorer=None, tuple patterns=None):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_active_explorer, __pyx_n_s_Document); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_active_explorer, __pyx_n_s_Document); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_Folder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_Folder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_Self); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_Self); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_Path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_Path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 104, __pyx_L1_error)
+  if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 105, __pyx_L1_error)
   __pyx_r = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":94
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":95
  *     return output
  * 
  * cpdef str GetExplorerAddress(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -3315,7 +3346,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GetExplorerAddress") < 0)) __PYX_ERR(0, 94, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GetExplorerAddress") < 0)) __PYX_ERR(0, 95, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3329,7 +3360,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("GetExplorerAddress", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 94, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("GetExplorerAddress", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 95, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.GetExplorerAddress", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3354,7 +3385,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.active_explorer = __pyx_v_active_explorer;
-  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetExplorerAddress(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetExplorerAddress(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3371,7 +3402,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":106
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":107
  *     return active_explorer.Document.Folder.Self.Path
  * 
  * cpdef list GetSelectedItemsFromActiveExplorer(active_explorer=None, tuple patterns=None):             # <<<<<<<<<<<<<<
@@ -3412,16 +3443,16 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __Pyx_INCREF(__pyx_v_active_explorer);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":122
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":123
  *     """
  * 
  *     cdef bint initializer_called = PThread.CoInitialize()             # <<<<<<<<<<<<<<
  * 
  *     if not active_explorer:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -3436,37 +3467,37 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_initializer_called = __pyx_t_4;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":124
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":125
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=True)
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 125, __pyx_L1_error)
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":125
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":126
  * 
  *     if not active_explorer:
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=True)             # <<<<<<<<<<<<<<
  * 
  *     cdef list output = []
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 125, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 125, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -3481,19 +3512,19 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_6.__pyx_n = 2;
     __pyx_t_6.explorer_windows = __pyx_t_1;
     __pyx_t_6.check_desktop = 1;
-    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 125, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF_SET(__pyx_v_active_explorer, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":124
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":125
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -3502,38 +3533,38 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":127
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":128
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=True)
  * 
  *     cdef list output = []             # <<<<<<<<<<<<<<
  * 
  *     if active_explorer:
  */
-  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_output = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":129
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":130
  *     cdef list output = []
  * 
  *     if active_explorer:             # <<<<<<<<<<<<<<
  *         for selected_item in active_explorer.Document.SelectedItems():
  *             if not patterns or _filter(selected_item.Path, patterns):
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 130, __pyx_L1_error)
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":130
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":131
  * 
  *     if active_explorer:
  *         for selected_item in active_explorer.Document.SelectedItems():             # <<<<<<<<<<<<<<
  *             if not patterns or _filter(selected_item.Path, patterns):
  *                 output.append(selected_item.Path)
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_active_explorer, __pyx_n_s_Document); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_active_explorer, __pyx_n_s_Document); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SelectedItems); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SelectedItems); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -3548,16 +3579,16 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 130, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
       __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
     } else {
-      __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+      __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 131, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 130, __pyx_L1_error)
+      __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 131, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     for (;;) {
@@ -3565,17 +3596,17 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
         if (likely(PyList_CheckExact(__pyx_t_2))) {
           if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 130, __pyx_L1_error)
+          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 131, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 130, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         } else {
           if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 130, __pyx_L1_error)
+          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 131, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 130, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         }
@@ -3585,7 +3616,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 130, __pyx_L1_error)
+            else __PYX_ERR(0, 131, __pyx_L1_error)
           }
           break;
         }
@@ -3594,7 +3625,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       __Pyx_XDECREF_SET(__pyx_v_selected_item, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":131
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":132
  *     if active_explorer:
  *         for selected_item in active_explorer.Document.SelectedItems():
  *             if not patterns or _filter(selected_item.Path, patterns):             # <<<<<<<<<<<<<<
@@ -3608,28 +3639,28 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
         __pyx_t_5 = __pyx_t_9;
         goto __pyx_L8_bool_binop_done;
       }
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_selected_item, __pyx_n_s_Path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_selected_item, __pyx_n_s_Path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 132, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 131, __pyx_L1_error)
+      if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 132, __pyx_L1_error)
       __pyx_t_9 = (__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper__filter(((PyObject*)__pyx_t_3), __pyx_v_patterns) != 0);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_5 = __pyx_t_9;
       __pyx_L8_bool_binop_done:;
       if (__pyx_t_5) {
 
-        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":132
+        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":133
  *         for selected_item in active_explorer.Document.SelectedItems():
  *             if not patterns or _filter(selected_item.Path, patterns):
  *                 output.append(selected_item.Path)             # <<<<<<<<<<<<<<
  * 
  *     if initializer_called:
  */
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_selected_item, __pyx_n_s_Path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 132, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_selected_item, __pyx_n_s_Path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 133, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_output, __pyx_t_3); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 132, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_output, __pyx_t_3); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 133, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":131
+        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":132
  *     if active_explorer:
  *         for selected_item in active_explorer.Document.SelectedItems():
  *             if not patterns or _filter(selected_item.Path, patterns):             # <<<<<<<<<<<<<<
@@ -3638,7 +3669,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
       }
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":130
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":131
  * 
  *     if active_explorer:
  *         for selected_item in active_explorer.Document.SelectedItems():             # <<<<<<<<<<<<<<
@@ -3648,7 +3679,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":129
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":130
  *     cdef list output = []
  * 
  *     if active_explorer:             # <<<<<<<<<<<<<<
@@ -3657,7 +3688,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":134
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":135
  *                 output.append(selected_item.Path)
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -3667,16 +3698,16 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __pyx_t_5 = (__pyx_v_initializer_called != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":135
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":136
  * 
  *     if initializer_called:
  *         PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  *     return output
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 135, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_PThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -3691,12 +3722,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":134
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":135
  *                 output.append(selected_item.Path)
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -3705,7 +3736,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":137
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":138
  *         PThread.CoUninitialize()
  * 
  *     return output             # <<<<<<<<<<<<<<
@@ -3717,7 +3748,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __pyx_r = __pyx_v_output;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":106
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":107
  *     return active_explorer.Document.Folder.Self.Path
  * 
  * cpdef list GetSelectedItemsFromActiveExplorer(active_explorer=None, tuple patterns=None):             # <<<<<<<<<<<<<<
@@ -3784,7 +3815,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GetSelectedItemsFromActiveExplorer") < 0)) __PYX_ERR(0, 106, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GetSelectedItemsFromActiveExplorer") < 0)) __PYX_ERR(0, 107, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3801,13 +3832,13 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("GetSelectedItemsFromActiveExplorer", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 106, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("GetSelectedItemsFromActiveExplorer", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 107, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.GetSelectedItemsFromActiveExplorer", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_patterns), (&PyTuple_Type), 1, "patterns", 1))) __PYX_ERR(0, 106, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_patterns), (&PyTuple_Type), 1, "patterns", 1))) __PYX_ERR(0, 107, __pyx_L1_error)
   __pyx_r = __pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_6GetSelectedItemsFromActiveExplorer(__pyx_self, __pyx_v_active_explorer, __pyx_v_patterns);
 
   /* function exit code */
@@ -3832,7 +3863,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.active_explorer = __pyx_v_active_explorer;
   __pyx_t_2.patterns = __pyx_v_patterns;
-  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3849,7 +3880,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":139
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":140
  *     return output
  * 
  * cpdef list CopySelectedFileNames(active_explorer=None, bint check_desktop=True):             # <<<<<<<<<<<<<<
@@ -3890,16 +3921,16 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __Pyx_INCREF(__pyx_v_active_explorer);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":148
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":149
  *     """
  * 
  *     cdef bint initializer_called = PThread.CoInitialize()             # <<<<<<<<<<<<<<
  * 
  *     # If no automation object was passed (i.e., `None` was passed), create one.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -3914,37 +3945,37 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_initializer_called = __pyx_t_4;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":151
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":152
  * 
  *     # If no automation object was passed (i.e., `None` was passed), create one.
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop)
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 152, __pyx_L1_error)
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":152
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":153
  *     # If no automation object was passed (i.e., `None` was passed), create one.
  *     if not active_explorer:
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop)             # <<<<<<<<<<<<<<
  * 
  *     cdef list selected_files_paths = []
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 152, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 152, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 153, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 152, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -3959,19 +3990,19 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 152, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_6.__pyx_n = 2;
     __pyx_t_6.explorer_windows = __pyx_t_1;
     __pyx_t_6.check_desktop = __pyx_v_check_desktop;
-    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 152, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF_SET(__pyx_v_active_explorer, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":151
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":152
  * 
  *     # If no automation object was passed (i.e., `None` was passed), create one.
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -3980,29 +4011,29 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":154
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":155
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop)
  * 
  *     cdef list selected_files_paths = []             # <<<<<<<<<<<<<<
  * 
  *     cdef str concatenated_file_paths
  */
-  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_selected_files_paths = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":158
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":159
  *     cdef str concatenated_file_paths
  * 
  *     if active_explorer:             # <<<<<<<<<<<<<<
  *         selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer)
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 159, __pyx_L1_error)
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":159
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":160
  * 
  *     if active_explorer:
  *         selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer)             # <<<<<<<<<<<<<<
@@ -4011,12 +4042,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
     __pyx_t_7.__pyx_n = 1;
     __pyx_t_7.active_explorer = __pyx_v_active_explorer;
-    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 159, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF_SET(__pyx_v_selected_files_paths, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":161
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":162
  *         selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer)
  * 
  *         if selected_files_paths:             # <<<<<<<<<<<<<<
@@ -4026,37 +4057,37 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     __pyx_t_5 = (__pyx_v_selected_files_paths != Py_None)&&(PyList_GET_SIZE(__pyx_v_selected_files_paths) != 0);
     if (__pyx_t_5) {
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":162
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":163
  * 
  *         if selected_files_paths:
  *             concatenated_file_paths = '"' + '" "'.join(selected_files_paths) + '"'             # <<<<<<<<<<<<<<
  * 
  *             SendToClipboard(concatenated_file_paths, win32clipboard.CF_UNICODETEXT)
  */
-      __pyx_t_3 = __Pyx_PyString_Join(__pyx_kp_s__3, __pyx_v_selected_files_paths); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyString_Join(__pyx_kp_s__3, __pyx_v_selected_files_paths); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_1 = PyNumber_Add(__pyx_kp_s__2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
+      __pyx_t_1 = PyNumber_Add(__pyx_kp_s__2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_kp_s__2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
+      __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_kp_s__2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (!(likely(PyString_CheckExact(__pyx_t_3))||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 162, __pyx_L1_error)
+      if (!(likely(PyString_CheckExact(__pyx_t_3))||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 163, __pyx_L1_error)
       __pyx_v_concatenated_file_paths = ((PyObject*)__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":164
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":165
  *             concatenated_file_paths = '"' + '" "'.join(selected_files_paths) + '"'
  * 
  *             SendToClipboard(concatenated_file_paths, win32clipboard.CF_UNICODETEXT)             # <<<<<<<<<<<<<<
  * 
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_SendToClipboard); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 164, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_SendToClipboard); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 164, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CF_UNICODETEXT); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 164, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CF_UNICODETEXT); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = NULL;
@@ -4074,7 +4105,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_1)) {
         PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_concatenated_file_paths, __pyx_t_8};
-        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 164, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -4083,14 +4114,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
         PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_concatenated_file_paths, __pyx_t_8};
-        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 164, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       } else
       #endif
       {
-        __pyx_t_10 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 164, __pyx_L1_error)
+        __pyx_t_10 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 165, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         if (__pyx_t_2) {
           __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -4101,14 +4132,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
         __Pyx_GIVEREF(__pyx_t_8);
         PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_9, __pyx_t_8);
         __pyx_t_8 = 0;
-        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_10, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 164, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_10, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":161
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":162
  *         selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer)
  * 
  *         if selected_files_paths:             # <<<<<<<<<<<<<<
@@ -4117,29 +4148,29 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
     }
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":166
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":167
  *             SendToClipboard(concatenated_file_paths, win32clipboard.CF_UNICODETEXT)
  * 
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  *     if initializer_called:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_winsound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_winsound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 166, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_winsound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_winsound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 166, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_winsound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_winsound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 166, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyNumber_Or(__pyx_t_8, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Or(__pyx_t_8, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4158,7 +4189,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_10)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_1};
-      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 166, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4167,14 +4198,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_1};
-      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 166, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else
     #endif
     {
-      __pyx_t_8 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 166, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       if (__pyx_t_2) {
         __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -4185,14 +4216,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       __Pyx_GIVEREF(__pyx_t_1);
       PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_9, __pyx_t_1);
       __pyx_t_1 = 0;
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 166, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":158
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":159
  *     cdef str concatenated_file_paths
  * 
  *     if active_explorer:             # <<<<<<<<<<<<<<
@@ -4201,7 +4232,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":168
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":169
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -4211,16 +4242,16 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __pyx_t_5 = (__pyx_v_initializer_called != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":169
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":170
  * 
  *     if initializer_called:
  *         PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  *     return selected_files_paths
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_PThread); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 169, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_PThread); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 169, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __pyx_t_10 = NULL;
@@ -4235,12 +4266,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_3 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 169, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":168
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":169
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -4249,7 +4280,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":171
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":172
  *         PThread.CoUninitialize()
  * 
  *     return selected_files_paths             # <<<<<<<<<<<<<<
@@ -4261,7 +4292,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __pyx_r = __pyx_v_selected_files_paths;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":139
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":140
  *     return output
  * 
  * cpdef list CopySelectedFileNames(active_explorer=None, bint check_desktop=True):             # <<<<<<<<<<<<<<
@@ -4329,7 +4360,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CopySelectedFileNames") < 0)) __PYX_ERR(0, 139, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CopySelectedFileNames") < 0)) __PYX_ERR(0, 140, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4343,14 +4374,14 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
     }
     __pyx_v_active_explorer = values[0];
     if (values[1]) {
-      __pyx_v_check_desktop = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_check_desktop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 139, __pyx_L3_error)
+      __pyx_v_check_desktop = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_check_desktop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 140, __pyx_L3_error)
     } else {
       __pyx_v_check_desktop = ((int)1);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("CopySelectedFileNames", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 139, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("CopySelectedFileNames", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 140, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.CopySelectedFileNames", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4376,7 +4407,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.active_explorer = __pyx_v_active_explorer;
   __pyx_t_2.check_desktop = __pyx_v_check_desktop;
-  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_CopySelectedFileNames(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_CopySelectedFileNames(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4393,7 +4424,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":174
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":175
  * 
  * # https://learn.microsoft.com/en-us/windows/win32/dlgbox/open-and-save-as-dialog-boxes
  * cdef list OpenFileDialog(int dialog_type, str default_extension="", str default_filename="", int extra_flags=0,             # <<<<<<<<<<<<<<
@@ -4407,7 +4438,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   int __pyx_v_extra_flags = ((int)0);
   PyObject *__pyx_v_filter = ((PyObject*)__pyx_kp_s_);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":175
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":176
  * # https://learn.microsoft.com/en-us/windows/win32/dlgbox/open-and-save-as-dialog-boxes
  * cdef list OpenFileDialog(int dialog_type, str default_extension="", str default_filename="", int extra_flags=0,
  *                          str filter="", bint multiselect=False, str title="File Dialog", str initial_dir=""):             # <<<<<<<<<<<<<<
@@ -4458,38 +4489,38 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":196
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":197
  *     """
  * 
  *     cdef int dialog_flags = extra_flags|win32con.OFN_OVERWRITEPROMPT|win32con.OFN_FILEMUSTEXIST # |win32con.OFN_EXPLORER             # <<<<<<<<<<<<<<
  * 
  *     if multiselect and dialog_type:
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_extra_flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_extra_flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_OFN_OVERWRITEPROMPT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_OFN_OVERWRITEPROMPT); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Or(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Or(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_OFN_FILEMUSTEXIST); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_OFN_FILEMUSTEXIST); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Or(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Or(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_dialog_flags = __pyx_t_4;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":198
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":199
  *     cdef int dialog_flags = extra_flags|win32con.OFN_OVERWRITEPROMPT|win32con.OFN_FILEMUSTEXIST # |win32con.OFN_EXPLORER
  * 
  *     if multiselect and dialog_type:             # <<<<<<<<<<<<<<
@@ -4507,29 +4538,29 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":199
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":200
  * 
  *     if multiselect and dialog_type:
  *         dialog_flags|=win32con.OFN_ALLOWMULTISELECT             # <<<<<<<<<<<<<<
  * 
  *     ## API: CreateFileDialog(FileSave_0/FileOpen_1, DefaultExtension, InitialFilename, Flags, Filter)
  */
-    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_dialog_flags); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_dialog_flags); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 200, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 200, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_OFN_ALLOWMULTISELECT); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_OFN_ALLOWMULTISELECT); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 200, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyNumber_InPlaceOr(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_InPlaceOr(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 200, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_dialog_flags = __pyx_t_4;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":198
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":199
  *     cdef int dialog_flags = extra_flags|win32con.OFN_OVERWRITEPROMPT|win32con.OFN_FILEMUSTEXIST # |win32con.OFN_EXPLORER
  * 
  *     if multiselect and dialog_type:             # <<<<<<<<<<<<<<
@@ -4538,21 +4569,21 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":204
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":205
  *     # o = win32ui.CreateFileDialog(1, ".txt", "default.txt", 0, "Text Files (*.txt)|*.txt|All Files (*.*)|*.*|")
  * 
  *     dialog_window = win32ui.CreateFileDialog(dialog_type, default_extension, default_filename, dialog_flags, filter)             # <<<<<<<<<<<<<<
  *     dialog_window.SetOFNTitle(title)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32ui); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32ui); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CreateFileDialog); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CreateFileDialog); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_dialog_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_dialog_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_dialog_flags); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_dialog_flags); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_8 = NULL;
   __pyx_t_4 = 0;
@@ -4569,7 +4600,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[6] = {__pyx_t_8, __pyx_t_2, __pyx_v_default_extension, __pyx_v_default_filename, __pyx_t_7, __pyx_v_filter};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 5+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 5+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4579,7 +4610,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[6] = {__pyx_t_8, __pyx_t_2, __pyx_v_default_extension, __pyx_v_default_filename, __pyx_t_7, __pyx_v_filter};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 5+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 5+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4587,7 +4618,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   } else
   #endif
   {
-    __pyx_t_9 = PyTuple_New(5+__pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 204, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(5+__pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (__pyx_t_8) {
       __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -4607,7 +4638,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     PyTuple_SET_ITEM(__pyx_t_9, 4+__pyx_t_4, __pyx_v_filter);
     __pyx_t_2 = 0;
     __pyx_t_7 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   }
@@ -4615,14 +4646,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __pyx_v_dialog_window = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":205
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":206
  * 
  *     dialog_window = win32ui.CreateFileDialog(dialog_type, default_extension, default_filename, dialog_flags, filter)
  *     dialog_window.SetOFNTitle(title)             # <<<<<<<<<<<<<<
  * 
  *     if initial_dir:
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_dialog_window, __pyx_n_s_SetOFNTitle); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_dialog_window, __pyx_n_s_SetOFNTitle); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_9 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -4636,29 +4667,29 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_9, __pyx_v_title) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_title);
   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":207
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":208
  *     dialog_window.SetOFNTitle(title)
  * 
  *     if initial_dir:             # <<<<<<<<<<<<<<
  *         dialog_window.SetOFNInitialDir(initial_dir)
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_initial_dir); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_initial_dir); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 208, __pyx_L1_error)
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":208
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":209
  * 
  *     if initial_dir:
  *         dialog_window.SetOFNInitialDir(initial_dir)             # <<<<<<<<<<<<<<
  * 
  *     if dialog_window.DoModal()!=win32con.IDOK:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_dialog_window, __pyx_n_s_SetOFNInitialDir); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 208, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_dialog_window, __pyx_n_s_SetOFNInitialDir); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 209, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_9 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -4672,12 +4703,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_9, __pyx_v_initial_dir) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_initial_dir);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":207
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":208
  *     dialog_window.SetOFNTitle(title)
  * 
  *     if initial_dir:             # <<<<<<<<<<<<<<
@@ -4686,14 +4717,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":210
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":211
  *         dialog_window.SetOFNInitialDir(initial_dir)
  * 
  *     if dialog_window.DoModal()!=win32con.IDOK:             # <<<<<<<<<<<<<<
  *         return []
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_dialog_window, __pyx_n_s_DoModal); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_dialog_window, __pyx_n_s_DoModal); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_9 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -4707,22 +4738,22 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32con); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_IDOK); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_IDOK); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_9, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_9, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":211
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":212
  * 
  *     if dialog_window.DoModal()!=win32con.IDOK:
  *         return []             # <<<<<<<<<<<<<<
@@ -4730,13 +4761,13 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  *     return dialog_window.GetPathNames()
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 211, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 212, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":210
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":211
  *         dialog_window.SetOFNInitialDir(initial_dir)
  * 
  *     if dialog_window.DoModal()!=win32con.IDOK:             # <<<<<<<<<<<<<<
@@ -4745,7 +4776,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":213
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":214
  *         return []
  * 
  *     return dialog_window.GetPathNames()             # <<<<<<<<<<<<<<
@@ -4753,7 +4784,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  * # https://mail.python.org/pipermail/python-win32/2012-September/012533.html
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_dialog_window, __pyx_n_s_GetPathNames); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_dialog_window, __pyx_n_s_GetPathNames); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_9))) {
@@ -4767,15 +4798,15 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 213, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 213, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 214, __pyx_L1_error)
   __pyx_r = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":174
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":175
  * 
  * # https://learn.microsoft.com/en-us/windows/win32/dlgbox/open-and-save-as-dialog-boxes
  * cdef list OpenFileDialog(int dialog_type, str default_extension="", str default_filename="", int extra_flags=0,             # <<<<<<<<<<<<<<
@@ -4800,7 +4831,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":216
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":217
  * 
  * # https://mail.python.org/pipermail/python-win32/2012-September/012533.html
  * cpdef void SelectFilesFromDirectory(str directory, list file_names):             # <<<<<<<<<<<<<<
@@ -4835,16 +4866,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("SelectFilesFromDirectory", 0);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":219
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":220
  *     """Given an absolute directory path and the names of its items (names relative to the path), if an explorer window with the specified directory is present, use it, otherwise open a new one, then select all the items specified."""
  * 
  *     folder_pidl = shell.SHILCreateFromPath(directory, 0)[0]             # <<<<<<<<<<<<<<
  * 
  *     desktop = shell.SHGetDesktopFolder()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_shell); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_shell); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SHILCreateFromPath); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SHILCreateFromPath); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 220, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -4862,7 +4893,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_directory, __pyx_int_0};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -4870,13 +4901,13 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_directory, __pyx_int_0};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 220, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -4887,27 +4918,27 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_int_0);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 220, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_folder_pidl = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":221
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":222
  *     folder_pidl = shell.SHILCreateFromPath(directory, 0)[0]
  * 
  *     desktop = shell.SHGetDesktopFolder()             # <<<<<<<<<<<<<<
  *     shell_folder = desktop.BindToObject(folder_pidl, None, shell.IID_IShellFolder)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_shell); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_shell); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SHGetDesktopFolder); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SHGetDesktopFolder); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -4922,24 +4953,24 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 221, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_desktop = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":222
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":223
  * 
  *     desktop = shell.SHGetDesktopFolder()
  *     shell_folder = desktop.BindToObject(folder_pidl, None, shell.IID_IShellFolder)             # <<<<<<<<<<<<<<
  * 
  *     cdef dict name_to_item_mapping = dict([(desktop.GetDisplayNameOf(item, 0), item) for item in shell_folder])
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_desktop, __pyx_n_s_BindToObject); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_desktop, __pyx_n_s_BindToObject); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_shell); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_shell); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_IID_IShellFolder); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_IID_IShellFolder); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -4957,7 +4988,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[4] = {__pyx_t_1, __pyx_v_folder_pidl, Py_None, __pyx_t_2};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4966,14 +4997,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[4] = {__pyx_t_1, __pyx_v_folder_pidl, Py_None, __pyx_t_2};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -4987,7 +5018,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_6, 2+__pyx_t_4, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
@@ -4995,7 +5026,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   __pyx_v_shell_folder = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":224
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":225
  *     shell_folder = desktop.BindToObject(folder_pidl, None, shell.IID_IShellFolder)
  * 
  *     cdef dict name_to_item_mapping = dict([(desktop.GetDisplayNameOf(item, 0), item) for item in shell_folder])             # <<<<<<<<<<<<<<
@@ -5003,32 +5034,32 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  *     cdef list to_show = []
  */
   { /* enter inner scope */
-    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 224, __pyx_L5_error)
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 225, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (likely(PyList_CheckExact(__pyx_v_shell_folder)) || PyTuple_CheckExact(__pyx_v_shell_folder)) {
       __pyx_t_5 = __pyx_v_shell_folder; __Pyx_INCREF(__pyx_t_5); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
     } else {
-      __pyx_t_7 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_v_shell_folder); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 224, __pyx_L5_error)
+      __pyx_t_7 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_v_shell_folder); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 225, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_8 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 224, __pyx_L5_error)
+      __pyx_t_8 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 225, __pyx_L5_error)
     }
     for (;;) {
       if (likely(!__pyx_t_8)) {
         if (likely(PyList_CheckExact(__pyx_t_5))) {
           if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_6 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_6); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 224, __pyx_L5_error)
+          __pyx_t_6 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_6); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 225, __pyx_L5_error)
           #else
-          __pyx_t_6 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 224, __pyx_L5_error)
+          __pyx_t_6 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 225, __pyx_L5_error)
           __Pyx_GOTREF(__pyx_t_6);
           #endif
         } else {
           if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_6 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_6); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 224, __pyx_L5_error)
+          __pyx_t_6 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_6); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 225, __pyx_L5_error)
           #else
-          __pyx_t_6 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 224, __pyx_L5_error)
+          __pyx_t_6 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 225, __pyx_L5_error)
           __Pyx_GOTREF(__pyx_t_6);
           #endif
         }
@@ -5038,7 +5069,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 224, __pyx_L5_error)
+            else __PYX_ERR(0, 225, __pyx_L5_error)
           }
           break;
         }
@@ -5046,7 +5077,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       }
       __Pyx_XDECREF_SET(__pyx_7genexpr__pyx_v_item, __pyx_t_6);
       __pyx_t_6 = 0;
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_desktop, __pyx_n_s_GetDisplayNameOf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 224, __pyx_L5_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_desktop, __pyx_n_s_GetDisplayNameOf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 225, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_1 = NULL;
       __pyx_t_4 = 0;
@@ -5063,7 +5094,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_2)) {
         PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_7genexpr__pyx_v_item, __pyx_int_0};
-        __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 224, __pyx_L5_error)
+        __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 225, __pyx_L5_error)
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_GOTREF(__pyx_t_6);
       } else
@@ -5071,13 +5102,13 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
         PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_7genexpr__pyx_v_item, __pyx_int_0};
-        __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 224, __pyx_L5_error)
+        __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 225, __pyx_L5_error)
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_GOTREF(__pyx_t_6);
       } else
       #endif
       {
-        __pyx_t_9 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 224, __pyx_L5_error)
+        __pyx_t_9 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 225, __pyx_L5_error)
         __Pyx_GOTREF(__pyx_t_9);
         if (__pyx_t_1) {
           __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -5088,12 +5119,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
         __Pyx_INCREF(__pyx_int_0);
         __Pyx_GIVEREF(__pyx_int_0);
         PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_4, __pyx_int_0);
-        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 224, __pyx_L5_error)
+        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 225, __pyx_L5_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 224, __pyx_L5_error)
+      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 225, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_GIVEREF(__pyx_t_6);
       PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6);
@@ -5101,7 +5132,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       __Pyx_GIVEREF(__pyx_7genexpr__pyx_v_item);
       PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_7genexpr__pyx_v_item);
       __pyx_t_6 = 0;
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 224, __pyx_L5_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 225, __pyx_L5_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5112,25 +5143,25 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     goto __pyx_L1_error;
     __pyx_L8_exit_scope:;
   } /* exit inner scope */
-  __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 225, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_name_to_item_mapping = ((PyObject*)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":226
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":227
  *     cdef dict name_to_item_mapping = dict([(desktop.GetDisplayNameOf(item, 0), item) for item in shell_folder])
  * 
  *     cdef list to_show = []             # <<<<<<<<<<<<<<
  * 
  *     for file in file_names:
  */
-  __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_v_to_show = ((PyObject*)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":228
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":229
  *     cdef list to_show = []
  * 
  *     for file in file_names:             # <<<<<<<<<<<<<<
@@ -5139,42 +5170,42 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   if (unlikely(__pyx_v_file_names == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 228, __pyx_L1_error)
+    __PYX_ERR(0, 229, __pyx_L1_error)
   }
   __pyx_t_5 = __pyx_v_file_names; __Pyx_INCREF(__pyx_t_5); __pyx_t_7 = 0;
   for (;;) {
     if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_5)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 228, __pyx_L1_error)
+    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 229, __pyx_L1_error)
     #else
-    __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 228, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_file, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":229
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":230
  * 
  *     for file in file_names:
  *         if not name_to_item_mapping.get(file):             # <<<<<<<<<<<<<<
  *             raise Exception('File: "%s" not found in "%s"' % (file, directory))
  * 
  */
-    __pyx_t_3 = __Pyx_PyDict_GetItemDefault(__pyx_v_name_to_item_mapping, __pyx_v_file, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyDict_GetItemDefault(__pyx_v_name_to_item_mapping, __pyx_v_file, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 230, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 229, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 230, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_11 = ((!__pyx_t_10) != 0);
     if (unlikely(__pyx_t_11)) {
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":230
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":231
  *     for file in file_names:
  *         if not name_to_item_mapping.get(file):
  *             raise Exception('File: "%s" not found in "%s"' % (file, directory))             # <<<<<<<<<<<<<<
  * 
  *         to_show.append(name_to_item_mapping[file])
  */
-      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 230, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 231, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_v_file);
       __Pyx_GIVEREF(__pyx_v_file);
@@ -5182,17 +5213,17 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       __Pyx_INCREF(__pyx_v_directory);
       __Pyx_GIVEREF(__pyx_v_directory);
       PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_directory);
-      __pyx_t_2 = __Pyx_PyString_Format(__pyx_kp_s_File_s_not_found_in_s, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyString_Format(__pyx_kp_s_File_s_not_found_in_s, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 231, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 230, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 231, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_Raise(__pyx_t_3, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __PYX_ERR(0, 230, __pyx_L1_error)
+      __PYX_ERR(0, 231, __pyx_L1_error)
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":229
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":230
  * 
  *     for file in file_names:
  *         if not name_to_item_mapping.get(file):             # <<<<<<<<<<<<<<
@@ -5201,19 +5232,19 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     }
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":232
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":233
  *             raise Exception('File: "%s" not found in "%s"' % (file, directory))
  * 
  *         to_show.append(name_to_item_mapping[file])             # <<<<<<<<<<<<<<
  * 
  *     shell.SHOpenFolderAndSelectItems(folder_pidl, to_show, 0)
  */
-    __pyx_t_3 = __Pyx_PyDict_GetItem(__pyx_v_name_to_item_mapping, __pyx_v_file); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyDict_GetItem(__pyx_v_name_to_item_mapping, __pyx_v_file); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 233, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_12 = __Pyx_PyList_Append(__pyx_v_to_show, __pyx_t_3); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyList_Append(__pyx_v_to_show, __pyx_t_3); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 233, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":228
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":229
  *     cdef list to_show = []
  * 
  *     for file in file_names:             # <<<<<<<<<<<<<<
@@ -5223,16 +5254,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":234
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":235
  *         to_show.append(name_to_item_mapping[file])
  * 
  *     shell.SHOpenFolderAndSelectItems(folder_pidl, to_show, 0)             # <<<<<<<<<<<<<<
  * 
  * cpdef int CreateFile(active_explorer=None):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_shell); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_shell); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SHOpenFolderAndSelectItems); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SHOpenFolderAndSelectItems); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -5250,7 +5281,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_folder_pidl, __pyx_v_to_show, __pyx_int_0};
-    __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 235, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_5);
   } else
@@ -5258,13 +5289,13 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_folder_pidl, __pyx_v_to_show, __pyx_int_0};
-    __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 235, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_5);
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 235, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -5278,14 +5309,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
     PyTuple_SET_ITEM(__pyx_t_6, 2+__pyx_t_4, __pyx_int_0);
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 235, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":216
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":217
  * 
  * # https://mail.python.org/pipermail/python-win32/2012-September/012533.html
  * cpdef void SelectFilesFromDirectory(str directory, list file_names):             # <<<<<<<<<<<<<<
@@ -5349,11 +5380,11 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_file_names)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("SelectFilesFromDirectory", 1, 2, 2, 1); __PYX_ERR(0, 216, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("SelectFilesFromDirectory", 1, 2, 2, 1); __PYX_ERR(0, 217, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SelectFilesFromDirectory") < 0)) __PYX_ERR(0, 216, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SelectFilesFromDirectory") < 0)) __PYX_ERR(0, 217, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5366,14 +5397,14 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SelectFilesFromDirectory", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 216, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("SelectFilesFromDirectory", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 217, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.SelectFilesFromDirectory", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_directory), (&PyString_Type), 1, "directory", 1))) __PYX_ERR(0, 216, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_file_names), (&PyList_Type), 1, "file_names", 1))) __PYX_ERR(0, 216, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_directory), (&PyString_Type), 1, "directory", 1))) __PYX_ERR(0, 217, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_file_names), (&PyList_Type), 1, "file_names", 1))) __PYX_ERR(0, 217, __pyx_L1_error)
   __pyx_r = __pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_10SelectFilesFromDirectory(__pyx_self, __pyx_v_directory, __pyx_v_file_names);
 
   /* function exit code */
@@ -5394,7 +5425,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("SelectFilesFromDirectory", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_SelectFilesFromDirectory(__pyx_v_directory, __pyx_v_file_names, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_SelectFilesFromDirectory(__pyx_v_directory, __pyx_v_file_names, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 217, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5411,7 +5442,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":236
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":237
  *     shell.SHOpenFolderAndSelectItems(folder_pidl, to_show, 0)
  * 
  * cpdef int CreateFile(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -5454,16 +5485,16 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
   }
   __Pyx_INCREF(__pyx_v_active_explorer);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":248
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":249
  *     """
  * 
  *     cdef bint initializer_called = PThread.CoInitialize()             # <<<<<<<<<<<<<<
  * 
  *     if not active_explorer:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -5478,37 +5509,37 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_initializer_called = __pyx_t_4;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":250
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":251
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=True)
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 251, __pyx_L1_error)
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":251
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":252
  * 
  *     if not active_explorer:
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=True)             # <<<<<<<<<<<<<<
  * 
  *     cdef int output = 0
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -5523,19 +5554,19 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_6.__pyx_n = 2;
     __pyx_t_6.explorer_windows = __pyx_t_1;
     __pyx_t_6.check_desktop = 1;
-    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF_SET(__pyx_v_active_explorer, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":250
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":251
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -5544,7 +5575,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":253
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":254
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=True)
  * 
  *     cdef int output = 0             # <<<<<<<<<<<<<<
@@ -5553,17 +5584,17 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
  */
   __pyx_v_output = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":256
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":257
  *     cdef str file_fullpath
  * 
  *     if active_explorer:             # <<<<<<<<<<<<<<
  *         file_fullpath = GetUniqueName(directory=GetExplorerAddress(active_explorer))
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 257, __pyx_L1_error)
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":257
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":258
  * 
  *     if active_explorer:
  *         file_fullpath = GetUniqueName(directory=GetExplorerAddress(active_explorer))             # <<<<<<<<<<<<<<
@@ -5572,15 +5603,15 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
  */
     __pyx_t_7.__pyx_n = 1;
     __pyx_t_7.active_explorer = __pyx_v_active_explorer;
-    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetExplorerAddress(0, &__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetExplorerAddress(0, &__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 258, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetUniqueName(((PyObject*)__pyx_t_3), 0, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetUniqueName(((PyObject*)__pyx_t_3), 0, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_file_fullpath = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":259
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":260
  *         file_fullpath = GetUniqueName(directory=GetExplorerAddress(active_explorer))
  * 
  *         with open(file_fullpath, 'w') as newfile:             # <<<<<<<<<<<<<<
@@ -5588,7 +5619,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
  * 
  */
     /*with:*/ {
-      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_INCREF(__pyx_v_file_fullpath);
       __Pyx_GIVEREF(__pyx_v_file_fullpath);
@@ -5596,12 +5627,12 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
       __Pyx_INCREF(__pyx_n_s_w);
       __Pyx_GIVEREF(__pyx_n_s_w);
       PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_w);
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 259, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_t_3, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 259, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_LookupSpecial(__pyx_t_3, __pyx_n_s_exit); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 260, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_3, __pyx_n_s_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L5_error)
+      __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_3, __pyx_n_s_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_9 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5615,7 +5646,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
       }
       __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L5_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = __pyx_t_1;
@@ -5633,14 +5664,14 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
             __pyx_v_newfile = __pyx_t_2;
             __pyx_t_2 = 0;
 
-            /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":260
+            /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":261
  * 
  *         with open(file_fullpath, 'w') as newfile:
  *             newfile.writelines('# Created using "File Factory"')             # <<<<<<<<<<<<<<
  * 
  *         # Selects the file and put it in edit mode: https://learn.microsoft.com/en-us/windows/win32/shell/shellfolderview-selectitem
  */
-            __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_newfile, __pyx_n_s_writelines); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L9_error)
+            __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_newfile, __pyx_n_s_writelines); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 261, __pyx_L9_error)
             __Pyx_GOTREF(__pyx_t_3);
             __pyx_t_1 = NULL;
             if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -5654,12 +5685,12 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
             }
             __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, __pyx_kp_s_Created_using_File_Factory) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_kp_s_Created_using_File_Factory);
             __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L9_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L9_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":259
+            /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":260
  *         file_fullpath = GetUniqueName(directory=GetExplorerAddress(active_explorer))
  * 
  *         with open(file_fullpath, 'w') as newfile:             # <<<<<<<<<<<<<<
@@ -5678,20 +5709,20 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
           /*except:*/ {
             __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.CreateFile", __pyx_clineno, __pyx_lineno, __pyx_filename);
-            if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_3, &__pyx_t_1) < 0) __PYX_ERR(0, 259, __pyx_L11_except_error)
+            if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_3, &__pyx_t_1) < 0) __PYX_ERR(0, 260, __pyx_L11_except_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_GOTREF(__pyx_t_1);
-            __pyx_t_9 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 259, __pyx_L11_except_error)
+            __pyx_t_9 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 260, __pyx_L11_except_error)
             __Pyx_GOTREF(__pyx_t_9);
             __pyx_t_13 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_9, NULL);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 259, __pyx_L11_except_error)
+            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 260, __pyx_L11_except_error)
             __Pyx_GOTREF(__pyx_t_13);
             __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_13);
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-            if (__pyx_t_5 < 0) __PYX_ERR(0, 259, __pyx_L11_except_error)
+            if (__pyx_t_5 < 0) __PYX_ERR(0, 260, __pyx_L11_except_error)
             __pyx_t_4 = ((!(__pyx_t_5 != 0)) != 0);
             if (__pyx_t_4) {
               __Pyx_GIVEREF(__pyx_t_2);
@@ -5699,7 +5730,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
               __Pyx_XGIVEREF(__pyx_t_1);
               __Pyx_ErrRestoreWithState(__pyx_t_2, __pyx_t_3, __pyx_t_1);
               __pyx_t_2 = 0; __pyx_t_3 = 0; __pyx_t_1 = 0; 
-              __PYX_ERR(0, 259, __pyx_L11_except_error)
+              __PYX_ERR(0, 260, __pyx_L11_except_error)
             }
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5725,7 +5756,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
           if (__pyx_t_8) {
             __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_tuple__4, NULL);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 259, __pyx_L1_error)
+            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 260, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_12);
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           }
@@ -5740,16 +5771,16 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
       __pyx_L18:;
     }
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":263
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":264
  * 
  *         # Selects the file and put it in edit mode: https://learn.microsoft.com/en-us/windows/win32/shell/shellfolderview-selectitem
  *         active_explorer.Document.SelectItem(file_fullpath, 0x1F) # 0x1F = 31 # 1|4|8|16 = 29             # <<<<<<<<<<<<<<
  * 
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_active_explorer, __pyx_n_s_Document); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 263, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_active_explorer, __pyx_n_s_Document); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SelectItem); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 263, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SelectItem); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -5767,7 +5798,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_file_fullpath, __pyx_int_31};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else
@@ -5775,13 +5806,13 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_file_fullpath, __pyx_int_31};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else
     #endif
     {
-      __pyx_t_9 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 263, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 264, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       if (__pyx_t_3) {
         __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -5792,36 +5823,36 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
       __Pyx_INCREF(__pyx_int_31);
       __Pyx_GIVEREF(__pyx_int_31);
       PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_14, __pyx_int_31);
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":265
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":266
  *         active_explorer.Document.SelectItem(file_fullpath, 0x1F) # 0x1F = 31 # 1|4|8|16 = 29
  * 
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  *         output = 1
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_15);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyNumber_Or(__pyx_t_3, __pyx_t_15); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_Or(__pyx_t_3, __pyx_t_15); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
@@ -5840,7 +5871,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_9)) {
       PyObject *__pyx_temp[3] = {__pyx_t_15, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_2};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5849,14 +5880,14 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
       PyObject *__pyx_temp[3] = {__pyx_t_15, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_2};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else
     #endif
     {
-      __pyx_t_3 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       if (__pyx_t_15) {
         __Pyx_GIVEREF(__pyx_t_15); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_15); __pyx_t_15 = NULL;
@@ -5867,14 +5898,14 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_14, __pyx_t_2);
       __pyx_t_2 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":267
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":268
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *         output = 1             # <<<<<<<<<<<<<<
@@ -5883,7 +5914,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
  */
     __pyx_v_output = 1;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":256
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":257
  *     cdef str file_fullpath
  * 
  *     if active_explorer:             # <<<<<<<<<<<<<<
@@ -5892,7 +5923,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":269
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":270
  *         output = 1
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -5902,16 +5933,16 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
   __pyx_t_4 = (__pyx_v_initializer_called != 0);
   if (__pyx_t_4) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":270
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":271
  * 
  *     if initializer_called:
  *         PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  *     return output
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_PThread); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_PThread); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 271, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 271, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __pyx_t_9 = NULL;
@@ -5926,12 +5957,12 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
     }
     __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":269
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":270
  *         output = 1
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -5940,7 +5971,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":272
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":273
  *         PThread.CoUninitialize()
  * 
  *     return output             # <<<<<<<<<<<<<<
@@ -5950,7 +5981,7 @@ static int __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper
   __pyx_r = __pyx_v_output;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":236
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":237
  *     shell.SHOpenFolderAndSelectItems(folder_pidl, to_show, 0)
  * 
  * cpdef int CreateFile(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -6008,7 +6039,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CreateFile") < 0)) __PYX_ERR(0, 236, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CreateFile") < 0)) __PYX_ERR(0, 237, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -6022,7 +6053,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("CreateFile", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 236, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("CreateFile", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 237, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.CreateFile", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6049,7 +6080,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.active_explorer = __pyx_v_active_explorer;
   __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_CreateFile(0, &__pyx_t_2); 
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -6066,7 +6097,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":274
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":275
  *     return output
  * 
  * cpdef ImagesToPDF(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -6112,16 +6143,16 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __Pyx_INCREF(__pyx_v_active_explorer);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":278
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":279
  *     Please note that the function sorts the file names alphabetically before merging."""
  * 
  *     cdef bint initializer_called = PThread.CoInitialize()             # <<<<<<<<<<<<<<
  * 
  *     if not active_explorer:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -6136,37 +6167,37 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_initializer_called = __pyx_t_4;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":280
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":281
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":281
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":282
  * 
  *     if not active_explorer:
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)             # <<<<<<<<<<<<<<
  * 
  *     cdef list selected_files_paths
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 281, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 282, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 282, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -6181,19 +6212,19 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_6.__pyx_n = 2;
     __pyx_t_6.explorer_windows = __pyx_t_1;
     __pyx_t_6.check_desktop = 0;
-    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 282, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF_SET(__pyx_v_active_explorer, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":280
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":281
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -6202,17 +6233,17 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":286
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":287
  *     cdef str directory, file_fullpath
  * 
  *     if active_explorer:             # <<<<<<<<<<<<<<
  *         selected_files_paths = sorted(GetSelectedItemsFromActiveExplorer(active_explorer, patterns=('.png', '.jpg', '.jpeg')))
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 287, __pyx_L1_error)
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":287
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":288
  * 
  *     if active_explorer:
  *         selected_files_paths = sorted(GetSelectedItemsFromActiveExplorer(active_explorer, patterns=('.png', '.jpg', '.jpeg')))             # <<<<<<<<<<<<<<
@@ -6222,18 +6253,18 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     __pyx_t_7.__pyx_n = 2;
     __pyx_t_7.active_explorer = __pyx_v_active_explorer;
     __pyx_t_7.patterns = __pyx_tuple__5;
-    __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 287, __pyx_L1_error)
+    __pyx_t_2 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_3 = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_8 = PyList_Sort(__pyx_t_3); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 287, __pyx_L1_error)
+    __pyx_t_8 = PyList_Sort(__pyx_t_3); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 288, __pyx_L1_error)
     __pyx_v_selected_files_paths = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":289
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":290
  *         selected_files_paths = sorted(GetSelectedItemsFromActiveExplorer(active_explorer, patterns=('.png', '.jpg', '.jpeg')))
  * 
  *         if selected_files_paths:             # <<<<<<<<<<<<<<
@@ -6243,29 +6274,29 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     __pyx_t_5 = (__pyx_v_selected_files_paths != Py_None)&&(PyList_GET_SIZE(__pyx_v_selected_files_paths) != 0);
     if (__pyx_t_5) {
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":290
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":291
  * 
  *         if selected_files_paths:
  *             winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  *             directory = os.path.dirname(selected_files_paths[0])
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 290, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 290, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 291, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 290, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 290, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 291, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 290, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 290, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 291, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = PyNumber_Or(__pyx_t_9, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 290, __pyx_L1_error)
+      __pyx_t_2 = PyNumber_Or(__pyx_t_9, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -6284,7 +6315,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_1)) {
         PyObject *__pyx_temp[3] = {__pyx_t_10, __pyx_kp_s_SFX_connection_sound_wav, __pyx_t_2};
-        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 290, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6293,14 +6324,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
         PyObject *__pyx_temp[3] = {__pyx_t_10, __pyx_kp_s_SFX_connection_sound_wav, __pyx_t_2};
-        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 290, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       } else
       #endif
       {
-        __pyx_t_9 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 290, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 291, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         if (__pyx_t_10) {
           __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_10); __pyx_t_10 = NULL;
@@ -6311,33 +6342,33 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
         __Pyx_GIVEREF(__pyx_t_2);
         PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_11, __pyx_t_2);
         __pyx_t_2 = 0;
-        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 290, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":292
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":293
  *             winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *             directory = os.path.dirname(selected_files_paths[0])             # <<<<<<<<<<<<<<
  * 
  *             file_fullpath = GetUniqueName(directory, "New PDF", extension=".pdf")
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 292, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_dirname); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_dirname); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       if (unlikely(__pyx_v_selected_files_paths == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 292, __pyx_L1_error)
+        __PYX_ERR(0, 293, __pyx_L1_error)
       }
-      __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_selected_files_paths, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 292, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_selected_files_paths, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __pyx_t_2 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -6352,23 +6383,23 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_2, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_9);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 292, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 292, __pyx_L1_error)
+      if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 293, __pyx_L1_error)
       __pyx_v_directory = ((PyObject*)__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":294
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":295
  *             directory = os.path.dirname(selected_files_paths[0])
  * 
  *             file_fullpath = GetUniqueName(directory, "New PDF", extension=".pdf")             # <<<<<<<<<<<<<<
  * 
  *             with open(file_fullpath, "wb") as pdf_output_file:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_GetUniqueName); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 294, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_GetUniqueName); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 295, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 294, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_INCREF(__pyx_v_directory);
       __Pyx_GIVEREF(__pyx_v_directory);
@@ -6376,19 +6407,19 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
       __Pyx_INCREF(__pyx_kp_s_New_PDF);
       __Pyx_GIVEREF(__pyx_kp_s_New_PDF);
       PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_kp_s_New_PDF);
-      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 294, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 295, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_extension, __pyx_kp_s_pdf) < 0) __PYX_ERR(0, 294, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, __pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 294, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_extension, __pyx_kp_s_pdf) < 0) __PYX_ERR(0, 295, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, __pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 294, __pyx_L1_error)
+      if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 295, __pyx_L1_error)
       __pyx_v_file_fullpath = ((PyObject*)__pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":296
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":297
  *             file_fullpath = GetUniqueName(directory, "New PDF", extension=".pdf")
  * 
  *             with open(file_fullpath, "wb") as pdf_output_file:             # <<<<<<<<<<<<<<
@@ -6396,7 +6427,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  * 
  */
       /*with:*/ {
-        __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 296, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 297, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_INCREF(__pyx_v_file_fullpath);
         __Pyx_GIVEREF(__pyx_v_file_fullpath);
@@ -6404,12 +6435,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
         __Pyx_INCREF(__pyx_n_s_wb);
         __Pyx_GIVEREF(__pyx_n_s_wb);
         PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_wb);
-        __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_t_2, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 296, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_t_2, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 297, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_12 = __Pyx_PyObject_LookupSpecial(__pyx_t_9, __pyx_n_s_exit); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 296, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_LookupSpecial(__pyx_t_9, __pyx_n_s_exit); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 297, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_1 = __Pyx_PyObject_LookupSpecial(__pyx_t_9, __pyx_n_s_enter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 296, __pyx_L6_error)
+        __pyx_t_1 = __Pyx_PyObject_LookupSpecial(__pyx_t_9, __pyx_n_s_enter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L6_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_3 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -6423,7 +6454,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
         }
         __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 296, __pyx_L6_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 297, __pyx_L6_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __pyx_t_1 = __pyx_t_2;
@@ -6441,18 +6472,18 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
               __pyx_v_pdf_output_file = __pyx_t_1;
               __pyx_t_1 = 0;
 
-              /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":297
+              /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":298
  * 
  *             with open(file_fullpath, "wb") as pdf_output_file:
  *                 pdf_output_file.write(img2pdf.convert(selected_files_paths))             # <<<<<<<<<<<<<<
  * 
  *                 if len(selected_files_paths) <= 20:
  */
-              __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_pdf_output_file, __pyx_n_s_write); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 297, __pyx_L10_error)
+              __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_pdf_output_file, __pyx_n_s_write); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 298, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_9);
-              __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_img2pdf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 297, __pyx_L10_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_img2pdf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 298, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_3);
-              __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_convert); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 297, __pyx_L10_error)
+              __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_convert); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 298, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_10);
               __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
               __pyx_t_3 = NULL;
@@ -6467,7 +6498,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
               }
               __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_3, __pyx_v_selected_files_paths) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_v_selected_files_paths);
               __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-              if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 297, __pyx_L10_error)
+              if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 298, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_2);
               __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
               __pyx_t_10 = NULL;
@@ -6483,12 +6514,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
               __pyx_t_1 = (__pyx_t_10) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_10, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_2);
               __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-              if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L10_error)
+              if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 298, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_1);
               __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
               __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-              /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":299
+              /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":300
  *                 pdf_output_file.write(img2pdf.convert(selected_files_paths))
  * 
  *                 if len(selected_files_paths) <= 20:             # <<<<<<<<<<<<<<
@@ -6497,22 +6528,22 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
               if (unlikely(__pyx_v_selected_files_paths == Py_None)) {
                 PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-                __PYX_ERR(0, 299, __pyx_L10_error)
+                __PYX_ERR(0, 300, __pyx_L10_error)
               }
-              __pyx_t_16 = PyList_GET_SIZE(__pyx_v_selected_files_paths); if (unlikely(__pyx_t_16 == ((Py_ssize_t)-1))) __PYX_ERR(0, 299, __pyx_L10_error)
+              __pyx_t_16 = PyList_GET_SIZE(__pyx_v_selected_files_paths); if (unlikely(__pyx_t_16 == ((Py_ssize_t)-1))) __PYX_ERR(0, 300, __pyx_L10_error)
               __pyx_t_5 = ((__pyx_t_16 <= 20) != 0);
               if (__pyx_t_5) {
 
-                /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":300
+                /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":301
  * 
  *                 if len(selected_files_paths) <= 20:
  *                     active_explorer.Document.SelectItem(file_fullpath, 1|4|8|16)             # <<<<<<<<<<<<<<
  * 
  *                 winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
-                __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_active_explorer, __pyx_n_s_Document); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 300, __pyx_L10_error)
+                __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_active_explorer, __pyx_n_s_Document); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 301, __pyx_L10_error)
                 __Pyx_GOTREF(__pyx_t_9);
-                __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_SelectItem); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 300, __pyx_L10_error)
+                __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_SelectItem); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L10_error)
                 __Pyx_GOTREF(__pyx_t_2);
                 __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
                 __pyx_t_9 = NULL;
@@ -6530,7 +6561,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
                 #if CYTHON_FAST_PYCALL
                 if (PyFunction_Check(__pyx_t_2)) {
                   PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_v_file_fullpath, __pyx_int_29};
-                  __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L10_error)
+                  __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 301, __pyx_L10_error)
                   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
                   __Pyx_GOTREF(__pyx_t_1);
                 } else
@@ -6538,13 +6569,13 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
                 #if CYTHON_FAST_PYCCALL
                 if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
                   PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_v_file_fullpath, __pyx_int_29};
-                  __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L10_error)
+                  __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 301, __pyx_L10_error)
                   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
                   __Pyx_GOTREF(__pyx_t_1);
                 } else
                 #endif
                 {
-                  __pyx_t_10 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 300, __pyx_L10_error)
+                  __pyx_t_10 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 301, __pyx_L10_error)
                   __Pyx_GOTREF(__pyx_t_10);
                   if (__pyx_t_9) {
                     __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -6555,14 +6586,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
                   __Pyx_INCREF(__pyx_int_29);
                   __Pyx_GIVEREF(__pyx_int_29);
                   PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_11, __pyx_int_29);
-                  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L10_error)
+                  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 301, __pyx_L10_error)
                   __Pyx_GOTREF(__pyx_t_1);
                   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
                 }
                 __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
                 __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-                /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":299
+                /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":300
  *                 pdf_output_file.write(img2pdf.convert(selected_files_paths))
  * 
  *                 if len(selected_files_paths) <= 20:             # <<<<<<<<<<<<<<
@@ -6571,29 +6602,29 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
               }
 
-              /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":302
+              /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":303
  *                     active_explorer.Document.SelectItem(file_fullpath, 1|4|8|16)
  * 
  *                 winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  *     if initializer_called:
  */
-              __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L10_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_2);
-              __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 302, __pyx_L10_error)
+              __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 303, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_10);
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-              __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L10_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_2);
-              __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 302, __pyx_L10_error)
+              __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 303, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_9);
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-              __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L10_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_2);
-              __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 302, __pyx_L10_error)
+              __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 303, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_3);
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-              __pyx_t_2 = PyNumber_Or(__pyx_t_9, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L10_error)
+              __pyx_t_2 = PyNumber_Or(__pyx_t_9, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L10_error)
               __Pyx_GOTREF(__pyx_t_2);
               __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
               __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6612,7 +6643,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
               #if CYTHON_FAST_PYCALL
               if (PyFunction_Check(__pyx_t_10)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_2};
-                __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 302, __pyx_L10_error)
+                __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L10_error)
                 __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
                 __Pyx_GOTREF(__pyx_t_1);
                 __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6621,14 +6652,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
               #if CYTHON_FAST_PYCCALL
               if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_2};
-                __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 302, __pyx_L10_error)
+                __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L10_error)
                 __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
                 __Pyx_GOTREF(__pyx_t_1);
                 __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
               } else
               #endif
               {
-                __pyx_t_9 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 302, __pyx_L10_error)
+                __pyx_t_9 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 303, __pyx_L10_error)
                 __Pyx_GOTREF(__pyx_t_9);
                 if (__pyx_t_3) {
                   __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -6639,14 +6670,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
                 __Pyx_GIVEREF(__pyx_t_2);
                 PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_11, __pyx_t_2);
                 __pyx_t_2 = 0;
-                __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 302, __pyx_L10_error)
+                __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L10_error)
                 __Pyx_GOTREF(__pyx_t_1);
                 __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
               }
               __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
               __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-              /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":296
+              /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":297
  *             file_fullpath = GetUniqueName(directory, "New PDF", extension=".pdf")
  * 
  *             with open(file_fullpath, "wb") as pdf_output_file:             # <<<<<<<<<<<<<<
@@ -6666,20 +6697,20 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
             __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
             /*except:*/ {
               __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.ImagesToPDF", __pyx_clineno, __pyx_lineno, __pyx_filename);
-              if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_10, &__pyx_t_9) < 0) __PYX_ERR(0, 296, __pyx_L12_except_error)
+              if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_10, &__pyx_t_9) < 0) __PYX_ERR(0, 297, __pyx_L12_except_error)
               __Pyx_GOTREF(__pyx_t_1);
               __Pyx_GOTREF(__pyx_t_10);
               __Pyx_GOTREF(__pyx_t_9);
-              __pyx_t_2 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_10, __pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 296, __pyx_L12_except_error)
+              __pyx_t_2 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_10, __pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 297, __pyx_L12_except_error)
               __Pyx_GOTREF(__pyx_t_2);
               __pyx_t_17 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_2, NULL);
               __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-              if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 296, __pyx_L12_except_error)
+              if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 297, __pyx_L12_except_error)
               __Pyx_GOTREF(__pyx_t_17);
               __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_17);
               __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-              if (__pyx_t_5 < 0) __PYX_ERR(0, 296, __pyx_L12_except_error)
+              if (__pyx_t_5 < 0) __PYX_ERR(0, 297, __pyx_L12_except_error)
               __pyx_t_4 = ((!(__pyx_t_5 != 0)) != 0);
               if (__pyx_t_4) {
                 __Pyx_GIVEREF(__pyx_t_1);
@@ -6687,7 +6718,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
                 __Pyx_XGIVEREF(__pyx_t_9);
                 __Pyx_ErrRestoreWithState(__pyx_t_1, __pyx_t_10, __pyx_t_9);
                 __pyx_t_1 = 0; __pyx_t_10 = 0; __pyx_t_9 = 0; 
-                __PYX_ERR(0, 296, __pyx_L12_except_error)
+                __PYX_ERR(0, 297, __pyx_L12_except_error)
               }
               __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
               __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -6713,7 +6744,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
             if (__pyx_t_12) {
               __pyx_t_15 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_tuple__4, NULL);
               __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-              if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 296, __pyx_L1_error)
+              if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 297, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_15);
               __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
             }
@@ -6728,7 +6759,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
         __pyx_L20:;
       }
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":289
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":290
  *         selected_files_paths = sorted(GetSelectedItemsFromActiveExplorer(active_explorer, patterns=('.png', '.jpg', '.jpeg')))
  * 
  *         if selected_files_paths:             # <<<<<<<<<<<<<<
@@ -6737,7 +6768,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
     }
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":286
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":287
  *     cdef str directory, file_fullpath
  * 
  *     if active_explorer:             # <<<<<<<<<<<<<<
@@ -6746,7 +6777,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":304
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":305
  *                 winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -6756,16 +6787,16 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
   __pyx_t_4 = (__pyx_v_initializer_called != 0);
   if (__pyx_t_4) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":305
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":306
  * 
  *     if initializer_called:
  *         PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  * cpdef void OfficeFileToPDF(active_explorer=None, str office_application="Powerpoint"):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_PThread); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_PThread); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __pyx_t_10 = NULL;
@@ -6780,12 +6811,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
     }
     __pyx_t_9 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 305, __pyx_L1_error)
+    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":304
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":305
  *                 winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -6794,7 +6825,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorer
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":274
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":275
  *     return output
  * 
  * cpdef ImagesToPDF(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -6857,7 +6888,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ImagesToPDF") < 0)) __PYX_ERR(0, 274, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ImagesToPDF") < 0)) __PYX_ERR(0, 275, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -6871,7 +6902,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ImagesToPDF", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 274, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ImagesToPDF", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 275, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.ImagesToPDF", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6896,7 +6927,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.active_explorer = __pyx_v_active_explorer;
-  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_ImagesToPDF(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_ImagesToPDF(0, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6913,7 +6944,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":307
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":308
  *         PThread.CoUninitialize()
  * 
  * cpdef void OfficeFileToPDF(active_explorer=None, str office_application="Powerpoint"):             # <<<<<<<<<<<<<<
@@ -6961,16 +6992,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   __Pyx_INCREF(__pyx_v_active_explorer);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":322
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":323
  *     """
  * 
  *     cdef bint initializer_called = PThread.CoInitialize()             # <<<<<<<<<<<<<<
  * 
  *     if not active_explorer:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 322, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 322, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -6985,37 +7016,37 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 322, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 322, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_initializer_called = __pyx_t_4;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":324
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":325
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 325, __pyx_L1_error)
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":325
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":326
  * 
  *     if not active_explorer:
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)             # <<<<<<<<<<<<<<
  * 
  *     if not active_explorer:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 325, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 325, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 325, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -7030,19 +7061,19 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 325, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_6.__pyx_n = 2;
     __pyx_t_6.explorer_windows = __pyx_t_1;
     __pyx_t_6.check_desktop = 0;
-    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 325, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF_SET(__pyx_v_active_explorer, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":324
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":325
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -7051,18 +7082,18 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":327
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":328
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         if initializer_called:
  *             PThread.CoUninitialize()
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 328, __pyx_L1_error)
   __pyx_t_4 = ((!__pyx_t_5) != 0);
   if (__pyx_t_4) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":328
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":329
  * 
  *     if not active_explorer:
  *         if initializer_called:             # <<<<<<<<<<<<<<
@@ -7072,16 +7103,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __pyx_t_4 = (__pyx_v_initializer_called != 0);
     if (__pyx_t_4) {
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":329
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":330
  *     if not active_explorer:
  *         if initializer_called:
  *             PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  *         return
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 329, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 330, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 329, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_1 = NULL;
@@ -7096,12 +7127,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       }
       __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 329, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 330, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":328
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":329
  * 
  *     if not active_explorer:
  *         if initializer_called:             # <<<<<<<<<<<<<<
@@ -7110,7 +7141,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     }
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":331
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":332
  *             PThread.CoUninitialize()
  * 
  *         return             # <<<<<<<<<<<<<<
@@ -7119,7 +7150,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":327
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":328
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -7128,16 +7159,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":333
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":334
  *         return
  * 
  *     cdef str office_application_char0 = office_application[0].lower()             # <<<<<<<<<<<<<<
  *     cdef list selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer,
  *                 patterns={"p": (".pptx", ".ppt"), "w": (".docx", ".doc")}.get(office_application_char0))
  */
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_office_application, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 333, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_office_application, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_lower); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 333, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_lower); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -7152,30 +7183,30 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 333, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 333, __pyx_L1_error)
+  if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 334, __pyx_L1_error)
   __pyx_v_office_application_char0 = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":335
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":336
  *     cdef str office_application_char0 = office_application[0].lower()
  *     cdef list selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer,
  *                 patterns={"p": (".pptx", ".ppt"), "w": (".docx", ".doc")}.get(office_application_char0))             # <<<<<<<<<<<<<<
  * 
  *     # Check if any file exists to pop it from the selected files list before starting any office application.
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 335, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_p, __pyx_tuple__6) < 0) __PYX_ERR(0, 335, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_w, __pyx_tuple__7) < 0) __PYX_ERR(0, 335, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_t_3, __pyx_v_office_application_char0, Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 335, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_p, __pyx_tuple__6) < 0) __PYX_ERR(0, 336, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_w, __pyx_tuple__7) < 0) __PYX_ERR(0, 336, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_t_3, __pyx_v_office_application_char0, Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(PyTuple_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 335, __pyx_L1_error)
+  if (!(likely(PyTuple_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 336, __pyx_L1_error)
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":334
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":335
  * 
  *     cdef str office_application_char0 = office_application[0].lower()
  *     cdef list selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer,             # <<<<<<<<<<<<<<
@@ -7185,13 +7216,13 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   __pyx_t_7.__pyx_n = 2;
   __pyx_t_7.active_explorer = __pyx_v_active_explorer;
   __pyx_t_7.patterns = ((PyObject*)__pyx_t_1);
-  __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 335, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_selected_files_paths = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":338
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":339
  * 
  *     # Check if any file exists to pop it from the selected files list before starting any office application.
  *     cdef int file_path_counter = 0             # <<<<<<<<<<<<<<
@@ -7200,7 +7231,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   __pyx_v_file_path_counter = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":340
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":341
  *     cdef int file_path_counter = 0
  * 
  *     cdef int len_selected_files = len(selected_files_paths)             # <<<<<<<<<<<<<<
@@ -7209,12 +7240,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   if (unlikely(__pyx_v_selected_files_paths == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 340, __pyx_L1_error)
+    __PYX_ERR(0, 341, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_selected_files_paths); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 340, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_selected_files_paths); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 341, __pyx_L1_error)
   __pyx_v_len_selected_files = __pyx_t_8;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":344
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":345
  *     cdef str file_path, new_filepath
  * 
  *     for file_path in selected_files_paths[:]:             # <<<<<<<<<<<<<<
@@ -7223,37 +7254,37 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   if (unlikely(__pyx_v_selected_files_paths == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 344, __pyx_L1_error)
+    __PYX_ERR(0, 345, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_PyList_GetSlice(__pyx_v_selected_files_paths, 0, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_GetSlice(__pyx_v_selected_files_paths, 0, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_1 = __pyx_t_3; __Pyx_INCREF(__pyx_t_1); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
     if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 344, __pyx_L1_error)
+    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 345, __pyx_L1_error)
     #else
-    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
-    if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 344, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 345, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_file_path, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":345
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":346
  * 
  *     for file_path in selected_files_paths[:]:
  *         new_filepath = os.path.splitext(file_path)[0] + ".pdf"             # <<<<<<<<<<<<<<
  * 
  *         if os.path.exists(new_filepath):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_splitext); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_splitext); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __pyx_t_9 = NULL;
@@ -7268,32 +7299,32 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_3 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_9, __pyx_v_file_path) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_file_path);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyNumber_Add(__pyx_t_2, __pyx_kp_s_pdf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __pyx_t_3 = PyNumber_Add(__pyx_t_2, __pyx_kp_s_pdf); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 345, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_new_filepath, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":347
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":348
  *         new_filepath = os.path.splitext(file_path)[0] + ".pdf"
  * 
  *         if os.path.exists(new_filepath):             # <<<<<<<<<<<<<<
  *             print("Next file already exists: %s" % new_filepath)
  *             continue
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_exists); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_exists); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __pyx_t_9 = NULL;
@@ -7308,28 +7339,28 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_3 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_9, __pyx_v_new_filepath) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_new_filepath);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_4) {
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":348
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":349
  * 
  *         if os.path.exists(new_filepath):
  *             print("Next file already exists: %s" % new_filepath)             # <<<<<<<<<<<<<<
  *             continue
  * 
  */
-      __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_Next_file_already_exists_s, __pyx_v_new_filepath); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_Next_file_already_exists_s, __pyx_v_new_filepath); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 349, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":349
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":350
  *         if os.path.exists(new_filepath):
  *             print("Next file already exists: %s" % new_filepath)
  *             continue             # <<<<<<<<<<<<<<
@@ -7338,7 +7369,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
       goto __pyx_L6_continue;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":347
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":348
  *         new_filepath = os.path.splitext(file_path)[0] + ".pdf"
  * 
  *         if os.path.exists(new_filepath):             # <<<<<<<<<<<<<<
@@ -7347,7 +7378,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     }
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":351
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":352
  *             continue
  * 
  *         selected_files_paths[file_path_counter] = file_path             # <<<<<<<<<<<<<<
@@ -7356,11 +7387,11 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     if (unlikely(__pyx_v_selected_files_paths == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 351, __pyx_L1_error)
+      __PYX_ERR(0, 352, __pyx_L1_error)
     }
-    if (unlikely(__Pyx_SetItemInt(__pyx_v_selected_files_paths, __pyx_v_file_path_counter, __pyx_v_file_path, int, 1, __Pyx_PyInt_From_int, 1, 1, 1) < 0)) __PYX_ERR(0, 351, __pyx_L1_error)
+    if (unlikely(__Pyx_SetItemInt(__pyx_v_selected_files_paths, __pyx_v_file_path_counter, __pyx_v_file_path, int, 1, __Pyx_PyInt_From_int, 1, 1, 1) < 0)) __PYX_ERR(0, 352, __pyx_L1_error)
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":353
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":354
  *         selected_files_paths[file_path_counter] = file_path
  * 
  *         file_path_counter += 1             # <<<<<<<<<<<<<<
@@ -7369,7 +7400,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     __pyx_v_file_path_counter = (__pyx_v_file_path_counter + 1);
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":344
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":345
  *     cdef str file_path, new_filepath
  * 
  *     for file_path in selected_files_paths[:]:             # <<<<<<<<<<<<<<
@@ -7380,7 +7411,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   /*else*/ {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":356
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":357
  * 
  *     else:
  *         selected_files_paths = selected_files_paths[:file_path_counter]             # <<<<<<<<<<<<<<
@@ -7389,14 +7420,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     if (unlikely(__pyx_v_selected_files_paths == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 356, __pyx_L1_error)
+      __PYX_ERR(0, 357, __pyx_L1_error)
     }
-    __pyx_t_2 = __Pyx_PyList_GetSlice(__pyx_v_selected_files_paths, 0, __pyx_v_file_path_counter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 356, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyList_GetSlice(__pyx_v_selected_files_paths, 0, __pyx_v_file_path_counter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 357, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF_SET(__pyx_v_selected_files_paths, ((PyObject*)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":358
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":359
  *         selected_files_paths = selected_files_paths[:file_path_counter]
  * 
  *         if file_path_counter == 0 or file_path_counter < len_selected_files:             # <<<<<<<<<<<<<<
@@ -7414,21 +7445,21 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __pyx_L12_bool_binop_done:;
     if (__pyx_t_4) {
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":359
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":360
  * 
  *         if file_path_counter == 0 or file_path_counter < len_selected_files:
  *             winsound.PlaySound(r"SFX\wrong.swf.wav", winsound.SND_FILENAME)             # <<<<<<<<<<<<<<
  * 
  *     if not selected_files_paths:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 359, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 360, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 359, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 360, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 359, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 360, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 359, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 360, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_3 = NULL;
@@ -7446,7 +7477,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_9)) {
         PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_kp_s_SFX_wrong_swf_wav, __pyx_t_10};
-        __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 359, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 360, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -7455,14 +7486,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
         PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_kp_s_SFX_wrong_swf_wav, __pyx_t_10};
-        __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 359, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 360, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       } else
       #endif
       {
-        __pyx_t_12 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 359, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 360, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         if (__pyx_t_3) {
           __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -7473,14 +7504,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
         __Pyx_GIVEREF(__pyx_t_10);
         PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_11, __pyx_t_10);
         __pyx_t_10 = 0;
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 359, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 360, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       }
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":358
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":359
  *         selected_files_paths = selected_files_paths[:file_path_counter]
  * 
  *         if file_path_counter == 0 or file_path_counter < len_selected_files:             # <<<<<<<<<<<<<<
@@ -7490,7 +7521,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":344
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":345
  *     cdef str file_path, new_filepath
  * 
  *     for file_path in selected_files_paths[:]:             # <<<<<<<<<<<<<<
@@ -7499,7 +7530,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":361
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":362
  *             winsound.PlaySound(r"SFX\wrong.swf.wav", winsound.SND_FILENAME)
  * 
  *     if not selected_files_paths:             # <<<<<<<<<<<<<<
@@ -7510,7 +7541,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":362
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":363
  * 
  *     if not selected_files_paths:
  *         if initializer_called:             # <<<<<<<<<<<<<<
@@ -7520,16 +7551,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __pyx_t_5 = (__pyx_v_initializer_called != 0);
     if (__pyx_t_5) {
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":363
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":364
  *     if not selected_files_paths:
  *         if initializer_called:
  *             PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  *         return
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 363, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 364, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 363, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 364, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = NULL;
@@ -7544,12 +7575,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       }
       __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 363, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 364, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":362
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":363
  * 
  *     if not selected_files_paths:
  *         if initializer_called:             # <<<<<<<<<<<<<<
@@ -7558,7 +7589,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     }
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":365
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":366
  *             PThread.CoUninitialize()
  * 
  *         return             # <<<<<<<<<<<<<<
@@ -7567,7 +7598,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":361
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":362
  *             winsound.PlaySound(r"SFX\wrong.swf.wav", winsound.SND_FILENAME)
  * 
  *     if not selected_files_paths:             # <<<<<<<<<<<<<<
@@ -7576,29 +7607,29 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":367
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":368
  *         return
  * 
  *     winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  *     cdef office_dispatch = Dispatch(f"{office_application}.Application")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_winsound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_winsound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_winsound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_winsound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_winsound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_winsound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = PyNumber_Or(__pyx_t_12, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_t_9 = PyNumber_Or(__pyx_t_12, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -7617,7 +7648,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_10, __pyx_kp_s_SFX_connection_sound_wav, __pyx_t_9};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 367, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -7626,14 +7657,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_10, __pyx_kp_s_SFX_connection_sound_wav, __pyx_t_9};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 367, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   } else
   #endif
   {
-    __pyx_t_12 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 367, __pyx_L1_error)
+    __pyx_t_12 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 368, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     if (__pyx_t_10) {
       __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_10); __pyx_t_10 = NULL;
@@ -7644,25 +7675,25 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __Pyx_GIVEREF(__pyx_t_9);
     PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_11, __pyx_t_9);
     __pyx_t_9 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_12, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 367, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_12, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":369
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":370
  *     winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *     cdef office_dispatch = Dispatch(f"{office_application}.Application")             # <<<<<<<<<<<<<<
  * 
  *     # office_dispatch.Visible = 1 # Uncomment this if an error happened
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dispatch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dispatch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_12 = __Pyx_PyObject_FormatSimple(__pyx_v_office_application, __pyx_empty_unicode); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 369, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_FormatSimple(__pyx_v_office_application, __pyx_empty_unicode); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_9 = __Pyx_PyUnicode_Concat(__pyx_t_12, __pyx_kp_u_Application); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 369, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyUnicode_Concat(__pyx_t_12, __pyx_kp_u_Application); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   __pyx_t_12 = NULL;
@@ -7678,13 +7709,13 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   __pyx_t_1 = (__pyx_t_12) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_12, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_9);
   __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_office_dispatch = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":375
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":376
  *     # office_dispatch.ActiveWindow.WindowState = 2 # (ppWindowNormal, ppWindowMinimized, ppWindowMaximized) = 1, 2, 3
  * 
  *     for file_path in selected_files_paths:             # <<<<<<<<<<<<<<
@@ -7695,28 +7726,28 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   for (;;) {
     if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 375, __pyx_L1_error)
+    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_8); __Pyx_INCREF(__pyx_t_2); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 376, __pyx_L1_error)
     #else
-    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 375, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 376, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     #endif
-    if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 375, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 376, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_file_path, ((PyObject*)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":376
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":377
  * 
  *     for file_path in selected_files_paths:
  *         new_filepath = os.path.splitext(file_path)[0] + ".pdf"             # <<<<<<<<<<<<<<
  * 
  *         # office_window = office_dispatch.Presentations.Open(file_path) if office_application_char0 == "p" else \
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_os); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 376, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_os); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_path); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 376, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_path); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_splitext); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 376, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_splitext); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __pyx_t_12 = NULL;
@@ -7731,34 +7762,34 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_2 = (__pyx_t_12) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_12, __pyx_v_file_path) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_file_path);
     __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 376, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_9 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 376, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyNumber_Add(__pyx_t_9, __pyx_kp_s_pdf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 376, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_Add(__pyx_t_9, __pyx_kp_s_pdf); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 376, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_new_filepath, ((PyObject*)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":381
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":382
  *         #                 office_dispatch.Documents.Open(file_path)     if office_application_char0 == "w" else None
  * 
  *         office_window = (office_application_char0 == "p" and office_dispatch.Presentations.Open(file_path)) or \             # <<<<<<<<<<<<<<
  *                         (office_application_char0 == "w"and office_dispatch.Documents.Open(file_path))
  * 
  */
-    __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_v_office_application_char0, __pyx_n_s_p, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 381, __pyx_L1_error)
+    __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_v_office_application_char0, __pyx_n_s_p, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 382, __pyx_L1_error)
     if (!__pyx_t_5) {
       goto __pyx_L19_next_or;
     } else {
     }
-    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_dispatch, __pyx_n_s_Presentations); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 381, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_dispatch, __pyx_n_s_Presentations); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 382, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_Open); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 381, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_Open); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 382, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __pyx_t_12 = NULL;
@@ -7773,10 +7804,10 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_9 = (__pyx_t_12) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_12, __pyx_v_file_path) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_v_file_path);
     __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 381, __pyx_L1_error)
+    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 382, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 381, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 382, __pyx_L1_error)
     if (!__pyx_t_5) {
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     } else {
@@ -7787,25 +7818,25 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_L19_next_or:;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":382
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":383
  * 
  *         office_window = (office_application_char0 == "p" and office_dispatch.Presentations.Open(file_path)) or \
  *                         (office_application_char0 == "w"and office_dispatch.Documents.Open(file_path))             # <<<<<<<<<<<<<<
  * 
  *         # WdSaveFormat enumeration (Word): https://learn.microsoft.com/en-us/office/vba/api/word.wdsaveformat
  */
-    __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_v_office_application_char0, __pyx_n_s_w, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 382, __pyx_L1_error)
+    __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_v_office_application_char0, __pyx_n_s_w, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 383, __pyx_L1_error)
     if (__pyx_t_5) {
     } else {
-      __pyx_t_9 = __Pyx_PyBool_FromLong(__pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 382, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyBool_FromLong(__pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 383, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __pyx_t_2 = __pyx_t_9;
       __pyx_t_9 = 0;
       goto __pyx_L18_bool_binop_done;
     }
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_dispatch, __pyx_n_s_Documents); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 382, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_dispatch, __pyx_n_s_Documents); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 383, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_Open); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 382, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_Open); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 383, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __pyx_t_10 = NULL;
@@ -7820,7 +7851,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_9 = (__pyx_t_10) ? __Pyx_PyObject_Call2Args(__pyx_t_12, __pyx_t_10, __pyx_v_file_path) : __Pyx_PyObject_CallOneArg(__pyx_t_12, __pyx_v_file_path);
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 382, __pyx_L1_error)
+    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 383, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_INCREF(__pyx_t_9);
@@ -7830,20 +7861,20 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __Pyx_XDECREF_SET(__pyx_v_office_window, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":385
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":386
  * 
  *         # WdSaveFormat enumeration (Word): https://learn.microsoft.com/en-us/office/vba/api/word.wdsaveformat
  *         office_window.SaveAs(new_filepath, {"p": 32, "w": 17}.get(office_application_char0))             # <<<<<<<<<<<<<<
  * 
  *         print("Success: %s" % new_filepath)
  */
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_window, __pyx_n_s_SaveAs); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 385, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_window, __pyx_n_s_SaveAs); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 386, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_12 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 385, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 386, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_p, __pyx_int_32) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_w, __pyx_int_17) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
-    __pyx_t_10 = __Pyx_PyDict_GetItemDefault(__pyx_t_12, __pyx_v_office_application_char0, Py_None); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 385, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_p, __pyx_int_32) < 0) __PYX_ERR(0, 386, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_12, __pyx_n_s_w, __pyx_int_17) < 0) __PYX_ERR(0, 386, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyDict_GetItemDefault(__pyx_t_12, __pyx_v_office_application_char0, Py_None); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 386, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __pyx_t_12 = NULL;
@@ -7861,7 +7892,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_9)) {
       PyObject *__pyx_temp[3] = {__pyx_t_12, __pyx_v_new_filepath, __pyx_t_10};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 385, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 386, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -7870,14 +7901,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
       PyObject *__pyx_temp[3] = {__pyx_t_12, __pyx_v_new_filepath, __pyx_t_10};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 385, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 386, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     } else
     #endif
     {
-      __pyx_t_3 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 385, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 386, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       if (__pyx_t_12) {
         __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_12); __pyx_t_12 = NULL;
@@ -7888,35 +7919,35 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       __Pyx_GIVEREF(__pyx_t_10);
       PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_11, __pyx_t_10);
       __pyx_t_10 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 385, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 386, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":387
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":388
  *         office_window.SaveAs(new_filepath, {"p": 32, "w": 17}.get(office_application_char0))
  * 
  *         print("Success: %s" % new_filepath)             # <<<<<<<<<<<<<<
  * 
  *         office_window.Close()
  */
-    __pyx_t_2 = __Pyx_PyString_Format(__pyx_kp_s_Success_s, __pyx_v_new_filepath); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 387, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyString_Format(__pyx_kp_s_Success_s, __pyx_v_new_filepath); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 388, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 387, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 388, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":389
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":390
  *         print("Success: %s" % new_filepath)
  * 
  *         office_window.Close()             # <<<<<<<<<<<<<<
  * 
  *     office_dispatch.Quit()
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_window, __pyx_n_s_Close); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 389, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_window, __pyx_n_s_Close); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 390, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7930,12 +7961,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_9 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 389, __pyx_L1_error)
+    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 390, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":375
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":376
  *     # office_dispatch.ActiveWindow.WindowState = 2 # (ppWindowNormal, ppWindowMinimized, ppWindowMaximized) = 1, 2, 3
  * 
  *     for file_path in selected_files_paths:             # <<<<<<<<<<<<<<
@@ -7945,14 +7976,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":391
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":392
  *         office_window.Close()
  * 
  *     office_dispatch.Quit()             # <<<<<<<<<<<<<<
  * 
  *     if initializer_called:
  */
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_dispatch, __pyx_n_s_Quit); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 391, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_office_dispatch, __pyx_n_s_Quit); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 392, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_9))) {
@@ -7966,12 +7997,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 391, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 392, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":393
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":394
  *     office_dispatch.Quit()
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -7981,16 +8012,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   __pyx_t_5 = (__pyx_v_initializer_called != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":394
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":395
  * 
  *     if initializer_called:
  *         PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  *     winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_PThread); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 394, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_PThread); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 395, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 394, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 395, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __pyx_t_9 = NULL;
@@ -8005,12 +8036,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 394, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 395, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":393
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":394
  *     office_dispatch.Quit()
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -8019,29 +8050,29 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":396
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":397
  *         PThread.CoUninitialize()
  * 
  *     winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  * cpdef void GenericFileConverter(active_explorer=None, tuple patterns=None, convert_func=None, str new_extension=""):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Or(__pyx_t_3, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Or(__pyx_t_3, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -8060,7 +8091,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_10, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -8069,14 +8100,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_10, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_11, 2+__pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 396, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_10) {
       __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_10); __pyx_t_10 = NULL;
@@ -8087,14 +8118,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_11, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":307
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":308
  *         PThread.CoUninitialize()
  * 
  * cpdef void OfficeFileToPDF(active_explorer=None, str office_application="Powerpoint"):             # <<<<<<<<<<<<<<
@@ -8166,7 +8197,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "OfficeFileToPDF") < 0)) __PYX_ERR(0, 307, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "OfficeFileToPDF") < 0)) __PYX_ERR(0, 308, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -8183,13 +8214,13 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("OfficeFileToPDF", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 307, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("OfficeFileToPDF", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 308, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.OfficeFileToPDF", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_office_application), (&PyString_Type), 1, "office_application", 1))) __PYX_ERR(0, 307, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_office_application), (&PyString_Type), 1, "office_application", 1))) __PYX_ERR(0, 308, __pyx_L1_error)
   __pyx_r = __pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_16OfficeFileToPDF(__pyx_self, __pyx_v_active_explorer, __pyx_v_office_application);
 
   /* function exit code */
@@ -8215,7 +8246,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   __pyx_t_1.active_explorer = __pyx_v_active_explorer;
   __pyx_t_1.office_application = __pyx_v_office_application;
   __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_OfficeFileToPDF(0, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 307, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -8232,7 +8263,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":398
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":399
  *     winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  * cpdef void GenericFileConverter(active_explorer=None, tuple patterns=None, convert_func=None, str new_extension=""):             # <<<<<<<<<<<<<<
@@ -8282,16 +8313,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   __Pyx_INCREF(__pyx_v_active_explorer);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":424
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":425
  *     """
  * 
  *     cdef bint initializer_called = PThread.CoInitialize()             # <<<<<<<<<<<<<<
  * 
  *     if not active_explorer:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 424, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 425, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CoInitialize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 425, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -8306,37 +8337,37 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 424, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 425, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 425, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_initializer_called = __pyx_t_4;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":426
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":427
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 426, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 427, __pyx_L1_error)
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":427
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":428
  * 
  *     if not active_explorer:
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)             # <<<<<<<<<<<<<<
  * 
  *     if not active_explorer:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 427, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ShellWrapper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 427, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_explorer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 427, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Windows); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -8351,19 +8382,19 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 427, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_6.__pyx_n = 2;
     __pyx_t_6.explorer_windows = __pyx_t_1;
     __pyx_t_6.check_desktop = 0;
-    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 427, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetActiveExplorer(0, &__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF_SET(__pyx_v_active_explorer, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":426
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":427
  *     cdef bint initializer_called = PThread.CoInitialize()
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -8372,18 +8403,18 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":429
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":430
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
  *         if initializer_called:
  *             PThread.CoUninitialize()
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 429, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_active_explorer); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 430, __pyx_L1_error)
   __pyx_t_4 = ((!__pyx_t_5) != 0);
   if (__pyx_t_4) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":430
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":431
  * 
  *     if not active_explorer:
  *         if initializer_called:             # <<<<<<<<<<<<<<
@@ -8393,16 +8424,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     __pyx_t_4 = (__pyx_v_initializer_called != 0);
     if (__pyx_t_4) {
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":431
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":432
  *     if not active_explorer:
  *         if initializer_called:
  *             PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  *         return
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 431, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 432, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 431, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 432, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_1 = NULL;
@@ -8417,12 +8448,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       }
       __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 431, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 432, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":430
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":431
  * 
  *     if not active_explorer:
  *         if initializer_called:             # <<<<<<<<<<<<<<
@@ -8431,7 +8462,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     }
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":433
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":434
  *             PThread.CoUninitialize()
  * 
  *         return             # <<<<<<<<<<<<<<
@@ -8440,7 +8471,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":429
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":430
  *         active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
  * 
  *     if not active_explorer:             # <<<<<<<<<<<<<<
@@ -8449,7 +8480,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":435
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":436
  *         return
  * 
  *     cdef list selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer, patterns=patterns)             # <<<<<<<<<<<<<<
@@ -8459,12 +8490,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   __pyx_t_7.__pyx_n = 2;
   __pyx_t_7.active_explorer = __pyx_v_active_explorer;
   __pyx_t_7.patterns = __pyx_v_patterns;
-  __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GetSelectedItemsFromActiveExplorer(0, &__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_selected_files_paths = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":438
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":439
  *     cdef str new_filepath
  * 
  *     if selected_files_paths:             # <<<<<<<<<<<<<<
@@ -8474,29 +8505,29 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   __pyx_t_4 = (__pyx_v_selected_files_paths != Py_None)&&(PyList_GET_SIZE(__pyx_v_selected_files_paths) != 0);
   if (__pyx_t_4) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":439
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":440
  * 
  *     if selected_files_paths:
  *         winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  *         for file_path in selected_files_paths:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyNumber_Or(__pyx_t_8, __pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_Or(__pyx_t_8, __pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -8515,7 +8546,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_kp_s_SFX_connection_sound_wav, __pyx_t_2};
-      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 439, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 440, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -8524,14 +8555,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_kp_s_SFX_connection_sound_wav, __pyx_t_2};
-      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 439, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 440, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else
     #endif
     {
-      __pyx_t_8 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 439, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 440, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       if (__pyx_t_9) {
         __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -8542,14 +8573,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_10, __pyx_t_2);
       __pyx_t_2 = 0;
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 439, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 440, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":441
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":442
  *         winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *         for file_path in selected_files_paths:             # <<<<<<<<<<<<<<
@@ -8558,33 +8589,33 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
     if (unlikely(__pyx_v_selected_files_paths == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 441, __pyx_L1_error)
+      __PYX_ERR(0, 442, __pyx_L1_error)
     }
     __pyx_t_3 = __pyx_v_selected_files_paths; __Pyx_INCREF(__pyx_t_3); __pyx_t_11 = 0;
     for (;;) {
       if (__pyx_t_11 >= PyList_GET_SIZE(__pyx_t_3)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_11); __Pyx_INCREF(__pyx_t_1); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 441, __pyx_L1_error)
+      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_11); __Pyx_INCREF(__pyx_t_1); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 442, __pyx_L1_error)
       #else
-      __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 441, __pyx_L1_error)
+      __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       #endif
       __Pyx_XDECREF_SET(__pyx_v_file_path, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":442
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":443
  * 
  *         for file_path in selected_files_paths:
  *             new_filepath = os.path.splitext(file_path)[0] + new_extension             # <<<<<<<<<<<<<<
  * 
  *             if os.path.exists(new_filepath):
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_os); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_os); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 443, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 443, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_splitext); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_splitext); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 443, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = NULL;
@@ -8599,32 +8630,32 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       }
       __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_2, __pyx_v_file_path) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_file_path);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 443, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 443, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyNumber_Add(__pyx_t_8, __pyx_v_new_extension); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __pyx_t_1 = PyNumber_Add(__pyx_t_8, __pyx_v_new_extension); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 443, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (!(likely(PyString_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 442, __pyx_L1_error)
+      if (!(likely(PyString_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 443, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v_new_filepath, ((PyObject*)__pyx_t_1));
       __pyx_t_1 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":444
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":445
  *             new_filepath = os.path.splitext(file_path)[0] + new_extension
  * 
  *             if os.path.exists(new_filepath):             # <<<<<<<<<<<<<<
  *                 print("Failure, file already exists: %s" % new_filepath)
  *                 continue
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_os); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 444, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_os); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 445, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 444, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 445, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_exists); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 444, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_exists); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 445, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = NULL;
@@ -8639,28 +8670,28 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       }
       __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_2, __pyx_v_new_filepath) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_new_filepath);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 444, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 445, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 444, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 445, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_4) {
 
-        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":445
+        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":446
  * 
  *             if os.path.exists(new_filepath):
  *                 print("Failure, file already exists: %s" % new_filepath)             # <<<<<<<<<<<<<<
  *                 continue
  * 
  */
-        __pyx_t_1 = __Pyx_PyString_Format(__pyx_kp_s_Failure_file_already_exists_s, __pyx_v_new_filepath); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 445, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyString_Format(__pyx_kp_s_Failure_file_already_exists_s, __pyx_v_new_filepath); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 446, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 445, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 446, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":446
+        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":447
  *             if os.path.exists(new_filepath):
  *                 print("Failure, file already exists: %s" % new_filepath)
  *                 continue             # <<<<<<<<<<<<<<
@@ -8669,7 +8700,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
         goto __pyx_L7_continue;
 
-        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":444
+        /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":445
  *             new_filepath = os.path.splitext(file_path)[0] + new_extension
  * 
  *             if os.path.exists(new_filepath):             # <<<<<<<<<<<<<<
@@ -8678,7 +8709,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
       }
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":448
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":449
  *                 continue
  * 
  *             convert_func(file_path, new_filepath)             # <<<<<<<<<<<<<<
@@ -8701,7 +8732,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_1)) {
         PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_file_path, __pyx_v_new_filepath};
-        __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 448, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 449, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_GOTREF(__pyx_t_8);
       } else
@@ -8709,13 +8740,13 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
         PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_file_path, __pyx_v_new_filepath};
-        __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 448, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 449, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_GOTREF(__pyx_t_8);
       } else
       #endif
       {
-        __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 448, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 449, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         if (__pyx_t_2) {
           __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -8726,25 +8757,25 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
         __Pyx_INCREF(__pyx_v_new_filepath);
         __Pyx_GIVEREF(__pyx_v_new_filepath);
         PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_v_new_filepath);
-        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 448, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 449, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":449
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":450
  * 
  *             convert_func(file_path, new_filepath)
  *             print(new_filepath)             # <<<<<<<<<<<<<<
  * 
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
-      __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_v_new_filepath); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_v_new_filepath); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 450, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":441
+      /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":442
  *         winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *         for file_path in selected_files_paths:             # <<<<<<<<<<<<<<
@@ -8755,29 +8786,29 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":451
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":452
  *             print(new_filepath)
  * 
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  *     if initializer_called:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_winsound); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 451, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_winsound); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 451, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_winsound); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 451, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_winsound); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 451, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_winsound); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 451, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_winsound); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 451, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = PyNumber_Or(__pyx_t_9, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 451, __pyx_L1_error)
+    __pyx_t_8 = PyNumber_Or(__pyx_t_9, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -8796,7 +8827,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_8};
-      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 451, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 452, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -8805,14 +8836,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_8};
-      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 451, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 452, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     } else
     #endif
     {
-      __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 451, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 452, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       if (__pyx_t_2) {
         __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -8823,14 +8854,14 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
       __Pyx_GIVEREF(__pyx_t_8);
       PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_t_8);
       __pyx_t_8 = 0;
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 451, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 452, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":438
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":439
  *     cdef str new_filepath
  * 
  *     if selected_files_paths:             # <<<<<<<<<<<<<<
@@ -8839,7 +8870,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":453
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":454
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -8849,16 +8880,16 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   __pyx_t_4 = (__pyx_v_initializer_called != 0);
   if (__pyx_t_4) {
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":454
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":455
  * 
  *     if initializer_called:
  *         PThread.CoUninitialize()             # <<<<<<<<<<<<<<
  * 
  * cpdef void FlattenDirectories(active_explorer=None):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 454, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PThread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 454, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -8873,12 +8904,12 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
     }
     __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 454, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":453
+    /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":454
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  *     if initializer_called:             # <<<<<<<<<<<<<<
@@ -8887,7 +8918,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":398
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":399
  *     winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  * cpdef void GenericFileConverter(active_explorer=None, tuple patterns=None, convert_func=None, str new_extension=""):             # <<<<<<<<<<<<<<
@@ -8975,7 +9006,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GenericFileConverter") < 0)) __PYX_ERR(0, 398, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GenericFileConverter") < 0)) __PYX_ERR(0, 399, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -8998,14 +9029,14 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("GenericFileConverter", 0, 0, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 398, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("GenericFileConverter", 0, 0, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 399, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.GenericFileConverter", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_patterns), (&PyTuple_Type), 1, "patterns", 1))) __PYX_ERR(0, 398, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_new_extension), (&PyString_Type), 1, "new_extension", 1))) __PYX_ERR(0, 398, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_patterns), (&PyTuple_Type), 1, "patterns", 1))) __PYX_ERR(0, 399, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_new_extension), (&PyString_Type), 1, "new_extension", 1))) __PYX_ERR(0, 399, __pyx_L1_error)
   __pyx_r = __pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_18GenericFileConverter(__pyx_self, __pyx_v_active_explorer, __pyx_v_patterns, __pyx_v_convert_func, __pyx_v_new_extension);
 
   /* function exit code */
@@ -9033,7 +9064,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   __pyx_t_1.convert_func = __pyx_v_convert_func;
   __pyx_t_1.new_extension = __pyx_v_new_extension;
   __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_GenericFileConverter(0, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 398, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -9050,7 +9081,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":456
+/* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":457
  *         PThread.CoUninitialize()
  * 
  * cpdef void FlattenDirectories(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -9099,7 +9130,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
   __Pyx_INCREF(__pyx_v_active_explorer);
 
   /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":460
- * 
+ *     """Flattens the selected folders from the active explorer window to the explorer current location."""
  * 
  *     cdef bint initializer_called = PThread.CoInitialize()             # <<<<<<<<<<<<<<
  * 
@@ -9974,7 +10005,7 @@ static void __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelpe
  */
   }
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":456
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":457
  *         PThread.CoUninitialize()
  * 
  * cpdef void FlattenDirectories(active_explorer=None):             # <<<<<<<<<<<<<<
@@ -10038,7 +10069,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "FlattenDirectories") < 0)) __PYX_ERR(0, 456, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "FlattenDirectories") < 0)) __PYX_ERR(0, 457, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -10052,7 +10083,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_14explorerHelper_14explore
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("FlattenDirectories", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 456, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("FlattenDirectories", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 457, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.explorerHelper.explorerHelper.FlattenDirectories", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -10078,7 +10109,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_14explorerHelper_14explore
   __pyx_t_1.__pyx_n = 1;
   __pyx_t_1.active_explorer = __pyx_v_active_explorer;
   __pyx_f_7macropy_16cythonExtensions_14explorerHelper_14explorerHelper_FlattenDirectories(0, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 456, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 457, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -10172,7 +10203,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_File_s_not_found_in_s, __pyx_k_File_s_not_found_in_s, sizeof(__pyx_k_File_s_not_found_in_s), 0, 0, 1, 0},
   {&__pyx_n_s_Flattened, __pyx_k_Flattened, sizeof(__pyx_k_Flattened), 0, 0, 1, 1},
   {&__pyx_n_s_Folder, __pyx_k_Folder, sizeof(__pyx_k_Folder), 0, 0, 1, 1},
-  {&__pyx_kp_u_GenericFileConverter_line_398, __pyx_k_GenericFileConverter_line_398, sizeof(__pyx_k_GenericFileConverter_line_398), 0, 1, 0, 0},
+  {&__pyx_kp_u_GenericFileConverter_line_399, __pyx_k_GenericFileConverter_line_399, sizeof(__pyx_k_GenericFileConverter_line_399), 0, 1, 0, 0},
   {&__pyx_n_s_GetClassName, __pyx_k_GetClassName, sizeof(__pyx_k_GetClassName), 0, 0, 1, 1},
   {&__pyx_n_s_GetDisplayNameOf, __pyx_k_GetDisplayNameOf, sizeof(__pyx_k_GetDisplayNameOf), 0, 0, 1, 1},
   {&__pyx_n_s_GetForegroundWindow, __pyx_k_GetForegroundWindow, sizeof(__pyx_k_GetForegroundWindow), 0, 0, 1, 1},
@@ -10283,8 +10314,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 259, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 349, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -10294,39 +10325,39 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":259
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":260
  *         file_fullpath = GetUniqueName(directory=GetExplorerAddress(active_explorer))
  * 
  *         with open(file_fullpath, 'w') as newfile:             # <<<<<<<<<<<<<<
  *             newfile.writelines('# Created using "File Factory"')
  * 
  */
-  __pyx_tuple__4 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":287
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":288
  * 
  *     if active_explorer:
  *         selected_files_paths = sorted(GetSelectedItemsFromActiveExplorer(active_explorer, patterns=('.png', '.jpg', '.jpeg')))             # <<<<<<<<<<<<<<
  * 
  *         if selected_files_paths:
  */
-  __pyx_tuple__5 = PyTuple_Pack(3, __pyx_kp_s_png, __pyx_kp_s_jpg, __pyx_kp_s_jpeg); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(3, __pyx_kp_s_png, __pyx_kp_s_jpg, __pyx_kp_s_jpeg); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":335
+  /* "src/cythonExtensions/explorerHelper/explorerHelper.pyx":336
  *     cdef str office_application_char0 = office_application[0].lower()
  *     cdef list selected_files_paths = GetSelectedItemsFromActiveExplorer(active_explorer,
  *                 patterns={"p": (".pptx", ".ppt"), "w": (".docx", ".doc")}.get(office_application_char0))             # <<<<<<<<<<<<<<
  * 
  *     # Check if any file exists to pop it from the selected files list before starting any office application.
  */
-  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_kp_s_pptx, __pyx_kp_s_ppt); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 335, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_kp_s_pptx, __pyx_kp_s_ppt); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_kp_s_docx, __pyx_kp_s_doc); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 335, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_kp_s_docx, __pyx_kp_s_doc); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
   __Pyx_RefNannyFinishContext();
@@ -10751,7 +10782,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_GetUniqueName_line_19, __pyx_kp_u_Description_Finds_the_next_unus) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_GenericFileConverter_line_398, __pyx_kp_u_Description_Converts_the_select) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_GenericFileConverter_line_399, __pyx_kp_u_Description_Converts_the_select) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 

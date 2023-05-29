@@ -1,5 +1,7 @@
 """This module contains the main entry for the entire script. The `main.py` module calls this extension to start the script."""
+
 from contextlib import contextmanager
+
 
 def AcquireScriptLock() -> int:
     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
@@ -10,6 +12,7 @@ def AcquireScriptLock() -> int:
 def begin_script() -> None:
     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
     ...
+
 
 @contextmanager
 def profilerManager(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):
@@ -45,6 +48,7 @@ def profilerManager(filename="", engine="yappi", clock="wall", output_type="psta
             # Some code.
     """
     ...
+
 
 def begin_script_with_cProfile(save_near_module=False):
     """Starts the main script with profiling."""

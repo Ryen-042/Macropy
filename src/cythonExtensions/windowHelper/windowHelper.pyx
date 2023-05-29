@@ -6,7 +6,7 @@
 import win32gui, win32con, winsound, pywintypes, ctypes
 from time import sleep
 
-cpdef object FindHandleByClassName(str className, bint check_all=False):
+cpdef list[int] FindHandleByClassName(str className, bint check_all=False):
     """
     Description:
         Searches for a window with the specified class name and returns its handle if found. Otherwise, returns `0`.
@@ -23,9 +23,7 @@ cpdef object FindHandleByClassName(str className, bint check_all=False):
             If `True`, all windows with the specified class name will be returned. Otherwise, only the first window will be returned.
     ---
     Returns:
-        `list[int] | int`: The handle to the window(s) with the specified class name if any exists.
-        
-        If no window is found, `0` is returned.
+        `list[int]`: The handle to the window(s) with the specified class name if any exists, otherwise an empty list.
     """
     
     cdef int hwnd = win32gui.GetTopWindow(0)
@@ -40,7 +38,7 @@ cpdef object FindHandleByClassName(str className, bint check_all=False):
         
         hwnd = win32gui.GetWindow(hwnd, win32con.GW_HWNDNEXT)
     
-    return output or 0
+    return output
 
 cpdef int GetHandleByTitle(str title):
     """searches for a window with the specified title and returns its handle if found. Otherwise, returns `0`."""

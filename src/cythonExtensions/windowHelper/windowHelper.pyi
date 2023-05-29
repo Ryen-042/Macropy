@@ -1,7 +1,9 @@
 """This module provides functions for dealing with windows."""
+
 import win32con
 
-def FindHandleByClassName(className: str, check_all=False) -> list[int] | int:
+
+def FindHandleByClassName(className: str, check_all=False) -> list[int]:
     """
     Description:
         Searches for a window with the specified class name and returns its handle if found. Otherwise, returns `0`.
@@ -18,15 +20,15 @@ def FindHandleByClassName(className: str, check_all=False) -> list[int] | int:
             If `True`, all windows with the specified class name will be returned. Otherwise, only the first window will be returned.
     ---
     Returns:
-        `list[int] | int`: The handle to the window(s) with the specified class name if any exists.
-        
-        If no window is found, `0` is returned.
+        `list[int]`: The handle to the window(s) with the specified class name if any exists, otherwise an empty list.
     """
     ...
+
 
 def GetHandleByTitle(title: str) -> int:
     """searches for a window with the specified title and returns its handle if found. Otherwise, returns `0`."""
     ...
+
 
 def ShowMessageBox(msg: str, title="Warning", msgbox_type=1, icon=win32con.MB_ICONERROR) -> int:
     """
@@ -61,14 +63,17 @@ def ShowMessageBox(msg: str, title="Warning", msgbox_type=1, icon=win32con.MB_IC
     """
     ...
 
+
 def AlwaysOnTop() -> None:
     """Toggles `AlwaysOnTop` on or off for the active window."""
     ...
+
 
 # Shake window - Doesn't work if the window is fullscreen
 def ShakeActiveWindow(cycles=5) -> None:
     """Simulates shake effect on the active window for the specified number of times."""
     ...
+
 
 def MoveActiveWindow(hwnd=0, delta_x=0, delta_y=0, width=0, height=0) -> None:
     """
@@ -92,6 +97,7 @@ def MoveActiveWindow(hwnd=0, delta_x=0, delta_y=0, width=0, height=0) -> None:
             A value that will be added to the height of the specified window.
     """
     ...
+
 
 def ChangeWindowOpacity(hwnd=0, opcode=1, increment=5) -> int:
     """

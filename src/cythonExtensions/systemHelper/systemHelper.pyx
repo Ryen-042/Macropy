@@ -10,6 +10,7 @@ from time import sleep
 from cythonExtensions.commonUtils.commonUtils import PThread, Management as mgmt
 from cythonExtensions.windowHelper import windowHelper as winHelper
 
+
 @PThread.Throttle(10)
 def TerminateScript(graceful=False) -> None:
     """
@@ -67,7 +68,8 @@ cpdef bint IsProcessElevated(int hwnd=0):
         return True
     
     except (psutil.NoSuchProcess, ValueError):
-        print(f"No such process with the specified handle: {hwnd}")
+        if hwnd:
+            print(f"No such process with the specified handle: {hwnd}")
     
     return False
 
@@ -80,7 +82,7 @@ cpdef void RequestElevation():
     # Re-run the program with admin rights
     ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
 
-cpdef void ScheduleElevatedProcessChecker(float delay=10):
+cpdef void ScheduleElevatedProcessChecker(float delay=10.0):
     """Reprots each `delay` time if the active process window is elevated while the current python process is not elevated."""
     
     while not mgmt.terminateEvent.wait(delay):
@@ -91,8 +93,7 @@ cpdef void ScheduleElevatedProcessChecker(float delay=10):
             
             winsound.PlaySound(r"C:\Windows\Media\Windows Exclamation.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
             print(f"Attention: the active process '{win32gui.GetWindowText(win32gui.GetForegroundWindow())}' has elevated privileges and no keyboard events can be received.")
-        
-        
+
 
 cpdef void DisplayCPUsage():
     """Prints the current CPU and Memort usage to the console."""

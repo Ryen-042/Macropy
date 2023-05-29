@@ -4,6 +4,7 @@ from typing import Callable, Any
 
 extended_keys: set[int]
 
+
 def SimulateKeyPress(key_id: int, key_scancode=0, times=1) -> None:
     """
     Description:
@@ -15,6 +16,7 @@ def SimulateKeyPress(key_id: int, key_scancode=0, times=1) -> None:
         `times -> int`: the number of times the key should be pressed.
     """
     ...
+
 
 def SimulateKeyPressSequence(keys_list: tuple[tuple[int, int] | tuple[Any, Callable[[Any], None]]], delay=0.2) -> None:
     """
@@ -29,6 +31,7 @@ def SimulateKeyPressSequence(keys_list: tuple[tuple[int, int] | tuple[Any, Calla
         - `delay -> float`: The delay between key presses.
     """
     ...
+
 
 def FindAndSendKeyToWindow(target_className: str, key: Any, send_function: Callable[[Any], None] | None) -> int:
     """
@@ -47,6 +50,7 @@ def FindAndSendKeyToWindow(target_className: str, key: Any, send_function: Calla
     """
     ...
 
+
 def SimulateHotKeyPress(keys_id_dict: dict[int, int]) -> None:
     """
     Description:
@@ -58,9 +62,11 @@ def SimulateHotKeyPress(keys_id_dict: dict[int, int]) -> None:
     """
     ...
 
+
 def GetCaretPosition(text: str, caret="{!}") -> int:
     """Returns the position of the caret in the given text."""
     ...
+
 
 def SendTextWithCaret(text: str, caret="{!}"):
     """
@@ -72,13 +78,16 @@ def SendTextWithCaret(text: str, caret="{!}"):
     """
     ...
 
+
 def ExpandText() -> None:
     """Replacing an abbreviated text with its respective substitution specified by the pressed characters `ctrlHouse.pressed_chars`."""
     ...
 
+
 def OpenLocation() -> None:
     """Opens a file or a directory specified by the pressed characters `ctrlHouse.pressed_chars`."""
     ...
+
 
 def CrudeOpenWith(tool_number=4, prog_index=0) -> None:
     """

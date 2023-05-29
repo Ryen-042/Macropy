@@ -1,5 +1,6 @@
 """This module provides system/script-specific functions."""
 
+
 def TerminateScript(graceful=False) -> None:
     """
     Description:
@@ -11,6 +12,7 @@ def TerminateScript(graceful=False) -> None:
             `False`: Forcefully terminating the script.
     """
     ...
+
 
 def IsProcessElevated(hwnd=0) -> bool:
     """
@@ -26,21 +28,26 @@ def IsProcessElevated(hwnd=0) -> bool:
     """
     ...
 
+
 def RequestElevation() -> None:
     """Restarts the current python process with elevated privileges."""
     ...
 
-def ScheduleElevatedProcessChecker(delay: float=10) -> None:
+
+def ScheduleElevatedProcessChecker(delay=10.0) -> None:
     """Reprots each `delay` time if the active process window is elevated while the current python process is not elevated."""
     ...
+
 
 def DisplayCPUsage() -> None:
     """Prints the current CPU and Memort usage to the console."""
     ...
 
+
 def EnableDPI_Awareness() -> int:
     """Enables `DPI Awareness` for the current thread to allow for accurate dimensions reporting."""
     ...
+
 
 def SendScriptWorkingNotification(near_module=True) -> None:
     """Sends a notification to the user that the script is working."""
@@ -51,21 +58,26 @@ def ChangeBrightness(opcode=1, increment=5) -> None:
     """Increments (`opcode=any non-zero value`) or decrements (`opcode=0`) the screen brightness by an (`increment`) percent."""
     ...
 
+
 def ScreenOff():
     """Turns off the screen."""
     ...
+
 
 def FlashScreen(delay=0.15) -> None:
     """Inverts the color of the screen for the specified number of seconds."""
     ...
 
+
 def GoToSleep() -> None:
     """Puts the device to sleep."""
     ...
 
+
 def Shutdown(request_confirmation=False) -> None:
     """Shuts down the computer."""
     ...
+
 
 def GetProcessExe(hwnd: int) -> str:
     """Given a window handle, returns the process executable path."""

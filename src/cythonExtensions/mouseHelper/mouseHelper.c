@@ -2619,7 +2619,6 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_move
  * 
  *     x, y= win32api.GetCursorPos()             # <<<<<<<<<<<<<<
  *     win32api.SetCursorPos((x + dx, y + dy))
- * 
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32api); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -2698,8 +2697,6 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_move
  * 
  *     x, y= win32api.GetCursorPos()
  *     win32api.SetCursorPos((x + dx, y + dy))             # <<<<<<<<<<<<<<
- * 
- * 
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32api); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);

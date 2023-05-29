@@ -1023,7 +1023,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_11hookManager_11hookManager_Ge
   int shiftPressed;
 };
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":184
+/* "src/cythonExtensions/hookManager/hookManager.pyx":186
  *         self.hookPtr = None
  * 
  *     cpdef bint InstallHook(self, callBack, int hookType=HookTypes.WH_KEYBOARD_LL):             # <<<<<<<<<<<<<<
@@ -1069,7 +1069,7 @@ struct __pyx_obj_16cythonExtensions_11commonUtils_11commonUtils_KeyboardEvent {
 };
 
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":160
+/* "src/cythonExtensions/hookManager/hookManager.pyx":162
  * 
  * # By TwhK/Kheldar. Source: http://www.hackerthreads.org/Topic-42395
  * cdef class HookManager:             # <<<<<<<<<<<<<<
@@ -1084,7 +1084,7 @@ struct __pyx_obj_7macropy_16cythonExtensions_11hookManager_11hookManager_HookMan
 };
 
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":263
+/* "src/cythonExtensions/hookManager/hookManager.pyx":264
  * # ctypedef bint (*EventListenerPtr)(KeyboardEvent)
  * 
  * cdef class KeyboardHookManager:             # <<<<<<<<<<<<<<
@@ -1101,7 +1101,7 @@ struct __pyx_obj_7macropy_16cythonExtensions_11hookManager_11hookManager_Keyboar
 
 
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":160
+/* "src/cythonExtensions/hookManager/hookManager.pyx":162
  * 
  * # By TwhK/Kheldar. Source: http://www.hackerthreads.org/Topic-42395
  * cdef class HookManager:             # <<<<<<<<<<<<<<
@@ -1117,7 +1117,7 @@ struct __pyx_vtabstruct_7macropy_16cythonExtensions_11hookManager_11hookManager_
 static struct __pyx_vtabstruct_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager *__pyx_vtabptr_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager;
 
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":263
+/* "src/cythonExtensions/hookManager/hookManager.pyx":264
  * # ctypedef bint (*EventListenerPtr)(KeyboardEvent)
  * 
  * cdef class KeyboardHookManager:             # <<<<<<<<<<<<<<
@@ -2927,7 +2927,7 @@ static CYTHON_INLINE PyObject *__pyx_f_7macropy_16cythonExtensions_11hookManager
  *         else: # text.startswith("VK_"):
  *             return (win32api.MapVirtualKey(vkey_code, 2), text[3:].title())             # <<<<<<<<<<<<<<
  * 
- * # Define the KBDLLHOOKSTRUCT structure. Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct.
+ * 
  */
     /*else*/ {
       __Pyx_XDECREF(__pyx_r);
@@ -3043,7 +3043,7 @@ static CYTHON_INLINE PyObject *__pyx_f_7macropy_16cythonExtensions_11hookManager
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":180
+/* "src/cythonExtensions/hookManager/hookManager.pyx":182
  *     # cdef HookPtr hook_ptr
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -3072,7 +3072,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":181
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":183
  * 
  *     def __init__(self):
  *         self.hookId = 0             # <<<<<<<<<<<<<<
@@ -3081,7 +3081,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
  */
   __pyx_v_self->hookId = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":182
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":184
  *     def __init__(self):
  *         self.hookId = 0
  *         self.hookPtr = None             # <<<<<<<<<<<<<<
@@ -3094,7 +3094,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
   __Pyx_DECREF(__pyx_v_self->hookPtr);
   __pyx_v_self->hookPtr = Py_None;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":180
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":182
  *     # cdef HookPtr hook_ptr
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -3108,7 +3108,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":184
+/* "src/cythonExtensions/hookManager/hookManager.pyx":186
  *         self.hookPtr = None
  * 
  *     cpdef bint InstallHook(self, callBack, int hookType=HookTypes.WH_KEYBOARD_LL):             # <<<<<<<<<<<<<<
@@ -3151,10 +3151,10 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_InstallHook); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_InstallHook); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_3InstallHook)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_hookType); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 184, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_hookType); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -3172,7 +3172,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_callBack, __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3181,14 +3181,14 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_callBack, __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         } else
         #endif
         {
-          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 184, __pyx_L1_error)
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 186, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           if (__pyx_t_5) {
             __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -3199,12 +3199,12 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
           __Pyx_GIVEREF(__pyx_t_3);
           PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_t_3);
           __pyx_t_3 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 184, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 186, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_8;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3223,41 +3223,41 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
     #endif
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":188
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":190
  * 
  *         # Defining a type signature for the given low level hook/handler.
  *         CMPFUNC = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_void_p))             # <<<<<<<<<<<<<<
  * 
  *         # Configuring the windows hook argtypes for 64-bit Python compatibility.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CFUNCTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CFUNCTYPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_c_int); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_c_int); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_c_int); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_c_int); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_c_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_c_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_POINTER); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_POINTER); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_c_void_p); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_c_void_p); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_t_9 = NULL;
@@ -3273,7 +3273,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_t_2 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_9, __pyx_t_11) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_11);
   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __pyx_t_10 = NULL;
@@ -3291,7 +3291,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[5] = {__pyx_t_10, __pyx_t_7, __pyx_t_3, __pyx_t_5, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 4+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 4+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -3303,7 +3303,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[5] = {__pyx_t_10, __pyx_t_7, __pyx_t_3, __pyx_t_5, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 4+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 4+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -3313,7 +3313,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   } else
   #endif
   {
-    __pyx_t_11 = PyTuple_New(4+__pyx_t_6); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __pyx_t_11 = PyTuple_New(4+__pyx_t_6); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 190, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     if (__pyx_t_10) {
       __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_10); __pyx_t_10 = NULL;
@@ -3330,7 +3330,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
     __pyx_t_3 = 0;
     __pyx_t_5 = 0;
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   }
@@ -3338,66 +3338,66 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_v_CMPFUNC = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":192
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":194
  *         # Configuring the windows hook argtypes for 64-bit Python compatibility.
  *         ctypes.windll.user32.SetWindowsHookExW.argtypes = (
  *             ctypes.c_int,             # <<<<<<<<<<<<<<
  *             ctypes.c_void_p,
  *             ctypes.c_void_p,
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_c_int); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_c_int); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":193
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":195
  *         ctypes.windll.user32.SetWindowsHookExW.argtypes = (
  *             ctypes.c_int,
  *             ctypes.c_void_p,             # <<<<<<<<<<<<<<
  *             ctypes.c_void_p,
  *             ctypes.c_uint
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_c_void_p); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_c_void_p); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":194
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":196
  *             ctypes.c_int,
  *             ctypes.c_void_p,
  *             ctypes.c_void_p,             # <<<<<<<<<<<<<<
  *             ctypes.c_uint
  *         )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_c_void_p); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_c_void_p); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":195
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":197
  *             ctypes.c_void_p,
  *             ctypes.c_void_p,
  *             ctypes.c_uint             # <<<<<<<<<<<<<<
  *         )
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_c_uint); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_c_uint); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":192
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":194
  *         # Configuring the windows hook argtypes for 64-bit Python compatibility.
  *         ctypes.windll.user32.SetWindowsHookExW.argtypes = (
  *             ctypes.c_int,             # <<<<<<<<<<<<<<
  *             ctypes.c_void_p,
  *             ctypes.c_void_p,
  */
-  __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_4);
@@ -3412,29 +3412,29 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_t_2 = 0;
   __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":191
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":193
  * 
  *         # Configuring the windows hook argtypes for 64-bit Python compatibility.
  *         ctypes.windll.user32.SetWindowsHookExW.argtypes = (             # <<<<<<<<<<<<<<
  *             ctypes.c_int,
  *             ctypes.c_void_p,
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_windll); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_windll); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_user32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_user32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_SetWindowsHookExW); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_SetWindowsHookExW); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_argtypes, __pyx_t_1) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_argtypes, __pyx_t_1) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":199
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":201
  * 
  *         # Converting the Python hook into a C pointer.
  *         self.hookPtr = CMPFUNC(callBack)             # <<<<<<<<<<<<<<
@@ -3454,7 +3454,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   }
   __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_5, __pyx_v_callBack) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_callBack);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_GIVEREF(__pyx_t_2);
@@ -3463,45 +3463,45 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_v_self->hookPtr = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":203
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":205
  *         # Setting the windows hook with the given hook.
  *         # Hook both key up and key down events for common keys (non-system).
  *         self.hookId = ctypes.windll.user32.SetWindowsHookExW( # SetWindowsHookExA             # <<<<<<<<<<<<<<
  *             hookType,                       # Hook type.
  *             self.hookPtr,                   # Callback pointer.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_windll); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_windll); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_user32); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_user32); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SetWindowsHookExW); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_SetWindowsHookExW); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":204
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":206
  *         # Hook both key up and key down events for common keys (non-system).
  *         self.hookId = ctypes.windll.user32.SetWindowsHookExW( # SetWindowsHookExA
  *             hookType,                       # Hook type.             # <<<<<<<<<<<<<<
  *             self.hookPtr,                   # Callback pointer.
  *             win32gui.GetModuleHandle(None), # Handle to the current process.
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_hookType); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_hookType); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":206
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":208
  *             hookType,                       # Hook type.
  *             self.hookPtr,                   # Callback pointer.
  *             win32gui.GetModuleHandle(None), # Handle to the current process.             # <<<<<<<<<<<<<<
  *             0)                              # Thread id (0 = current/main thread).
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_win32gui); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_GetModuleHandle); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_GetModuleHandle); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -3516,7 +3516,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   }
   __pyx_t_11 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, Py_None) : __Pyx_PyObject_CallOneArg(__pyx_t_3, Py_None);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 206, __pyx_L1_error)
+  if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -3534,7 +3534,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[5] = {__pyx_t_3, __pyx_t_1, __pyx_v_self->hookPtr, __pyx_t_11, __pyx_int_0};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_6, 4+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_6, 4+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3544,7 +3544,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[5] = {__pyx_t_3, __pyx_t_1, __pyx_v_self->hookPtr, __pyx_t_11, __pyx_int_0};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_6, 4+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_6, 4+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3552,7 +3552,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(4+__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(4+__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -3569,24 +3569,24 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
     PyTuple_SET_ITEM(__pyx_t_4, 3+__pyx_t_6, __pyx_int_0);
     __pyx_t_1 = 0;
     __pyx_t_11 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":203
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":205
  *         # Setting the windows hook with the given hook.
  *         # Hook both key up and key down events for common keys (non-system).
  *         self.hookId = ctypes.windll.user32.SetWindowsHookExW( # SetWindowsHookExA             # <<<<<<<<<<<<<<
  *             hookType,                       # Hook type.
  *             self.hookPtr,                   # Callback pointer.
  */
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_self->hookId = __pyx_t_6;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":211
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":212
  * 
  *         # Check if the hook was installed successfully.
  *         if not self.hookId:             # <<<<<<<<<<<<<<
@@ -3596,7 +3596,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_t_8 = ((!(__pyx_v_self->hookId != 0)) != 0);
   if (__pyx_t_8) {
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":212
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":213
  *         # Check if the hook was installed successfully.
  *         if not self.hookId:
  *             return False             # <<<<<<<<<<<<<<
@@ -3606,7 +3606,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":211
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":212
  * 
  *         # Check if the hook was installed successfully.
  *         if not self.hookId:             # <<<<<<<<<<<<<<
@@ -3615,30 +3615,30 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
  */
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":218
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":219
  *         # Also, the registered functions are not called if the interpreter is terminated by a signal not handled by Python,
  *         # a Python fatal internal error is detected, or when os._exit() is called.
  *         atexit.register(ctypes.windll.user32.UnhookWindowsHookEx, self.hookId)             # <<<<<<<<<<<<<<
  * 
  *         return True
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_atexit); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_atexit); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_register); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_register); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_windll); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_windll); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_user32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_user32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_UnhookWindowsHookEx); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_UnhookWindowsHookEx); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_1 = NULL;
   __pyx_t_6 = 0;
@@ -3655,7 +3655,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_t_11, __pyx_t_5};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
@@ -3665,7 +3665,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_t_11, __pyx_t_5};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
@@ -3673,7 +3673,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 219, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -3684,14 +3684,14 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_6, __pyx_t_5);
     __pyx_t_11 = 0;
     __pyx_t_5 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":220
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":221
  *         atexit.register(ctypes.windll.user32.UnhookWindowsHookEx, self.hookId)
  * 
  *         return True             # <<<<<<<<<<<<<<
@@ -3701,7 +3701,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_r = 1;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":184
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":186
  *         self.hookPtr = None
  * 
  *     cpdef bint InstallHook(self, callBack, int hookType=HookTypes.WH_KEYBOARD_LL):             # <<<<<<<<<<<<<<
@@ -3767,7 +3767,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManage
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "InstallHook") < 0)) __PYX_ERR(0, 184, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "InstallHook") < 0)) __PYX_ERR(0, 186, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3780,14 +3780,14 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManage
     }
     __pyx_v_callBack = values[0];
     if (values[1]) {
-      __pyx_v_hookType = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_hookType == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 184, __pyx_L3_error)
+      __pyx_v_hookType = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_hookType == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 186, __pyx_L3_error)
     } else {
       __pyx_v_hookType = __pyx_k__2;
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("InstallHook", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 184, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("InstallHook", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 186, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.hookManager.hookManager.HookManager.InstallHook", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3814,7 +3814,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.hookType = __pyx_v_hookType;
   __pyx_t_1 = __pyx_vtabptr_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager->InstallHook(__pyx_v_self, __pyx_v_callBack, 1, &__pyx_t_2); 
-  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -3831,7 +3831,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":222
+/* "src/cythonExtensions/hookManager/hookManager.pyx":223
  *         return True
  * 
  *     cpdef void BeginListening(self):             # <<<<<<<<<<<<<<
@@ -3865,7 +3865,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_BeginListening); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_BeginListening); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_5BeginListening)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -3881,7 +3881,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 223, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -3901,16 +3901,16 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
     #endif
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":225
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":226
  *         """Starts listening for keyboard Windows. Must be called from the main thread."""
  * 
  *         if not PThread.InMainThread():             # <<<<<<<<<<<<<<
  *             raise RuntimeError("Waranning! This method can only be called from the main thread.")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_InMainThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_InMainThread); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -3925,28 +3925,28 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = ((!__pyx_t_5) != 0);
   if (unlikely(__pyx_t_6)) {
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":226
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":227
  * 
  *         if not PThread.InMainThread():
  *             raise RuntimeError("Waranning! This method can only be called from the main thread.")             # <<<<<<<<<<<<<<
  * 
  *         if self.hookId is None or not self.hookId:
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 226, __pyx_L1_error)
+    __PYX_ERR(0, 227, __pyx_L1_error)
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":225
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":226
  *         """Starts listening for keyboard Windows. Must be called from the main thread."""
  * 
  *         if not PThread.InMainThread():             # <<<<<<<<<<<<<<
@@ -3955,14 +3955,14 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
  */
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":228
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":229
  *             raise RuntimeError("Waranning! This method can only be called from the main thread.")
  * 
  *         if self.hookId is None or not self.hookId:             # <<<<<<<<<<<<<<
  *             "Warning: No hook is installed yet."
  *             return
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_5 = (__pyx_t_1 == Py_None);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3977,7 +3977,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_6) {
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":230
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":231
  *         if self.hookId is None or not self.hookId:
  *             "Warning: No hook is installed yet."
  *             return             # <<<<<<<<<<<<<<
@@ -3986,7 +3986,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
  */
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":228
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":229
  *             raise RuntimeError("Waranning! This method can only be called from the main thread.")
  * 
  *         if self.hookId is None or not self.hookId:             # <<<<<<<<<<<<<<
@@ -3995,19 +3995,19 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
  */
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":233
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":234
  * 
  *         # Creating a message loop to keep the hook alive.
  *         msg = ctypes.wintypes.MSG()             # <<<<<<<<<<<<<<
  * 
  *         # If wMsgFilterMin and wMsgFilterMax are both zero, GetMessage returns all available messages (that is, no range filtering is performed).
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_wintypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_wintypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_MSG); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_MSG); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -4022,13 +4022,13 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_msg = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":239
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":240
  *         # Also, each thread has its own message queue, and, as far as I know, the GetMessage can only receive System messages from the main thread.
  *         # Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmessagew#:~:text=the%20WM_INPUT%20messages.-,If%20wMsgFilterMin%20and%20wMsgFilterMax%20are%20both%20zero%2C%20GetMessage%20returns%20all%20available%20messages%20(that%20is%2C%20no%20range%20filtering%20is%20performed).,-%5Bin%5D%20wMsgFilterMax
  *         while ctypes.windll.user32.GetMessageW(ctypes.byref(msg), None, 0, 0) != 0:             # <<<<<<<<<<<<<<
@@ -4036,20 +4036,20 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
  *             ctypes.windll.user32.DispatchMessageW(ctypes.byref(msg))
  */
   while (1) {
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_windll); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_windll); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_user32); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_user32); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_GetMessageW); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_GetMessageW); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_byref); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_byref); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -4064,7 +4064,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
     }
     __pyx_t_3 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_4, __pyx_v_msg) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_msg);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 239, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_8 = NULL;
@@ -4082,7 +4082,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, Py_None, __pyx_int_0, __pyx_int_0};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4091,14 +4091,14 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, Py_None, __pyx_int_0, __pyx_int_0};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else
     #endif
     {
-      __pyx_t_4 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       if (__pyx_t_8) {
         __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -4115,39 +4115,39 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
       __Pyx_GIVEREF(__pyx_int_0);
       PyTuple_SET_ITEM(__pyx_t_4, 3+__pyx_t_9, __pyx_int_0);
       __pyx_t_3 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyInt_NeObjC(__pyx_t_1, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_NeObjC(__pyx_t_1, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (!__pyx_t_6) break;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":240
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":241
  *         # Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getmessagew#:~:text=the%20WM_INPUT%20messages.-,If%20wMsgFilterMin%20and%20wMsgFilterMax%20are%20both%20zero%2C%20GetMessage%20returns%20all%20available%20messages%20(that%20is%2C%20no%20range%20filtering%20is%20performed).,-%5Bin%5D%20wMsgFilterMax
  *         while ctypes.windll.user32.GetMessageW(ctypes.byref(msg), None, 0, 0) != 0:
  *             ctypes.windll.user32.TranslateMessage(ctypes.byref(msg))             # <<<<<<<<<<<<<<
  *             ctypes.windll.user32.DispatchMessageW(ctypes.byref(msg))
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_windll); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_windll); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_user32); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_user32); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_TranslateMessage); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_TranslateMessage); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_byref); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_byref); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -4162,7 +4162,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_3, __pyx_v_msg) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_msg);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_8 = NULL;
@@ -4178,32 +4178,32 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
     __pyx_t_2 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_8, __pyx_t_1) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_1);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":241
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":242
  *         while ctypes.windll.user32.GetMessageW(ctypes.byref(msg), None, 0, 0) != 0:
  *             ctypes.windll.user32.TranslateMessage(ctypes.byref(msg))
  *             ctypes.windll.user32.DispatchMessageW(ctypes.byref(msg))             # <<<<<<<<<<<<<<
  * 
  *     cpdef bint UninstallHook(self):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_windll); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_windll); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_user32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_user32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_DispatchMessageW); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_DispatchMessageW); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_byref); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_byref); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_8 = NULL;
@@ -4218,7 +4218,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
     }
     __pyx_t_4 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_8, __pyx_v_msg) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_msg);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 241, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -4234,13 +4234,13 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Ho
     __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 241, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":222
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":223
  *         return True
  * 
  *     cpdef void BeginListening(self):             # <<<<<<<<<<<<<<
@@ -4285,7 +4285,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("BeginListening", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_BeginListening(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_BeginListening(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4302,7 +4302,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":243
+/* "src/cythonExtensions/hookManager/hookManager.pyx":244
  *             ctypes.windll.user32.DispatchMessageW(ctypes.byref(msg))
  * 
  *     cpdef bint UninstallHook(self):             # <<<<<<<<<<<<<<
@@ -4334,7 +4334,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_UninstallHook); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_UninstallHook); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_7UninstallHook)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -4350,10 +4350,10 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 243, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 244, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4372,14 +4372,14 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
     #endif
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":246
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":247
  *         """Uninstalls the hook specified by the `hookId`."""
  * 
  *         if self.hookId is None or not self.hookId:             # <<<<<<<<<<<<<<
  *             print("Warning: No hook is installed yet.")
  *             return False
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 246, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 247, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = (__pyx_t_1 == Py_None);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4394,18 +4394,18 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_5) {
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":247
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":248
  * 
  *         if self.hookId is None or not self.hookId:
  *             print("Warning: No hook is installed yet.")             # <<<<<<<<<<<<<<
  *             return False
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 247, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":248
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":249
  *         if self.hookId is None or not self.hookId:
  *             print("Warning: No hook is installed yet.")
  *             return False             # <<<<<<<<<<<<<<
@@ -4415,7 +4415,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":246
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":247
  *         """Uninstalls the hook specified by the `hookId`."""
  * 
  *         if self.hookId is None or not self.hookId:             # <<<<<<<<<<<<<<
@@ -4424,25 +4424,25 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
  */
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":250
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":251
  *             return False
  * 
  *         ctypes.windll.user32.UnhookWindowsHookEx(self.hookId)             # <<<<<<<<<<<<<<
  * 
  *         # Unregister the function that was registered using atexit.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_windll); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_windll); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_user32); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_user32); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_UnhookWindowsHookEx); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_UnhookWindowsHookEx); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -4457,32 +4457,32 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":255
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":256
  *         # Note that if the function given to `atexit.unregister` has been registered more than once, every occurrence
  *         # of that function in the atexit call stack will be removed, as equality comparison (==) is used internally.
  *         atexit.unregister(ctypes.windll.user32.UnhookWindowsHookEx)             # <<<<<<<<<<<<<<
  * 
  *         self.hookId = 0
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_atexit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_atexit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_unregister); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_unregister); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_windll); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_windll); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_user32); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_user32); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_UnhookWindowsHookEx); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_UnhookWindowsHookEx); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -4498,12 +4498,12 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":257
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":258
  *         atexit.unregister(ctypes.windll.user32.UnhookWindowsHookEx)
  * 
  *         self.hookId = 0             # <<<<<<<<<<<<<<
@@ -4512,7 +4512,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
  */
   __pyx_v_self->hookId = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":259
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":260
  *         self.hookId = 0
  * 
  *         return True             # <<<<<<<<<<<<<<
@@ -4522,7 +4522,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11Hoo
   __pyx_r = 1;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":243
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":244
  *             ctypes.windll.user32.DispatchMessageW(ctypes.byref(msg))
  * 
  *     cpdef bint UninstallHook(self):             # <<<<<<<<<<<<<<
@@ -4566,7 +4566,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("UninstallHook", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_UninstallHook(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_UninstallHook(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4883,7 +4883,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":269
+/* "src/cythonExtensions/hookManager/hookManager.pyx":270
  *     cdef public int hookId
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -4916,14 +4916,14 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":270
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":271
  * 
  *     def __init__(self):
  *         self.keyDownListeners = []             # <<<<<<<<<<<<<<
  *         self.keyUpListeners = []
  *         self.hookId = 0
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->keyDownListeners);
@@ -4931,14 +4931,14 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
   __pyx_v_self->keyDownListeners = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":271
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":272
  *     def __init__(self):
  *         self.keyDownListeners = []
  *         self.keyUpListeners = []             # <<<<<<<<<<<<<<
  *         self.hookId = 0
  * 
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->keyUpListeners);
@@ -4946,7 +4946,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
   __pyx_v_self->keyUpListeners = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":272
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":273
  *         self.keyDownListeners = []
  *         self.keyUpListeners = []
  *         self.hookId = 0             # <<<<<<<<<<<<<<
@@ -4955,7 +4955,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
  */
   __pyx_v_self->hookId = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":269
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":270
  *     cdef public int hookId
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -4975,7 +4975,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":274
+/* "src/cythonExtensions/hookManager/hookManager.pyx":275
  *         self.hookId = 0
  * 
  *     cpdef void addKeyDownListener(self, listener):             # <<<<<<<<<<<<<<
@@ -5004,7 +5004,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_addKeyDownListener); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_addKeyDownListener); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_3addKeyDownListener)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -5020,7 +5020,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_listener) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_listener);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5040,7 +5040,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
     #endif
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":275
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":276
  * 
  *     cpdef void addKeyDownListener(self, listener):
  *         self.keyDownListeners.append(listener)             # <<<<<<<<<<<<<<
@@ -5049,11 +5049,11 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
  */
   if (unlikely(__pyx_v_self->keyDownListeners == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-    __PYX_ERR(0, 275, __pyx_L1_error)
+    __PYX_ERR(0, 276, __pyx_L1_error)
   }
-  __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_self->keyDownListeners, __pyx_v_listener); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 275, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_self->keyDownListeners, __pyx_v_listener); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 276, __pyx_L1_error)
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":274
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":275
  *         self.hookId = 0
  * 
  *     cpdef void addKeyDownListener(self, listener):             # <<<<<<<<<<<<<<
@@ -5096,7 +5096,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("addKeyDownListener", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_addKeyDownListener(__pyx_v_self, __pyx_v_listener, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_addKeyDownListener(__pyx_v_self, __pyx_v_listener, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5113,7 +5113,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":277
+/* "src/cythonExtensions/hookManager/hookManager.pyx":278
  *         self.keyDownListeners.append(listener)
  * 
  *     cpdef void addKeyUpListener(self, listener):             # <<<<<<<<<<<<<<
@@ -5142,7 +5142,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_addKeyUpListener); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 277, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_addKeyUpListener); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_5addKeyUpListener)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -5158,7 +5158,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_listener) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_listener);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 277, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5178,7 +5178,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
     #endif
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":278
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":279
  * 
  *     cpdef void addKeyUpListener(self, listener):
  *         self.keyUpListeners.append(listener)             # <<<<<<<<<<<<<<
@@ -5187,11 +5187,11 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
  */
   if (unlikely(__pyx_v_self->keyUpListeners == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-    __PYX_ERR(0, 278, __pyx_L1_error)
+    __PYX_ERR(0, 279, __pyx_L1_error)
   }
-  __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_self->keyUpListeners, __pyx_v_listener); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_self->keyUpListeners, __pyx_v_listener); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 279, __pyx_L1_error)
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":277
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":278
  *         self.keyDownListeners.append(listener)
  * 
  *     cpdef void addKeyUpListener(self, listener):             # <<<<<<<<<<<<<<
@@ -5234,7 +5234,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("addKeyUpListener", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_addKeyUpListener(__pyx_v_self, __pyx_v_listener, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_addKeyUpListener(__pyx_v_self, __pyx_v_listener, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5251,7 +5251,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":280
+/* "src/cythonExtensions/hookManager/hookManager.pyx":281
  *         self.keyUpListeners.append(listener)
  * 
  *     cpdef void removeKeyDownListener(self, listener):             # <<<<<<<<<<<<<<
@@ -5279,7 +5279,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_removeKeyDownListener); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_removeKeyDownListener); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_7removeKeyDownListener)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -5295,7 +5295,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_listener) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_listener);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5315,14 +5315,14 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
     #endif
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":281
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":282
  * 
  *     cpdef void removeKeyDownListener(self, listener):
  *         self.keyDownListeners.remove(listener)             # <<<<<<<<<<<<<<
  * 
  *     cpdef removeKeyUpListener(self, listener):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->keyDownListeners, __pyx_n_s_remove); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->keyDownListeners, __pyx_n_s_remove); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5336,12 +5336,12 @@ static void __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_listener) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_listener);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":280
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":281
  *         self.keyUpListeners.append(listener)
  * 
  *     cpdef void removeKeyDownListener(self, listener):             # <<<<<<<<<<<<<<
@@ -5384,7 +5384,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("removeKeyDownListener", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_removeKeyDownListener(__pyx_v_self, __pyx_v_listener, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_removeKeyDownListener(__pyx_v_self, __pyx_v_listener, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5401,7 +5401,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":283
+/* "src/cythonExtensions/hookManager/hookManager.pyx":284
  *         self.keyDownListeners.remove(listener)
  * 
  *     cpdef removeKeyUpListener(self, listener):             # <<<<<<<<<<<<<<
@@ -5430,7 +5430,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_removeKeyUpListener); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 283, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_removeKeyUpListener); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_9removeKeyUpListener)) {
         __Pyx_XDECREF(__pyx_r);
@@ -5447,7 +5447,7 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_listener) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_listener);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -5468,14 +5468,14 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager
     #endif
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":284
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":285
  * 
  *     cpdef removeKeyUpListener(self, listener):
  *         self.keyUpListeners.remove(listener)             # <<<<<<<<<<<<<<
  * 
  *     cpdef bint KeyboardHook(self, int nCode, int wParam, lParam):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->keyUpListeners, __pyx_n_s_remove); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->keyUpListeners, __pyx_n_s_remove); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5489,12 +5489,12 @@ static PyObject *__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_listener) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_listener);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":283
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":284
  *         self.keyDownListeners.remove(listener)
  * 
  *     cpdef removeKeyUpListener(self, listener):             # <<<<<<<<<<<<<<
@@ -5541,7 +5541,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("removeKeyUpListener", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_removeKeyUpListener(__pyx_v_self, __pyx_v_listener, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 283, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_removeKeyUpListener(__pyx_v_self, __pyx_v_listener, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5558,7 +5558,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":286
+/* "src/cythonExtensions/hookManager/hookManager.pyx":287
  *         self.keyUpListeners.remove(listener)
  * 
  *     cpdef bint KeyboardHook(self, int nCode, int wParam, lParam):             # <<<<<<<<<<<<<<
@@ -5610,12 +5610,12 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_KeyboardHook); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_KeyboardHook); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_11KeyboardHook)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_nCode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 286, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_nCode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 287, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_wParam); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 286, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_wParam); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 287, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -5633,7 +5633,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_t_3, __pyx_t_4, __pyx_v_lParam};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 3+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 286, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 3+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 287, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5643,7 +5643,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_t_3, __pyx_t_4, __pyx_v_lParam};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 3+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 286, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 3+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 287, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5651,7 +5651,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(3+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 286, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(3+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 287, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -5665,12 +5665,12 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
           PyTuple_SET_ITEM(__pyx_t_8, 2+__pyx_t_7, __pyx_v_lParam);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 286, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 287, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 286, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 287, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_9;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5689,45 +5689,45 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
     #endif
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":302
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":303
  * 
  *         # Checking if the event is valid. Docs: https://stackoverflow.com/questions/64449078/c-keyboard-hook-what-does-the-parameter-ncode-mean
  *         if nCode == win32con.HC_ACTION:             # <<<<<<<<<<<<<<
  *             # Casting lParam to KBDLLHOOKSTRUCT.
  *             lParamStruct_ptr = ctypes.cast(lParam, ctypes.POINTER(KBDLLHOOKSTRUCT))
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_nCode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_nCode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_HC_ACTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_HC_ACTION); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_9) {
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":304
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":305
  *         if nCode == win32con.HC_ACTION:
  *             # Casting lParam to KBDLLHOOKSTRUCT.
  *             lParamStruct_ptr = ctypes.cast(lParam, ctypes.POINTER(KBDLLHOOKSTRUCT))             # <<<<<<<<<<<<<<
  *             lParamStruct = lParamStruct_ptr.contents
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 304, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_cast); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_cast); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 304, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_POINTER); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 304, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_POINTER); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_KBDLLHOOKSTRUCT); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 304, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_KBDLLHOOKSTRUCT); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -5742,7 +5742,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
     __pyx_t_5 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_3, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_8);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 304, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 305, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -5760,7 +5760,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_lParam, __pyx_t_5};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 304, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5769,14 +5769,14 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_lParam, __pyx_t_5};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 304, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else
     #endif
     {
-      __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 304, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 305, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       if (__pyx_t_4) {
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -5787,7 +5787,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
       __Pyx_GIVEREF(__pyx_t_5);
       PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 304, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
@@ -5795,32 +5795,32 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
     __pyx_v_lParamStruct_ptr = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":305
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":306
  *             # Casting lParam to KBDLLHOOKSTRUCT.
  *             lParamStruct_ptr = ctypes.cast(lParam, ctypes.POINTER(KBDLLHOOKSTRUCT))
  *             lParamStruct = lParamStruct_ptr.contents             # <<<<<<<<<<<<<<
  * 
  *             # Accessing fields of KBDLLHOOKSTRUCT.
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lParamStruct_ptr, __pyx_n_s_contents); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lParamStruct_ptr, __pyx_n_s_contents); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_lParamStruct = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":308
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":309
  * 
  *             # Accessing fields of KBDLLHOOKSTRUCT.
  *             vkey_code = lParamStruct.vkCode             # <<<<<<<<<<<<<<
  * 
  *             # Check if the key code is valid.
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lParamStruct, __pyx_n_s_vkCode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 308, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lParamStruct, __pyx_n_s_vkCode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 308, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 309, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_vkey_code = __pyx_t_7;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":311
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":312
  * 
  *             # Check if the key code is valid.
  *             if not vkey_code:             # <<<<<<<<<<<<<<
@@ -5830,7 +5830,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
     __pyx_t_9 = ((!(__pyx_v_vkey_code != 0)) != 0);
     if (__pyx_t_9) {
 
-      /* "src/cythonExtensions/hookManager/hookManager.pyx":312
+      /* "src/cythonExtensions/hookManager/hookManager.pyx":313
  *             # Check if the key code is valid.
  *             if not vkey_code:
  *                 return False             # <<<<<<<<<<<<<<
@@ -5840,7 +5840,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
       __pyx_r = 0;
       goto __pyx_L0;
 
-      /* "src/cythonExtensions/hookManager/hookManager.pyx":311
+      /* "src/cythonExtensions/hookManager/hookManager.pyx":312
  * 
  *             # Check if the key code is valid.
  *             if not vkey_code:             # <<<<<<<<<<<<<<
@@ -5849,99 +5849,99 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
  */
     }
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":314
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":315
  *                 return False
  * 
  *             scancode = lParamStruct.scanCode             # <<<<<<<<<<<<<<
  * 
  *             # eventTime = lParamStruct.time
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lParamStruct, __pyx_n_s_scanCode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 314, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lParamStruct, __pyx_n_s_scanCode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 315, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_scancode = __pyx_t_7;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":317
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":318
  * 
  *             # eventTime = lParamStruct.time
  *             flags = lParamStruct.flags             # <<<<<<<<<<<<<<
  * 
  *             # Extracting key state flags from the packed int `flags`.
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lParamStruct, __pyx_n_s_flags); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_lParamStruct, __pyx_n_s_flags); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 317, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 318, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_flags = __pyx_t_7;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":321
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":322
  *             # Extracting key state flags from the packed int `flags`.
  *             # Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct#:~:text=The%20following%20table%20describes%20the%20layout%20of%20this%20value.
  *             extended = bool(flags & 0x1)             # <<<<<<<<<<<<<<
  *             injected = bool(flags & 0x10)
  *             altPressed = bool(flags & 0x20)
  */
-    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_flags & 0x1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 321, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_flags & 0x1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 322, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 321, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 322, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_extended = (!(!__pyx_t_9));
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":322
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":323
  *             # Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct#:~:text=The%20following%20table%20describes%20the%20layout%20of%20this%20value.
  *             extended = bool(flags & 0x1)
  *             injected = bool(flags & 0x10)             # <<<<<<<<<<<<<<
  *             altPressed = bool(flags & 0x20)
  *             transition = bool(flags & 0x82) # Always `False`?
  */
-    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_flags & 0x10)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 322, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_flags & 0x10)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 322, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_injected = (!(!__pyx_t_9));
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":323
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":324
  *             extended = bool(flags & 0x1)
  *             injected = bool(flags & 0x10)
  *             altPressed = bool(flags & 0x20)             # <<<<<<<<<<<<<<
  *             transition = bool(flags & 0x82) # Always `False`?
  * 
  */
-    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_flags & 0x20)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_flags & 0x20)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 323, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_altPressed = (!(!__pyx_t_9));
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":324
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":325
  *             injected = bool(flags & 0x10)
  *             altPressed = bool(flags & 0x20)
  *             transition = bool(flags & 0x82) # Always `False`?             # <<<<<<<<<<<<<<
  * 
  *             # To get the correct key ascii value, we need first to check if the shift is pressed.
  */
-    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_flags & 0x82)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_flags & 0x82)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 325, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 324, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 325, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_transition = (!(!__pyx_t_9));
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":327
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":328
  * 
  *             # To get the correct key ascii value, we need first to check if the shift is pressed.
  *             shiftPressed = ((win32api.GetAsyncKeyState(win32con.VK_SHIFT) & 0x8000) >> 15) | (vkey_code in [win32con.VK_LSHIFT, win32con.VK_RSHIFT])             # <<<<<<<<<<<<<<
  *             keyAscii, keyName= GetKeyAsciiAndName(vkey_code, shiftPressed)
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32api); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32api); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_GetAsyncKeyState); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_GetAsyncKeyState); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_SHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_SHIFT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -5957,58 +5957,58 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
     __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_1, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_5);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 327, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyInt_AndObjC(__pyx_t_2, __pyx_int_32768, 0x8000, 0, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_AndObjC(__pyx_t_2, __pyx_int_32768, 0x8000, 0, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyInt_RshiftObjC(__pyx_t_8, __pyx_int_15, 15, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_RshiftObjC(__pyx_t_8, __pyx_int_15, 15, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_7 = __pyx_v_vkey_code;
-    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_win32con); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_win32con); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_VK_LSHIFT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_VK_LSHIFT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_5 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (!__pyx_t_10) {
     } else {
       __pyx_t_9 = __pyx_t_10;
       goto __pyx_L5_bool_binop_done;
     }
-    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RSHIFT); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VK_RSHIFT); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyObject_RichCompare(__pyx_t_5, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_t_5, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_9 = __pyx_t_10;
     __pyx_L5_bool_binop_done:;
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_8 = PyNumber_Or(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_8 = PyNumber_Or(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_v_shiftPressed = __pyx_t_9;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":328
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":329
  *             # To get the correct key ascii value, we need first to check if the shift is pressed.
  *             shiftPressed = ((win32api.GetAsyncKeyState(win32con.VK_SHIFT) & 0x8000) >> 15) | (vkey_code in [win32con.VK_LSHIFT, win32con.VK_RSHIFT])
  *             keyAscii, keyName= GetKeyAsciiAndName(vkey_code, shiftPressed)             # <<<<<<<<<<<<<<
@@ -6017,7 +6017,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
  */
     __pyx_t_11.__pyx_n = 1;
     __pyx_t_11.shiftPressed = __pyx_v_shiftPressed;
-    __pyx_t_8 = __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_GetKeyAsciiAndName(__pyx_v_vkey_code, &__pyx_t_11); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 328, __pyx_L1_error)
+    __pyx_t_8 = __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_GetKeyAsciiAndName(__pyx_v_vkey_code, &__pyx_t_11); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 329, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (likely(__pyx_t_8 != Py_None)) {
       PyObject* sequence = __pyx_t_8;
@@ -6025,7 +6025,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 328, __pyx_L1_error)
+        __PYX_ERR(0, 329, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
@@ -6033,21 +6033,21 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
       __Pyx_INCREF(__pyx_t_1);
       __Pyx_INCREF(__pyx_t_2);
       #else
-      __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
+      __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 329, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 328, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 329, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       #endif
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     } else {
-      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 328, __pyx_L1_error)
+      __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 329, __pyx_L1_error)
     }
     __pyx_v_keyAscii = __pyx_t_1;
     __pyx_t_1 = 0;
     __pyx_v_keyName = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":330
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":331
  *             keyAscii, keyName= GetKeyAsciiAndName(vkey_code, shiftPressed)
  * 
  *             eventName = eventIdToName[wParam]             # <<<<<<<<<<<<<<
@@ -6056,103 +6056,103 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
  */
     if (unlikely(__pyx_v_7macropy_16cythonExtensions_11hookManager_11hookManager_eventIdToName == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 330, __pyx_L1_error)
+      __PYX_ERR(0, 331, __pyx_L1_error)
     }
-    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_wParam); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 330, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_wParam); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 331, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_2 = __Pyx_PyDict_GetItem(__pyx_v_7macropy_16cythonExtensions_11hookManager_11hookManager_eventIdToName, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyDict_GetItem(__pyx_v_7macropy_16cythonExtensions_11hookManager_11hookManager_eventIdToName, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 331, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_v_eventName = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":333
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":334
  * 
  *             # Creating a keyboard event object.
  *             keyboardEvent = KeyboardEvent(event_id=wParam, event_name=eventName, vkey_code=vkey_code,             # <<<<<<<<<<<<<<
  *                                           scancode=scancode, key_ascii=keyAscii, key_name=keyName,
  *                                           flags=flags, injected=injected, extended=extended,
  */
-    __pyx_t_2 = __Pyx_PyDict_NewPresized(12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 333, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyDict_NewPresized(12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_wParam); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 333, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_wParam); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_event_id, __pyx_t_8) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_event_id, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_event_name, __pyx_v_eventName) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
-    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_vkey_code); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_event_name, __pyx_v_eventName) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_vkey_code); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_vkey_code, __pyx_t_8) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_vkey_code, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":334
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":335
  *             # Creating a keyboard event object.
  *             keyboardEvent = KeyboardEvent(event_id=wParam, event_name=eventName, vkey_code=vkey_code,
  *                                           scancode=scancode, key_ascii=keyAscii, key_name=keyName,             # <<<<<<<<<<<<<<
  *                                           flags=flags, injected=injected, extended=extended,
  *                                           shift=shiftPressed, alt=altPressed, transition=transition)
  */
-    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_scancode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_scancode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 335, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_scancode, __pyx_t_8) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_scancode, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_key_ascii, __pyx_v_keyAscii) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_key_name, __pyx_v_keyName) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_key_ascii, __pyx_v_keyAscii) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_key_name, __pyx_v_keyName) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":335
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":336
  *             keyboardEvent = KeyboardEvent(event_id=wParam, event_name=eventName, vkey_code=vkey_code,
  *                                           scancode=scancode, key_ascii=keyAscii, key_name=keyName,
  *                                           flags=flags, injected=injected, extended=extended,             # <<<<<<<<<<<<<<
  *                                           shift=shiftPressed, alt=altPressed, transition=transition)
  * 
  */
-    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_flags); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 335, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_flags); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_flags, __pyx_t_8) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_flags, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_injected); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 335, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_injected); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_injected, __pyx_t_8) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_injected, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_extended); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 335, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_extended); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_extended, __pyx_t_8) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_extended, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":336
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":337
  *                                           scancode=scancode, key_ascii=keyAscii, key_name=keyName,
  *                                           flags=flags, injected=injected, extended=extended,
  *                                           shift=shiftPressed, alt=altPressed, transition=transition)             # <<<<<<<<<<<<<<
  * 
  *             # Key down/press event.
  */
-    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_shiftPressed); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 336, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_shiftPressed); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 337, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_shift, __pyx_t_8) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_shift, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_altPressed); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 336, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_altPressed); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 337, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_alt, __pyx_t_8) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_alt, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_transition); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 336, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_transition); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 337, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_transition, __pyx_t_8) < 0) __PYX_ERR(0, 333, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_transition, __pyx_t_8) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":333
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":334
  * 
  *             # Creating a keyboard event object.
  *             keyboardEvent = KeyboardEvent(event_id=wParam, event_name=eventName, vkey_code=vkey_code,             # <<<<<<<<<<<<<<
  *                                           scancode=scancode, key_ascii=keyAscii, key_name=keyName,
  *                                           flags=flags, injected=injected, extended=extended,
  */
-    __pyx_t_8 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_16cythonExtensions_11commonUtils_11commonUtils_KeyboardEvent), __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 333, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_16cythonExtensions_11commonUtils_11commonUtils_KeyboardEvent), __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_keyboardEvent = ((struct __pyx_obj_16cythonExtensions_11commonUtils_11commonUtils_KeyboardEvent *)__pyx_t_8);
     __pyx_t_8 = 0;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":339
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":340
  * 
  *             # Key down/press event.
  *             if wParam in [win32con.WM_KEYDOWN, win32con.WM_SYSKEYDOWN]:             # <<<<<<<<<<<<<<
@@ -6160,41 +6160,41 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
  *                 for listener in self.keyDownListeners:
  */
     __pyx_t_7 = __pyx_v_wParam;
-    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32con); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_WM_KEYDOWN); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_WM_KEYDOWN); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_t_8, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (!__pyx_t_10) {
     } else {
       __pyx_t_9 = __pyx_t_10;
       goto __pyx_L8_bool_binop_done;
     }
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_win32con); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_WM_SYSKEYDOWN); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_WM_SYSKEYDOWN); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 339, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 340, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_9 = __pyx_t_10;
     __pyx_L8_bool_binop_done:;
     __pyx_t_10 = (__pyx_t_9 != 0);
     if (__pyx_t_10) {
 
-      /* "src/cythonExtensions/hookManager/hookManager.pyx":341
+      /* "src/cythonExtensions/hookManager/hookManager.pyx":342
  *             if wParam in [win32con.WM_KEYDOWN, win32con.WM_SYSKEYDOWN]:
  *                 # Propagate the event to the registered keyDown listeners.
  *                 for listener in self.keyDownListeners:             # <<<<<<<<<<<<<<
@@ -6203,44 +6203,44 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
  */
       if (unlikely(__pyx_v_self->keyDownListeners == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-        __PYX_ERR(0, 341, __pyx_L1_error)
+        __PYX_ERR(0, 342, __pyx_L1_error)
       }
       __pyx_t_1 = __pyx_v_self->keyDownListeners; __Pyx_INCREF(__pyx_t_1); __pyx_t_12 = 0;
       for (;;) {
         if (__pyx_t_12 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_8 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_12); __Pyx_INCREF(__pyx_t_8); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 341, __pyx_L1_error)
+        __pyx_t_8 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_12); __Pyx_INCREF(__pyx_t_8); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 342, __pyx_L1_error)
         #else
-        __pyx_t_8 = PySequence_ITEM(__pyx_t_1, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 341, __pyx_L1_error)
+        __pyx_t_8 = PySequence_ITEM(__pyx_t_1, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 342, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         #endif
         __Pyx_XDECREF_SET(__pyx_v_listener, __pyx_t_8);
         __pyx_t_8 = 0;
 
-        /* "src/cythonExtensions/hookManager/hookManager.pyx":342
+        /* "src/cythonExtensions/hookManager/hookManager.pyx":343
  *                 # Propagate the event to the registered keyDown listeners.
  *                 for listener in self.keyDownListeners:
  *                     PThread(target=listener, args=[keyboardEvent]).start()             # <<<<<<<<<<<<<<
  * 
  *                 # One of the keyDown listeners must put a signal in the PThread.msgQueue to specify whether to return or suppress the pressed key.
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PThread); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 342, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_target, __pyx_v_listener) < 0) __PYX_ERR(0, 342, __pyx_L1_error)
-        __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 342, __pyx_L1_error)
+        if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_target, __pyx_v_listener) < 0) __PYX_ERR(0, 343, __pyx_L1_error)
+        __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(((PyObject *)__pyx_v_keyboardEvent));
         __Pyx_GIVEREF(((PyObject *)__pyx_v_keyboardEvent));
         PyList_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_v_keyboardEvent));
-        if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_args, __pyx_t_4) < 0) __PYX_ERR(0, 342, __pyx_L1_error)
+        if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_args, __pyx_t_4) < 0) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 342, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 342, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_t_4 = NULL;
@@ -6255,12 +6255,12 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
         }
         __pyx_t_8 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 342, __pyx_L1_error)
+        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 343, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-        /* "src/cythonExtensions/hookManager/hookManager.pyx":341
+        /* "src/cythonExtensions/hookManager/hookManager.pyx":342
  *             if wParam in [win32con.WM_KEYDOWN, win32con.WM_SYSKEYDOWN]:
  *                 # Propagate the event to the registered keyDown listeners.
  *                 for listener in self.keyDownListeners:             # <<<<<<<<<<<<<<
@@ -6270,7 +6270,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "src/cythonExtensions/hookManager/hookManager.pyx":345
+      /* "src/cythonExtensions/hookManager/hookManager.pyx":346
  * 
  *                 # One of the keyDown listeners must put a signal in the PThread.msgQueue to specify whether to return or suppress the pressed key.
  *                 if self.keyDownListeners:             # <<<<<<<<<<<<<<
@@ -6280,19 +6280,19 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
       __pyx_t_10 = (__pyx_v_self->keyDownListeners != Py_None)&&(PyList_GET_SIZE(__pyx_v_self->keyDownListeners) != 0);
       if (__pyx_t_10) {
 
-        /* "src/cythonExtensions/hookManager/hookManager.pyx":348
+        /* "src/cythonExtensions/hookManager/hookManager.pyx":349
  *                     # Return True to suppress the key, False to propagate it.
  *                     # Note that, if you returned a boolean value instead of calling CallNextHookEx, you are effectively preventing any further processing of the keystroke by other hooks.
  *                     return PThread.msgQueue.get()             # <<<<<<<<<<<<<<
  * 
  *             # Key up event.
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_PThread); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 348, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_PThread); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 349, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_msgQueue); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_msgQueue); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 349, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_get); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 348, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_get); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 349, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_5 = NULL;
@@ -6307,15 +6307,15 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
         }
         __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 348, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 349, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __pyx_r = __pyx_t_10;
         goto __pyx_L0;
 
-        /* "src/cythonExtensions/hookManager/hookManager.pyx":345
+        /* "src/cythonExtensions/hookManager/hookManager.pyx":346
  * 
  *                 # One of the keyDown listeners must put a signal in the PThread.msgQueue to specify whether to return or suppress the pressed key.
  *                 if self.keyDownListeners:             # <<<<<<<<<<<<<<
@@ -6324,7 +6324,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
  */
       }
 
-      /* "src/cythonExtensions/hookManager/hookManager.pyx":339
+      /* "src/cythonExtensions/hookManager/hookManager.pyx":340
  * 
  *             # Key down/press event.
  *             if wParam in [win32con.WM_KEYDOWN, win32con.WM_SYSKEYDOWN]:             # <<<<<<<<<<<<<<
@@ -6334,7 +6334,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
       goto __pyx_L7;
     }
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":353
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":354
  *             else:
  *                 # Propagate the event to the registered keyUp listeners.
  *                 for listener in self.keyUpListeners:             # <<<<<<<<<<<<<<
@@ -6344,44 +6344,44 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
     /*else*/ {
       if (unlikely(__pyx_v_self->keyUpListeners == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-        __PYX_ERR(0, 353, __pyx_L1_error)
+        __PYX_ERR(0, 354, __pyx_L1_error)
       }
       __pyx_t_1 = __pyx_v_self->keyUpListeners; __Pyx_INCREF(__pyx_t_1); __pyx_t_12 = 0;
       for (;;) {
         if (__pyx_t_12 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_8 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_12); __Pyx_INCREF(__pyx_t_8); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 353, __pyx_L1_error)
+        __pyx_t_8 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_12); __Pyx_INCREF(__pyx_t_8); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 354, __pyx_L1_error)
         #else
-        __pyx_t_8 = PySequence_ITEM(__pyx_t_1, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 353, __pyx_L1_error)
+        __pyx_t_8 = PySequence_ITEM(__pyx_t_1, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 354, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         #endif
         __Pyx_XDECREF_SET(__pyx_v_listener, __pyx_t_8);
         __pyx_t_8 = 0;
 
-        /* "src/cythonExtensions/hookManager/hookManager.pyx":354
+        /* "src/cythonExtensions/hookManager/hookManager.pyx":355
  *                 # Propagate the event to the registered keyUp listeners.
  *                 for listener in self.keyUpListeners:
  *                     PThread(target=listener, args=[keyboardEvent]).start()             # <<<<<<<<<<<<<<
  * 
  *                 return False
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PThread); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 354, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PThread); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 355, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 354, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 355, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_target, __pyx_v_listener) < 0) __PYX_ERR(0, 354, __pyx_L1_error)
-        __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
+        if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_target, __pyx_v_listener) < 0) __PYX_ERR(0, 355, __pyx_L1_error)
+        __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_INCREF(((PyObject *)__pyx_v_keyboardEvent));
         __Pyx_GIVEREF(((PyObject *)__pyx_v_keyboardEvent));
         PyList_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_v_keyboardEvent));
-        if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_args, __pyx_t_2) < 0) __PYX_ERR(0, 354, __pyx_L1_error)
+        if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_args, __pyx_t_2) < 0) __PYX_ERR(0, 355, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_start); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 354, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_start); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 355, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_2 = NULL;
@@ -6396,12 +6396,12 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
         }
         __pyx_t_8 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 354, __pyx_L1_error)
+        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 355, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-        /* "src/cythonExtensions/hookManager/hookManager.pyx":353
+        /* "src/cythonExtensions/hookManager/hookManager.pyx":354
  *             else:
  *                 # Propagate the event to the registered keyUp listeners.
  *                 for listener in self.keyUpListeners:             # <<<<<<<<<<<<<<
@@ -6411,19 +6411,19 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "src/cythonExtensions/hookManager/hookManager.pyx":356
+      /* "src/cythonExtensions/hookManager/hookManager.pyx":357
  *                     PThread(target=listener, args=[keyboardEvent]).start()
  * 
  *                 return False             # <<<<<<<<<<<<<<
  * 
- * 
+ * # ctypedef bint (*EventListenerPtr)(KeyboardEvent)
  */
       __pyx_r = 0;
       goto __pyx_L0;
     }
     __pyx_L7:;
 
-    /* "src/cythonExtensions/hookManager/hookManager.pyx":302
+    /* "src/cythonExtensions/hookManager/hookManager.pyx":303
  * 
  *         # Checking if the event is valid. Docs: https://stackoverflow.com/questions/64449078/c-keyboard-hook-what-does-the-parameter-ncode-mean
  *         if nCode == win32con.HC_ACTION:             # <<<<<<<<<<<<<<
@@ -6432,7 +6432,7 @@ static int __pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19Key
  */
   }
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":286
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":287
  *         self.keyUpListeners.remove(listener)
  * 
  *     cpdef bint KeyboardHook(self, int nCode, int wParam, lParam):             # <<<<<<<<<<<<<<
@@ -6503,17 +6503,17 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManage
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_wParam)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("KeyboardHook", 1, 3, 3, 1); __PYX_ERR(0, 286, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("KeyboardHook", 1, 3, 3, 1); __PYX_ERR(0, 287, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_lParam)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("KeyboardHook", 1, 3, 3, 2); __PYX_ERR(0, 286, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("KeyboardHook", 1, 3, 3, 2); __PYX_ERR(0, 287, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "KeyboardHook") < 0)) __PYX_ERR(0, 286, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "KeyboardHook") < 0)) __PYX_ERR(0, 287, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -6522,13 +6522,13 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_11hookManager_11hookManage
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_nCode = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_nCode == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 286, __pyx_L3_error)
-    __pyx_v_wParam = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_wParam == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 286, __pyx_L3_error)
+    __pyx_v_nCode = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_nCode == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 287, __pyx_L3_error)
+    __pyx_v_wParam = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_wParam == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 287, __pyx_L3_error)
     __pyx_v_lParam = values[2];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("KeyboardHook", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 286, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("KeyboardHook", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 287, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.hookManager.hookManager.KeyboardHookManager.KeyboardHook", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6550,7 +6550,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("KeyboardHook", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_KeyboardHook(__pyx_v_self, __pyx_v_nCode, __pyx_v_wParam, __pyx_v_lParam, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_KeyboardHook(__pyx_v_self, __pyx_v_nCode, __pyx_v_wParam, __pyx_v_lParam, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6567,7 +6567,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":266
+/* "src/cythonExtensions/hookManager/hookManager.pyx":267
  *     """A class for managing keyboard hooks and their event listeners."""
  * 
  *     cdef public list keyDownListeners, keyUpListeners             # <<<<<<<<<<<<<<
@@ -6625,7 +6625,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 266, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 267, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -6725,7 +6725,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 266, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 267, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -6775,7 +6775,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/hookManager/hookManager.pyx":267
+/* "src/cythonExtensions/hookManager/hookManager.pyx":268
  * 
  *     cdef public list keyDownListeners, keyUpListeners
  *     cdef public int hookId             # <<<<<<<<<<<<<<
@@ -6805,7 +6805,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManage
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->hookId); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6843,7 +6843,7 @@ static int __pyx_pf_7macropy_16cythonExtensions_11hookManager_11hookManager_19Ke
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 267, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 268, __pyx_L1_error)
   __pyx_v_self->hookId = __pyx_t_1;
 
   /* function exit code */
@@ -8665,8 +8665,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_chr = __Pyx_GetBuiltinName(__pyx_n_s_chr); if (!__pyx_builtin_chr) __PYX_ERR(0, 74, __pyx_L1_error)
-  __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(0, 226, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 247, __pyx_L1_error)
+  __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(0, 227, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 248, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -8681,31 +8681,31 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         else: # text.startswith("VK_"):
  *             return (win32api.MapVirtualKey(vkey_code, 2), text[3:].title())             # <<<<<<<<<<<<<<
  * 
- * # Define the KBDLLHOOKSTRUCT structure. Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct.
+ * 
  */
   __pyx_slice_ = PySlice_New(__pyx_int_3, Py_None, Py_None); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice_);
   __Pyx_GIVEREF(__pyx_slice_);
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":226
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":227
  * 
  *         if not PThread.InMainThread():
  *             raise RuntimeError("Waranning! This method can only be called from the main thread.")             # <<<<<<<<<<<<<<
  * 
  *         if self.hookId is None or not self.hookId:
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_Waranning_This_method_can_only_b); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_Waranning_This_method_can_only_b); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":247
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":248
  * 
  *         if self.hookId is None or not self.hookId:
  *             print("Warning: No hook is installed yet.")             # <<<<<<<<<<<<<<
  *             return False
  * 
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_Warning_No_hook_is_installed_yet); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 247, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_Warning_No_hook_is_installed_yet); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
@@ -8963,16 +8963,16 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager.InstallHook = (int (*)(struct __pyx_obj_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_InstallHook *__pyx_optional_args))__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_InstallHook;
   __pyx_vtable_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager.BeginListening = (void (*)(struct __pyx_obj_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager *, int __pyx_skip_dispatch))__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_BeginListening;
   __pyx_vtable_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager.UninstallHook = (int (*)(struct __pyx_obj_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager *, int __pyx_skip_dispatch))__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_11HookManager_UninstallHook;
-  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager.tp_dictoffset && __pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager.tp_dict, __pyx_vtabptr_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_HookManager, (PyObject *)&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager.tp_dict, __pyx_vtabptr_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_HookManager, (PyObject *)&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
   __pyx_ptype_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager = &__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_HookManager;
   __pyx_vtabptr_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager = &__pyx_vtable_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager;
   __pyx_vtable_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.addKeyDownListener = (void (*)(struct __pyx_obj_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager *, PyObject *, int __pyx_skip_dispatch))__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_addKeyDownListener;
@@ -8980,16 +8980,16 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.removeKeyDownListener = (void (*)(struct __pyx_obj_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager *, PyObject *, int __pyx_skip_dispatch))__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_removeKeyDownListener;
   __pyx_vtable_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.removeKeyUpListener = (PyObject *(*)(struct __pyx_obj_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager *, PyObject *, int __pyx_skip_dispatch))__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_removeKeyUpListener;
   __pyx_vtable_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.KeyboardHook = (int (*)(struct __pyx_obj_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager *, int, int, PyObject *, int __pyx_skip_dispatch))__pyx_f_7macropy_16cythonExtensions_11hookManager_11hookManager_19KeyboardHookManager_KeyboardHook;
-  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager) < 0) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.tp_dictoffset && __pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.tp_dict, __pyx_vtabptr_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager) < 0) __PYX_ERR(0, 263, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_KeyboardHookManager, (PyObject *)&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager) < 0) __PYX_ERR(0, 263, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager) < 0) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager.tp_dict, __pyx_vtabptr_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_KeyboardHookManager, (PyObject *)&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
   __pyx_ptype_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager = &__pyx_type_7macropy_16cythonExtensions_11hookManager_11hookManager_KeyboardHookManager;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -9320,7 +9320,7 @@ if (!__Pyx_RefNanny) {
  *         "VK_BACK":              0x08,  "VK_TAB":              0x09,  "VK_CLEAR":               0x0C,  "VK_RETURN":         0x0D,  "VK_SHIFT":        0x10,
  *         "VK_CONTROL":           0x11,  "VK_MENU":             0x12,  "VK_PAUSE":               0x13,  "VK_CAPITAL":        0x14,  "VK_KANA":         0x15,
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(136); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(135); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_VK_LBUTTON, __pyx_int_1) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_VK_RBUTTON, __pyx_int_2) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
@@ -9414,7 +9414,6 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_VK_RCONTROL, __pyx_int_163) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_VK_LMENU, __pyx_int_164) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_VK_RMENU, __pyx_int_165) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_VK_PROCESSKEY, __pyx_int_229) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_VK_ATTN, __pyx_int_246) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_VK_CRSEL, __pyx_int_247) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_VK_EXSEL, __pyx_int_248) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
@@ -9672,41 +9671,41 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":146
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":147
  * 
  * # Define the KBDLLHOOKSTRUCT structure. Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct.
  * class KBDLLHOOKSTRUCT(ctypes.Structure):             # <<<<<<<<<<<<<<
  *     """A structure that contains information about a low-level keyboard input event."""
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Structure); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Structure); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_7 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_KBDLLHOOKSTRUCT, __pyx_n_s_KBDLLHOOKSTRUCT, (PyObject *) NULL, __pyx_n_s_macropy_cythonExtensions_hookMan, __pyx_kp_s_A_structure_that_contains_inform); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_KBDLLHOOKSTRUCT, __pyx_n_s_KBDLLHOOKSTRUCT, (PyObject *) NULL, __pyx_n_s_macropy_cythonExtensions_hookMan, __pyx_kp_s_A_structure_that_contains_inform); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":150
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":151
  * 
  *     _fields_ = [
  *         ("vkCode", ctypes.c_ulong),             # <<<<<<<<<<<<<<
  *         ("scanCode", ctypes.c_ulong),
  *         ("flags", ctypes.c_ulong),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_n_s_vkCode);
   __Pyx_GIVEREF(__pyx_n_s_vkCode);
@@ -9715,19 +9714,19 @@ if (!__Pyx_RefNanny) {
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_9);
   __pyx_t_9 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":151
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":152
  *     _fields_ = [
  *         ("vkCode", ctypes.c_ulong),
  *         ("scanCode", ctypes.c_ulong),             # <<<<<<<<<<<<<<
  *         ("flags", ctypes.c_ulong),
  *         ("time", ctypes.c_ulong),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_INCREF(__pyx_n_s_scanCode);
   __Pyx_GIVEREF(__pyx_n_s_scanCode);
@@ -9736,19 +9735,19 @@ if (!__Pyx_RefNanny) {
   PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10);
   __pyx_t_10 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":152
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":153
  *         ("vkCode", ctypes.c_ulong),
  *         ("scanCode", ctypes.c_ulong),
  *         ("flags", ctypes.c_ulong),             # <<<<<<<<<<<<<<
  *         ("time", ctypes.c_ulong),
  *         ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_n_s_flags);
   __Pyx_GIVEREF(__pyx_n_s_flags);
@@ -9757,19 +9756,19 @@ if (!__Pyx_RefNanny) {
   PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_11);
   __pyx_t_11 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":153
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":154
  *         ("scanCode", ctypes.c_ulong),
  *         ("flags", ctypes.c_ulong),
  *         ("time", ctypes.c_ulong),             # <<<<<<<<<<<<<<
  *         ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
  *     ]
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_INCREF(__pyx_n_s_time);
   __Pyx_GIVEREF(__pyx_n_s_time);
@@ -9778,21 +9777,21 @@ if (!__Pyx_RefNanny) {
   PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_t_12);
   __pyx_t_12 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":154
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":155
  *         ("flags", ctypes.c_ulong),
  *         ("time", ctypes.c_ulong),
  *         ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))             # <<<<<<<<<<<<<<
  *     ]
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_13);
-  __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_POINTER); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_POINTER); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_14);
   __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_n_s_ctypes); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_13);
-  __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_n_s_c_ulong); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_15);
   __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
   __pyx_t_13 = NULL;
@@ -9808,10 +9807,10 @@ if (!__Pyx_RefNanny) {
   __pyx_t_12 = (__pyx_t_13) ? __Pyx_PyObject_Call2Args(__pyx_t_14, __pyx_t_13, __pyx_t_15) : __Pyx_PyObject_CallOneArg(__pyx_t_14, __pyx_t_15);
   __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
   __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-  if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-  __pyx_t_14 = PyTuple_New(2); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_14 = PyTuple_New(2); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_14);
   __Pyx_INCREF(__pyx_n_s_dwExtraInfo);
   __Pyx_GIVEREF(__pyx_n_s_dwExtraInfo);
@@ -9820,14 +9819,14 @@ if (!__Pyx_RefNanny) {
   PyTuple_SET_ITEM(__pyx_t_14, 1, __pyx_t_12);
   __pyx_t_12 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":149
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":150
  *     """A structure that contains information about a low-level keyboard input event."""
  * 
  *     _fields_ = [             # <<<<<<<<<<<<<<
  *         ("vkCode", ctypes.c_ulong),
  *         ("scanCode", ctypes.c_ulong),
  */
-  __pyx_t_12 = PyList_New(5); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_12 = PyList_New(5); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_GIVEREF(__pyx_t_6);
   PyList_SET_ITEM(__pyx_t_12, 0, __pyx_t_6);
@@ -9844,25 +9843,25 @@ if (!__Pyx_RefNanny) {
   __pyx_t_10 = 0;
   __pyx_t_11 = 0;
   __pyx_t_14 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_fields, __pyx_t_12) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_7, __pyx_n_s_fields, __pyx_t_12) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":146
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":147
  * 
  * # Define the KBDLLHOOKSTRUCT structure. Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct.
  * class KBDLLHOOKSTRUCT(ctypes.Structure):             # <<<<<<<<<<<<<<
  *     """A structure that contains information about a low-level keyboard input event."""
  * 
  */
-  __pyx_t_12 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_KBDLLHOOKSTRUCT, __pyx_t_2, __pyx_t_7, NULL, 0, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_KBDLLHOOKSTRUCT, __pyx_t_2, __pyx_t_7, NULL, 0, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_KBDLLHOOKSTRUCT, __pyx_t_12) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_KBDLLHOOKSTRUCT, __pyx_t_12) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/hookManager/hookManager.pyx":184
+  /* "src/cythonExtensions/hookManager/hookManager.pyx":186
  *         self.hookPtr = None
  * 
  *     cpdef bint InstallHook(self, callBack, int hookType=HookTypes.WH_KEYBOARD_LL):             # <<<<<<<<<<<<<<

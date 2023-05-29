@@ -5,6 +5,7 @@
 
 import os
 
+
 def AcquireScriptLock() -> int:
     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
     If another instance of the script is already running, this instance will be terminated."""
@@ -30,6 +31,7 @@ def AcquireScriptLock() -> int:
         os._exit(1)
     
     return handle
+
 
 cpdef void begin_script():
     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
@@ -144,6 +146,8 @@ cpdef void begin_script():
 
 
 from contextlib import contextmanager
+
+
 # Source: https://dev.to/rydra/getting-started-on-profiling-with-python-3a4
 # Useful: https://coderzcolumn.com/tutorials/python/yappi-yet-another-python-profiler, https://github.com/sumerc/yappi/blob/master/doc/api.md
 @contextmanager
@@ -237,8 +241,11 @@ def profilerManager(filename="", engine="yappi", clock="wall", output_type="psta
             print("Saving the profiling results as `kgrind`...")
             convert(profiler.getstats(), os.path.join(os.path.splitext(output_location)[0], 'profiling_results.kgrind'))
             
+            # `visualize` requires you have a separate program to work. You can download this and add it to the
+            # system's path environment vairable: https://sourceforge.net/projects/qcachegrindwin/files/0.7.4/
             print("visualize the profiling results...")
-            visualize(profiler.getstats())                           # run kcachegrind
+            visualize(profiler.getstats())
+
 
 cpdef void begin_script_with_cProfile(save_near_module=False):
     """Starts the main script with profiling."""
