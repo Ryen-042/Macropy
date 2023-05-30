@@ -198,6 +198,31 @@ cpdef bint HotkeyPressEvent(KeyboardEvent event):
         
         suppress_key = True
     
+    #+ Pausing the running TTS: 'FN' + Shift + 'R'*
+    # elif (ctrlHouse.modifiers & ctrlHouse.SHIFT_FN) == ctrlHouse.SHIFT_FN and event.KeyID == kbcon.VK_R:
+    #     winsound.PlaySound(r"C:\Windows\Media\Windows Proximity Notification.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    #     if ttsHouse.status == 1:    # If status = Running, then pause.
+    #         ttsHouse.status = 2
+    #         ttsHouse.op_called = False
+    #     elif ttsHouse.status == 2:  # If status = Paused, then continue playing.
+    #         with ttsHouse.condition:
+    #             ttsHouse.condition.notify()
+        
+    #     suppress_key = True
+    
+    #+ Stopping the TTS reader: Alt + FN + 'R'*
+    # elif (ctrlHouse.modifiers & ctrlHouse.ALT_FN) == ctrlHouse.ALT_FN and event.KeyID == kbcon.VK_R:
+    #     ttsHouse.status = 3
+    #     ttsHouse.op_called = False
+        
+    #     suppress_key = True
+    
+    #+ Reading selected text aloud: FN + 'R'*
+    # elif (ctrlHouse.modifiers & ctrlHouse.FN) and event.KeyID == kbcon.VK_R:
+    #     PThread(target=ttsHouse.ScheduleSpeak).start()
+        
+    #     suppress_key = True
+    
     ### Keyboard/Mouse control operations ###
     #+ Scrolling by simulating mouse scroll events. ScrollLock + Alt + ('W'*, 'S'*, 'A'*, 'D'*)
     # Don't use shift as it causes the scrolling to be horizontal.
@@ -398,6 +423,9 @@ cpdef bint KeyPress(KeyboardEvent event):
         PThread(target=msHelper.moveCursor, args=[*{kbcon.VK_SEMICOLON: (0, -dist), kbcon.VK_SINGLE_QUOTES: (dist, 0), kbcon.VK_SLASH: (0, dist), kbcon.VK_PERIOD: (-dist, 0)}.get(event.KeyID)]).start()
         
         PThread.msgQueue.put(True)
+    
+    #+ Zooming in by simulating mouse scroll events: ScrollLock + ('E'*, 'Q'*)
+        # PThread(target=kbHelper.SimulateHotKeyPress, args=[({win32con.VK_CONTROL:29, kbcon.VK_MINUS: kbcon.AS_MINUS}, {win32con.VK_CONTROL:29, kbcon.VK_EQUALS: kbcon.AS_EQUALS})[event.KeyID == kbcon.VK_E]]).start()
     
     #+ Sending mouse click: ScrollLock + ('E'*, 'Q'*)
     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_E, kbcon.VK_Q):

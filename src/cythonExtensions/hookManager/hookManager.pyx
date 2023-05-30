@@ -155,6 +155,8 @@ class KBDLLHOOKSTRUCT(ctypes.Structure):
         ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
     ]
 
+# ctypedef bint (*HookPtr)(int, int, KBDLLHOOKSTRUCT)
+
 
 # By TwhK/Kheldar. Source: http://www.hackerthreads.org/Topic-42395
 cdef class HookManager:
@@ -257,6 +259,7 @@ cdef class HookManager:
         
         return True
 
+# ctypedef bint (*EventListenerPtr)(KeyboardEvent)
 
 cdef class KeyboardHookManager:
     """A class for managing keyboard hooks and their event listeners."""
@@ -352,3 +355,42 @@ cdef class KeyboardHookManager:
                     PThread(target=listener, args=[keyboardEvent]).start()
                 
                 return False
+
+# ctypedef bint (*EventListenerPtr)(KeyboardEvent)
+
+# cdef bint test(EventListenerPtr listener):
+    # keyboardEvent = KeyboardEvent(event_id=256, event_name="key down", key_name="Escape",
+                                    # vkey_code=27, scancode=1,
+                                    # vkey_ascii=27, flags=0,
+                                    # injected=False, extended=False,
+                                    # shift=True, alt=False, transition=False)
+    
+    # return(listener(keyboardEvent))
+
+# cdef bint MyInner(KeyboardEvent keyboardEvent):
+    # print("MyInner called.")
+    # print(keyboardEvent)
+    # return True
+
+# cdef EventListenerPtr myPtr = &MyInner
+
+# print(test(myPtr))
+
+# ###############################################################
+# # Define a function pointer type
+# ctypedef bint (*FuncPtr)(int, int)
+
+# # Define a function that takes a function pointer as an argument
+# cdef bint CallFunction(FuncPtr func, int value1, int value2):
+    # return func(value1, value2)
+
+# # Define a function that will be passed as a function pointer
+# cdef bint MyFunction(int value1, int value2):
+    # print("MyFunction called with value:", value1, value2)
+    # return True
+
+# # Create a function pointer variable and assign MyFunction to it
+# cdef FuncPtr myFuncPtr = &MyFunction
+
+# # Call the function and pass the function pointer
+# print(CallFunction(myFuncPtr, 42, 77))
