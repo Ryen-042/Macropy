@@ -12,7 +12,7 @@ def main():
     # sys.path is a list of strings that specifies the search path for Python modules.
     # By adding the directory path of the script file to this list, it allows Python to
     # locate and import any modules in that directory as well as any subdirectories within it.
-    # sys.path.append("..")
+    sys.path.append(os.path.dirname(__file__))
     
     if len(sys.argv) > 1 and sys.argv[1] in ("-p", "--profile", "--prof"):
         from cythonExtensions.scriptRunner.scriptRunner import begin_script, profilerManager
