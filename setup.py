@@ -45,6 +45,8 @@ cmdclass = { }
 ext_modules = [ ]
 """List of extension modules to pass to setuptools.setup()"""
 
+packages = ["macropy", "macropy.cythonExtensions"]
+
 if sys.version_info[0] == 2:
     raise Exception("Python 2.x is not supported")
 
@@ -55,57 +57,19 @@ else:
     cython_extensions = glob.glob("src/cythonExtensions/**/*.c", recursive=True)
 
 for extension_path in cython_extensions:
-    extension = os.path.splitext(os.path.basename(extension_path))
-    if extension[0] == "__init__":
-        continue
+    ext_filename = os.path.splitext(os.path.basename(extension_path))
+    
+    packages.append("macropy.cythonExtensions." + ext_filename[0])
     
     ext_modules.append(Extension(
-        name = f"macropy.cythonExtensions.{extension[0]}.{extension[0]}",
-        sources = [f"src/cythonExtensions/{extension[0]}/{extension[0]}{extension[1]}"],
+        name = f"macropy.cythonExtensions.{ext_filename[0]}.{ext_filename[0]}",
+        sources = [f"src/cythonExtensions/{ext_filename[0]}/{ext_filename[0]}{ext_filename[1]}"],
         define_macros = [("CYTHON_TRACE", "1")] if ENABLE_PROFILING else [ ],
     ))
 
-requirements = [ ]
-"""List of requirements to pass to setuptools.setup()"""
-
-with open("requirements.txt", "r") as f:
-    for line in f.read().split():
-        requirements.append(line.split(">=")[0])
-
 # https://stackoverflow.com/questions/58533084/what-keyword-arguments-does-setuptools-setup-accept
 setup(
-    name="kb_macropy",
-    version="1.1.8",
-    description="Keyboard listener and automation script.",
-    author="Ahmed Tarek",
-    author_email="ahmedtarek4377@gmail.com",
-    url="https://github.com/Ryen-042/macropy",
-    package_dir={"macropy": "src"},
-    packages=["macropy"],
-    package_data={"macropy": ["Images/static/*", "SFX/*"]},
+    packages=packages,
     cmdclass = cmdclass,
-    ext_modules=ext_modules,
-    long_description=open("README.md").read(),
-    entry_points ={"console_scripts": ["macropy = macropy.__main__:main"]},
-    long_description_content_type="text/markdown",
-    license="MIT",
-    install_requires=requirements,
-    zip_safe = False,
-    classifiers=[
-        "Development Status :: 5 - Production/Stable",
-        "Environment :: Console",
-        "Environment :: Win32 (MS Windows)",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Cython",
-        "Topic :: Utilities",
-    ],
-    keywords="keyboard automation script",
+    ext_modules=ext_modules
 )
