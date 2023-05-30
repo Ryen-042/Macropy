@@ -2,6 +2,12 @@
 
 .DEFAULT_GOAL := compile;
 
+
+# For some reason, the globstar (eg, **/*.py) is broken in windows. This is a workaround.
+# Source: https://stackoverflow.com/questions/2483182/recursive-wildcards-in-gnu-make
+# Other: https://dev.to/blikoor/customize-git-bash-shell-498l
+rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
+
 compile:
 	@echo "Compiling...";
 	python setup.py build_ext --inplace;
@@ -10,7 +16,7 @@ compile:
 clean-build:
 	@echo "Removing the build related directories...";
 	rm -rf build dist kb_macropy.egg-info;
-	rm -rf **/__pycache__;
+	rm -rf $(call rwildcard,.,*__pycache__);
 	@echo "Done.";
 
 clean: clean-build
