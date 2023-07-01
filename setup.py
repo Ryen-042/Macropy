@@ -1,24 +1,30 @@
 import sys, os
 import glob
 from setuptools import setup, Extension
+from Cython.Build import cythonize
 
 os.chdir(os.path.dirname(__file__))
 
-# Forcing the cython files to be recompiled regardless of modification times and changes.
+# Forcing all the source files to be recompiled.
 os.environ["CYTHON_FORCE_REGEN"] = "1" if "--force" in sys.argv else "0"
 
-ENABLE_PROFILING = "--profile" in sys.argv
+
+ENABLE_PROFILING = False
 """
 Specify whether to enable profiling or not. Note that profiling cause a slight overhead to each function call.
 See https://cython.readthedocs.io/en/latest/src/tutorial/profiling_tutorial.html for more information.
 """
 
+if "--profile" in sys.argv:
+    ENABLE_PROFILING = True
+    sys.argv.remove("--profile")
+
 USE_CYTHON = 1
 """
-Specify whether to use `Cython` to build the extensions or use the `C` files (that were previously generated with Cython):
+Specify whether to use `Cython` to build the extensions from the `.pxd` files or use the already generated `.c` files:
 
 - Set it to `1` to enable building extensions using Cython.
-- Set it to `0` to build extensions from the C files (that were previously generated with Cython).
+- Set it to `0` to build extensions from the `.c` files.
 - Set it to `-1` to build with Cython if available, otherwise from the C file.
 """
 
@@ -29,6 +35,7 @@ if ENABLE_PROFILING:
     directive_defaults = get_directive_defaults()
     directive_defaults['linetrace'] = True
     directive_defaults['binding'] = True
+
 
 if USE_CYTHON:
     try:
@@ -71,5 +78,5 @@ for extension_path in cython_extensions:
 setup(
     packages=packages,
     cmdclass = cmdclass,
-    ext_modules=ext_modules
+    ext_modules=cythonize(ext_modules, language_level=3)
 )

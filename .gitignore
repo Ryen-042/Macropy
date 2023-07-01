@@ -4,7 +4,7 @@ Images
 src/Images/*.png
 
 # Python
-*.py[cod]
+*.py[co]
 *$py.class
 *.pyc
 **/__pycache__
@@ -59,6 +59,8 @@ env/
 venv
 venv.bak/
 venv/
+*-env/
+*-venv/
 
 # Misc
 .mypy_cache

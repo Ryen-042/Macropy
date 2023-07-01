@@ -7,5 +7,4 @@ pywin32>=305
 win11toast>=0.32
 WMI>=1.5.1
 yappi>=1.4.0
-Cython>=0.29.35
 pyprof2calltree>=1.4.5
