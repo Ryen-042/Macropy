@@ -1,7 +1,7 @@
 # cython: embedsignature = True
 # cython: language_level = 3str
 
-"""This extension module provides functions for manipulating Windows Explorer and Desktop."""
+"""This extension module provides functions for manipulating the `Windows Explorer` and the `Desktop`."""
 
 from win32com.client import Dispatch
 from win32com.shell import shell
@@ -419,7 +419,7 @@ cpdef void GenericFileConverter(active_explorer=None, tuple patterns=None, conve
     >>> GenericFileConverter(None, (".png", ".jpg"), lambda f1, f2: PIL.Image.open(f1).resize((512, 512)).save(f2), " - (512x512).ico")
     
     >>> # To convert audio files to .wav files
-    >>> GenericFileConverter(None, (".mp3"), lambda f1, f2: subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', f1, f2]), ".wav")
+    >>> GenericFileConverter(None, (".mp3", ), lambda f1, f2: subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', f1, f2]), ".wav")
     """
     
     cdef bint initializer_called = PThread.CoInitialize()

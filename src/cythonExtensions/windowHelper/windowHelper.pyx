@@ -88,7 +88,7 @@ cpdef int ShowMessageBox(str msg, str title="Warning", int msgbox_type=1, int ic
                      4: win32con.MB_RETRYCANCEL, 5: win32con.MB_YESNOCANCEL}.get(msgbox_type)
     
     # https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messageboxa
-    return ctypes.windll.user32.MessageBoxW(None, msg, title, type | icon | win32con.MB_TOPMOST)
+    return ctypes.windll.user32.MessageBoxW(None, msg, title, type | icon | win32con.MB_TOPMOST | win32con.MB_SETFOREGROUND)
 
 cpdef void AlwaysOnTop():
     """Toggles `AlwaysOnTop` on or off for the active window."""

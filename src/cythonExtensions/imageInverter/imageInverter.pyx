@@ -179,7 +179,7 @@ def make_transparent(image: PIL.Image.Image) -> PIL.Image.Image:
     # Loop through each pixel in the image.
     for item in data_items:
         # if item[0] == 255 and item[1] == 255 and item[2] == 255:
-            # output_image.append((255, 255, 255, 0))
+        # output_image.append((255, 255, 255, 0))
         
         # If the pixel is close to the background color, make it transparent.
         if all([abs(item[0]-bg_color[0] < 10), abs(item[1]-bg_color[1] < 1), abs(item[2]-bg_color[2] < 1)]):

@@ -1,4 +1,4 @@
-"""This module contains the main entry for the entire script. The `main.py` module calls this extension to start the script."""
+"""This module defines functions for setting up and starting the script."""
 
 from contextlib import contextmanager
 
@@ -41,7 +41,7 @@ def profilerManager(filename="", engine="yappi", clock="wall", output_type="psta
         
         `save_near_module -> bool`
             Selects where to save the output file. `True` will save the file relative to this module's location,
-            and `False` will save it relative to the `__main__` module.
+            and `False` will save it relative to the to the current working directory.
     ---
     Usage:
     >>> with profile():
@@ -51,5 +51,10 @@ def profilerManager(filename="", engine="yappi", clock="wall", output_type="psta
 
 
 def begin_script_with_cProfile(save_near_module=False):
+    """Starts the main script with profiling."""
+    ...
+
+
+def begin_script_with_profiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):
     """Starts the main script with profiling."""
     ...

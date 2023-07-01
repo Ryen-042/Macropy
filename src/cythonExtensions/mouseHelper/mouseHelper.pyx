@@ -1,7 +1,7 @@
 # cython: embedsignature = True
 # cython: language_level = 3str
 
-"""This module contains functions for controlling the mouse."""
+"""This extension module contains functions for controlling the mouse."""
 
 import win32gui, win32api, win32con
 

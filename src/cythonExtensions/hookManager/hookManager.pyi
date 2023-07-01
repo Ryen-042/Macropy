@@ -57,10 +57,8 @@ class HookTypes(IntEnum):
 
 
 class KB_MsgTypes(IntEnum):
-    # Constants that represent different types of keyboard-related Windows messages that can be received by a window or a message loop.
-    WM_KEYFIRST    = 0x0100
-    """Defines the minimum value for the range of keyboard-related messages. """
-
+    """Defines constants that represent different types of keyboard-related Windows messages that can be received by a window or in a message loop."""
+    
     WM_KEYDOWN     = 0x0100
     """A keyboard key was pressed."""
 
@@ -114,7 +112,7 @@ vKeyNameToId = {
     "VK_BROWSER_FAVORITES": 0xAB,  "VK_BROWSER_HOME":     0xAC,  "VK_VOLUME_MUTE":         0xAD,  "VK_VOLUME_DOWN":    0xAE,
     "VK_VOLUME_UP":         0xAF,  "VK_MEDIA_NEXT_TRACK": 0xB0,  "VK_MEDIA_PREV_TRACK":    0xB1,  "VK_MEDIA_STOP":     0xB2,
     "VK_MEDIA_PLAY_PAUSE":  0xB3,  "VK_LAUNCH_MAIL":      0xB4,  "VK_LAUNCH_MEDIA_SELECT": 0xB5,  "VK_LAUNCH_APP1":    0xB6,  "VK_LAUNCH_APP2":  0xB7,
-    
+    "Reserved1":            0xB8,  "Reserved2":           0xB9,  # Although these two are reserved, one time `0xB8` was sent (before I add it here) for some unknown reason and I couldn't reproduce it.
     "VK_OEM_1":             0xBA,  "VK_OEM_PLUS":         0xBB,  "VK_OEM_COMMA":           0xBC,  "VK_OEM_MINUS":      0xBD,
     "VK_OEM_PERIOD":        0xBE,  "VK_OEM_2":            0xBF,  "VK_OEM_3":               0xC0,  "VK_OEM_4":          0xDB,  "VK_OEM_5":        0xDC,
     "VK_OEM_6":             0xDD,  "VK_OEM_7":            0xDE,  "VK_OEM_8":               0xDF,  "VK_OEM_102":        0xE2,
@@ -193,9 +191,11 @@ class HookManager:
             "Uninstalls the hook specified by the hookId.
     """
     
+    hookId: int
+    hookPtr: Callable[[int, int, KBDLLHOOKSTRUCT], Any]
+    
     def __init__(self):
-        self.hookId: int
-        self.hookPtr: Callable[[int, int, KBDLLHOOKSTRUCT], Any]
+        ...
 
     def InstallHook(self, callBack: Callable[[int, int, KBDLLHOOKSTRUCT], Any], hookType=HookTypes.WH_KEYBOARD_LL) -> bool:
         """Installs the specified hook. Returns True if everything was successful, and False if it failed."""
@@ -205,29 +205,30 @@ class HookManager:
         """Starts listening for keyboard Windows. Must be called from the main thread."""
         ...
 
-    def UninstallHook(self):
+    def UninstallHook(self) -> bool:
         """Uninstalls the hook specified by the `hookId`."""
         ...
 
 
 class KeyboardHookManager:
     """A class for managing keyboard hooks and their event listeners."""
+    keyDownListeners: list[Callable[[KeyboardEvent], bool]]
+    keyUpListeners  : list[Callable[[KeyboardEvent], bool]]
+    hookId: int
     
     def __init__(self):
-        self.keyDownListeners: list[Callable[[KeyboardEvent], bool]]
-        self.keyUpListeners  : list[Callable[[KeyboardEvent], bool]]
-        self.hookId: int
-
-    def addKeyDownListener(self, listener: Callable[[KeyboardEvent], bool]):
         ...
 
-    def addKeyUpListener(self, listener: Callable[[KeyboardEvent], bool]):
+    def addKeyDownListener(self, listener: Callable[[KeyboardEvent], bool]) -> None:
         ...
 
-    def removeKeyDownListener(self, listener: Callable[[KeyboardEvent], bool]):
+    def addKeyUpListener(self, listener: Callable[[KeyboardEvent], bool]) -> None:
         ...
 
-    def removeKeyUpListener(self, listener: Callable[[KeyboardEvent], bool]):
+    def removeKeyDownListener(self, listener: Callable[[KeyboardEvent], bool]) -> None:
+        ...
+
+    def removeKeyUpListener(self, listener: Callable[[KeyboardEvent], bool]) -> None:
         ...
 
     def KeyboardHook(self, nCode: int, wParam: int, lParam: KBDLLHOOKSTRUCT) -> bool:

@@ -1,6 +1,8 @@
 # cython: embedsignature = True
 # cython: language_level = 3str
 
+"""This module contains functions and classes for managing Windows hooks."""
+
 import ctypes, win32gui, win32api, win32con, atexit
 import ctypes.wintypes
 from cythonExtensions.commonUtils.commonUtils cimport KeyboardEvent
@@ -26,7 +28,7 @@ cdef enum HookTypes:
     WH_MAX             = 15   # The maximum value for a hook type. It is not a valid hook type itself.
 
 cdef enum KB_MsgTypes:
-    # Constants that represent different types of keyboard-related Windows messages that can be received by a window or a message loop.
+    # Constants that represent different types of keyboard-related Windows messages that can be received by a window or in a message loop.
     WM_KEYDOWN     = 0x0100   # A keyboard key was pressed.
     WM_KEYUP       = 0x0101   # A keyboard key was released.
     WM_CHAR        = 0x0102   # A keyboard key was pressed down and released, and it represents a printable character.
@@ -62,7 +64,7 @@ cdef dict vKeyNameToId = {
         "VK_BROWSER_FAVORITES": 0xAB,  "VK_BROWSER_HOME":     0xAC,  "VK_VOLUME_MUTE":         0xAD,  "VK_VOLUME_DOWN":    0xAE,
         "VK_VOLUME_UP":         0xAF,  "VK_MEDIA_NEXT_TRACK": 0xB0,  "VK_MEDIA_PREV_TRACK":    0xB1,  "VK_MEDIA_STOP":     0xB2,
         "VK_MEDIA_PLAY_PAUSE":  0xB3,  "VK_LAUNCH_MAIL":      0xB4,  "VK_LAUNCH_MEDIA_SELECT": 0xB5,  "VK_LAUNCH_APP1":    0xB6,  "VK_LAUNCH_APP2":  0xB7,
-        
+        "Reserved1":            0xB8,  "Reserved2":           0xB9,  # Although these two are reserved, one time `0xB8` was sent (before I add it here) for some unknown reason and I couldn't reproduce it.
         "VK_OEM_1":             0xBA,  "VK_OEM_PLUS":         0xBB,  "VK_OEM_COMMA":           0xBC,  "VK_OEM_MINUS":      0xBD,
         "VK_OEM_PERIOD":        0xBE,  "VK_OEM_2":            0xBF,  "VK_OEM_3":               0xC0,  "VK_OEM_4":          0xDB,  "VK_OEM_5":        0xDC,
         "VK_OEM_6":             0xDD,  "VK_OEM_7":            0xDE,  "VK_OEM_8":               0xDF,  "VK_OEM_102":        0xE2,
@@ -155,8 +157,6 @@ class KBDLLHOOKSTRUCT(ctypes.Structure):
         ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
     ]
 
-# ctypedef bint (*HookPtr)(int, int, KBDLLHOOKSTRUCT)
-
 
 # By TwhK/Kheldar. Source: http://www.hackerthreads.org/Topic-42395
 cdef class HookManager:
@@ -177,7 +177,6 @@ cdef class HookManager:
     
     cdef int hookId
     cdef hookPtr
-    # cdef HookPtr hook_ptr
     
     def __init__(self):
         self.hookId = 0
@@ -281,7 +280,7 @@ cdef class KeyboardHookManager:
     cpdef void removeKeyDownListener(self, listener):
         self.keyDownListeners.remove(listener)
 
-    cpdef removeKeyUpListener(self, listener):
+    cpdef void removeKeyUpListener(self, listener):
         self.keyUpListeners.remove(listener)
 
     cpdef bint KeyboardHook(self, int nCode, int wParam, lParam):
@@ -355,42 +354,3 @@ cdef class KeyboardHookManager:
                     PThread(target=listener, args=[keyboardEvent]).start()
                 
                 return False
-
-# ctypedef bint (*EventListenerPtr)(KeyboardEvent)
-
-# cdef bint test(EventListenerPtr listener):
-    # keyboardEvent = KeyboardEvent(event_id=256, event_name="key down", key_name="Escape",
-                                    # vkey_code=27, scancode=1,
-                                    # vkey_ascii=27, flags=0,
-                                    # injected=False, extended=False,
-                                    # shift=True, alt=False, transition=False)
-    
-    # return(listener(keyboardEvent))
-
-# cdef bint MyInner(KeyboardEvent keyboardEvent):
-    # print("MyInner called.")
-    # print(keyboardEvent)
-    # return True
-
-# cdef EventListenerPtr myPtr = &MyInner
-
-# print(test(myPtr))
-
-# ###############################################################
-# # Define a function pointer type
-# ctypedef bint (*FuncPtr)(int, int)
-
-# # Define a function that takes a function pointer as an argument
-# cdef bint CallFunction(FuncPtr func, int value1, int value2):
-    # return func(value1, value2)
-
-# # Define a function that will be passed as a function pointer
-# cdef bint MyFunction(int value1, int value2):
-    # print("MyFunction called with value:", value1, value2)
-    # return True
-
-# # Create a function pointer variable and assign MyFunction to it
-# cdef FuncPtr myFuncPtr = &MyFunction
-
-# # Call the function and pass the function pointer
-# print(CallFunction(myFuncPtr, 42, 77))

@@ -1,8 +1,29 @@
 """This module provides functions for manipulating keyboard presses and text expansion."""
 
+import win32con
 from typing import Callable, Any
 
-extended_keys: set[int]
+# We must check before sending keys using keybd_event: https://stackoverflow.com/questions/21197257/keybd-event-keyeventf-extendedkey-explanation-required
+extended_keys = {
+    win32con.VK_RMENU,      # "Rmenue"     # -> Right Alt
+    win32con.VK_RCONTROL,   # "Rcontrol"
+    win32con.VK_RSHIFT,     # "Rshift"
+    win32con.VK_APPS,       # "Apps"       # -> Menu
+    win32con.VK_VOLUME_UP,  # "Volume_Up"
+    win32con.VK_VOLUME_DOWN,# "Volume_Down"
+    win32con.VK_SNAPSHOT,   # "Snapshot"
+    win32con.VK_INSERT,     # "Insert"
+    win32con.VK_DELETE,     # "Delete"
+    win32con.VK_HOME,       # "Home"
+    win32con.VK_END,        # "End"
+    win32con.VK_CANCEL,     # "Break"
+    win32con.VK_PRIOR,      # "Prior"
+    win32con.VK_NEXT,       # "Next"
+    win32con.VK_UP,         # "Up"
+    win32con.VK_DOWN,       # "DOWN"
+    win32con.VK_LEFT,       # "LEFT"
+    win32con.VK_RIGHT       # "RIGHT"
+}
 
 
 def SimulateKeyPress(key_id: int, key_scancode=0, times=1) -> None:
@@ -68,7 +89,7 @@ def GetCaretPosition(text: str, caret="{!}") -> int:
     ...
 
 
-def SendTextWithCaret(text: str, caret="{!}"):
+def SendTextWithCaret(text: str, caret="{!}") -> None:
     """
     Description:
         - Sends (writes) the specified string to the active window.

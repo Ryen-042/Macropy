@@ -1,7 +1,7 @@
 # cython: embedsignature = True
 # cython: language_level = 3str
 
-"""This extension module contains the main entry for the entire script. The `main.py` module calls this extension to start the script."""
+"""This extension module defines functions for setting up and starting the script."""
 
 import os
 
@@ -99,9 +99,6 @@ cpdef void begin_script():
     print("Uninstalling the hook...")
     hookManager.UninstallHook()
     
-    # Wait for a certain number of seconds before forcefully stopping the running threads.
-    cdef float countdown_start = time()
-    
     # Get a list of all running threads
     cdef list alive_threads = threading.enumerate()
     
@@ -111,6 +108,9 @@ cpdef void begin_script():
     # A flag to break the outer loop.
     cdef bint break_outer = False
     
+    cdef float countdown_start = time()
+    
+    # Waiting for a certain number of seconds before forcefully stopping the running threads.
     for thread in alive_threads:
         if thread != threading.main_thread():
             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
@@ -177,7 +177,7 @@ def profilerManager(filename="", engine="yappi", clock="wall", output_type="psta
         
         `save_near_module -> bool`
             Selects where to save the output file. `True` will save the file relative to this module's location,
-            and `False` will save it relative to the `__main__` module.
+            and `False` will save it relative to the to the current working directory.
     ---
     Usage:
     >>> with profile():

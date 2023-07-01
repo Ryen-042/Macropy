@@ -1,4 +1,4 @@
-"""This module provides functions for manipulating Windows Explorer and Desktop."""
+"""This module provides functions for manipulating the `Windows Explorer` and the `Desktop`."""
 
 from win32com.client import CDispatch
 from typing import Callable, Optional
@@ -160,7 +160,7 @@ def GenericFileConverter(active_explorer: Optional[CDispatch], patterns: Optiona
     >>> GenericFileConverter(None, (".png", ".jpg"), lambda f1, f2: PIL.Image.open(f1).resize((512, 512)).save(f2), " - (512x512).ico")
     
     >>> # To convert audio files to .wav files
-    >>> GenericFileConverter(None, (".mp3"), lambda f1, f2: subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', f1, f2]), ".wav")
+    >>> GenericFileConverter(None, (".mp3", ), lambda f1, f2: subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', f1, f2]), ".wav")
     """
     ...
 
