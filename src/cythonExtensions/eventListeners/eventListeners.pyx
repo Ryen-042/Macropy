@@ -13,6 +13,7 @@ from cythonExtensions.mouseHelper import mouseHelper    as msHelper
 from cythonExtensions.commonUtils.commonUtils import ControllerHouse as ctrlHouse, WindowHouse as winHouse, PThread, Management as mgmt, KB_Con as kbcon
 from cythonExtensions.commonUtils import commonUtils
 from cythonExtensions.commonUtils.commonUtils cimport KeyboardEvent
+from cythonExtensions.eventListeners import taskConfigs as taskCfg
 import threading
 
 cpdef bint HotkeyPressEvent(KeyboardEvent event):
@@ -96,6 +97,16 @@ cpdef bint HotkeyPressEvent(KeyboardEvent event):
         
         suppress_key = True
     
+    elif (ctrlHouse.modifiers & ctrlHouse.BACKTICK) and event.KeyID == win32con.VK_PAUSE:
+        PThread(target=sysHelper.suspendProcess).start()
+        winsound.PlaySound(r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+        suppress_key = True
+    
+    elif (ctrlHouse.modifiers & ctrlHouse.ALT) and event.KeyID == win32con.VK_PAUSE:
+        PThread(target=sysHelper.resumeProcess).start()
+        winsound.PlaySound(r"SFX\pedantic-490.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+        suppress_key = True
+    
     ### Window management Operations ###
     #+  Incresing/Decreasing the opacity of the active window: '`' + (['+'* | Add], ['-'* | Subtract])
     elif (ctrlHouse.modifiers & ctrlHouse.BACKTICK) and event.KeyID in (kbcon.VK_EQUALS, kbcon.VK_MINUS, win32con.VK_ADD, win32con.VK_SUBTRACT):
@@ -113,11 +124,11 @@ cpdef bint HotkeyPressEvent(KeyboardEvent event):
     elif (ctrlHouse.modifiers & ctrlHouse.BACKTICK) and event.KeyID in (win32con.VK_UP, win32con.VK_RIGHT, win32con.VK_DOWN, win32con.VK_LEFT):
         
         if ctrlHouse.modifiers & ctrlHouse.ALT: # If `Alt` is pressed, increase the movement distance.
-            dist = 15
+            dist = taskCfg.WINDOW_MOVEMENT_DISTANCE_LARGE
         elif ctrlHouse.modifiers & ctrlHouse.SHIFT: # If `Shift` is pressed, decrease the movemen distance.
-            dist = 2
+            dist = taskCfg.WINDOW_MOVEMENT_DISTANCE_SMALL
         else:
-            dist = 7
+            dist = taskCfg.WINDOW_MOVEMENT_DISTANCE_MEDIUM
         
         if ctrlHouse.modifiers & ctrlHouse.WIN: # If `Win` is pressed, changing window size instead of moving it.
             PThread(target=winHelper.MoveActiveWindow, kwargs={win32con.VK_UP: {'height': dist}, win32con.VK_RIGHT: {'width': dist}, win32con.VK_DOWN: {'height': -dist}, win32con.VK_LEFT: {'width': -dist}}.get(event.KeyID)).start()
@@ -198,38 +209,16 @@ cpdef bint HotkeyPressEvent(KeyboardEvent event):
         
         suppress_key = True
     
-    #+ Pausing the running TTS: 'FN' + Shift + 'R'*
-    # elif (ctrlHouse.modifiers & ctrlHouse.SHIFT_FN) == ctrlHouse.SHIFT_FN and event.KeyID == kbcon.VK_R:
-    #     winsound.PlaySound(r"C:\Windows\Media\Windows Proximity Notification.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
-    #     if ttsHouse.status == 1:    # If status = Running, then pause.
-    #         ttsHouse.status = 2
-    #         ttsHouse.op_called = False
-    #     elif ttsHouse.status == 2:  # If status = Paused, then continue playing.
-    #         with ttsHouse.condition:
-    #             ttsHouse.condition.notify()
-        
-    #     suppress_key = True
-    
-    #+ Stopping the TTS reader: Alt + FN + 'R'*
-    # elif (ctrlHouse.modifiers & ctrlHouse.ALT_FN) == ctrlHouse.ALT_FN and event.KeyID == kbcon.VK_R:
-    #     ttsHouse.status = 3
-    #     ttsHouse.op_called = False
-        
-    #     suppress_key = True
-    
-    #+ Reading selected text aloud: FN + 'R'*
-    # elif (ctrlHouse.modifiers & ctrlHouse.FN) and event.KeyID == kbcon.VK_R:
-    #     PThread(target=ttsHouse.ScheduleSpeak).start()
-        
-    #     suppress_key = True
-    
     ### Keyboard/Mouse control operations ###
     #+ Scrolling by simulating mouse scroll events. ScrollLock + Alt + ('W'*, 'S'*, 'A'*, 'D'*)
     # Don't use shift as it causes the scrolling to be horizontal.
     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and (ctrlHouse.modifiers & ctrlHouse.ALT) and event.KeyID in (kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D):
-        dist = 3
+        # if ctrlHouse.modifiers & ctrlHouse.ALT:
+        dist = taskCfg.SCROLL_DISTANCE_MULTIPLIER
+        # else:
+        #     dist = 1
         
-        PThread(target=commonUtils.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start()
+        PThread(target=commonUtils.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID), taskCfg.WHEEL_SCROLL_DISTANCE]).start()
         
         suppress_key = True
     
@@ -251,19 +240,20 @@ cpdef bint HotkeyPressEvent(KeyboardEvent event):
     
     #+ Zooming in by simulating mouse scroll events: ScrollLock + Ctrl + ('E'*, 'Q'*)
     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and (ctrlHouse.modifiers & ctrlHouse.CTRL) and event.KeyID in (kbcon.VK_E, kbcon.VK_Q):
-        dist = 1
-        PThread(target=commonUtils.SendMouseScroll, args=[(-dist, dist)[event.KeyID == kbcon.VK_E], 1, 20]).start()
+        dist = taskCfg.ZOOMING_DISTANCE
+        
+        PThread(target=commonUtils.SendMouseScroll, args=[(-dist, dist)[event.KeyID == kbcon.VK_E], 1, taskCfg.ZOOMING_DISTANCE_MULTIPLIER]).start()
         
         suppress_key = True
     
     #+ Moving the mouse cursor: [Alt | Shift] + [";" | "'" | "/" | "."]
     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_SEMICOLON, kbcon.VK_SINGLE_QUOTES, kbcon.VK_SLASH, kbcon.VK_PERIOD):
         if ctrlHouse.modifiers & ctrlHouse.ALT: # If `Alt` is pressed, increase the movement distance.
-            dist = 20
-        elif ctrlHouse.modifiers & ctrlHouse.SHIFT: # If `Shift` is pressed, decrease the movemen distance.
-            dist = 5
+            dist = taskCfg.MOUSE_MOVEMENT_DISTANCE_LARGE
+        elif ctrlHouse.modifiers & ctrlHouse.SHIFT: # If `Shift` is pressed, decrease the movement distance.
+            dist = taskCfg.MOUSE_MOVEMENT_DISTANCE_SMALL
         else:
-            dist = 40
+            dist = taskCfg.MOUSE_MOVEMENT_DISTANCE_MEDIUM
         
         PThread(target=msHelper.moveCursor, args=[*{kbcon.VK_SEMICOLON: (0, -dist), kbcon.VK_SINGLE_QUOTES: (dist, 0), kbcon.VK_SLASH: (0, dist), kbcon.VK_PERIOD: (-dist, 0)}.get(event.KeyID)]).start()
         
@@ -411,14 +401,15 @@ cpdef bint KeyPress(KeyboardEvent event):
     #++ Scrolling by simulating mouse scroll events. ('W'*, 'S'*, 'A'*, 'D'*)
     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_W, kbcon.VK_S, kbcon.VK_A, kbcon.VK_D):
         dist = 1
-        PThread(target=commonUtils.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID)]).start()
+        
+        PThread(target=commonUtils.SendMouseScroll, args=[*{kbcon.VK_W: (dist, 1), kbcon.VK_S: (-dist, 1), kbcon.VK_A: (-dist, 0), kbcon.VK_D: (dist, 0)}.get(event.KeyID), taskCfg.WHEEL_SCROLL_DISTANCE]).start()
         
         # Suppress the pressed key.
         PThread.msgQueue.put(True)
     
     #+ Moving the mouse cursor: [";" | "'" | "/" | "."] + {Alt | Shift}
     elif (ctrlHouse.locks & ctrlHouse.SCROLL) and event.KeyID in (kbcon.VK_SEMICOLON, kbcon.VK_SINGLE_QUOTES, kbcon.VK_SLASH, kbcon.VK_PERIOD):
-        dist = 10
+        dist = taskCfg.MOUSE_MOVEMENT_DISTANCE_BASE
         
         PThread(target=msHelper.moveCursor, args=[*{kbcon.VK_SEMICOLON: (0, -dist), kbcon.VK_SINGLE_QUOTES: (dist, 0), kbcon.VK_SLASH: (0, dist), kbcon.VK_PERIOD: (-dist, 0)}.get(event.KeyID)]).start()
         

@@ -1,4 +1,4 @@
-"""This contains the keyboard listeners responsible for handling hotkey press and release events."""
+"""This module contains the keyboard listeners responsible for handling hotkey press and release events."""
 
 from cythonExtensions.commonUtils.commonUtils import KeyboardEvent
 
