@@ -5,6 +5,7 @@ import queue
 from enum import IntEnum
 import threading, win32clipboard
 from win32com.client import CDispatch
+import scriptConfigs as configs
 
 
 class KB_Con(IntEnum):
@@ -116,6 +117,75 @@ class KB_Con(IntEnum):
     SC_LEFT        = 75
     SC_VOLUME_UP   = 48 # Make sure that this doesn't conflict with `KB_Con.SC_B` as both have the same value.
     SC_VOLUME_DOWN = 46
+
+
+class BaseEvent:
+    """
+    Description:
+        The base class for all events.
+    ---
+    Parameters:
+        `EventID -> int`: The event ID (the message code).
+        
+        `EventName -> str`: The name of the event (message).
+        
+        `Flags -> int`: The flags associated with the event.
+    """
+    EventId  : int
+    Flags    : int
+    EventName: str
+    
+    def __init__(self, event_id: int, event_name: str, flags: int):
+        ...
+
+
+class KeyboardEvent(BaseEvent):
+    """
+    Description:
+        Holds information about a keyboard event.
+    ---
+    Parameters:
+        `EventID -> int`: The event ID (the message code).
+        
+        `EventName -> str`: The name of the event (message).
+        
+        `Key -> str`: The name of the key.
+        
+        `KeyID -> int`: The virtual key code.
+        
+        `Scancode -> int`: The key scancode.
+        
+        `Ascii -> int`: The ASCII value of the key.
+        
+        `Flags -> int`: The flags associated with the event.
+        
+        `Injected -> bool`: Whether or not the event was injected.
+        
+        `Extended -> bool`: Whether or not the event is an extended key event.
+        
+        `Shift -> bool`: Whether or not the shift key is pressed.
+        
+        `Alt -> bool`: Whether or not the alt key is pressed.
+        
+        `Transition -> bool`: Whether or not the key is transitioning from up to down.
+    """
+    
+    KeyID      : int
+    Scancode   : int
+    Ascii      : int
+    Key        : str
+    Injected   : bool
+    Extended   : bool
+    Shift      : bool
+    Alt        : bool
+    Transition : bool
+    
+    def __init__(self, event_id: int, event_name: str, vkey_code: int, scancode: int, key_ascii: int, key_name: str,
+                 flags: int, injected: bool, extended: bool, shift: bool, alt: bool, transition: bool):
+        ...
+    
+    def __repr__(self) -> str:
+        return f"Key={self.Key}, ID={self.KeyID}, SC={self.Scancode}, Asc={self.Ascii} | Inj={self.Injected}, Ext={self.Extended}, Shift={self.Shift}, Alt={self.Alt}, Trans={self.Transition}, Flags={self.Flags} | EvtId={self.EventId}, EvtName='{self.EventName}'"
 
 
 def static_class(cls):
@@ -282,11 +352,11 @@ class ControllerHouse:
     heldMouseBtn : int
     """Stores the mouse button that is currently being held down."""
     
-    abbreviations : dict[str, str]
-    """A dictionary of abbreviations and their corresponding expansions."""
+    abbreviations = configs.ABBREVIATIONS
+    """A dictionary of abbreviations and their corresponding expansion."""
     
-    locations : dict[str, str]
-    """A dictionary of abbreviations and their corresponding paths."""
+    locations = configs.LOCATIONS
+    """A dictionary of abbreviations and their corresponding path address."""
 
 
 def UpdateModifiers_KeyDown(event: KeyboardEvent) -> None:
@@ -342,17 +412,23 @@ class ShellAutomationObjectWrapper:
     """A lock object used to ensure that only one thread can access the Automation object at a time."""
 
 
+# Source: https://stackoverflow.com/questions/6552097/threading-how-to-get-parent-id-name
 class PThread(threading.Thread):
-    """An extension of threading.Thread. Stores some relevant information about the threads."""
-    
-    throttle_lock: threading.Lock
-    """A lock object used to ensure that only one thread can access the critical section in the Throttle decorator."""
+    """An extension of `threading.Thread`. The class adds these features:
+    - A `parent` attribute to the thread object.
+    - Propagates exceptions from the created threads to the calling one and show them using error messages.
+    - Defines ways for thread communication.
+    - Defines ways for controlling the frequency or timing of certain events.
+    """
     
     mainThreadId = threading.main_thread().ident
     """The ID of the main thread."""
     
     msgQueue: queue.Queue[bool]
     """A queue used for message passing between threads."""
+    
+    def __init__(self, *args, **kwargs) -> None:
+        ...
     
     @staticmethod
     def InMainThread() -> bool:
@@ -378,7 +454,7 @@ class PThread(threading.Thread):
         ...
     
     @staticmethod
-    def CoUninitialize(initializer_called: bool) -> bool:
+    def CoUninitialize() -> None:
         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
         ...
     
@@ -404,73 +480,6 @@ class PThread(threading.Thread):
         A function decorated with this decorator can also be called immediately using `func_name.runNoWait()`.
         """
         ...
-
-
-class BaseEvent:
-    """
-    Description:
-        The base class for all events.
-    ---
-    Parameters:
-        `EventID -> int`: The event ID (the message code).
-        
-        `EventName -> str`: The name of the event (message).
-        
-        `Flags -> int`: The flags associated with the event.
-    """
-    
-    def __init__(self, event_id: int, event_name: str, flags: int):
-        self.EventId   = int
-        self.EventName = str
-        self.Flags     = int
-
-
-class KeyboardEvent(BaseEvent):
-    """
-    Description:
-        Holds information about a keyboard event.
-    ---
-    Parameters:
-        `EventID -> int`: The event ID (the message code).
-        
-        `EventName -> str`: The name of the event (message).
-        
-        `Key -> str`: The name of the key.
-        
-        `KeyID -> int`: The virtual key code.
-        
-        `Scancode -> int`: The key scancode.
-        
-        `Ascii -> int`: The ASCII value of the key.
-        
-        `Flags -> int`: The flags associated with the event.
-        
-        `Injected -> bool`: Whether or not the event was injected.
-        
-        `Extended -> bool`: Whether or not the event is an extended key event.
-        
-        `Shift -> bool`: Whether or not the shift key is pressed.
-        
-        `Alt -> bool`: Whether or not the alt key is pressed.
-        
-        `Transition -> bool`: Whether or not the key is transitioning from up to down.
-    """
-    
-    def __init__(self, event_id: int, event_name: str, vkey_code: int, scancode: int, key_ascii: int, key_name: str,
-                 flags: int, injected: bool, extended: bool, shift: bool, alt: bool, transition: bool):
-        
-        self.KeyID = vkey_code
-        self.Scancode = scancode
-        self.Ascii = key_ascii
-        self.Key = key_name
-        self.Injected = injected
-        self.Extended = extended
-        self.Transition = transition
-        self.Shift = shift
-        self.Alt = alt
-    
-    def __repr__(self):
-        return f"Key={self.Key}, ID={self.KeyID}, SC={self.Scancode}, Asc={self.Ascii} | Inj={self.Injected}, Ext={self.Extended}, Shift={self.Shift}, Alt={self.Alt}, Trans={self.Transition}, Flags={self.Flags} | EvtId={self.EventId}, EvtName='{self.EventName}'"
 
 
 def ReadFromClipboard(CF= win32clipboard.CF_TEXT) -> str: # CF: Clipboard format.

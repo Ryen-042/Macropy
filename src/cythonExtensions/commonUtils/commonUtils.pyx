@@ -268,10 +268,6 @@ class ControllerHouse:
     
     locations = configs.LOCATIONS
     """A dictionary of abbreviations and their corresponding path address."""
-    
-    # https://nitratine.net/blog/post/simulate-keypresses-in-python/
-    # pynput_kb = kbController()
-    # pynput_mouse = mController()
 
 
 cpdef inline void UpdateModifiers_KeyDown(KeyboardEvent event):
@@ -392,11 +388,15 @@ class ShellAutomationObjectWrapper:
 
 # Source: https://stackoverflow.com/questions/6552097/threading-how-to-get-parent-id-name
 class PThread(threading.Thread):
-    """An extension of threading.Thread. Stores some relevant information about the threads."""
+    """An extension of `threading.Thread`. The class adds these features:
+    - A `parent` attribute to the thread object.
+    - Propagates exceptions from the created threads to the calling one and show them using error messages.
+    - Defines ways for thread communication.
+    - Defines ways for controlling the frequency or timing of certain events.
+    """
     
-    # Used in the Throttle decorator to make it thread-safe.
     _throttle_lock = threading.Lock()
-    """A lock object used to ensure that only one thread can access the critical section in the Throttle decorator."""
+    """A lock object used to ensure that only one thread can access the critical section in the `Throttle` decorator."""
     
     mainThreadId = threading.main_thread().ident
     """The ID of the main thread."""
@@ -474,6 +474,8 @@ class PThread(threading.Thread):
             pythoncom.CoUninitialize()
             threading.current_thread().coInitializeCalled = False
     
+    # Source: https://github.com/salesforce/decorator-operations/blob/master/decoratorOperations/throttle_functions/throttle.py
+    # For a comparison between Throttling and Debouncing: https://stackoverflow.com/questions/25991367/difference-between-throttling-and-debouncing-a-function
     @staticmethod
     def Throttle(wait_time: float):
         """
@@ -614,7 +616,7 @@ cdef class KeyboardEvent(BaseEvent):
         self.Shift = shift
         self.Alt = alt
     
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Key={self.Key}, ID={self.KeyID}, SC={self.Scancode}, Asc={self.Ascii} | Inj={self.Injected}, Ext={self.Extended}, Shift={self.Shift}, Alt={self.Alt}, Trans={self.Transition}, Flags={self.Flags} | EvtId={self.EventId}, EvtName='{self.EventName}'"
 
 
