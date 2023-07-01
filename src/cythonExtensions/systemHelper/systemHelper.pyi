@@ -59,7 +59,7 @@ def ChangeBrightness(opcode=1, increment=5) -> None:
     ...
 
 
-def ScreenOff():
+def ScreenOff() -> None:
     """Turns off the screen."""
     ...
 
@@ -79,6 +79,26 @@ def Shutdown(request_confirmation=False) -> None:
     ...
 
 
-def GetProcessExe(hwnd: int) -> str:
-    """Given a window handle, returns the process executable path."""
+def GetProcessFileAddress(hwnd: int) -> str:
+    """Given a window handle, returns its process file address."""
+    ...
+
+
+def suspendProcess(hwnd=0) -> int:
+    """Suspends a process given its window handle. Uses the handle of the active window if no handle is passed."""
+    ...
+
+
+def resumeProcess(hwnd=0) -> int:
+    """Resumes a suspended process given its window handle. Uses the handle of the active window if no handle is passed."""
+    ...
+
+
+def GetHungwindowHandle(hwnd=0) -> int:
+    """Returns the actual hwnd of a hung window given its ghost window handle. Uses the handle of the active window if no handle is passed."""
+    ...
+
+
+def isProcessSuspended(pid: int) -> bool:
+    """Returns whether a process is suspended or not."""
     ...

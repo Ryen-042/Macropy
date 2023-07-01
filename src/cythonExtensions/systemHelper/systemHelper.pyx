@@ -92,13 +92,19 @@ cpdef void ScheduleElevatedProcessChecker(float delay=10.0):
                 return
             
             winsound.PlaySound(r"C:\Windows\Media\Windows Exclamation.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
-            print(f"Attention: the active process '{win32gui.GetWindowText(win32gui.GetForegroundWindow())}' has elevated privileges and no keyboard events can be received.")
+            
+            windowTitle = win32gui.GetWindowText(win32gui.GetForegroundWindow())
+            if windowTitle.endswith("(Not Responding)"):
+                print(f"Attention: the active process '{windowTitle}' is not responding and no keyboard events can be received.")
+            
+            else:
+                print(f"Attention: the active process '{windowTitle}' has elevated privileges and no keyboard events can be received.")
 
 
 cpdef void DisplayCPUsage():
     """Prints the current CPU and Memort usage to the console."""
     cdef str char_empty, char_fill, cpu_bar, mem_bar
-    cdef float cpu_usage, scale, mem_usage
+    cdef double cpu_usage, scale, mem_usage
     cdef int columns, max_width, cpu_filled, cpu_remaining, mem_filled, mem_remaining
     
     # Define visual characters for progress bars.
@@ -230,7 +236,7 @@ def GoToSleep() -> None:
     print("Device is now active.")
 
 
-@PThread.Throttle(15)
+@PThread.Throttle(0.1)
 def Shutdown(request_confirmation=False) -> None:
     """Shuts down the computer."""
     
@@ -254,8 +260,122 @@ def Shutdown(request_confirmation=False) -> None:
     TerminateScript(graceful=False)
 
 
-cpdef str GetProcessExe(int hwnd):
-    """Given a window handle, returns the process executable path."""
+cpdef str GetProcessFileAddress(int hwnd):
+    """Given a window handle, returns its process file address."""
+    try:
+        proc_handle = win32api.OpenProcess(win32con.PROCESS_ALL_ACCESS, False, win32process.GetWindowThreadProcessId(hwnd)[1])
+        
+        procs_address = win32process.GetModuleFileNameEx(proc_handle, 0)
+        
+        win32api.CloseHandle(proc_handle)
+        
+        return procs_address
     
-    return win32process.GetModuleFileNameEx(win32api.OpenProcess(win32con.PROCESS_ALL_ACCESS, 0,
-                                                                 win32process.GetWindowThreadProcessId(hwnd)[1]), 0)
+    except Exception as e:
+        print(f"Error accessing process with hwnd={hwnd}: {e}")
+        
+        return ""
+
+
+cpdef int suspendProcess(int hwnd=0):
+    """Suspends a process given its window handle. Uses the handle of the active window if no handle is passed."""
+    
+    if not hwnd:
+        hwnd = win32gui.GetForegroundWindow()
+    
+    _thread_id, process_id = win32process.GetWindowThreadProcessId(hwnd)
+    if isProcessSuspended(process_id):
+        try:
+            print(f"The '{psutil.Process(process_id).name()}' process with hwnd={hwnd} and pid={process_id} is already suspended.")
+        except Exception as ex:
+            print(f"The process with hwnd={hwnd} and pid={process_id} is already suspended.")
+        
+        return 0
+    
+    try:
+        process_handle = ctypes.windll.kernel32.OpenProcess(win32con.PROCESS_SUSPEND_RESUME, False, process_id)
+        
+        ctypes.windll.ntdll.NtSuspendProcess(process_handle)
+        
+        ctypes.windll.kernel32.CloseHandle(process_handle)
+        
+        try:
+            process_name = psutil.Process(process_id).name()
+            print(f"Successfully suspended the '{process_name}' process with hwnd={hwnd} and pid={process_id}.")
+        except Exception as ex:
+            print(f"Successfully suspended the process with hwnd={hwnd}, pid={process_id}")
+        
+        return 1
+    
+    except Exception as ex:
+        print(f"{ex}: Could not suspend the process with hwnd={hwnd} and pid={process_id}. Make sure you have the necessary permissions.")
+        
+        return 0
+
+
+cpdef int resumeProcess(int hwnd=0):
+    """Resumes a suspended process given its window handle. Uses the handle of the active window if no handle is passed."""
+    
+    if not hwnd:
+        hwnd = win32gui.GetForegroundWindow()
+    
+    if ctypes.windll.user32.IsHungAppWindow(hwnd):
+        hwnd = ctypes.windll.user32.HungWindowFromGhostWindow(hwnd)
+    
+    _thread_id, process_id = win32process.GetWindowThreadProcessId(hwnd)
+    
+    if not isProcessSuspended(process_id):
+        try:
+            print(f"The '{psutil.Process(process_id).name()}' process with hwnd={hwnd} and pid={process_id} is not suspended.")
+        except Exception as ex:
+            print(f"The process with hwnd={hwnd} and pid={process_id} is not suspended.")
+        
+        return 0
+    
+    try:
+        process_handle = ctypes.windll.kernel32.OpenProcess(win32con.PROCESS_SUSPEND_RESUME, False, process_id)
+        
+        ctypes.windll.ntdll.NtResumeProcess(process_handle)
+        
+        ctypes.windll.kernel32.CloseHandle(process_handle)
+        
+        try:
+            process_name = psutil.Process(process_id).name()
+            print(f"Successfully resumed the '{process_name}' process with hwnd={hwnd} and pid={process_id}.")
+        except Exception as ex:
+            print(f"Successfully resumed the process with hwnd={hwnd}, pid={process_id}")
+        
+        return 1
+    
+    except Exception as ex:
+        print(f"{ex}: Could not resume the process with hwnd={hwnd} and pid={process_id}. Make sure you have the necessary permissions.")
+        
+        return 0
+
+
+cpdef int GetHungwindowHandle(int hwnd=0):
+    """Returns the actual hwnd of a hung window given its ghost window handle. Uses the handle of the active window if no handle is passed."""
+    
+    if not hwnd:
+        hwnd = win32gui.GetForegroundWindow()
+    
+    if ctypes.windll.user32.IsHungAppWindow(hwnd):
+        real_hwnd = ctypes.windll.user32.HungWindowFromGhostWindow(hwnd)
+        
+        # To get the reverse mapping:
+        # ghost_hwnd = ctypes.windll.user32.GhostWindowFromHungWindow(real_hwnd)
+        
+        return real_hwnd
+    
+    return 0
+
+
+cpdef bint isProcessSuspended(int pid):
+    """Returns whether a process is suspended or not."""
+    
+    try:
+        process = psutil.Process(pid)
+        return process.status() == psutil.STATUS_STOPPED
+    
+    except psutil.NoSuchProcess:
+        return False
