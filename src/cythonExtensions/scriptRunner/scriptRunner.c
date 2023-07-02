@@ -974,7 +974,7 @@ struct __pyx_obj_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner___pyx
 struct __pyx_opt_args_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_begin_script_with_cProfile;
 struct __pyx_opt_args_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_begin_script_with_profiling;
 
-/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":250
+/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":247
  * 
  * 
  * cpdef void begin_script_with_cProfile(save_near_module=False):             # <<<<<<<<<<<<<<
@@ -986,7 +986,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_
   PyObject *save_near_module;
 };
 
-/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":285
+/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":282
  * 
  * 
  * cpdef void begin_script_with_profiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):             # <<<<<<<<<<<<<<
@@ -1004,7 +1004,7 @@ struct __pyx_opt_args_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_
   PyObject *save_near_module;
 };
 
-/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":154
+/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":151
  * # Useful: https://coderzcolumn.com/tutorials/python/yappi-yet-another-python-profiler, https://github.com/sumerc/yappi/blob/master/doc/api.md
  * @contextmanager
  * def profilerManager(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):             # <<<<<<<<<<<<<<
@@ -1583,8 +1583,8 @@ static PyObject *__pyx_builtin_print;
 static const char __pyx_k_dt[] = "dt";
 static const char __pyx_k_is[] = " is";
 static const char __pyx_k_os[] = "os";
-static const char __pyx_k__12[] = "\r";
-static const char __pyx_k__13[] = "\n";
+static const char __pyx_k__13[] = "\r";
+static const char __pyx_k__14[] = "\n";
 static const char __pyx_k__16[] = "";
 static const char __pyx_k__23[] = " ";
 static const char __pyx_k_end[] = "end";
@@ -1641,7 +1641,6 @@ static const char __pyx_k_datetime[] = "datetime";
 static const char __pyx_k_exist_ok[] = "exist_ok";
 static const char __pyx_k_filename[] = "filename";
 static const char __pyx_k_getstats[] = "getstats";
-static const char __pyx_k_graceful[] = "graceful";
 static const char __pyx_k_is_alive[] = "is_alive";
 static const char __pyx_k_makedirs[] = "makedirs";
 static const char __pyx_k_profiler[] = "profiler";
@@ -1688,7 +1687,6 @@ static const char __pyx_k_SFX_denied_wav[] = "SFX\\denied.wav";
 static const char __pyx_k_contextmanager[] = "contextmanager";
 static const char __pyx_k_get_func_stats[] = "get_func_stats";
 static const char __pyx_k_set_clock_type[] = "set_clock_type";
-static const char __pyx_k_TerminateScript[] = "TerminateScript";
 static const char __pyx_k_output_location[] = "output_location";
 static const char __pyx_k_profile_threads[] = "profile_threads";
 static const char __pyx_k_profilerManager[] = "profilerManager";
@@ -1714,7 +1712,7 @@ static const char __pyx_k_Script_lock_released[] = "Script lock released.";
 static const char __pyx_k_LogUncaughtExceptions[] = "LogUncaughtExceptions";
 static const char __pyx_k_Uninstalling_the_hook[] = "Uninstalling the hook...";
 static const char __pyx_k_Failed_to_install_hook[] = "Failed to install hook!";
-static const char __pyx_k_profilerManager_line_154[] = "profilerManager (line 154)";
+static const char __pyx_k_profilerManager_line_151[] = "profilerManager (line 151)";
 static const char __pyx_k_profiling_results_kgrind[] = "profiling_results.kgrind";
 static const char __pyx_k_threads_are_still_active[] = " threads are still active.";
 static const char __pyx_k_Terminating_this_instance[] = "Terminating this instance...";
@@ -1784,15 +1782,14 @@ static PyObject *__pyx_n_s_SortKey;
 static PyObject *__pyx_kp_s_Starting_the_elevated_processes;
 static PyObject *__pyx_n_s_Stats;
 static PyObject *__pyx_n_s_TIME;
-static PyObject *__pyx_n_s_TerminateScript;
 static PyObject *__pyx_kp_s_Terminating_this_instance;
 static PyObject *__pyx_kp_s_Un_initializing_COM_library_in_t;
 static PyObject *__pyx_n_s_UninstallHook;
 static PyObject *__pyx_kp_s_Uninstalling_the_hook;
 static PyObject *__pyx_kp_s_Warning_Another_instance_of_the;
 static PyObject *__pyx_kp_s_Y_m_d_I_p_M_S;
-static PyObject *__pyx_kp_s__12;
-static PyObject *__pyx_kp_u__13;
+static PyObject *__pyx_kp_s__13;
+static PyObject *__pyx_kp_u__14;
 static PyObject *__pyx_kp_s__16;
 static PyObject *__pyx_kp_s__23;
 static PyObject *__pyx_n_s_abspath;
@@ -1832,7 +1829,6 @@ static PyObject *__pyx_n_s_get_func_stats;
 static PyObject *__pyx_n_s_get_thread_stats;
 static PyObject *__pyx_n_s_getcwd;
 static PyObject *__pyx_n_s_getstats;
-static PyObject *__pyx_n_s_graceful;
 static PyObject *__pyx_n_s_handle;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_kp_s_is;
@@ -1856,7 +1852,7 @@ static PyObject *__pyx_n_s_profile_builtins;
 static PyObject *__pyx_n_s_profile_threads;
 static PyObject *__pyx_n_s_profiler;
 static PyObject *__pyx_n_s_profilerManager;
-static PyObject *__pyx_kp_u_profilerManager_line_154;
+static PyObject *__pyx_kp_u_profilerManager_line_151;
 static PyObject *__pyx_kp_s_profiling_results_kgrind;
 static PyObject *__pyx_n_s_pstat;
 static PyObject *__pyx_n_s_pstats;
@@ -1916,7 +1912,7 @@ static PyObject *__pyx_tuple__8;
 static PyObject *__pyx_tuple__9;
 static PyObject *__pyx_tuple__10;
 static PyObject *__pyx_tuple__11;
-static PyObject *__pyx_tuple__14;
+static PyObject *__pyx_tuple__12;
 static PyObject *__pyx_tuple__15;
 static PyObject *__pyx_tuple__18;
 static PyObject *__pyx_tuple__19;
@@ -1930,7 +1926,7 @@ static PyObject *__pyx_codeobj__25;
 /* Late includes */
 
 /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":9
- * 
+ * from contextlib import contextmanager
  * 
  * def AcquireScriptLock() -> int:             # <<<<<<<<<<<<<<
  *     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
@@ -2235,7 +2231,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   goto __pyx_L0;
 
   /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":9
- * 
+ * from contextlib import contextmanager
  * 
  * def AcquireScriptLock() -> int:             # <<<<<<<<<<<<<<
  *     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
@@ -2289,12 +2285,12 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   PyObject *__pyx_v_sys = NULL;
   PyObject *__pyx_v_hookManager = NULL;
   PyObject *__pyx_v_kbHook = NULL;
+  PyObject *__pyx_v_ReleaseMutex = NULL;
   PyObject *__pyx_v_alive_threads = 0;
   int __pyx_v_still_alive;
   int __pyx_v_break_outer;
   float __pyx_v_countdown_start;
   PyObject *__pyx_v_thread = NULL;
-  PyObject *__pyx_v_ReleaseMutex = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -3062,564 +3058,28 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
 
   /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":99
  * 
- *     # Uninstall the hook.
- *     print("Uninstalling the hook...")             # <<<<<<<<<<<<<<
- *     hookManager.UninstallHook()
- * 
- */
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":100
- *     # Uninstall the hook.
- *     print("Uninstalling the hook...")
- *     hookManager.UninstallHook()             # <<<<<<<<<<<<<<
- * 
- *     # Get a list of all running threads
- */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_hookManager, __pyx_n_s_UninstallHook); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_1)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_1);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
-    }
-  }
-  __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 100, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":103
- * 
- *     # Get a list of all running threads
- *     cdef list alive_threads = threading.enumerate()             # <<<<<<<<<<<<<<
- * 
- *     # Count the number of threads in the list
- */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_threading, __pyx_n_s_enumerate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 103, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_1)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_1);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
-    }
-  }
-  __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 103, __pyx_L1_error)
-  __pyx_v_alive_threads = ((PyObject*)__pyx_t_2);
-  __pyx_t_2 = 0;
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":106
- * 
- *     # Count the number of threads in the list
- *     cdef int still_alive = len(alive_threads)             # <<<<<<<<<<<<<<
- * 
- *     # A flag to break the outer loop.
- */
-  if (unlikely(__pyx_v_alive_threads == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 106, __pyx_L1_error)
-  }
-  __pyx_t_10 = PyList_GET_SIZE(__pyx_v_alive_threads); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 106, __pyx_L1_error)
-  __pyx_v_still_alive = __pyx_t_10;
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":109
- * 
- *     # A flag to break the outer loop.
- *     cdef bint break_outer = False             # <<<<<<<<<<<<<<
- * 
- *     cdef float countdown_start = time()
- */
-  __pyx_v_break_outer = 0;
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":111
- *     cdef bint break_outer = False
- * 
- *     cdef float countdown_start = time()             # <<<<<<<<<<<<<<
- * 
- *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
- */
-  __Pyx_INCREF(__pyx_v_time);
-  __pyx_t_3 = __pyx_v_time; __pyx_t_1 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_1)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_1);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
-    }
-  }
-  __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_11 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_11 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 111, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_v_countdown_start = __pyx_t_11;
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":114
- * 
- *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
- *     for thread in alive_threads:             # <<<<<<<<<<<<<<
- *         if thread != threading.main_thread():
- *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
- */
-  if (unlikely(__pyx_v_alive_threads == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 114, __pyx_L1_error)
-  }
-  __pyx_t_2 = __pyx_v_alive_threads; __Pyx_INCREF(__pyx_t_2); __pyx_t_10 = 0;
-  for (;;) {
-    if (__pyx_t_10 >= PyList_GET_SIZE(__pyx_t_2)) break;
-    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_3); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 114, __pyx_L1_error)
-    #else
-    __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    #endif
-    __Pyx_XDECREF_SET(__pyx_v_thread, __pyx_t_3);
-    __pyx_t_3 = 0;
-
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":115
- *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
- *     for thread in alive_threads:
- *         if thread != threading.main_thread():             # <<<<<<<<<<<<<<
- *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
- *             while True:
- */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_threading, __pyx_n_s_main_thread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
-      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_1);
-      if (likely(__pyx_t_5)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-        __Pyx_INCREF(__pyx_t_5);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_1, function);
-      }
-    }
-    __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_thread, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 115, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__pyx_t_9) {
-
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":116
- *     for thread in alive_threads:
- *         if thread != threading.main_thread():
- *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")             # <<<<<<<<<<<<<<
- *             while True:
- *                 if time() - countdown_start >= 10:
- */
-      __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_12 = 0;
-      __pyx_t_13 = 127;
-      __pyx_t_3 = __Pyx_PyUnicode_From_int(__pyx_v_still_alive, 0, ' ', 'd'); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_12 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_3);
-      __Pyx_GIVEREF(__pyx_t_3);
-      PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
-      __pyx_t_3 = 0;
-      __Pyx_INCREF(__pyx_kp_u_thread);
-      __pyx_t_12 += 7;
-      __Pyx_GIVEREF(__pyx_kp_u_thread);
-      PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_kp_u_thread);
-      if (((__pyx_v_still_alive > 1) != 0)) {
-        __Pyx_INCREF(__pyx_kp_s_s_are);
-        __pyx_t_3 = __pyx_kp_s_s_are;
-      } else {
-        __Pyx_INCREF(__pyx_kp_s_is);
-        __pyx_t_3 = __pyx_kp_s_is;
-      }
-      __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_13 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) > __pyx_t_13) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) : __pyx_t_13;
-      __pyx_t_12 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5);
-      __Pyx_GIVEREF(__pyx_t_5);
-      PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_t_5);
-      __pyx_t_5 = 0;
-      __Pyx_INCREF(__pyx_kp_u_still_active);
-      __pyx_t_12 += 14;
-      __Pyx_GIVEREF(__pyx_kp_u_still_active);
-      PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_kp_u_still_active);
-      __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_1, 4, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_GIVEREF(__pyx_t_5);
-      PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_5);
-      __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_end, __pyx_kp_s__12) < 0) __PYX_ERR(0, 116, __pyx_L1_error)
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":117
- *         if thread != threading.main_thread():
- *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
- *             while True:             # <<<<<<<<<<<<<<
- *                 if time() - countdown_start >= 10:
- *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
- */
-      while (1) {
-
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":118
- *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
- *             while True:
- *                 if time() - countdown_start >= 10:             # <<<<<<<<<<<<<<
- *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
- *                     break_outer = True
- */
-        __Pyx_INCREF(__pyx_v_time);
-        __pyx_t_5 = __pyx_v_time; __pyx_t_1 = NULL;
-        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
-          __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_5);
-          if (likely(__pyx_t_1)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-            __Pyx_INCREF(__pyx_t_1);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_5, function);
-          }
-        }
-        __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
-        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 118, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = PyFloat_FromDouble(__pyx_v_countdown_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_1 = PyNumber_Subtract(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_int_10, Py_GE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 118, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (__pyx_t_9) {
-
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":119
- *             while True:
- *                 if time() - countdown_start >= 10:
- *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")             # <<<<<<<<<<<<<<
- *                     break_outer = True
- *                     break
- */
-          __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_12 = 0;
-          __pyx_t_13 = 127;
-          __Pyx_INCREF(__pyx_kp_u__13);
-          __pyx_t_12 += 1;
-          __Pyx_GIVEREF(__pyx_kp_u__13);
-          PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_kp_u__13);
-          __pyx_t_1 = __Pyx_PyUnicode_From_int(__pyx_v_still_alive, 0, ' ', 'd'); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_12 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1);
-          __Pyx_GIVEREF(__pyx_t_1);
-          PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
-          __pyx_t_1 = 0;
-          __Pyx_INCREF(__pyx_kp_u_threads_are_still_running_after);
-          __pyx_t_12 += 87;
-          __Pyx_GIVEREF(__pyx_kp_u_threads_are_still_running_after);
-          PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_kp_u_threads_are_still_running_after);
-          __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_5, 3, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_1);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":120
- *                 if time() - countdown_start >= 10:
- *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
- *                     break_outer = True             # <<<<<<<<<<<<<<
- *                     break
- * 
- */
-          __pyx_v_break_outer = 1;
-
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":121
- *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
- *                     break_outer = True
- *                     break             # <<<<<<<<<<<<<<
- * 
- *                 if thread.is_alive():
- */
-          goto __pyx_L13_break;
-
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":118
- *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
- *             while True:
- *                 if time() - countdown_start >= 10:             # <<<<<<<<<<<<<<
- *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
- *                     break_outer = True
- */
-        }
-
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":123
- *                     break
- * 
- *                 if thread.is_alive():             # <<<<<<<<<<<<<<
- *                     sleep(0.2)
- *                 else:
- */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_thread, __pyx_n_s_is_alive); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_3 = NULL;
-        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
-          __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
-          if (likely(__pyx_t_3)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-            __Pyx_INCREF(__pyx_t_3);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_1, function);
-          }
-        }
-        __pyx_t_5 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
-        __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 123, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (__pyx_t_9) {
-
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":124
- * 
- *                 if thread.is_alive():
- *                     sleep(0.2)             # <<<<<<<<<<<<<<
- *                 else:
- *                     print(f"{still_alive} threads are still active.", end="\r")
- */
-          __Pyx_INCREF(__pyx_v_sleep);
-          __pyx_t_1 = __pyx_v_sleep; __pyx_t_3 = NULL;
-          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
-            __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
-            if (likely(__pyx_t_3)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-              __Pyx_INCREF(__pyx_t_3);
-              __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_1, function);
-            }
-          }
-          __pyx_t_5 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_float_0_2) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_float_0_2);
-          __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":123
- *                     break
- * 
- *                 if thread.is_alive():             # <<<<<<<<<<<<<<
- *                     sleep(0.2)
- *                 else:
- */
-          goto __pyx_L15;
-        }
-
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":126
- *                     sleep(0.2)
- *                 else:
- *                     print(f"{still_alive} threads are still active.", end="\r")             # <<<<<<<<<<<<<<
- *                     break
- * 
- */
-        /*else*/ {
-          __pyx_t_5 = __Pyx_PyUnicode_From_int(__pyx_v_still_alive, 0, ' ', 'd'); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_t_5, __pyx_kp_u_threads_are_still_active); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_1);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_GIVEREF(__pyx_t_1);
-          PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_1);
-          __pyx_t_1 = 0;
-          __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_1);
-          if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__12) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
-          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_5, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":127
- *                 else:
- *                     print(f"{still_alive} threads are still active.", end="\r")
- *                     break             # <<<<<<<<<<<<<<
- * 
- *         still_alive -= 1
- */
-          goto __pyx_L13_break;
-        }
-        __pyx_L15:;
-      }
-      __pyx_L13_break:;
-
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":115
- *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
- *     for thread in alive_threads:
- *         if thread != threading.main_thread():             # <<<<<<<<<<<<<<
- *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
- *             while True:
- */
-    }
-
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":129
- *                     break
- * 
- *         still_alive -= 1             # <<<<<<<<<<<<<<
- * 
- *         if break_outer:
- */
-    __pyx_v_still_alive = (__pyx_v_still_alive - 1);
-
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":131
- *         still_alive -= 1
- * 
- *         if break_outer:             # <<<<<<<<<<<<<<
- *             break
- * 
- */
-    __pyx_t_9 = (__pyx_v_break_outer != 0);
-    if (__pyx_t_9) {
-
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":132
- * 
- *         if break_outer:
- *             break             # <<<<<<<<<<<<<<
- * 
- *     else:
- */
-      goto __pyx_L10_break;
-
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":131
- *         still_alive -= 1
- * 
- *         if break_outer:             # <<<<<<<<<<<<<<
- *             break
- * 
- */
-    }
-
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":114
- * 
- *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
- *     for thread in alive_threads:             # <<<<<<<<<<<<<<
- *         if thread != threading.main_thread():
- *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
- */
-  }
-  /*else*/ {
-
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":136
- *     else:
- *         #! Un-initializing the COM library if the main loop is terminated.
- *         print("Un-initializing COM library in the main thread...")             # <<<<<<<<<<<<<<
- *         pythoncom.CoUninitialize()
- * 
- */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":137
- *         #! Un-initializing the COM library if the main loop is terminated.
- *         print("Un-initializing COM library in the main thread...")
- *         pythoncom.CoUninitialize()             # <<<<<<<<<<<<<<
- * 
- *     # Releasing the acquired script lock.
- */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_pythoncom, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
-      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_1);
-      if (likely(__pyx_t_5)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-        __Pyx_INCREF(__pyx_t_5);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_1, function);
-      }
-    }
-    __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  }
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":114
- * 
- *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
- *     for thread in alive_threads:             # <<<<<<<<<<<<<<
- *         if thread != threading.main_thread():
- *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
- */
-  __pyx_L10_break:;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":140
- * 
- *     # Releasing the acquired script lock.
+ *     #! Releasing the acquired script lock.
  *     from win32event import ReleaseMutex             # <<<<<<<<<<<<<<
  *     ReleaseMutex(mutexHandle)
  *     print("Script lock released.")
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_ReleaseMutex);
   __Pyx_GIVEREF(__pyx_n_s_ReleaseMutex);
   PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_ReleaseMutex);
-  __pyx_t_3 = __Pyx_Import(__pyx_n_s_win32event, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_n_s_win32event, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_ReleaseMutex); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_ReleaseMutex); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_t_2);
   __pyx_v_ReleaseMutex = __pyx_t_2;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":141
- *     # Releasing the acquired script lock.
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":100
+ *     #! Releasing the acquired script lock.
  *     from win32event import ReleaseMutex
  *     ReleaseMutex(mutexHandle)             # <<<<<<<<<<<<<<
  *     print("Script lock released.")
@@ -3638,39 +3098,557 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   }
   __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_1, __pyx_v_mutexHandle) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_mutexHandle);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 141, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":142
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":101
  *     from win32event import ReleaseMutex
  *     ReleaseMutex(mutexHandle)
  *     print("Script lock released.")             # <<<<<<<<<<<<<<
  * 
- *     #! Terminate the script.
+ *     # Uninstall the hook.
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":145
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":104
  * 
- *     #! Terminate the script.
- *     sysHelper.TerminateScript(graceful=False)             # <<<<<<<<<<<<<<
- * 
+ *     # Uninstall the hook.
+ *     print("Uninstalling the hook...")             # <<<<<<<<<<<<<<
+ *     hookManager.UninstallHook()
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_sysHelper, __pyx_n_s_TerminateScript); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_graceful, Py_False) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":105
+ *     # Uninstall the hook.
+ *     print("Uninstalling the hook...")
+ *     hookManager.UninstallHook()             # <<<<<<<<<<<<<<
+ * 
+ *     # Get a list of all running threads
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_hookManager, __pyx_n_s_UninstallHook); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_1)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_1);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":108
+ * 
+ *     # Get a list of all running threads
+ *     cdef list alive_threads = threading.enumerate()             # <<<<<<<<<<<<<<
+ * 
+ *     # Count the number of threads in the list
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_threading, __pyx_n_s_enumerate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_1)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_1);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_v_alive_threads = ((PyObject*)__pyx_t_3);
+  __pyx_t_3 = 0;
+
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":111
+ * 
+ *     # Count the number of threads in the list
+ *     cdef int still_alive = len(alive_threads)             # <<<<<<<<<<<<<<
+ * 
+ *     # A flag to break the outer loop.
+ */
+  if (unlikely(__pyx_v_alive_threads == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
+    __PYX_ERR(0, 111, __pyx_L1_error)
+  }
+  __pyx_t_10 = PyList_GET_SIZE(__pyx_v_alive_threads); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_v_still_alive = __pyx_t_10;
+
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":114
+ * 
+ *     # A flag to break the outer loop.
+ *     cdef bint break_outer = False             # <<<<<<<<<<<<<<
+ * 
+ *     cdef float countdown_start = time()
+ */
+  __pyx_v_break_outer = 0;
+
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":116
+ *     cdef bint break_outer = False
+ * 
+ *     cdef float countdown_start = time()             # <<<<<<<<<<<<<<
+ * 
+ *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
+ */
+  __Pyx_INCREF(__pyx_v_time);
+  __pyx_t_2 = __pyx_v_time; __pyx_t_1 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_1)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_1);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  __pyx_t_3 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_11 = __pyx_PyFloat_AsFloat(__pyx_t_3); if (unlikely((__pyx_t_11 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 116, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_v_countdown_start = __pyx_t_11;
+
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":119
+ * 
+ *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
+ *     for thread in alive_threads:             # <<<<<<<<<<<<<<
+ *         if thread != threading.main_thread():
+ *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
+ */
+  if (unlikely(__pyx_v_alive_threads == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
+    __PYX_ERR(0, 119, __pyx_L1_error)
+  }
+  __pyx_t_3 = __pyx_v_alive_threads; __Pyx_INCREF(__pyx_t_3); __pyx_t_10 = 0;
+  for (;;) {
+    if (__pyx_t_10 >= PyList_GET_SIZE(__pyx_t_3)) break;
+    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    __pyx_t_2 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_10); __Pyx_INCREF(__pyx_t_2); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 119, __pyx_L1_error)
+    #else
+    __pyx_t_2 = PySequence_ITEM(__pyx_t_3, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    #endif
+    __Pyx_XDECREF_SET(__pyx_v_thread, __pyx_t_2);
+    __pyx_t_2 = 0;
+
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":120
+ *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
+ *     for thread in alive_threads:
+ *         if thread != threading.main_thread():             # <<<<<<<<<<<<<<
+ *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
+ *             while True:
+ */
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_threading, __pyx_n_s_main_thread); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_5 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_1);
+      if (likely(__pyx_t_5)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+        __Pyx_INCREF(__pyx_t_5);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_1, function);
+      }
+    }
+    __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_thread, __pyx_t_2, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__pyx_t_9) {
+
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":121
+ *     for thread in alive_threads:
+ *         if thread != threading.main_thread():
+ *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")             # <<<<<<<<<<<<<<
+ *             while True:
+ *                 if time() - countdown_start >= 10:
+ */
+      __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __pyx_t_12 = 0;
+      __pyx_t_13 = 127;
+      __pyx_t_2 = __Pyx_PyUnicode_From_int(__pyx_v_still_alive, 0, ' ', 'd'); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_12 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_2);
+      __Pyx_GIVEREF(__pyx_t_2);
+      PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
+      __pyx_t_2 = 0;
+      __Pyx_INCREF(__pyx_kp_u_thread);
+      __pyx_t_12 += 7;
+      __Pyx_GIVEREF(__pyx_kp_u_thread);
+      PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_kp_u_thread);
+      if (((__pyx_v_still_alive > 1) != 0)) {
+        __Pyx_INCREF(__pyx_kp_s_s_are);
+        __pyx_t_2 = __pyx_kp_s_s_are;
+      } else {
+        __Pyx_INCREF(__pyx_kp_s_is);
+        __pyx_t_2 = __pyx_kp_s_is;
+      }
+      __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_13 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) > __pyx_t_13) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) : __pyx_t_13;
+      __pyx_t_12 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5);
+      __Pyx_GIVEREF(__pyx_t_5);
+      PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_t_5);
+      __pyx_t_5 = 0;
+      __Pyx_INCREF(__pyx_kp_u_still_active);
+      __pyx_t_12 += 14;
+      __Pyx_GIVEREF(__pyx_kp_u_still_active);
+      PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_kp_u_still_active);
+      __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_1, 4, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_GIVEREF(__pyx_t_5);
+      PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_5);
+      __pyx_t_5 = 0;
+      __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_end, __pyx_kp_s__13) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":122
+ *         if thread != threading.main_thread():
+ *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
+ *             while True:             # <<<<<<<<<<<<<<
+ *                 if time() - countdown_start >= 10:
+ *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
+ */
+      while (1) {
+
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":123
+ *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
+ *             while True:
+ *                 if time() - countdown_start >= 10:             # <<<<<<<<<<<<<<
+ *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
+ *                     break_outer = True
+ */
+        __Pyx_INCREF(__pyx_v_time);
+        __pyx_t_5 = __pyx_v_time; __pyx_t_1 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+          __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_5);
+          if (likely(__pyx_t_1)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+            __Pyx_INCREF(__pyx_t_1);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_5, function);
+          }
+        }
+        __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
+        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 123, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __pyx_t_5 = PyFloat_FromDouble(__pyx_v_countdown_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_int_10, Py_GE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 123, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        if (__pyx_t_9) {
+
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":124
+ *             while True:
+ *                 if time() - countdown_start >= 10:
+ *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")             # <<<<<<<<<<<<<<
+ *                     break_outer = True
+ *                     break
+ */
+          __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          __pyx_t_12 = 0;
+          __pyx_t_13 = 127;
+          __Pyx_INCREF(__pyx_kp_u__14);
+          __pyx_t_12 += 1;
+          __Pyx_GIVEREF(__pyx_kp_u__14);
+          PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_kp_u__14);
+          __pyx_t_1 = __Pyx_PyUnicode_From_int(__pyx_v_still_alive, 0, ' ', 'd'); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          __pyx_t_12 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1);
+          __Pyx_GIVEREF(__pyx_t_1);
+          PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
+          __pyx_t_1 = 0;
+          __Pyx_INCREF(__pyx_kp_u_threads_are_still_running_after);
+          __pyx_t_12 += 87;
+          __Pyx_GIVEREF(__pyx_kp_u_threads_are_still_running_after);
+          PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_kp_u_threads_are_still_running_after);
+          __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_5, 3, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":125
+ *                 if time() - countdown_start >= 10:
+ *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
+ *                     break_outer = True             # <<<<<<<<<<<<<<
+ *                     break
+ * 
+ */
+          __pyx_v_break_outer = 1;
+
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":126
+ *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
+ *                     break_outer = True
+ *                     break             # <<<<<<<<<<<<<<
+ * 
+ *                 if thread.is_alive():
+ */
+          goto __pyx_L13_break;
+
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":123
+ *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
+ *             while True:
+ *                 if time() - countdown_start >= 10:             # <<<<<<<<<<<<<<
+ *                     print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
+ *                     break_outer = True
+ */
+        }
+
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":128
+ *                     break
+ * 
+ *                 if thread.is_alive():             # <<<<<<<<<<<<<<
+ *                     sleep(0.2)
+ *                 else:
+ */
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_thread, __pyx_n_s_is_alive); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        __pyx_t_2 = NULL;
+        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
+          if (likely(__pyx_t_2)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+            __Pyx_INCREF(__pyx_t_2);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_1, function);
+          }
+        }
+        __pyx_t_5 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
+        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 128, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 128, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        if (__pyx_t_9) {
+
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":129
+ * 
+ *                 if thread.is_alive():
+ *                     sleep(0.2)             # <<<<<<<<<<<<<<
+ *                 else:
+ *                     print(f"{still_alive} threads are still active.", end="\r")
+ */
+          __Pyx_INCREF(__pyx_v_sleep);
+          __pyx_t_1 = __pyx_v_sleep; __pyx_t_2 = NULL;
+          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
+            __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
+            if (likely(__pyx_t_2)) {
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+              __Pyx_INCREF(__pyx_t_2);
+              __Pyx_INCREF(function);
+              __Pyx_DECREF_SET(__pyx_t_1, function);
+            }
+          }
+          __pyx_t_5 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_2, __pyx_float_0_2) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_float_0_2);
+          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 129, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":128
+ *                     break
+ * 
+ *                 if thread.is_alive():             # <<<<<<<<<<<<<<
+ *                     sleep(0.2)
+ *                 else:
+ */
+          goto __pyx_L15;
+        }
+
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":131
+ *                     sleep(0.2)
+ *                 else:
+ *                     print(f"{still_alive} threads are still active.", end="\r")             # <<<<<<<<<<<<<<
+ *                     break
+ * 
+ */
+        /*else*/ {
+          __pyx_t_5 = __Pyx_PyUnicode_From_int(__pyx_v_still_alive, 0, ' ', 'd'); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 131, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_t_5, __pyx_kp_u_threads_are_still_active); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 131, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          __Pyx_GIVEREF(__pyx_t_1);
+          PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_1);
+          __pyx_t_1 = 0;
+          __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_s__13) < 0) __PYX_ERR(0, 131, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_5, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 131, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":132
+ *                 else:
+ *                     print(f"{still_alive} threads are still active.", end="\r")
+ *                     break             # <<<<<<<<<<<<<<
+ * 
+ *         still_alive -= 1
+ */
+          goto __pyx_L13_break;
+        }
+        __pyx_L15:;
+      }
+      __pyx_L13_break:;
+
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":120
+ *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
+ *     for thread in alive_threads:
+ *         if thread != threading.main_thread():             # <<<<<<<<<<<<<<
+ *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
+ *             while True:
+ */
+    }
+
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":134
+ *                     break
+ * 
+ *         still_alive -= 1             # <<<<<<<<<<<<<<
+ * 
+ *         if break_outer:
+ */
+    __pyx_v_still_alive = (__pyx_v_still_alive - 1);
+
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":136
+ *         still_alive -= 1
+ * 
+ *         if break_outer:             # <<<<<<<<<<<<<<
+ *             break
+ * 
+ */
+    __pyx_t_9 = (__pyx_v_break_outer != 0);
+    if (__pyx_t_9) {
+
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":137
+ * 
+ *         if break_outer:
+ *             break             # <<<<<<<<<<<<<<
+ * 
+ *     else:
+ */
+      goto __pyx_L10_break;
+
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":136
+ *         still_alive -= 1
+ * 
+ *         if break_outer:             # <<<<<<<<<<<<<<
+ *             break
+ * 
+ */
+    }
+
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":119
+ * 
+ *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
+ *     for thread in alive_threads:             # <<<<<<<<<<<<<<
+ *         if thread != threading.main_thread():
+ *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
+ */
+  }
+  /*else*/ {
+
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":141
+ *     else:
+ *         #! Un-initializing the COM library if the main loop is terminated.
+ *         print("Un-initializing COM library in the main thread...")             # <<<<<<<<<<<<<<
+ *         pythoncom.CoUninitialize()
+ * 
+ */
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":142
+ *         #! Un-initializing the COM library if the main loop is terminated.
+ *         print("Un-initializing COM library in the main thread...")
+ *         pythoncom.CoUninitialize()             # <<<<<<<<<<<<<<
+ * 
+ *     #! Terminate the script.
+ */
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_pythoncom, __pyx_n_s_CoUninitialize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_5 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_1);
+      if (likely(__pyx_t_5)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+        __Pyx_INCREF(__pyx_t_5);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_1, function);
+      }
+    }
+    __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  }
+
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":119
+ * 
+ *     # Waiting for a certain number of seconds before forcefully stopping the running threads.
+ *     for thread in alive_threads:             # <<<<<<<<<<<<<<
+ *         if thread != threading.main_thread():
+ *             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
+ */
+  __pyx_L10_break:;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":36
  * 
@@ -3707,9 +3685,9 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   __Pyx_XDECREF(__pyx_v_sys);
   __Pyx_XDECREF(__pyx_v_hookManager);
   __Pyx_XDECREF(__pyx_v_kbHook);
+  __Pyx_XDECREF(__pyx_v_ReleaseMutex);
   __Pyx_XDECREF(__pyx_v_alive_threads);
   __Pyx_XDECREF(__pyx_v_thread);
-  __Pyx_XDECREF(__pyx_v_ReleaseMutex);
   __Pyx_RefNannyFinishContext();
 }
 
@@ -3754,7 +3732,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
 }
 static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_6generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":154
+/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":151
  * # Useful: https://coderzcolumn.com/tutorials/python/yappi-yet-another-python-profiler, https://github.com/sumerc/yappi/blob/master/doc/api.md
  * @contextmanager
  * def profilerManager(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):             # <<<<<<<<<<<<<<
@@ -3856,7 +3834,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "profilerManager") < 0)) __PYX_ERR(0, 154, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "profilerManager") < 0)) __PYX_ERR(0, 151, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3888,7 +3866,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("profilerManager", 0, 0, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 154, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("profilerManager", 0, 0, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 151, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.scriptRunner.scriptRunner.profilerManager", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3913,7 +3891,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner___pyx_scope_struct__profilerManager *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 154, __pyx_L1_error)
+    __PYX_ERR(0, 151, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -3939,7 +3917,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_save_near_module);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_save_near_module);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_6generator, __pyx_codeobj__17, (PyObject *) __pyx_cur_scope, __pyx_n_s_profilerManager, __pyx_n_s_profilerManager, __pyx_n_s_macropy_cythonExtensions_scriptR); if (unlikely(!gen)) __PYX_ERR(0, 154, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_6generator, __pyx_codeobj__17, (PyObject *) __pyx_cur_scope, __pyx_n_s_profilerManager, __pyx_n_s_profilerManager, __pyx_n_s_macropy_cythonExtensions_scriptR); if (unlikely(!gen)) __PYX_ERR(0, 151, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3996,24 +3974,24 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 151, __pyx_L1_error)
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":187
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":184
  *     """
  * 
  *     from datetime import datetime as dt             # <<<<<<<<<<<<<<
  * 
  *     # Making a directory to store the profiling results.
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_datetime);
   __Pyx_GIVEREF(__pyx_n_s_datetime);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_datetime);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_datetime, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_datetime, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_datetime); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_datetime); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -4021,48 +3999,48 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":191
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":188
  *     # Making a directory to store the profiling results.
  *     cdef str output_location
  *     if save_near_module:             # <<<<<<<<<<<<<<
  *         output_location = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dumpfiles")
  *     else:
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_save_near_module); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_save_near_module); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 188, __pyx_L1_error)
   if (__pyx_t_3) {
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":192
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":189
  *     cdef str output_location
  *     if save_near_module:
  *         output_location = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dumpfiles")             # <<<<<<<<<<<<<<
  *     else:
  *         output_location = os.path.join(os.getcwd(), "dumpfiles")
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_join); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_join); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_dirname); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_dirname); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_os); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_os); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_path); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_path); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_abspath); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_abspath); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_file); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_file); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_9 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -4077,7 +4055,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     __pyx_t_6 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_9, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 192, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_7 = NULL;
@@ -4093,7 +4071,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 192, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -4111,7 +4089,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_4, __pyx_n_s_dumpfiles};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -4120,14 +4098,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_4, __pyx_n_s_dumpfiles};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     } else
     #endif
     {
-      __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 192, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 189, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       if (__pyx_t_5) {
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -4138,17 +4116,17 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
       __Pyx_GIVEREF(__pyx_n_s_dumpfiles);
       PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_n_s_dumpfiles);
       __pyx_t_4 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 192, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 189, __pyx_L1_error)
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_cur_scope->__pyx_v_output_location = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":191
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":188
  *     # Making a directory to store the profiling results.
  *     cdef str output_location
  *     if save_near_module:             # <<<<<<<<<<<<<<
@@ -4158,7 +4136,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     goto __pyx_L4;
   }
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":194
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":191
  *         output_location = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dumpfiles")
  *     else:
  *         output_location = os.path.join(os.getcwd(), "dumpfiles")             # <<<<<<<<<<<<<<
@@ -4166,17 +4144,17 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
  *     os.makedirs(output_location, exist_ok=True)
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_join); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_join); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_os); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_os); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_getcwd); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_getcwd); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -4191,7 +4169,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     }
     __pyx_t_6 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 194, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -4209,7 +4187,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_6, __pyx_n_s_dumpfiles};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 194, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -4218,14 +4196,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_6, __pyx_n_s_dumpfiles};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 194, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else
     #endif
     {
-      __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 194, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 191, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       if (__pyx_t_5) {
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -4236,72 +4214,72 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
       __Pyx_GIVEREF(__pyx_n_s_dumpfiles);
       PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_n_s_dumpfiles);
       __pyx_t_6 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 194, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 194, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_cur_scope->__pyx_v_output_location = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
   }
   __pyx_L4:;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":196
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":193
  *         output_location = os.path.join(os.getcwd(), "dumpfiles")
  * 
  *     os.makedirs(output_location, exist_ok=True)             # <<<<<<<<<<<<<<
  * 
  *     if not filename:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_makedirs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_makedirs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_output_location);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_output_location);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_cur_scope->__pyx_v_output_location);
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_exist_ok, Py_True) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_exist_ok, Py_True) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":198
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":195
  *     os.makedirs(output_location, exist_ok=True)
  * 
  *     if not filename:             # <<<<<<<<<<<<<<
  *         output_location = os.path.join(output_location, f"{dt.now().strftime('%Y-%m-%d (%I%p-%M-%S)')}.prof")
  *     else:
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_filename); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_filename); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 195, __pyx_L1_error)
   __pyx_t_11 = ((!__pyx_t_3) != 0);
   if (__pyx_t_11) {
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":199
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":196
  * 
  *     if not filename:
  *         output_location = os.path.join(output_location, f"{dt.now().strftime('%Y-%m-%d (%I%p-%M-%S)')}.prof")             # <<<<<<<<<<<<<<
  *     else:
  *         output_location = os.path.join(output_location, filename)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_os); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_os); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_join); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_join); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_dt, __pyx_n_s_now); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_dt, __pyx_n_s_now); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_7 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -4315,10 +4293,10 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     }
     __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_strftime); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_strftime); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -4333,13 +4311,13 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     }
     __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_1, __pyx_kp_s_Y_m_d_I_p_M_S) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_kp_s_Y_m_d_I_p_M_S);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_t_5, __pyx_kp_u_prof); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_t_5, __pyx_kp_u_prof); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -4357,7 +4335,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_cur_scope->__pyx_v_output_location, __pyx_t_2};
-      __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 199, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 196, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4366,14 +4344,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_cur_scope->__pyx_v_output_location, __pyx_t_2};
-      __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 199, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 196, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else
     #endif
     {
-      __pyx_t_1 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (__pyx_t_5) {
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -4384,18 +4362,18 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_10, __pyx_t_2);
       __pyx_t_2 = 0;
-      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_1, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 199, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_1, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 196, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (!(likely(PyString_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_6)->tp_name), 0))) __PYX_ERR(0, 199, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_6)->tp_name), 0))) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_output_location);
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_output_location, ((PyObject*)__pyx_t_6));
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":198
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":195
  *     os.makedirs(output_location, exist_ok=True)
  * 
  *     if not filename:             # <<<<<<<<<<<<<<
@@ -4405,7 +4383,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     goto __pyx_L5;
   }
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":201
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":198
  *         output_location = os.path.join(output_location, f"{dt.now().strftime('%Y-%m-%d (%I%p-%M-%S)')}.prof")
  *     else:
  *         output_location = os.path.join(output_location, filename)             # <<<<<<<<<<<<<<
@@ -4413,12 +4391,12 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
  *     print("PROFILING ENABLED.")
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_os); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 201, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_os); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 198, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 201, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_join); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 201, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_join); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 198, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -4436,7 +4414,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_cur_scope->__pyx_v_output_location, __pyx_cur_scope->__pyx_v_filename};
-      __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 201, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 198, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_6);
     } else
@@ -4444,13 +4422,13 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_cur_scope->__pyx_v_output_location, __pyx_cur_scope->__pyx_v_filename};
-      __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 201, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 198, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GOTREF(__pyx_t_6);
     } else
     #endif
     {
-      __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 201, __pyx_L1_error)
+      __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       if (__pyx_t_1) {
         __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -4461,12 +4439,12 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
       __Pyx_INCREF(__pyx_cur_scope->__pyx_v_filename);
       __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_filename);
       PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_10, __pyx_cur_scope->__pyx_v_filename);
-      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 201, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 198, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (!(likely(PyString_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_6)->tp_name), 0))) __PYX_ERR(0, 201, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_6)->tp_name), 0))) __PYX_ERR(0, 198, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_output_location);
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_output_location, ((PyObject*)__pyx_t_6));
     __Pyx_GIVEREF(__pyx_t_6);
@@ -4474,41 +4452,41 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   }
   __pyx_L5:;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":203
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":200
  *         output_location = os.path.join(output_location, filename)
  * 
  *     print("PROFILING ENABLED.")             # <<<<<<<<<<<<<<
  * 
  *     if engine == 'yappi':
  */
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":205
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":202
  *     print("PROFILING ENABLED.")
  * 
  *     if engine == 'yappi':             # <<<<<<<<<<<<<<
  *         import yappi
  * 
  */
-  __pyx_t_11 = (__Pyx_PyString_Equals(__pyx_cur_scope->__pyx_v_engine, __pyx_n_s_yappi, Py_EQ)); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_11 = (__Pyx_PyString_Equals(__pyx_cur_scope->__pyx_v_engine, __pyx_n_s_yappi, Py_EQ)); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 202, __pyx_L1_error)
   if (__pyx_t_11) {
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":206
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":203
  * 
  *     if engine == 'yappi':
  *         import yappi             # <<<<<<<<<<<<<<
  * 
  *         try:
  */
-    __pyx_t_6 = __Pyx_Import(__pyx_n_s_yappi, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 206, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_Import(__pyx_n_s_yappi, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 203, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_cur_scope->__pyx_v_yappi = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":208
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":205
  *         import yappi
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -4517,14 +4495,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
  */
     /*try:*/ {
 
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":209
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":206
  * 
  *         try:
  *             yappi.set_clock_type(clock)             # <<<<<<<<<<<<<<
  *             yappi.start(builtins=profile_builtins, profile_threads=profile_threads)
  * 
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_set_clock_type); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 209, __pyx_L8_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_set_clock_type); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 206, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_2 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -4538,31 +4516,31 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
       }
       __pyx_t_6 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_cur_scope->__pyx_v_clock) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_cur_scope->__pyx_v_clock);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 209, __pyx_L8_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 206, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":210
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":207
  *         try:
  *             yappi.set_clock_type(clock)
  *             yappi.start(builtins=profile_builtins, profile_threads=profile_threads)             # <<<<<<<<<<<<<<
  * 
  *             # The yield statement is used to temporarily suspend the execution of the context manager and return control to the caller.
  */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_start); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 210, __pyx_L8_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_start); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 207, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 210, __pyx_L8_error)
+      __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 207, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_4);
-      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_builtins, __pyx_cur_scope->__pyx_v_profile_builtins) < 0) __PYX_ERR(0, 210, __pyx_L8_error)
-      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_profile_threads, __pyx_cur_scope->__pyx_v_profile_threads) < 0) __PYX_ERR(0, 210, __pyx_L8_error)
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 210, __pyx_L8_error)
+      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_builtins, __pyx_cur_scope->__pyx_v_profile_builtins) < 0) __PYX_ERR(0, 207, __pyx_L8_error)
+      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_profile_threads, __pyx_cur_scope->__pyx_v_profile_threads) < 0) __PYX_ERR(0, 207, __pyx_L8_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":215
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":212
  *             # When the context manager is exited (either normally or due to an exception), the code after the yield statement is
  *             # executed to clean up any resources used by the context manager.
  *             yield             # <<<<<<<<<<<<<<
@@ -4577,10 +4555,10 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
       __pyx_generator->resume_label = 1;
       return __pyx_r;
       __pyx_L10_resume_from_yield:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 215, __pyx_L8_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 212, __pyx_L8_error)
     }
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":218
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":215
  * 
  *         finally:
  *             yappi.stop()             # <<<<<<<<<<<<<<
@@ -4589,7 +4567,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
  */
     /*finally:*/ {
       /*normal exit:*/{
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_stop); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 218, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_stop); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 215, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_6 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -4603,19 +4581,19 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":220
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":217
  *             yappi.stop()
  * 
  *             print(f"Dumping profile to: {output_location}\n")             # <<<<<<<<<<<<<<
  * 
  *             yappi.get_func_stats().save(output_location, type=output_type)
  */
-        __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 217, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_12 = 0;
         __pyx_t_13 = 127;
@@ -4623,33 +4601,33 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         __pyx_t_12 += 20;
         __Pyx_GIVEREF(__pyx_kp_u_Dumping_profile_to);
         PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_u_Dumping_profile_to);
-        __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_output_location, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 220, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_output_location, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 217, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_13 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_13) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_13;
         __pyx_t_12 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4);
         __Pyx_GIVEREF(__pyx_t_4);
         PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_4);
         __pyx_t_4 = 0;
-        __Pyx_INCREF(__pyx_kp_u__13);
+        __Pyx_INCREF(__pyx_kp_u__14);
         __pyx_t_12 += 1;
-        __Pyx_GIVEREF(__pyx_kp_u__13);
-        PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u__13);
-        __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_2, 3, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 220, __pyx_L1_error)
+        __Pyx_GIVEREF(__pyx_kp_u__14);
+        PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u__14);
+        __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_2, 3, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 217, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 217, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":222
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":219
  *             print(f"Dumping profile to: {output_location}\n")
  * 
  *             yappi.get_func_stats().save(output_location, type=output_type)             # <<<<<<<<<<<<<<
  * 
  *             yappi.get_thread_stats().print_all()
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_get_func_stats); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 222, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_get_func_stats); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 219, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_6 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -4663,35 +4641,35 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_save); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 222, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_save); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 219, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_INCREF(__pyx_cur_scope->__pyx_v_output_location);
         __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_output_location);
         PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_cur_scope->__pyx_v_output_location);
-        __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 222, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 219, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_type, __pyx_cur_scope->__pyx_v_output_type) < 0) __PYX_ERR(0, 222, __pyx_L1_error)
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
+        if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_type, __pyx_cur_scope->__pyx_v_output_type) < 0) __PYX_ERR(0, 219, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":224
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":221
  *             yappi.get_func_stats().save(output_location, type=output_type)
  * 
  *             yappi.get_thread_stats().print_all()             # <<<<<<<<<<<<<<
  * 
  *     else:
  */
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_get_thread_stats); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 224, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_get_thread_stats); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 221, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_4 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4705,10 +4683,10 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_6 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 224, __pyx_L1_error)
+        if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 221, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_print_all); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 224, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_print_all); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 221, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __pyx_t_6 = NULL;
@@ -4723,7 +4701,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4752,14 +4730,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         __pyx_t_10 = __pyx_lineno; __pyx_t_14 = __pyx_clineno; __pyx_t_15 = __pyx_filename;
         {
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":218
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":215
  * 
  *         finally:
  *             yappi.stop()             # <<<<<<<<<<<<<<
  * 
  *             print(f"Dumping profile to: {output_location}\n")
  */
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_stop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L12_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_stop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_2);
           __pyx_t_6 = NULL;
           if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4773,19 +4751,19 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L12_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":220
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":217
  *             yappi.stop()
  * 
  *             print(f"Dumping profile to: {output_location}\n")             # <<<<<<<<<<<<<<
  * 
  *             yappi.get_func_stats().save(output_location, type=output_type)
  */
-          __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L12_error)
+          __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 217, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
           __pyx_t_12 = 0;
           __pyx_t_13 = 127;
@@ -4793,33 +4771,33 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           __pyx_t_12 += 20;
           __Pyx_GIVEREF(__pyx_kp_u_Dumping_profile_to);
           PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u_Dumping_profile_to);
-          __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_output_location, __pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L12_error)
+          __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_output_location, __pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 217, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_2);
           __pyx_t_13 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) > __pyx_t_13) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) : __pyx_t_13;
           __pyx_t_12 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_2);
           __Pyx_GIVEREF(__pyx_t_2);
           PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2);
           __pyx_t_2 = 0;
-          __Pyx_INCREF(__pyx_kp_u__13);
+          __Pyx_INCREF(__pyx_kp_u__14);
           __pyx_t_12 += 1;
-          __Pyx_GIVEREF(__pyx_kp_u__13);
-          PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_u__13);
-          __pyx_t_2 = __Pyx_PyUnicode_Join(__pyx_t_1, 3, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L12_error)
+          __Pyx_GIVEREF(__pyx_kp_u__14);
+          PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_u__14);
+          __pyx_t_2 = __Pyx_PyUnicode_Join(__pyx_t_1, 3, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 217, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L12_error)
+          __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 217, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":222
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":219
  *             print(f"Dumping profile to: {output_location}\n")
  * 
  *             yappi.get_func_stats().save(output_location, type=output_type)             # <<<<<<<<<<<<<<
  * 
  *             yappi.get_thread_stats().print_all()
  */
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_get_func_stats); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L12_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_get_func_stats); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_2);
           __pyx_t_6 = NULL;
           if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4833,35 +4811,35 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L12_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_save); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L12_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_save); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L12_error)
+          __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_INCREF(__pyx_cur_scope->__pyx_v_output_location);
           __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_output_location);
           PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_cur_scope->__pyx_v_output_location);
-          __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 222, __pyx_L12_error)
+          __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 219, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_6);
-          if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_type, __pyx_cur_scope->__pyx_v_output_type) < 0) __PYX_ERR(0, 222, __pyx_L12_error)
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 222, __pyx_L12_error)
+          if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_type, __pyx_cur_scope->__pyx_v_output_type) < 0) __PYX_ERR(0, 219, __pyx_L12_error)
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 219, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":224
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":221
  *             yappi.get_func_stats().save(output_location, type=output_type)
  * 
  *             yappi.get_thread_stats().print_all()             # <<<<<<<<<<<<<<
  * 
  *     else:
  */
-          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_get_thread_stats); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L12_error)
+          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_yappi, __pyx_n_s_get_thread_stats); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
           __pyx_t_2 = NULL;
           if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -4875,10 +4853,10 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_6 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 224, __pyx_L12_error)
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 221, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_print_all); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L12_error)
+          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_print_all); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __pyx_t_6 = NULL;
@@ -4893,7 +4871,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 224, __pyx_L12_error)
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 221, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -4927,7 +4905,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
       __pyx_L9:;
     }
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":205
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":202
  *     print("PROFILING ENABLED.")
  * 
  *     if engine == 'yappi':             # <<<<<<<<<<<<<<
@@ -4937,7 +4915,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     goto __pyx_L6;
   }
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":227
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":224
  * 
  *     else:
  *         import cProfile             # <<<<<<<<<<<<<<
@@ -4945,20 +4923,20 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
  *         profiler = cProfile.Profile()
  */
   /*else*/ {
-    __pyx_t_4 = __Pyx_Import(__pyx_n_s_cProfile, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 227, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_Import(__pyx_n_s_cProfile, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 224, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_4);
     __pyx_cur_scope->__pyx_v_cProfile = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":229
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":226
  *         import cProfile
  * 
  *         profiler = cProfile.Profile()             # <<<<<<<<<<<<<<
  *         try:
  *             profiler.enable()
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cProfile, __pyx_n_s_Profile); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cProfile, __pyx_n_s_Profile); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -4972,14 +4950,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
     }
     __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 229, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GIVEREF(__pyx_t_4);
     __pyx_cur_scope->__pyx_v_profiler = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":230
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":227
  * 
  *         profiler = cProfile.Profile()
  *         try:             # <<<<<<<<<<<<<<
@@ -4988,14 +4966,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
  */
     /*try:*/ {
 
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":231
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":228
  *         profiler = cProfile.Profile()
  *         try:
  *             profiler.enable()             # <<<<<<<<<<<<<<
  *             yield
  * 
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_enable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L14_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_enable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L14_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_6 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -5009,12 +4987,12 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
       }
       __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 231, __pyx_L14_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 228, __pyx_L14_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":232
+      /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":229
  *         try:
  *             profiler.enable()
  *             yield             # <<<<<<<<<<<<<<
@@ -5029,10 +5007,10 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
       __pyx_generator->resume_label = 2;
       return __pyx_r;
       __pyx_L16_resume_from_yield:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 232, __pyx_L14_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 229, __pyx_L14_error)
     }
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":235
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":232
  * 
  *         finally:
  *             profiler.disable()             # <<<<<<<<<<<<<<
@@ -5041,7 +5019,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
  */
     /*finally:*/ {
       /*normal exit:*/{
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_disable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_disable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_6 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -5055,19 +5033,19 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 235, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 232, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":236
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":233
  *         finally:
  *             profiler.disable()
  *             profiler.print_stats()             # <<<<<<<<<<<<<<
  *             profiler.dump_stats(output_location)
  * 
  */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_print_stats); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_print_stats); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_6 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -5081,19 +5059,19 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 236, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 233, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":237
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":234
  *             profiler.disable()
  *             profiler.print_stats()
  *             profiler.dump_stats(output_location)             # <<<<<<<<<<<<<<
  * 
  *             from pyprof2calltree import convert, visualize
  */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_dump_stats); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_dump_stats); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_6 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -5107,19 +5085,19 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_6, __pyx_cur_scope->__pyx_v_output_location) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_cur_scope->__pyx_v_output_location);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 237, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 234, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":239
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":236
  *             profiler.dump_stats(output_location)
  * 
  *             from pyprof2calltree import convert, visualize             # <<<<<<<<<<<<<<
  * 
  *             print("Saving the profiling results as `kgrind`...")
  */
-        __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
+        __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 236, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_n_s_convert);
         __Pyx_GIVEREF(__pyx_n_s_convert);
@@ -5127,16 +5105,16 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         __Pyx_INCREF(__pyx_n_s_visualize);
         __Pyx_GIVEREF(__pyx_n_s_visualize);
         PyList_SET_ITEM(__pyx_t_4, 1, __pyx_n_s_visualize);
-        __pyx_t_1 = __Pyx_Import(__pyx_n_s_pyprof2calltree, __pyx_t_4, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_Import(__pyx_n_s_pyprof2calltree, __pyx_t_4, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_convert); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_convert); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 236, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_4);
         __Pyx_GIVEREF(__pyx_t_4);
         __pyx_cur_scope->__pyx_v_convert = __pyx_t_4;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_visualize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_visualize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 236, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_4);
         __Pyx_GIVEREF(__pyx_t_4);
@@ -5144,25 +5122,25 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":241
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":238
  *             from pyprof2calltree import convert, visualize
  * 
  *             print("Saving the profiling results as `kgrind`...")             # <<<<<<<<<<<<<<
  *             convert(profiler.getstats(), os.path.join(os.path.splitext(output_location)[0], 'profiling_results.kgrind'))
  * 
  */
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 238, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":242
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":239
  * 
  *             print("Saving the profiling results as `kgrind`...")
  *             convert(profiler.getstats(), os.path.join(os.path.splitext(output_location)[0], 'profiling_results.kgrind'))             # <<<<<<<<<<<<<<
  * 
  *             # `visualize` requires you have a separate program to work. You can download this and add it to the
  */
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_getstats); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_getstats); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __pyx_t_2 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
@@ -5176,23 +5154,23 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_join); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_join); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_os); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_os); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_path); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_path); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_splitext); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_splitext); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __pyx_t_8 = NULL;
@@ -5207,10 +5185,10 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, __pyx_cur_scope->__pyx_v_output_location) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_cur_scope->__pyx_v_output_location);
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_7 = __Pyx_GetItemInt(__pyx_t_5, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 242, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_GetItemInt(__pyx_t_5, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_5 = NULL;
@@ -5228,7 +5206,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_2)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_7, __pyx_kp_s_profiling_results_kgrind};
-          __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 239, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -5237,14 +5215,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_7, __pyx_kp_s_profiling_results_kgrind};
-          __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 239, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_5) {
             __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -5255,7 +5233,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           __Pyx_GIVEREF(__pyx_kp_s_profiling_results_kgrind);
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_14, __pyx_kp_s_profiling_results_kgrind);
           __pyx_t_7 = 0;
-          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 239, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -5276,7 +5254,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_2)) {
           PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_4, __pyx_t_6};
-          __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -5286,7 +5264,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
           PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_4, __pyx_t_6};
-          __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -5294,7 +5272,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         } else
         #endif
         {
-          __pyx_t_7 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 242, __pyx_L1_error)
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 239, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           if (__pyx_t_8) {
             __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -5305,32 +5283,32 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_14, __pyx_t_6);
           __pyx_t_4 = 0;
           __pyx_t_6 = 0;
-          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":246
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":243
  *             # `visualize` requires you have a separate program to work. You can download this and add it to the
  *             # system's path environment vairable: https://sourceforge.net/projects/qcachegrindwin/files/0.7.4/
  *             print("visualize the profiling results...")             # <<<<<<<<<<<<<<
  *             visualize(profiler.getstats())
  * 
  */
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 246, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":247
+        /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":244
  *             # system's path environment vairable: https://sourceforge.net/projects/qcachegrindwin/files/0.7.4/
  *             print("visualize the profiling results...")
  *             visualize(profiler.getstats())             # <<<<<<<<<<<<<<
  * 
  * 
  */
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_getstats); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 247, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_getstats); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 244, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __pyx_t_6 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -5344,7 +5322,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
         __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_INCREF(__pyx_cur_scope->__pyx_v_visualize);
@@ -5361,7 +5339,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_6, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_2);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 247, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5390,14 +5368,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         __pyx_t_14 = __pyx_lineno; __pyx_t_10 = __pyx_clineno; __pyx_t_22 = __pyx_filename;
         {
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":235
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":232
  * 
  *         finally:
  *             profiler.disable()             # <<<<<<<<<<<<<<
  *             profiler.print_stats()
  *             profiler.dump_stats(output_location)
  */
-          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_disable); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 235, __pyx_L18_error)
+          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_disable); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 232, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_7);
           __pyx_t_2 = NULL;
           if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -5411,19 +5389,19 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L18_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":236
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":233
  *         finally:
  *             profiler.disable()
  *             profiler.print_stats()             # <<<<<<<<<<<<<<
  *             profiler.dump_stats(output_location)
  * 
  */
-          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_print_stats); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 236, __pyx_L18_error)
+          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_print_stats); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 233, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_7);
           __pyx_t_2 = NULL;
           if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -5437,19 +5415,19 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L18_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":237
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":234
  *             profiler.disable()
  *             profiler.print_stats()
  *             profiler.dump_stats(output_location)             # <<<<<<<<<<<<<<
  * 
  *             from pyprof2calltree import convert, visualize
  */
-          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_dump_stats); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 237, __pyx_L18_error)
+          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_dump_stats); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 234, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_7);
           __pyx_t_2 = NULL;
           if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -5463,19 +5441,19 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_2, __pyx_cur_scope->__pyx_v_output_location) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_cur_scope->__pyx_v_output_location);
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L18_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":239
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":236
  *             profiler.dump_stats(output_location)
  * 
  *             from pyprof2calltree import convert, visualize             # <<<<<<<<<<<<<<
  * 
  *             print("Saving the profiling results as `kgrind`...")
  */
-          __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L18_error)
+          __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_INCREF(__pyx_n_s_convert);
           __Pyx_GIVEREF(__pyx_n_s_convert);
@@ -5483,16 +5461,16 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           __Pyx_INCREF(__pyx_n_s_visualize);
           __Pyx_GIVEREF(__pyx_n_s_visualize);
           PyList_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_visualize);
-          __pyx_t_7 = __Pyx_Import(__pyx_n_s_pyprof2calltree, __pyx_t_1, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 239, __pyx_L18_error)
+          __pyx_t_7 = __Pyx_Import(__pyx_n_s_pyprof2calltree, __pyx_t_1, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 236, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_7, __pyx_n_s_convert); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L18_error)
+          __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_7, __pyx_n_s_convert); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_INCREF(__pyx_t_1);
           __Pyx_GIVEREF(__pyx_t_1);
           __pyx_cur_scope->__pyx_v_convert = __pyx_t_1;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_7, __pyx_n_s_visualize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L18_error)
+          __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_7, __pyx_n_s_visualize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_INCREF(__pyx_t_1);
           __Pyx_GIVEREF(__pyx_t_1);
@@ -5500,25 +5478,25 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":241
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":238
  *             from pyprof2calltree import convert, visualize
  * 
  *             print("Saving the profiling results as `kgrind`...")             # <<<<<<<<<<<<<<
  *             convert(profiler.getstats(), os.path.join(os.path.splitext(output_location)[0], 'profiling_results.kgrind'))
  * 
  */
-          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 241, __pyx_L18_error)
+          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 238, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":242
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":239
  * 
  *             print("Saving the profiling results as `kgrind`...")
  *             convert(profiler.getstats(), os.path.join(os.path.splitext(output_location)[0], 'profiling_results.kgrind'))             # <<<<<<<<<<<<<<
  * 
  *             # `visualize` requires you have a separate program to work. You can download this and add it to the
  */
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_getstats); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L18_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_getstats); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_2);
           __pyx_t_6 = NULL;
           if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5532,23 +5510,23 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L18_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_os); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L18_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_os); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L18_error)
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_join); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L18_error)
+          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_join); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_os); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L18_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_os); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_path); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L18_error)
+          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_path); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_splitext); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L18_error)
+          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_splitext); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __pyx_t_5 = NULL;
@@ -5563,10 +5541,10 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_4 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_5, __pyx_cur_scope->__pyx_v_output_location) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_cur_scope->__pyx_v_output_location);
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L18_error)
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L18_error)
+          __pyx_t_8 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __pyx_t_4 = NULL;
@@ -5584,7 +5562,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_6)) {
             PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_8, __pyx_kp_s_profiling_results_kgrind};
-            __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_23, 2+__pyx_t_23); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L18_error)
+            __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_23, 2+__pyx_t_23); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L18_error)
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -5593,14 +5571,14 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
             PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_8, __pyx_kp_s_profiling_results_kgrind};
-            __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_23, 2+__pyx_t_23); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L18_error)
+            __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_23, 2+__pyx_t_23); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L18_error)
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           } else
           #endif
           {
-            __pyx_t_5 = PyTuple_New(2+__pyx_t_23); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L18_error)
+            __pyx_t_5 = PyTuple_New(2+__pyx_t_23); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 239, __pyx_L18_error)
             __Pyx_GOTREF(__pyx_t_5);
             if (__pyx_t_4) {
               __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -5611,7 +5589,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
             __Pyx_GIVEREF(__pyx_kp_s_profiling_results_kgrind);
             PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_23, __pyx_kp_s_profiling_results_kgrind);
             __pyx_t_8 = 0;
-            __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L18_error)
+            __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L18_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           }
@@ -5632,7 +5610,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_6)) {
             PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_1, __pyx_t_2};
-            __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_23, 2+__pyx_t_23); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 242, __pyx_L18_error)
+            __pyx_t_7 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_23, 2+__pyx_t_23); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 239, __pyx_L18_error)
             __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
             __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5642,7 +5620,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
             PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_1, __pyx_t_2};
-            __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_23, 2+__pyx_t_23); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 242, __pyx_L18_error)
+            __pyx_t_7 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_23, 2+__pyx_t_23); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 239, __pyx_L18_error)
             __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
             __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5650,7 +5628,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           } else
           #endif
           {
-            __pyx_t_8 = PyTuple_New(2+__pyx_t_23); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L18_error)
+            __pyx_t_8 = PyTuple_New(2+__pyx_t_23); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L18_error)
             __Pyx_GOTREF(__pyx_t_8);
             if (__pyx_t_5) {
               __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -5661,32 +5639,32 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
             PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_23, __pyx_t_2);
             __pyx_t_1 = 0;
             __pyx_t_2 = 0;
-            __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_8, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 242, __pyx_L18_error)
+            __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_8, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 239, __pyx_L18_error)
             __Pyx_GOTREF(__pyx_t_7);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           }
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":246
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":243
  *             # `visualize` requires you have a separate program to work. You can download this and add it to the
  *             # system's path environment vairable: https://sourceforge.net/projects/qcachegrindwin/files/0.7.4/
  *             print("visualize the profiling results...")             # <<<<<<<<<<<<<<
  *             visualize(profiler.getstats())
  * 
  */
-          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 246, __pyx_L18_error)
+          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 243, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":247
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":244
  *             # system's path environment vairable: https://sourceforge.net/projects/qcachegrindwin/files/0.7.4/
  *             print("visualize the profiling results...")
  *             visualize(profiler.getstats())             # <<<<<<<<<<<<<<
  * 
  * 
  */
-          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_getstats); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 247, __pyx_L18_error)
+          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_profiler, __pyx_n_s_getstats); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 244, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_8);
           __pyx_t_2 = NULL;
           if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -5700,7 +5678,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           }
           __pyx_t_6 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 247, __pyx_L18_error)
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 244, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_INCREF(__pyx_cur_scope->__pyx_v_visualize);
@@ -5717,7 +5695,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
           __pyx_t_7 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_2, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_6);
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 247, __pyx_L18_error)
+          if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 244, __pyx_L18_error)
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -5754,7 +5732,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   __pyx_L6:;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":154
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":151
  * # Useful: https://coderzcolumn.com/tutorials/python/yappi-yet-another-python-profiler, https://github.com/sumerc/yappi/blob/master/doc/api.md
  * @contextmanager
  * def profilerManager(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):             # <<<<<<<<<<<<<<
@@ -5786,7 +5764,7 @@ static PyObject *__pyx_gb_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":250
+/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":247
  * 
  * 
  * cpdef void begin_script_with_cProfile(save_near_module=False):             # <<<<<<<<<<<<<<
@@ -5828,34 +5806,34 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     }
   }
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":253
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":250
  *     """Starts the main script with profiling."""
  * 
  *     import cProfile, pstats             # <<<<<<<<<<<<<<
  * 
  *     print("PROFILING ENABLED.")
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_cProfile, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_cProfile, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_cProfile = __pyx_t_1;
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pstats, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pstats, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_pstats = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":255
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":252
  *     import cProfile, pstats
  * 
  *     print("PROFILING ENABLED.")             # <<<<<<<<<<<<<<
  * 
  *     with cProfile.Profile() as profile:
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":257
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":254
  *     print("PROFILING ENABLED.")
  * 
  *     with cProfile.Profile() as profile:             # <<<<<<<<<<<<<<
@@ -5863,7 +5841,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
  * 
  */
   /*with:*/ {
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_cProfile, __pyx_n_s_Profile); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_cProfile, __pyx_n_s_Profile); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5877,12 +5855,12 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L3_error)
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L3_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -5896,7 +5874,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     }
     __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L3_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 254, __pyx_L3_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = __pyx_t_2;
@@ -5909,7 +5887,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
           __pyx_v_profile = __pyx_t_3;
           __pyx_t_3 = 0;
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":258
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":255
  * 
  *     with cProfile.Profile() as profile:
  *         begin_script()             # <<<<<<<<<<<<<<
@@ -5918,7 +5896,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
  */
           __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_begin_script(0);
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":257
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":254
  *     print("PROFILING ENABLED.")
  * 
  *     with cProfile.Profile() as profile:             # <<<<<<<<<<<<<<
@@ -5933,7 +5911,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
         if (__pyx_t_4) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__21, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 257, __pyx_L1_error)
+          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 254, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -5948,38 +5926,38 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     __pyx_L13:;
   }
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":260
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":257
  *         begin_script()
  * 
  *     from datetime import datetime as dt             # <<<<<<<<<<<<<<
  * 
  *     # Printing the profiling results.
  */
-  __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_n_s_datetime);
   __Pyx_GIVEREF(__pyx_n_s_datetime);
   PyList_SET_ITEM(__pyx_t_3, 0, __pyx_n_s_datetime);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_datetime, __pyx_t_3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_datetime, __pyx_t_3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_datetime); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_datetime); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_t_3);
   __pyx_v_dt = __pyx_t_3;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":263
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":260
  * 
  *     # Printing the profiling results.
  *     profiling_results = pstats.Stats(profile)             # <<<<<<<<<<<<<<
  *     profiling_results.sort_stats(pstats.SortKey.TIME)
  *     profiling_results.print_stats()
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_pstats, __pyx_n_s_Stats); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_pstats, __pyx_n_s_Stats); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (unlikely(!__pyx_v_profile)) { __Pyx_RaiseUnboundLocalError("profile"); __PYX_ERR(0, 263, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_profile)) { __Pyx_RaiseUnboundLocalError("profile"); __PYX_ERR(0, 260, __pyx_L1_error) }
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
     __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
@@ -5992,24 +5970,24 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_profile) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_profile);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_profiling_results = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":264
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":261
  *     # Printing the profiling results.
  *     profiling_results = pstats.Stats(profile)
  *     profiling_results.sort_stats(pstats.SortKey.TIME)             # <<<<<<<<<<<<<<
  *     profiling_results.print_stats()
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_profiling_results, __pyx_n_s_sort_stats); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_profiling_results, __pyx_n_s_sort_stats); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_pstats, __pyx_n_s_SortKey); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_pstats, __pyx_n_s_SortKey); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_TIME); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -6025,19 +6003,19 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":265
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":262
  *     profiling_results = pstats.Stats(profile)
  *     profiling_results.sort_stats(pstats.SortKey.TIME)
  *     profiling_results.print_stats()             # <<<<<<<<<<<<<<
  * 
  *     # Making a directory to store the profiling results.
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_profiling_results, __pyx_n_s_print_stats); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_profiling_results, __pyx_n_s_print_stats); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -6051,53 +6029,53 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   }
   __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":269
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":266
  *     # Making a directory to store the profiling results.
  *     cdef str dump_loc
  *     if save_near_module:             # <<<<<<<<<<<<<<
  *         dump_loc = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dumpfiles")
  *     else:
  */
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_save_near_module); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_save_near_module); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 266, __pyx_L1_error)
   if (__pyx_t_9) {
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":270
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":267
  *     cdef str dump_loc
  *     if save_near_module:
  *         dump_loc = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dumpfiles")             # <<<<<<<<<<<<<<
  *     else:
  *         dump_loc = os.path.join(os.getcwd(), "dumpfiles")
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_dirname); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_dirname); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_os); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_os); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_path); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_path); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_abspath); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_abspath); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_file); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_file); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __pyx_t_13 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_11))) {
@@ -6112,7 +6090,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     __pyx_t_10 = (__pyx_t_13) ? __Pyx_PyObject_Call2Args(__pyx_t_11, __pyx_t_13, __pyx_t_12) : __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_t_12);
     __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 270, __pyx_L1_error)
+    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __pyx_t_11 = NULL;
@@ -6128,7 +6106,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     __pyx_t_5 = (__pyx_t_11) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_11, __pyx_t_10) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_10);
     __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 270, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -6146,7 +6124,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_5, __pyx_n_s_dumpfiles};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -6155,14 +6133,14 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_5, __pyx_n_s_dumpfiles};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else
     #endif
     {
-      __pyx_t_10 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 270, __pyx_L1_error)
+      __pyx_t_10 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 267, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       if (__pyx_t_2) {
         __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -6173,16 +6151,16 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
       __Pyx_GIVEREF(__pyx_n_s_dumpfiles);
       PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_14, __pyx_n_s_dumpfiles);
       __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (!(likely(PyString_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 270, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 267, __pyx_L1_error)
     __pyx_v_dump_loc = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":269
+    /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":266
  *     # Making a directory to store the profiling results.
  *     cdef str dump_loc
  *     if save_near_module:             # <<<<<<<<<<<<<<
@@ -6192,7 +6170,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     goto __pyx_L14;
   }
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":272
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":269
  *         dump_loc = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dumpfiles")
  *     else:
  *         dump_loc = os.path.join(os.getcwd(), "dumpfiles")             # <<<<<<<<<<<<<<
@@ -6200,17 +6178,17 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
  *     os.makedirs(dump_loc, exist_ok=True)
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_getcwd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_getcwd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -6225,7 +6203,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     }
     __pyx_t_10 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 272, __pyx_L1_error)
+    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -6243,7 +6221,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_10, __pyx_n_s_dumpfiles};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -6252,14 +6230,14 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_10, __pyx_n_s_dumpfiles};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     } else
     #endif
     {
-      __pyx_t_5 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 269, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       if (__pyx_t_2) {
         __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -6270,75 +6248,75 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
       __Pyx_GIVEREF(__pyx_n_s_dumpfiles);
       PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_14, __pyx_n_s_dumpfiles);
       __pyx_t_10 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (!(likely(PyString_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 272, __pyx_L1_error)
+    if (!(likely(PyString_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 269, __pyx_L1_error)
     __pyx_v_dump_loc = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
   }
   __pyx_L14:;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":274
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":271
  *         dump_loc = os.path.join(os.getcwd(), "dumpfiles")
  * 
  *     os.makedirs(dump_loc, exist_ok=True)             # <<<<<<<<<<<<<<
  * 
  *     # Dumping the profiling results to a file. The file name is the current date and time.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_makedirs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_makedirs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_dump_loc);
   __Pyx_GIVEREF(__pyx_v_dump_loc);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_dump_loc);
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_exist_ok, Py_True) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
-  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 274, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_exist_ok, Py_True) < 0) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":277
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":274
  * 
  *     # Dumping the profiling results to a file. The file name is the current date and time.
  *     print("Dumping profile to:", end=" ")             # <<<<<<<<<<<<<<
  *     dump_loc = os.path.join(dump_loc, f"{dt.now().strftime('%Y-%m-%d (%I%p-%M-%S)')}.prof")
  *     print(dump_loc)
  */
-  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_end, __pyx_kp_s__23) < 0) __PYX_ERR(0, 277, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__22, __pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 277, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_10, __pyx_n_s_end, __pyx_kp_s__23) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__22, __pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":278
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":275
  *     # Dumping the profiling results to a file. The file name is the current date and time.
  *     print("Dumping profile to:", end=" ")
  *     dump_loc = os.path.join(dump_loc, f"{dt.now().strftime('%Y-%m-%d (%I%p-%M-%S)')}.prof")             # <<<<<<<<<<<<<<
  *     print(dump_loc)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_os); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_os); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_join); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_join); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_dt, __pyx_n_s_now); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_dt, __pyx_n_s_now); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_11 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -6352,10 +6330,10 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   }
   __pyx_t_3 = (__pyx_t_11) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_11) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_strftime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_strftime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -6370,13 +6348,13 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_kp_s_Y_m_d_I_p_M_S) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_s_Y_m_d_I_p_M_S);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_t_2, __pyx_kp_u_prof); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_t_2, __pyx_kp_u_prof); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -6394,7 +6372,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_10)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_dump_loc, __pyx_t_1};
-    __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 278, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 275, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -6403,14 +6381,14 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_dump_loc, __pyx_t_1};
-    __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 278, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_14, 2+__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 275, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 275, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -6421,34 +6399,34 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     __Pyx_GIVEREF(__pyx_t_1);
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_14, __pyx_t_1);
     __pyx_t_1 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 278, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 275, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (!(likely(PyString_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 278, __pyx_L1_error)
+  if (!(likely(PyString_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_5)->tp_name), 0))) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_DECREF_SET(__pyx_v_dump_loc, ((PyObject*)__pyx_t_5));
   __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":279
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":276
  *     print("Dumping profile to:", end=" ")
  *     dump_loc = os.path.join(dump_loc, f"{dt.now().strftime('%Y-%m-%d (%I%p-%M-%S)')}.prof")
  *     print(dump_loc)             # <<<<<<<<<<<<<<
  * 
  *     # Dumping the profiling results.
  */
-  __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_v_dump_loc); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_v_dump_loc); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":282
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":279
  * 
  *     # Dumping the profiling results.
  *     profiling_results.dump_stats(dump_loc)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_profiling_results, __pyx_n_s_dump_stats); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_profiling_results, __pyx_n_s_dump_stats); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
@@ -6462,12 +6440,12 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
   }
   __pyx_t_5 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_3, __pyx_v_dump_loc) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_v_dump_loc);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 282, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":250
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":247
  * 
  * 
  * cpdef void begin_script_with_cProfile(save_near_module=False):             # <<<<<<<<<<<<<<
@@ -6530,7 +6508,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "begin_script_with_cProfile") < 0)) __PYX_ERR(0, 250, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "begin_script_with_cProfile") < 0)) __PYX_ERR(0, 247, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -6544,7 +6522,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("begin_script_with_cProfile", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 250, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("begin_script_with_cProfile", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 247, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.scriptRunner.scriptRunner.begin_script_with_cProfile", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6570,7 +6548,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   __pyx_t_1.__pyx_n = 1;
   __pyx_t_1.save_near_module = __pyx_v_save_near_module;
   __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_begin_script_with_cProfile(0, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -6587,7 +6565,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":285
+/* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":282
  * 
  * 
  * cpdef void begin_script_with_profiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):             # <<<<<<<<<<<<<<
@@ -6641,31 +6619,31 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     }
   }
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":288
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":285
  *     """Starts the main script with profiling."""
  * 
  *     with profilerManager(filename=filename, engine=engine, clock=clock, output_type=output_type, profile_builtins=profile_builtins, profile_threads=profile_threads, save_near_module=save_near_module):             # <<<<<<<<<<<<<<
  *         begin_script()
  */
   /*with:*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_profilerManager); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_profilerManager); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyDict_NewPresized(7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyDict_NewPresized(7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_filename, __pyx_v_filename) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_engine, __pyx_v_engine) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_clock, __pyx_v_clock) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_output_type, __pyx_v_output_type) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_profile_builtins, __pyx_v_profile_builtins) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_profile_threads, __pyx_v_profile_threads) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_save_near_module, __pyx_v_save_near_module) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 288, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_filename, __pyx_v_filename) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_engine, __pyx_v_engine) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_clock, __pyx_v_clock) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_output_type, __pyx_v_output_type) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_profile_builtins, __pyx_v_profile_builtins) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_profile_threads, __pyx_v_profile_threads) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_save_near_module, __pyx_v_save_near_module) < 0) __PYX_ERR(0, 285, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 285, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_3, __pyx_n_s_exit_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 288, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_3, __pyx_n_s_exit_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 285, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = __Pyx_PyObject_LookupSpecial(__pyx_t_3, __pyx_n_s_enter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L3_error)
+    __pyx_t_1 = __Pyx_PyObject_LookupSpecial(__pyx_t_3, __pyx_n_s_enter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L3_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_5 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -6679,7 +6657,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     }
     __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L3_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L3_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6689,14 +6667,14 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
         (void)__pyx_t_6; (void)__pyx_t_7; (void)__pyx_t_8; /* mark used */
         /*try:*/ {
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":289
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":286
  * 
  *     with profilerManager(filename=filename, engine=engine, clock=clock, output_type=output_type, profile_builtins=profile_builtins, profile_threads=profile_threads, save_near_module=save_near_module):
  *         begin_script()             # <<<<<<<<<<<<<<
  */
           __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_begin_script(0);
 
-          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":288
+          /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":285
  *     """Starts the main script with profiling."""
  * 
  *     with profilerManager(filename=filename, engine=engine, clock=clock, output_type=output_type, profile_builtins=profile_builtins, profile_threads=profile_threads, save_near_module=save_near_module):             # <<<<<<<<<<<<<<
@@ -6710,7 +6688,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
         if (__pyx_t_4) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__21, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 288, __pyx_L1_error)
+          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 285, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -6725,7 +6703,7 @@ static void __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_be
     __pyx_L13:;
   }
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":285
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":282
  * 
  * 
  * cpdef void begin_script_with_profiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):             # <<<<<<<<<<<<<<
@@ -6838,7 +6816,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "begin_script_with_profiling") < 0)) __PYX_ERR(0, 285, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "begin_script_with_profiling") < 0)) __PYX_ERR(0, 282, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -6870,7 +6848,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("begin_script_with_profiling", 0, 0, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 285, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("begin_script_with_profiling", 0, 0, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 282, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("macropy.cythonExtensions.scriptRunner.scriptRunner.begin_script_with_profiling", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6902,7 +6880,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_12scriptRunner_12scriptRun
   __pyx_t_1.profile_threads = __pyx_v_profile_threads;
   __pyx_t_1.save_near_module = __pyx_v_save_near_module;
   __pyx_f_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_begin_script_with_profiling(0, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -7172,15 +7150,14 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Starting_the_elevated_processes, __pyx_k_Starting_the_elevated_processes, sizeof(__pyx_k_Starting_the_elevated_processes), 0, 0, 1, 0},
   {&__pyx_n_s_Stats, __pyx_k_Stats, sizeof(__pyx_k_Stats), 0, 0, 1, 1},
   {&__pyx_n_s_TIME, __pyx_k_TIME, sizeof(__pyx_k_TIME), 0, 0, 1, 1},
-  {&__pyx_n_s_TerminateScript, __pyx_k_TerminateScript, sizeof(__pyx_k_TerminateScript), 0, 0, 1, 1},
   {&__pyx_kp_s_Terminating_this_instance, __pyx_k_Terminating_this_instance, sizeof(__pyx_k_Terminating_this_instance), 0, 0, 1, 0},
   {&__pyx_kp_s_Un_initializing_COM_library_in_t, __pyx_k_Un_initializing_COM_library_in_t, sizeof(__pyx_k_Un_initializing_COM_library_in_t), 0, 0, 1, 0},
   {&__pyx_n_s_UninstallHook, __pyx_k_UninstallHook, sizeof(__pyx_k_UninstallHook), 0, 0, 1, 1},
   {&__pyx_kp_s_Uninstalling_the_hook, __pyx_k_Uninstalling_the_hook, sizeof(__pyx_k_Uninstalling_the_hook), 0, 0, 1, 0},
   {&__pyx_kp_s_Warning_Another_instance_of_the, __pyx_k_Warning_Another_instance_of_the, sizeof(__pyx_k_Warning_Another_instance_of_the), 0, 0, 1, 0},
   {&__pyx_kp_s_Y_m_d_I_p_M_S, __pyx_k_Y_m_d_I_p_M_S, sizeof(__pyx_k_Y_m_d_I_p_M_S), 0, 0, 1, 0},
-  {&__pyx_kp_s__12, __pyx_k__12, sizeof(__pyx_k__12), 0, 0, 1, 0},
-  {&__pyx_kp_u__13, __pyx_k__13, sizeof(__pyx_k__13), 0, 1, 0, 0},
+  {&__pyx_kp_s__13, __pyx_k__13, sizeof(__pyx_k__13), 0, 0, 1, 0},
+  {&__pyx_kp_u__14, __pyx_k__14, sizeof(__pyx_k__14), 0, 1, 0, 0},
   {&__pyx_kp_s__16, __pyx_k__16, sizeof(__pyx_k__16), 0, 0, 1, 0},
   {&__pyx_kp_s__23, __pyx_k__23, sizeof(__pyx_k__23), 0, 0, 1, 0},
   {&__pyx_n_s_abspath, __pyx_k_abspath, sizeof(__pyx_k_abspath), 0, 0, 1, 1},
@@ -7220,7 +7197,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_get_thread_stats, __pyx_k_get_thread_stats, sizeof(__pyx_k_get_thread_stats), 0, 0, 1, 1},
   {&__pyx_n_s_getcwd, __pyx_k_getcwd, sizeof(__pyx_k_getcwd), 0, 0, 1, 1},
   {&__pyx_n_s_getstats, __pyx_k_getstats, sizeof(__pyx_k_getstats), 0, 0, 1, 1},
-  {&__pyx_n_s_graceful, __pyx_k_graceful, sizeof(__pyx_k_graceful), 0, 0, 1, 1},
   {&__pyx_n_s_handle, __pyx_k_handle, sizeof(__pyx_k_handle), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_kp_s_is, __pyx_k_is, sizeof(__pyx_k_is), 0, 0, 1, 0},
@@ -7244,7 +7220,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_profile_threads, __pyx_k_profile_threads, sizeof(__pyx_k_profile_threads), 0, 0, 1, 1},
   {&__pyx_n_s_profiler, __pyx_k_profiler, sizeof(__pyx_k_profiler), 0, 0, 1, 1},
   {&__pyx_n_s_profilerManager, __pyx_k_profilerManager, sizeof(__pyx_k_profilerManager), 0, 0, 1, 1},
-  {&__pyx_kp_u_profilerManager_line_154, __pyx_k_profilerManager_line_154, sizeof(__pyx_k_profilerManager_line_154), 0, 1, 0, 0},
+  {&__pyx_kp_u_profilerManager_line_151, __pyx_k_profilerManager_line_151, sizeof(__pyx_k_profilerManager_line_151), 0, 1, 0, 0},
   {&__pyx_kp_s_profiling_results_kgrind, __pyx_k_profiling_results_kgrind, sizeof(__pyx_k_profiling_results_kgrind), 0, 0, 1, 0},
   {&__pyx_n_s_pstat, __pyx_k_pstat, sizeof(__pyx_k_pstat), 0, 0, 1, 1},
   {&__pyx_n_s_pstats, __pyx_k_pstats, sizeof(__pyx_k_pstats), 0, 0, 1, 1},
@@ -7406,96 +7382,96 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":99
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":101
+ *     from win32event import ReleaseMutex
+ *     ReleaseMutex(mutexHandle)
+ *     print("Script lock released.")             # <<<<<<<<<<<<<<
+ * 
+ *     # Uninstall the hook.
+ */
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_kp_s_Script_lock_released); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__11);
+  __Pyx_GIVEREF(__pyx_tuple__11);
+
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":104
  * 
  *     # Uninstall the hook.
  *     print("Uninstalling the hook...")             # <<<<<<<<<<<<<<
  *     hookManager.UninstallHook()
  * 
  */
-  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_kp_s_Uninstalling_the_hook); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 99, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__11);
-  __Pyx_GIVEREF(__pyx_tuple__11);
+  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_kp_s_Uninstalling_the_hook); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__12);
+  __Pyx_GIVEREF(__pyx_tuple__12);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":136
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":141
  *     else:
  *         #! Un-initializing the COM library if the main loop is terminated.
  *         print("Un-initializing COM library in the main thread...")             # <<<<<<<<<<<<<<
  *         pythoncom.CoUninitialize()
  * 
  */
-  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_s_Un_initializing_COM_library_in_t); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 136, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__14);
-  __Pyx_GIVEREF(__pyx_tuple__14);
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":142
- *     from win32event import ReleaseMutex
- *     ReleaseMutex(mutexHandle)
- *     print("Script lock released.")             # <<<<<<<<<<<<<<
- * 
- *     #! Terminate the script.
- */
-  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_s_Script_lock_released); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_s_Un_initializing_COM_library_in_t); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":203
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":200
  *         output_location = os.path.join(output_location, filename)
  * 
  *     print("PROFILING ENABLED.")             # <<<<<<<<<<<<<<
  * 
  *     if engine == 'yappi':
  */
-  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_kp_s_PROFILING_ENABLED); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_kp_s_PROFILING_ENABLED); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":241
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":238
  *             from pyprof2calltree import convert, visualize
  * 
  *             print("Saving the profiling results as `kgrind`...")             # <<<<<<<<<<<<<<
  *             convert(profiler.getstats(), os.path.join(os.path.splitext(output_location)[0], 'profiling_results.kgrind'))
  * 
  */
-  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_Saving_the_profiling_results_as); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_Saving_the_profiling_results_as); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":246
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":243
  *             # `visualize` requires you have a separate program to work. You can download this and add it to the
  *             # system's path environment vairable: https://sourceforge.net/projects/qcachegrindwin/files/0.7.4/
  *             print("visualize the profiling results...")             # <<<<<<<<<<<<<<
  *             visualize(profiler.getstats())
  * 
  */
-  __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_visualize_the_profiling_results); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 246, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_visualize_the_profiling_results); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":257
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":254
  *     print("PROFILING ENABLED.")
  * 
  *     with cProfile.Profile() as profile:             # <<<<<<<<<<<<<<
  *         begin_script()
  * 
  */
-  __pyx_tuple__21 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_tuple__21 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":277
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":274
  * 
  *     # Dumping the profiling results to a file. The file name is the current date and time.
  *     print("Dumping profile to:", end=" ")             # <<<<<<<<<<<<<<
  *     dump_loc = os.path.join(dump_loc, f"{dt.now().strftime('%Y-%m-%d (%I%p-%M-%S)')}.prof")
  *     print(dump_loc)
  */
-  __pyx_tuple__22 = PyTuple_Pack(1, __pyx_kp_s_Dumping_profile_to_2); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_tuple__22 = PyTuple_Pack(1, __pyx_kp_s_Dumping_profile_to_2); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
 
   /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":9
- * 
+ * from contextlib import contextmanager
  * 
  * def AcquireScriptLock() -> int:             # <<<<<<<<<<<<<<
  *     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
@@ -7506,17 +7482,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__24);
   __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_scriptRunne, __pyx_n_s_AcquireScriptLock, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 9, __pyx_L1_error)
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":154
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":151
  * # Useful: https://coderzcolumn.com/tutorials/python/yappi-yet-another-python-profiler, https://github.com/sumerc/yappi/blob/master/doc/api.md
  * @contextmanager
  * def profilerManager(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_tuple__26 = PyTuple_Pack(14, __pyx_n_s_filename, __pyx_n_s_engine, __pyx_n_s_clock, __pyx_n_s_output_type, __pyx_n_s_profile_builtins, __pyx_n_s_profile_threads, __pyx_n_s_save_near_module, __pyx_n_s_dt, __pyx_n_s_output_location, __pyx_n_s_yappi, __pyx_n_s_cProfile, __pyx_n_s_profiler, __pyx_n_s_convert, __pyx_n_s_visualize); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_tuple__26 = PyTuple_Pack(14, __pyx_n_s_filename, __pyx_n_s_engine, __pyx_n_s_clock, __pyx_n_s_output_type, __pyx_n_s_profile_builtins, __pyx_n_s_profile_threads, __pyx_n_s_save_near_module, __pyx_n_s_dt, __pyx_n_s_output_location, __pyx_n_s_yappi, __pyx_n_s_cProfile, __pyx_n_s_profiler, __pyx_n_s_convert, __pyx_n_s_visualize); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__26);
   __Pyx_GIVEREF(__pyx_tuple__26);
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(7, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_scriptRunne, __pyx_n_s_profilerManager, 154, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(7, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_scriptRunne, __pyx_n_s_profilerManager, 151, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -7574,7 +7550,7 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner___pyx_scope_struct__profilerManager) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner___pyx_scope_struct__profilerManager) < 0) __PYX_ERR(0, 151, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner___pyx_scope_struct__profilerManager.tp_print = 0;
   #endif
@@ -7819,7 +7795,7 @@ if (!__Pyx_RefNanny) {
  * """This extension module defines functions for setting up and starting the script."""
  * 
  * import os             # <<<<<<<<<<<<<<
- * 
+ * from contextlib import contextmanager
  * 
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
@@ -7827,71 +7803,71 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":9
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":7
  * 
+ * import os
+ * from contextlib import contextmanager             # <<<<<<<<<<<<<<
+ * 
+ * def AcquireScriptLock() -> int:
+ */
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_n_s_contextmanager);
+  __Pyx_GIVEREF(__pyx_n_s_contextmanager);
+  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_contextmanager);
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_contextlib, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_contextmanager); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_contextmanager, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":9
+ * from contextlib import contextmanager
  * 
  * def AcquireScriptLock() -> int:             # <<<<<<<<<<<<<<
  *     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
  *     If another instance of the script is already running, this instance will be terminated."""
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_1AcquireScriptLock, NULL, __pyx_n_s_macropy_cythonExtensions_scriptR); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_AcquireScriptLock, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":148
- * 
- * 
- * from contextlib import contextmanager             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_n_s_contextmanager);
-  __Pyx_GIVEREF(__pyx_n_s_contextmanager);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_contextmanager);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_contextlib, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_1AcquireScriptLock, NULL, __pyx_n_s_macropy_cythonExtensions_scriptR); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_contextmanager); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_contextmanager, __pyx_t_1) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_AcquireScriptLock, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":153
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":150
  * # Source: https://dev.to/rydra/getting-started-on-profiling-with-python-3a4
  * # Useful: https://coderzcolumn.com/tutorials/python/yappi-yet-another-python-profiler, https://github.com/sumerc/yappi/blob/master/doc/api.md
  * @contextmanager             # <<<<<<<<<<<<<<
  * def profilerManager(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):
  *     """
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_contextmanager); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_contextmanager); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":154
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":151
  * # Useful: https://coderzcolumn.com/tutorials/python/yappi-yet-another-python-profiler, https://github.com/sumerc/yappi/blob/master/doc/api.md
  * @contextmanager
  * def profilerManager(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_5profilerManager, NULL, __pyx_n_s_macropy_cythonExtensions_scriptR); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_12scriptRunner_12scriptRunner_5profilerManager, NULL, __pyx_n_s_macropy_cythonExtensions_scriptR); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":153
+  /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":150
  * # Source: https://dev.to/rydra/getting-started-on-profiling-with-python-3a4
  * # Useful: https://coderzcolumn.com/tutorials/python/yappi-yet-another-python-profiler, https://github.com/sumerc/yappi/blob/master/doc/api.md
  * @contextmanager             # <<<<<<<<<<<<<<
  * def profilerManager(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):
  *     """
  */
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_profilerManager, __pyx_t_3) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_profilerManager, __pyx_t_3) < 0) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "src/cythonExtensions/scriptRunner/scriptRunner.pyx":1
@@ -7901,7 +7877,7 @@ if (!__Pyx_RefNanny) {
  */
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_kp_u_profilerManager_line_154, __pyx_kp_u_Description_A_context_manager_t) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_kp_u_profilerManager_line_151, __pyx_kp_u_Description_A_context_manager_t) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_3) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 

@@ -1,5 +1,6 @@
 """This module provides system/script-specific functions."""
 
+import win32con
 
 def TerminateScript(graceful=False) -> None:
     """
@@ -29,8 +30,8 @@ def IsProcessElevated(hwnd=0) -> bool:
     ...
 
 
-def RequestElevation() -> None:
-    """Restarts the current python process with elevated privileges."""
+def StartWithElevatedPrivileges(terminate=True, cmder=False, cmdShow=win32con.SW_SHOWNORMAL) -> int:
+    """Starts another instance of the main python process with elevated privileges."""
     ...
 
 

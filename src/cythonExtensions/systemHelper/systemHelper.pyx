@@ -4,12 +4,12 @@
 """This extension module provides system/script-specific functions."""
 
 import win32gui, win32api, win32process, win32con, winsound, win32security
-import wmi, ctypes, os, sys, psutil
+import wmi, ctypes, os, sys, psutil, subprocess
 from win11toast import toast
 from time import sleep
 from cythonExtensions.commonUtils.commonUtils import PThread, Management as mgmt
 from cythonExtensions.windowHelper import windowHelper as winHelper
-
+import scriptConfigs as configs
 
 @PThread.Throttle(10)
 def TerminateScript(graceful=False) -> None:
@@ -73,14 +73,24 @@ cpdef bint IsProcessElevated(int hwnd=0):
     
     return False
 
-cpdef void RequestElevation():
-    """Restarts the current python process with elevated privileges."""
+cpdef int StartWithElevatedPrivileges(bint terminate=True, bint cmder=False, int cmdShow=win32con.SW_SHOWNORMAL): # win32con.SW_FORCEMINIMIZE
+    """Starts another instance of the main python process with elevated privileges."""
     
-    # Source  : https://stackoverflow.com/questions/130763/request-uac-elevation-from-within-a-python-script
-    # See also: https://stackoverflow.com/questions/19672352/how-to-run-script-with-elevated-privilege-on-windows
+    if IsProcessElevated(-1):
+        print("Hotkey ignored. The script already has elevated privileges.")
+        
+        return 0
+    
+    if terminate:
+        TerminateScript(graceful=True)
     
     # Re-run the program with admin rights
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    # Source  : https://stackoverflow.com/questions/130763/request-uac-elevation-from-within-a-python-script
+    # See also: https://stackoverflow.com/questions/19672352/how-to-run-script-with-elevated-privilege-on-windows
+    if cmder:
+        return ctypes.windll.shell32.ShellExecuteW(None, "runas", "c:\Cmder\Cmder.exe", f'/x "/cmd python \\"{configs.MAIN_MODULE_LOCATION}\\""', None, win32con.SW_SHOWNORMAL)
+    
+    return ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, subprocess.list2cmdline(sys.argv), None, cmdShow)
 
 cpdef void ScheduleElevatedProcessChecker(float delay=10.0):
     """Reprots each `delay` time if the active process window is elevated while the current python process is not elevated."""
@@ -277,6 +287,8 @@ cpdef str GetProcessFileAddress(int hwnd):
         return ""
 
 
+# Source: https://stackoverflow.com/questions/38628332/how-to-get-the-process-id-of-not-responding-foreground-app
+# Useful: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-ishungappwindow
 cpdef int suspendProcess(int hwnd=0):
     """Suspends a process given its window handle. Uses the handle of the active window if no handle is passed."""
     
@@ -362,10 +374,10 @@ cpdef int GetHungwindowHandle(int hwnd=0):
     if ctypes.windll.user32.IsHungAppWindow(hwnd):
         real_hwnd = ctypes.windll.user32.HungWindowFromGhostWindow(hwnd)
         
+        return real_hwnd
+        
         # To get the reverse mapping:
         # ghost_hwnd = ctypes.windll.user32.GhostWindowFromHungWindow(real_hwnd)
-        
-        return real_hwnd
     
     return 0
 

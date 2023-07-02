@@ -4,7 +4,7 @@
 """This extension module defines functions for setting up and starting the script."""
 
 import os
-
+from contextlib import contextmanager
 
 def AcquireScriptLock() -> int:
     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
@@ -95,6 +95,11 @@ cpdef void begin_script():
     
     ##! Reaching this point means that the script is being terminated.
     
+    #! Releasing the acquired script lock.
+    from win32event import ReleaseMutex
+    ReleaseMutex(mutexHandle)
+    print("Script lock released.")
+    
     # Uninstall the hook.
     print("Uninstalling the hook...")
     hookManager.UninstallHook()
@@ -136,16 +141,8 @@ cpdef void begin_script():
         print("Un-initializing COM library in the main thread...")
         pythoncom.CoUninitialize()
     
-    # Releasing the acquired script lock.
-    from win32event import ReleaseMutex
-    ReleaseMutex(mutexHandle)
-    print("Script lock released.")
-    
     #! Terminate the script.
-    sysHelper.TerminateScript(graceful=False)
-
-
-from contextlib import contextmanager
+    # sysHelper.TerminateScript(graceful=False)
 
 
 # Source: https://dev.to/rydra/getting-started-on-profiling-with-python-3a4

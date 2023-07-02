@@ -32,8 +32,13 @@ cpdef bint HotkeyPressEvent(KeyboardEvent event):
     cdef bint suppress_key = mgmt.suppress_all_keys # and not (ctrlHouse.modifiers & ctrlHouse.FN) and
     
     ### Script/System management operations ###
+    #+ Restart the script with elevated privileges.
+    if (ctrlHouse.modifiers & ctrlHouse.CTRL_ALT_FN_WIN) in (ctrlHouse.CTRL_ALT_WIN, ctrlHouse.CTRL_FN_WIN, ctrlHouse.CTRL_ALT_FN_WIN) and event.KeyID == win32con.VK_ESCAPE:
+        PThread(target=sysHelper.StartWithElevatedPrivileges, args=[True, True, win32con.SW_FORCEMINIMIZE]).start()
+        suppress_key = True
+    
     #+ Exitting the script: [FN | Win] + Esc
-    if (ctrlHouse.modifiers & ctrlHouse.FN_WIN) and event.KeyID == win32con.VK_ESCAPE:
+    elif (ctrlHouse.modifiers & ctrlHouse.FN_WIN) and event.KeyID == win32con.VK_ESCAPE:
         PThread(target=sysHelper.TerminateScript, kwargs={"graceful": True}).start()
         
         suppress_key = True
@@ -97,11 +102,13 @@ cpdef bint HotkeyPressEvent(KeyboardEvent event):
         
         suppress_key = True
     
+    #+ Suspend the process of the active window: '`' + PAUSE
     elif (ctrlHouse.modifiers & ctrlHouse.BACKTICK) and event.KeyID == win32con.VK_PAUSE:
         PThread(target=sysHelper.suspendProcess).start()
         winsound.PlaySound(r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
         suppress_key = True
     
+    #+ Resume the suspended process of the active window: ALT + PAUSE
     elif (ctrlHouse.modifiers & ctrlHouse.ALT) and event.KeyID == win32con.VK_PAUSE:
         PThread(target=sysHelper.resumeProcess).start()
         winsound.PlaySound(r"SFX\pedantic-490.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
@@ -111,7 +118,6 @@ cpdef bint HotkeyPressEvent(KeyboardEvent event):
     #+  Incresing/Decreasing the opacity of the active window: '`' + (['+'* | Add], ['-'* | Subtract])
     elif (ctrlHouse.modifiers & ctrlHouse.BACKTICK) and event.KeyID in (kbcon.VK_EQUALS, kbcon.VK_MINUS, win32con.VK_ADD, win32con.VK_SUBTRACT):
         PThread(target=winHelper.ChangeWindowOpacity, args=[0, event.KeyID in (kbcon.VK_EQUALS, win32con.VK_ADD)]).start()
-        
         suppress_key = True
     
     #+ Toggling the `AlwaysOnTop` state for the focused window: # FN + Ctrl + 'A'*

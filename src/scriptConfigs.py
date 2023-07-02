@@ -1,4 +1,5 @@
 """This module contains the configuration variables used by the script."""
+import os
 
 # If you want to use a prefix other than '!' and ':', to be able to use key expansion when 'suppress_all_keys' is set,
 # you need to add an extra check in the 'eventListeners.ExpanderEvent' function.
@@ -27,3 +28,6 @@ ENABLE_LOGGING = True
 
 ENABLE_ELEVATED_PRIVILEGES_CHECKER = True
 """A boolean value that determines whether the script should check for if the foreground window has elevated privileges or not."""
+
+MAIN_MODULE_LOCATION = os.path.join(os.path.dirname(__file__), "__main__.py")
+"""Stores the full path address of the `__main__` module."""
