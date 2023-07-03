@@ -74,7 +74,7 @@ This script relies heavily on Windows API. At first, I tried to use the `keyboar
 - Flattening directories by moving all the files/folders inside to the same level. (No hotkey)
 
 <ins>Next are some of the supported window manipulation operations</ins>:
-- Moving the window around (up, right, down, right) -> `Backtick + (↑, →, ↓, ←)`.
+- Moving the window around (up, right, down, left) -> `Backtick + (↑, →, ↓, ←)`.
 
 ![Moving Window Around](https://github.com/Ryen-042/Macropy/blob/main/Images/Moving_Window.gif?raw=true)
 
@@ -93,7 +93,7 @@ This script relies heavily on Windows API. At first, I tried to use the `keyboar
 
 - Increasing/Decreasing brightness -> `Backtick + (F2, F3)`.
 
-- Suspending/resuming the process of the active window -> `Backtick + Pause` or `Alt + Pause`.
+- Suspending/resuming the process of the active window -> `Backtick + Pause`/`Alt + Pause`.
 
 - Sending hotkeys and keyboard key sequences.
 
@@ -119,12 +119,12 @@ This script relies heavily on Windows API. At first, I tried to use the `keyboar
 
 - To terminate the script, press the hotkey -> `FN + ESC`.
 
-- To make sure the script is running (by displaying a toast notification), press the hotkey -> `FN + /`.
+- To make sure the script is running (by displaying a toast notification), press the hotkey -> `FN + "/"`.
 
-- To clear the terminal, press the hotkey -> `Ctrl + FN + C`.
+- To clear the terminal, press the hotkey -> `Ctrl + FN + "c"`.
 
-- To suppress/silence the terminal output, press the hotkey -> `FN + Alt + S`.
+- To suppress/silence the terminal output, press the hotkey -> `FN + Alt + "s"`.
 
-- To suppress keyboard keys (hotkeys still work), press the hotkey -> `Ctrl + Alt + D`.
+- To suppress keyboard keys (hotkeys still work), press the hotkey -> `Ctrl + Alt + "d"`.
 
 - The script will not allow more than one active instance at a time.
