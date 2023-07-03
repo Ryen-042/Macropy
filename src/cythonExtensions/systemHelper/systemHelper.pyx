@@ -84,11 +84,18 @@ cpdef int StartWithElevatedPrivileges(bint terminate=True, bint cmder=False, int
     if terminate:
         TerminateScript(graceful=True)
     
-    # Re-run the program with admin rights
-    # Source  : https://stackoverflow.com/questions/130763/request-uac-elevation-from-within-a-python-script
-    # See also: https://stackoverflow.com/questions/19672352/how-to-run-script-with-elevated-privilege-on-windows
     if cmder:
-        return ctypes.windll.shell32.ShellExecuteW(None, "runas", "c:\Cmder\Cmder.exe", f'/x "/cmd python \\"{configs.MAIN_MODULE_LOCATION}\\""', None, win32con.SW_SHOWNORMAL)
+        # Docs: Run with elevated privileges and disable ‘Press Enter or Esc to close console’: https://conemu.github.io/en/NewConsole.html
+        # Docs: Run a command with elevation in cmder & configure where the command should started (in a split or new tab): https://conemu.github.io/en/csudo.html
+        return os.system(f'''start "" "c:\Cmder\Cmder.exe" /x "-run python \\"{configs.MAIN_MODULE_LOCATION}\\" -cur_console:a:n"''')
+        
+        # Useful: https://stackoverflow.com/questions/130763/request-uac-elevation-from-within-a-python-script
+        # Useful: https://stackoverflow.com/questions/19672352/how-to-run-script-with-elevated-privilege-on-windows
+        # MsDocs: https://learn.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew
+        # return ctypes.windll.shell32.ShellExecuteW(None, None, "c:\Cmder\Cmder.exe", f'/x "-run python \\"{configs.MAIN_MODULE_LOCATION}\\" -cur_console:a:n"', None, win32con.SW_SHOWNORMAL)
+        
+        # This does not use UAC so you would have to enter the password for the admin account.
+        # return os.system(fr'''runas /user:Administrator "c:\Cmder\Cmder.exe /x \"-run csudo python \\\"{__file__}\\\"\""''')
     
     return ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, subprocess.list2cmdline(sys.argv), None, cmdShow)
 
@@ -289,6 +296,10 @@ cpdef str GetProcessFileAddress(int hwnd):
 
 # Source: https://stackoverflow.com/questions/38628332/how-to-get-the-process-id-of-not-responding-foreground-app
 # Useful: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-ishungappwindow
+#       : https://www.pinvoke.net/default.aspx/ntdll.NtSuspendProcess
+#       : https://www.pinvoke.net/default.aspx/ntdll/NtResumeProcess.html
+#       : https://undoc.airesoft.co.uk/user32.dll/HungWindowFromGhostWindow.php
+#       : https://undoc.airesoft.co.uk/user32.dll/GhostWindowFromHungWindow.php
 cpdef int suspendProcess(int hwnd=0):
     """Suspends a process given its window handle. Uses the handle of the active window if no handle is passed."""
     

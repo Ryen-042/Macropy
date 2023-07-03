@@ -17,7 +17,6 @@ def main():
     
     if len(sys.argv) > 1 and any(arg in ("-e", "--elevated") for arg in sys.argv) and not sysHelper.IsProcessElevated(-1):
         sysHelper.StartWithElevatedPrivileges(terminate=False, cmder=True)
-        # os.system(fr'''runas /user:Administrator "c:\Cmder\Cmder.exe /x \"/cmd python \\\"{__file__}\\\"\""''')
     
     elif len(sys.argv) > 1 and sys.argv[1] in ("-p", "--profile", "--prof"):
         from cythonExtensions.scriptRunner.scriptRunner import begin_script, profilerManager
