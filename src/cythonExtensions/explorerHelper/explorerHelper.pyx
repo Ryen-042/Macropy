@@ -96,7 +96,7 @@ cpdef str GetExplorerAddress(active_explorer=None):
     """Returns the address of the active explorer window."""
     
     if not active_explorer:
-        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
+        active_explorer = GetActiveExplorer(check_desktop=False)
     
     if not active_explorer:
         return ""
@@ -123,7 +123,7 @@ cpdef list GetSelectedItemsFromActiveExplorer(active_explorer=None, tuple patter
     cdef bint initializer_called = PThread.CoInitialize()
     
     if not active_explorer:
-        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=True)
+        active_explorer = GetActiveExplorer(check_desktop=True)
     
     cdef list output = []
     
@@ -150,7 +150,7 @@ cpdef list CopySelectedFileNames(active_explorer=None, bint check_desktop=True):
     
     # If no automation object was passed (i.e., `None` was passed), create one.
     if not active_explorer:
-        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop)
+        active_explorer = GetActiveExplorer(check_desktop=check_desktop)
     
     cdef list selected_files_paths = []
     
@@ -249,7 +249,7 @@ cpdef int CreateFile(active_explorer=None):
     cdef bint initializer_called = PThread.CoInitialize()
     
     if not active_explorer:
-        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=True)
+        active_explorer = GetActiveExplorer(check_desktop=True)
     
     cdef int output = 0
     cdef str file_fullpath
@@ -279,7 +279,7 @@ cpdef ImagesToPDF(active_explorer=None):
     cdef bint initializer_called = PThread.CoInitialize()
     
     if not active_explorer:
-        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
+        active_explorer = GetActiveExplorer(check_desktop=False)
     
     cdef list selected_files_paths
     cdef str directory, file_fullpath
@@ -323,7 +323,7 @@ cpdef void OfficeFileToPDF(active_explorer=None, str office_application="Powerpo
     cdef bint initializer_called = PThread.CoInitialize()
     
     if not active_explorer:
-        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
+        active_explorer = GetActiveExplorer(check_desktop=False)
     
     if not active_explorer:
         if initializer_called:
@@ -425,7 +425,7 @@ cpdef void GenericFileConverter(active_explorer=None, tuple patterns=None, conve
     cdef bint initializer_called = PThread.CoInitialize()
     
     if not active_explorer:
-        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), check_desktop=False)
+        active_explorer = GetActiveExplorer(check_desktop=False)
     
     if not active_explorer:
         if initializer_called:
@@ -461,7 +461,7 @@ cpdef void FlattenDirectories(active_explorer=None):
     
     # If no automation object was passed (i.e., `None` was passed), create one.
     if not active_explorer:
-        active_explorer = GetActiveExplorer(ShellWrapper.explorer.Windows(), False)
+        active_explorer = GetActiveExplorer(check_desktop=False)
     
     if not active_explorer:
         if initializer_called:

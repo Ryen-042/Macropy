@@ -7413,13 +7413,13 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11commonUtils_11commonUtil
  * 
  *     @staticmethod
  *     def InMainThread() -> bool:             # <<<<<<<<<<<<<<
- *         """Returns where the current thread is the main thread for the current process."""
+ *         """Returns whether the current thread is the main thread for the current process."""
  * 
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_5InMainThread(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_4InMainThread[] = "PThread.InMainThread() -> bool\nReturns where the current thread is the main thread for the current process.";
+static char __pyx_doc_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_4InMainThread[] = "PThread.InMainThread() -> bool\nReturns whether the current thread is the main thread for the current process.";
 static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_5InMainThread = {"InMainThread", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_5InMainThread, METH_NOARGS, __pyx_doc_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_4InMainThread};
 static PyObject *__pyx_pw_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_5InMainThread(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
@@ -7444,7 +7444,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11commonUtils_11commonUtil
   __Pyx_RefNannySetupContext("InMainThread", 0);
 
   /* "src/cythonExtensions/commonUtils/commonUtils.pyx":436
- *         """Returns where the current thread is the main thread for the current process."""
+ *         """Returns whether the current thread is the main thread for the current process."""
  * 
  *         return threading.get_ident() == PThread.mainThreadId             # <<<<<<<<<<<<<<
  * 
@@ -7487,7 +7487,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11commonUtils_11commonUtil
  * 
  *     @staticmethod
  *     def InMainThread() -> bool:             # <<<<<<<<<<<<<<
- *         """Returns where the current thread is the main thread for the current process."""
+ *         """Returns whether the current thread is the main thread for the current process."""
  * 
  */
 
@@ -7514,7 +7514,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11commonUtils_11commonUtil
 
 /* Python wrapper */
 static PyObject *__pyx_pw_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_7GetParentThread(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_6GetParentThread[] = "PThread.GetParentThread() -> int\n\n        Description:\n            Returns the parent thread id of the current thread.\n        ---\n        Returns:\n            - `int > 0` (the parent thread id): if the current thread is not the main thread.\n            - `0`: if it was the main thread.\n            - `-1`: if the parent thread is unknown (i.e., the current thread was not created using this class).\n        ";
+static char __pyx_doc_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_6GetParentThread[] = "PThread.GetParentThread() -> int\n\n        Description:\n            Returns the parent thread id of the current thread.\n        ---\n        Returns:\n            - `int > 0` (the parent thread id): if the current thread is not the main thread.\n            - `0`: if it is the main thread.\n            - `-1`: if the parent thread is unknown (i.e., the current thread was not created using this class).\n        ";
 static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_7GetParentThread = {"GetParentThread", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_7GetParentThread, METH_NOARGS, __pyx_doc_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_6GetParentThread};
 static PyObject *__pyx_pw_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_7GetParentThread(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
@@ -7971,13 +7971,13 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11commonUtils_11commonUtil
  * 
  *     @staticmethod
  *     def CoUninitialize() -> None:             # <<<<<<<<<<<<<<
- *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+ *         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_11CoUninitialize(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_10CoUninitialize[] = "PThread.CoUninitialize() -> None\nUn-initializes the COM library for the current thread if `initializer_called` is True.";
+static char __pyx_doc_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_10CoUninitialize[] = "PThread.CoUninitialize() -> None\nUninitializes the COM library for the current thread if `initializer_called` is True.";
 static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_11CoUninitialize = {"CoUninitialize", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_11CoUninitialize, METH_NOARGS, __pyx_doc_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_10CoUninitialize};
 static PyObject *__pyx_pw_7macropy_16cythonExtensions_11commonUtils_11commonUtils_7PThread_11CoUninitialize(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
@@ -8004,7 +8004,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11commonUtils_11commonUtil
 
   /* "src/cythonExtensions/commonUtils/commonUtils.pyx":476
  *     def CoUninitialize() -> None:
- *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+ *         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:             # <<<<<<<<<<<<<<
  *             print(f"CoUninitialize called from: {threading.current_thread().name}")
  *             pythoncom.CoUninitialize()
@@ -8037,7 +8037,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11commonUtils_11commonUtil
   if (__pyx_t_4) {
 
     /* "src/cythonExtensions/commonUtils/commonUtils.pyx":477
- *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+ *         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:
  *             print(f"CoUninitialize called from: {threading.current_thread().name}")             # <<<<<<<<<<<<<<
  *             pythoncom.CoUninitialize()
@@ -8138,7 +8138,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11commonUtils_11commonUtil
 
     /* "src/cythonExtensions/commonUtils/commonUtils.pyx":476
  *     def CoUninitialize() -> None:
- *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+ *         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:             # <<<<<<<<<<<<<<
  *             print(f"CoUninitialize called from: {threading.current_thread().name}")
  *             pythoncom.CoUninitialize()
@@ -8149,7 +8149,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_11commonUtils_11commonUtil
  * 
  *     @staticmethod
  *     def CoUninitialize() -> None:             # <<<<<<<<<<<<<<
- *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+ *         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:
  */
 
@@ -17042,7 +17042,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *     @staticmethod
  *     def InMainThread() -> bool:             # <<<<<<<<<<<<<<
- *         """Returns where the current thread is the main thread for the current process."""
+ *         """Returns whether the current thread is the main thread for the current process."""
  * 
  */
   __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_commonUtils, __pyx_n_s_InMainThread, 433, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 433, __pyx_L1_error)
@@ -17069,7 +17069,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *     @staticmethod
  *     def CoUninitialize() -> None:             # <<<<<<<<<<<<<<
- *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+ *         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:
  */
   __pyx_codeobj__49 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_commonUtils, __pyx_n_s_CoUninitialize, 474, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__49)) __PYX_ERR(0, 474, __pyx_L1_error)
@@ -18985,7 +18985,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     @staticmethod
  *     def InMainThread() -> bool:             # <<<<<<<<<<<<<<
- *         """Returns where the current thread is the main thread for the current process."""
+ *         """Returns whether the current thread is the main thread for the current process."""
  * 
  */
   __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 433, __pyx_L1_error)
@@ -19001,7 +19001,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def InMainThread() -> bool:
- *         """Returns where the current thread is the main thread for the current process."""
+ *         """Returns whether the current thread is the main thread for the current process."""
  */
   __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 432, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
@@ -19069,7 +19069,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     @staticmethod
  *     def CoUninitialize() -> None:             # <<<<<<<<<<<<<<
- *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+ *         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
  *         if threading.current_thread().coInitializeCalled:
  */
   __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 474, __pyx_L1_error)
@@ -19085,7 +19085,7 @@ if (!__Pyx_RefNanny) {
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def CoUninitialize() -> None:
- *         """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+ *         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
  */
   __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_staticmethod, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 473, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);

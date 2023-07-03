@@ -404,7 +404,7 @@ class PThread(threading.Thread):
     msgQueue: Queue[bool] = queue.Queue()
     """A queue used for message passing between threads."""
     
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         threading.Thread.__init__(self, *args, **kwargs)
         self.parent = threading.current_thread()
         self.coInitializeCalled = False
@@ -427,7 +427,7 @@ class PThread(threading.Thread):
     
     @staticmethod
     def InMainThread() -> bool:
-        """Returns where the current thread is the main thread for the current process."""
+        """Returns whether the current thread is the main thread for the current process."""
         
         return threading.get_ident() == PThread.mainThreadId
     
@@ -439,7 +439,7 @@ class PThread(threading.Thread):
         ---
         Returns:
             - `int > 0` (the parent thread id): if the current thread is not the main thread.
-            - `0`: if it was the main thread.
+            - `0`: if it is the main thread.
             - `-1`: if the parent thread is unknown (i.e., the current thread was not created using this class).
         """
         
@@ -468,7 +468,7 @@ class PThread(threading.Thread):
     
     @staticmethod
     def CoUninitialize() -> None:
-        """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+        """Uninitializes the COM library for the current thread if `initializer_called` is True."""
         if threading.current_thread().coInitializeCalled:
             print(f"CoUninitialize called from: {threading.current_thread().name}")
             pythoncom.CoUninitialize()
