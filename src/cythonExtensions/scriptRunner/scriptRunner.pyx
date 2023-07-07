@@ -6,6 +6,7 @@
 import os
 from contextlib import contextmanager
 
+
 def AcquireScriptLock() -> int:
     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
     If another instance of the script is already running, this instance will be terminated."""
@@ -36,7 +37,6 @@ def AcquireScriptLock() -> int:
 cpdef void begin_script():
     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
     
-    # Making sure that this is the only running instance of the main function. If not, then terminate this one.
     mutexHandle = AcquireScriptLock()
     print("Script lock acquired.")
     
@@ -44,8 +44,8 @@ cpdef void begin_script():
     import winsound, pythoncom
     from cythonExtensions.systemHelper import systemHelper as sysHelper
     from cythonExtensions.commonUtils.commonUtils import Management as mgmt, PThread
-    from cythonExtensions.eventListeners.eventListeners import KeyPress, KeyRelease
-    from cythonExtensions.hookManager.hookManager import HookManager, KeyboardHookManager
+    from cythonExtensions.eventListeners.eventListeners import KeyPress, textExpansion, ButtonPress
+    from cythonExtensions.hookManager.hookManager import HookManager, KeyboardHookManager, MouseHookManager, HookTypes
     from time import sleep, time
     import scriptConfigs as configs
     
@@ -66,28 +66,36 @@ cpdef void begin_script():
         sysHelper.EnableDPI_Awareness()
     
     #+ Scheduling a checker to notify if a process with elevated privileges is active when the script does not have elevated privileges.
-    #? This is necessary because no keyboard events are reported when this scenario happens.
+    #? This is necessary because no keyboard events are reported if the script is not elevated and the foreground window is.
     if configs.ENABLE_ELEVATED_PRIVILEGES_CHECKER and not sysHelper.IsProcessElevated(-1):
         print("Starting the elevated processes checker...")
         PThread(target=sysHelper.ScheduleElevatedProcessChecker).start()
     
-    #+ Initializing the keyboard hook manager.
-    # kbHook = pyWinhook.HookManager()
     hookManager = HookManager()
-    kbHook = KeyboardHookManager()
     
-    #+ Initializing all keyboard event callbakcs.
     print("Initializing keyboard listeners...")
-    
+    kbHook = KeyboardHookManager()
+    kbHook.addKeyDownListener(textExpansion)
     kbHook.addKeyDownListener(KeyPress)
-    kbHook.addKeyUpListener(KeyRelease)
+    # kbHook.addKeyUpListener()
     
-    #+ Starting the program main loop.
-    print("Activating keyboard listeners...\n")
+    print("Initializing mouse listeners...")
+    msHook = MouseHookManager()
+    msHook.addButtonDownListener(ButtonPress)
+    # msHook.addButtonUpListener()
     
-    ## Installing the low level hook.
-    if not hookManager.InstallHook(kbHook.KeyboardHook):
-        print("Failed to install hook!")
+    #+ Starting the application main loop.
+    print("Activating keyboard listeners...")
+    
+    ## Installing the low level hooks.
+    if not hookManager.InstallHook(kbHook.KeyboardCallback,  HookTypes.WH_KEYBOARD_LL):
+        print("\nWarning! Failed to install the keyboard hook!")
+        os._exit(1)
+    
+    print("Activating mouse listeners...\n")
+    
+    if not hookManager.InstallHook(msHook.MouseCallback, HookTypes.WH_MOUSE_LL):
+        print("Failed to install the mouse hook!")
         os._exit(1)
     
     # Begin listening for windows events. This function will not return until the hook stops.
@@ -95,14 +103,13 @@ cpdef void begin_script():
     
     ##! Reaching this point means that the script is being terminated.
     
-    #! Releasing the acquired script lock.
     from win32event import ReleaseMutex
     ReleaseMutex(mutexHandle)
     print("Script lock released.")
     
-    # Uninstall the hook.
-    print("Uninstalling the hook...")
-    hookManager.UninstallHook()
+    print("Uninstalling the hooks...")
+    hookManager.UninstallHook(HookTypes.WH_KEYBOARD_LL)
+    hookManager.UninstallHook(HookTypes.WH_MOUSE_LL)
     
     # Get a list of all running threads
     cdef list alive_threads = threading.enumerate()

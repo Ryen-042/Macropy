@@ -4,60 +4,69 @@ import ctypes
 import ctypes.wintypes
 from typing import Callable, Any
 from enum import IntEnum
-from cythonExtensions.commonUtils.commonUtils import KeyboardEvent
+from cythonExtensions.commonUtils.commonUtils import KeyboardEvent, MouseEvent
 
 
 # https://learn.microsoft.com/en-us/windows/win32/winmsg/about-hooks
 class HookTypes(IntEnum):
     # Constants that represent different types of Windows hooks that can be set using the SetWindowsHookEx function.
+    
     WH_MSGFILTER       = -1
-    """A hook type that allows you to monitor messages sent to a window or dialog box procedure. This is also the minmum value for a hook type."""
-
+    "A hook type that monitors messages sent to a window as a result of an input event in a dialog box, message box, menu, or scroll bar. Also represents the minmum value for a hook type."
+    
+    # Warning: Journaling Hooks APIs are unsupported starting in Windows 11 and will be removed in a future release. Use  the SendInput TextInput API instead.
     WH_JOURNALRECORD   = 0
-    """A hook type that is used to record input events."""
-
+    "A hook type used to record input messages posted to the system message queue. This hook is useful for recording macros."
+    
     WH_JOURNALPLAYBACK = 1
-    """A hook type that is used to replay the input events recorded by the WH_JOURNALRECORD hook type."""
-
+    "A hook type used to replay/post the input messages recorded by the WH_JOURNALRECORD hook type."
+    
     WH_KEYBOARD        = 2
-    """A hook type that is used to monitor keystrokes. It can be used to implement a keylogger or to perform other keyboard-related tasks."""
-
+    "A hook type that monitors keystrokes. It can be used to implement a keylogger or to perform other keyboard-related tasks."
+    
     WH_GETMESSAGE      = 3
-    """A hook type that is used to monitor messages in the message queue of a thread. It can be used to modify or filter messages before they are dispatched."""
-
+    "A hook type that monitors messages in the message queue of a thread. It can be used to modify or filter messages before they are dispatched."
+    
     WH_CALLWNDPROC     = 4
-    """A hook type that is used to monitor messages sent to a window or dialog box procedure before they are processed by the procedure."""
-
+    "A hook type that monitors messages sent to a window before the system sends them to the destination window procedure."
+    
     WH_CBT             = 5
-    """A hook type that is used to monitor a variety of system events, including window creation and destruction, window activation, and window focus changes."""
-
+    "A hook type that monitors a variety of system events, including window creation and destruction, window activation, and window focus changes."
+    
     WH_SYSMSGFILTER    = 6
-    """A hook type that is similar to WH_MSGFILTER, but it monitors messages sent to all windows, not just a specific window or dialog box procedure."""
-
+    "A hook type similar to WH_MSGFILTER but monitors messages sent to all windows, not just a specific window or dialog box procedure."
+    
+    WH_MOUSE           = 7
+    "A hook type that monitors mouse events."
+    
+    # Warning: Not Implemented hook. May have been intended for system activities such as watching for disk or other hardware activity to occur.
     WH_HARDWARE        = 8
-    """A hook type that is used to monitor low-level hardware events, such as mouse and keyboard input."""
-
+    "A hook type that monitors low-level hardware events other than a mouse or keyboard events."
+    
     WH_DEBUG           = 9
-    """A hook type that is used for debugging purposes."""
-
+    "A hook type useful for debugging other hook procedures."
+    
     WH_SHELL           = 10
-    """A hook type that is used to monitor shell-related events, such as when the shell is about to activate a new window."""
-
+    "A hook type that monitors shell-related events, such as when the shell is about to activate a new window."
+    
     WH_FOREGROUNDIDLE  = 11
-    """A hook type that is used to monitor when the system enters an idle state and the foreground application is not processing input."""
-
+    "A hook type that monitors when the system enters an idle state and the foreground application is not processing input."
+    
     WH_CALLWNDPROCRET  = 12
-    """A hook type that is similar to WH_CALLWNDPROC, but it monitors messages after they have been processed by the procedure."""
-
+    "A hook type that similar to WH_CALLWNDPROC but monitors messages after they have been processed by the destination window procedure."
+    
     WH_KEYBOARD_LL     = 13
-    """A hook type that is similar to WH_KEYBOARD, but it is a low-level keyboard hook that can be used to monitor keystrokes from all processes."""
-
+    "A hook type that similar to WH_KEYBOARD but monitors low-level keyboard input events."
+    
+    WH_MOUSE_LL        = 14
+    "A hook type that similar to WH_MOUSE but monitors low-level mouse input events."
+    
     WH_MAX             = 15
-    """The maximum value for a hook type. It is not a valid hook type itself."""
+    "The maximum value for a hook type. It is not a valid hook type itself."
 
 
-class KB_MsgTypes(IntEnum):
-    """Defines constants that represent different types of keyboard-related Windows messages that can be received by a window or in a message loop."""
+class KbEventIds(IntEnum):
+    """Contains the event type ids for keyboard messages."""
     
     WM_KEYDOWN     = 0x0100
     """A keyboard key was pressed."""
@@ -134,11 +143,11 @@ numRowCodeToSymbol = {48: ")", 49: "!", 50: "@", 51: "#", 52: "$", 53: "%", 54: 
 vKeyCodeToName = {v: k for k, v in vKeyNameToId.items()}
 """Mapping of virtual key codes to their names."""
 
-eventIdToName = {
-    KB_MsgTypes.WM_KEYDOWN    : "key down",      KB_MsgTypes.WM_KEYUP       : "key up",
-    KB_MsgTypes.WM_CHAR       : "key char",      KB_MsgTypes.WM_DEADCHAR    : "key dead char",
-    KB_MsgTypes.WM_SYSKEYDOWN : "key sys down",  KB_MsgTypes.WM_SYSKEYUP    : "key sys up",
-    KB_MsgTypes.WM_SYSCHAR    : "key sys char",  KB_MsgTypes.WM_SYSDEADCHAR : "key sys dead char"}
+kbEventIdToName = {
+    KbEventIds.WM_KEYDOWN    : "key down",      KbEventIds.WM_KEYUP       : "key up",
+    KbEventIds.WM_CHAR       : "key char",      KbEventIds.WM_DEADCHAR    : "key dead char",
+    KbEventIds.WM_SYSKEYDOWN : "key sys down",  KbEventIds.WM_SYSKEYUP    : "key sys up",
+    KbEventIds.WM_SYSCHAR    : "key sys char",  KbEventIds.WM_SYSDEADCHAR : "key sys dead char"}
 """Mapping of event codes to their names."""
 
 
@@ -176,45 +185,38 @@ class KBDLLHOOKSTRUCT(ctypes.Structure):
 
 # By TwhK/Kheldar. Source: http://www.hackerthreads.org/Topic-42395
 class HookManager:
-    """
-    Description:
-        A class that manages windows event hooks.
-    ---
-    Methods:
-        `InstallHook(self, callBack: Callable[[int, int, KBDLLHOOKSTRUCT], Any], hookType=HookTypes.WH_KEYBOARD_LL) -> bool`:
-            Installs the specified callback hook. Returns `True` if everything was successful, and `False` if it failed.
-        
-        `BeginListening()`:
-            Starts listening for keyboard Windows. Must be called from the main thread.
-        
-        `UninstallHook()`:
-            "Uninstalls the hook specified by the hookId.
-    """
+    """A class that manages windows event hooks."""
     
-    hookId: int
-    hookPtr: Callable[[int, int, KBDLLHOOKSTRUCT], Any]
+    __slots__ = ("kbHookId", "msHookId", "kbHookPtr", "msHookPtr")
     
     def __init__(self):
         ...
 
     def InstallHook(self, callBack: Callable[[int, int, KBDLLHOOKSTRUCT], Any], hookType=HookTypes.WH_KEYBOARD_LL) -> bool:
-        """Installs the specified hook. Returns True if everything was successful, and False if it failed."""
+        """Installs a hook of the specified type. `hookType` can be one of the following:
+        Value            | Receive messsages for
+        -----------------|----------------------
+        `WH_KEYBOARD_LL` | `Keyboard`
+        `WH_MOUSE_LL`    | `Mouse`
+        """
+
+    def BeginListening(self) -> bool:
+        """Starts listening for Windows events. Must be called from the main thread."""
         ...
 
-    def BeginListening(self):
-        """Starts listening for keyboard Windows. Must be called from the main thread."""
-        ...
-
-    def UninstallHook(self) -> bool:
-        """Uninstalls the hook specified by the `hookId`."""
-        ...
+    def UninstallHook(self, hookType=HookTypes.WH_KEYBOARD_LL) -> bool:
+        """Uninstalls the hook specified by the hook type:
+        Value            | Receive messsages for
+        -----------------|----------------------
+        `WH_KEYBOARD_LL` | `Keyboard`
+        `WH_MOUSE_LL`    | `Mouse`
+        """
 
 
 class KeyboardHookManager:
     """A class for managing keyboard hooks and their event listeners."""
-    keyDownListeners: list[Callable[[KeyboardEvent], bool]]
-    keyUpListeners  : list[Callable[[KeyboardEvent], bool]]
-    hookId: int
+    
+    __slots__ = ("keyDownListeners", "keyUpListeners", "hookId")
     
     def __init__(self):
         ...
@@ -231,7 +233,7 @@ class KeyboardHookManager:
     def removeKeyUpListener(self, listener: Callable[[KeyboardEvent], bool]) -> None:
         ...
 
-    def KeyboardHook(self, nCode: int, wParam: int, lParam: KBDLLHOOKSTRUCT) -> bool:
+    def KeyboardCallback(self, nCode: int, wParam: int, lParam: KBDLLHOOKSTRUCT) -> bool:
         """
         Description:
             Processes a low level windows keyboard event.
@@ -240,5 +242,187 @@ class KeyboardHookManager:
             - `nCode`: The hook code passed to the hook procedure. The value of the hook code depends on the type of hook associated with the procedure.
             - `wParam`: The identifier of the keyboard message (event id). This parameter can be one of the following messages: `WM_KEYDOWN`, `WM_KEYUP`, `WM_SYSKEYDOWN`, or `WM_SYSKEYUP`.
             - `lParam`: A pointer to a `KBDLLHOOKSTRUCT` structure.
+        """
+        ...
+
+
+# ======================================================================================================================
+
+
+# Docs: https://learn.microsoft.com/en-us/windows/win32/inputdev/about-mouse-input
+class MsEventIds(IntEnum):
+    """Contains the event type ids for mouse messages."""
+    
+    WM_MOUSEMOVE       = 0x0200
+    "The mouse was moved."
+    
+    WM_LBUTTONDOWN     = 0x0201
+    "The left mouse button was pressed."
+    
+    WM_LBUTTONUP       = 0x0202
+    "The left mouse button was released."
+    
+    WM_LBUTTONDBLCLK   = 0x0203
+    "The left mouse button was double-clicked."
+    
+    WM_RBUTTONDOWN     = 0x0204
+    "The right mouse button was pressed."
+    
+    WM_RBUTTONUP       = 0x0205
+    "The right mouse button was released."
+    
+    WM_RBUTTONDBLCLK   = 0x0206
+    "The right mouse button was double-clicked."
+    
+    WM_MBUTTONDOWN     = 0x0207
+    "The middle mouse button was pressed."
+    
+    WM_MBUTTONUP       = 0x0208
+    "The middle mouse button was released."
+    
+    WM_MBUTTONDBLCLK   = 0x0209
+    "The middle mouse button was double-clicked."
+    
+    WM_MOUSEWHEEL      = 0x020A
+    "The mouse wheel was rotated."
+    
+    WM_XBUTTONDOWN     = 0x020B
+    "A mouse extended button was pressed."
+    
+    WM_XBUTTONUP       = 0x020C
+    "A mouse extended button was released."
+    
+    WM_XBUTTONDBLCLK   = 0x020D
+    "A mouse extended button was double-clicked."
+    
+    WM_MOUSEHWHEEL     = 0x020E
+    "The mouse wheel was rotated horizontally."
+    
+    WM_NCXBUTTONDOWN   = 0x00AB
+    "Non-client area extended button down event."
+    
+    WM_NCXBUTTONUP     = 0x00AC
+    "Non-client area extended button up event."
+    
+    WM_NCXBUTTONDBLCLK = 0x00AD
+    "Non-client area extended button double-click event."
+
+
+msEventIdToName = {
+    MsEventIds.WM_MOUSEMOVE       : "MOVE",
+    MsEventIds.WM_LBUTTONDOWN     : "LB CLK",
+    MsEventIds.WM_LBUTTONUP       : "LB UP",
+    MsEventIds.WM_LBUTTONDBLCLK   : "LB DBL CLK",
+    MsEventIds.WM_RBUTTONDOWN     : "RB CLK",
+    MsEventIds.WM_RBUTTONUP       : "RB UP",
+    MsEventIds.WM_RBUTTONDBLCLK   : "RB DBL CLK",
+    MsEventIds.WM_MBUTTONDOWN     : "MB CLK",
+    MsEventIds.WM_MBUTTONUP       : "MB UP",
+    MsEventIds.WM_MBUTTONDBLCLK   : "MB DBL CLK",
+    MsEventIds.WM_MOUSEWHEEL      : "WHEEL SCRL",
+    MsEventIds.WM_XBUTTONDOWN     : "XB CLK",
+    MsEventIds.WM_XBUTTONUP       : "XB UP",
+    MsEventIds.WM_XBUTTONDBLCLK   : "XB DBL CLK",
+    MsEventIds.WM_MOUSEHWHEEL     : "WHEEL H SCRL",
+    MsEventIds.WM_NCXBUTTONDOWN   : "NC XB CLK",
+    MsEventIds.WM_NCXBUTTONUP     : "NC XB UP",
+    MsEventIds.WM_NCXBUTTONDBLCLK : "NC XB DBL CLK",
+}
+"""Maps the event id to the event name."""
+
+
+class RawMouse(IntEnum):
+    """Contains information about the state of the mouse."""
+    
+    MOUSE_MOVE_RELATIVE      = 0x00
+    """Movement data is relative to the last mouse position."""
+    
+    MOUSE_MOVE_ABSOLUTE      = 0x01
+    """Movement data is based on absolute position."""
+    
+    MOUSE_VIRTUAL_DESKTOP    = 0x02
+    """Coordinates are mapped to the virtual desktop (for a multiple monitor system)."""
+    
+    MOUSE_ATTRIBUTES_CHANGED = 0x04
+    """Attributes changed; application needs to query the mouse attributes."""
+    
+    MOUSE_MOVE_NOCOALESCE    = 0x08
+    """Mouse movement event was not coalesced. Mouse movement events can be coalesced by default. This value is not supported for `Windows XP`/`2000`."""
+    
+
+buttonMapping: dict[int, str] = {1: "LB", 2: "RB", 3: "MB", 4: "X1", 5: "X2"}
+"""Maps the mouse button id to the button name."""
+
+
+# Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msllhookstruct
+class MSLLHOOKSTRUCT(ctypes.Structure):
+    """
+    Description:
+        A structure that contains information about a low-level mouse input event.
+    ---
+    Fields:
+        `pt: POINT`:
+            The x- and y-coordinates of the cursor, in screen coordinates.
+        
+        `mouseData: DWORD`:
+            Contains additional information about the mouse event. Can have one of the following values depending on the event type:
+            Mouse Wheel | Meaning
+            ------------|---------
+            `+ve value` | The mouse wheel was scrolled forward/upward.
+            `-ve value` | The mouse wheel was scrolled backward/downward.
+            `Note`      | Each unit of scrolling typically corresponds to a fixed value (e.g., 120):
+            
+            Mouse Button | Meaning
+            -------------|---------
+            `0x0000` | No mouse button change
+            `0x0001` | Left mouse button was pressed or released.
+            `0x0002` | Right mouse button was pressed or released.
+            `0x0004` | Middle mouse button was pressed or released.
+        
+        `flags: DWORD`:
+            Whether the event was injected. The value is `1` if it was injected; otherwise, it is `0`.
+        
+        `time: DWORD`:
+            The time stamp for this message.
+        
+        `dwExtraInfo: ULONG_PTR`:
+            An additional value associated with the mouse event.
+    """
+    
+    _fields_ = [
+        ("pt", ctypes.wintypes.POINT),
+        ("mouseData", ctypes.c_ulong),
+        ("flags", ctypes.c_ulong),
+        ("time", ctypes.c_ulong),
+        ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong))
+    ]
+
+
+class MouseHookManager:
+    """A class for managing mouse hooks and their event listeners."""
+    
+    __slots__ = ("mouseButtonDownListeners", "mouseButtonUpListeners", "hookId")
+    
+    def addButtonDownListener(self, listener: Callable[[MouseEvent], bool]) -> None:
+        ...
+
+    def addButtonUpListener(self, listener: Callable[[MouseEvent], bool]) -> None:
+        ...
+
+    def removeButtonDownListener(self, listener: Callable[[MouseEvent], bool]) -> None:
+        ...
+
+    def removeButtonUpListener(self, listener: Callable[[MouseEvent], bool]) -> None:
+        ...
+    
+    def MouseCallback(self, nCode: int, wParam: int, lParam: KBDLLHOOKSTRUCT):
+        """
+        Description:
+            Processes a low level windows mouse event.
+        ---
+        Parameters:
+            - `nCode`: The hook code passed to the hook procedure. The value of the hook code depends on the type of hook associated with the procedure.
+            - `wParam`: The identifier of the mouse message (event id).
+            - `lParam`: A pointer to a `MSLLHOOKSTRUCT` structure.
         """
         ...

@@ -1,9 +1,8 @@
-"""This module contains the keyboard listeners responsible for handling hotkey press and release events."""
+"""This module contains the event listeners responsible for handling keyboard keyPress & keyRelease, and mouse events."""
+from cythonExtensions.commonUtils.commonUtils import KeyboardEvent, MouseEvent
 
-from cythonExtensions.commonUtils.commonUtils import KeyboardEvent
 
-
-def HotkeyPressEvent(event: KeyboardEvent) -> bool:
+def KeyPress(event: KeyboardEvent) -> bool:
     """
     Description:
         The callback function responsible for handling hotkey press events.
@@ -13,12 +12,12 @@ def HotkeyPressEvent(event: KeyboardEvent) -> bool:
             A keyboard event object.
     ---
     Return:
-        `suppress_key -> bool`: Whether to suppress the pressed key or return it.
+        `suppressInput -> bool`: Whether to suppress the pressed key or return it.
     """
     ...
 
 
-def ExpanderEvent(event: KeyboardEvent) -> bool:
+def textExpansion(event: KeyboardEvent) -> bool:
     """
     Description:
         The callback function responsible for handling the word expansion events.
@@ -33,21 +32,6 @@ def ExpanderEvent(event: KeyboardEvent) -> bool:
     ...
 
 
-def KeyPress(event: KeyboardEvent) -> bool:
-    """The main callback function for handling the `KeyPress` events. Used mainly for allowing multiple `KeyPress` callbacks to run simultaneously."""
-    ...
-
-
-def KeyRelease(event: KeyboardEvent) -> bool:
-    """
-    Description:
-        The callback function responsible for handling the `KeyRelease` events.
-    ---
-    Parameters:
-        `event -> KeyboardEvent`:
-            A keyboard event object.
-    ---
-    Output:
-        `bool`: Always return False.
-    """
+def ButtonPress(event: MouseEvent) -> bool:
+    """The callback function responsible for handling the `ButtonPress` events."""
     ...

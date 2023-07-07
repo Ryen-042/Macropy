@@ -131,9 +131,8 @@ class BaseEvent:
         
         `Flags -> int`: The flags associated with the event.
     """
-    EventId  : int
-    Flags    : int
-    EventName: str
+    
+    __slots__ = ("EventId", "Flags", "EventName")
     
     def __init__(self, event_id: int, event_name: str, flags: int):
         ...
@@ -170,15 +169,7 @@ class KeyboardEvent(BaseEvent):
         `Transition -> bool`: Whether or not the key is transitioning from up to down.
     """
     
-    KeyID      : int
-    Scancode   : int
-    Ascii      : int
-    Key        : str
-    Injected   : bool
-    Extended   : bool
-    Shift      : bool
-    Alt        : bool
-    Transition : bool
+    __slots__ = ("KeyID", "Scancode", "Ascii", "Key", "Injected", "Extended", "Shift", "Alt", "Transition")
     
     def __init__(self, event_id: int, event_name: str, vkey_code: int, scancode: int, key_ascii: int, key_name: str,
                  flags: int, injected: bool, extended: bool, shift: bool, alt: bool, transition: bool):
@@ -188,66 +179,100 @@ class KeyboardEvent(BaseEvent):
         return f"Key={self.Key}, ID={self.KeyID}, SC={self.Scancode}, Asc={self.Ascii} | Inj={self.Injected}, Ext={self.Extended}, Shift={self.Shift}, Alt={self.Alt}, Trans={self.Transition}, Flags={self.Flags} | EvtId={self.EventId}, EvtName='{self.EventName}'"
 
 
-def static_class(cls):
-    """Class decorator that turns a class into a static class."""
-    ...
+buttonMapping = {16: "LB", 8: "RB", 4: "MB", 2: "X1", 1: "X2"}
+"""Maps the mouse button id to the button name."""
 
 
-class Management:
-    """A static data class for storing variables and functions used for managing to the script."""
-    counter : int
-    """Counts the number of times a key has been pressed (mod 10k)."""
+class MouseEvent(BaseEvent):
+    """
+    Description:
+        Holds information about a mouse event.
+    ---
+    Parameters:
+        - `EventID -> int`: The event ID (the message code).
+        
+        - `EventName -> str`: The name of the event (message).
+        
+        - `Flags -> int`: The flags associated with the event.
+        
+        - `X -> int`: The X coordinate of the mouse pointer, relative to the top-left corner of the screen.
+        
+        - `Y -> int`: The Y coordinate of the mouse pointer, relative to the top-left corner of the screen.
+        
+        - `MouseData -> int`: The mouse movement distance, or the wheel delta, typically expressed in multiples or divisions of `WHEEL_DELTA`.
+        
+        - `IsMouseAbsolute -> bool`: Specifies whether the coordinates are mapped to the entire desktop or just to the particular window. Can have one of the following values:
+            Value   | Meaning
+            --------|--------
+            `False` | Coordinates are relative to the window.
+            `True`  | Coordinates are absolute.
+        
+        - `IsMouseInWindow -> bool`: Specifies whether the message was sent from the application's message queue (whether the mouse cursor was within the application's window). Can have one of the following values:
+            Value | Meaning
+            ------|--------
+            False | The message was sent from the system message queue.
+            True  | The message was sent from the application's message queue.
+        
+        - `Delta -> int`: The amount of wheel movement (positive for up, negative for down) which is a multiple of `WHEEL_DELTA`. This parameter is only valid for `WM_MOUSEWHEEL` messages. Can have positive or negative values, depending on the direction of the rotation:
+            Value | Meaning
+            ------|--------
+            `+ve` | The wheel was rotated forward, away from the user.
+            `-ve` | The wheel was rotated backward, toward the user.
+        
+        - `IsWheelHorizontal -> bool`: Specifies whether the wheel was moved horizontally. True if the message is `WM_MOUSEHWHEEL`.
+        
+        - `PressedButton -> int`: Specifies which mouse button was pressed. Can have one of the following values:
+            Value | Meaning
+            ------|--------
+            16    | Left mouse button was pressed.
+            8     | Right mouse button was pressed.
+            4     | Middle mouse button was pressed.
+            2     | X1 mouse button was pressed.
+            1     | X2 mouse button was pressed.
+    """
     
-    silent : bool
-    """For suppressing terminal output. Defaults to True."""
+    __slots__ = ("X", "Y", "MouseData", "ExtraInfo", # "Time",
+                 "IsMouseAbsolute", "IsMouseInWindow", "Delta",
+                 "IsWheelHorizontal", "PressedButton")
     
-    suppress_all_keys : bool
-    """For suppressing all keyboard keys. Defaults to False."""
-    
-    terminateEvent: threading.Event
-    """An `Event` object that is set when the hotkey for terminating the script is pressed."""
-    
-    @staticmethod
-    def LogUncaughtExceptions(exc_type, exc_value, exc_traceback) -> int:
-        """Logs uncaught exceptions to the console and displays an error message with the exception traceback."""
+    def __init__(self, event_id: int, event_name: str, flags: int,
+                 x: int, y: int, mouse_data: int, is_mouse_absolute: bool,
+                 is_mouse_in_window: bool, wheel_delta: int, is_wheel_horizontal: bool,
+                 pressed_button: int):
         ...
-
-
-class WindowHouse:
-    """A static data class for storing window class names and their corresponding window handles."""
     
-    classNames: dict[str, int]
-    """Stores the class names and the corresponding window handle for some progarms."""
-    
-    closedExplorers: deque[str]
-    """Stores the addresses of the 10 most recently closed windows explorers."""
-    
-    @staticmethod
-    def GetHandleByClassName(className: str) -> int:
-        """Returns the window handle of the specified class name from the `WindowHouse.classNames` dict."""
-        ...
-    
-    @staticmethod
-    def SetHandleByClassName(className: str, value: int) -> None:
-        """Assigns the given window handle to the specified class name in the `WindowHouse.classNames` dict."""
-        ...
-    
-    @staticmethod
-    def RememberActiveProcessTitle(fg_hwnd=0) -> None:
-        """
-        Stores the title of the active window into the `closedExplorers` variable.
-        The title of a windows explorer window is the address of the opened directory.
-        """
-        ...
+    def __repr__(self) -> str:
+        return f"X={self.X}, Y={self.Y}, MouseData={self.MouseData}, IsMouseAbsolute={self.IsMouseAbsolute}, " \
+               f"IsMouseInWindow={self.IsMouseInWindow}, Delta={self.Delta}, " \
+               f"IsWheelHorizontal={self.IsWheelHorizontal}{f', PressedButton={buttonMapping[self.PressedButton]}' if self.PressedButton else ''}, " \
+               f"{super(MouseEvent, self).__repr__()}"
 
 
 class ControllerHouse:
-    """A static data class that stores information for managing and controlling keyboard."""
+    """A class that stores information for managing and controlling keyboard."""
+    
+    __slots__ = ()
     
     modifiers: int
     """An int packing the states of the keyboard modifier keys (pressed or not).
-    Each of the least significant 14 bits represent a single modifier key: \
-    0b00_0000_0000 => CTRL = 8192 | LCTRL = 4096 | RCTRL = 2048 | SHIFT = 1024 | LSHIFT = 512 | RSHIFT = 256 | ALT = 128 | LALT = 64 | RALT = 32 | WIN = 16 | LWIN = 8 | RWIN = 4 | FN = 2 | BACKTICK = 1"""
+    Each of the least significant 14 bits (`0b00_0000_0000`) represent a single modifier key:
+    Key Name | Value | Representation
+    ---------|-------|-----------
+    CTRL     | 8192  | 0b10000000000000
+    LCTRL    | 4096  | 0b1000000000000
+    RCTRL    | 2048  | 0b100000000000
+    SHIFT    | 1024  | 0b10000000000
+    LSHIFT   | 512   | 0b1000000000
+    RSHIFT   | 256   | 0b100000000
+    ALT      | 128   | 0b10000000
+    LALT     | 64    | 0b1000000
+    RALT     | 32    | 0b100000
+    WIN      | 16    | 0b10000
+    LWIN     | 8     | 0b1000
+    RWIN     | 4     | 0b100
+    FN       | 2     | 0b10
+    BACKTICK | 1     | 0b1
+    """
     
     # Masks for extracting individual keys from the `modifiers` packed int.
     CTRL = 0b10000000000000 # 1 << 13 = 8192
@@ -337,6 +362,7 @@ class ControllerHouse:
     locks : int
     """An int packing the states of the keyboard lock keys (on or off)."""
     
+    # Masks for extracting individual lock keys from the `locks` packed int.
     CAPITAL = 0b100
     """A mask for extracting the CAPITAL (CAPSLOCK) flag from the `locks` packed int."""
     
@@ -349,8 +375,14 @@ class ControllerHouse:
     pressed_chars : str
     """Stores the pressed character keys for the key expansion events."""
     
-    heldMouseBtn : int
-    """Stores the mouse button that is currently being held down."""
+    heldMouseBtn = 0
+    """Stores the mouse button that is currently being held down (by sending mouse events with keyboard shortcuts). Possible Values:
+    Value | Button
+    ------|-------
+    0     | None
+    1     | Left
+    2     | Right
+    3     | Middle"""
     
     abbreviations = configs.ABBREVIATIONS
     """A dictionary of abbreviations and their corresponding expansion."""
@@ -359,18 +391,18 @@ class ControllerHouse:
     """A dictionary of abbreviations and their corresponding path address."""
 
 
-def UpdateModifiers_KeyDown(event: KeyboardEvent) -> None:
-    """Updates the `modifiers` packed int with the current state of the modifier keys when a key is pressed."""
+def UpdateModifiersPress(event: KeyboardEvent) -> None:
+    """Updates the state of the `modifiers` packed for keyDown events with the specified event."""
     ...
 
 
-def UpdateModifiers_KeyUp(event: KeyboardEvent) -> None:
-    """Updates the `modifiers` packed int with the current state of the modifier keys when a key is released."""
+def UpdateModifiersRelease(event: KeyboardEvent) -> None:
+    """Updates the state of the `modifiers` packed for keyUp events with the specified event."""
     ...
 
 
 def UpdateLocks(event: KeyboardEvent) -> None:
-    """Updates the `locks` packed int with the current state of the lock keys when a key is pressed."""
+    """Updates the state of the `locks` packed for keyDown events with the specified event (no need to call for keyUp events)."""
     ...
 
 
@@ -402,8 +434,114 @@ def PrintLockKeys() -> None:
     ...
 
 
+class MouseHouse:
+    """A class that stores information for managing and controlling mouse controller."""
+    
+    __slots__ = ()
+    
+    x, y = 0, 0
+    
+    delta = 0
+    """The mouse wheel scroll distance. Can take negative values."""
+    
+    horizontal = False
+    """Whether the mouse wheel is scrolling horizontally or not."""
+    
+    buttons = 0
+    """A packed int that stores the states of the mouse buttons (pressed or not).
+    Each of the least significant 5 bits (`0b0_0000`) represent a single button:
+    Button Name | Value | Representation
+    ------------|-------|-----------
+    LButton     | 16    | 0b10000
+    RButton     | 8     | 0b1000
+    MButton     | 4     | 0b100
+    X1Button    | 2     | 0b10
+    X2Button    | 1     | 0b1
+    """
+    
+    LButton  = 0b10000 # 1 << 4 = 16
+    RButton  = 0b1000  # 1 << 3 = 8
+    MButton  = 0b100   # 1 << 2 = 4
+    X1Button = 0b10    # 1 << 1 = 2
+    X2Button = 0b1     # 1 << 0 = 1
+    
+    # Composite button masks
+    LRButton  = LButton | RButton
+    LRX1X2Button = LRButton | X1Button | X2Button
+
+
+def UpdateButtonsPress(event: MouseEvent) -> None:
+    """Updates the mouse postion, scroll delta and direction, and the state of the `buttons` packed for keyUp events with the specified event."""
+    ...
+
+
+def UpdateButtonsRelease(event: MouseEvent) -> None:
+    """Updates the mouse postion, scroll delta and direction, and the state of the `buttons` packed for keyUp events with the specified event."""
+    ...
+
+
+def PrintButtons() -> None:
+    """Prints the states of the buttons after extracting them from the packed int `buttons`."""
+    ...
+
+
+class Management:
+    """A class for storing variables and functions used for managing to the script."""
+    
+    __slots__ = ()
+    
+    counter : int
+    """Counts the number of times a key has been pressed (mod 10k)."""
+    
+    silent : bool
+    """For suppressing terminal output. Defaults to True."""
+    
+    supressKbInputs : bool
+    """For suppressing all keyboard keys. Defaults to False."""
+    
+    terminateEvent: threading.Event
+    """An `Event` object that is set when the hotkey for terminating the script is pressed."""
+    
+    @staticmethod
+    def LogUncaughtExceptions(exc_type, exc_value, exc_traceback) -> int:
+        """Logs uncaught exceptions to the console and displays an error message with the exception traceback."""
+        ...
+
+
+class WindowHouse:
+    """A class for storing window class names and their corresponding window handles."""
+    
+    __slots__ = ()
+    
+    classNames: dict[str, int]
+    """Stores the class names and the corresponding window handle for some progarms."""
+    
+    closedExplorers: deque[str]
+    """Stores the addresses of the 10 most recently closed windows explorers."""
+    
+    @staticmethod
+    def GetHandleByClassName(className: str) -> int:
+        """Returns the window handle of the specified class name from the `WindowHouse.classNames` dict."""
+        ...
+    
+    @staticmethod
+    def SetHandleByClassName(className: str, value: int) -> None:
+        """Assigns the given window handle to the specified class name in the `WindowHouse.classNames` dict."""
+        ...
+    
+    @staticmethod
+    def RememberActiveProcessTitle(fg_hwnd=0) -> None:
+        """
+        Stores the title of the active window into the `closedExplorers` variable.
+        The title of a windows explorer window is the address of the opened directory.
+        """
+        ...
+
+
 class ShellAutomationObjectWrapper:
     """Thread-safe wrapper class for accessing an Automation object in a multithreaded environment."""
+    
+    __slots__ = ()
     
     explorer: CDispatch
     """An explorer Automation object."""
@@ -424,7 +562,7 @@ class PThread(threading.Thread):
     mainThreadId = threading.main_thread().ident
     """The ID of the main thread."""
     
-    msgQueue: queue.Queue[bool]
+    kbMsgQueue: queue.Queue[bool]
     """A queue used for message passing between threads."""
     
     def __init__(self, *args, **kwargs) -> None:
@@ -432,7 +570,7 @@ class PThread(threading.Thread):
     
     @staticmethod
     def InMainThread() -> bool:
-        """Returns where the current thread is the main thread for the current process."""
+        """Returns whether the current thread is the main thread for the current process."""
         ...
     
     @staticmethod
@@ -455,7 +593,7 @@ class PThread(threading.Thread):
     
     @staticmethod
     def CoUninitialize() -> None:
-        """Un-initializes the COM library for the current thread if `initializer_called` is True."""
+        """Uninitializes the COM library for the current thread if `initializer_called` is True."""
         ...
     
     # Source: https://github.com/salesforce/decorator-operations/blob/master/decoratorOperations/throttle_functions/throttle.py
