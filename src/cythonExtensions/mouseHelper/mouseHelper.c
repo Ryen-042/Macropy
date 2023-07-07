@@ -1552,7 +1552,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_send
   /* "src/cythonExtensions/mouseHelper/mouseHelper.pyx":36
  * 
  *     # Mouse down event.
- *     if op in [1, 2]:             # <<<<<<<<<<<<<<
+ *     if op in (1, 2):             # <<<<<<<<<<<<<<
  *         clickUp = win32con.MOUSEEVENTF_LEFTDOWN if button == 1 else win32con.MOUSEEVENTF_RIGHTDOWN
  *         win32api.mouse_event(clickUp, x, y, 0, 0)
  */
@@ -1562,7 +1562,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_send
 
     /* "src/cythonExtensions/mouseHelper/mouseHelper.pyx":37
  *     # Mouse down event.
- *     if op in [1, 2]:
+ *     if op in (1, 2):
  *         clickUp = win32con.MOUSEEVENTF_LEFTDOWN if button == 1 else win32con.MOUSEEVENTF_RIGHTDOWN             # <<<<<<<<<<<<<<
  *         win32api.mouse_event(clickUp, x, y, 0, 0)
  * 
@@ -1589,7 +1589,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_send
     __pyx_v_clickUp = __pyx_t_8;
 
     /* "src/cythonExtensions/mouseHelper/mouseHelper.pyx":38
- *     if op in [1, 2]:
+ *     if op in (1, 2):
  *         clickUp = win32con.MOUSEEVENTF_LEFTDOWN if button == 1 else win32con.MOUSEEVENTF_RIGHTDOWN
  *         win32api.mouse_event(clickUp, x, y, 0, 0)             # <<<<<<<<<<<<<<
  * 
@@ -1671,7 +1671,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_send
     /* "src/cythonExtensions/mouseHelper/mouseHelper.pyx":36
  * 
  *     # Mouse down event.
- *     if op in [1, 2]:             # <<<<<<<<<<<<<<
+ *     if op in (1, 2):             # <<<<<<<<<<<<<<
  *         clickUp = win32con.MOUSEEVENTF_LEFTDOWN if button == 1 else win32con.MOUSEEVENTF_RIGHTDOWN
  *         win32api.mouse_event(clickUp, x, y, 0, 0)
  */
@@ -1682,7 +1682,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_send
   /* "src/cythonExtensions/mouseHelper/mouseHelper.pyx":41
  * 
  *     # Mouse up event.
- *     if op in [1, 3]:             # <<<<<<<<<<<<<<
+ *     if op in (1, 3):             # <<<<<<<<<<<<<<
  *         clickDown = win32con.MOUSEEVENTF_LEFTUP if button == 1 else win32con.MOUSEEVENTF_RIGHTUP
  *         win32api.mouse_event(clickDown, x, y, 0, 0)
  */
@@ -1692,7 +1692,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_send
 
     /* "src/cythonExtensions/mouseHelper/mouseHelper.pyx":42
  *     # Mouse up event.
- *     if op in [1, 3]:
+ *     if op in (1, 3):
  *         clickDown = win32con.MOUSEEVENTF_LEFTUP if button == 1 else win32con.MOUSEEVENTF_RIGHTUP             # <<<<<<<<<<<<<<
  *         win32api.mouse_event(clickDown, x, y, 0, 0)
  * 
@@ -1719,7 +1719,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_send
     __pyx_v_clickDown = __pyx_t_8;
 
     /* "src/cythonExtensions/mouseHelper/mouseHelper.pyx":43
- *     if op in [1, 3]:
+ *     if op in (1, 3):
  *         clickDown = win32con.MOUSEEVENTF_LEFTUP if button == 1 else win32con.MOUSEEVENTF_RIGHTUP
  *         win32api.mouse_event(clickDown, x, y, 0, 0)             # <<<<<<<<<<<<<<
  * 
@@ -1801,7 +1801,7 @@ static void __pyx_f_7macropy_16cythonExtensions_11mouseHelper_11mouseHelper_send
     /* "src/cythonExtensions/mouseHelper/mouseHelper.pyx":41
  * 
  *     # Mouse up event.
- *     if op in [1, 3]:             # <<<<<<<<<<<<<<
+ *     if op in (1, 3):             # <<<<<<<<<<<<<<
  *         clickDown = win32con.MOUSEEVENTF_LEFTUP if button == 1 else win32con.MOUSEEVENTF_RIGHTUP
  *         win32api.mouse_event(clickDown, x, y, 0, 0)
  */

@@ -6465,7 +6465,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":367
  * 
  *             # Invert colors
- *             elif k in [kbcon.VK_A, kbcon.AS_a]: # 'A' or 'a'             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'             # <<<<<<<<<<<<<<
  *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`
  *                 cv2.imshow("Image Window", cv2_main_image)
  */
@@ -6496,7 +6496,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":368
  *             # Invert colors
- *             elif k in [kbcon.VK_A, kbcon.AS_a]: # 'A' or 'a'
+ *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'
  *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`             # <<<<<<<<<<<<<<
  *                 cv2.imshow("Image Window", cv2_main_image)
  *                 # inverted = not inverted
@@ -6525,7 +6525,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __pyx_t_3 = 0;
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":369
- *             elif k in [kbcon.VK_A, kbcon.AS_a]: # 'A' or 'a'
+ *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'
  *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`
  *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
  *                 # inverted = not inverted
@@ -6586,7 +6586,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":367
  * 
  *             # Invert colors
- *             elif k in [kbcon.VK_A, kbcon.AS_a]: # 'A' or 'a'             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'             # <<<<<<<<<<<<<<
  *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`
  *                 cv2.imshow("Image Window", cv2_main_image)
  */
@@ -6596,7 +6596,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":375
  * 
  *             # Rotate image
- *             elif k in [kbcon.VK_R, kbcon.AS_r]: # "R" or "r"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"             # <<<<<<<<<<<<<<
  *                 mouse_helper.x, mouse_helper.y = 0, 0
  *                 mouse_helper.px, mouse_helper.py = 0, 0
  */
@@ -6627,7 +6627,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":376
  *             # Rotate image
- *             elif k in [kbcon.VK_R, kbcon.AS_r]: # "R" or "r"
+ *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"
  *                 mouse_helper.x, mouse_helper.y = 0, 0             # <<<<<<<<<<<<<<
  *                 mouse_helper.px, mouse_helper.py = 0, 0
  *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
@@ -6642,7 +6642,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":377
- *             elif k in [kbcon.VK_R, kbcon.AS_r]: # "R" or "r"
+ *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"
  *                 mouse_helper.x, mouse_helper.y = 0, 0
  *                 mouse_helper.px, mouse_helper.py = 0, 0             # <<<<<<<<<<<<<<
  *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
@@ -6798,7 +6798,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":375
  * 
  *             # Rotate image
- *             elif k in [kbcon.VK_R, kbcon.AS_r]: # "R" or "r"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"             # <<<<<<<<<<<<<<
  *                 mouse_helper.x, mouse_helper.y = 0, 0
  *                 mouse_helper.px, mouse_helper.py = 0, 0
  */
@@ -6808,7 +6808,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":384
  * 
  *             # Copy image
- *             elif k in [kbcon.VK_C, kbcon.AS_c]: # "C" or "c"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"             # <<<<<<<<<<<<<<
  *                 send_to_clipboard(cv2_main_image)
  * 
  */
@@ -6839,7 +6839,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":385
  *             # Copy image
- *             elif k in [kbcon.VK_C, kbcon.AS_c]: # "C" or "c"
+ *             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"
  *                 send_to_clipboard(cv2_main_image)             # <<<<<<<<<<<<<<
  * 
  *             # Paste image from clipboard
@@ -6866,7 +6866,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":384
  * 
  *             # Copy image
- *             elif k in [kbcon.VK_C, kbcon.AS_c]: # "C" or "c"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"             # <<<<<<<<<<<<<<
  *                 send_to_clipboard(cv2_main_image)
  * 
  */
@@ -6876,7 +6876,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":388
  * 
  *             # Paste image from clipboard
- *             elif k in [kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE]: # "V", "v" or space             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space             # <<<<<<<<<<<<<<
  *                 image = PIL.ImageGrab.grabclipboard()
  *                 cv2_main_image = pil_to_cv(image)
  */
@@ -6918,7 +6918,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":389
  *             # Paste image from clipboard
- *             elif k in [kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE]: # "V", "v" or space
+ *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space
  *                 image = PIL.ImageGrab.grabclipboard()             # <<<<<<<<<<<<<<
  *                 cv2_main_image = pil_to_cv(image)
  *                 cv2.imshow("Image Window", cv2_main_image)
@@ -6950,7 +6950,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __pyx_t_3 = 0;
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":390
- *             elif k in [kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE]: # "V", "v" or space
+ *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space
  *                 image = PIL.ImageGrab.grabclipboard()
  *                 cv2_main_image = pil_to_cv(image)             # <<<<<<<<<<<<<<
  *                 cv2.imshow("Image Window", cv2_main_image)
@@ -7038,7 +7038,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":388
  * 
  *             # Paste image from clipboard
- *             elif k in [kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE]: # "V", "v" or space             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space             # <<<<<<<<<<<<<<
  *                 image = PIL.ImageGrab.grabclipboard()
  *                 cv2_main_image = pil_to_cv(image)
  */
@@ -7048,7 +7048,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":394
  * 
  *             # Make the image transparent
- *             elif k in [kbcon.VK_T, kbcon.AS_t]: # "T" or "t"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"             # <<<<<<<<<<<<<<
  *                 image = cv_to_pil(cv2_main_image)
  *                 if image.mode == 'RGBA':
  */
@@ -7079,7 +7079,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":395
  *             # Make the image transparent
- *             elif k in [kbcon.VK_T, kbcon.AS_t]: # "T" or "t"
+ *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
  *                 image = cv_to_pil(cv2_main_image)             # <<<<<<<<<<<<<<
  *                 if image.mode == 'RGBA':
  *                     image = image.convert("RGB")
@@ -7105,7 +7105,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __pyx_t_3 = 0;
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":396
- *             elif k in [kbcon.VK_T, kbcon.AS_t]: # "T" or "t"
+ *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
  *                 image = cv_to_pil(cv2_main_image)
  *                 if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
  *                     image = image.convert("RGB")
@@ -7145,7 +7145,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __pyx_t_3 = 0;
 
           /* "src/cythonExtensions/imageInverter/imageInverter.pyx":396
- *             elif k in [kbcon.VK_T, kbcon.AS_t]: # "T" or "t"
+ *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
  *                 image = cv_to_pil(cv2_main_image)
  *                 if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
  *                     image = image.convert("RGB")
@@ -7291,7 +7291,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":394
  * 
  *             # Make the image transparent
- *             elif k in [kbcon.VK_T, kbcon.AS_t]: # "T" or "t"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"             # <<<<<<<<<<<<<<
  *                 image = cv_to_pil(cv2_main_image)
  *                 if image.mode == 'RGBA':
  */
@@ -7301,7 +7301,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":404
  * 
  *             # Display/hide live color picker
- *             elif k in [kbcon.VK_W, kbcon.AS_w]: # "W" or "w"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_W, kbcon.AS_w): # "W" or "w"             # <<<<<<<<<<<<<<
  *                 if not color_picker_switch:
  *                     # cv2.namedWindow("Color Picker")
  */
@@ -7332,7 +7332,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":405
  *             # Display/hide live color picker
- *             elif k in [kbcon.VK_W, kbcon.AS_w]: # "W" or "w"
+ *             elif k in (kbcon.VK_W, kbcon.AS_w): # "W" or "w"
  *                 if not color_picker_switch:             # <<<<<<<<<<<<<<
  *                     # cv2.namedWindow("Color Picker")
  *                     # cv2.resizeWindow("Color Picker", 250, 250)
@@ -7413,7 +7413,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
           /* "src/cythonExtensions/imageInverter/imageInverter.pyx":405
  *             # Display/hide live color picker
- *             elif k in [kbcon.VK_W, kbcon.AS_w]: # "W" or "w"
+ *             elif k in (kbcon.VK_W, kbcon.AS_w): # "W" or "w"
  *                 if not color_picker_switch:             # <<<<<<<<<<<<<<
  *                     # cv2.namedWindow("Color Picker")
  *                     # cv2.resizeWindow("Color Picker", 250, 250)
@@ -7519,7 +7519,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":404
  * 
  *             # Display/hide live color picker
- *             elif k in [kbcon.VK_W, kbcon.AS_w]: # "W" or "w"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_W, kbcon.AS_w): # "W" or "w"             # <<<<<<<<<<<<<<
  *                 if not color_picker_switch:
  *                     # cv2.namedWindow("Color Picker")
  */
@@ -7529,7 +7529,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":418
  * 
  *             # Scale image up
- *             elif k in [kbcon.AS_PLUS, kbcon.AS_EQUALS]: # "+" Or "="             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.AS_PLUS, kbcon.AS_EQUALS): # "+" Or "="             # <<<<<<<<<<<<<<
  *                 # if cv2_main_image.shape[0] <= screen_size[0]/1.2 and cv2_main_image.shape[1] < screen_size[1]/1.2:
  * 
  */
@@ -7664,7 +7664,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":418
  * 
  *             # Scale image up
- *             elif k in [kbcon.AS_PLUS, kbcon.AS_EQUALS]: # "+" Or "="             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.AS_PLUS, kbcon.AS_EQUALS): # "+" Or "="             # <<<<<<<<<<<<<<
  *                 # if cv2_main_image.shape[0] <= screen_size[0]/1.2 and cv2_main_image.shape[1] < screen_size[1]/1.2:
  * 
  */
@@ -7674,7 +7674,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":426
  * 
  *             # Scale image down
- *             elif k in [kbcon.AS_MINUS, kbcon.AS_UNDERSCORE]: # "-" Or "_"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"             # <<<<<<<<<<<<<<
  *                 if cv2_main_image.shape[0] > 100 and cv2_main_image.shape[1] > 100:
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)
  */
@@ -7705,7 +7705,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":427
  *             # Scale image down
- *             elif k in [kbcon.AS_MINUS, kbcon.AS_UNDERSCORE]: # "-" Or "_"
+ *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"
  *                 if cv2_main_image.shape[0] > 100 and cv2_main_image.shape[1] > 100:             # <<<<<<<<<<<<<<
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)
  *                     cv2.imshow("Image Window", cv2_main_image)
@@ -7738,7 +7738,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         if (__pyx_t_1) {
 
           /* "src/cythonExtensions/imageInverter/imageInverter.pyx":428
- *             elif k in [kbcon.AS_MINUS, kbcon.AS_UNDERSCORE]: # "-" Or "_"
+ *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"
  *                 if cv2_main_image.shape[0] > 100 and cv2_main_image.shape[1] > 100:
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)             # <<<<<<<<<<<<<<
  *                     cv2.imshow("Image Window", cv2_main_image)
@@ -7842,7 +7842,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
           /* "src/cythonExtensions/imageInverter/imageInverter.pyx":427
  *             # Scale image down
- *             elif k in [kbcon.AS_MINUS, kbcon.AS_UNDERSCORE]: # "-" Or "_"
+ *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"
  *                 if cv2_main_image.shape[0] > 100 and cv2_main_image.shape[1] > 100:             # <<<<<<<<<<<<<<
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)
  *                     cv2.imshow("Image Window", cv2_main_image)
@@ -7852,7 +7852,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":426
  * 
  *             # Scale image down
- *             elif k in [kbcon.AS_MINUS, kbcon.AS_UNDERSCORE]: # "-" Or "_"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"             # <<<<<<<<<<<<<<
  *                 if cv2_main_image.shape[0] > 100 and cv2_main_image.shape[1] > 100:
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)
  */
@@ -7862,7 +7862,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":433
  * 
  *             # Save the image to a file
- *             elif k in [kbcon.VK_S, kbcon.AS_s]: # "S" or "s"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_S, kbcon.AS_s): # "S" or "s"             # <<<<<<<<<<<<<<
  *                 cv2.imwrite(os.path.join(save_directory, dt.now().strftime("%Y-%m-%d, %I.%M.%S %p") + ".png"), cv2_main_image)
  *                 winsound.PlaySound(r"C:\Windows\Media\tada.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
@@ -7893,7 +7893,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":434
  *             # Save the image to a file
- *             elif k in [kbcon.VK_S, kbcon.AS_s]: # "S" or "s"
+ *             elif k in (kbcon.VK_S, kbcon.AS_s): # "S" or "s"
  *                 cv2.imwrite(os.path.join(save_directory, dt.now().strftime("%Y-%m-%d, %I.%M.%S %p") + ".png"), cv2_main_image)             # <<<<<<<<<<<<<<
  *                 winsound.PlaySound(r"C:\Windows\Media\tada.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
@@ -8049,7 +8049,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":435
- *             elif k in [kbcon.VK_S, kbcon.AS_s]: # "S" or "s"
+ *             elif k in (kbcon.VK_S, kbcon.AS_s): # "S" or "s"
  *                 cv2.imwrite(os.path.join(save_directory, dt.now().strftime("%Y-%m-%d, %I.%M.%S %p") + ".png"), cv2_main_image)
  *                 winsound.PlaySound(r"C:\Windows\Media\tada.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
@@ -8126,7 +8126,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":433
  * 
  *             # Save the image to a file
- *             elif k in [kbcon.VK_S, kbcon.AS_s]: # "S" or "s"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_S, kbcon.AS_s): # "S" or "s"             # <<<<<<<<<<<<<<
  *                 cv2.imwrite(os.path.join(save_directory, dt.now().strftime("%Y-%m-%d, %I.%M.%S %p") + ".png"), cv2_main_image)
  *                 winsound.PlaySound(r"C:\Windows\Media\tada.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
@@ -8136,7 +8136,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       /* "src/cythonExtensions/imageInverter/imageInverter.pyx":438
  * 
  *             # Open file location
- *             elif k in [kbcon.VK_O, kbcon.AS_o]: # "O" or "o"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"             # <<<<<<<<<<<<<<
  *                 list_of_files = glob(os.path.join(save_directory, "*.png"))
  *                 if list_of_files:
  */
@@ -8167,7 +8167,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":439
  *             # Open file location
- *             elif k in [kbcon.VK_O, kbcon.AS_o]: # "O" or "o"
+ *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"
  *                 list_of_files = glob(os.path.join(save_directory, "*.png"))             # <<<<<<<<<<<<<<
  *                 if list_of_files:
  *                     os.system(f"explorer /select, \"{max(list_of_files, key=os.path.getctime)}\"")
@@ -8247,7 +8247,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __pyx_t_4 = 0;
 
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":440
- *             elif k in [kbcon.VK_O, kbcon.AS_o]: # "O" or "o"
+ *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"
  *                 list_of_files = glob(os.path.join(save_directory, "*.png"))
  *                 if list_of_files:             # <<<<<<<<<<<<<<
  *                     os.system(f"explorer /select, \"{max(list_of_files, key=os.path.getctime)}\"")
@@ -8406,7 +8406,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
           /* "src/cythonExtensions/imageInverter/imageInverter.pyx":440
- *             elif k in [kbcon.VK_O, kbcon.AS_o]: # "O" or "o"
+ *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"
  *                 list_of_files = glob(os.path.join(save_directory, "*.png"))
  *                 if list_of_files:             # <<<<<<<<<<<<<<
  *                     os.system(f"explorer /select, \"{max(list_of_files, key=os.path.getctime)}\"")
@@ -8471,7 +8471,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         /* "src/cythonExtensions/imageInverter/imageInverter.pyx":438
  * 
  *             # Open file location
- *             elif k in [kbcon.VK_O, kbcon.AS_o]: # "O" or "o"             # <<<<<<<<<<<<<<
+ *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"             # <<<<<<<<<<<<<<
  *                 list_of_files = glob(os.path.join(save_directory, "*.png"))
  *                 if list_of_files:
  */
