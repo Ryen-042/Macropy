@@ -47,7 +47,7 @@ This script implements a keyboard listener. However, unlike normal keyboard list
 
 The script relies heavily on Windows API. At first, I tried to use the `keyboard` module to listen for key presses. However, I found that the module was not able to detect some keys like `FN`. Next, I tried `pyWinhook`. It was able to detect all the keys I use but used a lot of the system resources all the time even at idle (about 30% CPU usage!). This performance hit surely was not acceptable, so I decided to create my own low-level hook manager. The results were very satisfying. I was able to detect all the keys I use, and the CPU usage was below 1% at idle (30 times better than `pyWinhook`!).
 
-The script also implements mouse a event listener. An interesting bonus when activating the keyboard and mouse listeners simultaneously is the ability to a combo hotkey between the keyboard and mouse.
+The script also implements a mouse event listener. An interesting bonus when activating the keyboard and mouse listeners simultaneously is the ability to a combo hotkey between the keyboard and mouse.
 
 ## Features
 <ins>Below are some of the windows explorer operations that the script can perform</ins>:
