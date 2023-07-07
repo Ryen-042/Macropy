@@ -11,6 +11,7 @@ from cythonExtensions.commonUtils.commonUtils import PThread, Management as mgmt
 from cythonExtensions.windowHelper import windowHelper as winHelper
 import scriptConfigs as configs
 
+
 @PThread.Throttle(10)
 def TerminateScript(graceful=False) -> None:
     """
@@ -279,19 +280,22 @@ def Shutdown(request_confirmation=False) -> None:
 
 cpdef str GetProcessFileAddress(int hwnd):
     """Given a window handle, returns its process file address."""
+    
+    process_handle = 0
     try:
-        proc_handle = win32api.OpenProcess(win32con.PROCESS_ALL_ACCESS, False, win32process.GetWindowThreadProcessId(hwnd)[1])
+        process_handle = win32api.OpenProcess(win32con.PROCESS_ALL_ACCESS, False, win32process.GetWindowThreadProcessId(hwnd)[1])
         
-        procs_address = win32process.GetModuleFileNameEx(proc_handle, 0)
-        
-        win32api.CloseHandle(proc_handle)
-        
-        return procs_address
+        process_location = win32process.GetModuleFileNameEx(process_handle, 0)
     
     except Exception as e:
         print(f"Error accessing process with hwnd={hwnd}: {e}")
         
-        return ""
+        process_location = ""
+    
+    if process_handle:
+        win32api.CloseHandle(process_handle)
+    
+    return process_location
 
 
 # Source: https://stackoverflow.com/questions/38628332/how-to-get-the-process-id-of-not-responding-foreground-app
@@ -315,12 +319,11 @@ cpdef int suspendProcess(int hwnd=0):
         
         return 0
     
+    process_handle = 0
     try:
         process_handle = ctypes.windll.kernel32.OpenProcess(win32con.PROCESS_SUSPEND_RESUME, False, process_id)
         
         ctypes.windll.ntdll.NtSuspendProcess(process_handle)
-        
-        ctypes.windll.kernel32.CloseHandle(process_handle)
         
         try:
             process_name = psutil.Process(process_id).name()
@@ -328,12 +331,17 @@ cpdef int suspendProcess(int hwnd=0):
         except Exception as ex:
             print(f"Successfully suspended the process with hwnd={hwnd}, pid={process_id}")
         
-        return 1
+        output = 1
     
     except Exception as ex:
         print(f"{ex}: Could not suspend the process with hwnd={hwnd} and pid={process_id}. Make sure you have the necessary permissions.")
         
-        return 0
+        output = 0
+    
+    if process_handle:
+        ctypes.windll.kernel32.CloseHandle(process_handle)
+    
+    return output
 
 
 cpdef int resumeProcess(int hwnd=0):
@@ -355,12 +363,11 @@ cpdef int resumeProcess(int hwnd=0):
         
         return 0
     
+    process_handle = 0
     try:
         process_handle = ctypes.windll.kernel32.OpenProcess(win32con.PROCESS_SUSPEND_RESUME, False, process_id)
         
         ctypes.windll.ntdll.NtResumeProcess(process_handle)
-        
-        ctypes.windll.kernel32.CloseHandle(process_handle)
         
         try:
             process_name = psutil.Process(process_id).name()
@@ -368,12 +375,17 @@ cpdef int resumeProcess(int hwnd=0):
         except Exception as ex:
             print(f"Successfully resumed the process with hwnd={hwnd}, pid={process_id}")
         
-        return 1
+        output = 1
     
     except Exception as ex:
         print(f"{ex}: Could not resume the process with hwnd={hwnd} and pid={process_id}. Make sure you have the necessary permissions.")
         
-        return 0
+        output = 0
+    
+    if process_handle:
+        ctypes.windll.kernel32.CloseHandle(process_handle)
+    
+    return output
 
 
 cpdef int GetHungwindowHandle(int hwnd=0):

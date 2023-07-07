@@ -2,6 +2,7 @@
 
 import win32con
 
+
 def TerminateScript(graceful=False) -> None:
     """
     Description:

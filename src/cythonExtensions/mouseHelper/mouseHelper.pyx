@@ -33,12 +33,12 @@ cpdef void sendMouseClick(int x=0, int y=0, int button=1, int op=1):
         x, y = win32api.GetCursorPos()
     
     # Mouse down event.
-    if op in [1, 2]:
+    if op in (1, 2):
         clickUp = win32con.MOUSEEVENTF_LEFTDOWN if button == 1 else win32con.MOUSEEVENTF_RIGHTDOWN
         win32api.mouse_event(clickUp, x, y, 0, 0)
     
     # Mouse up event.
-    if op in [1, 3]:
+    if op in (1, 3):
         clickDown = win32con.MOUSEEVENTF_LEFTUP if button == 1 else win32con.MOUSEEVENTF_RIGHTUP
         win32api.mouse_event(clickDown, x, y, 0, 0)
 

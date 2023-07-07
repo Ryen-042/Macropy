@@ -1,5 +1,5 @@
 # Macropy
-Keyboard hook listener, hotkey manager, word expander, task automation, and more!
+Macropy is an automation helper that works as a keyboard hotkey manager, mouse event listener, word expander, and more!
 
 ![Terminal Output](https://github.com/Ryen-042/Macropy/blob/main/Images/Output.png?raw=true)
 
@@ -43,9 +43,11 @@ Note that the package name for download is kb_macropy. However, to start the scr
 Many times, I find myself performing repetitive tasks. Some of these tasks are quite tedious, and others could be completed faster if I didn't have to interact with GUI elements. Moreover, my device's speed adds to the overall slowness. To address these issues, I've developed this script to automate these tasks efficiently. This way, I can save time and effort, making my workflow smoother and more productive.
 
 ## Description
-This script works as a keyboard listener. However, unlike normal keyboard listeners provided by existing modules like `keyboard`, `pynput`, etc., this script has two advantages. The first is the ability to use any key combination for triggering a hotkey, and multiple key combinations can be specified easily to trigger the same hotkey. The second advantage is the ability to use any keyboard keys (even keys like `FN`) as long as the key is reported by the os.
+This script implements a keyboard listener. However, unlike normal keyboard listeners provided by existing modules like `keyboard`, `pynput`, etc., this script has two advantages. The first is the ability to use any key combination for triggering a hotkey, and multiple key combinations can be specified easily to trigger the same hotkey. The second advantage is the ability to use any keyboard keys (even keys like `FN`) as long as the key is reported by the os.
 
-This script relies heavily on Windows API. At first, I tried to use the `keyboard` module to listen for key presses. However, I found that the module was not able to detect some keys like `FN`. Next, I tried `pyWinhook`. It was able to detect all the keys I use but used a lot of the system resources all the time even at idle (about 30% CPU usage!). This performance hit surely was not acceptable, so I decided to create my own low-level hook manager. The results were very satisfying. I was able to detect all the keys I use, and the CPU usage was below 1% at idle (30 times better than `pyWinhook`!).
+The script relies heavily on Windows API. At first, I tried to use the `keyboard` module to listen for key presses. However, I found that the module was not able to detect some keys like `FN`. Next, I tried `pyWinhook`. It was able to detect all the keys I use but used a lot of the system resources all the time even at idle (about 30% CPU usage!). This performance hit surely was not acceptable, so I decided to create my own low-level hook manager. The results were very satisfying. I was able to detect all the keys I use, and the CPU usage was below 1% at idle (30 times better than `pyWinhook`!).
+
+The script also implements mouse a event listener. An interesting bonus when activating the keyboard and mouse listeners simultaneously is the ability to a combo hotkey between the keyboard and mouse.
 
 ## Features
 <ins>Below are some of the windows explorer operations that the script can perform</ins>:
@@ -74,7 +76,7 @@ This script relies heavily on Windows API. At first, I tried to use the `keyboar
 - Flattening directories by moving all the files/folders inside to the same level. (No hotkey)
 
 <ins>Next are some of the supported window manipulation operations</ins>:
-- Moving the window around (up, right, down, right) -> `Backtick + (↑, →, ↓, ←)`.
+- Moving the window around (up, right, down, left) -> `Backtick + (↑, →, ↓, ←)`.
 
 ![Moving Window Around](https://github.com/Ryen-042/Macropy/blob/main/Images/Moving_Window.gif?raw=true)
 
@@ -89,11 +91,13 @@ This script relies heavily on Windows API. At first, I tried to use the `keyboar
 
 - Shutting down the system -> `Win + FN + Ctrl + "q"`.
 
-- Increasing/Decreasing the system volume -> `Ctrl + Shift + ('=', '+')` or `('-', '_')`.
+- Increasing/Decreasing the system volume -> `Ctrl + Shift +`
+    - `('=', '+')` or `('-', '_')`.
+    - `Wheel Scroll Up`/`Down`.
 
 - Increasing/Decreasing brightness -> `Backtick + (F2, F3)`.
 
-- Suspending/resuming the process of the active window -> `Backtick + Pause` or `Alt + Pause`.
+- Suspending/resuming the process of the active window -> `Backtick + Pause`/`Alt + Pause`.
 
 - Sending hotkeys and keyboard key sequences.
 
@@ -119,12 +123,12 @@ This script relies heavily on Windows API. At first, I tried to use the `keyboar
 
 - To terminate the script, press the hotkey -> `FN + ESC`.
 
-- To make sure the script is running (by displaying a toast notification), press the hotkey -> `FN + /`.
+- To make sure the script is running (by displaying a toast notification), press the hotkey -> `FN + "/"`.
 
-- To clear the terminal, press the hotkey -> `Ctrl + FN + C`.
+- To clear the terminal, press the hotkey -> `Ctrl + FN + "c"`.
 
-- To suppress/silence the terminal output, press the hotkey -> `FN + Alt + S`.
+- To suppress/silence the terminal output, press the hotkey -> `FN + Alt + "s"`.
 
-- To suppress keyboard keys (hotkeys still work), press the hotkey -> `Ctrl + Alt + D`.
+- To suppress keyboard keys (hotkeys still work), press the hotkey -> `Ctrl + Alt + "d"`.
 
 - The script will not allow more than one active instance at a time.
