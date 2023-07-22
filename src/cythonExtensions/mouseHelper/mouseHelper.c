@@ -5,7 +5,7 @@
     "distutils": {
         "name": "macropy.cythonExtensions.mouseHelper.mouseHelper",
         "sources": [
-            "src/cythonExtensions/mouseHelper/mouseHelper.pyx"
+            "src\\cythonExtensions\\mouseHelper\\mouseHelper.pyx"
         ]
     },
     "module_name": "macropy.cythonExtensions.mouseHelper.mouseHelper"

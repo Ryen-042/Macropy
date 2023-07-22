@@ -3,7 +3,7 @@
 import win32con
 
 
-def FindHandleByClassName(className: str, check_all=False) -> list[int]:
+def findHandleByClassName(className: str, check_all=False) -> list[int]:
     """
     Description:
         Searches for a window with the specified class name and returns its handle if found. Otherwise, returns `0`.
@@ -25,12 +25,12 @@ def FindHandleByClassName(className: str, check_all=False) -> list[int]:
     ...
 
 
-def GetHandleByTitle(title: str) -> int:
+def getHandleByTitle(title: str) -> int:
     """searches for a window with the specified title and returns its handle if found. Otherwise, returns `0`."""
     ...
 
 
-def ShowMessageBox(msg: str, title="Warning", msgbox_type=1, icon=win32con.MB_ICONERROR) -> int:
+def showMessageBox(msg: str, title="Warning", msgbox_type=1, icon=win32con.MB_ICONERROR) -> int:
     """
     Description:
         Display an error message window with the specified message.
@@ -64,18 +64,18 @@ def ShowMessageBox(msg: str, title="Warning", msgbox_type=1, icon=win32con.MB_IC
     ...
 
 
-def AlwaysOnTop() -> None:
-    """Toggles `AlwaysOnTop` on or off for the active window."""
+def alwaysOnTop() -> None:
+    """Toggles `alwaysOnTop` on or off for the active window."""
     ...
 
 
 # Shake window - Doesn't work if the window is fullscreen
-def ShakeActiveWindow(cycles=5) -> None:
+def shakeActiveWindow(cycles=5) -> None:
     """Simulates shake effect on the active window for the specified number of times."""
     ...
 
 
-def MoveActiveWindow(hwnd=0, delta_x=0, delta_y=0, width=0, height=0) -> None:
+def moveActiveWindow(hwnd=0, delta_x=0, delta_y=0, width=0, height=0) -> None:
     """
     Description:
         Moves the active or specified window by an (x, y) pixels, and change its size by (width, height) if passed.
@@ -99,7 +99,7 @@ def MoveActiveWindow(hwnd=0, delta_x=0, delta_y=0, width=0, height=0) -> None:
     ...
 
 
-def ChangeWindowOpacity(hwnd=0, opcode=1, increment=5) -> int:
+def changeWindowOpacity(hwnd=0, opcode=1, increment=5) -> int:
     """
     Description:
         Increments (`opcode=any non-zero value`) or decrements (`opcode=0`) the opacity of the specified window by an (`increment`) value.

@@ -3,7 +3,7 @@
 import win32con
 
 
-def TerminateScript(graceful=False) -> None:
+def terminateScript(graceful=False) -> None:
     """
     Description:
         Terminates the running main script process.
@@ -16,7 +16,7 @@ def TerminateScript(graceful=False) -> None:
     ...
 
 
-def IsProcessElevated(hwnd=0) -> bool:
+def isProcessElevated(hwnd=0) -> bool:
     """
     Description:
         - Checks if the window with the specified handle has elevated privileges.
@@ -31,57 +31,57 @@ def IsProcessElevated(hwnd=0) -> bool:
     ...
 
 
-def StartWithElevatedPrivileges(terminate=True, cmder=False, cmdShow=win32con.SW_SHOWNORMAL) -> int:
+def startWithElevatedPrivileges(terminate=True, cmder=False, cmdShow=win32con.SW_SHOWNORMAL) -> int:
     """Starts another instance of the main python process with elevated privileges."""
     ...
 
 
-def ScheduleElevatedProcessChecker(delay=10.0) -> None:
+def scheduleElevatedProcessChecker(delay=10.0) -> None:
     """Reprots each `delay` time if the active process window is elevated while the current python process is not elevated."""
     ...
 
 
-def DisplayCPUsage() -> None:
+def displayCPU_Usage() -> None:
     """Prints the current CPU and Memort usage to the console."""
     ...
 
 
-def EnableDPI_Awareness() -> int:
+def enableDPI_Awareness() -> int:
     """Enables `DPI Awareness` for the current thread to allow for accurate dimensions reporting."""
     ...
 
 
-def SendScriptWorkingNotification(near_module=True) -> None:
+def sendScriptWorkingNotification(near_module=True) -> None:
     """Sends a notification to the user that the script is working."""
     ...
 
 
-def ChangeBrightness(opcode=1, increment=5) -> None:
+def changeBrightness(opcode=1, increment=5) -> None:
     """Increments (`opcode=any non-zero value`) or decrements (`opcode=0`) the screen brightness by an (`increment`) percent."""
     ...
 
 
-def ScreenOff() -> None:
+def screenOff() -> None:
     """Turns off the screen."""
     ...
 
 
-def FlashScreen(delay=0.15) -> None:
+def flashScreen(delay=0.15) -> None:
     """Inverts the color of the screen for the specified number of seconds."""
     ...
 
 
-def GoToSleep() -> None:
+def goToSleep() -> None:
     """Puts the device to sleep."""
     ...
 
 
-def Shutdown(request_confirmation=False) -> None:
+def shutdown(request_confirmation=False) -> None:
     """Shuts down the computer."""
     ...
 
 
-def GetProcessFileAddress(hwnd: int) -> str:
+def getProcessFileAddress(hwnd: int) -> str:
     """Given a window handle, returns its process file address."""
     ...
 
@@ -96,7 +96,7 @@ def resumeProcess(hwnd=0) -> int:
     ...
 
 
-def GetHungwindowHandle(hwnd=0) -> int:
+def getHungwindowHandle(hwnd=0) -> int:
     """Returns the actual hwnd of a hung window given its ghost window handle. Uses the handle of the active window if no handle is passed."""
     ...
 

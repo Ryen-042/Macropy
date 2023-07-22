@@ -3,11 +3,13 @@
 
 """This extension module defines functions for setting up and starting the script."""
 
+from cythonExtensions.hookManager.hookManager cimport HookTypes, HookManager, KeyboardHookManager, MouseHookManager
+
 import os
 from contextlib import contextmanager
 
 
-def AcquireScriptLock() -> int:
+def acquireScriptLock() -> int:
     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
     If another instance of the script is already running, this instance will be terminated."""
     
@@ -34,18 +36,19 @@ def AcquireScriptLock() -> int:
     return handle
 
 
-cpdef void begin_script():
+def beginScript() -> None:
     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
     
-    mutexHandle = AcquireScriptLock()
+    mutexHandle = acquireScriptLock()
     print("Script lock acquired.")
     
     import threading
     import winsound, pythoncom
     from cythonExtensions.systemHelper import systemHelper as sysHelper
     from cythonExtensions.commonUtils.commonUtils import Management as mgmt, PThread
-    from cythonExtensions.eventListeners.eventListeners import KeyPress, textExpansion, ButtonPress
-    from cythonExtensions.hookManager.hookManager import HookManager, KeyboardHookManager, MouseHookManager, HookTypes
+    from cythonExtensions.eventHandlers.eventHandlers import keyPress, textExpansion, buttonPress
+    from cythonExtensions.hookManager.hookManager import KeyboardHookManager, MouseHookManager
+    
     from time import sleep, time
     import scriptConfigs as configs
     
@@ -55,7 +58,7 @@ cpdef void begin_script():
     #+ Initializing the uncaught exception logger.
     if configs.ENABLE_LOGGING:
         import sys
-        sys.excepthook = mgmt.LogUncaughtExceptions
+        sys.excepthook = mgmt.logUncaughtExceptions
     
     #+ Initializing the COM library for the main thread. Sets the current thread to be a COM apartment thread: https://stackoverflow.com/questions/21141217/how-to-launch-win32-applications-in-separate-threads-in-python
     #? As long as the Automation object is used in the same thread in which it was created, the COM library is already initialized and you do not need to call the CoInitialize function so this line is redundant.
@@ -63,43 +66,42 @@ cpdef void begin_script():
     
     #+ For a valid window size reporting.
     if configs.ENABLE_DPI_AWARENESS:
-        sysHelper.EnableDPI_Awareness()
+        sysHelper.enableDPI_Awareness()
     
     #+ Scheduling a checker to notify if a process with elevated privileges is active when the script does not have elevated privileges.
     #? This is necessary because no keyboard events are reported if the script is not elevated and the foreground window is.
-    if configs.ENABLE_ELEVATED_PRIVILEGES_CHECKER and not sysHelper.IsProcessElevated(-1):
+    if configs.ENABLE_ELEVATED_PRIVILEGES_CHECKER and not sysHelper.isProcessElevated(-1):
         print("Starting the elevated processes checker...")
-        PThread(target=sysHelper.ScheduleElevatedProcessChecker).start()
+        PThread(target=sysHelper.scheduleElevatedProcessChecker).start()
     
     hookManager = HookManager()
     
     print("Initializing keyboard listeners...")
     kbHook = KeyboardHookManager()
-    kbHook.addKeyDownListener(textExpansion)
-    kbHook.addKeyDownListener(KeyPress)
-    # kbHook.addKeyUpListener()
+    kbHook.keyDownListeners.extend((textExpansion, keyPress))
+    # kbHook.keyUpListeners.append()
     
     print("Initializing mouse listeners...")
     msHook = MouseHookManager()
-    msHook.addButtonDownListener(ButtonPress)
-    # msHook.addButtonUpListener()
+    msHook.mouseButtonDownListeners.append(buttonPress)
+    # msHook.mouseButtonUpListeners.append()
     
     #+ Starting the application main loop.
     print("Activating keyboard listeners...")
     
     ## Installing the low level hooks.
-    if not hookManager.InstallHook(kbHook.KeyboardCallback,  HookTypes.WH_KEYBOARD_LL):
+    if not hookManager.installHook(kbHook.keyboardCallback,  HookTypes.WH_KEYBOARD_LL):
         print("\nWarning! Failed to install the keyboard hook!")
         os._exit(1)
     
     print("Activating mouse listeners...\n")
     
-    if not hookManager.InstallHook(msHook.MouseCallback, HookTypes.WH_MOUSE_LL):
+    if not hookManager.installHook(msHook.mouseCallback, HookTypes.WH_MOUSE_LL):
         print("Failed to install the mouse hook!")
         os._exit(1)
     
     # Begin listening for windows events. This function will not return until the hook stops.
-    hookManager.BeginListening()
+    hookManager.beginListening()
     
     ##! Reaching this point means that the script is being terminated.
     
@@ -108,8 +110,8 @@ cpdef void begin_script():
     print("Script lock released.")
     
     print("Uninstalling the hooks...")
-    hookManager.UninstallHook(HookTypes.WH_KEYBOARD_LL)
-    hookManager.UninstallHook(HookTypes.WH_MOUSE_LL)
+    hookManager.uninstallHook(HookTypes.WH_KEYBOARD_LL)
+    hookManager.uninstallHook(HookTypes.WH_MOUSE_LL)
     
     # Get a list of all running threads
     cdef list alive_threads = threading.enumerate()
@@ -149,7 +151,7 @@ cpdef void begin_script():
         pythoncom.CoUninitialize()
     
     #! Terminate the script.
-    # sysHelper.TerminateScript(graceful=False)
+    # sysHelper.terminateScript(graceful=False)
 
 
 # Source: https://dev.to/rydra/getting-started-on-profiling-with-python-3a4
@@ -251,7 +253,7 @@ def profilerManager(filename="", engine="yappi", clock="wall", output_type="psta
             visualize(profiler.getstats())
 
 
-cpdef void begin_script_with_cProfile(save_near_module=False):
+def beginScriptWithCProfiler(save_near_module=False) -> None:
     """Starts the main script with profiling."""
     
     import cProfile, pstats
@@ -259,7 +261,7 @@ cpdef void begin_script_with_cProfile(save_near_module=False):
     print("PROFILING ENABLED.")
     
     with cProfile.Profile() as profile:
-        begin_script()
+        beginScript()
     
     from datetime import datetime as dt
     
@@ -286,8 +288,8 @@ cpdef void begin_script_with_cProfile(save_near_module=False):
     profiling_results.dump_stats(dump_loc)
 
 
-cpdef void begin_script_with_profiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):
+def beginScriptWithProfiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False) -> None:
     """Starts the main script with profiling."""
     
     with profilerManager(filename=filename, engine=engine, clock=clock, output_type=output_type, profile_builtins=profile_builtins, profile_threads=profile_threads, save_near_module=save_near_module):
-        begin_script()
+        beginScript()

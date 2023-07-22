@@ -6,7 +6,7 @@
 import win32gui, win32con, winsound, pywintypes, ctypes
 from time import sleep
 
-cpdef list[int] FindHandleByClassName(str className, bint check_all=False):
+cpdef list[int] findHandleByClassName(str className, bint check_all=False):
     """
     Description:
         Searches for a window with the specified class name and returns its handle if found. Otherwise, returns `0`.
@@ -40,7 +40,8 @@ cpdef list[int] FindHandleByClassName(str className, bint check_all=False):
     
     return output
 
-cpdef int GetHandleByTitle(str title):
+
+cpdef int getHandleByTitle(str title):
     """searches for a window with the specified title and returns its handle if found. Otherwise, returns `0`."""
     
     cdef int hwnd = win32gui.GetTopWindow(0)
@@ -53,7 +54,8 @@ cpdef int GetHandleByTitle(str title):
     
     return 0
 
-cpdef int ShowMessageBox(str msg, str title="Warning", int msgbox_type=1, int icon=win32con.MB_ICONERROR):
+
+cpdef int showMessageBox(str msg, str title="Warning", int msgbox_type=1, int icon=win32con.MB_ICONERROR):
     """
     Description:
         Display an error message window with the specified message.
@@ -90,8 +92,9 @@ cpdef int ShowMessageBox(str msg, str title="Warning", int msgbox_type=1, int ic
     # https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messageboxa
     return ctypes.windll.user32.MessageBoxW(None, msg, title, type | icon | win32con.MB_TOPMOST | win32con.MB_SETFOREGROUND)
 
-cpdef void AlwaysOnTop():
-    """Toggles `AlwaysOnTop` on or off for the active window."""
+
+cpdef void alwaysOnTop():
+    """Toggles `alwaysOnTop` on or off for the active window."""
     
     cdef int hwnd = win32gui.GetForegroundWindow()
     
@@ -106,8 +109,9 @@ cpdef void AlwaysOnTop():
     else:
         winsound.PlaySound(r"SFX\pedantic-490.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
 
+
 # Shake window - Doesn't work if the window is fullscreen
-cpdef void ShakeActiveWindow(int cycles=5):
+cpdef void shakeActiveWindow(int cycles=5):
     """Simulates shake effect on the active window for the specified number of times."""
     
     # Get the handle of the window
@@ -129,7 +133,8 @@ cpdef void ShakeActiveWindow(int cycles=5):
     # Restore the original position of the window
     win32gui.SetWindowPos(hwnd, win32con.HWND_TOP, x, y, width, height, win32con.SWP_NOACTIVATE | win32con.SWP_NOSIZE)
 
-cpdef void MoveActiveWindow(int hwnd=0, int delta_x=0, int delta_y=0, int width=0, int height=0):
+
+cpdef void moveActiveWindow(int hwnd=0, int delta_x=0, int delta_y=0, int width=0, int height=0):
     """
     Description:
         Moves the active or specified window by an (x, y) pixels, and change its size by (width, height) if passed.
@@ -169,7 +174,8 @@ cpdef void MoveActiveWindow(int hwnd=0, int delta_x=0, int delta_y=0, int width=
     win32gui.SetWindowPos(hwnd, win32con.HWND_TOP, curr_x + delta_x, curr_y + delta_y,
                           curr_width + width, curr_height + height, win32con.SWP_NOACTIVATE | flags)
 
-cpdef int ChangeWindowOpacity(int hwnd=0, int opcode=1, int increment=5):
+
+cpdef int changeWindowOpacity(int hwnd=0, int opcode=1, int increment=5):
     """
     Description:
         Increments (`opcode=any non-zero value`) or decrements (`opcode=0`) the opacity of the specified window by an (`increment`) value.

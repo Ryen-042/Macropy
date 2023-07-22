@@ -26,7 +26,7 @@ extended_keys = {
 }
 
 
-def SimulateKeyPress(key_id: int, key_scancode=0, times=1) -> None:
+def simulateKeyPress(key_id: int, key_scancode=0, times=1) -> None:
     """
     Description:
         Simulates key press by sending the specified key for the specified number of times.
@@ -39,7 +39,7 @@ def SimulateKeyPress(key_id: int, key_scancode=0, times=1) -> None:
     ...
 
 
-def SimulateKeyPressSequence(keys_list: tuple[tuple[int, int] | tuple[Any, Callable[[Any], None]]], delay=0.2) -> None:
+def simulateKeyPressSequence(keys_list: tuple[tuple[int, int] | tuple[Any, Callable[[Any], None]]], delay=0.2) -> None:
     """
     Description:
         Simulating a sequence of key presses.
@@ -54,7 +54,7 @@ def SimulateKeyPressSequence(keys_list: tuple[tuple[int, int] | tuple[Any, Calla
     ...
 
 
-def FindAndSendKeyToWindow(target_className: str, key: Any, send_function: Callable[[Any], None] | None) -> int:
+def findAndSendKeyToWindow(target_className: str, key: Any, send_function: Callable[[Any], None] | None) -> int:
     """
     Description:
         Searches for a window with the specified class name, and, if found, sends the specified key using the passed function.
@@ -72,7 +72,7 @@ def FindAndSendKeyToWindow(target_className: str, key: Any, send_function: Calla
     ...
 
 
-def SimulateHotKeyPress(keys_id_dict: dict[int, int]) -> None:
+def simulateHotKeyPress(keys_id_dict: dict[int, int]) -> None:
     """
     Description:
         Simulates hotkey press by sending a keyDown event for each of the specified keys and then sending keyUp events.
@@ -84,12 +84,12 @@ def SimulateHotKeyPress(keys_id_dict: dict[int, int]) -> None:
     ...
 
 
-def GetCaretPosition(text: str, caret="{!}") -> int:
+def getCaretPosition(text: str, caret="{!}") -> int:
     """Returns the position of the caret in the given text."""
     ...
 
 
-def SendTextWithCaret(text: str, caret="{!}") -> None:
+def sendTextWithCaret(text: str, caret="{!}") -> None:
     """
     Description:
         - Sends (writes) the specified string to the active window.
@@ -100,17 +100,17 @@ def SendTextWithCaret(text: str, caret="{!}") -> None:
     ...
 
 
-def ExpandText() -> None:
+def expandText() -> None:
     """Replacing an abbreviated text with its respective substitution specified by the pressed characters `ctrlHouse.pressed_chars`."""
     ...
 
 
-def OpenLocation() -> None:
+def openLocation() -> None:
     """Opens a file or a directory specified by the pressed characters `ctrlHouse.pressed_chars`."""
     ...
 
 
-def CrudeOpenWith(tool_number=4, prog_index=0) -> None:
+def crudeOpenWith(tool_number=4, prog_index=0) -> None:
     """
         Description:
             A crude way for opening a program by using the `open` tool from the `Quick Access Toolbar`.

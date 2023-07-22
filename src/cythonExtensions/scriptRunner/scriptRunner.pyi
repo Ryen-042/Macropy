@@ -3,13 +3,13 @@
 from contextlib import contextmanager
 
 
-def AcquireScriptLock() -> int:
+def acquireScriptLock() -> int:
     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
     If another instance of the script is already running, this instance will be terminated."""
     ...
 
 
-def begin_script() -> None:
+def beginScript() -> None:
     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
     ...
 
@@ -50,11 +50,11 @@ def profilerManager(filename="", engine="yappi", clock="wall", output_type="psta
     ...
 
 
-def begin_script_with_cProfile(save_near_module=False):
+def beginScriptWithCProfiler(save_near_module=False) -> None:
     """Starts the main script with profiling."""
     ...
 
 
-def begin_script_with_profiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False):
+def beginScriptWithProfiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False) -> None:
     """Starts the main script with profiling."""
     ...

@@ -3,17 +3,18 @@
 
 """This extension module provides system/script-specific functions."""
 
-import win32gui, win32api, win32process, win32con, winsound, win32security
 import wmi, ctypes, os, sys, psutil, subprocess
-from win11toast import toast
+import win32gui, win32api, win32process, win32con, winsound, win32security
 from time import sleep
+from win11toast import toast
+
+import scriptConfigs as configs
 from cythonExtensions.commonUtils.commonUtils import PThread, Management as mgmt
 from cythonExtensions.windowHelper import windowHelper as winHelper
-import scriptConfigs as configs
 
 
-@PThread.Throttle(10)
-def TerminateScript(graceful=False) -> None:
+@PThread.throttle(10)
+def terminateScript(graceful=False) -> None:
     """
     Description:
         Terminates the running main script process.
@@ -43,7 +44,7 @@ def TerminateScript(graceful=False) -> None:
         os._exit(1)
 
 
-cpdef bint IsProcessElevated(int hwnd=0):
+cpdef bint isProcessElevated(int hwnd=0):
     """
     Description:
         - Checks if the window with the specified handle has elevated privileges.
@@ -74,16 +75,17 @@ cpdef bint IsProcessElevated(int hwnd=0):
     
     return False
 
-cpdef int StartWithElevatedPrivileges(bint terminate=True, bint cmder=False, int cmdShow=win32con.SW_SHOWNORMAL): # win32con.SW_FORCEMINIMIZE
+
+cpdef int startWithElevatedPrivileges(bint terminate=True, bint cmder=False, int cmdShow=win32con.SW_SHOWNORMAL): # win32con.SW_FORCEMINIMIZE
     """Starts another instance of the main python process with elevated privileges."""
     
-    if IsProcessElevated(-1):
+    if isProcessElevated(-1):
         print("Hotkey ignored. The script already has elevated privileges.")
         
         return 0
     
     if terminate:
-        TerminateScript(graceful=True)
+        terminateScript(graceful=True)
     
     if cmder:
         # Docs: Run with elevated privileges and disable ‘Press Enter or Esc to close console’: https://conemu.github.io/en/NewConsole.html
@@ -100,12 +102,13 @@ cpdef int StartWithElevatedPrivileges(bint terminate=True, bint cmder=False, int
     
     return ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, subprocess.list2cmdline(sys.argv), None, cmdShow)
 
-cpdef void ScheduleElevatedProcessChecker(float delay=10.0):
+
+cpdef void scheduleElevatedProcessChecker(float delay=10.0):
     """Reprots each `delay` time if the active process window is elevated while the current python process is not elevated."""
     
     while not mgmt.terminateEvent.wait(delay):
-        if IsProcessElevated():
-            if IsProcessElevated(-1):
+        if isProcessElevated():
+            if isProcessElevated(-1):
                 print("The script has elevated privileges. No need for further checks.")
                 return
             
@@ -119,7 +122,7 @@ cpdef void ScheduleElevatedProcessChecker(float delay=10.0):
                 print(f"Attention: the active process '{windowTitle}' has elevated privileges and no keyboard events can be received.")
 
 
-cpdef void DisplayCPUsage():
+cpdef void displayCPU_Usage():
     """Prints the current CPU and Memort usage to the console."""
     cdef str char_empty, char_fill, cpu_bar, mem_bar
     cdef double cpu_usage, scale, mem_usage
@@ -149,7 +152,8 @@ cpdef void DisplayCPUsage():
     # Printing the bars.
     print(f"\033[F\033[KCPU Usage: | {cpu_bar} | ({cpu_usage})\nMem Usage: | {mem_bar} | ({mem_usage})", end="")
 
-cpdef int EnableDPI_Awareness():
+
+cpdef int enableDPI_Awareness():
     """Enables `DPI Awareness` for the current thread to allow for accurate dimensions reporting."""
     
     # Creator note: behavior on later OSes is undefined, although when I run it on my Windows 10 machine, it seems to work with effects identical to SetProcessDpiAwareness(1)
@@ -178,7 +182,7 @@ cpdef int EnableDPI_Awareness():
     return errorCode
 
 
-def SendScriptWorkingNotification(near_module=True) -> None:
+def sendScriptWorkingNotification(near_module=True) -> None:
     """Sends a notification to the user that the script is working."""
     if near_module:
         directory = os.path.dirname(os.path.abspath(__file__))
@@ -191,17 +195,17 @@ def SendScriptWorkingNotification(near_module=True) -> None:
     
     # notify() doesn't work properly here. Use toast() inside a thread instead.
     toast('Script is Running.', 'The script is running in the background.', buttons=buttons,
-          on_click = lambda args: args["arguments"][0] == "0" and TerminateScript(True),
+          on_click = lambda args: args["arguments"][0] == "0" and terminateScript(True),
           icon  = {"src": os.path.join(directory, "Images", "static", "keyboard.png"), 'placement': 'appLogoOverride'},
           image = {'src': os.path.join(directory, "Images", "static", "keyboard (0.5).png"), 'placement': 'hero'},
           audio = {'silent': 'true'})
 
 
-@PThread.Throttle(0.05)
-def ChangeBrightness(opcode=1, increment=5) -> None:
+@PThread.throttle(0.05)
+def changeBrightness(opcode=1, increment=5) -> None:
     """Increments (`opcode=any non-zero value`) or decrements (`opcode=0`) the screen brightness by an (`increment`) percent."""
     
-    PThread.CoInitialize()
+    PThread.coInitialize()
     
     # Connectting to WMI.
     c = wmi.WMI(namespace="wmi")
@@ -220,15 +224,15 @@ def ChangeBrightness(opcode=1, increment=5) -> None:
     
     print(f"Current & New Brightness: {current_brightness} -> {brightness}")
     
-    PThread.CoUninitialize()
+    PThread.coUninitialize()
 
 
-cpdef void ScreenOff():
+cpdef void screenOff():
     """Turns off the screen."""
     win32gui.SendMessage(win32con.HWND_BROADCAST, win32con.WM_SYSCOMMAND, win32con.SC_MONITORPOWER, 2)
 
 
-cpdef void FlashScreen(float delay=0.15):
+cpdef void flashScreen(float delay=0.15):
     """Inverts the color of the screen for the specified number of seconds."""
     cdef int x, y
     
@@ -240,8 +244,8 @@ cpdef void FlashScreen(float delay=0.15):
     win32gui.DeleteDC(hdc) # Clean up memory.
 
 
-@PThread.Throttle(15)
-def GoToSleep() -> None:
+@PThread.throttle(15)
+def goToSleep() -> None:
     """Puts the device to sleep."""
     
     # Source: https://learn.microsoft.com/en-us/sysinternals/downloads/psshutdown
@@ -254,12 +258,12 @@ def GoToSleep() -> None:
     print("Device is now active.")
 
 
-@PThread.Throttle(0.1)
-def Shutdown(request_confirmation=False) -> None:
+@PThread.throttle(0.1)
+def shutdown(request_confirmation=False) -> None:
     """Shuts down the computer."""
     
     if request_confirmation:
-        if winHelper.ShowMessageBox("Do you really want to shutdown?", "Confirm Shutdown", 2, win32con.MB_ICONQUESTION) != 6:
+        if winHelper.showMessageBox("Do you really want to shutdown?", "Confirm Shutdown", 2, win32con.MB_ICONQUESTION) != 6:
             return
     
     # Source: https://stackoverflow.com/questions/34039845/how-to-shutdown-a-computer-using-python/62595482#62595482
@@ -275,10 +279,10 @@ def Shutdown(request_confirmation=False) -> None:
     win32api.ExitWindowsEx(win32con.EWX_SHUTDOWN | EWX_HYBRID_SHUTDOWN)
     
     # Make sure that the script is terminating while the system is shutting down.
-    TerminateScript(graceful=False)
+    terminateScript(graceful=False)
 
 
-cpdef str GetProcessFileAddress(int hwnd):
+cpdef str getProcessFileAddress(int hwnd):
     """Given a window handle, returns its process file address."""
     
     process_handle = 0
@@ -327,7 +331,11 @@ cpdef int suspendProcess(int hwnd=0):
         
         try:
             process_name = psutil.Process(process_id).name()
+            
+            winsound.PlaySound(r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+            
             print(f"Successfully suspended the '{process_name}' process with hwnd={hwnd} and pid={process_id}.")
+        
         except Exception as ex:
             print(f"Successfully suspended the process with hwnd={hwnd}, pid={process_id}")
         
@@ -371,7 +379,11 @@ cpdef int resumeProcess(int hwnd=0):
         
         try:
             process_name = psutil.Process(process_id).name()
+            
+            winsound.PlaySound(r"SFX\pedantic-490.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+            
             print(f"Successfully resumed the '{process_name}' process with hwnd={hwnd} and pid={process_id}.")
+        
         except Exception as ex:
             print(f"Successfully resumed the process with hwnd={hwnd}, pid={process_id}")
         
@@ -388,7 +400,7 @@ cpdef int resumeProcess(int hwnd=0):
     return output
 
 
-cpdef int GetHungwindowHandle(int hwnd=0):
+cpdef int getHungwindowHandle(int hwnd=0):
     """Returns the actual hwnd of a hung window given its ghost window handle. Uses the handle of the active window if no handle is passed."""
     
     if not hwnd:
