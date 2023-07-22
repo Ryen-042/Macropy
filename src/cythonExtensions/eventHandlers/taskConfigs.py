@@ -1,4 +1,4 @@
-"""Contains constants used for configuring the tasks defined in the `eventListeners` module."""
+"""Contains constants used for configuring the tasks defined in the `eventHandlers` module."""
 
 WHEEL_SCROLL_DISTANCE = 80
 SCROLL_DISTANCE_MULTIPLIER = 3

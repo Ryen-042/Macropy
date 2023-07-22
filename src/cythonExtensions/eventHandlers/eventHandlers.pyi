@@ -2,7 +2,7 @@
 from cythonExtensions.commonUtils.commonUtils import KeyboardEvent, MouseEvent
 
 
-def KeyPress(event: KeyboardEvent) -> bool:
+def keyPress(event: KeyboardEvent) -> bool:
     """
     Description:
         The callback function responsible for handling hotkey press events.
@@ -32,6 +32,6 @@ def textExpansion(event: KeyboardEvent) -> bool:
     ...
 
 
-def ButtonPress(event: MouseEvent) -> bool:
-    """The callback function responsible for handling the `ButtonPress` events."""
+def buttonPress(event: MouseEvent) -> bool:
+    """The callback function responsible for handling the `buttonPress` events."""
     ...
