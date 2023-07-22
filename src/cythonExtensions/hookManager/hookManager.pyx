@@ -3,52 +3,13 @@
 
 """This extension module contains functions and classes for managing Windows hooks."""
 
+from cythonExtensions.commonUtils.commonUtils cimport KeyboardEvent, MouseEvent
+from cythonExtensions.hookManager.hookManager cimport HookTypes, KbEventIds, MsEventIds, RawMouse
+
 import ctypes, win32gui, win32api, win32con, atexit
 import ctypes.wintypes
-from cythonExtensions.commonUtils.commonUtils cimport KeyboardEvent, MouseEvent
-from cythonExtensions.commonUtils.commonUtils import PThread, KeyboardEvent
-from cythonExtensions.commonUtils import commonUtils
+from cythonExtensions.commonUtils.commonUtils import PThread, updateLocks, updateModifiersPress, updateModifiersRelease, updateButtonsPress, updateButtonsRelease
 
-# https://learn.microsoft.com/en-us/windows/win32/winmsg/about-hooks
-cpdef enum HookTypes:
-    # Constants that represent different types of Windows hooks that can be set using the SetWindowsHookEx function.
-    
-    WH_MSGFILTER       = -1   # A hook type that monitors messages sent to a window as a result of an input event in a dialog box, message box, menu, or scroll bar. Also represents the minmum value for a hook type.
-    
-    # Warning: Journaling Hooks APIs are unsupported starting in Windows 11 and will be removed in a future release. Use  the SendInput TextInput API instead.
-    WH_JOURNALRECORD   = 0    # A hook type used to record input messages posted to the system message queue. This hook is useful for recording macros.
-    WH_JOURNALPLAYBACK = 1    # A hook type used to replay/post the input messages recorded by the WH_JOURNALRECORD hook type.
-    
-    WH_KEYBOARD        = 2    # A hook type that monitors keystrokes. It can be used to implement a keylogger or to perform other keyboard-related tasks.
-    WH_GETMESSAGE      = 3    # A hook type that monitors messages in the message queue of a thread. It can be used to modify or filter messages before they are dispatched.
-    WH_CALLWNDPROC     = 4    # A hook type that monitors messages sent to a window before the system sends them to the destination window procedure.
-    WH_CBT             = 5    # A hook type that monitors a variety of system events, including window creation and destruction, window activation, and window focus changes.
-    WH_SYSMSGFILTER    = 6    # A hook type similar to WH_MSGFILTER but monitors messages sent to all windows, not just a specific window or dialog box procedure.
-    WH_MOUSE           = 7    # A hook type that monitors mouse events.
-    
-    # Warning: Not Implemented hook. May have been intended for system activities such as watching for disk or other hardware activity to occur.
-    WH_HARDWARE        = 8    # A hook type that monitors low-level hardware events other than a mouse or keyboard events.
-    
-    WH_DEBUG           = 9    # A hook type useful for debugging other hook procedures.
-    WH_SHELL           = 10   # A hook type that monitors shell-related events, such as when the shell is about to activate a new window.
-    WH_FOREGROUNDIDLE  = 11   # A hook type that monitors when the system enters an idle state and the foreground application is not processing input.
-    WH_CALLWNDPROCRET  = 12   # A hook type that similar to WH_CALLWNDPROC but monitors messages after they have been processed by the destination window procedure.
-    WH_KEYBOARD_LL     = 13   # A hook type that similar to WH_KEYBOARD but monitors low-level keyboard input events.
-    WH_MOUSE_LL        = 14   # A hook type that similar to WH_MOUSE but monitors low-level mouse input events.
-    WH_MAX             = 15   # The maximum value for a hook type. It is not a valid hook type itself.
-
-
-cdef enum KbEventIds:
-    # Contains the event type ids for keyboard messages.
-    WM_KEYDOWN     = 0x0100   # A keyboard key was pressed.
-    WM_KEYUP       = 0x0101   # A keyboard key was released.
-    WM_CHAR        = 0x0102   # A keyboard key was pressed down and released, and it represents a printable character.
-    WM_DEADCHAR    = 0x0103   # A keyboard key was pressed down and released, and it represents a dead character.
-    WM_SYSKEYDOWN  = 0x0104   # A keyboard key was pressed while the ALT key was held down.
-    WM_SYSKEYUP    = 0x0105   # A keyboard key was released after the ALT key was held down.
-    WM_SYSCHAR     = 0x0106   # A keyboard key was pressed down and released, and it represents a printable character while the ALT key was held down.
-    WM_SYSDEADCHAR = 0x0107   # A keyboard key was pressed down and released, and it represents a dead character while the ALT key was held down.
-    WM_KEYLAST     = 0x0108   # Defines the maximum value for the range of keyboard-related messages.
 
 cdef dict vKeyNameToId = {
         "VK_LBUTTON":           0x01,  "VK_RBUTTON":          0x02,  "VK_CANCEL":              0x03,  "VK_MBUTTON":        0x04,
@@ -104,7 +65,7 @@ cdef dict kbEventIdToName = {
     KbEventIds.WM_SYSCHAR    : "key sys char",  KbEventIds.WM_SYSDEADCHAR : "key sys dead char"}
 """Mapping of event codes to their names."""
 
-cdef inline tuple GetKeyAsciiAndName(int vkey_code, bint shiftPressed=False):
+cdef inline tuple getKeyAsciiAndName(int vkey_code, bint shiftPressed=False):
     """
     Description:
         Returns the ascii value and key name for the given key code.
@@ -182,7 +143,7 @@ cdef class HookManager:
         self.msHookId = 0
         self.msHookPtr = None
     
-    cpdef bint InstallHook(self, callBack, int hookType=HookTypes.WH_KEYBOARD_LL):
+    cdef bint installHook(self, callBack, int hookType=HookTypes.WH_KEYBOARD_LL):
         """Installs a hook of the specified type. `hookType` can be one of the following:
         Value            | Receive messsages for
         -----------------|----------------------
@@ -243,10 +204,10 @@ cdef class HookManager:
         
         return True
     
-    cpdef bint BeginListening(self):
+    cdef bint beginListening(self):
         """Starts listening for Windows events. Must be called from the main thread."""
         
-        if not PThread.InMainThread():
+        if not PThread.inMainThread():
             raise RuntimeError("Error! This method can only be called from the main thread.")
         
         if not self.kbHookId and not self.msHookId:
@@ -267,7 +228,7 @@ cdef class HookManager:
         
         return True
     
-    cpdef bint UninstallHook(self, int hookType=HookTypes.WH_KEYBOARD_LL):
+    cdef bint uninstallHook(self, int hookType=HookTypes.WH_KEYBOARD_LL):
         """Uninstalls the hook specified by the hook type:
         Value            | Receive messsages for
         -----------------|----------------------
@@ -304,7 +265,7 @@ cdef class HookManager:
         
         return True
 
-# ctypedef bint (*EventListenerPtr)(KeyboardEvent)
+# ctypedef bint (*keyboardCallbackPtr)(KeyboardEvent)
 
 cdef class KeyboardHookManager:
     """A class for managing keyboard hooks and their event listeners."""
@@ -316,20 +277,8 @@ cdef class KeyboardHookManager:
         self.keyDownListeners = []
         self.keyUpListeners = []
         self.hookId = 0
-
-    cpdef void addKeyDownListener(self, listener):
-        self.keyDownListeners.append(listener)
-
-    cpdef void addKeyUpListener(self, listener):
-        self.keyUpListeners.append(listener)
-
-    cpdef void removeKeyDownListener(self, listener):
-        self.keyDownListeners.remove(listener)
-
-    cpdef void removeKeyUpListener(self, listener):
-        self.keyUpListeners.remove(listener)
-
-    cpdef bint KeyboardCallback(self, int nCode, int wParam, lParam):
+    
+    cpdef bint keyboardCallback(self, int nCode, int wParam, lParam):
         """
         Description:
             Processes a low level windows keyboard event.
@@ -365,7 +314,7 @@ cdef class KeyboardHookManager:
             # eventTime = lParamStruct.time
             flags = lParamStruct.flags
             
-            # Extracting key state flags from the packed int `flags`.
+            # Extracting key state flags from the packed int `flags'.
             # Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-kbdllhookstruct#:~:text=The%20following%20table%20describes%20the%20layout%20of%20this%20value.
             extended   = bool(flags & 0x1)
             injected   = bool(flags & 0x10)
@@ -374,7 +323,7 @@ cdef class KeyboardHookManager:
             
             # To get the correct key ascii value, we need first to check if the shift is pressed.
             shiftPressed = ((win32api.GetAsyncKeyState(win32con.VK_SHIFT) & 0x8000) >> 15) | (vkey_code in (win32con.VK_LSHIFT, win32con.VK_RSHIFT))
-            keyAscii, keyName= GetKeyAsciiAndName(vkey_code, shiftPressed)
+            keyAscii, keyName= getKeyAsciiAndName(vkey_code, shiftPressed)
             
             eventName = kbEventIdToName[wParam]
             
@@ -386,15 +335,15 @@ cdef class KeyboardHookManager:
             
             # Key down/press event.
             if wParam in (win32con.WM_KEYDOWN, win32con.WM_SYSKEYDOWN):
-                commonUtils.UpdateLocks(keyboardEvent)
+                updateLocks(keyboardEvent)
                 
                 #! Distinguish between real user input and keyboard input generated by programs/scripts.
                 if not injected:
-                    commonUtils.UpdateModifiersPress(keyboardEvent)
+                    updateModifiersPress(keyboardEvent)
                     
                     # Propagate the event to the registered keyDown listeners.
                     for listener in self.keyDownListeners:
-                        PThread(target=listener, args=[keyboardEvent]).start()
+                        PThread(target=listener, args=(keyboardEvent,)).start()
                     
                     # One of the keyDown listeners must put a signal in the PThread.kbMsgQueue to specify whether to return or suppress the pressed key.
                     if self.keyDownListeners and PThread.kbMsgQueue.get():
@@ -402,41 +351,17 @@ cdef class KeyboardHookManager:
             
             # Key up event.
             else:
-                commonUtils.UpdateModifiersRelease(keyboardEvent)
+                updateModifiersRelease(keyboardEvent)
                 
                 # Propagate the event to the registered keyUp listeners.
                 for listener in self.keyUpListeners:
-                    PThread(target=listener, args=[keyboardEvent]).start()
+                    PThread(target=listener, args=(keyboardEvent,)).start()
             
             ctypes.windll.user32.CallNextHookEx(None, nCode, wParam, lParam)
             
             return suppressInput
 
 # ======================================================================================================================
-
-# Docs: https://learn.microsoft.com/en-us/windows/win32/inputdev/about-mouse-input
-cdef enum MsEventIds:
-    # Contains the event type ids for mouse messages.
-    
-    WM_MOUSEMOVE       = 0x0200 # The mouse was moved.
-    WM_LBUTTONDOWN     = 0x0201 # The left mouse button was pressed.
-    WM_LBUTTONUP       = 0x0202 # The left mouse button was released.
-    WM_LBUTTONDBLCLK   = 0x0203 # The left mouse button was double-clicked.
-    WM_RBUTTONDOWN     = 0x0204 # The right mouse button was pressed.
-    WM_RBUTTONUP       = 0x0205 # The right mouse button was released.
-    WM_RBUTTONDBLCLK   = 0x0206 # The right mouse button was double-clicked.
-    WM_MBUTTONDOWN     = 0x0207 # The middle mouse button was pressed.
-    WM_MBUTTONUP       = 0x0208 # The middle mouse button was released.
-    WM_MBUTTONDBLCLK   = 0x0209 # The middle mouse button was double-clicked.
-    WM_MOUSEWHEEL      = 0x020A # The mouse wheel was rotated.
-    WM_XBUTTONDOWN     = 0x020B # A mouse extended button was pressed.
-    WM_XBUTTONUP       = 0x020C # A mouse extended button was released.
-    WM_XBUTTONDBLCLK   = 0x020D # A mouse extended button was double-clicked.
-    WM_MOUSEHWHEEL     = 0x020E # The mouse wheel was rotated horizontally.
-    WM_NCXBUTTONDOWN   = 0x00AB # Non-client area extended button down event.
-    WM_NCXBUTTONUP     = 0x00AC # Non-client area extended button up event.
-    WM_NCXBUTTONDBLCLK = 0x00AD # Non-client area extended button double-click event.
-
 
 cdef dict msEventIdToName = {
     MsEventIds.WM_MOUSEMOVE       : "MOVE",
@@ -461,18 +386,6 @@ cdef dict msEventIdToName = {
 """Maps the event id to the event name."""
 
 
-# https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse
-# https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-mouseinput
-cdef enum RawMouse:
-    # Contains information about the state of the mouse.
-    
-    MOUSE_MOVE_RELATIVE      = 0x00 # Movement data is relative to the last mouse position.
-    MOUSE_MOVE_ABSOLUTE      = 0x01 # Movement data is based on absolute position.
-    MOUSE_VIRTUAL_DESKTOP    = 0x02 # Coordinates are mapped to the virtual desktop (for a multiple monitor system).
-    MOUSE_ATTRIBUTES_CHANGED = 0x04 # Attributes changed; application needs to query the mouse attributes.
-    MOUSE_MOVE_NOCOALESCE    = 0x08 # Mouse movement event was not coalesced. Mouse movement events can be coalesced by default. This value is not supported for `Windows XP`/`2000`.
-
-
 # Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msllhookstruct
 class MSLLHOOKSTRUCT(ctypes.Structure):
     """
@@ -480,7 +393,7 @@ class MSLLHOOKSTRUCT(ctypes.Structure):
         A structure that contains information about a low-level mouse input event.
     ---
     Fields:
-        `pt: POINT`:
+        'pt: POINT`:
             The x- and y-coordinates of the cursor, in screen coordinates.
         
         `mouseData: DWORD`:
@@ -527,20 +440,8 @@ cdef class MouseHookManager:
         self.mouseButtonDownListeners = []
         self.mouseButtonUpListeners = []
         self.hookId = 0
-
-    cpdef void addButtonDownListener(self, listener):
-        self.mouseButtonDownListeners.append(listener)
-
-    cpdef void addButtonUpListener(self, listener):
-        self.mouseButtonUpListeners.append(listener)
-
-    cpdef void removeButtonDownListener(self, listener):
-        self.mouseButtonDownListeners.remove(listener)
-
-    cpdef void removeButtonUpListener(self, listener):
-        self.mouseButtonUpListeners.remove(listener)
-
-    cpdef MouseCallback(self, int nCode, int wParam, lParam):
+    
+    cpdef mouseCallback(self, int nCode, int wParam, lParam):
         """
         Description:
             Processes a low level windows mouse event.
@@ -607,11 +508,11 @@ cdef class MouseHookManager:
             
             # Button down/press event.
             if wParam in (MsEventIds.WM_LBUTTONDOWN, MsEventIds.WM_RBUTTONDOWN, MsEventIds.WM_MBUTTONDOWN, MsEventIds.WM_XBUTTONDOWN, MsEventIds.WM_NCXBUTTONDOWN, MsEventIds.WM_MOUSEWHEEL, MsEventIds.WM_MOUSEHWHEEL):
-                commonUtils.UpdateButtonsPress(mouseEvent)
+                updateButtonsPress(mouseEvent)
                 
                 # Propagateing the event to the registered butDown listeners.
                 for listener in self.mouseButtonDownListeners:
-                    PThread(target=listener, args=[mouseEvent]).start()
+                    PThread(target=listener, args=(mouseEvent,)).start()
                 
                 # One of the buttonDown listeners must put a signal in the PThread.msMsgQueue to specify whether to return or suppress the mouse input.
                 if self.mouseButtonDownListeners and PThread.msMsgQueue.get():
@@ -619,11 +520,11 @@ cdef class MouseHookManager:
             
             # Button up event.
             else:
-                commonUtils.UpdateButtonsRelease(mouseEvent)
+                updateButtonsRelease(mouseEvent)
                 
                 # Propagating the event to the registered buttonUp listeners.
                 for listener in self.mouseButtonUpListeners:
-                    PThread(target=listener, args=[mouseEvent]).start()
+                    PThread(target=listener, args=(mouseEvent,)).start()
         
         ctypes.windll.user32.CallNextHookEx(None, nCode, wParam, lParam)
         

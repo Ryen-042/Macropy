@@ -151,7 +151,7 @@ kbEventIdToName = {
 """Mapping of event codes to their names."""
 
 
-def GetKeyAsciiAndName(vkey_code: int, shiftPressed=False) -> tuple[int, str]:
+def getKeyAsciiAndName(vkey_code: int, shiftPressed=False) -> tuple[int, str]:
     """
     Description:
         Returns the ascii value and key name for the given key code.
@@ -192,7 +192,7 @@ class HookManager:
     def __init__(self):
         ...
 
-    def InstallHook(self, callBack: Callable[[int, int, KBDLLHOOKSTRUCT], Any], hookType=HookTypes.WH_KEYBOARD_LL) -> bool:
+    def installHook(self, callBack: Callable[[int, int, KBDLLHOOKSTRUCT], Any], hookType=HookTypes.WH_KEYBOARD_LL) -> bool:
         """Installs a hook of the specified type. `hookType` can be one of the following:
         Value            | Receive messsages for
         -----------------|----------------------
@@ -200,11 +200,11 @@ class HookManager:
         `WH_MOUSE_LL`    | `Mouse`
         """
 
-    def BeginListening(self) -> bool:
+    def beginListening(self) -> bool:
         """Starts listening for Windows events. Must be called from the main thread."""
         ...
 
-    def UninstallHook(self, hookType=HookTypes.WH_KEYBOARD_LL) -> bool:
+    def uninstallHook(self, hookType=HookTypes.WH_KEYBOARD_LL) -> bool:
         """Uninstalls the hook specified by the hook type:
         Value            | Receive messsages for
         -----------------|----------------------
@@ -233,7 +233,7 @@ class KeyboardHookManager:
     def removeKeyUpListener(self, listener: Callable[[KeyboardEvent], bool]) -> None:
         ...
 
-    def KeyboardCallback(self, nCode: int, wParam: int, lParam: KBDLLHOOKSTRUCT) -> bool:
+    def keyboardCallback(self, nCode: int, wParam: int, lParam: KBDLLHOOKSTRUCT) -> bool:
         """
         Description:
             Processes a low level windows keyboard event.
@@ -415,7 +415,7 @@ class MouseHookManager:
     def removeButtonUpListener(self, listener: Callable[[MouseEvent], bool]) -> None:
         ...
     
-    def MouseCallback(self, nCode: int, wParam: int, lParam: KBDLLHOOKSTRUCT):
+    def mouseCallback(self, nCode: int, wParam: int, lParam: KBDLLHOOKSTRUCT):
         """
         Description:
             Processes a low level windows mouse event.
