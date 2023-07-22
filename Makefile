@@ -72,7 +72,7 @@ flake8:
 
 cython-lint:
 	@echo "Linting Cython files..."
-	-cython-lint src/cythonExtensions/**/*.pyx --ignore W293,E501,E266,E265,E261,E221,E128,E127
+	-cython-lint src/cythonExtensions/**/*.pyx --ignore W293,E702,E501,E303,E266,E265,E261,E221,E128,E127
 	@echo "Done."
 
 lint: ruff flake8 cython-lint

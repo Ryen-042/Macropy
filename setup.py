@@ -59,18 +59,19 @@ if sys.version_info[0] == 2:
 
 if USE_CYTHON:
     cython_extensions = glob.glob("src/cythonExtensions/**/*.pyx", recursive=True)
-    cmdclass.update({ "build_ext": build_ext })
+    cmdclass["build_ext"] = build_ext
 else:
     cython_extensions = glob.glob("src/cythonExtensions/**/*.c", recursive=True)
 
 for extension_path in cython_extensions:
+    package_name = os.path.dirname(os.path.relpath(extension_path, "src"))
     ext_filename = os.path.splitext(os.path.basename(extension_path))
     
-    packages.append("macropy.cythonExtensions." + ext_filename[0])
+    packages.append(f"macropy.{package_name.replace(os.sep, '.')}")
     
     ext_modules.append(Extension(
-        name = f"macropy.cythonExtensions.{ext_filename[0]}.{ext_filename[0]}",
-        sources = [f"src/cythonExtensions/{ext_filename[0]}/{ext_filename[0]}{ext_filename[1]}"],
+        name = f"macropy.{package_name.replace(os.sep, '.')}.{ext_filename[0]}",
+        sources = [f"{os.path.join('src', package_name, ext_filename[0]+ext_filename[1])}"],
         define_macros = [("CYTHON_TRACE", "1")] if ENABLE_PROFILING else [ ],
     ))
 
