@@ -1,10 +1,10 @@
 """This module provides class definitions used in other modules."""
 
+import threading, queue, win32clipboard
 from collections import deque
-import queue
 from enum import IntEnum
-import threading, win32clipboard
 from win32com.client import CDispatch
+
 import scriptConfigs as configs
 
 
@@ -276,101 +276,116 @@ class ControllerHouse:
     
     # Masks for extracting individual keys from the `modifiers` packed int.
     CTRL = 0b10000000000000 # 1 << 13 = 8192
-    """A mask for extracting the CTRL flag from the `modifiers` packed int."""
+    """A mask for extracting the `CTRL` flag from the `modifiers` packed int."""
     
     LCTRL = 0b1000000000000 # 1 << 12 = 4096
-    """A mask for extracting the LCTRL flag from the `modifiers` packed int."""
+    """A mask for extracting the `LCTRL` flag from the `modifiers` packed int."""
     
     RCTRL = 0b100000000000  # 1 << 11 = 2048
-    """A mask for extracting the RCTRL flag from the `modifiers` packed int."""
+    """A mask for extracting the `RCTRL` flag from the `modifiers` packed int."""
     
     SHIFT = 0b10000000000   # 1 << 10 = 1024
-    """A mask for extracting the SHIFT flag from the `modifiers` packed int."""
+    """A mask for extracting the `SHIFT` flag from the `modifiers` packed int."""
     
     LSHIFT = 0b1000000000   # 1 << 9  = 512
-    """A mask for extracting the LSHIFT flag from the `modifiers` packed int."""
+    """A mask for extracting the `LSHIFT` flag from the `modifiers` packed int."""
     
     RSHIFT = 0b100000000    # 1 << 8  = 256
-    """A mask for extracting the RSHIFT flag from the `modifiers` packed int."""
+    """A mask for extracting the `RSHIFT` flag from the `modifiers` packed int."""
     ALT = 0b10000000        # 1 << 7  = 128
-    """A mask for extracting the ALT flag from the `modifiers` packed int."""
+    """A mask for extracting the `ALT` flag from the `modifiers` packed int."""
     
     LALT = 0b1000000        # 1 << 6  = 64
-    """A mask for extracting the LALT flag from the `modifiers` packed int."""
+    """A mask for extracting the `LALT` flag from the `modifiers` packed int."""
     
     RALT = 0b100000         # 1 << 5  = 32
-    """A mask for extracting the RALT flag from the `modifiers` packed int."""
+    """A mask for extracting the `RALT` flag from the `modifiers` packed int."""
     
     WIN = 0b10000           # 1 << 4  = 16
-    """A mask for extracting the WIN flag from the `modifiers` packed int."""
+    """A mask for extracting the `WIN` flag from the `modifiers` packed int."""
     
     LWIN = 0b1000           # 1 << 3  = 8
-    """A mask for extracting the LWIN flag from the `modifiers` packed int."""
+    """A mask for extracting the `LWIN` flag from the `modifiers` packed int."""
     
     RWIN = 0b100            # 1 << 2  = 4
-    """A mask for extracting the RWIN flag from the `modifiers` packed int."""
+    """A mask for extracting the `RWIN` flag from the `modifiers` packed int."""
     
     FN = 0b10               # 1 << 1  = 2
-    """A mask for extracting the FN flag from the `modifiers` packed int."""
+    """A mask for extracting the `FN` flag from the `modifiers` packed int."""
     
     BACKTICK = 0b1          # 1 << 0  = 1
-    """A mask for extracting the BACKTICK flag from the `modifiers` packed int."""
+    """A mask for extracting the `BACKTICK` flag from the `modifiers` packed int."""
     
     # Composite Modifier keys masks
-    CTRL_ALT_FN_WIN = 0b10000010010010 # 8338
-    """A mask for extracting the CTRL, ALT, FN and WIN flags from the `modifiers` packed int."""
+    CTRL_ALT_WIN_FN = 0b10000010010010 # 8338
+    """A mask for extracting the `CTRL`,` ALT`, `WIN` and `FN` flags from the `modifiers` packed int."""
     
     CTRL_ALT_WIN    = 0b10000010010000 # 8336
-    """A mask for extracting the CTRL, ALT and WIN flags from the `modifiers` packed int."""
+    """A mask for extracting the `CTRL`, `ALT` and `WIN` flags from the `modifiers` packed int."""
     
-    CTRL_FN_WIN     = 0b10000000010010 # 8210
-    """A mask for extracting the CTRL, FN amd WIN flags from the `modifiers` packed int."""
+    CTRL_WIN_FN     = 0b10000000010010 # 8210
+    """A mask for extracting the `CTRL`, `WIN` and `FN` flags from the `modifiers` packed int."""
     
     CTRL_SHIFT      = 0b10010000000000 # 9216
-    """A mask for extracting the CTRL and SHIFT flags from the `modifiers` packed int."""
+    """A mask for extracting the `CTRL` and `SHIFT` flags from the `modifiers` packed int."""
     
     CTRL_FN         = 0b10000000000010 # 8194
-    """A mask for extracting the CTRL and FN flags from the `modifiers` packed int."""
+    """A mask for extracting the `CTRL` and `FN` flags from the `modifiers` packed int."""
     
     CTRL_WIN        = 0b10000000001100 # 8204
-    """A mask for extracting the CTRL and WIN flags from the `modifiers` packed int."""
+    """A mask for extracting the `CTRL` and `WIN` flags from the `modifiers` packed int."""
+    
+    CTRL_BACKTICK   = 0b10000000000001 # 8193
+    """A mask for extracting the `CTRL` and `BACKTICK` flags from the `modifiers` packed int."""
     
     LCTRL_RCTRL     = 0b01100000000000 # 6144
-    """A mask for extracting the LCTRL and RCTRL flags from the `modifiers` packed int."""
+    """A mask for extracting the `LCTRL` and `RCTRL` flags from the `modifiers` packed int."""
     
     SHIFT_ALT       = 0b00010010000000 # 1152
-    """A mask for extracting the SHIFT and ALT flags from the `modifiers` packed int."""
+    """A mask for extracting the `SHIFT` and `ALT` flags from the `modifiers` packed int."""
     
     SHIFT_FN        = 0b00010000000010 # 1026
-    """A mask for extracting the SHIFT and FN flags from the `modifiers` packed int."""
+    """A mask for extracting the `SHIFT` and `FN` flags from the `modifiers` packed int."""
+    
+    SHIFT_BACKTICK  = 0b00010000000001 # 1025
+    """A mask for extracting the `SHIFT` and `BACKTICK` flags from the `modifiers` packed int."""
     
     LSHIFT_RSHIFT   = 0b00001100000000 # 768
-    """A mask for extracting the LSHIFT and RSHIFT flags from the `modifiers` packed int."""
+    """A mask for extracting the `LSHIFT` and `RSHIFT` flags from the `modifiers` packed int."""
     
     ALT_FN          = 0b00000010000010 # 130
-    """A mask for extracting the ALT and FN flags from the `modifiers` packed int."""
+    """A mask for extracting the `ALT` and `FN` flags from the `modifiers` packed int."""
+    
+    ALT_BACKTICK    = 0b00000010000001 # 129
+    """A mask for extracting the `ALT` and `BACKTICK` flags from the `modifiers` packed int."""
     
     LALT_RALT       = 0b00000001100000 # 96
-    """A mask for extracting the LALT and RALT flags from the `modifiers` packed int."""
+    """A mask for extracting the `LALT` and `RALT` flags from the `modifiers` packed int."""
     
-    FN_WIN          = 0b00000000010010 # 18
-    """A mask for extracting the FN and WIN flags from the `modifiers` packed int."""
+    WIN_FN          = 0b00000000010010 # 18
+    """A mask for extracting the `WIN and `FN` flags from the `modifiers` packed int."""
+    
+    WIN_BACKTICK    = 0b00000000000001 # 17
+    """A mask for extracting the `WIN` and `BACKTICK` flags from the `modifiers` packed int."""
     
     LWIN_RWIN       = 0b00000000001100 # 12
-    """A mask for extracting the LWIN and RWIN flags from the `modifiers` packed int."""
+    """A mask for extracting the `LWIN` and `RWIN` flags from the `modifiers` packed int."""
+    
+    FN_BACKTICK     = 0b00000000000011 # 3
+    """A mask for extracting the `FN` and `BACKTICK` flags from the `modifiers` packed int."""
     
     locks : int
     """An int packing the states of the keyboard lock keys (on or off)."""
     
     # Masks for extracting individual lock keys from the `locks` packed int.
     CAPITAL = 0b100
-    """A mask for extracting the CAPITAL (CAPSLOCK) flag from the `locks` packed int."""
+    """A mask for extracting the `CAPITAL` (CAPSLOCK) flag from the `locks` packed int."""
     
     SCROLL  = 0b10
-    """A mask for extracting the SCROLL flag from the `locks` packed int."""
+    """A mask for extracting the `SCROLL` flag from the `locks` packed int."""
     
     NUMLOCK = 0b1
-    """A mask for extracting the NUMLOCK flag from the `locks` packed int."""
+    """A mask for extracting the `NUMLOCK` flag from the `locks` packed int."""
     
     pressed_chars : str
     """Stores the pressed character keys for the key expansion events."""
@@ -391,22 +406,22 @@ class ControllerHouse:
     """A dictionary of abbreviations and their corresponding path address."""
 
 
-def UpdateModifiersPress(event: KeyboardEvent) -> None:
+def updateModifiersPress(event: KeyboardEvent) -> None:
     """Updates the state of the `modifiers` packed for keyDown events with the specified event."""
     ...
 
 
-def UpdateModifiersRelease(event: KeyboardEvent) -> None:
+def updateModifiersRelease(event: KeyboardEvent) -> None:
     """Updates the state of the `modifiers` packed for keyUp events with the specified event."""
     ...
 
 
-def UpdateLocks(event: KeyboardEvent) -> None:
+def updateLocks(event: KeyboardEvent) -> None:
     """Updates the state of the `locks` packed for keyDown events with the specified event (no need to call for keyUp events)."""
     ...
 
 
-def SendMouseScroll(steps=1, direction=1, wheelDelta=40) -> None:
+def sendMouseScroll(steps=1, direction=1, wheelDelta=40) -> None:
     """
     Description:
         Sends a mouse scroll event with the specified number of steps and direction.
@@ -424,12 +439,12 @@ def SendMouseScroll(steps=1, direction=1, wheelDelta=40) -> None:
     ...
 
 
-def PrintModifiers() -> None:
+def printModifiers() -> None:
     """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
     ...
 
 
-def PrintLockKeys() -> None:
+def printLockKeys() -> None:
     """Prints the states of the lock keys after extracting them from the packed int `locks`."""
     ...
 
@@ -470,17 +485,17 @@ class MouseHouse:
     LRX1X2Button = LRButton | X1Button | X2Button
 
 
-def UpdateButtonsPress(event: MouseEvent) -> None:
+def updateButtonsPress(event: MouseEvent) -> None:
     """Updates the mouse postion, scroll delta and direction, and the state of the `buttons` packed for keyUp events with the specified event."""
     ...
 
 
-def UpdateButtonsRelease(event: MouseEvent) -> None:
+def updateButtonsRelease(event: MouseEvent) -> None:
     """Updates the mouse postion, scroll delta and direction, and the state of the `buttons` packed for keyUp events with the specified event."""
     ...
 
 
-def PrintButtons() -> None:
+def printButtons() -> None:
     """Prints the states of the buttons after extracting them from the packed int `buttons`."""
     ...
 
@@ -496,14 +511,24 @@ class Management:
     silent : bool
     """For suppressing terminal output. Defaults to True."""
     
-    supressKbInputs : bool
-    """For suppressing all keyboard keys. Defaults to False."""
+    suppressKbInputs : bool
+    """For suppressing all keyboard keys. Defaults to `False`. Note that the hotkeys and text expainsion operations will still work."""
     
     terminateEvent: threading.Event
     """An `Event` object that is set when the hotkey for terminating the script is pressed."""
     
     @staticmethod
-    def LogUncaughtExceptions(exc_type, exc_value, exc_traceback) -> int:
+    def toggleSilentMode() -> None:
+        """Toggles the `silent` variable."""
+        ...
+    
+    @staticmethod
+    def toggleKeyboardInputs():
+        """Toggles the `suppressKbInputs` variable."""
+        ...
+    
+    @staticmethod
+    def logUncaughtExceptions(exc_type, exc_value, exc_traceback) -> int:
         """Logs uncaught exceptions to the console and displays an error message with the exception traceback."""
         ...
 
@@ -520,17 +545,17 @@ class WindowHouse:
     """Stores the addresses of the 10 most recently closed windows explorers."""
     
     @staticmethod
-    def GetHandleByClassName(className: str) -> int:
+    def getHandleByClassName(className: str) -> int:
         """Returns the window handle of the specified class name from the `WindowHouse.classNames` dict."""
         ...
     
     @staticmethod
-    def SetHandleByClassName(className: str, value: int) -> None:
+    def setHandleByClassName(className: str, value: int) -> None:
         """Assigns the given window handle to the specified class name in the `WindowHouse.classNames` dict."""
         ...
     
     @staticmethod
-    def RememberActiveProcessTitle(fg_hwnd=0) -> None:
+    def rememberActiveProcessTitle(fg_hwnd=0) -> None:
         """
         Stores the title of the active window into the `closedExplorers` variable.
         The title of a windows explorer window is the address of the opened directory.
@@ -569,12 +594,12 @@ class PThread(threading.Thread):
         ...
     
     @staticmethod
-    def InMainThread() -> bool:
+    def inMainThread() -> bool:
         """Returns whether the current thread is the main thread for the current process."""
         ...
     
     @staticmethod
-    def GetParentThread() -> int:
+    def getParentThread() -> int:
         """
         Description:
             Returns the parent thread id of the current thread.
@@ -587,19 +612,19 @@ class PThread(threading.Thread):
         ...
     
     @staticmethod
-    def CoInitialize() -> bool:
+    def coInitialize() -> bool:
         """Initializes the COM library for the current thread if it was not previously initialized."""
         ...
     
     @staticmethod
-    def CoUninitialize() -> None:
+    def coUninitialize() -> None:
         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
         ...
     
     # Source: https://github.com/salesforce/decorator-operations/blob/master/decoratorOperations/throttle_functions/throttle.py
     # For a comparison between Throttling and Debouncing: https://stackoverflow.com/questions/25991367/difference-between-throttling-and-debouncing-a-function
     @staticmethod
-    def Throttle(wait_time: float):
+    def throttle(wait_time: float):
         """
         Description:
             Decorator function that ensures that a wrapped function is called only once in each time slot.
@@ -607,7 +632,7 @@ class PThread(threading.Thread):
         ...
     
     @staticmethod
-    def Debounce(wait_time: float):
+    def debounce(wait_time: float):
         """
         Decorator that will debounce a function so that it is called after `wait_time` seconds.
         If the decorated function is called multiple times within a time slot, it will debounce
@@ -620,11 +645,11 @@ class PThread(threading.Thread):
         ...
 
 
-def ReadFromClipboard(CF= win32clipboard.CF_TEXT) -> str: # CF: Clipboard format.
+def readFromClipboard(CF= win32clipboard.CF_TEXT) -> str: # CF: Clipboard format.
     """Reads the top of the clipboard if it was the same type as the specified."""
     ...
 
 
-def SendToClipboard(data, CF=win32clipboard.CF_UNICODETEXT):
+def sendToClipboard(data, CF=win32clipboard.CF_UNICODETEXT):
     """Copies the given data to the clipboard."""
     ...
