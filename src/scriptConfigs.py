@@ -1,8 +1,8 @@
 """This module contains the configuration variables used by the script."""
 import os
 
-# If you want to use a prefix other than '!' and ':', to be able to use key expansion when 'suppress_all_keys' is set,
-# you need to add an extra check in the 'eventListeners.ExpanderEvent' function.
+# If you want to use a prefix other than '!' and ':', to be able to use key expansion when 'suppressKbInputs' is set,
+# you need to add an extra check in the 'eventHandlers.textExpansion' function.
 LOCATIONS = {
             "!cmd":    r"C:\Windows\System32\cmd.exe",
             "!paint":  r"C:\Windows\System32\mspaint.exe",
@@ -17,8 +17,8 @@ ABBREVIATIONS = {
 }
 """A dictionary of abbreviations and their corresponding expansion. Abbreviations must be lowercase only."""
 
-SHOW_PRESSED_KEYS = False
-"""A boolean value that determines whether the script should show the pressed keys by default or not."""
+SUPPRESS_TERMINAL_OUTPUT = True
+"""A boolean value that determines whether the script should suppress all terminal output (except error messages) or not."""
 
 ENABLE_DPI_AWARENESS = True
 """A boolean value that determines whether the script should be granted DPI awareness or not."""

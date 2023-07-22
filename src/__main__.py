@@ -2,9 +2,8 @@
 
 
 def main():
-    """Starts the script by calling the `begin_script()` function from the `scriptRunner` extension module."""
+    """Starts the script by calling the `beginScript()` function from the `scriptRunner` extension module."""
     import sys, os
-    from cythonExtensions.systemHelper import systemHelper as sysHelper
     
     # Changing the working directory to where this script is.
     os.chdir(os.path.dirname(__file__))
@@ -15,19 +14,22 @@ def main():
     # locate and import any modules in that directory as well as any subdirectories within it.
     sys.path.append(os.path.dirname(__file__))
     
-    if len(sys.argv) > 1 and any(arg in ("-e", "--elevated") for arg in sys.argv) and not sysHelper.IsProcessElevated(-1):
-        sysHelper.StartWithElevatedPrivileges(terminate=False, cmder=True)
+    from cythonExtensions.systemHelper import systemHelper as sysHelper
+    
+    
+    if len(sys.argv) > 1 and any(arg in ("-e", "--elevated") for arg in sys.argv) and not sysHelper.isProcessElevated(-1):
+        sysHelper.startWithElevatedPrivileges(terminate=False, cmder=True)
     
     elif len(sys.argv) > 1 and sys.argv[1] in ("-p", "--profile", "--prof"):
-        from cythonExtensions.scriptRunner.scriptRunner import begin_script, profilerManager
+        from cythonExtensions.scriptRunner.scriptRunner import beginScript, profilerManager
         
         with profilerManager(engine="yappi"):
-            begin_script()
+            beginScript()
     
     else:
-        from cythonExtensions.scriptRunner.scriptRunner import begin_script
+        from cythonExtensions.scriptRunner.scriptRunner import beginScript
         
-        begin_script()
+        beginScript()
 
 
 if __name__ == '__main__':
