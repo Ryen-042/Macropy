@@ -12,7 +12,24 @@ import winsound
 from datetime import datetime as dt
 
 
-def pil_image_to_bmp(image: PIL.Image.Image) -> bytes:
+class kbcon:
+    AS_a = 97;  VK_A = 65;  SC_A = 30
+    AS_c = 99;  VK_C = 67;  SC_C = 46
+    AS_o = 111; VK_O = 79;  SC_O = 24
+    AS_r = 114; VK_R = 82;  SC_R = 19
+    AS_s = 115; VK_S = 83;  SC_S = 31
+    AS_t = 116; VK_T = 84;  SC_T = 20
+    AS_v = 118; VK_V = 86;  SC_V = 47
+    AS_w = 119; VK_W = 87;  SC_W = 17
+    
+    
+    AS_EQUALS     = 61
+    AS_PLUS       = 43
+    AS_MINUS      = 45
+    AS_UNDERSCORE = 95
+
+
+def pilImageToBmp(image: PIL.Image.Image) -> bytes:
     """
     Description:
         Converts a PIL image object to a BMP format byte array.
@@ -46,7 +63,7 @@ def pil_image_to_bmp(image: PIL.Image.Image) -> bytes:
     return data
 
 
-def send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None:
+def sendToClipboard(image: np.ndarray | PIL.Image.Image) -> None:
     """
     Description:
         Copies the given image to the clipboard.
@@ -67,10 +84,10 @@ def send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None:
         # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         
         # Convert cv image to PIL image
-        image = cv_to_pil(image)
+        image = cvToPil(image)
     
     # Convert to bitmap for clipboard
-    image = pil_image_to_bmp(image)
+    image = pilImageToBmp(image)
     
     # Copy to clipboard
     win32clipboard.OpenClipboard()
@@ -79,7 +96,7 @@ def send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None:
     win32clipboard.CloseClipboard()
 
 
-def pil_to_cv(image: PIL.Image.Image) -> np.ndarray:
+def pilToCv(image: PIL.Image.Image) -> np.ndarray:
     """
     Description:
         Converts a PIL Image to a numpy ndarray in OpenCV format.
@@ -103,7 +120,7 @@ def pil_to_cv(image: PIL.Image.Image) -> np.ndarray:
         return cv2.cvtColor(cv2_main_image, cv2.COLOR_RGB2BGR)   # Converting RGB to BGR
 
 
-def cv_to_pil(cv2_main_image: np.ndarray) -> PIL.Image.Image:
+def cvToPil(cv2_main_image: np.ndarray) -> PIL.Image.Image:
     """
     Description:
         Converts a numpy ndarray in OpenCV format to a PIL Image.
@@ -124,7 +141,7 @@ def cv_to_pil(cv2_main_image: np.ndarray) -> PIL.Image.Image:
         return PIL.Image.fromarray(cv2.cvtColor(cv2_main_image, cv2.COLOR_BGR2RGB))
 
 
-def image_invert(image: PIL.Image.Image) -> None:
+def imageInvert(image: PIL.Image.Image) -> None:
     """
     Description:
         Inverts the colors of the input image and sends it to clipboard.
@@ -149,10 +166,10 @@ def image_invert(image: PIL.Image.Image) -> None:
         inverted_image = PIL.Image.merge('RGBA', (r2, g2, b2, a))
     else:
         inverted_image = PIL.ImageOps.invert(image)
-    send_to_clipboard(inverted_image)
+    sendToClipboard(inverted_image)
 
 
-def make_transparent(image: PIL.Image.Image) -> PIL.Image.Image:
+def makeTransparent(image: PIL.Image.Image) -> PIL.Image.Image:
     """
     Description:
         Convert image to RGBA and make the background transparent.
@@ -195,7 +212,7 @@ def make_transparent(image: PIL.Image.Image) -> PIL.Image.Image:
 
 
 # Avoid using global variables by storing them as class members:
-class MouseHelper:
+class MouseTracker:
     """
     Description:
         A class that helps with mouse event handling in OpenCV.
@@ -237,7 +254,7 @@ class MouseHelper:
         self.drawing = False
     
     # Mouse Callback function
-    def update_life_data(self, event: int, x: int, y: int, flags: int, param) -> None:
+    def updateMouseData(self, event: int, x: int, y: int, flags: int, param) -> None:
         """
         Description:
             Updates the state of the mouse helper based on the given mouse event.
@@ -275,7 +292,7 @@ class MouseHelper:
             self.drawing = False
 
 
-def life_color_update(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:
+def addColorBar(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:
     """
     Description:
         Update the top strip of the image to the color of the pixel at (x,y), and put text displaying the pixel color.
@@ -302,7 +319,7 @@ def life_color_update(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:
     return cv2_main_image
 
 
-def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080)):
+def runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080)):
     if save_near_module:
         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")
     else:
@@ -314,13 +331,12 @@ def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(
     if show_window:
         import ctypes
         import win32api, win32con
-        from cythonExtensions.commonUtils.commonUtils import KB_Con as kbcon
         
         ctypes.windll.shcore.SetProcessDpiAwareness(2)
         screen_size = win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)
         
         # Convert PIL image to OpenCv
-        cv2_main_image = pil_to_cv(image)
+        cv2_main_image = pilToCv(image)
         
         # inverted = False # Color inversion status
         cv2.namedWindow("Image Window")
@@ -338,8 +354,8 @@ def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(
         # color_picker_image[:] = (150, 0, 150)
         
         # Set mouse callback function
-        mouse_helper = MouseHelper(cv2_main_image.shape)
-        cv2.setMouseCallback('Image Window', mouse_helper.update_life_data)
+        mouse_helper = MouseTracker(cv2_main_image.shape)
+        cv2.setmouseCallback('Image Window', mouse_helper.updateMouseData)
         
         while 1:
             k = cv2.waitKey(1) & 0xFF
@@ -382,22 +398,22 @@ def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(
             
             # Copy image
             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"
-                send_to_clipboard(cv2_main_image)
+                sendToClipboard(cv2_main_image)
                 
             # Paste image from clipboard
             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space
                 image = PIL.ImageGrab.grabclipboard()
-                cv2_main_image = pil_to_cv(image)
+                cv2_main_image = pilToCv(image)
                 cv2.imshow("Image Window", cv2_main_image)
             
             # Make the image transparent
             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
-                image = cv_to_pil(cv2_main_image)
+                image = cvToPil(cv2_main_image)
                 if image.mode == 'RGBA':
                     image = image.convert("RGB")
                 else:
-                    image = make_transparent(cv_to_pil(cv2_main_image))
-                cv2_main_image = pil_to_cv(image)
+                    image = makeTransparent(cvToPil(cv2_main_image))
+                cv2_main_image = pilToCv(image)
                 cv2.imshow("Image Window", cv2_main_image)
             
             # Display/hide live color picker
@@ -444,10 +460,10 @@ def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(
                     os.startfile(os.getcwd())
             
             if color_picker_switch:
-                cv2_main_image = life_color_update(cv2_main_image, mouse_helper.x, mouse_helper.y)
+                cv2_main_image = addColorBar(cv2_main_image, mouse_helper.x, mouse_helper.y)
                 cv2.imshow("Image Window", cv2_main_image)
         
         cv2.destroyAllWindows()
     else:
-        image_invert(image)
+        imageInvert(image)
         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME)

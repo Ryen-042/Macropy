@@ -3,12 +3,12 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "macropy.cythonExtensions.imageInverter.imageInverter",
+        "name": "macropy.cythonExtensions.imageUtils.imageUtils",
         "sources": [
-            "src/cythonExtensions/imageInverter/imageInverter.pyx"
+            "src\\cythonExtensions\\imageUtils\\imageUtils.pyx"
         ]
     },
-    "module_name": "macropy.cythonExtensions.imageInverter.imageInverter"
+    "module_name": "macropy.cythonExtensions.imageUtils.imageUtils"
 }
 END: Cython Metadata */
 
@@ -754,8 +754,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__macropy__cythonExtensions__imageInverter__imageInverter
-#define __PYX_HAVE_API__macropy__cythonExtensions__imageInverter__imageInverter
+#define __PYX_HAVE__macropy__cythonExtensions__imageUtils__imageUtils
+#define __PYX_HAVE_API__macropy__cythonExtensions__imageUtils__imageUtils
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -966,7 +966,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "src\\cythonExtensions\\imageInverter\\imageInverter.pyx",
+  "src\\cythonExtensions\\imageUtils\\imageUtils.pyx",
 };
 
 /*--- Type declarations ---*/
@@ -1370,9 +1370,6 @@ static PyObject* __Pyx_PyUnicode_Join(PyObject* value_tuple, Py_ssize_t value_co
 /* Import.proto */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
 
-/* ImportFrom.proto */
-static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name);
-
 /* PyIntBinop.proto */
 #if !CYTHON_COMPILING_IN_PYPY
 static PyObject* __Pyx_PyInt_AndObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check);
@@ -1380,6 +1377,29 @@ static PyObject* __Pyx_PyInt_AndObjC(PyObject *op1, PyObject *op2, long intval, 
 #define __Pyx_PyInt_AndObjC(op1, op2, intval, inplace, zerodivision_check)\
     (inplace ? PyNumber_InPlaceAnd(op1, op2) : PyNumber_And(op1, op2))
 #endif
+
+/* ImportFrom.proto */
+static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name);
+
+/* SetNameInClass.proto */
+#if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030500A1
+#define __Pyx_SetNameInClass(ns, name, value)\
+    (likely(PyDict_CheckExact(ns)) ? _PyDict_SetItem_KnownHash(ns, name, value, ((PyASCIIObject *) name)->hash) : PyObject_SetItem(ns, name, value))
+#elif CYTHON_COMPILING_IN_CPYTHON
+#define __Pyx_SetNameInClass(ns, name, value)\
+    (likely(PyDict_CheckExact(ns)) ? PyDict_SetItem(ns, name, value) : PyObject_SetItem(ns, name, value))
+#else
+#define __Pyx_SetNameInClass(ns, name, value)  PyObject_SetItem(ns, name, value)
+#endif
+
+/* CalculateMetaclass.proto */
+static PyObject *__Pyx_CalculateMetaclass(PyTypeObject *metaclass, PyObject *bases);
+
+/* Py3ClassCreate.proto */
+static PyObject *__Pyx_Py3MetaclassPrepare(PyObject *metaclass, PyObject *bases, PyObject *name, PyObject *qualname,
+                                           PyObject *mkw, PyObject *modname, PyObject *doc);
+static PyObject *__Pyx_Py3ClassCreate(PyObject *metaclass, PyObject *name, PyObject *bases, PyObject *dict,
+                                      PyObject *mkw, int calculate_metaclass, int allow_py2_metaclass);
 
 /* FetchCommonType.proto */
 static PyTypeObject* __Pyx_FetchCommonType(PyTypeObject* type);
@@ -1444,26 +1464,6 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml,
                                       PyObject *module, PyObject *globals,
                                       PyObject* code);
 
-/* SetNameInClass.proto */
-#if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030500A1
-#define __Pyx_SetNameInClass(ns, name, value)\
-    (likely(PyDict_CheckExact(ns)) ? _PyDict_SetItem_KnownHash(ns, name, value, ((PyASCIIObject *) name)->hash) : PyObject_SetItem(ns, name, value))
-#elif CYTHON_COMPILING_IN_CPYTHON
-#define __Pyx_SetNameInClass(ns, name, value)\
-    (likely(PyDict_CheckExact(ns)) ? PyDict_SetItem(ns, name, value) : PyObject_SetItem(ns, name, value))
-#else
-#define __Pyx_SetNameInClass(ns, name, value)  PyObject_SetItem(ns, name, value)
-#endif
-
-/* CalculateMetaclass.proto */
-static PyObject *__Pyx_CalculateMetaclass(PyTypeObject *metaclass, PyObject *bases);
-
-/* Py3ClassCreate.proto */
-static PyObject *__Pyx_Py3MetaclassPrepare(PyObject *metaclass, PyObject *bases, PyObject *name, PyObject *qualname,
-                                           PyObject *mkw, PyObject *modname, PyObject *doc);
-static PyObject *__Pyx_Py3ClassCreate(PyObject *metaclass, PyObject *name, PyObject *bases, PyObject *dict,
-                                      PyObject *mkw, int calculate_metaclass, int allow_py2_metaclass);
-
 /* CLineInTraceback.proto */
 #ifdef CYTHON_CLINE_IN_TRACEBACK
 #define __Pyx_CLineForTraceback(tstate, c_line)  (((CYTHON_CLINE_IN_TRACEBACK)) ? c_line : 0)
@@ -1524,12 +1524,12 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'macropy.cythonExtensions.imageInverter.imageInverter' */
-#define __Pyx_MODULE_NAME "macropy.cythonExtensions.imageInverter.imageInverter"
-extern int __pyx_module_is_main_macropy__cythonExtensions__imageInverter__imageInverter;
-int __pyx_module_is_main_macropy__cythonExtensions__imageInverter__imageInverter = 0;
+/* Module declarations from 'macropy.cythonExtensions.imageUtils.imageUtils' */
+#define __Pyx_MODULE_NAME "macropy.cythonExtensions.imageUtils.imageUtils"
+extern int __pyx_module_is_main_macropy__cythonExtensions__imageUtils__imageUtils;
+int __pyx_module_is_main_macropy__cythonExtensions__imageUtils__imageUtils = 0;
 
-/* Implementation of 'macropy.cythonExtensions.imageInverter.imageInverter' */
+/* Implementation of 'macropy.cythonExtensions.imageUtils.imageUtils' */
 static PyObject *__pyx_builtin_TypeError;
 static PyObject *__pyx_builtin_max;
 static PyObject *__pyx_builtin_all;
@@ -1577,6 +1577,14 @@ static const char __pyx_k_AS_t[] = "AS_t";
 static const char __pyx_k_AS_v[] = "AS_v";
 static const char __pyx_k_AS_w[] = "AS_w";
 static const char __pyx_k_RGBA[] = "RGBA";
+static const char __pyx_k_SC_A[] = "SC_A";
+static const char __pyx_k_SC_C[] = "SC_C";
+static const char __pyx_k_SC_O[] = "SC_O";
+static const char __pyx_k_SC_R[] = "SC_R";
+static const char __pyx_k_SC_S[] = "SC_S";
+static const char __pyx_k_SC_T[] = "SC_T";
+static const char __pyx_k_SC_V[] = "SC_V";
+static const char __pyx_k_SC_W[] = "SC_W";
 static const char __pyx_k_VK_A[] = "VK_A";
 static const char __pyx_k_VK_C[] = "VK_C";
 static const char __pyx_k_VK_O[] = "VK_O";
@@ -1619,7 +1627,6 @@ static const char __pyx_k_tuple[] = "tuple";
 static const char __pyx_k_uint8[] = "uint8";
 static const char __pyx_k_CF_DIB[] = "CF_DIB";
 static const char __pyx_k_Images[] = "Images";
-static const char __pyx_k_KB_Con[] = "KB_Con";
 static const char __pyx_k_astype[] = "astype";
 static const char __pyx_k_ctypes[] = "ctypes";
 static const char __pyx_k_getcwd[] = "getcwd";
@@ -1640,11 +1647,13 @@ static const char __pyx_k_BytesIO[] = "BytesIO";
 static const char __pyx_k_abspath[] = "abspath";
 static const char __pyx_k_asarray[] = "asarray";
 static const char __pyx_k_convert[] = "convert";
+static const char __pyx_k_cvToPil[] = "cvToPil";
 static const char __pyx_k_dirname[] = "dirname";
 static const char __pyx_k_drawing[] = "drawing";
 static const char __pyx_k_getdata[] = "getdata";
 static const char __pyx_k_imwrite[] = "imwrite";
 static const char __pyx_k_ndarray[] = "ndarray";
+static const char __pyx_k_pilToCv[] = "pilToCv";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_putText[] = "putText";
 static const char __pyx_k_putdata[] = "putdata";
@@ -1673,25 +1682,25 @@ static const char __pyx_k_PlaySound[] = "PlaySound";
 static const char __pyx_k_SND_ASYNC[] = "SND_ASYNC";
 static const char __pyx_k_TypeError[] = "TypeError";
 static const char __pyx_k_VK_ESCAPE[] = "VK_ESCAPE";
-static const char __pyx_k_cv_to_pil[] = "cv_to_pil";
 static const char __pyx_k_fontScale[] = "fontScale";
 static const char __pyx_k_fromarray[] = "fromarray";
 static const char __pyx_k_getcolors[] = "getcolors";
 static const char __pyx_k_metaclass[] = "__metaclass__";
-static const char __pyx_k_pil_to_cv[] = "pil_to_cv";
 static const char __pyx_k_rgb_image[] = "rgb_image";
+static const char __pyx_k_runScript[] = "runScript";
 static const char __pyx_k_startfile[] = "startfile";
 static const char __pyx_k_data_items[] = "data_items";
-static const char __pyx_k_MouseHelper[] = "MouseHelper";
+static const char __pyx_k_addColorBar[] = "addColorBar";
 static const char __pyx_k_bitwise_not[] = "bitwise_not";
 static const char __pyx_k_concatenate[] = "concatenate";
+static const char __pyx_k_imageInvert[] = "imageInvert";
 static const char __pyx_k_namedWindow[] = "namedWindow";
 static const char __pyx_k_screen_size[] = "screen_size";
 static const char __pyx_k_show_window[] = "show_window";
 static const char __pyx_k_Image_Window[] = "Image Window";
+static const char __pyx_k_MouseTracker[] = "MouseTracker";
 static const char __pyx_k_PIL_ImageOps[] = "PIL.ImageOps";
 static const char __pyx_k_SND_FILENAME[] = "SND_FILENAME";
-static const char __pyx_k_image_invert[] = "image_invert";
 static const char __pyx_k_mouse_helper[] = "mouse_helper";
 static const char __pyx_k_output_image[] = "output_image";
 static const char __pyx_k_AS_UNDERSCORE[] = "AS_UNDERSCORE";
@@ -1702,6 +1711,7 @@ static const char __pyx_k_PIL_ImageGrab[] = "PIL.ImageGrab";
 static const char __pyx_k_Y_m_d_I_M_S_p[] = "%Y-%m-%d, %I.%M.%S %p";
 static const char __pyx_k_grabclipboard[] = "grabclipboard";
 static const char __pyx_k_list_of_files[] = "list_of_files";
+static const char __pyx_k_pilImageToBmp[] = "pilImageToBmp";
 static const char __pyx_k_CloseClipboard[] = "CloseClipboard";
 static const char __pyx_k_EmptyClipboard[] = "EmptyClipboard";
 static const char __pyx_k_cv2_main_image[] = "cv2_main_image";
@@ -1712,41 +1722,37 @@ static const char __pyx_k_COLOR_BGRA2RGBA[] = "COLOR_BGRA2RGBA";
 static const char __pyx_k_COLOR_RGBA2BGRA[] = "COLOR_RGBA2BGRA";
 static const char __pyx_k_EVENT_LBUTTONUP[] = "EVENT_LBUTTONUP";
 static const char __pyx_k_explorer_select[] = "explorer /select, \"";
+static const char __pyx_k_makeTransparent[] = "makeTransparent";
+static const char __pyx_k_sendToClipboard[] = "sendToClipboard";
+static const char __pyx_k_updateMouseData[] = "updateMouseData";
 static const char __pyx_k_GetSystemMetrics[] = "GetSystemMetrics";
 static const char __pyx_k_SetClipboardData[] = "SetClipboardData";
 static const char __pyx_k_WND_PROP_TOPMOST[] = "WND_PROP_TOPMOST";
 static const char __pyx_k_WND_PROP_VISIBLE[] = "WND_PROP_VISIBLE";
-static const char __pyx_k_make_transparent[] = "make_transparent";
-static const char __pyx_k_pil_image_to_bmp[] = "pil_image_to_bmp";
 static const char __pyx_k_save_near_module[] = "save_near_module";
-static const char __pyx_k_setMouseCallback[] = "setMouseCallback";
-static const char __pyx_k_update_life_data[] = "update_life_data";
+static const char __pyx_k_setmouseCallback[] = "setmouseCallback";
 static const char __pyx_k_EVENT_LBUTTONDOWN[] = "EVENT_LBUTTONDOWN";
 static const char __pyx_k_SFX_coins_497_wav[] = "SFX\\coins-497.wav";
 static const char __pyx_k_destroyAllWindows[] = "destroyAllWindows";
 static const char __pyx_k_getWindowProperty[] = "getWindowProperty";
-static const char __pyx_k_life_color_update[] = "life_color_update";
-static const char __pyx_k_send_to_clipboard[] = "send_to_clipboard";
 static const char __pyx_k_setWindowProperty[] = "setWindowProperty";
 static const char __pyx_k_EVENT_FLAG_CTRLKEY[] = "EVENT_FLAG_CTRLKEY";
-static const char __pyx_k_MouseHelper___init[] = "MouseHelper.__init__";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_MouseTracker___init[] = "MouseTracker.__init__";
 static const char __pyx_k_ROTATE_90_CLOCKWISE[] = "ROTATE_90_CLOCKWISE";
 static const char __pyx_k_color_picker_switch[] = "color_picker_switch";
 static const char __pyx_k_mouse_selection_end[] = "mouse_selection_end";
-static const char __pyx_k_BeginImageProcessing[] = "BeginImageProcessing";
 static const char __pyx_k_FONT_HERSHEY_SIMPLEX[] = "FONT_HERSHEY_SIMPLEX";
 static const char __pyx_k_mouse_selection_start[] = "mouse_selection_start";
 static const char __pyx_k_SetProcessDpiAwareness[] = "SetProcessDpiAwareness";
 static const char __pyx_k_C_Windows_Media_tada_wav[] = "C:\\Windows\\Media\\tada.wav";
-static const char __pyx_k_MouseHelper_update_life_data[] = "MouseHelper.update_life_data";
+static const char __pyx_k_MouseTracker_updateMouseData[] = "MouseTracker.updateMouseData";
 static const char __pyx_k_Description_A_class_that_helps[] = "\n    Description:\n        A class that helps with mouse event handling in OpenCV.\n    ---\n    Attributes:\n        - `x (int)`: The current x-coordinate of the mouse.\n        - `y (int)`: The current y-coordinate of the mouse.\n        - `px (int)`: The previous x-coordinate of the mouse.\n        - `py (int)`: The previous y-coordinate of the mouse.\n        - `shape (tuple[int, int])`: The shape of the image that the mouse helper is used with.\n        - `mouse_selection_start (Union[None, tuple[int, int]])`: The starting point of the mouse selection for cropping.\n        - `mouse_selection_end (Union[None, tuple[int, int]])`: The ending point of the mouse selection for cropping.\n        - `cropping (bool)`: Whether the user is currently cropping an image or not.\n        - `drawing (bool)`: Whether the user is currently drawing on an image or not.\n        - `event (int)`: The type of the current mouse event.\n    Methods\n    -------\n        - update_life_data(event, x, y, flags, param)\n        \n        - Updates the state of the mouse helper based on the given mouse event.\n    ";
+static const char __pyx_k_src_cythonExtensions_imageUtils[] = "src\\cythonExtensions\\imageUtils\\imageUtils.pyx";
 static const char __pyx_k_C_Windows_Media_Windows_Navigati[] = "C:\\Windows\\Media\\Windows Navigation Start.wav";
 static const char __pyx_k_Image_must_be_a_PIL_Image_object[] = "Image must be a PIL Image object.";
-static const char __pyx_k_cythonExtensions_commonUtils_com[] = "cythonExtensions.commonUtils.commonUtils";
 static const char __pyx_k_image_must_be_a_valid_numpy_arra[] = "image must be a valid numpy array or PIL Image object";
-static const char __pyx_k_macropy_cythonExtensions_imageIn[] = "macropy.cythonExtensions.imageInverter.imageInverter";
-static const char __pyx_k_src_cythonExtensions_imageInvert[] = "src\\cythonExtensions\\imageInverter\\imageInverter.pyx";
+static const char __pyx_k_macropy_cythonExtensions_imageUt[] = "macropy.cythonExtensions.imageUtils.imageUtils";
 static PyObject *__pyx_n_s_AS_EQUALS;
 static PyObject *__pyx_n_s_AS_MINUS;
 static PyObject *__pyx_n_s_AS_PLUS;
@@ -1760,7 +1766,6 @@ static PyObject *__pyx_n_s_AS_t;
 static PyObject *__pyx_n_s_AS_v;
 static PyObject *__pyx_n_s_AS_w;
 static PyObject *__pyx_n_s_BMP;
-static PyObject *__pyx_n_s_BeginImageProcessing;
 static PyObject *__pyx_n_s_BytesIO;
 static PyObject *__pyx_n_s_CF_DIB;
 static PyObject *__pyx_n_s_COLOR_BGR2RGB;
@@ -1783,10 +1788,9 @@ static PyObject *__pyx_n_s_ImageOps;
 static PyObject *__pyx_kp_s_Image_Window;
 static PyObject *__pyx_kp_s_Image_must_be_a_PIL_Image_object;
 static PyObject *__pyx_n_s_Images;
-static PyObject *__pyx_n_s_KB_Con;
-static PyObject *__pyx_n_s_MouseHelper;
-static PyObject *__pyx_n_s_MouseHelper___init;
-static PyObject *__pyx_n_s_MouseHelper_update_life_data;
+static PyObject *__pyx_n_s_MouseTracker;
+static PyObject *__pyx_n_s_MouseTracker___init;
+static PyObject *__pyx_n_s_MouseTracker_updateMouseData;
 static PyObject *__pyx_n_s_OpenClipboard;
 static PyObject *__pyx_n_s_PIL;
 static PyObject *__pyx_n_s_PIL_Image;
@@ -1796,6 +1800,14 @@ static PyObject *__pyx_n_s_PlaySound;
 static PyObject *__pyx_n_s_RGB;
 static PyObject *__pyx_n_s_RGBA;
 static PyObject *__pyx_n_s_ROTATE_90_CLOCKWISE;
+static PyObject *__pyx_n_s_SC_A;
+static PyObject *__pyx_n_s_SC_C;
+static PyObject *__pyx_n_s_SC_O;
+static PyObject *__pyx_n_s_SC_R;
+static PyObject *__pyx_n_s_SC_S;
+static PyObject *__pyx_n_s_SC_T;
+static PyObject *__pyx_n_s_SC_V;
+static PyObject *__pyx_n_s_SC_W;
 static PyObject *__pyx_kp_s_SFX_coins_497_wav;
 static PyObject *__pyx_n_s_SND_ASYNC;
 static PyObject *__pyx_n_s_SND_FILENAME;
@@ -1822,6 +1834,7 @@ static PyObject *__pyx_kp_u__7;
 static PyObject *__pyx_kp_u__8;
 static PyObject *__pyx_n_s_a;
 static PyObject *__pyx_n_s_abspath;
+static PyObject *__pyx_n_s_addColorBar;
 static PyObject *__pyx_n_s_all;
 static PyObject *__pyx_n_s_asarray;
 static PyObject *__pyx_n_s_astype;
@@ -1840,9 +1853,8 @@ static PyObject *__pyx_n_s_cropping;
 static PyObject *__pyx_n_s_ctypes;
 static PyObject *__pyx_n_s_cv2;
 static PyObject *__pyx_n_s_cv2_main_image;
-static PyObject *__pyx_n_s_cv_to_pil;
+static PyObject *__pyx_n_s_cvToPil;
 static PyObject *__pyx_n_s_cvtColor;
-static PyObject *__pyx_n_s_cythonExtensions_commonUtils_com;
 static PyObject *__pyx_n_s_data;
 static PyObject *__pyx_n_s_data_items;
 static PyObject *__pyx_n_s_datetime;
@@ -1872,7 +1884,7 @@ static PyObject *__pyx_n_s_getvalue;
 static PyObject *__pyx_n_s_glob;
 static PyObject *__pyx_n_s_grabclipboard;
 static PyObject *__pyx_n_s_image;
-static PyObject *__pyx_n_s_image_invert;
+static PyObject *__pyx_n_s_imageInvert;
 static PyObject *__pyx_kp_s_image_must_be_a_valid_numpy_arra;
 static PyObject *__pyx_n_s_img;
 static PyObject *__pyx_n_s_import;
@@ -1888,12 +1900,11 @@ static PyObject *__pyx_n_s_join;
 static PyObject *__pyx_n_s_k;
 static PyObject *__pyx_n_s_kbcon;
 static PyObject *__pyx_n_s_key;
-static PyObject *__pyx_n_s_life_color_update;
 static PyObject *__pyx_n_s_line;
 static PyObject *__pyx_n_s_list_of_files;
-static PyObject *__pyx_n_s_macropy_cythonExtensions_imageIn;
+static PyObject *__pyx_n_s_macropy_cythonExtensions_imageUt;
 static PyObject *__pyx_n_s_main;
-static PyObject *__pyx_n_s_make_transparent;
+static PyObject *__pyx_n_s_makeTransparent;
 static PyObject *__pyx_n_s_makedirs;
 static PyObject *__pyx_n_s_max;
 static PyObject *__pyx_n_s_merge;
@@ -1915,8 +1926,8 @@ static PyObject *__pyx_n_s_output;
 static PyObject *__pyx_n_s_output_image;
 static PyObject *__pyx_n_s_param;
 static PyObject *__pyx_n_s_path;
-static PyObject *__pyx_n_s_pil_image_to_bmp;
-static PyObject *__pyx_n_s_pil_to_cv;
+static PyObject *__pyx_n_s_pilImageToBmp;
+static PyObject *__pyx_n_s_pilToCv;
 static PyObject *__pyx_kp_s_png;
 static PyObject *__pyx_kp_s_png_2;
 static PyObject *__pyx_n_s_prepare;
@@ -1931,20 +1942,21 @@ static PyObject *__pyx_n_s_resize;
 static PyObject *__pyx_n_s_return;
 static PyObject *__pyx_n_s_rgb_image;
 static PyObject *__pyx_n_s_rotate;
+static PyObject *__pyx_n_s_runScript;
 static PyObject *__pyx_n_s_save;
 static PyObject *__pyx_n_s_save_directory;
 static PyObject *__pyx_n_s_save_near_module;
 static PyObject *__pyx_n_s_screen_size;
 static PyObject *__pyx_n_s_self;
-static PyObject *__pyx_n_s_send_to_clipboard;
-static PyObject *__pyx_n_s_setMouseCallback;
+static PyObject *__pyx_n_s_sendToClipboard;
 static PyObject *__pyx_n_s_setWindowProperty;
+static PyObject *__pyx_n_s_setmouseCallback;
 static PyObject *__pyx_n_s_shape;
 static PyObject *__pyx_n_s_shcore;
 static PyObject *__pyx_n_s_show_window;
 static PyObject *__pyx_n_s_size;
 static PyObject *__pyx_n_s_split;
-static PyObject *__pyx_kp_s_src_cythonExtensions_imageInvert;
+static PyObject *__pyx_kp_s_src_cythonExtensions_imageUtils;
 static PyObject *__pyx_n_s_startfile;
 static PyObject *__pyx_n_s_strftime;
 static PyObject *__pyx_n_s_system;
@@ -1953,7 +1965,7 @@ static PyObject *__pyx_n_s_text;
 static PyObject *__pyx_n_s_tolist;
 static PyObject *__pyx_n_u_tuple;
 static PyObject *__pyx_n_s_uint8;
-static PyObject *__pyx_n_s_update_life_data;
+static PyObject *__pyx_n_s_updateMouseData;
 static PyObject *__pyx_n_s_waitKey;
 static PyObject *__pyx_n_s_win32api;
 static PyObject *__pyx_n_s_win32clipboard;
@@ -1962,16 +1974,16 @@ static PyObject *__pyx_n_s_windll;
 static PyObject *__pyx_n_s_winsound;
 static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_y;
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_pil_image_to_bmp(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_2send_to_clipboard(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_4pil_to_cv(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_6cv_to_pil(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_8image_invert(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_10make_transparent(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_shape); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_2update_life_data(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_event, PyObject *__pyx_v_x, PyObject *__pyx_v_y, PyObject *__pyx_v_flags, CYTHON_UNUSED PyObject *__pyx_v_param); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_12life_color_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image, PyObject *__pyx_v_x, PyObject *__pyx_v_y); /* proto */
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_14BeginImageProcessing(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_show_window, PyObject *__pyx_v_save_near_module, CYTHON_UNUSED PyObject *__pyx_v_screen_size); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_pilImageToBmp(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_2sendToClipboard(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_4pilToCv(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_6cvToPil(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_8imageInvert(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_10makeTransparent(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_shape); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_2updateMouseData(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_event, PyObject *__pyx_v_x, PyObject *__pyx_v_y, PyObject *__pyx_v_flags, CYTHON_UNUSED PyObject *__pyx_v_param); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12addColorBar(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image, PyObject *__pyx_v_x, PyObject *__pyx_v_y); /* proto */
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_14runScript(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_show_window, PyObject *__pyx_v_save_near_module, CYTHON_UNUSED PyObject *__pyx_v_screen_size); /* proto */
 static PyObject *__pyx_float_0_5;
 static PyObject *__pyx_float_0_8;
 static PyObject *__pyx_float_1_2;
@@ -1982,8 +1994,35 @@ static PyObject *__pyx_int_4;
 static PyObject *__pyx_int_10;
 static PyObject *__pyx_int_14;
 static PyObject *__pyx_int_15;
+static PyObject *__pyx_int_17;
+static PyObject *__pyx_int_19;
 static PyObject *__pyx_int_20;
+static PyObject *__pyx_int_24;
+static PyObject *__pyx_int_30;
+static PyObject *__pyx_int_31;
+static PyObject *__pyx_int_43;
+static PyObject *__pyx_int_45;
+static PyObject *__pyx_int_46;
+static PyObject *__pyx_int_47;
+static PyObject *__pyx_int_61;
+static PyObject *__pyx_int_65;
+static PyObject *__pyx_int_67;
+static PyObject *__pyx_int_79;
+static PyObject *__pyx_int_82;
+static PyObject *__pyx_int_83;
+static PyObject *__pyx_int_84;
+static PyObject *__pyx_int_86;
+static PyObject *__pyx_int_87;
+static PyObject *__pyx_int_95;
+static PyObject *__pyx_int_97;
+static PyObject *__pyx_int_99;
 static PyObject *__pyx_int_100;
+static PyObject *__pyx_int_111;
+static PyObject *__pyx_int_114;
+static PyObject *__pyx_int_115;
+static PyObject *__pyx_int_116;
+static PyObject *__pyx_int_118;
+static PyObject *__pyx_int_119;
 static PyObject *__pyx_int_255;
 static PyObject *__pyx_int_1080;
 static PyObject *__pyx_int_1920;
@@ -2019,30 +2058,30 @@ static PyObject *__pyx_codeobj__32;
 static PyObject *__pyx_codeobj__34;
 /* Late includes */
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":15
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":32
  * 
  * 
- * def pil_image_to_bmp(image: PIL.Image.Image) -> bytes:             # <<<<<<<<<<<<<<
+ * def pilImageToBmp(image: PIL.Image.Image) -> bytes:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_1pil_image_to_bmp(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_pil_image_to_bmp[] = "pil_image_to_bmp(image: PIL.Image.Image) -> bytes\n\n    Description:\n        Converts a PIL image object to a BMP format byte array.\n    ---\n    Parameters:\n        image: A PIL image object.\n    ---\n    Returns:\n        A byte array of the BMP image data.\n    ---\n    Raises:\n        TypeError: If `image` is not a valid PIL image object.\n    ";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_1pil_image_to_bmp = {"pil_image_to_bmp", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_1pil_image_to_bmp, METH_O, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_pil_image_to_bmp};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_1pil_image_to_bmp(PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_1pilImageToBmp(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_pilImageToBmp[] = "pilImageToBmp(image: PIL.Image.Image) -> bytes\n\n    Description:\n        Converts a PIL image object to a BMP format byte array.\n    ---\n    Parameters:\n        image: A PIL image object.\n    ---\n    Returns:\n        A byte array of the BMP image data.\n    ---\n    Raises:\n        TypeError: If `image` is not a valid PIL image object.\n    ";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_1pilImageToBmp = {"pilImageToBmp", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_1pilImageToBmp, METH_O, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_pilImageToBmp};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_1pilImageToBmp(PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("pil_image_to_bmp (wrapper)", 0);
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_pil_image_to_bmp(__pyx_self, ((PyObject *)__pyx_v_image));
+  __Pyx_RefNannySetupContext("pilImageToBmp (wrapper)", 0);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_pilImageToBmp(__pyx_self, ((PyObject *)__pyx_v_image));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_pil_image_to_bmp(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_pilImageToBmp(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_v_output = NULL;
   PyObject *__pyx_v_data = NULL;
   PyObject *__pyx_r = NULL;
@@ -2057,42 +2096,42 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("pil_image_to_bmp", 0);
+  __Pyx_RefNannySetupContext("pilImageToBmp", 0);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":31
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":48
  * 
  *     # Check that `image` is a valid PIL image object
  *     if not isinstance(image, PIL.Image.Image):             # <<<<<<<<<<<<<<
  *         raise TypeError("Image must be a PIL Image object.")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PIL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PIL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Image); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Image); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Image); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Image); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = PyObject_IsInstance(__pyx_v_image, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_3 = PyObject_IsInstance(__pyx_v_image, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_4 = ((!(__pyx_t_3 != 0)) != 0);
   if (unlikely(__pyx_t_4)) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":32
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":49
  *     # Check that `image` is a valid PIL image object
  *     if not isinstance(image, PIL.Image.Image):
  *         raise TypeError("Image must be a PIL Image object.")             # <<<<<<<<<<<<<<
  * 
  *     # Create a BytesIO object to hold the BMP image data.
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 32, __pyx_L1_error)
+    __PYX_ERR(0, 49, __pyx_L1_error)
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":31
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":48
  * 
  *     # Check that `image` is a valid PIL image object
  *     if not isinstance(image, PIL.Image.Image):             # <<<<<<<<<<<<<<
@@ -2101,14 +2140,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":35
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":52
  * 
  *     # Create a BytesIO object to hold the BMP image data.
  *     output = BytesIO()             # <<<<<<<<<<<<<<
  * 
  *     # Convert the image to RGB and save it in BMP format to the BytesIO object.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_BytesIO); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_BytesIO); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -2122,20 +2161,20 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_output = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":38
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":55
  * 
  *     # Convert the image to RGB and save it in BMP format to the BytesIO object.
  *     image.convert('RGB').save(output, 'BMP')             # <<<<<<<<<<<<<<
  * 
  *     # Get the byte data from the BytesIO object, ignoring the first 14 bytes (header data).
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_convert); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_convert); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -2149,10 +2188,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_n_s_RGB) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_n_s_RGB);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_save); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_save); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -2170,7 +2209,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_output, __pyx_n_s_BMP};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -2178,13 +2217,13 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_output, __pyx_n_s_BMP};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -2195,21 +2234,21 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __Pyx_INCREF(__pyx_n_s_BMP);
     __Pyx_GIVEREF(__pyx_n_s_BMP);
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_7, __pyx_n_s_BMP);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":41
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":58
  * 
  *     # Get the byte data from the BytesIO object, ignoring the first 14 bytes (header data).
  *     data = output.getvalue()[14:]             # <<<<<<<<<<<<<<
  * 
  *     # Close the BytesIO object.
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_output, __pyx_n_s_getvalue); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_output, __pyx_n_s_getvalue); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -2223,23 +2262,23 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetSlice(__pyx_t_1, 14, 0, NULL, NULL, &__pyx_slice__2, 1, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetSlice(__pyx_t_1, 14, 0, NULL, NULL, &__pyx_slice__2, 1, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_data = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":44
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":61
  * 
  *     # Close the BytesIO object.
  *     output.close()             # <<<<<<<<<<<<<<
  * 
  *     return data
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_output, __pyx_n_s_close); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_output, __pyx_n_s_close); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -2253,12 +2292,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_5 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":46
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":63
  *     output.close()
  * 
  *     return data             # <<<<<<<<<<<<<<
@@ -2266,15 +2305,15 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(PyBytes_CheckExact(__pyx_v_data))||((__pyx_v_data) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_v_data)->tp_name), 0))) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (!(likely(PyBytes_CheckExact(__pyx_v_data))||((__pyx_v_data) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_v_data)->tp_name), 0))) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_INCREF(__pyx_v_data);
   __pyx_r = ((PyObject*)__pyx_v_data);
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":15
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":32
  * 
  * 
- * def pil_image_to_bmp(image: PIL.Image.Image) -> bytes:             # <<<<<<<<<<<<<<
+ * def pilImageToBmp(image: PIL.Image.Image) -> bytes:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
@@ -2285,7 +2324,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.pil_image_to_bmp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.pilImageToBmp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_output);
@@ -2295,30 +2334,30 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":49
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":66
  * 
  * 
- * def send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
+ * def sendToClipboard(image: np.ndarray | PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_3send_to_clipboard(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_2send_to_clipboard[] = "send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None\n\n    Description:\n        Copies the given image to the clipboard.\n    ---\n    Parameters:\n        - image: The image to be copied to the clipboard. Either a numpy array or a PIL image object.\n    ---\n    Raises:\n        TypeError: If `image` is not a valid numpy array or PIL image object.\n    ";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_3send_to_clipboard = {"send_to_clipboard", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_3send_to_clipboard, METH_O, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_2send_to_clipboard};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_3send_to_clipboard(PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_3sendToClipboard(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_2sendToClipboard[] = "sendToClipboard(image: np.ndarray | PIL.Image.Image) -> None\n\n    Description:\n        Copies the given image to the clipboard.\n    ---\n    Parameters:\n        - image: The image to be copied to the clipboard. Either a numpy array or a PIL image object.\n    ---\n    Raises:\n        TypeError: If `image` is not a valid numpy array or PIL image object.\n    ";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_3sendToClipboard = {"sendToClipboard", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_3sendToClipboard, METH_O, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_2sendToClipboard};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_3sendToClipboard(PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("send_to_clipboard (wrapper)", 0);
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_2send_to_clipboard(__pyx_self, ((PyObject *)__pyx_v_image));
+  __Pyx_RefNannySetupContext("sendToClipboard (wrapper)", 0);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_2sendToClipboard(__pyx_self, ((PyObject *)__pyx_v_image));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_2send_to_clipboard(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_2sendToClipboard(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2333,27 +2372,27 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("send_to_clipboard", 0);
+  __Pyx_RefNannySetupContext("sendToClipboard", 0);
   __Pyx_INCREF(__pyx_v_image);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":62
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":79
  * 
  *     # Check that `image` is a valid numpy array or PIL image object
  *     if not isinstance(image, (np.ndarray, PIL.Image.Image)):             # <<<<<<<<<<<<<<
  *         raise TypeError("image must be a valid numpy array or PIL Image object")
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PIL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_PIL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Image); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Image); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_Image); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_Image); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = PyObject_IsInstance(__pyx_v_image, __pyx_t_2); 
@@ -2372,20 +2411,20 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __pyx_t_5 = ((!(__pyx_t_4 != 0)) != 0);
   if (unlikely(__pyx_t_5)) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":63
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":80
  *     # Check that `image` is a valid numpy array or PIL image object
  *     if not isinstance(image, (np.ndarray, PIL.Image.Image)):
  *         raise TypeError("image must be a valid numpy array or PIL Image object")             # <<<<<<<<<<<<<<
  * 
  *     elif isinstance(image, np.ndarray):
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 63, __pyx_L1_error)
+    __PYX_ERR(0, 80, __pyx_L1_error)
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":62
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":79
  * 
  *     # Check that `image` is a valid numpy array or PIL image object
  *     if not isinstance(image, (np.ndarray, PIL.Image.Image)):             # <<<<<<<<<<<<<<
@@ -2394,31 +2433,31 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":65
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":82
  *         raise TypeError("image must be a valid numpy array or PIL Image object")
  * 
  *     elif isinstance(image, np.ndarray):             # <<<<<<<<<<<<<<
  *         # Convert BGR Channels to RGB Channels (PIL uses RGB while OpenCv uses BGR)
  *         # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = PyObject_IsInstance(__pyx_v_image, __pyx_t_1); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_5 = PyObject_IsInstance(__pyx_v_image, __pyx_t_1); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_4 = (__pyx_t_5 != 0);
   if (__pyx_t_4) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":70
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":87
  * 
  *         # Convert cv image to PIL image
- *         image = cv_to_pil(image)             # <<<<<<<<<<<<<<
+ *         image = cvToPil(image)             # <<<<<<<<<<<<<<
  * 
  *     # Convert to bitmap for clipboard
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv_to_pil); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cvToPil); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -2432,13 +2471,13 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_image);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":65
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":82
  *         raise TypeError("image must be a valid numpy array or PIL Image object")
  * 
  *     elif isinstance(image, np.ndarray):             # <<<<<<<<<<<<<<
@@ -2447,14 +2486,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":73
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":90
  * 
  *     # Convert to bitmap for clipboard
- *     image = pil_image_to_bmp(image)             # <<<<<<<<<<<<<<
+ *     image = pilImageToBmp(image)             # <<<<<<<<<<<<<<
  * 
  *     # Copy to clipboard
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pil_image_to_bmp); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pilImageToBmp); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -2468,22 +2507,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_image);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":76
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":93
  * 
  *     # Copy to clipboard
  *     win32clipboard.OpenClipboard()             # <<<<<<<<<<<<<<
  *     win32clipboard.EmptyClipboard()
  *     win32clipboard.SetClipboardData(win32clipboard.CF_DIB, image)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_OpenClipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_OpenClipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -2498,21 +2537,21 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":77
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":94
  *     # Copy to clipboard
  *     win32clipboard.OpenClipboard()
  *     win32clipboard.EmptyClipboard()             # <<<<<<<<<<<<<<
  *     win32clipboard.SetClipboardData(win32clipboard.CF_DIB, image)
  *     win32clipboard.CloseClipboard()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_EmptyClipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_EmptyClipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -2527,26 +2566,26 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":78
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":95
  *     win32clipboard.OpenClipboard()
  *     win32clipboard.EmptyClipboard()
  *     win32clipboard.SetClipboardData(win32clipboard.CF_DIB, image)             # <<<<<<<<<<<<<<
  *     win32clipboard.CloseClipboard()
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SetClipboardData); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SetClipboardData); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CF_DIB); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_CF_DIB); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -2564,7 +2603,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_7, __pyx_v_image};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -2573,14 +2612,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_7, __pyx_v_image};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   } else
   #endif
   {
-    __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -2591,23 +2630,23 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __Pyx_GIVEREF(__pyx_v_image);
     PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_8, __pyx_v_image);
     __pyx_t_7 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":79
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":96
  *     win32clipboard.EmptyClipboard()
  *     win32clipboard.SetClipboardData(win32clipboard.CF_DIB, image)
  *     win32clipboard.CloseClipboard()             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_win32clipboard); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CloseClipboard); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_CloseClipboard); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 96, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -2622,15 +2661,15 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":49
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":66
  * 
  * 
- * def send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
+ * def sendToClipboard(image: np.ndarray | PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
@@ -2644,7 +2683,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.send_to_clipboard", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.sendToClipboard", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_image);
@@ -2653,30 +2692,30 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":82
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":99
  * 
  * 
- * def pil_to_cv(image: PIL.Image.Image) -> np.ndarray:             # <<<<<<<<<<<<<<
+ * def pilToCv(image: PIL.Image.Image) -> np.ndarray:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_5pil_to_cv(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_4pil_to_cv[] = "pil_to_cv(image: PIL.Image.Image) -> np.ndarray\n\n    Description:\n        Converts a PIL Image to a numpy ndarray in OpenCV format.\n    ---\n    Parameters:\n        - image (PIL.Image.Image): the input PIL Image.\n    ---\n    Returns:\n        np.ndarray: the converted image in OpenCV format.\n    ";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_5pil_to_cv = {"pil_to_cv", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_5pil_to_cv, METH_O, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_4pil_to_cv};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_5pil_to_cv(PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_5pilToCv(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_4pilToCv[] = "pilToCv(image: PIL.Image.Image) -> np.ndarray\n\n    Description:\n        Converts a PIL Image to a numpy ndarray in OpenCV format.\n    ---\n    Parameters:\n        - image (PIL.Image.Image): the input PIL Image.\n    ---\n    Returns:\n        np.ndarray: the converted image in OpenCV format.\n    ";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_5pilToCv = {"pilToCv", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_5pilToCv, METH_O, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_4pilToCv};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_5pilToCv(PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("pil_to_cv (wrapper)", 0);
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_4pil_to_cv(__pyx_self, ((PyObject *)__pyx_v_image));
+  __Pyx_RefNannySetupContext("pilToCv (wrapper)", 0);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_4pilToCv(__pyx_self, ((PyObject *)__pyx_v_image));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_4pil_to_cv(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_4pilToCv(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_v_cv2_main_image = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2690,18 +2729,18 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("pil_to_cv", 0);
+  __Pyx_RefNannySetupContext("pilToCv", 0);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":95
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":112
  * 
  *     # Converting PIL Image to numpy ndarray
  *     cv2_main_image = np.asarray(image) # np.array(image)             # <<<<<<<<<<<<<<
  * 
  *     # Checking if image has an alpha channel.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -2716,26 +2755,26 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_image);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_cv2_main_image = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":98
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":115
  * 
  *     # Checking if image has an alpha channel.
  *     if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
  *         # You can use cv2.COLOR_RGBA2BGRA if you are sure the image has alpha channel.
  *         # Image can have alpha channel only its format supports transparency like png.
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_mode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_mode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_RGBA, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_RGBA, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":101
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":118
  *         # You can use cv2.COLOR_RGBA2BGRA if you are sure the image has alpha channel.
  *         # Image can have alpha channel only its format supports transparency like png.
  *         return cv2.cvtColor(cv2_main_image, cv2.COLOR_RGBA2BGRA) # Converting RGBA to BGRA             # <<<<<<<<<<<<<<
@@ -2743,14 +2782,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  *         return cv2.cvtColor(cv2_main_image, cv2.COLOR_RGB2BGR)   # Converting RGB to BGR
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 101, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 118, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 101, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 118, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_COLOR_RGBA2BGRA); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 101, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_COLOR_RGBA2BGRA); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -2768,7 +2807,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_cv2_main_image, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -2777,14 +2816,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_cv2_main_image, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else
     #endif
     {
-      __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 101, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       if (__pyx_t_3) {
         __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -2795,7 +2834,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GIVEREF(__pyx_t_5);
       PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
@@ -2804,7 +2843,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":98
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":115
  * 
  *     # Checking if image has an alpha channel.
  *     if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
@@ -2813,7 +2852,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":103
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":120
  *         return cv2.cvtColor(cv2_main_image, cv2.COLOR_RGBA2BGRA) # Converting RGBA to BGRA
  *     else:
  *         return cv2.cvtColor(cv2_main_image, cv2.COLOR_RGB2BGR)   # Converting RGB to BGR             # <<<<<<<<<<<<<<
@@ -2822,14 +2861,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_COLOR_RGB2BGR); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_COLOR_RGB2BGR); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -2847,7 +2886,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_cv2_main_image, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -2856,14 +2895,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_cv2_main_image, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else
     #endif
     {
-      __pyx_t_3 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 103, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       if (__pyx_t_2) {
         __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -2874,7 +2913,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GIVEREF(__pyx_t_5);
       PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_6, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -2884,10 +2923,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     goto __pyx_L0;
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":82
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":99
  * 
  * 
- * def pil_to_cv(image: PIL.Image.Image) -> np.ndarray:             # <<<<<<<<<<<<<<
+ * def pilToCv(image: PIL.Image.Image) -> np.ndarray:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
@@ -2899,7 +2938,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.pil_to_cv", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.pilToCv", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_cv2_main_image);
@@ -2908,30 +2947,30 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":106
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":123
  * 
  * 
- * def cv_to_pil(cv2_main_image: np.ndarray) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
+ * def cvToPil(cv2_main_image: np.ndarray) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_7cv_to_pil(PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_6cv_to_pil[] = "cv_to_pil(cv2_main_image: np.ndarray) -> PIL.Image.Image\n\n    Description:\n        Converts a numpy ndarray in OpenCV format to a PIL Image.\n    ---\n    Parameters:\n        - cv2_main_image (np.ndarray): the input image in OpenCV format.\n    ---\n    Returns:\n        PIL.Image.Image: the converted PIL Image.\n    ";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_7cv_to_pil = {"cv_to_pil", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_7cv_to_pil, METH_O, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_6cv_to_pil};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_7cv_to_pil(PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_7cvToPil(PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_6cvToPil[] = "cvToPil(cv2_main_image: np.ndarray) -> PIL.Image.Image\n\n    Description:\n        Converts a numpy ndarray in OpenCV format to a PIL Image.\n    ---\n    Parameters:\n        - cv2_main_image (np.ndarray): the input image in OpenCV format.\n    ---\n    Returns:\n        PIL.Image.Image: the converted PIL Image.\n    ";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_7cvToPil = {"cvToPil", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_7cvToPil, METH_O, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_6cvToPil};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_7cvToPil(PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("cv_to_pil (wrapper)", 0);
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_6cv_to_pil(__pyx_self, ((PyObject *)__pyx_v_cv2_main_image));
+  __Pyx_RefNannySetupContext("cvToPil (wrapper)", 0);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_6cvToPil(__pyx_self, ((PyObject *)__pyx_v_cv2_main_image));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_6cv_to_pil(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_6cvToPil(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2946,28 +2985,28 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("cv_to_pil", 0);
+  __Pyx_RefNannySetupContext("cvToPil", 0);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":119
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":136
  * 
  *     # Checking if image has an alpha channel
  *     if cv2_main_image.shape[2] == 4:             # <<<<<<<<<<<<<<
  *         # Converting BGRA to RGBA
  *         return PIL.Image.fromarray(cv2.cvtColor(cv2_main_image, cv2.COLOR_BGRA2RGBA))
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":121
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":138
  *     if cv2_main_image.shape[2] == 4:
  *         # Converting BGRA to RGBA
  *         return PIL.Image.fromarray(cv2.cvtColor(cv2_main_image, cv2.COLOR_BGRA2RGBA))             # <<<<<<<<<<<<<<
@@ -2975,22 +3014,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  *         # Converting BGR to RGB
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PIL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PIL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 138, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Image); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Image); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_fromarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_fromarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 138, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 138, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 138, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 138, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_COLOR_BGRA2RGBA); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_COLOR_BGRA2RGBA); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 138, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -3008,7 +3047,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_cv2_main_image, __pyx_t_7};
-      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -3017,14 +3056,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_cv2_main_image, __pyx_t_7};
-      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     } else
     #endif
     {
-      __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 138, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       if (__pyx_t_5) {
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -3035,7 +3074,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GIVEREF(__pyx_t_7);
       PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_8, __pyx_t_7);
       __pyx_t_7 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
@@ -3053,14 +3092,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_6, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 138, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":119
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":136
  * 
  *     # Checking if image has an alpha channel
  *     if cv2_main_image.shape[2] == 4:             # <<<<<<<<<<<<<<
@@ -3069,7 +3108,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":124
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":141
  *     else:
  *         # Converting BGR to RGB
  *         return PIL.Image.fromarray(cv2.cvtColor(cv2_main_image, cv2.COLOR_BGR2RGB))             # <<<<<<<<<<<<<<
@@ -3078,22 +3117,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PIL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_PIL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Image); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Image); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_fromarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_fromarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_COLOR_BGR2RGB); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_COLOR_BGR2RGB); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_6 = NULL;
@@ -3111,7 +3150,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_9)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_cv2_main_image, __pyx_t_7};
-      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 124, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -3120,14 +3159,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_cv2_main_image, __pyx_t_7};
-      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 124, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     } else
     #endif
     {
-      __pyx_t_5 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 141, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       if (__pyx_t_6) {
         __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -3138,7 +3177,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GIVEREF(__pyx_t_7);
       PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_8, __pyx_t_7);
       __pyx_t_7 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 124, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
@@ -3156,7 +3195,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_9, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_1;
@@ -3164,10 +3203,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     goto __pyx_L0;
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":106
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":123
  * 
  * 
- * def cv_to_pil(cv2_main_image: np.ndarray) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
+ * def cvToPil(cv2_main_image: np.ndarray) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
@@ -3181,7 +3220,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.cv_to_pil", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.cvToPil", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3189,30 +3228,30 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":127
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":144
  * 
  * 
- * def image_invert(image: PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
+ * def imageInvert(image: PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_9image_invert(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_8image_invert[] = "image_invert(image: PIL.Image.Image) -> None\n\n    Description:\n        Inverts the colors of the input image and sends it to clipboard.\n    ---\n    Parameters:\n        - image (PIL.Image.Image): The image to be inverted.\n    ";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_9image_invert = {"image_invert", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_9image_invert, METH_O, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_8image_invert};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_9image_invert(PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_9imageInvert(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_8imageInvert[] = "imageInvert(image: PIL.Image.Image) -> None\n\n    Description:\n        Inverts the colors of the input image and sends it to clipboard.\n    ---\n    Parameters:\n        - image (PIL.Image.Image): The image to be inverted.\n    ";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_9imageInvert = {"imageInvert", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_9imageInvert, METH_O, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_8imageInvert};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_9imageInvert(PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("image_invert (wrapper)", 0);
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_8image_invert(__pyx_self, ((PyObject *)__pyx_v_image));
+  __Pyx_RefNannySetupContext("imageInvert (wrapper)", 0);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_8imageInvert(__pyx_self, ((PyObject *)__pyx_v_image));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_8image_invert(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_8imageInvert(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_v_r = NULL;
   PyObject *__pyx_v_g = NULL;
   PyObject *__pyx_v_b = NULL;
@@ -3236,29 +3275,29 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("image_invert", 0);
+  __Pyx_RefNannySetupContext("imageInvert", 0);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":137
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":154
  * 
  *     # Check for alpha channel
  *     if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
  *         # Splitting the image's channels.
  *         r, g, b, a = image.split()
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_mode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_mode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_RGBA, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_RGBA, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":139
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":156
  *     if image.mode == 'RGBA':
  *         # Splitting the image's channels.
  *         r, g, b, a = image.split()             # <<<<<<<<<<<<<<
  * 
  *         # Merging all the channels together except for the alpha channel.
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_split); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_split); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 156, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_4 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -3272,7 +3311,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
@@ -3281,7 +3320,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       if (unlikely(size != 4)) {
         if (size > 4) __Pyx_RaiseTooManyValuesError(4);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 139, __pyx_L1_error)
+        __PYX_ERR(0, 156, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -3304,7 +3343,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         Py_ssize_t i;
         PyObject** temps[4] = {&__pyx_t_3,&__pyx_t_4,&__pyx_t_5,&__pyx_t_6};
         for (i=0; i < 4; i++) {
-          PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 139, __pyx_L1_error)
+          PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 156, __pyx_L1_error)
           __Pyx_GOTREF(item);
           *(temps[i]) = item;
         }
@@ -3314,7 +3353,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     } else {
       Py_ssize_t index = -1;
       PyObject** temps[4] = {&__pyx_t_3,&__pyx_t_4,&__pyx_t_5,&__pyx_t_6};
-      __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 139, __pyx_L1_error)
+      __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 156, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_8 = Py_TYPE(__pyx_t_7)->tp_iternext;
@@ -3323,7 +3362,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_GOTREF(item);
         *(temps[index]) = item;
       }
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 4) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 4) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       goto __pyx_L5_unpacking_done;
@@ -3331,7 +3370,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 139, __pyx_L1_error)
+      __PYX_ERR(0, 156, __pyx_L1_error)
       __pyx_L5_unpacking_done:;
     }
     __pyx_v_r = __pyx_t_3;
@@ -3343,22 +3382,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_v_a = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":142
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":159
  * 
  *         # Merging all the channels together except for the alpha channel.
  *         rgb_image = PIL.Image.merge('RGB', (r, g, b))             # <<<<<<<<<<<<<<
  * 
  *         # Inverting the image colors.
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_PIL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_PIL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 159, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_Image); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_Image); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 159, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_merge); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_merge); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 159, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 159, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_v_r);
     __Pyx_GIVEREF(__pyx_v_r);
@@ -3384,7 +3423,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_n_s_RGB, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -3393,14 +3432,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
       PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_n_s_RGB, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else
     #endif
     {
-      __pyx_t_3 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 142, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 159, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       if (__pyx_t_4) {
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -3411,7 +3450,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GIVEREF(__pyx_t_5);
       PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_9, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -3419,19 +3458,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_v_rgb_image = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":145
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":162
  * 
  *         # Inverting the image colors.
  *         inverted_image = PIL.ImageOps.invert(rgb_image)             # <<<<<<<<<<<<<<
  * 
  *         # Splitting the inverted image's channel to combine them again with the alpha channel.
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_PIL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 145, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_PIL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ImageOps); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ImageOps); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_invert); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 145, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_invert); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -3446,20 +3485,20 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_3, __pyx_v_rgb_image) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_rgb_image);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_v_inverted_image = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":148
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":165
  * 
  *         # Splitting the inverted image's channel to combine them again with the alpha channel.
  *         r2, g2, b2 = inverted_image.split()             # <<<<<<<<<<<<<<
  *         inverted_image = PIL.Image.merge('RGBA', (r2, g2, b2, a))
  *     else:
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_inverted_image, __pyx_n_s_split); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 148, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_inverted_image, __pyx_n_s_split); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 165, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
@@ -3473,7 +3512,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
@@ -3482,7 +3521,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 148, __pyx_L1_error)
+        __PYX_ERR(0, 165, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -3498,17 +3537,17 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_5);
       #else
-      __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 148, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 148, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 148, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
+      __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_8 = Py_TYPE(__pyx_t_4)->tp_iternext;
@@ -3518,7 +3557,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GOTREF(__pyx_t_3);
       index = 2; __pyx_t_5 = __pyx_t_8(__pyx_t_4); if (unlikely(!__pyx_t_5)) goto __pyx_L6_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_5);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_4), 3) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_4), 3) < 0) __PYX_ERR(0, 165, __pyx_L1_error)
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       goto __pyx_L7_unpacking_done;
@@ -3526,7 +3565,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 148, __pyx_L1_error)
+      __PYX_ERR(0, 165, __pyx_L1_error)
       __pyx_L7_unpacking_done:;
     }
     __pyx_v_r2 = __pyx_t_6;
@@ -3536,22 +3575,22 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_v_b2 = __pyx_t_5;
     __pyx_t_5 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":149
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":166
  *         # Splitting the inverted image's channel to combine them again with the alpha channel.
  *         r2, g2, b2 = inverted_image.split()
  *         inverted_image = PIL.Image.merge('RGBA', (r2, g2, b2, a))             # <<<<<<<<<<<<<<
  *     else:
  *         inverted_image = PIL.ImageOps.invert(image)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 149, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_Image); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 149, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_Image); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_merge); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 149, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_merge); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 149, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_r2);
     __Pyx_GIVEREF(__pyx_v_r2);
@@ -3580,7 +3619,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_5)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_n_s_RGBA, __pyx_t_3};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 149, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3589,14 +3628,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_n_s_RGBA, __pyx_t_3};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 149, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else
     #endif
     {
-      __pyx_t_4 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 149, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       if (__pyx_t_6) {
         __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -3607,7 +3646,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_9, __pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 149, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
@@ -3615,7 +3654,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __Pyx_DECREF_SET(__pyx_v_inverted_image, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":137
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":154
  * 
  *     # Check for alpha channel
  *     if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
@@ -3625,20 +3664,20 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     goto __pyx_L3;
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":151
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":168
  *         inverted_image = PIL.Image.merge('RGBA', (r2, g2, b2, a))
  *     else:
  *         inverted_image = PIL.ImageOps.invert(image)             # <<<<<<<<<<<<<<
- *     send_to_clipboard(inverted_image)
+ *     sendToClipboard(inverted_image)
  * 
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 151, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_PIL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_ImageOps); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 151, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_ImageOps); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_invert); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 151, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_invert); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -3653,7 +3692,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_4, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_image);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_inverted_image = __pyx_t_1;
@@ -3661,14 +3700,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_L3:;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":152
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":169
  *     else:
  *         inverted_image = PIL.ImageOps.invert(image)
- *     send_to_clipboard(inverted_image)             # <<<<<<<<<<<<<<
+ *     sendToClipboard(inverted_image)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_send_to_clipboard); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_sendToClipboard); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
@@ -3682,15 +3721,15 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_4, __pyx_v_inverted_image) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_inverted_image);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 152, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":127
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":144
  * 
  * 
- * def image_invert(image: PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
+ * def imageInvert(image: PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
@@ -3705,7 +3744,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.image_invert", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.imageInvert", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_r);
@@ -3722,30 +3761,30 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":155
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":172
  * 
  * 
- * def make_transparent(image: PIL.Image.Image) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
+ * def makeTransparent(image: PIL.Image.Image) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11make_transparent(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_10make_transparent[] = "make_transparent(image: PIL.Image.Image) -> PIL.Image.Image\n\n    Description:\n        Convert image to RGBA and make the background transparent.\n    ---\n    Parameters:\n        - image (PIL.Image.Image): the input image to be made transparent.\n    ---\n    Returns:\n        PIL.Image.Image: the modified image with a transparent background.\n    ";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11make_transparent = {"make_transparent", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11make_transparent, METH_O, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_10make_transparent};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11make_transparent(PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_11makeTransparent(PyObject *__pyx_self, PyObject *__pyx_v_image); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_10makeTransparent[] = "makeTransparent(image: PIL.Image.Image) -> PIL.Image.Image\n\n    Description:\n        Convert image to RGBA and make the background transparent.\n    ---\n    Parameters:\n        - image (PIL.Image.Image): the input image to be made transparent.\n    ---\n    Returns:\n        PIL.Image.Image: the modified image with a transparent background.\n    ";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_11makeTransparent = {"makeTransparent", (PyCFunction)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_11makeTransparent, METH_O, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_10makeTransparent};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_11makeTransparent(PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("make_transparent (wrapper)", 0);
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_10make_transparent(__pyx_self, ((PyObject *)__pyx_v_image));
+  __Pyx_RefNannySetupContext("makeTransparent (wrapper)", 0);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_10makeTransparent(__pyx_self, ((PyObject *)__pyx_v_image));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_10make_transparent(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_10makeTransparent(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_image) {
   PyObject *__pyx_v_data_items = NULL;
   PyObject *__pyx_v_output_image = NULL;
   PyObject *__pyx_v_bg_color = NULL;
@@ -3765,17 +3804,17 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("make_transparent", 0);
+  __Pyx_RefNannySetupContext("makeTransparent", 0);
   __Pyx_INCREF(__pyx_v_image);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":168
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":185
  * 
  *     # Converting the image to RGBA by adding an extra channel.
  *     image = image.convert("RGBA")             # <<<<<<<<<<<<<<
  * 
  *     # Returns the contents of this image as a sequence object containing pixel values.
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_convert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_convert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3789,20 +3828,20 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_n_s_RGBA) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_n_s_RGBA);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":171
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":188
  * 
  *     # Returns the contents of this image as a sequence object containing pixel values.
  *     data_items = image.getdata()             # <<<<<<<<<<<<<<
  * 
  *     output_image = []
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_getdata); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_getdata); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3816,44 +3855,44 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 171, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_data_items = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":173
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":190
  *     data_items = image.getdata()
  * 
  *     output_image = []             # <<<<<<<<<<<<<<
  * 
  *     # Finding the most frequently occurring color in the image (Which usually represet the bg color). `image.getcolors(image.size[0] * image.size[1])` returns
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_output_image = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":177
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":194
  *     # Finding the most frequently occurring color in the image (Which usually represet the bg color). `image.getcolors(image.size[0] * image.size[1])` returns
  *     # a list of tuples, where each tuple represents the count and color of each pixel in the image. The output is like this: [(3, (0,0,0)), (4, (255,255,255))]
  *     bg_color = max(image.getcolors(image.size[0] * image.size[1]))[1] # max() returns the tuple with the highest count.             # <<<<<<<<<<<<<<
  * 
  *     # Loop through each pixel in the image.
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_getcolors); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_getcolors); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_3, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_3, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_3, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_3, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -3870,19 +3909,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_max, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_max, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_bg_color = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":180
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":197
  * 
  *     # Loop through each pixel in the image.
  *     for item in data_items:             # <<<<<<<<<<<<<<
@@ -3893,26 +3932,26 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_t_1 = __pyx_v_data_items; __Pyx_INCREF(__pyx_t_1); __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_data_items); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_data_items); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_7 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 180, __pyx_L1_error)
+    __pyx_t_7 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 197, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_7)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 180, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 197, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 180, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 180, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 197, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 180, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -3922,7 +3961,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 180, __pyx_L1_error)
+          else __PYX_ERR(0, 197, __pyx_L1_error)
         }
         break;
       }
@@ -3931,53 +3970,53 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __Pyx_XDECREF_SET(__pyx_v_item, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":185
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":202
  * 
  *         # If the pixel is close to the background color, make it transparent.
  *         if all([abs(item[0]-bg_color[0] < 10), abs(item[1]-bg_color[1] < 1), abs(item[2]-bg_color[2] < 1)]):             # <<<<<<<<<<<<<<
  *             output_image.append((255, 255, 255, 0))
  * 
  */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_item, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_item, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_bg_color, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_bg_color, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = PyNumber_Subtract(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Subtract(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_int_10, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_int_10, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyNumber_Absolute(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyNumber_Absolute(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_item, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_item, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_bg_color, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_bg_color, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = PyNumber_Subtract(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Subtract(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyNumber_Absolute(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyNumber_Absolute(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_item, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_item, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_bg_color, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_bg_color, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_8 = PyNumber_Subtract(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_8 = PyNumber_Subtract(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_8, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_8, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyNumber_Absolute(__pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyNumber_Absolute(__pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyList_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_5);
     PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_5);
@@ -3988,23 +4027,23 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_t_5 = 0;
     __pyx_t_4 = 0;
     __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_all, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_all, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     if (__pyx_t_9) {
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":186
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":203
  *         # If the pixel is close to the background color, make it transparent.
  *         if all([abs(item[0]-bg_color[0] < 10), abs(item[1]-bg_color[1] < 1), abs(item[2]-bg_color[2] < 1)]):
  *             output_image.append((255, 255, 255, 0))             # <<<<<<<<<<<<<<
  * 
  *         else: # Otherwise, keep the pixel's original color.
  */
-      __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_output_image, __pyx_tuple__4); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_output_image, __pyx_tuple__4); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 203, __pyx_L1_error)
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":185
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":202
  * 
  *         # If the pixel is close to the background color, make it transparent.
  *         if all([abs(item[0]-bg_color[0] < 10), abs(item[1]-bg_color[1] < 1), abs(item[2]-bg_color[2] < 1)]):             # <<<<<<<<<<<<<<
@@ -4014,7 +4053,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       goto __pyx_L5;
     }
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":189
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":206
  * 
  *         else: # Otherwise, keep the pixel's original color.
  *             output_image.append(item)             # <<<<<<<<<<<<<<
@@ -4022,11 +4061,11 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  *     # Update the image with the output image list
  */
     /*else*/ {
-      __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_output_image, __pyx_v_item); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 189, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_output_image, __pyx_v_item); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 206, __pyx_L1_error)
     }
     __pyx_L5:;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":180
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":197
  * 
  *     # Loop through each pixel in the image.
  *     for item in data_items:             # <<<<<<<<<<<<<<
@@ -4036,14 +4075,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":192
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":209
  * 
  *     # Update the image with the output image list
  *     image.putdata(output_image)             # <<<<<<<<<<<<<<
  * 
  *     return image
  */
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_putdata); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_putdata); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -4057,12 +4096,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_3, __pyx_v_output_image) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_output_image);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":194
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":211
  *     image.putdata(output_image)
  * 
  *     return image             # <<<<<<<<<<<<<<
@@ -4074,10 +4113,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __pyx_r = __pyx_v_image;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":155
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":172
  * 
  * 
- * def make_transparent(image: PIL.Image.Image) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
+ * def makeTransparent(image: PIL.Image.Image) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
@@ -4090,7 +4129,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.make_transparent", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.makeTransparent", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_data_items);
@@ -4103,7 +4142,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":221
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":238
  *     """
  * 
  *     def __init__(self, shape: tuple):             # <<<<<<<<<<<<<<
@@ -4112,10 +4151,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper___init__[] = "MouseHelper.__init__(self, tuple shape: tuple)\n\n        Parameters\n        ----------\n        shape : tuple[int, int]\n            The shape of the image that the mouse helper is used with.\n        ";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_1__init__, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper___init__};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker___init__[] = "MouseTracker.__init__(self, tuple shape: tuple)\n\n        Parameters\n        ----------\n        shape : tuple[int, int]\n            The shape of the image that the mouse helper is used with.\n        ";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_1__init__, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker___init__};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_shape = 0;
   int __pyx_lineno = 0;
@@ -4147,11 +4186,11 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_shape)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 221, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 238, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 221, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 238, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4164,14 +4203,14 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 221, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 238, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.MouseHelper.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.MouseTracker.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_shape), (&PyTuple_Type), 1, "shape", 1))) __PYX_ERR(0, 221, __pyx_L1_error)
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper___init__(__pyx_self, __pyx_v_self, __pyx_v_shape);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_shape), (&PyTuple_Type), 1, "shape", 1))) __PYX_ERR(0, 238, __pyx_L1_error)
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker___init__(__pyx_self, __pyx_v_self, __pyx_v_shape);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4182,7 +4221,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_shape) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_shape) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4192,7 +4231,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":229
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":246
  *         """
  * 
  *         self.x, self.y = 0, 0             # <<<<<<<<<<<<<<
@@ -4203,12 +4242,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_INCREF(__pyx_t_1);
   __pyx_t_2 = __pyx_int_0;
   __Pyx_INCREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_x, __pyx_t_1) < 0) __PYX_ERR(0, 229, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_x, __pyx_t_1) < 0) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_y, __pyx_t_2) < 0) __PYX_ERR(0, 229, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_y, __pyx_t_2) < 0) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":230
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":247
  * 
  *         self.x, self.y = 0, 0
  *         self.px, self.py = 0, 0             # <<<<<<<<<<<<<<
@@ -4219,66 +4258,66 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_INCREF(__pyx_t_2);
   __pyx_t_1 = __pyx_int_0;
   __Pyx_INCREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_px, __pyx_t_2) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_px, __pyx_t_2) < 0) __PYX_ERR(0, 247, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_py, __pyx_t_1) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_py, __pyx_t_1) < 0) __PYX_ERR(0, 247, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":231
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":248
  *         self.x, self.y = 0, 0
  *         self.px, self.py = 0, 0
  *         self.shape = shape             # <<<<<<<<<<<<<<
  *         self.mouse_selection_start = None
  *         self.mouse_selection_end = None
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_shape, __pyx_v_shape) < 0) __PYX_ERR(0, 231, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_shape, __pyx_v_shape) < 0) __PYX_ERR(0, 248, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":232
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":249
  *         self.px, self.py = 0, 0
  *         self.shape = shape
  *         self.mouse_selection_start = None             # <<<<<<<<<<<<<<
  *         self.mouse_selection_end = None
  *         self.cropping = False
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start, Py_None) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start, Py_None) < 0) __PYX_ERR(0, 249, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":233
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":250
  *         self.shape = shape
  *         self.mouse_selection_start = None
  *         self.mouse_selection_end = None             # <<<<<<<<<<<<<<
  *         self.cropping = False
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_end, Py_None) < 0) __PYX_ERR(0, 233, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_end, Py_None) < 0) __PYX_ERR(0, 250, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":234
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":251
  *         self.mouse_selection_start = None
  *         self.mouse_selection_end = None
  *         self.cropping = False             # <<<<<<<<<<<<<<
  * 
  *         self.event = None
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cropping, Py_False) < 0) __PYX_ERR(0, 234, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cropping, Py_False) < 0) __PYX_ERR(0, 251, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":236
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":253
  *         self.cropping = False
  * 
  *         self.event = None             # <<<<<<<<<<<<<<
  *         self.drawing = False
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_event, Py_None) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_event, Py_None) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":237
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":254
  * 
  *         self.event = None
  *         self.drawing = False             # <<<<<<<<<<<<<<
  * 
  *     # Mouse Callback function
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_drawing, Py_False) < 0) __PYX_ERR(0, 237, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_drawing, Py_False) < 0) __PYX_ERR(0, 254, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":221
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":238
  *     """
  * 
  *     def __init__(self, shape: tuple):             # <<<<<<<<<<<<<<
@@ -4292,7 +4331,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.MouseHelper.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.MouseTracker.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4300,19 +4339,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":240
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":257
  * 
  *     # Mouse Callback function
- *     def update_life_data(self, event: int, x: int, y: int, flags: int, param) -> None:             # <<<<<<<<<<<<<<
+ *     def updateMouseData(self, event: int, x: int, y: int, flags: int, param) -> None:             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_3update_life_data(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_2update_life_data[] = "MouseHelper.update_life_data(self, event: int, x: int, y: int, flags: int, param) -> None\n\n        Description:\n            Updates the state of the mouse helper based on the given mouse event.\n        ---\n        Parameters:\n            - `event (int)`: The type of the current mouse event.\n            - `x (int)`: The current x-coordinate of the mouse.\n            - `y (int):` The current y-coordinate of the mouse.\n            - `flags (int)`: The flags associated with the current mouse event.\n            - `param (Any)`: Any additional parameters associated with the current mouse event.\n        ";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_3update_life_data = {"update_life_data", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_3update_life_data, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_2update_life_data};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_3update_life_data(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_3updateMouseData(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_2updateMouseData[] = "MouseTracker.updateMouseData(self, event: int, x: int, y: int, flags: int, param) -> None\n\n        Description:\n            Updates the state of the mouse helper based on the given mouse event.\n        ---\n        Parameters:\n            - `event (int)`: The type of the current mouse event.\n            - `x (int)`: The current x-coordinate of the mouse.\n            - `y (int):` The current y-coordinate of the mouse.\n            - `flags (int)`: The flags associated with the current mouse event.\n            - `param (Any)`: Any additional parameters associated with the current mouse event.\n        ";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_3updateMouseData = {"updateMouseData", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_3updateMouseData, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_2updateMouseData};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_3updateMouseData(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_event = 0;
   PyObject *__pyx_v_x = 0;
@@ -4324,7 +4363,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("update_life_data (wrapper)", 0);
+  __Pyx_RefNannySetupContext("updateMouseData (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_event,&__pyx_n_s_x,&__pyx_n_s_y,&__pyx_n_s_flags,&__pyx_n_s_param,0};
     PyObject* values[6] = {0,0,0,0,0,0};
@@ -4356,35 +4395,35 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_event)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_life_data", 1, 6, 6, 1); __PYX_ERR(0, 240, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("updateMouseData", 1, 6, 6, 1); __PYX_ERR(0, 257, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_x)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_life_data", 1, 6, 6, 2); __PYX_ERR(0, 240, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("updateMouseData", 1, 6, 6, 2); __PYX_ERR(0, 257, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_life_data", 1, 6, 6, 3); __PYX_ERR(0, 240, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("updateMouseData", 1, 6, 6, 3); __PYX_ERR(0, 257, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_flags)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_life_data", 1, 6, 6, 4); __PYX_ERR(0, 240, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("updateMouseData", 1, 6, 6, 4); __PYX_ERR(0, 257, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_param)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_life_data", 1, 6, 6, 5); __PYX_ERR(0, 240, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("updateMouseData", 1, 6, 6, 5); __PYX_ERR(0, 257, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update_life_data") < 0)) __PYX_ERR(0, 240, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "updateMouseData") < 0)) __PYX_ERR(0, 257, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -4405,20 +4444,20 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("update_life_data", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 240, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("updateMouseData", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 257, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.MouseHelper.update_life_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.MouseTracker.updateMouseData", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_2update_life_data(__pyx_self, __pyx_v_self, __pyx_v_event, __pyx_v_x, __pyx_v_y, __pyx_v_flags, __pyx_v_param);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_2updateMouseData(__pyx_self, __pyx_v_self, __pyx_v_event, __pyx_v_x, __pyx_v_y, __pyx_v_flags, __pyx_v_param);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_2update_life_data(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_event, PyObject *__pyx_v_x, PyObject *__pyx_v_y, PyObject *__pyx_v_flags, CYTHON_UNUSED PyObject *__pyx_v_param) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_2updateMouseData(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_event, PyObject *__pyx_v_x, PyObject *__pyx_v_y, PyObject *__pyx_v_flags, CYTHON_UNUSED PyObject *__pyx_v_param) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4428,25 +4467,25 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("update_life_data", 0);
+  __Pyx_RefNannySetupContext("updateMouseData", 0);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":253
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":270
  *         """
  * 
  *         self.px, self.py = self.x, self.y             # <<<<<<<<<<<<<<
  *         self.x, self.y = x, y
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_px, __pyx_t_1) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_px, __pyx_t_1) < 0) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_py, __pyx_t_2) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_py, __pyx_t_2) < 0) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":254
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":271
  * 
  *         self.px, self.py = self.x, self.y
  *         self.x, self.y = x, y             # <<<<<<<<<<<<<<
@@ -4457,83 +4496,83 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_INCREF(__pyx_t_2);
   __pyx_t_1 = __pyx_v_y;
   __Pyx_INCREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_x, __pyx_t_2) < 0) __PYX_ERR(0, 254, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_x, __pyx_t_2) < 0) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_y, __pyx_t_1) < 0) __PYX_ERR(0, 254, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_y, __pyx_t_1) < 0) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":256
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":273
  *         self.x, self.y = x, y
  * 
  *         self.event = event             # <<<<<<<<<<<<<<
  * 
  *         if event == cv2.EVENT_LBUTTONDOWN:
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_event, __pyx_v_event) < 0) __PYX_ERR(0, 256, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_event, __pyx_v_event) < 0) __PYX_ERR(0, 273, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":258
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":275
  *         self.event = event
  * 
  *         if event == cv2.EVENT_LBUTTONDOWN:             # <<<<<<<<<<<<<<
  *             if flags & cv2.EVENT_FLAG_CTRLKEY:  # Check if Ctrl key is pressed
  *                 self.cropping = True
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_EVENT_LBUTTONDOWN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_EVENT_LBUTTONDOWN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_event, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_event, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":259
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":276
  * 
  *         if event == cv2.EVENT_LBUTTONDOWN:
  *             if flags & cv2.EVENT_FLAG_CTRLKEY:  # Check if Ctrl key is pressed             # <<<<<<<<<<<<<<
  *                 self.cropping = True
  *                 self.drawing = False
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_EVENT_FLAG_CTRLKEY); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_EVENT_FLAG_CTRLKEY); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyNumber_And(__pyx_v_flags, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_And(__pyx_v_flags, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 259, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 276, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_3) {
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":260
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":277
  *         if event == cv2.EVENT_LBUTTONDOWN:
  *             if flags & cv2.EVENT_FLAG_CTRLKEY:  # Check if Ctrl key is pressed
  *                 self.cropping = True             # <<<<<<<<<<<<<<
  *                 self.drawing = False
  *                 self.mouse_selection_start = x, y # Cropping
  */
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cropping, Py_True) < 0) __PYX_ERR(0, 260, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cropping, Py_True) < 0) __PYX_ERR(0, 277, __pyx_L1_error)
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":261
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":278
  *             if flags & cv2.EVENT_FLAG_CTRLKEY:  # Check if Ctrl key is pressed
  *                 self.cropping = True
  *                 self.drawing = False             # <<<<<<<<<<<<<<
  *                 self.mouse_selection_start = x, y # Cropping
  * 
  */
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_drawing, Py_False) < 0) __PYX_ERR(0, 261, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_drawing, Py_False) < 0) __PYX_ERR(0, 278, __pyx_L1_error)
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":262
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":279
  *                 self.cropping = True
  *                 self.drawing = False
  *                 self.mouse_selection_start = x, y # Cropping             # <<<<<<<<<<<<<<
  * 
  *             else:
  */
-      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_INCREF(__pyx_v_x);
       __Pyx_GIVEREF(__pyx_v_x);
@@ -4541,10 +4580,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_INCREF(__pyx_v_y);
       __Pyx_GIVEREF(__pyx_v_y);
       PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_y);
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start, __pyx_t_1) < 0) __PYX_ERR(0, 262, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start, __pyx_t_1) < 0) __PYX_ERR(0, 279, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":259
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":276
  * 
  *         if event == cv2.EVENT_LBUTTONDOWN:
  *             if flags & cv2.EVENT_FLAG_CTRLKEY:  # Check if Ctrl key is pressed             # <<<<<<<<<<<<<<
@@ -4554,7 +4593,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       goto __pyx_L4;
     }
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":265
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":282
  * 
  *             else:
  *                 self.cropping = False             # <<<<<<<<<<<<<<
@@ -4562,20 +4601,20 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  * 
  */
     /*else*/ {
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cropping, Py_False) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cropping, Py_False) < 0) __PYX_ERR(0, 282, __pyx_L1_error)
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":266
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":283
  *             else:
  *                 self.cropping = False
  *                 self.drawing = True             # <<<<<<<<<<<<<<
  * 
  *         # If the left mouse button was released
  */
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_drawing, Py_True) < 0) __PYX_ERR(0, 266, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_drawing, Py_True) < 0) __PYX_ERR(0, 283, __pyx_L1_error)
     }
     __pyx_L4:;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":258
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":275
  *         self.event = event
  * 
  *         if event == cv2.EVENT_LBUTTONDOWN:             # <<<<<<<<<<<<<<
@@ -4585,118 +4624,118 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     goto __pyx_L3;
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":269
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":286
  * 
  *         # If the left mouse button was released
  *         elif event == cv2.EVENT_LBUTTONUP:             # <<<<<<<<<<<<<<
  *             # Cropping
  *             if self.cropping and self.mouse_selection_start and (x <= self.shape[1] and y <= self.shape[0]) and (x - self.mouse_selection_start[0] > 10) and (y - self.mouse_selection_start[1] > 10):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_EVENT_LBUTTONUP); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_EVENT_LBUTTONUP); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_event, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_event, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 286, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":271
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":288
  *         elif event == cv2.EVENT_LBUTTONUP:
  *             # Cropping
  *             if self.cropping and self.mouse_selection_start and (x <= self.shape[1] and y <= self.shape[0]) and (x - self.mouse_selection_start[0] > 10) and (y - self.mouse_selection_start[1] > 10):             # <<<<<<<<<<<<<<
  *                 self.mouse_selection_end = x, y
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cropping); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cropping); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_4) {
     } else {
       __pyx_t_3 = __pyx_t_4;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_4) {
     } else {
       __pyx_t_3 = __pyx_t_4;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_x, __pyx_t_2, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_x, __pyx_t_2, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_4) {
     } else {
       __pyx_t_3 = __pyx_t_4;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_y, __pyx_t_2, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_y, __pyx_t_2, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_4) {
     } else {
       __pyx_t_3 = __pyx_t_4;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyNumber_Subtract(__pyx_v_x, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Subtract(__pyx_v_x, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_10, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_10, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_4) {
     } else {
       __pyx_t_3 = __pyx_t_4;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyNumber_Subtract(__pyx_v_y, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_Subtract(__pyx_v_y, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_int_10, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_int_10, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_3 = __pyx_t_4;
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_3) {
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":272
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":289
  *             # Cropping
  *             if self.cropping and self.mouse_selection_start and (x <= self.shape[1] and y <= self.shape[0]) and (x - self.mouse_selection_start[0] > 10) and (y - self.mouse_selection_start[1] > 10):
  *                 self.mouse_selection_end = x, y             # <<<<<<<<<<<<<<
  * 
  *             self.cropping = False
  */
-      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 289, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_INCREF(__pyx_v_x);
       __Pyx_GIVEREF(__pyx_v_x);
@@ -4704,10 +4743,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_INCREF(__pyx_v_y);
       __Pyx_GIVEREF(__pyx_v_y);
       PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_y);
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_end, __pyx_t_1) < 0) __PYX_ERR(0, 272, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_mouse_selection_end, __pyx_t_1) < 0) __PYX_ERR(0, 289, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":271
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":288
  *         elif event == cv2.EVENT_LBUTTONUP:
  *             # Cropping
  *             if self.cropping and self.mouse_selection_start and (x <= self.shape[1] and y <= self.shape[0]) and (x - self.mouse_selection_start[0] > 10) and (y - self.mouse_selection_start[1] > 10):             # <<<<<<<<<<<<<<
@@ -4716,25 +4755,25 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
     }
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":274
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":291
  *                 self.mouse_selection_end = x, y
  * 
  *             self.cropping = False             # <<<<<<<<<<<<<<
  *             self.drawing = False
  * 
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cropping, Py_False) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cropping, Py_False) < 0) __PYX_ERR(0, 291, __pyx_L1_error)
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":275
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":292
  * 
  *             self.cropping = False
  *             self.drawing = False             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_drawing, Py_False) < 0) __PYX_ERR(0, 275, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_drawing, Py_False) < 0) __PYX_ERR(0, 292, __pyx_L1_error)
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":269
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":286
  * 
  *         # If the left mouse button was released
  *         elif event == cv2.EVENT_LBUTTONUP:             # <<<<<<<<<<<<<<
@@ -4744,10 +4783,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_L3:;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":240
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":257
  * 
  *     # Mouse Callback function
- *     def update_life_data(self, event: int, x: int, y: int, flags: int, param) -> None:             # <<<<<<<<<<<<<<
+ *     def updateMouseData(self, event: int, x: int, y: int, flags: int, param) -> None:             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
@@ -4758,7 +4797,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.MouseHelper.update_life_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.MouseTracker.updateMouseData", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4766,19 +4805,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":278
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":295
  * 
  * 
- * def life_color_update(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:             # <<<<<<<<<<<<<<
+ * def addColorBar(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_13life_color_update(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_12life_color_update[] = "life_color_update(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray\n\n    Description:\n        Update the top strip of the image to the color of the pixel at (x,y), and put text displaying the pixel color.\n    ---\n    Parameters:\n        - cv2_main_image (np.ndarray): The OpenCV image array.\n        \n        - x (int): The x coordinate of the pixel to use for the top strip color.\n        \n        - y (int): The y coordinate of the pixel to use for the top strip color.\n    ---\n    Returns:\n        np.ndarray: The updated OpenCV image array.\n    ";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_13life_color_update = {"life_color_update", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_13life_color_update, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_12life_color_update};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_13life_color_update(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_13addColorBar(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12addColorBar[] = "addColorBar(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray\n\n    Description:\n        Update the top strip of the image to the color of the pixel at (x,y), and put text displaying the pixel color.\n    ---\n    Parameters:\n        - cv2_main_image (np.ndarray): The OpenCV image array.\n        \n        - x (int): The x coordinate of the pixel to use for the top strip color.\n        \n        - y (int): The y coordinate of the pixel to use for the top strip color.\n    ---\n    Returns:\n        np.ndarray: The updated OpenCV image array.\n    ";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_13addColorBar = {"addColorBar", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_13addColorBar, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12addColorBar};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_13addColorBar(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_cv2_main_image = 0;
   PyObject *__pyx_v_x = 0;
   PyObject *__pyx_v_y = 0;
@@ -4787,7 +4826,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("life_color_update (wrapper)", 0);
+  __Pyx_RefNannySetupContext("addColorBar (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_cv2_main_image,&__pyx_n_s_x,&__pyx_n_s_y,0};
     PyObject* values[3] = {0,0,0};
@@ -4813,17 +4852,17 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_x)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("life_color_update", 1, 3, 3, 1); __PYX_ERR(0, 278, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("addColorBar", 1, 3, 3, 1); __PYX_ERR(0, 295, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("life_color_update", 1, 3, 3, 2); __PYX_ERR(0, 278, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("addColorBar", 1, 3, 3, 2); __PYX_ERR(0, 295, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "life_color_update") < 0)) __PYX_ERR(0, 278, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "addColorBar") < 0)) __PYX_ERR(0, 295, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4838,20 +4877,20 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("life_color_update", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 278, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("addColorBar", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 295, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.life_color_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.addColorBar", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_12life_color_update(__pyx_self, __pyx_v_cv2_main_image, __pyx_v_x, __pyx_v_y);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12addColorBar(__pyx_self, __pyx_v_cv2_main_image, __pyx_v_x, __pyx_v_y);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_12life_color_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image, PyObject *__pyx_v_x, PyObject *__pyx_v_y) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12addColorBar(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cv2_main_image, PyObject *__pyx_v_x, PyObject *__pyx_v_y) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4865,21 +4904,21 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("life_color_update", 0);
+  __Pyx_RefNannySetupContext("addColorBar", 0);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":295
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":312
  * 
  *     # Updating the first 20 rows of the image with the color of the pixel at (x,y).
  *     cv2_main_image[0:20] = cv2_main_image[0:20] * (0) + cv2_main_image[y, x]             # <<<<<<<<<<<<<<
  * 
  *     # Put text displaying the pixel color.
  */
-  __pyx_t_1 = __Pyx_PyObject_GetSlice(__pyx_v_cv2_main_image, 0, 20, NULL, NULL, &__pyx_slice__5, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetSlice(__pyx_v_cv2_main_image, 0, 20, NULL, NULL, &__pyx_slice__5, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_int_0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_int_0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_y);
   __Pyx_GIVEREF(__pyx_v_y);
@@ -4887,32 +4926,32 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_INCREF(__pyx_v_x);
   __Pyx_GIVEREF(__pyx_v_x);
   PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_x);
-  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_cv2_main_image, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_cv2_main_image, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_PyObject_SetSlice(__pyx_v_cv2_main_image, __pyx_t_1, 0, 20, NULL, NULL, &__pyx_slice__5, 1, 1, 1) < 0) __PYX_ERR(0, 295, __pyx_L1_error)
+  if (__Pyx_PyObject_SetSlice(__pyx_v_cv2_main_image, __pyx_t_1, 0, 20, NULL, NULL, &__pyx_slice__5, 1, 1, 1) < 0) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":298
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":315
  * 
  *     # Put text displaying the pixel color.
  *     cv2.putText(img=cv2_main_image, text=f"({x}, {y}) | {', '.join(cv2_main_image[y, x].astype(str))}",             # <<<<<<<<<<<<<<
  *                 org=(0, 15), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
  *                 color=(~cv2_main_image[y, x]).tolist(), fontScale=0.5) # fontFace, fontScale, color, thickness
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_putText); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_putText); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_img, __pyx_v_cv2_main_image) < 0) __PYX_ERR(0, 298, __pyx_L1_error)
-  __pyx_t_2 = PyTuple_New(6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 298, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_img, __pyx_v_cv2_main_image) < 0) __PYX_ERR(0, 315, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = 0;
   __pyx_t_5 = 127;
@@ -4920,7 +4959,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __pyx_t_4 += 1;
   __Pyx_GIVEREF(__pyx_kp_u__6);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_u__6);
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_v_x, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_v_x, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_5;
   __pyx_t_4 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6);
@@ -4931,7 +4970,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __pyx_t_4 += 2;
   __Pyx_GIVEREF(__pyx_kp_u__7);
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u__7);
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_v_y, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_v_y, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_5;
   __pyx_t_4 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6);
@@ -4942,7 +4981,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __pyx_t_4 += 4;
   __Pyx_GIVEREF(__pyx_kp_u__8);
   PyTuple_SET_ITEM(__pyx_t_2, 4, __pyx_kp_u__8);
-  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_v_y);
   __Pyx_GIVEREF(__pyx_v_y);
@@ -4950,10 +4989,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_INCREF(__pyx_v_x);
   __Pyx_GIVEREF(__pyx_v_x);
   PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_v_x);
-  __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_v_cv2_main_image, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetItem(__pyx_v_cv2_main_image, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_astype); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_astype); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_8 = NULL;
@@ -4968,13 +5007,13 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_6 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, ((PyObject *)(&PyString_Type))) : __Pyx_PyObject_CallOneArg(__pyx_t_7, ((PyObject *)(&PyString_Type)));
   __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 298, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyString_Join(__pyx_kp_s__7, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyString_Join(__pyx_kp_s__7, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_5;
@@ -4982,36 +5021,36 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_2, 5, __pyx_t_6);
   __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_2, 6, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_2, 6, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_text, __pyx_t_6) < 0) __PYX_ERR(0, 298, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_text, __pyx_t_6) < 0) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":299
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":316
  *     # Put text displaying the pixel color.
  *     cv2.putText(img=cv2_main_image, text=f"({x}, {y}) | {', '.join(cv2_main_image[y, x].astype(str))}",
  *                 org=(0, 15), fontFace=cv2.FONT_HERSHEY_SIMPLEX,             # <<<<<<<<<<<<<<
  *                 color=(~cv2_main_image[y, x]).tolist(), fontScale=0.5) # fontFace, fontScale, color, thickness
  * 
  */
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_org, __pyx_tuple__9) < 0) __PYX_ERR(0, 298, __pyx_L1_error)
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 299, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_org, __pyx_tuple__9) < 0) __PYX_ERR(0, 315, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_fontFace, __pyx_t_2) < 0) __PYX_ERR(0, 298, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_fontFace, __pyx_t_2) < 0) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":300
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":317
  *     cv2.putText(img=cv2_main_image, text=f"({x}, {y}) | {', '.join(cv2_main_image[y, x].astype(str))}",
  *                 org=(0, 15), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
  *                 color=(~cv2_main_image[y, x]).tolist(), fontScale=0.5) # fontFace, fontScale, color, thickness             # <<<<<<<<<<<<<<
  * 
  *     return cv2_main_image
  */
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_v_y);
   __Pyx_GIVEREF(__pyx_v_y);
@@ -5019,13 +5058,13 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_INCREF(__pyx_v_x);
   __Pyx_GIVEREF(__pyx_v_x);
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_v_x);
-  __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_v_cv2_main_image, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_v_cv2_main_image, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyNumber_Invert(__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Invert(__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_tolist); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_tolist); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_6 = NULL;
@@ -5040,27 +5079,27 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 300, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_color, __pyx_t_2) < 0) __PYX_ERR(0, 298, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_color, __pyx_t_2) < 0) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_fontScale, __pyx_float_0_5) < 0) __PYX_ERR(0, 298, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_fontScale, __pyx_float_0_5) < 0) __PYX_ERR(0, 315, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":298
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":315
  * 
  *     # Put text displaying the pixel color.
  *     cv2.putText(img=cv2_main_image, text=f"({x}, {y}) | {', '.join(cv2_main_image[y, x].astype(str))}",             # <<<<<<<<<<<<<<
  *                 org=(0, 15), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
  *                 color=(~cv2_main_image[y, x]).tolist(), fontScale=0.5) # fontFace, fontScale, color, thickness
  */
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":302
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":319
  *                 color=(~cv2_main_image[y, x]).tolist(), fontScale=0.5) # fontFace, fontScale, color, thickness
  * 
  *     return cv2_main_image             # <<<<<<<<<<<<<<
@@ -5072,10 +5111,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __pyx_r = __pyx_v_cv2_main_image;
   goto __pyx_L0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":278
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":295
  * 
  * 
- * def life_color_update(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:             # <<<<<<<<<<<<<<
+ * def addColorBar(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
@@ -5088,7 +5127,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.life_color_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.addColorBar", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5096,19 +5135,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   return __pyx_r;
 }
 
-/* "src/cythonExtensions/imageInverter/imageInverter.pyx":305
+/* "src/cythonExtensions/imageUtils/imageUtils.pyx":322
  * 
  * 
- * def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
+ * def runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
  *     if save_near_module:
  *         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_15BeginImageProcessing(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_14BeginImageProcessing[] = "BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080))";
-static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_15BeginImageProcessing = {"BeginImageProcessing", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_15BeginImageProcessing, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7macropy_16cythonExtensions_13imageInverter_13imageInverter_14BeginImageProcessing};
-static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInverter_15BeginImageProcessing(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_15runScript(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_14runScript[] = "runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080))";
+static PyMethodDef __pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_15runScript = {"runScript", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_15runScript, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7macropy_16cythonExtensions_10imageUtils_10imageUtils_14runScript};
+static PyObject *__pyx_pw_7macropy_16cythonExtensions_10imageUtils_10imageUtils_15runScript(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_show_window = 0;
   PyObject *__pyx_v_save_near_module = 0;
   CYTHON_UNUSED PyObject *__pyx_v_screen_size = 0;
@@ -5117,7 +5156,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("BeginImageProcessing (wrapper)", 0);
+  __Pyx_RefNannySetupContext("runScript (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_show_window,&__pyx_n_s_save_near_module,&__pyx_n_s_screen_size,0};
     PyObject* values[3] = {0,0,0};
@@ -5158,7 +5197,7 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "BeginImageProcessing") < 0)) __PYX_ERR(0, 305, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "runScript") < 0)) __PYX_ERR(0, 322, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -5178,26 +5217,25 @@ static PyObject *__pyx_pw_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("BeginImageProcessing", 0, 0, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 305, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("runScript", 0, 0, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 322, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.BeginImageProcessing", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.runScript", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_14BeginImageProcessing(__pyx_self, __pyx_v_show_window, __pyx_v_save_near_module, __pyx_v_screen_size);
+  __pyx_r = __pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_14runScript(__pyx_self, __pyx_v_show_window, __pyx_v_save_near_module, __pyx_v_screen_size);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInverter_14BeginImageProcessing(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_show_window, PyObject *__pyx_v_save_near_module, CYTHON_UNUSED PyObject *__pyx_v_screen_size) {
+static PyObject *__pyx_pf_7macropy_16cythonExtensions_10imageUtils_10imageUtils_14runScript(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_show_window, PyObject *__pyx_v_save_near_module, CYTHON_UNUSED PyObject *__pyx_v_screen_size) {
   PyObject *__pyx_v_save_directory = NULL;
   PyObject *__pyx_v_image = NULL;
   PyObject *__pyx_v_ctypes = NULL;
   PyObject *__pyx_v_win32api = NULL;
   PyObject *__pyx_v_win32con = NULL;
-  PyObject *__pyx_v_kbcon = NULL;
   PyObject *__pyx_v_cv2_main_image = NULL;
   int __pyx_v_color_picker_switch;
   PyObject *__pyx_v_mouse_helper = NULL;
@@ -5221,51 +5259,51 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("BeginImageProcessing", 0);
+  __Pyx_RefNannySetupContext("runScript", 0);
   __Pyx_INCREF(__pyx_v_screen_size);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":306
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":323
  * 
- * def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080)):
+ * def runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080)):
  *     if save_near_module:             # <<<<<<<<<<<<<<
  *         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")
  *     else:
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_save_near_module); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_save_near_module); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 323, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":307
- * def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080)):
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":324
+ * def runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080)):
  *     if save_near_module:
  *         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")             # <<<<<<<<<<<<<<
  *     else:
  *         save_directory = os.path.join(os.getcwd(), "Images")
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_dirname); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_dirname); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_os); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_os); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_path); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_path); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_abspath); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_abspath); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_file); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_file); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_9 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -5280,7 +5318,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_t_6 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_9, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 307, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_7 = NULL;
@@ -5296,7 +5334,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 307, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -5314,7 +5352,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_4, __pyx_n_s_Images};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 307, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -5323,14 +5361,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_4, __pyx_n_s_Images};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 307, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     } else
     #endif
     {
-      __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 307, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 324, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       if (__pyx_t_5) {
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -5341,7 +5379,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GIVEREF(__pyx_n_s_Images);
       PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_n_s_Images);
       __pyx_t_4 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 307, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
@@ -5349,9 +5387,9 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     __pyx_v_save_directory = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":306
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":323
  * 
- * def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080)):
+ * def runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080)):
  *     if save_near_module:             # <<<<<<<<<<<<<<
  *         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")
  *     else:
@@ -5359,7 +5397,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     goto __pyx_L3;
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":309
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":326
  *         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")
  *     else:
  *         save_directory = os.path.join(os.getcwd(), "Images")             # <<<<<<<<<<<<<<
@@ -5367,17 +5405,17 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  *     os.makedirs(save_directory, exist_ok=True)
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_os); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_os); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_getcwd); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_getcwd); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -5392,7 +5430,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     }
     __pyx_t_6 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 309, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -5410,7 +5448,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_6, __pyx_n_s_Images};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5419,14 +5457,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_6, __pyx_n_s_Images};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else
     #endif
     {
-      __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 309, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 326, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       if (__pyx_t_5) {
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -5437,7 +5475,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GIVEREF(__pyx_n_s_Images);
       PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_n_s_Images);
       __pyx_t_6 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
@@ -5447,46 +5485,46 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_L3:;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":311
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":328
  *         save_directory = os.path.join(os.getcwd(), "Images")
  * 
  *     os.makedirs(save_directory, exist_ok=True)             # <<<<<<<<<<<<<<
  * 
  *     image = PIL.ImageGrab.grabclipboard()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_makedirs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_makedirs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_save_directory);
   __Pyx_GIVEREF(__pyx_v_save_directory);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_save_directory);
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_exist_ok, Py_True) < 0) __PYX_ERR(0, 311, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 311, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_exist_ok, Py_True) < 0) __PYX_ERR(0, 328, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":313
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":330
  *     os.makedirs(save_directory, exist_ok=True)
  * 
  *     image = PIL.ImageGrab.grabclipboard()             # <<<<<<<<<<<<<<
  *     if show_window:
  *         import ctypes
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_PIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_PIL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ImageGrab); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ImageGrab); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_grabclipboard); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 313, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_grabclipboard); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -5501,129 +5539,107 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   }
   __pyx_t_6 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 313, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 330, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_image = __pyx_t_6;
   __pyx_t_6 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":314
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":331
  * 
  *     image = PIL.ImageGrab.grabclipboard()
  *     if show_window:             # <<<<<<<<<<<<<<
  *         import ctypes
  *         import win32api, win32con
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_show_window); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_show_window); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 331, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":315
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":332
  *     image = PIL.ImageGrab.grabclipboard()
  *     if show_window:
  *         import ctypes             # <<<<<<<<<<<<<<
  *         import win32api, win32con
- *         from cythonExtensions.commonUtils.commonUtils import KB_Con as kbcon
+ * 
  */
-    __pyx_t_6 = __Pyx_Import(__pyx_n_s_ctypes, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 315, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_Import(__pyx_n_s_ctypes, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 332, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_v_ctypes = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":316
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":333
  *     if show_window:
  *         import ctypes
  *         import win32api, win32con             # <<<<<<<<<<<<<<
- *         from cythonExtensions.commonUtils.commonUtils import KB_Con as kbcon
  * 
+ *         ctypes.windll.shcore.SetProcessDpiAwareness(2)
  */
-    __pyx_t_6 = __Pyx_Import(__pyx_n_s_win32api, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 316, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_Import(__pyx_n_s_win32api, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 333, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_v_win32api = __pyx_t_6;
     __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_Import(__pyx_n_s_win32con, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 316, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_Import(__pyx_n_s_win32con, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 333, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_v_win32con = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":317
- *         import ctypes
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":335
  *         import win32api, win32con
- *         from cythonExtensions.commonUtils.commonUtils import KB_Con as kbcon             # <<<<<<<<<<<<<<
- * 
- *         ctypes.windll.shcore.SetProcessDpiAwareness(2)
- */
-    __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 317, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_INCREF(__pyx_n_s_KB_Con);
-    __Pyx_GIVEREF(__pyx_n_s_KB_Con);
-    PyList_SET_ITEM(__pyx_t_6, 0, __pyx_n_s_KB_Con);
-    __pyx_t_4 = __Pyx_Import(__pyx_n_s_cythonExtensions_commonUtils_com, __pyx_t_6, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 317, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_ImportFrom(__pyx_t_4, __pyx_n_s_KB_Con); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 317, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_INCREF(__pyx_t_6);
-    __pyx_v_kbcon = __pyx_t_6;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":319
- *         from cythonExtensions.commonUtils.commonUtils import KB_Con as kbcon
  * 
  *         ctypes.windll.shcore.SetProcessDpiAwareness(2)             # <<<<<<<<<<<<<<
  *         screen_size = win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_ctypes, __pyx_n_s_windll); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 319, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_shcore); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 319, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ctypes, __pyx_n_s_windll); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 335, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_shcore); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 335, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SetProcessDpiAwareness); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 319, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SetProcessDpiAwareness); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 335, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
-      __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_6);
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
       if (likely(__pyx_t_2)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_2);
         __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_6, function);
+        __Pyx_DECREF_SET(__pyx_t_4, function);
       }
     }
-    __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_2, __pyx_int_2) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_int_2);
+    __pyx_t_6 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_int_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_int_2);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 319, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 335, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":320
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":336
  * 
  *         ctypes.windll.shcore.SetProcessDpiAwareness(2)
  *         screen_size = win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)             # <<<<<<<<<<<<<<
  * 
  *         # Convert PIL image to OpenCv
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_win32api, __pyx_n_s_GetSystemMetrics); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 320, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_win32api, __pyx_n_s_GetSystemMetrics); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 336, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_2 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
-      __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_6);
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
       if (likely(__pyx_t_2)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_2);
         __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_6, function);
+        __Pyx_DECREF_SET(__pyx_t_4, function);
       }
     }
-    __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_2, __pyx_int_0) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_int_0);
+    __pyx_t_6 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_int_0) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_int_0);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 320, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_win32api, __pyx_n_s_GetSystemMetrics); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 320, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 336, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_win32api, __pyx_n_s_GetSystemMetrics); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5635,61 +5651,31 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_DECREF_SET(__pyx_t_2, function);
       }
     }
-    __pyx_t_6 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_int_1) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_int_1);
+    __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_int_1) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_int_1);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 320, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 336, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 320, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_4);
-    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_6);
-    PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_6);
-    __pyx_t_4 = 0;
+    PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6);
+    __Pyx_GIVEREF(__pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_4);
     __pyx_t_6 = 0;
+    __pyx_t_4 = 0;
     __Pyx_DECREF_SET(__pyx_v_screen_size, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":323
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":339
  * 
  *         # Convert PIL image to OpenCv
- *         cv2_main_image = pil_to_cv(image)             # <<<<<<<<<<<<<<
+ *         cv2_main_image = pilToCv(image)             # <<<<<<<<<<<<<<
  * 
  *         # inverted = False # Color inversion status
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_pil_to_cv); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 323, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_4 = NULL;
-    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_6);
-      if (likely(__pyx_t_4)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-        __Pyx_INCREF(__pyx_t_4);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_6, function);
-      }
-    }
-    __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_4, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_image);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_v_cv2_main_image = __pyx_t_2;
-    __pyx_t_2 = 0;
-
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":326
- * 
- *         # inverted = False # Color inversion status
- *         cv2.namedWindow("Image Window")             # <<<<<<<<<<<<<<
- *         cv2.imshow("Image Window", cv2_main_image)
- * 
- */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 326, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_namedWindow); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 326, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pilToCv); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
       __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
@@ -5700,27 +5686,27 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_DECREF_SET(__pyx_t_4, function);
       }
     }
-    __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_6, __pyx_kp_s_Image_Window) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_kp_s_Image_Window);
+    __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_6, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_image);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_v_cv2_main_image = __pyx_t_2;
+    __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":327
- *         # inverted = False # Color inversion status
- *         cv2.namedWindow("Image Window")
- *         cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":342
  * 
- *         # These two lines will force your "Main View" window to be on top with focus.
+ *         # inverted = False # Color inversion status
+ *         cv2.namedWindow("Image Window")             # <<<<<<<<<<<<<<
+ *         cv2.imshow("Image Window", cv2_main_image)
+ * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 342, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_imshow); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_namedWindow); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 342, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
-    __pyx_t_10 = 0;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
       __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_6);
       if (likely(__pyx_t_4)) {
@@ -5728,30 +5714,60 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_INCREF(__pyx_t_4);
         __Pyx_INCREF(function);
         __Pyx_DECREF_SET(__pyx_t_6, function);
+      }
+    }
+    __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_4, __pyx_kp_s_Image_Window) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_kp_s_Image_Window);
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":343
+ *         # inverted = False # Color inversion status
+ *         cv2.namedWindow("Image Window")
+ *         cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
+ * 
+ *         # These two lines will force your "Main View" window to be on top with focus.
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 343, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_imshow); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 343, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_6 = NULL;
+    __pyx_t_10 = 0;
+    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
+      if (likely(__pyx_t_6)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_6);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_4, function);
         __pyx_t_10 = 1;
       }
     }
     #if CYTHON_FAST_PYCALL
-    if (PyFunction_Check(__pyx_t_6)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 327, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (PyFunction_Check(__pyx_t_4)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_2);
     } else
     #endif
     #if CYTHON_FAST_PYCCALL
-    if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 327, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_2);
     } else
     #endif
     {
-      __pyx_t_3 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 327, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 343, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      if (__pyx_t_4) {
-        __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4); __pyx_t_4 = NULL;
+      if (__pyx_t_6) {
+        __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6); __pyx_t_6 = NULL;
       }
       __Pyx_INCREF(__pyx_kp_s_Image_Window);
       __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
@@ -5759,37 +5775,37 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_INCREF(__pyx_v_cv2_main_image);
       __Pyx_GIVEREF(__pyx_v_cv2_main_image);
       PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 327, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":334
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":350
  * 
  *         # Always on top window.
  *         cv2.setWindowProperty("Image Window", cv2.WND_PROP_TOPMOST, 1)             # <<<<<<<<<<<<<<
  * 
  *         color_picker_switch = False
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 334, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_setWindowProperty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 334, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_WND_PROP_TOPMOST); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 350, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = NULL;
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_setWindowProperty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 350, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_WND_PROP_TOPMOST); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 350, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_4 = NULL;
     __pyx_t_10 = 0;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_3);
-      if (likely(__pyx_t_6)) {
+      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_4)) {
         PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-        __Pyx_INCREF(__pyx_t_6);
+        __Pyx_INCREF(__pyx_t_4);
         __Pyx_INCREF(function);
         __Pyx_DECREF_SET(__pyx_t_3, function);
         __pyx_t_10 = 1;
@@ -5797,45 +5813,45 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     }
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
-      PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_t_4, __pyx_int_1};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+      PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_t_6, __pyx_int_1};
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else
     #endif
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
-      PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_t_4, __pyx_int_1};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+      PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_t_6, __pyx_int_1};
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else
     #endif
     {
-      __pyx_t_5 = PyTuple_New(3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      if (__pyx_t_6) {
-        __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6); __pyx_t_6 = NULL;
+      if (__pyx_t_4) {
+        __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
       }
       __Pyx_INCREF(__pyx_kp_s_Image_Window);
       __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
       PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
-      __Pyx_GIVEREF(__pyx_t_4);
-      PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_10, __pyx_t_4);
+      __Pyx_GIVEREF(__pyx_t_6);
+      PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_10, __pyx_t_6);
       __Pyx_INCREF(__pyx_int_1);
       __Pyx_GIVEREF(__pyx_int_1);
       PyTuple_SET_ITEM(__pyx_t_5, 2+__pyx_t_10, __pyx_int_1);
-      __pyx_t_4 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
+      __pyx_t_6 = 0;
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":336
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":352
  *         cv2.setWindowProperty("Image Window", cv2.WND_PROP_TOPMOST, 1)
  * 
  *         color_picker_switch = False             # <<<<<<<<<<<<<<
@@ -5844,57 +5860,57 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
     __pyx_v_color_picker_switch = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":341
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":357
  * 
  *         # Set mouse callback function
- *         mouse_helper = MouseHelper(cv2_main_image.shape)             # <<<<<<<<<<<<<<
- *         cv2.setMouseCallback('Image Window', mouse_helper.update_life_data)
+ *         mouse_helper = MouseTracker(cv2_main_image.shape)             # <<<<<<<<<<<<<<
+ *         cv2.setmouseCallback('Image Window', mouse_helper.updateMouseData)
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_MouseHelper); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_MouseTracker); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 341, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 357, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = NULL;
+    __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-      if (likely(__pyx_t_4)) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_6)) {
         PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-        __Pyx_INCREF(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_6);
         __Pyx_INCREF(function);
         __Pyx_DECREF_SET(__pyx_t_3, function);
       }
     }
-    __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5);
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 357, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_mouse_helper = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":342
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":358
  *         # Set mouse callback function
- *         mouse_helper = MouseHelper(cv2_main_image.shape)
- *         cv2.setMouseCallback('Image Window', mouse_helper.update_life_data)             # <<<<<<<<<<<<<<
+ *         mouse_helper = MouseTracker(cv2_main_image.shape)
+ *         cv2.setmouseCallback('Image Window', mouse_helper.updateMouseData)             # <<<<<<<<<<<<<<
  * 
  *         while 1:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 342, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_setMouseCallback); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 342, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_setmouseCallback); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_update_life_data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 342, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_updateMouseData); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = NULL;
+    __pyx_t_6 = NULL;
     __pyx_t_10 = 0;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
-      if (likely(__pyx_t_4)) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_6)) {
         PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-        __Pyx_INCREF(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_6);
         __Pyx_INCREF(function);
         __Pyx_DECREF_SET(__pyx_t_5, function);
         __pyx_t_10 = 1;
@@ -5902,43 +5918,43 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     }
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_5)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_t_3};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_t_3};
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else
     #endif
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_t_3};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_t_3};
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else
     #endif
     {
-      __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 342, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      if (__pyx_t_4) {
-        __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
+      __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 358, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      if (__pyx_t_6) {
+        __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
       }
       __Pyx_INCREF(__pyx_kp_s_Image_Window);
       __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
-      PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
+      PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
       __Pyx_GIVEREF(__pyx_t_3);
-      PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_t_3);
+      PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":344
- *         cv2.setMouseCallback('Image Window', mouse_helper.update_life_data)
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":360
+ *         cv2.setmouseCallback('Image Window', mouse_helper.updateMouseData)
  * 
  *         while 1:             # <<<<<<<<<<<<<<
  *             k = cv2.waitKey(1) & 0xFF
@@ -5946,74 +5962,74 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
     while (1) {
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":345
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":361
  * 
  *         while 1:
  *             k = cv2.waitKey(1) & 0xFF             # <<<<<<<<<<<<<<
  * 
  *             # cv2.getWindowProperty() used to kill the image window after clicking the exit button in the title bar.
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 361, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_waitKey); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 345, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_waitKey); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 361, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_5 = NULL;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_6);
+      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
         if (likely(__pyx_t_5)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
           __Pyx_INCREF(__pyx_t_5);
           __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_6, function);
+          __Pyx_DECREF_SET(__pyx_t_4, function);
         }
       }
-      __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_5, __pyx_int_1) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_int_1);
+      __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_int_1) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_int_1);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 361, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_6 = __Pyx_PyInt_AndObjC(__pyx_t_2, __pyx_int_255, 0xFF, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 345, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = __Pyx_PyInt_AndObjC(__pyx_t_2, __pyx_int_255, 0xFF, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 361, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_XDECREF_SET(__pyx_v_k, __pyx_t_6);
-      __pyx_t_6 = 0;
+      __Pyx_XDECREF_SET(__pyx_v_k, __pyx_t_4);
+      __pyx_t_4 = 0;
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":348
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":364
  * 
  *             # cv2.getWindowProperty() used to kill the image window after clicking the exit button in the title bar.
  *             if k == win32con.VK_ESCAPE or cv2.getWindowProperty('Image Window', cv2.WND_PROP_VISIBLE) < 1: # ESC             # <<<<<<<<<<<<<<
  *                 break
  * 
  */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_win32con, __pyx_n_s_VK_ESCAPE); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 348, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_2 = PyObject_RichCompare(__pyx_v_k, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_win32con, __pyx_n_s_VK_ESCAPE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 364, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_2 = PyObject_RichCompare(__pyx_v_k, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 364, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 364, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (!__pyx_t_11) {
       } else {
         __pyx_t_1 = __pyx_t_11;
         goto __pyx_L8_bool_binop_done;
       }
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 348, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_getWindowProperty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 364, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_getWindowProperty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 364, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 348, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_WND_PROP_VISIBLE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 364, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_WND_PROP_VISIBLE); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 364, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_6 = NULL;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = NULL;
       __pyx_t_10 = 0;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
-        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
-        if (likely(__pyx_t_6)) {
+        __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
+        if (likely(__pyx_t_4)) {
           PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-          __Pyx_INCREF(__pyx_t_6);
+          __Pyx_INCREF(__pyx_t_4);
           __Pyx_INCREF(function);
           __Pyx_DECREF_SET(__pyx_t_5, function);
           __pyx_t_10 = 1;
@@ -6021,48 +6037,48 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       }
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_5)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_t_3};
-        __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+        PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_t_3};
+        __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 364, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       } else
       #endif
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_t_3};
-        __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+        PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_t_3};
+        __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 364, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       } else
       #endif
       {
-        __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 348, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        if (__pyx_t_6) {
-          __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
+        __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 364, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        if (__pyx_t_4) {
+          __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
         }
         __Pyx_INCREF(__pyx_kp_s_Image_Window);
         __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
-        PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
+        PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
         __Pyx_GIVEREF(__pyx_t_3);
-        PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_t_3);
+        PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_t_3);
         __pyx_t_3 = 0;
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 364, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 364, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 348, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 364, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_1 = __pyx_t_11;
       __pyx_L8_bool_binop_done:;
       if (__pyx_t_1) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":349
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":365
  *             # cv2.getWindowProperty() used to kill the image window after clicking the exit button in the title bar.
  *             if k == win32con.VK_ESCAPE or cv2.getWindowProperty('Image Window', cv2.WND_PROP_VISIBLE) < 1: # ESC
  *                 break             # <<<<<<<<<<<<<<
@@ -6071,7 +6087,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
         goto __pyx_L6_break;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":348
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":364
  * 
  *             # cv2.getWindowProperty() used to kill the image window after clicking the exit button in the title bar.
  *             if k == win32con.VK_ESCAPE or cv2.getWindowProperty('Image Window', cv2.WND_PROP_VISIBLE) < 1: # ESC             # <<<<<<<<<<<<<<
@@ -6080,40 +6096,40 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
       }
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":352
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":368
  * 
  *             # Cropping
  *             if mouse_helper.cropping and mouse_helper.mouse_selection_start and mouse_helper.mouse_selection_end:             # <<<<<<<<<<<<<<
  *                 color_picker_switch = False
  *                 cv2_main_image = cv2_main_image[mouse_helper.mouse_selection_start[1]:mouse_helper.mouse_selection_end[1],
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_cropping); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_cropping); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 368, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 368, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_11) {
       } else {
         __pyx_t_1 = __pyx_t_11;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 368, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 368, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_11) {
       } else {
         __pyx_t_1 = __pyx_t_11;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_end); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_end); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 368, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 368, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_1 = __pyx_t_11;
       __pyx_L11_bool_binop_done:;
       if (__pyx_t_1) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":353
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":369
  *             # Cropping
  *             if mouse_helper.cropping and mouse_helper.mouse_selection_start and mouse_helper.mouse_selection_end:
  *                 color_picker_switch = False             # <<<<<<<<<<<<<<
@@ -6122,118 +6138,118 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
         __pyx_v_color_picker_switch = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":354
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":370
  *             if mouse_helper.cropping and mouse_helper.mouse_selection_start and mouse_helper.mouse_selection_end:
  *                 color_picker_switch = False
  *                 cv2_main_image = cv2_main_image[mouse_helper.mouse_selection_start[1]:mouse_helper.mouse_selection_end[1],             # <<<<<<<<<<<<<<
  *                                                 mouse_helper.mouse_selection_start[0]:mouse_helper.mouse_selection_end[0]]
  *                 mouse_helper.shape = cv2_main_image.shape
  */
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 354, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 370, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_5, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_5, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_end); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 354, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_end); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 370, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_5, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 354, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_6 = __Pyx_GetItemInt(__pyx_t_5, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 370, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = PySlice_New(__pyx_t_2, __pyx_t_4, Py_None); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 354, __pyx_L1_error)
+        __pyx_t_5 = PySlice_New(__pyx_t_2, __pyx_t_6, Py_None); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 370, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":355
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":371
  *                 color_picker_switch = False
  *                 cv2_main_image = cv2_main_image[mouse_helper.mouse_selection_start[1]:mouse_helper.mouse_selection_end[1],
  *                                                 mouse_helper.mouse_selection_start[0]:mouse_helper.mouse_selection_end[0]]             # <<<<<<<<<<<<<<
  *                 mouse_helper.shape = cv2_main_image.shape
  *                 mouse_helper.mouse_selection_start, mouse_helper.mouse_selection_end = None, None
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 355, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_start); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 371, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_6, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_end); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 355, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 355, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_end); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 371, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_6, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 371, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":354
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":370
  *             if mouse_helper.cropping and mouse_helper.mouse_selection_start and mouse_helper.mouse_selection_end:
  *                 color_picker_switch = False
  *                 cv2_main_image = cv2_main_image[mouse_helper.mouse_selection_start[1]:mouse_helper.mouse_selection_end[1],             # <<<<<<<<<<<<<<
  *                                                 mouse_helper.mouse_selection_start[0]:mouse_helper.mouse_selection_end[0]]
  *                 mouse_helper.shape = cv2_main_image.shape
  */
-        __pyx_t_4 = PySlice_New(__pyx_t_2, __pyx_t_3, Py_None); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 354, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_6 = PySlice_New(__pyx_t_2, __pyx_t_3, Py_None); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 370, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 354, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 370, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_GIVEREF(__pyx_t_5);
         PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5);
-        __Pyx_GIVEREF(__pyx_t_4);
-        PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4);
+        __Pyx_GIVEREF(__pyx_t_6);
+        PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_6);
         __pyx_t_5 = 0;
-        __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_cv2_main_image, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 354, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_6 = 0;
+        __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_cv2_main_image, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 370, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_4);
-        __pyx_t_4 = 0;
+        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_6);
+        __pyx_t_6 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":356
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":372
  *                 cv2_main_image = cv2_main_image[mouse_helper.mouse_selection_start[1]:mouse_helper.mouse_selection_end[1],
  *                                                 mouse_helper.mouse_selection_start[0]:mouse_helper.mouse_selection_end[0]]
  *                 mouse_helper.shape = cv2_main_image.shape             # <<<<<<<<<<<<<<
  *                 mouse_helper.mouse_selection_start, mouse_helper.mouse_selection_end = None, None
  *                 cv2.imshow('Image Window', cv2_main_image)
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 356, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_4) < 0) __PYX_ERR(0, 356, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 372, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_6) < 0) __PYX_ERR(0, 372, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":357
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":373
  *                                                 mouse_helper.mouse_selection_start[0]:mouse_helper.mouse_selection_end[0]]
  *                 mouse_helper.shape = cv2_main_image.shape
  *                 mouse_helper.mouse_selection_start, mouse_helper.mouse_selection_end = None, None             # <<<<<<<<<<<<<<
  *                 cv2.imshow('Image Window', cv2_main_image)
  * 
  */
-        __pyx_t_4 = Py_None;
-        __Pyx_INCREF(__pyx_t_4);
+        __pyx_t_6 = Py_None;
+        __Pyx_INCREF(__pyx_t_6);
         __pyx_t_3 = Py_None;
         __Pyx_INCREF(__pyx_t_3);
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_start, __pyx_t_4) < 0) __PYX_ERR(0, 357, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_end, __pyx_t_3) < 0) __PYX_ERR(0, 357, __pyx_L1_error)
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_start, __pyx_t_6) < 0) __PYX_ERR(0, 373, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_mouse_selection_end, __pyx_t_3) < 0) __PYX_ERR(0, 373, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":358
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":374
  *                 mouse_helper.shape = cv2_main_image.shape
  *                 mouse_helper.mouse_selection_start, mouse_helper.mouse_selection_end = None, None
  *                 cv2.imshow('Image Window', cv2_main_image)             # <<<<<<<<<<<<<<
  * 
  *             elif mouse_helper.drawing:
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 358, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_imshow); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 358, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 374, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_imshow); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 374, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = NULL;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_t_6 = NULL;
         __pyx_t_10 = 0;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
-          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
-          if (likely(__pyx_t_4)) {
+          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+          if (likely(__pyx_t_6)) {
             PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-            __Pyx_INCREF(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_6);
             __Pyx_INCREF(function);
             __Pyx_DECREF_SET(__pyx_t_5, function);
             __pyx_t_10 = 1;
@@ -6241,25 +6257,25 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         }
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 374, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_3);
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 374, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_3);
         } else
         #endif
         {
-          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
+          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 374, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          if (__pyx_t_4) {
-            __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4); __pyx_t_4 = NULL;
+          if (__pyx_t_6) {
+            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6); __pyx_t_6 = NULL;
           }
           __Pyx_INCREF(__pyx_kp_s_Image_Window);
           __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
@@ -6267,14 +6283,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
           PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 374, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":352
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":368
  * 
  *             # Cropping
  *             if mouse_helper.cropping and mouse_helper.mouse_selection_start and mouse_helper.mouse_selection_end:             # <<<<<<<<<<<<<<
@@ -6284,54 +6300,54 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         goto __pyx_L10;
       }
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":360
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":376
  *                 cv2.imshow('Image Window', cv2_main_image)
  * 
  *             elif mouse_helper.drawing:             # <<<<<<<<<<<<<<
  *                 # cv2.circle(cv2_main_image, (mouse_helper.x, mouse_helper.y), 5, (0, 0, 255), -1)
  * 
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_drawing); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 360, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_drawing); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 376, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 360, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 376, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (__pyx_t_1) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":363
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":379
  *                 # cv2.circle(cv2_main_image, (mouse_helper.x, mouse_helper.y), 5, (0, 0, 255), -1)
  * 
  *                 cv2.line(cv2_main_image, (mouse_helper.px, mouse_helper.py), (mouse_helper.x, mouse_helper.y), (0, 0, 255), 4)             # <<<<<<<<<<<<<<
  *                 cv2.imshow('Image Window', cv2_main_image)
  * 
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 363, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 379, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_line); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 363, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_line); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 379, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_px); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 363, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_px); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 379, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_py); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 363, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 363, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_py); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 379, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __Pyx_GIVEREF(__pyx_t_5);
-        PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5);
-        __Pyx_GIVEREF(__pyx_t_4);
-        PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_4);
-        __pyx_t_5 = 0;
-        __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 363, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 379, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_y); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 363, __pyx_L1_error)
+        __Pyx_GIVEREF(__pyx_t_5);
+        PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5);
+        __Pyx_GIVEREF(__pyx_t_6);
+        PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6);
+        __pyx_t_5 = 0;
+        __pyx_t_6 = 0;
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_x); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 379, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_y); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 379, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 363, __pyx_L1_error)
+        __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 379, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __Pyx_GIVEREF(__pyx_t_4);
-        PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4);
+        __Pyx_GIVEREF(__pyx_t_6);
+        PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6);
         __Pyx_GIVEREF(__pyx_t_5);
         PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_5);
-        __pyx_t_4 = 0;
+        __pyx_t_6 = 0;
         __pyx_t_5 = 0;
         __pyx_t_5 = NULL;
         __pyx_t_10 = 0;
@@ -6347,401 +6363,58 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         }
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_2)) {
-          PyObject *__pyx_temp[6] = {__pyx_t_5, __pyx_v_cv2_main_image, __pyx_t_6, __pyx_t_7, __pyx_tuple__11, __pyx_int_4};
-          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 5+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 363, __pyx_L1_error)
+          PyObject *__pyx_temp[6] = {__pyx_t_5, __pyx_v_cv2_main_image, __pyx_t_4, __pyx_t_7, __pyx_tuple__11, __pyx_int_4};
+          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 5+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 379, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
-          PyObject *__pyx_temp[6] = {__pyx_t_5, __pyx_v_cv2_main_image, __pyx_t_6, __pyx_t_7, __pyx_tuple__11, __pyx_int_4};
-          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 5+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 363, __pyx_L1_error)
+          PyObject *__pyx_temp[6] = {__pyx_t_5, __pyx_v_cv2_main_image, __pyx_t_4, __pyx_t_7, __pyx_tuple__11, __pyx_int_4};
+          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 5+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 379, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         } else
         #endif
         {
-          __pyx_t_4 = PyTuple_New(5+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 363, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_6 = PyTuple_New(5+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 379, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
           if (__pyx_t_5) {
-            __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5); __pyx_t_5 = NULL;
+            __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
           }
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
-          PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_10, __pyx_v_cv2_main_image);
-          __Pyx_GIVEREF(__pyx_t_6);
-          PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_t_6);
+          PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_10, __pyx_v_cv2_main_image);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_t_4);
           __Pyx_GIVEREF(__pyx_t_7);
-          PyTuple_SET_ITEM(__pyx_t_4, 2+__pyx_t_10, __pyx_t_7);
+          PyTuple_SET_ITEM(__pyx_t_6, 2+__pyx_t_10, __pyx_t_7);
           __Pyx_INCREF(__pyx_tuple__11);
           __Pyx_GIVEREF(__pyx_tuple__11);
-          PyTuple_SET_ITEM(__pyx_t_4, 3+__pyx_t_10, __pyx_tuple__11);
+          PyTuple_SET_ITEM(__pyx_t_6, 3+__pyx_t_10, __pyx_tuple__11);
           __Pyx_INCREF(__pyx_int_4);
           __Pyx_GIVEREF(__pyx_int_4);
-          PyTuple_SET_ITEM(__pyx_t_4, 4+__pyx_t_10, __pyx_int_4);
-          __pyx_t_6 = 0;
+          PyTuple_SET_ITEM(__pyx_t_6, 4+__pyx_t_10, __pyx_int_4);
+          __pyx_t_4 = 0;
           __pyx_t_7 = 0;
-          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 363, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 379, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         }
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":364
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":380
  * 
  *                 cv2.line(cv2_main_image, (mouse_helper.px, mouse_helper.py), (mouse_helper.x, mouse_helper.y), (0, 0, 255), 4)
  *                 cv2.imshow('Image Window', cv2_main_image)             # <<<<<<<<<<<<<<
  * 
  *             # Invert colors
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 364, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imshow); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 364, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = NULL;
-        __pyx_t_10 = 0;
-        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
-          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
-          if (likely(__pyx_t_2)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-            __Pyx_INCREF(__pyx_t_2);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_4, function);
-            __pyx_t_10 = 1;
-          }
-        }
-        #if CYTHON_FAST_PYCALL
-        if (PyFunction_Check(__pyx_t_4)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 364, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GOTREF(__pyx_t_3);
-        } else
-        #endif
-        #if CYTHON_FAST_PYCCALL
-        if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 364, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GOTREF(__pyx_t_3);
-        } else
-        #endif
-        {
-          __pyx_t_7 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 364, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_7);
-          if (__pyx_t_2) {
-            __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_2); __pyx_t_2 = NULL;
-          }
-          __Pyx_INCREF(__pyx_kp_s_Image_Window);
-          __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
-          PyTuple_SET_ITEM(__pyx_t_7, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
-          __Pyx_INCREF(__pyx_v_cv2_main_image);
-          __Pyx_GIVEREF(__pyx_v_cv2_main_image);
-          PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 364, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        }
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":360
- *                 cv2.imshow('Image Window', cv2_main_image)
- * 
- *             elif mouse_helper.drawing:             # <<<<<<<<<<<<<<
- *                 # cv2.circle(cv2_main_image, (mouse_helper.x, mouse_helper.y), 5, (0, 0, 255), -1)
- * 
- */
-        goto __pyx_L10;
-      }
-
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":367
- * 
- *             # Invert colors
- *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'             # <<<<<<<<<<<<<<
- *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`
- *                 cv2.imshow("Image Window", cv2_main_image)
- */
-      __Pyx_INCREF(__pyx_v_k);
-      __pyx_t_3 = __pyx_v_k;
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_VK_A); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 367, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_7 = PyObject_RichCompare(__pyx_t_3, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 367, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 367, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (!__pyx_t_11) {
-      } else {
-        __pyx_t_1 = __pyx_t_11;
-        goto __pyx_L14_bool_binop_done;
-      }
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_a); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 367, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 367, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 367, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_1 = __pyx_t_11;
-      __pyx_L14_bool_binop_done:;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_11 = (__pyx_t_1 != 0);
-      if (__pyx_t_11) {
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":368
- *             # Invert colors
- *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'
- *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`             # <<<<<<<<<<<<<<
- *                 cv2.imshow("Image Window", cv2_main_image)
- *                 # inverted = not inverted
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 368, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_bitwise_not); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 368, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = NULL;
-        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
-          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_7);
-          if (likely(__pyx_t_4)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-            __Pyx_INCREF(__pyx_t_4);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_7, function);
-          }
-        }
-        __pyx_t_3 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_4, __pyx_v_cv2_main_image) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_cv2_main_image);
-        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 368, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_3);
-        __pyx_t_3 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":369
- *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'
- *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`
- *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
- *                 # inverted = not inverted
- *                 # send_to_clipboard(image)
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_cv2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 369, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_imshow); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 369, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_7 = NULL;
-        __pyx_t_10 = 0;
-        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
-          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_4);
-          if (likely(__pyx_t_7)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-            __Pyx_INCREF(__pyx_t_7);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_4, function);
-            __pyx_t_10 = 1;
-          }
-        }
-        #if CYTHON_FAST_PYCALL
-        if (PyFunction_Check(__pyx_t_4)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 369, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __Pyx_GOTREF(__pyx_t_3);
-        } else
-        #endif
-        #if CYTHON_FAST_PYCCALL
-        if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 369, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __Pyx_GOTREF(__pyx_t_3);
-        } else
-        #endif
-        {
-          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_2);
-          if (__pyx_t_7) {
-            __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_7); __pyx_t_7 = NULL;
-          }
-          __Pyx_INCREF(__pyx_kp_s_Image_Window);
-          __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
-          PyTuple_SET_ITEM(__pyx_t_2, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
-          __Pyx_INCREF(__pyx_v_cv2_main_image);
-          __Pyx_GIVEREF(__pyx_v_cv2_main_image);
-          PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 369, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        }
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":367
- * 
- *             # Invert colors
- *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'             # <<<<<<<<<<<<<<
- *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`
- *                 cv2.imshow("Image Window", cv2_main_image)
- */
-        goto __pyx_L10;
-      }
-
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":375
- * 
- *             # Rotate image
- *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"             # <<<<<<<<<<<<<<
- *                 mouse_helper.x, mouse_helper.y = 0, 0
- *                 mouse_helper.px, mouse_helper.py = 0, 0
- */
-      __Pyx_INCREF(__pyx_v_k);
-      __pyx_t_3 = __pyx_v_k;
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_VK_R); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 375, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 375, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 375, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (!__pyx_t_1) {
-      } else {
-        __pyx_t_11 = __pyx_t_1;
-        goto __pyx_L16_bool_binop_done;
-      }
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_r); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 375, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 375, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 375, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_11 = __pyx_t_1;
-      __pyx_L16_bool_binop_done:;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_1 = (__pyx_t_11 != 0);
-      if (__pyx_t_1) {
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":376
- *             # Rotate image
- *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"
- *                 mouse_helper.x, mouse_helper.y = 0, 0             # <<<<<<<<<<<<<<
- *                 mouse_helper.px, mouse_helper.py = 0, 0
- *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
- */
-        __pyx_t_3 = __pyx_int_0;
-        __Pyx_INCREF(__pyx_t_3);
-        __pyx_t_4 = __pyx_int_0;
-        __Pyx_INCREF(__pyx_t_4);
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_x, __pyx_t_3) < 0) __PYX_ERR(0, 376, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_y, __pyx_t_4) < 0) __PYX_ERR(0, 376, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":377
- *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"
- *                 mouse_helper.x, mouse_helper.y = 0, 0
- *                 mouse_helper.px, mouse_helper.py = 0, 0             # <<<<<<<<<<<<<<
- *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
- *                 mouse_helper.shape = cv2_main_image.shape
- */
-        __pyx_t_4 = __pyx_int_0;
-        __Pyx_INCREF(__pyx_t_4);
-        __pyx_t_3 = __pyx_int_0;
-        __Pyx_INCREF(__pyx_t_3);
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_px, __pyx_t_4) < 0) __PYX_ERR(0, 377, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_py, __pyx_t_3) < 0) __PYX_ERR(0, 377, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":378
- *                 mouse_helper.x, mouse_helper.y = 0, 0
- *                 mouse_helper.px, mouse_helper.py = 0, 0
- *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180             # <<<<<<<<<<<<<<
- *                 mouse_helper.shape = cv2_main_image.shape
- *                 cv2.imshow("Image Window", cv2_main_image)
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 378, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_rotate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 378, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 378, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ROTATE_90_CLOCKWISE); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 378, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = NULL;
-        __pyx_t_10 = 0;
-        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
-          if (likely(__pyx_t_4)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-            __Pyx_INCREF(__pyx_t_4);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_2, function);
-            __pyx_t_10 = 1;
-          }
-        }
-        #if CYTHON_FAST_PYCALL
-        if (PyFunction_Check(__pyx_t_2)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_cv2_main_image, __pyx_t_7};
-          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 378, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        } else
-        #endif
-        #if CYTHON_FAST_PYCCALL
-        if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_cv2_main_image, __pyx_t_7};
-          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 378, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        } else
-        #endif
-        {
-          __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 378, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          if (__pyx_t_4) {
-            __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
-          }
-          __Pyx_INCREF(__pyx_v_cv2_main_image);
-          __Pyx_GIVEREF(__pyx_v_cv2_main_image);
-          PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_10, __pyx_v_cv2_main_image);
-          __Pyx_GIVEREF(__pyx_t_7);
-          PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_t_7);
-          __pyx_t_7 = 0;
-          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 378, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        }
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_3);
-        __pyx_t_3 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":379
- *                 mouse_helper.px, mouse_helper.py = 0, 0
- *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
- *                 mouse_helper.shape = cv2_main_image.shape             # <<<<<<<<<<<<<<
- *                 cv2.imshow("Image Window", cv2_main_image)
- *                 # image = image.rotate(90, expand=1)
- */
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 379, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_3) < 0) __PYX_ERR(0, 379, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":380
- *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
- *                 mouse_helper.shape = cv2_main_image.shape
- *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
- *                 # image = image.rotate(90, expand=1)
- * 
  */
         __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 380, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
@@ -6795,169 +6468,66 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":375
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":376
+ *                 cv2.imshow('Image Window', cv2_main_image)
  * 
- *             # Rotate image
- *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"             # <<<<<<<<<<<<<<
- *                 mouse_helper.x, mouse_helper.y = 0, 0
- *                 mouse_helper.px, mouse_helper.py = 0, 0
+ *             elif mouse_helper.drawing:             # <<<<<<<<<<<<<<
+ *                 # cv2.circle(cv2_main_image, (mouse_helper.x, mouse_helper.y), 5, (0, 0, 255), -1)
+ * 
  */
         goto __pyx_L10;
       }
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":384
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":383
  * 
- *             # Copy image
- *             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"             # <<<<<<<<<<<<<<
- *                 send_to_clipboard(cv2_main_image)
- * 
+ *             # Invert colors
+ *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'             # <<<<<<<<<<<<<<
+ *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`
+ *                 cv2.imshow("Image Window", cv2_main_image)
  */
       __Pyx_INCREF(__pyx_v_k);
       __pyx_t_3 = __pyx_v_k;
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_VK_C); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 384, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 383, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = PyObject_RichCompare(__pyx_t_3, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 384, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_VK_A); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 383, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 384, __pyx_L1_error)
+      __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 383, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 383, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (!__pyx_t_11) {
       } else {
         __pyx_t_1 = __pyx_t_11;
-        goto __pyx_L18_bool_binop_done;
+        goto __pyx_L14_bool_binop_done;
       }
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_c); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 384, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 383, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_AS_a); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 383, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 384, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 383, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 384, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 383, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_1 = __pyx_t_11;
-      __pyx_L18_bool_binop_done:;
+      __pyx_L14_bool_binop_done:;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_11 = (__pyx_t_1 != 0);
       if (__pyx_t_11) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":385
- *             # Copy image
- *             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"
- *                 send_to_clipboard(cv2_main_image)             # <<<<<<<<<<<<<<
- * 
- *             # Paste image from clipboard
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_send_to_clipboard); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 385, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_7 = NULL;
-        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
-          if (likely(__pyx_t_7)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-            __Pyx_INCREF(__pyx_t_7);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_6, function);
-          }
-        }
-        __pyx_t_3 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_v_cv2_main_image) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_cv2_main_image);
-        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 385, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":384
- * 
- *             # Copy image
- *             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"             # <<<<<<<<<<<<<<
- *                 send_to_clipboard(cv2_main_image)
- * 
- */
-        goto __pyx_L10;
-      }
-
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":388
- * 
- *             # Paste image from clipboard
- *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space             # <<<<<<<<<<<<<<
- *                 image = PIL.ImageGrab.grabclipboard()
- *                 cv2_main_image = pil_to_cv(image)
- */
-      __Pyx_INCREF(__pyx_v_k);
-      __pyx_t_3 = __pyx_v_k;
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_VK_V); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 388, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = PyObject_RichCompare(__pyx_t_3, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 388, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 388, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (!__pyx_t_1) {
-      } else {
-        __pyx_t_11 = __pyx_t_1;
-        goto __pyx_L20_bool_binop_done;
-      }
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_v); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 388, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 388, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 388, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (!__pyx_t_1) {
-      } else {
-        __pyx_t_11 = __pyx_t_1;
-        goto __pyx_L20_bool_binop_done;
-      }
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_win32con, __pyx_n_s_VK_SPACE); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 388, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = PyObject_RichCompare(__pyx_t_3, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 388, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 388, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_11 = __pyx_t_1;
-      __pyx_L20_bool_binop_done:;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_1 = (__pyx_t_11 != 0);
-      if (__pyx_t_1) {
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":389
- *             # Paste image from clipboard
- *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space
- *                 image = PIL.ImageGrab.grabclipboard()             # <<<<<<<<<<<<<<
- *                 cv2_main_image = pil_to_cv(image)
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":384
+ *             # Invert colors
+ *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'
+ *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`             # <<<<<<<<<<<<<<
  *                 cv2.imshow("Image Window", cv2_main_image)
+ *                 # inverted = not inverted
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_PIL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 389, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_ImageGrab); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 389, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 384, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_grabclipboard); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 389, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_bitwise_not); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 384, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = NULL;
-        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
-          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
-          if (likely(__pyx_t_6)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-            __Pyx_INCREF(__pyx_t_6);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_7, function);
-          }
-        }
-        __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 389, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_3);
-        __pyx_t_3 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":390
- *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space
- *                 image = PIL.ImageGrab.grabclipboard()
- *                 cv2_main_image = pil_to_cv(image)             # <<<<<<<<<<<<<<
- *                 cv2.imshow("Image Window", cv2_main_image)
- * 
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_pil_to_cv); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 390, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
         __pyx_t_6 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
           __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
@@ -6968,24 +6538,24 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
             __Pyx_DECREF_SET(__pyx_t_7, function);
           }
         }
-        __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_6, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_image);
+        __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_6, __pyx_v_cv2_main_image) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_cv2_main_image);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 390, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 384, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":391
- *                 image = PIL.ImageGrab.grabclipboard()
- *                 cv2_main_image = pil_to_cv(image)
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":385
+ *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'
+ *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`
  *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
- * 
- *             # Make the image transparent
+ *                 # inverted = not inverted
+ *                 # send_to_clipboard(image)
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_cv2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 391, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_cv2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 385, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_imshow); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 391, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_imshow); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 385, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __pyx_t_7 = NULL;
@@ -7003,7 +6573,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 391, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 385, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_3);
         } else
@@ -7011,13 +6581,13 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 391, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 385, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_3);
         } else
         #endif
         {
-          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 391, __pyx_L1_error)
+          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 385, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           if (__pyx_t_7) {
             __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -7028,218 +6598,109 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
           PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 391, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 385, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":388
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":383
  * 
- *             # Paste image from clipboard
- *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space             # <<<<<<<<<<<<<<
- *                 image = PIL.ImageGrab.grabclipboard()
- *                 cv2_main_image = pil_to_cv(image)
+ *             # Invert colors
+ *             elif k in (kbcon.VK_A, kbcon.AS_a): # 'A' or 'a'             # <<<<<<<<<<<<<<
+ *                 cv2_main_image = cv2.bitwise_not(cv2_main_image) # Or `~cv2_main_image`
+ *                 cv2.imshow("Image Window", cv2_main_image)
  */
         goto __pyx_L10;
       }
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":394
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":391
  * 
- *             # Make the image transparent
- *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"             # <<<<<<<<<<<<<<
- *                 image = cv_to_pil(cv2_main_image)
- *                 if image.mode == 'RGBA':
+ *             # Rotate image
+ *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"             # <<<<<<<<<<<<<<
+ *                 mouse_helper.x, mouse_helper.y = 0, 0
+ *                 mouse_helper.px, mouse_helper.py = 0, 0
  */
       __Pyx_INCREF(__pyx_v_k);
       __pyx_t_3 = __pyx_v_k;
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_VK_T); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 394, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 391, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 394, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 394, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (!__pyx_t_11) {
-      } else {
-        __pyx_t_1 = __pyx_t_11;
-        goto __pyx_L23_bool_binop_done;
-      }
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_t); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 394, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_VK_R); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 391, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 394, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 394, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_1 = __pyx_t_11;
-      __pyx_L23_bool_binop_done:;
+      __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 391, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 391, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      if (!__pyx_t_1) {
+      } else {
+        __pyx_t_11 = __pyx_t_1;
+        goto __pyx_L16_bool_binop_done;
+      }
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 391, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_AS_r); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 391, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 391, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 391, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_11 = __pyx_t_1;
+      __pyx_L16_bool_binop_done:;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_11 = (__pyx_t_1 != 0);
-      if (__pyx_t_11) {
+      __pyx_t_1 = (__pyx_t_11 != 0);
+      if (__pyx_t_1) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":395
- *             # Make the image transparent
- *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
- *                 image = cv_to_pil(cv2_main_image)             # <<<<<<<<<<<<<<
- *                 if image.mode == 'RGBA':
- *                     image = image.convert("RGB")
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":392
+ *             # Rotate image
+ *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"
+ *                 mouse_helper.x, mouse_helper.y = 0, 0             # <<<<<<<<<<<<<<
+ *                 mouse_helper.px, mouse_helper.py = 0, 0
+ *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv_to_pil); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 395, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_2 = NULL;
-        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_6);
-          if (likely(__pyx_t_2)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-            __Pyx_INCREF(__pyx_t_2);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_6, function);
-          }
-        }
-        __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_2, __pyx_v_cv2_main_image) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_cv2_main_image);
-        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 395, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_3);
-        __pyx_t_3 = 0;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":396
- *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
- *                 image = cv_to_pil(cv2_main_image)
- *                 if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
- *                     image = image.convert("RGB")
- *                 else:
- */
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_mode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 396, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_11 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_RGBA, Py_EQ)); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 396, __pyx_L1_error)
+        __pyx_t_3 = __pyx_int_0;
+        __Pyx_INCREF(__pyx_t_3);
+        __pyx_t_6 = __pyx_int_0;
+        __Pyx_INCREF(__pyx_t_6);
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_x, __pyx_t_3) < 0) __PYX_ERR(0, 392, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (__pyx_t_11) {
-
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":397
- *                 image = cv_to_pil(cv2_main_image)
- *                 if image.mode == 'RGBA':
- *                     image = image.convert("RGB")             # <<<<<<<<<<<<<<
- *                 else:
- *                     image = make_transparent(cv_to_pil(cv2_main_image))
- */
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_convert); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 397, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_2 = NULL;
-          if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
-            __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_6);
-            if (likely(__pyx_t_2)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-              __Pyx_INCREF(__pyx_t_2);
-              __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_6, function);
-            }
-          }
-          __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_2, __pyx_n_s_RGB) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_n_s_RGB);
-          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_3);
-          __pyx_t_3 = 0;
-
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":396
- *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
- *                 image = cv_to_pil(cv2_main_image)
- *                 if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
- *                     image = image.convert("RGB")
- *                 else:
- */
-          goto __pyx_L25;
-        }
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":399
- *                     image = image.convert("RGB")
- *                 else:
- *                     image = make_transparent(cv_to_pil(cv2_main_image))             # <<<<<<<<<<<<<<
- *                 cv2_main_image = pil_to_cv(image)
- *                 cv2.imshow("Image Window", cv2_main_image)
- */
-        /*else*/ {
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_make_transparent); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 399, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_cv_to_pil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 399, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_4 = NULL;
-          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
-            __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_7);
-            if (likely(__pyx_t_4)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-              __Pyx_INCREF(__pyx_t_4);
-              __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_7, function);
-            }
-          }
-          __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_4, __pyx_v_cv2_main_image) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_cv2_main_image);
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 399, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __pyx_t_7 = NULL;
-          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-            __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
-            if (likely(__pyx_t_7)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-              __Pyx_INCREF(__pyx_t_7);
-              __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_6, function);
-            }
-          }
-          __pyx_t_3 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_2);
-          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 399, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_3);
-          __pyx_t_3 = 0;
-        }
-        __pyx_L25:;
-
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":400
- *                 else:
- *                     image = make_transparent(cv_to_pil(cv2_main_image))
- *                 cv2_main_image = pil_to_cv(image)             # <<<<<<<<<<<<<<
- *                 cv2.imshow("Image Window", cv2_main_image)
- * 
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_pil_to_cv); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 400, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_2 = NULL;
-        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_6);
-          if (likely(__pyx_t_2)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-            __Pyx_INCREF(__pyx_t_2);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_6, function);
-          }
-        }
-        __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_2, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_image);
-        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 400, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_y, __pyx_t_6) < 0) __PYX_ERR(0, 392, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_3);
-        __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":401
- *                     image = make_transparent(cv_to_pil(cv2_main_image))
- *                 cv2_main_image = pil_to_cv(image)
- *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
- * 
- *             # Display/hide live color picker
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":393
+ *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"
+ *                 mouse_helper.x, mouse_helper.y = 0, 0
+ *                 mouse_helper.px, mouse_helper.py = 0, 0             # <<<<<<<<<<<<<<
+ *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
+ *                 mouse_helper.shape = cv2_main_image.shape
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 401, __pyx_L1_error)
+        __pyx_t_6 = __pyx_int_0;
+        __Pyx_INCREF(__pyx_t_6);
+        __pyx_t_3 = __pyx_int_0;
+        __Pyx_INCREF(__pyx_t_3);
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_px, __pyx_t_6) < 0) __PYX_ERR(0, 393, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_py, __pyx_t_3) < 0) __PYX_ERR(0, 393, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":394
+ *                 mouse_helper.x, mouse_helper.y = 0, 0
+ *                 mouse_helper.px, mouse_helper.py = 0, 0
+ *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180             # <<<<<<<<<<<<<<
+ *                 mouse_helper.shape = cv2_main_image.shape
+ *                 cv2.imshow("Image Window", cv2_main_image)
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 394, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_imshow); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 401, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_rotate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 394, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 394, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ROTATE_90_CLOCKWISE); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 394, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __pyx_t_6 = NULL;
         __pyx_t_10 = 0;
@@ -7255,25 +6716,99 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         }
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_2)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 401, __pyx_L1_error)
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_cv2_main_image, __pyx_t_7};
+          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 394, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_3);
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 401, __pyx_L1_error)
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_cv2_main_image, __pyx_t_7};
+          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 394, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_3);
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 394, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          if (__pyx_t_6) {
+            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
+          }
+          __Pyx_INCREF(__pyx_v_cv2_main_image);
+          __Pyx_GIVEREF(__pyx_v_cv2_main_image);
+          PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_10, __pyx_v_cv2_main_image);
+          __Pyx_GIVEREF(__pyx_t_7);
+          PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_t_7);
+          __pyx_t_7 = 0;
+          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 394, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_3);
+        __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":395
+ *                 mouse_helper.px, mouse_helper.py = 0, 0
+ *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
+ *                 mouse_helper.shape = cv2_main_image.shape             # <<<<<<<<<<<<<<
+ *                 cv2.imshow("Image Window", cv2_main_image)
+ *                 # image = image.rotate(90, expand=1)
+ */
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 395, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_3) < 0) __PYX_ERR(0, 395, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":396
+ *                 cv2_main_image = cv2.rotate(cv2_main_image, cv2.ROTATE_90_CLOCKWISE) # cv2.ROTATE_90_COUNTERCLOCKWISE, cv2.ROTATE_180
+ *                 mouse_helper.shape = cv2_main_image.shape
+ *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
+ *                 # image = image.rotate(90, expand=1)
+ * 
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 396, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imshow); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 396, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_t_2 = NULL;
+        __pyx_t_10 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_2)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_2);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+            __pyx_t_10 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 396, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+          __Pyx_GOTREF(__pyx_t_3);
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 396, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_GOTREF(__pyx_t_3);
         } else
         #endif
         {
-          __pyx_t_7 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 401, __pyx_L1_error)
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 396, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
-          if (__pyx_t_6) {
-            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
+          if (__pyx_t_2) {
+            __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_2); __pyx_t_2 = NULL;
           }
           __Pyx_INCREF(__pyx_kp_s_Image_Window);
           __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
@@ -7281,24 +6816,535 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
           PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 401, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 396, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":391
+ * 
+ *             # Rotate image
+ *             elif k in (kbcon.VK_R, kbcon.AS_r): # "R" or "r"             # <<<<<<<<<<<<<<
+ *                 mouse_helper.x, mouse_helper.y = 0, 0
+ *                 mouse_helper.px, mouse_helper.py = 0, 0
+ */
+        goto __pyx_L10;
+      }
+
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":400
+ * 
+ *             # Copy image
+ *             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"             # <<<<<<<<<<<<<<
+ *                 sendToClipboard(cv2_main_image)
+ * 
+ */
+      __Pyx_INCREF(__pyx_v_k);
+      __pyx_t_3 = __pyx_v_k;
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 400, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_C); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 400, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 400, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 400, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (!__pyx_t_11) {
+      } else {
+        __pyx_t_1 = __pyx_t_11;
+        goto __pyx_L18_bool_binop_done;
+      }
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 400, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_AS_c); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 400, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 400, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 400, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_1 = __pyx_t_11;
+      __pyx_L18_bool_binop_done:;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_11 = (__pyx_t_1 != 0);
+      if (__pyx_t_11) {
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":401
+ *             # Copy image
+ *             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"
+ *                 sendToClipboard(cv2_main_image)             # <<<<<<<<<<<<<<
+ * 
+ *             # Paste image from clipboard
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_sendToClipboard); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 401, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_7 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_7)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_7);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+          }
+        }
+        __pyx_t_3 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_7, __pyx_v_cv2_main_image) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_cv2_main_image);
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 401, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":400
+ * 
+ *             # Copy image
+ *             elif k in (kbcon.VK_C, kbcon.AS_c): # "C" or "c"             # <<<<<<<<<<<<<<
+ *                 sendToClipboard(cv2_main_image)
+ * 
+ */
+        goto __pyx_L10;
+      }
+
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":404
+ * 
+ *             # Paste image from clipboard
+ *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space             # <<<<<<<<<<<<<<
+ *                 image = PIL.ImageGrab.grabclipboard()
+ *                 cv2_main_image = pilToCv(image)
+ */
+      __Pyx_INCREF(__pyx_v_k);
+      __pyx_t_3 = __pyx_v_k;
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_V); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (!__pyx_t_1) {
+      } else {
+        __pyx_t_11 = __pyx_t_1;
+        goto __pyx_L20_bool_binop_done;
+      }
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_AS_v); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (!__pyx_t_1) {
+      } else {
+        __pyx_t_11 = __pyx_t_1;
+        goto __pyx_L20_bool_binop_done;
+      }
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_win32con, __pyx_n_s_VK_SPACE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_7 = PyObject_RichCompare(__pyx_t_3, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __pyx_t_11 = __pyx_t_1;
+      __pyx_L20_bool_binop_done:;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_1 = (__pyx_t_11 != 0);
+      if (__pyx_t_1) {
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":405
+ *             # Paste image from clipboard
+ *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space
+ *                 image = PIL.ImageGrab.grabclipboard()             # <<<<<<<<<<<<<<
+ *                 cv2_main_image = pilToCv(image)
+ *                 cv2.imshow("Image Window", cv2_main_image)
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_PIL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 405, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_ImageGrab); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 405, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_grabclipboard); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 405, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __pyx_t_4 = NULL;
+        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
+          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_7);
+          if (likely(__pyx_t_4)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+            __Pyx_INCREF(__pyx_t_4);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_7, function);
+          }
+        }
+        __pyx_t_3 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 405, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_3);
+        __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":406
+ *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space
+ *                 image = PIL.ImageGrab.grabclipboard()
+ *                 cv2_main_image = pilToCv(image)             # <<<<<<<<<<<<<<
+ *                 cv2.imshow("Image Window", cv2_main_image)
+ * 
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_pilToCv); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 406, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_4 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
+          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_7);
+          if (likely(__pyx_t_4)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+            __Pyx_INCREF(__pyx_t_4);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_7, function);
+          }
+        }
+        __pyx_t_3 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_4, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_image);
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 406, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_3);
+        __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":407
+ *                 image = PIL.ImageGrab.grabclipboard()
+ *                 cv2_main_image = pilToCv(image)
+ *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
+ * 
+ *             # Make the image transparent
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_cv2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 407, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_imshow); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 407, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __pyx_t_7 = NULL;
+        __pyx_t_10 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_7)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_7);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+            __pyx_t_10 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 407, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_3);
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 407, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_3);
+        } else
+        #endif
+        {
+          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          if (__pyx_t_7) {
+            __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_7); __pyx_t_7 = NULL;
+          }
+          __Pyx_INCREF(__pyx_kp_s_Image_Window);
+          __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
+          PyTuple_SET_ITEM(__pyx_t_2, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
+          __Pyx_INCREF(__pyx_v_cv2_main_image);
+          __Pyx_GIVEREF(__pyx_v_cv2_main_image);
+          PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_10, __pyx_v_cv2_main_image);
+          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 407, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":404
+ * 
+ *             # Paste image from clipboard
+ *             elif k in (kbcon.VK_V, kbcon.AS_v, win32con.VK_SPACE): # "V", "v" or space             # <<<<<<<<<<<<<<
+ *                 image = PIL.ImageGrab.grabclipboard()
+ *                 cv2_main_image = pilToCv(image)
+ */
+        goto __pyx_L10;
+      }
+
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":410
+ * 
+ *             # Make the image transparent
+ *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"             # <<<<<<<<<<<<<<
+ *                 image = cvToPil(cv2_main_image)
+ *                 if image.mode == 'RGBA':
+ */
+      __Pyx_INCREF(__pyx_v_k);
+      __pyx_t_3 = __pyx_v_k;
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 410, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_T); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 410, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 410, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 410, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (!__pyx_t_11) {
+      } else {
+        __pyx_t_1 = __pyx_t_11;
+        goto __pyx_L23_bool_binop_done;
+      }
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 410, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_AS_t); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 410, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 410, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 410, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_1 = __pyx_t_11;
+      __pyx_L23_bool_binop_done:;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_11 = (__pyx_t_1 != 0);
+      if (__pyx_t_11) {
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":411
+ *             # Make the image transparent
+ *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
+ *                 image = cvToPil(cv2_main_image)             # <<<<<<<<<<<<<<
+ *                 if image.mode == 'RGBA':
+ *                     image = image.convert("RGB")
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cvToPil); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 411, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_2 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_2)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_2);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+          }
+        }
+        __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_v_cv2_main_image) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_cv2_main_image);
+        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 411, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_3);
+        __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":412
+ *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
+ *                 image = cvToPil(cv2_main_image)
+ *                 if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
+ *                     image = image.convert("RGB")
+ *                 else:
+ */
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_mode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 412, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_11 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_RGBA, Py_EQ)); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 412, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        if (__pyx_t_11) {
+
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":413
+ *                 image = cvToPil(cv2_main_image)
+ *                 if image.mode == 'RGBA':
+ *                     image = image.convert("RGB")             # <<<<<<<<<<<<<<
+ *                 else:
+ *                     image = makeTransparent(cvToPil(cv2_main_image))
+ */
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_image, __pyx_n_s_convert); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 413, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_2 = NULL;
+          if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+            __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+            if (likely(__pyx_t_2)) {
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+              __Pyx_INCREF(__pyx_t_2);
+              __Pyx_INCREF(function);
+              __Pyx_DECREF_SET(__pyx_t_4, function);
+            }
+          }
+          __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_n_s_RGB) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_n_s_RGB);
+          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 413, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_3);
+          __pyx_t_3 = 0;
+
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":412
+ *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"
+ *                 image = cvToPil(cv2_main_image)
+ *                 if image.mode == 'RGBA':             # <<<<<<<<<<<<<<
+ *                     image = image.convert("RGB")
+ *                 else:
+ */
+          goto __pyx_L25;
+        }
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":415
+ *                     image = image.convert("RGB")
+ *                 else:
+ *                     image = makeTransparent(cvToPil(cv2_main_image))             # <<<<<<<<<<<<<<
+ *                 cv2_main_image = pilToCv(image)
+ *                 cv2.imshow("Image Window", cv2_main_image)
+ */
+        /*else*/ {
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_makeTransparent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 415, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_cvToPil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 415, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_7);
+          __pyx_t_6 = NULL;
+          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
+            __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
+            if (likely(__pyx_t_6)) {
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+              __Pyx_INCREF(__pyx_t_6);
+              __Pyx_INCREF(function);
+              __Pyx_DECREF_SET(__pyx_t_7, function);
+            }
+          }
+          __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_6, __pyx_v_cv2_main_image) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_cv2_main_image);
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 415, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __pyx_t_7 = NULL;
+          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+            __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_4);
+            if (likely(__pyx_t_7)) {
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+              __Pyx_INCREF(__pyx_t_7);
+              __Pyx_INCREF(function);
+              __Pyx_DECREF_SET(__pyx_t_4, function);
+            }
+          }
+          __pyx_t_3 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2);
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 415, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF_SET(__pyx_v_image, __pyx_t_3);
+          __pyx_t_3 = 0;
+        }
+        __pyx_L25:;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":416
+ *                 else:
+ *                     image = makeTransparent(cvToPil(cv2_main_image))
+ *                 cv2_main_image = pilToCv(image)             # <<<<<<<<<<<<<<
+ *                 cv2.imshow("Image Window", cv2_main_image)
+ * 
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pilToCv); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 416, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_2 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_2)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_2);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+          }
+        }
+        __pyx_t_3 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_image);
+        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 416, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_3);
+        __pyx_t_3 = 0;
+
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":417
+ *                     image = makeTransparent(cvToPil(cv2_main_image))
+ *                 cv2_main_image = pilToCv(image)
+ *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
+ * 
+ *             # Display/hide live color picker
+ */
+        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 417, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_imshow); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __pyx_t_4 = NULL;
+        __pyx_t_10 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
+          if (likely(__pyx_t_4)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+            __Pyx_INCREF(__pyx_t_4);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_2, function);
+            __pyx_t_10 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_2)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 417, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_GOTREF(__pyx_t_3);
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 417, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_GOTREF(__pyx_t_3);
+        } else
+        #endif
+        {
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 417, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_7);
+          if (__pyx_t_4) {
+            __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4); __pyx_t_4 = NULL;
+          }
+          __Pyx_INCREF(__pyx_kp_s_Image_Window);
+          __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
+          PyTuple_SET_ITEM(__pyx_t_7, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
+          __Pyx_INCREF(__pyx_v_cv2_main_image);
+          __Pyx_GIVEREF(__pyx_v_cv2_main_image);
+          PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_10, __pyx_v_cv2_main_image);
+          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 417, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":394
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":410
  * 
  *             # Make the image transparent
  *             elif k in (kbcon.VK_T, kbcon.AS_t): # "T" or "t"             # <<<<<<<<<<<<<<
- *                 image = cv_to_pil(cv2_main_image)
+ *                 image = cvToPil(cv2_main_image)
  *                 if image.mode == 'RGBA':
  */
         goto __pyx_L10;
       }
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":404
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":420
  * 
  *             # Display/hide live color picker
  *             elif k in (kbcon.VK_W, kbcon.AS_w): # "W" or "w"             # <<<<<<<<<<<<<<
@@ -7307,22 +7353,28 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
       __Pyx_INCREF(__pyx_v_k);
       __pyx_t_3 = __pyx_v_k;
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_VK_W); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 420, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_7 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VK_W); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 420, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 420, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 420, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (!__pyx_t_1) {
       } else {
         __pyx_t_11 = __pyx_t_1;
         goto __pyx_L26_bool_binop_done;
       }
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_w); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 420, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_AS_w); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 420, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 420, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 404, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 420, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_11 = __pyx_t_1;
       __pyx_L26_bool_binop_done:;
@@ -7330,7 +7382,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __pyx_t_1 = (__pyx_t_11 != 0);
       if (__pyx_t_1) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":405
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":421
  *             # Display/hide live color picker
  *             elif k in (kbcon.VK_W, kbcon.AS_w): # "W" or "w"
  *                 if not color_picker_switch:             # <<<<<<<<<<<<<<
@@ -7340,69 +7392,69 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __pyx_t_1 = ((!(__pyx_v_color_picker_switch != 0)) != 0);
         if (__pyx_t_1) {
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":408
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":424
  *                     # cv2.namedWindow("Color Picker")
  *                     # cv2.resizeWindow("Color Picker", 250, 250)
  *                     cv2_main_image = np.concatenate((cv2_main_image[0:20], cv2_main_image), axis=0).astype(np.uint8)             # <<<<<<<<<<<<<<
  *                     color_picker_switch = True
  *                 else:
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 424, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_concatenate); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 408, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_concatenate); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 424, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_2 = __Pyx_PyObject_GetSlice(__pyx_v_cv2_main_image, 0, 20, NULL, NULL, &__pyx_slice__5, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_GetSlice(__pyx_v_cv2_main_image, 0, 20, NULL, NULL, &__pyx_slice__5, 1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 424, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 408, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 424, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_GIVEREF(__pyx_t_2);
-          PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2);
+          PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
-          PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_v_cv2_main_image);
+          PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_v_cv2_main_image);
           __pyx_t_2 = 0;
-          __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
+          __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 424, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_GIVEREF(__pyx_t_6);
-          PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6);
-          __pyx_t_6 = 0;
-          __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 408, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_axis, __pyx_int_0) < 0) __PYX_ERR(0, 408, __pyx_L1_error)
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_2, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 408, __pyx_L1_error)
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4);
+          __pyx_t_4 = 0;
+          __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 424, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
+          if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_axis, __pyx_int_0) < 0) __PYX_ERR(0, 424, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 424, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_astype); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 408, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 408, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_astype); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 424, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_uint8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 424, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_uint8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 424, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __pyx_t_4 = NULL;
-          if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
-            __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_6);
-            if (likely(__pyx_t_4)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-              __Pyx_INCREF(__pyx_t_4);
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __pyx_t_6 = NULL;
+          if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+            __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
+            if (likely(__pyx_t_6)) {
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+              __Pyx_INCREF(__pyx_t_6);
               __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_6, function);
+              __Pyx_DECREF_SET(__pyx_t_4, function);
             }
           }
-          __pyx_t_3 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_2);
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_6, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2);
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 408, __pyx_L1_error)
+          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 424, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":409
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":425
  *                     # cv2.resizeWindow("Color Picker", 250, 250)
  *                     cv2_main_image = np.concatenate((cv2_main_image[0:20], cv2_main_image), axis=0).astype(np.uint8)
  *                     color_picker_switch = True             # <<<<<<<<<<<<<<
@@ -7411,7 +7463,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
           __pyx_v_color_picker_switch = 1;
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":405
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":421
  *             # Display/hide live color picker
  *             elif k in (kbcon.VK_W, kbcon.AS_w): # "W" or "w"
  *                 if not color_picker_switch:             # <<<<<<<<<<<<<<
@@ -7421,7 +7473,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           goto __pyx_L28;
         }
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":412
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":428
  *                 else:
  *                     # cv2.destroyWindow("Color Picker")
  *                     cv2_main_image = cv2_main_image[20:]             # <<<<<<<<<<<<<<
@@ -7429,12 +7481,12 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  *                     cv2.imshow("Image Window", cv2_main_image)
  */
         /*else*/ {
-          __pyx_t_3 = __Pyx_PyObject_GetSlice(__pyx_v_cv2_main_image, 20, 0, NULL, NULL, &__pyx_slice__12, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 412, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_GetSlice(__pyx_v_cv2_main_image, 20, 0, NULL, NULL, &__pyx_slice__12, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 428, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":413
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":429
  *                     # cv2.destroyWindow("Color Picker")
  *                     cv2_main_image = cv2_main_image[20:]
  *                     color_picker_switch = False             # <<<<<<<<<<<<<<
@@ -7443,25 +7495,25 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
           __pyx_v_color_picker_switch = 0;
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":414
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":430
  *                     cv2_main_image = cv2_main_image[20:]
  *                     color_picker_switch = False
  *                     cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
  *                 mouse_helper.shape = cv2_main_image.shape
  * 
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 414, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_imshow); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 414, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 430, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_imshow); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 430, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = NULL;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __pyx_t_4 = NULL;
           __pyx_t_10 = 0;
           if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-            __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
-            if (likely(__pyx_t_6)) {
+            __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
+            if (likely(__pyx_t_4)) {
               PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-              __Pyx_INCREF(__pyx_t_6);
+              __Pyx_INCREF(__pyx_t_4);
               __Pyx_INCREF(function);
               __Pyx_DECREF_SET(__pyx_t_2, function);
               __pyx_t_10 = 1;
@@ -7469,54 +7521,54 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           }
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_2)) {
-            PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-            __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 414, __pyx_L1_error)
-            __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+            PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+            __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 430, __pyx_L1_error)
+            __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_GOTREF(__pyx_t_3);
           } else
           #endif
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
-            PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-            __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 414, __pyx_L1_error)
-            __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+            PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+            __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 430, __pyx_L1_error)
+            __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_GOTREF(__pyx_t_3);
           } else
           #endif
           {
-            __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 414, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_4);
-            if (__pyx_t_6) {
-              __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
+            __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 430, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_6);
+            if (__pyx_t_4) {
+              __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
             }
             __Pyx_INCREF(__pyx_kp_s_Image_Window);
             __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
-            PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
+            PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_10, __pyx_kp_s_Image_Window);
             __Pyx_INCREF(__pyx_v_cv2_main_image);
             __Pyx_GIVEREF(__pyx_v_cv2_main_image);
-            PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 414, __pyx_L1_error)
+            PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_v_cv2_main_image);
+            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 430, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
-            __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+            __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         }
         __pyx_L28:;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":415
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":431
  *                     color_picker_switch = False
  *                     cv2.imshow("Image Window", cv2_main_image)
  *                 mouse_helper.shape = cv2_main_image.shape             # <<<<<<<<<<<<<<
  * 
  *             # Scale image up
  */
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 415, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 431, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_3) < 0) __PYX_ERR(0, 415, __pyx_L1_error)
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_3) < 0) __PYX_ERR(0, 431, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":404
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":420
  * 
  *             # Display/hide live color picker
  *             elif k in (kbcon.VK_W, kbcon.AS_w): # "W" or "w"             # <<<<<<<<<<<<<<
@@ -7526,7 +7578,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         goto __pyx_L10;
       }
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":418
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":434
  * 
  *             # Scale image up
  *             elif k in (kbcon.AS_PLUS, kbcon.AS_EQUALS): # "+" Or "="             # <<<<<<<<<<<<<<
@@ -7535,22 +7587,28 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
       __Pyx_INCREF(__pyx_v_k);
       __pyx_t_3 = __pyx_v_k;
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_PLUS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 418, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 418, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_AS_PLUS); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 434, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 418, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 434, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (!__pyx_t_11) {
       } else {
         __pyx_t_1 = __pyx_t_11;
         goto __pyx_L29_bool_binop_done;
       }
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_EQUALS); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 418, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 418, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 418, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_AS_EQUALS); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 434, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_2 = PyObject_RichCompare(__pyx_t_3, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 434, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_1 = __pyx_t_11;
       __pyx_L29_bool_binop_done:;
@@ -7558,19 +7616,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __pyx_t_11 = (__pyx_t_1 != 0);
       if (__pyx_t_11) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":421
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":437
  *                 # if cv2_main_image.shape[0] <= screen_size[0]/1.2 and cv2_main_image.shape[1] < screen_size[1]/1.2:
  * 
  *                 cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=1.2, fy=1.2)             # <<<<<<<<<<<<<<
  *                 cv2.imshow("Image Window", cv2_main_image)
  *                 mouse_helper.shape = cv2_main_image.shape
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 421, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 437, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_resize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 421, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_resize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 437, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 421, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 437, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_v_cv2_main_image);
         __Pyx_GIVEREF(__pyx_v_cv2_main_image);
@@ -7578,37 +7636,37 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_INCREF(__pyx_tuple__13);
         __Pyx_GIVEREF(__pyx_tuple__13);
         PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_tuple__13);
-        __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 421, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_fx, __pyx_float_1_2) < 0) __PYX_ERR(0, 421, __pyx_L1_error)
-        if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_fy, __pyx_float_1_2) < 0) __PYX_ERR(0, 421, __pyx_L1_error)
-        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 421, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 437, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
+        if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_fx, __pyx_float_1_2) < 0) __PYX_ERR(0, 437, __pyx_L1_error)
+        if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_fy, __pyx_float_1_2) < 0) __PYX_ERR(0, 437, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 437, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_6);
-        __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_4);
+        __pyx_t_4 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":422
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":438
  * 
  *                 cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=1.2, fy=1.2)
  *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
  *                 mouse_helper.shape = cv2_main_image.shape
  * 
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 422, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_imshow); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 422, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 438, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_imshow); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 438, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = NULL;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_t_6 = NULL;
         __pyx_t_10 = 0;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-          if (likely(__pyx_t_4)) {
+          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_3);
+          if (likely(__pyx_t_6)) {
             PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-            __Pyx_INCREF(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_6);
             __Pyx_INCREF(function);
             __Pyx_DECREF_SET(__pyx_t_3, function);
             __pyx_t_10 = 1;
@@ -7616,25 +7674,25 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         }
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_3)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 422, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_GOTREF(__pyx_t_6);
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 438, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_4);
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 422, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_GOTREF(__pyx_t_6);
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
+          __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 438, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_4);
         } else
         #endif
         {
-          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 422, __pyx_L1_error)
+          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 438, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          if (__pyx_t_4) {
-            __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4); __pyx_t_4 = NULL;
+          if (__pyx_t_6) {
+            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6); __pyx_t_6 = NULL;
           }
           __Pyx_INCREF(__pyx_kp_s_Image_Window);
           __Pyx_GIVEREF(__pyx_kp_s_Image_Window);
@@ -7642,26 +7700,26 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
           PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 422, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 438, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         }
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":423
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":439
  *                 cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=1.2, fy=1.2)
  *                 cv2.imshow("Image Window", cv2_main_image)
  *                 mouse_helper.shape = cv2_main_image.shape             # <<<<<<<<<<<<<<
  * 
  *             # Scale image down
  */
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 423, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_6) < 0) __PYX_ERR(0, 423, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 439, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_4) < 0) __PYX_ERR(0, 439, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":418
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":434
  * 
  *             # Scale image up
  *             elif k in (kbcon.AS_PLUS, kbcon.AS_EQUALS): # "+" Or "="             # <<<<<<<<<<<<<<
@@ -7671,7 +7729,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         goto __pyx_L10;
       }
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":426
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":442
  * 
  *             # Scale image down
  *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"             # <<<<<<<<<<<<<<
@@ -7679,138 +7737,144 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)
  */
       __Pyx_INCREF(__pyx_v_k);
-      __pyx_t_6 = __pyx_v_k;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_MINUS); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 426, __pyx_L1_error)
+      __pyx_t_4 = __pyx_v_k;
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 442, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = PyObject_RichCompare(__pyx_t_6, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 426, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_AS_MINUS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 426, __pyx_L1_error)
+      __pyx_t_3 = PyObject_RichCompare(__pyx_t_4, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 442, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (!__pyx_t_1) {
       } else {
         __pyx_t_11 = __pyx_t_1;
         goto __pyx_L31_bool_binop_done;
       }
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_UNDERSCORE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 426, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_AS_UNDERSCORE); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 442, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = PyObject_RichCompare(__pyx_t_6, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 426, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_3 = PyObject_RichCompare(__pyx_t_4, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 442, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 426, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 442, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_11 = __pyx_t_1;
       __pyx_L31_bool_binop_done:;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_1 = (__pyx_t_11 != 0);
       if (__pyx_t_1) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":427
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":443
  *             # Scale image down
  *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"
  *                 if cv2_main_image.shape[0] > 100 and cv2_main_image.shape[1] > 100:             # <<<<<<<<<<<<<<
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)
  *                     cv2.imshow("Image Window", cv2_main_image)
  */
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 427, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_6, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 427, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 443, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 443, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, __pyx_int_100, Py_GT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 427, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_int_100, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 443, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 427, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 443, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         if (__pyx_t_11) {
         } else {
           __pyx_t_1 = __pyx_t_11;
           goto __pyx_L34_bool_binop_done;
         }
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 427, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_6, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 427, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 443, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 443, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, __pyx_int_100, Py_GT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 427, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_int_100, Py_GT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 443, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 427, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 443, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_t_1 = __pyx_t_11;
         __pyx_L34_bool_binop_done:;
         if (__pyx_t_1) {
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":428
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":444
  *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"
  *                 if cv2_main_image.shape[0] > 100 and cv2_main_image.shape[1] > 100:
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)             # <<<<<<<<<<<<<<
  *                     cv2.imshow("Image Window", cv2_main_image)
  *                     mouse_helper.shape = cv2_main_image.shape
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 428, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_resize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 428, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 444, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_resize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 444, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 428, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 444, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
-          PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_v_cv2_main_image);
+          PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_cv2_main_image);
           __Pyx_INCREF(__pyx_tuple__13);
           __Pyx_GIVEREF(__pyx_tuple__13);
-          PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_tuple__13);
-          __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 428, __pyx_L1_error)
+          PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_tuple__13);
+          __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 444, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_fx, __pyx_float_0_8) < 0) __PYX_ERR(0, 428, __pyx_L1_error)
-          if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_fy, __pyx_float_0_8) < 0) __PYX_ERR(0, 428, __pyx_L1_error)
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 428, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
+          if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_fx, __pyx_float_0_8) < 0) __PYX_ERR(0, 444, __pyx_L1_error)
+          if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_fy, __pyx_float_0_8) < 0) __PYX_ERR(0, 444, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 444, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_4);
-          __pyx_t_4 = 0;
+          __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_6);
+          __pyx_t_6 = 0;
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":429
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":445
  *                 if cv2_main_image.shape[0] > 100 and cv2_main_image.shape[1] > 100:
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)
  *                     cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
  *                     mouse_helper.shape = cv2_main_image.shape
  * 
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 429, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 445, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imshow); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 429, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imshow); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 445, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __pyx_t_2 = NULL;
           __pyx_t_10 = 0;
-          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-            __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_6);
+          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+            __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
             if (likely(__pyx_t_2)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
               __Pyx_INCREF(__pyx_t_2);
               __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_6, function);
+              __Pyx_DECREF_SET(__pyx_t_4, function);
               __pyx_t_10 = 1;
             }
           }
           #if CYTHON_FAST_PYCALL
-          if (PyFunction_Check(__pyx_t_6)) {
+          if (PyFunction_Check(__pyx_t_4)) {
             PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-            __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 429, __pyx_L1_error)
+            __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 445, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-            __Pyx_GOTREF(__pyx_t_4);
+            __Pyx_GOTREF(__pyx_t_6);
           } else
           #endif
           #if CYTHON_FAST_PYCCALL
-          if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
+          if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
             PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-            __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 429, __pyx_L1_error)
+            __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 445, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-            __Pyx_GOTREF(__pyx_t_4);
+            __Pyx_GOTREF(__pyx_t_6);
           } else
           #endif
           {
-            __pyx_t_3 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 429, __pyx_L1_error)
+            __pyx_t_3 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 445, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             if (__pyx_t_2) {
               __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -7821,26 +7885,26 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
             __Pyx_INCREF(__pyx_v_cv2_main_image);
             __Pyx_GIVEREF(__pyx_v_cv2_main_image);
             PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-            __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 429, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_4);
+            __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 445, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_6);
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           }
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":430
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":446
  *                     cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=0.8, fy=0.8)
  *                     cv2.imshow("Image Window", cv2_main_image)
  *                     mouse_helper.shape = cv2_main_image.shape             # <<<<<<<<<<<<<<
  * 
  *             # Save the image to a file
  */
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 430, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_4) < 0) __PYX_ERR(0, 430, __pyx_L1_error)
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cv2_main_image, __pyx_n_s_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 446, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
+          if (__Pyx_PyObject_SetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_shape, __pyx_t_6) < 0) __PYX_ERR(0, 446, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":427
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":443
  *             # Scale image down
  *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"
  *                 if cv2_main_image.shape[0] > 100 and cv2_main_image.shape[1] > 100:             # <<<<<<<<<<<<<<
@@ -7849,7 +7913,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  */
         }
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":426
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":442
  * 
  *             # Scale image down
  *             elif k in (kbcon.AS_MINUS, kbcon.AS_UNDERSCORE): # "-" Or "_"             # <<<<<<<<<<<<<<
@@ -7859,7 +7923,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         goto __pyx_L10;
       }
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":433
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":449
  * 
  *             # Save the image to a file
  *             elif k in (kbcon.VK_S, kbcon.AS_s): # "S" or "s"             # <<<<<<<<<<<<<<
@@ -7867,53 +7931,59 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  *                 winsound.PlaySound(r"C:\Windows\Media\tada.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
       __Pyx_INCREF(__pyx_v_k);
-      __pyx_t_4 = __pyx_v_k;
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_VK_S); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 433, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = PyObject_RichCompare(__pyx_t_4, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 433, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 433, __pyx_L1_error)
+      __pyx_t_6 = __pyx_v_k;
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_VK_S); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_6, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 449, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (!__pyx_t_11) {
       } else {
         __pyx_t_1 = __pyx_t_11;
         goto __pyx_L36_bool_binop_done;
       }
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_s); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 433, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_AS_s); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 449, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 433, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_6, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 449, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 433, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 449, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_1 = __pyx_t_11;
       __pyx_L36_bool_binop_done:;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_11 = (__pyx_t_1 != 0);
       if (__pyx_t_11) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":434
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":450
  *             # Save the image to a file
  *             elif k in (kbcon.VK_S, kbcon.AS_s): # "S" or "s"
  *                 cv2.imwrite(os.path.join(save_directory, dt.now().strftime("%Y-%m-%d, %I.%M.%S %p") + ".png"), cv2_main_image)             # <<<<<<<<<<<<<<
  *                 winsound.PlaySound(r"C:\Windows\Media\tada.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  * 
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 434, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_imwrite); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 434, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 450, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_imwrite); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 434, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_join); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_join); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_dt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 434, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_dt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_now); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 434, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_now); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __pyx_t_8 = NULL;
@@ -7928,10 +7998,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         }
         __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 434, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_strftime); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 434, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_strftime); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_5 = NULL;
@@ -7946,10 +8016,10 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         }
         __pyx_t_7 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_5, __pyx_kp_s_Y_m_d_I_M_S_p) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_kp_s_Y_m_d_I_M_S_p);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 434, __pyx_L1_error)
+        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __pyx_t_9 = PyNumber_Add(__pyx_t_7, __pyx_kp_s_png); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 434, __pyx_L1_error)
+        __pyx_t_9 = PyNumber_Add(__pyx_t_7, __pyx_kp_s_png); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 450, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __pyx_t_7 = NULL;
@@ -7967,23 +8037,23 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_2)) {
           PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_v_save_directory, __pyx_t_9};
-          __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 434, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 450, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
           PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_v_save_directory, __pyx_t_9};
-          __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 434, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 450, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         } else
         #endif
         {
-          __pyx_t_5 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 434, __pyx_L1_error)
+          __pyx_t_5 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 450, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           if (__pyx_t_7) {
             __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -7994,8 +8064,8 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __Pyx_GIVEREF(__pyx_t_9);
           PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_10, __pyx_t_9);
           __pyx_t_9 = 0;
-          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 434, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 450, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         }
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -8013,66 +8083,66 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         }
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_3)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_6, __pyx_v_cv2_main_image};
-          __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 434, __pyx_L1_error)
+          PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_4, __pyx_v_cv2_main_image};
+          __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 450, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
-          PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_6, __pyx_v_cv2_main_image};
-          __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 434, __pyx_L1_error)
+          PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_4, __pyx_v_cv2_main_image};
+          __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 450, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         } else
         #endif
         {
-          __pyx_t_5 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 434, __pyx_L1_error)
+          __pyx_t_5 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 450, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           if (__pyx_t_2) {
             __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
           }
-          __Pyx_GIVEREF(__pyx_t_6);
-          PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_10, __pyx_t_6);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_10, __pyx_t_4);
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
           PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-          __pyx_t_6 = 0;
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 434, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_4 = 0;
+          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 450, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         }
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":435
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":451
  *             elif k in (kbcon.VK_S, kbcon.AS_s): # "S" or "s"
  *                 cv2.imwrite(os.path.join(save_directory, dt.now().strftime("%Y-%m-%d, %I.%M.%S %p") + ".png"), cv2_main_image)
  *                 winsound.PlaySound(r"C:\Windows\Media\tada.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  * 
  *             # Open file location
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 451, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 435, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 451, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 451, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 435, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 451, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_winsound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 451, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 435, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 451, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = PyNumber_Or(__pyx_t_6, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 435, __pyx_L1_error)
+        __pyx_t_3 = PyNumber_Or(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 451, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_2 = NULL;
         __pyx_t_10 = 0;
@@ -8089,41 +8159,41 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_C_Windows_Media_tada_wav, __pyx_t_3};
-          __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 435, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 451, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_C_Windows_Media_tada_wav, __pyx_t_3};
-          __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 435, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 451, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         } else
         #endif
         {
-          __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 435, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 451, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
           if (__pyx_t_2) {
-            __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2); __pyx_t_2 = NULL;
+            __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2); __pyx_t_2 = NULL;
           }
           __Pyx_INCREF(__pyx_kp_s_C_Windows_Media_tada_wav);
           __Pyx_GIVEREF(__pyx_kp_s_C_Windows_Media_tada_wav);
-          PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_10, __pyx_kp_s_C_Windows_Media_tada_wav);
+          PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_10, __pyx_kp_s_C_Windows_Media_tada_wav);
           __Pyx_GIVEREF(__pyx_t_3);
-          PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_t_3);
           __pyx_t_3 = 0;
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_6, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 435, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_4, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 451, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":433
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":449
  * 
  *             # Save the image to a file
  *             elif k in (kbcon.VK_S, kbcon.AS_s): # "S" or "s"             # <<<<<<<<<<<<<<
@@ -8133,7 +8203,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         goto __pyx_L10;
       }
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":438
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":454
  * 
  *             # Open file location
  *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"             # <<<<<<<<<<<<<<
@@ -8141,45 +8211,51 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  *                 if list_of_files:
  */
       __Pyx_INCREF(__pyx_v_k);
-      __pyx_t_4 = __pyx_v_k;
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_VK_O); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 438, __pyx_L1_error)
+      __pyx_t_6 = __pyx_v_k;
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 454, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 438, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_VK_O); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 454, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 438, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_5 = PyObject_RichCompare(__pyx_t_6, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 454, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 454, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (!__pyx_t_1) {
       } else {
         __pyx_t_11 = __pyx_t_1;
         goto __pyx_L38_bool_binop_done;
       }
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_kbcon, __pyx_n_s_AS_o); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 438, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_5 = PyObject_RichCompare(__pyx_t_4, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 438, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 438, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_kbcon); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 454, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_AS_o); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 454, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __pyx_t_5 = PyObject_RichCompare(__pyx_t_6, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 454, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 454, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_11 = __pyx_t_1;
       __pyx_L38_bool_binop_done:;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_1 = (__pyx_t_11 != 0);
       if (__pyx_t_1) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":439
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":455
  *             # Open file location
  *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"
  *                 list_of_files = glob(os.path.join(save_directory, "*.png"))             # <<<<<<<<<<<<<<
  *                 if list_of_files:
  *                     os.system(f"explorer /select, \"{max(list_of_files, key=os.path.getctime)}\"")
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_glob); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 439, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_glob); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 439, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 439, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_2 = NULL;
@@ -8197,21 +8273,21 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_3)) {
           PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_save_directory, __pyx_kp_s_png_2};
-          __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 439, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 455, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_GOTREF(__pyx_t_4);
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
           PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_save_directory, __pyx_kp_s_png_2};
-          __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 439, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 455, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_GOTREF(__pyx_t_4);
         } else
         #endif
         {
-          __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 439, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 455, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           if (__pyx_t_2) {
             __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -8222,8 +8298,8 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __Pyx_INCREF(__pyx_kp_s_png_2);
           __Pyx_GIVEREF(__pyx_kp_s_png_2);
           PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_kp_s_png_2);
-          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_9, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 439, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 455, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -8237,38 +8313,38 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
             __Pyx_DECREF_SET(__pyx_t_5, function);
           }
         }
-        __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_3, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6);
+        __pyx_t_6 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4);
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 439, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 455, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_XDECREF_SET(__pyx_v_list_of_files, __pyx_t_4);
-        __pyx_t_4 = 0;
+        __Pyx_XDECREF_SET(__pyx_v_list_of_files, __pyx_t_6);
+        __pyx_t_6 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":440
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":456
  *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"
  *                 list_of_files = glob(os.path.join(save_directory, "*.png"))
  *                 if list_of_files:             # <<<<<<<<<<<<<<
  *                     os.system(f"explorer /select, \"{max(list_of_files, key=os.path.getctime)}\"")
  *                     winsound.PlaySound(r"C:\Windows\Media\Windows Navigation Start.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  */
-        __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_list_of_files); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 440, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_list_of_files); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 456, __pyx_L1_error)
         if (__pyx_t_1) {
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":441
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":457
  *                 list_of_files = glob(os.path.join(save_directory, "*.png"))
  *                 if list_of_files:
  *                     os.system(f"explorer /select, \"{max(list_of_files, key=os.path.getctime)}\"")             # <<<<<<<<<<<<<<
  *                     winsound.PlaySound(r"C:\Windows\Media\Windows Navigation Start.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  *                 else:
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_os); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_system); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 441, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_system); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 457, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_12 = 0;
           __pyx_t_13 = 127;
@@ -8276,28 +8352,28 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __pyx_t_12 += 19;
           __Pyx_GIVEREF(__pyx_kp_u_explorer_select);
           PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_kp_u_explorer_select);
-          __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_INCREF(__pyx_v_list_of_files);
           __Pyx_GIVEREF(__pyx_v_list_of_files);
           PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_list_of_files);
-          __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_getctime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_getctime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-          if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_key, __pyx_t_2) < 0) __PYX_ERR(0, 441, __pyx_L1_error)
+          if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_key, __pyx_t_2) < 0) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_max, __pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_max, __pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __pyx_t_13 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) > __pyx_t_13) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) : __pyx_t_13;
@@ -8309,51 +8385,51 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __pyx_t_12 += 1;
           __Pyx_GIVEREF(__pyx_kp_u__14);
           PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_kp_u__14);
-          __pyx_t_9 = __Pyx_PyUnicode_Join(__pyx_t_5, 3, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyUnicode_Join(__pyx_t_5, 3, __pyx_t_12, __pyx_t_13); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 457, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __pyx_t_5 = NULL;
-          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-            __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_6);
+          if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+            __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
             if (likely(__pyx_t_5)) {
-              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+              PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
               __Pyx_INCREF(__pyx_t_5);
               __Pyx_INCREF(function);
-              __Pyx_DECREF_SET(__pyx_t_6, function);
+              __Pyx_DECREF_SET(__pyx_t_4, function);
             }
           }
-          __pyx_t_4 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_5, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_9);
+          __pyx_t_6 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9);
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 441, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 457, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":442
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":458
  *                 if list_of_files:
  *                     os.system(f"explorer /select, \"{max(list_of_files, key=os.path.getctime)}\"")
  *                     winsound.PlaySound(r"C:\Windows\Media\Windows Navigation Start.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)             # <<<<<<<<<<<<<<
  *                 else:
  *                     os.startfile(os.getcwd())
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_winsound); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 442, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 442, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_winsound); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 458, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 458, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_winsound); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 442, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 442, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_winsound); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 458, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 458, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_winsound); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 442, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 442, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_winsound); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 458, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_SND_ASYNC); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 458, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = PyNumber_Or(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 442, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __pyx_t_4 = PyNumber_Or(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 458, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __pyx_t_2 = NULL;
@@ -8370,24 +8446,24 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           }
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_9)) {
-            PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_C_Windows_Media_Windows_Navigati, __pyx_t_6};
-            __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 442, __pyx_L1_error)
+            PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_C_Windows_Media_Windows_Navigati, __pyx_t_4};
+            __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 458, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-            __Pyx_GOTREF(__pyx_t_4);
-            __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+            __Pyx_GOTREF(__pyx_t_6);
+            __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           } else
           #endif
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
-            PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_C_Windows_Media_Windows_Navigati, __pyx_t_6};
-            __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 442, __pyx_L1_error)
+            PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_C_Windows_Media_Windows_Navigati, __pyx_t_4};
+            __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 458, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-            __Pyx_GOTREF(__pyx_t_4);
-            __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+            __Pyx_GOTREF(__pyx_t_6);
+            __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           } else
           #endif
           {
-            __pyx_t_5 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 442, __pyx_L1_error)
+            __pyx_t_5 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 458, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
             if (__pyx_t_2) {
               __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -8395,17 +8471,17 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
             __Pyx_INCREF(__pyx_kp_s_C_Windows_Media_Windows_Navigati);
             __Pyx_GIVEREF(__pyx_kp_s_C_Windows_Media_Windows_Navigati);
             PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_10, __pyx_kp_s_C_Windows_Media_Windows_Navigati);
-            __Pyx_GIVEREF(__pyx_t_6);
-            PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_10, __pyx_t_6);
-            __pyx_t_6 = 0;
-            __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 442, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_4);
+            __Pyx_GIVEREF(__pyx_t_4);
+            PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_10, __pyx_t_4);
+            __pyx_t_4 = 0;
+            __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_5, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 458, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_6);
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           }
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-          /* "src/cythonExtensions/imageInverter/imageInverter.pyx":440
+          /* "src/cythonExtensions/imageUtils/imageUtils.pyx":456
  *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"
  *                 list_of_files = glob(os.path.join(save_directory, "*.png"))
  *                 if list_of_files:             # <<<<<<<<<<<<<<
@@ -8415,7 +8491,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           goto __pyx_L40;
         }
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":444
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":460
  *                     winsound.PlaySound(r"C:\Windows\Media\Windows Navigation Start.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
  *                 else:
  *                     os.startfile(os.getcwd())             # <<<<<<<<<<<<<<
@@ -8423,29 +8499,29 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
  *             if color_picker_switch:
  */
         /*else*/ {
-          __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_os); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 444, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_os); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 460, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_startfile); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 444, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_startfile); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 460, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_os); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 444, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_getcwd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 444, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_os); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 460, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_getcwd); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 460, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = NULL;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __pyx_t_4 = NULL;
           if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-            __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
-            if (likely(__pyx_t_6)) {
+            __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
+            if (likely(__pyx_t_4)) {
               PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-              __Pyx_INCREF(__pyx_t_6);
+              __Pyx_INCREF(__pyx_t_4);
               __Pyx_INCREF(function);
               __Pyx_DECREF_SET(__pyx_t_2, function);
             }
           }
-          __pyx_t_9 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
-          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 444, __pyx_L1_error)
+          __pyx_t_9 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 460, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __pyx_t_2 = NULL;
@@ -8458,17 +8534,17 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
               __Pyx_DECREF_SET(__pyx_t_5, function);
             }
           }
-          __pyx_t_4 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_2, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_9);
+          __pyx_t_6 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_2, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_9);
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 444, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 460, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         }
         __pyx_L40:;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":438
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":454
  * 
  *             # Open file location
  *             elif k in (kbcon.VK_O, kbcon.AS_o): # "O" or "o"             # <<<<<<<<<<<<<<
@@ -8478,36 +8554,36 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       }
       __pyx_L10:;
 
-      /* "src/cythonExtensions/imageInverter/imageInverter.pyx":446
+      /* "src/cythonExtensions/imageUtils/imageUtils.pyx":462
  *                     os.startfile(os.getcwd())
  * 
  *             if color_picker_switch:             # <<<<<<<<<<<<<<
- *                 cv2_main_image = life_color_update(cv2_main_image, mouse_helper.x, mouse_helper.y)
+ *                 cv2_main_image = addColorBar(cv2_main_image, mouse_helper.x, mouse_helper.y)
  *                 cv2.imshow("Image Window", cv2_main_image)
  */
       __pyx_t_1 = (__pyx_v_color_picker_switch != 0);
       if (__pyx_t_1) {
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":447
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":463
  * 
  *             if color_picker_switch:
- *                 cv2_main_image = life_color_update(cv2_main_image, mouse_helper.x, mouse_helper.y)             # <<<<<<<<<<<<<<
+ *                 cv2_main_image = addColorBar(cv2_main_image, mouse_helper.x, mouse_helper.y)             # <<<<<<<<<<<<<<
  *                 cv2.imshow("Image Window", cv2_main_image)
  * 
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_life_color_update); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 447, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_addColorBar); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 463, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_x); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 447, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_x); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 463, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 447, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_mouse_helper, __pyx_n_s_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 463, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_6 = NULL;
+        __pyx_t_4 = NULL;
         __pyx_t_10 = 0;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
-          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
-          if (likely(__pyx_t_6)) {
+          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
+          if (likely(__pyx_t_4)) {
             PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-            __Pyx_INCREF(__pyx_t_6);
+            __Pyx_INCREF(__pyx_t_4);
             __Pyx_INCREF(function);
             __Pyx_DECREF_SET(__pyx_t_5, function);
             __pyx_t_10 = 1;
@@ -8515,29 +8591,29 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         }
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
-          PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_v_cv2_main_image, __pyx_t_9, __pyx_t_2};
-          __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 447, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_GOTREF(__pyx_t_4);
+          PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_v_cv2_main_image, __pyx_t_9, __pyx_t_2};
+          __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 463, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
-          PyObject *__pyx_temp[4] = {__pyx_t_6, __pyx_v_cv2_main_image, __pyx_t_9, __pyx_t_2};
-          __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 447, __pyx_L1_error)
-          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_GOTREF(__pyx_t_4);
+          PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_v_cv2_main_image, __pyx_t_9, __pyx_t_2};
+          __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 463, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         } else
         #endif
         {
-          __pyx_t_3 = PyTuple_New(3+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 447, __pyx_L1_error)
+          __pyx_t_3 = PyTuple_New(3+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 463, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          if (__pyx_t_6) {
-            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6); __pyx_t_6 = NULL;
+          if (__pyx_t_4) {
+            __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4); __pyx_t_4 = NULL;
           }
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
@@ -8548,24 +8624,24 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           PyTuple_SET_ITEM(__pyx_t_3, 2+__pyx_t_10, __pyx_t_2);
           __pyx_t_9 = 0;
           __pyx_t_2 = 0;
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 447, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_3, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 463, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_4);
-        __pyx_t_4 = 0;
+        __Pyx_DECREF_SET(__pyx_v_cv2_main_image, __pyx_t_6);
+        __pyx_t_6 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":448
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":464
  *             if color_picker_switch:
- *                 cv2_main_image = life_color_update(cv2_main_image, mouse_helper.x, mouse_helper.y)
+ *                 cv2_main_image = addColorBar(cv2_main_image, mouse_helper.x, mouse_helper.y)
  *                 cv2.imshow("Image Window", cv2_main_image)             # <<<<<<<<<<<<<<
  * 
  *         cv2.destroyAllWindows()
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 448, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 464, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_imshow); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 448, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_imshow); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 464, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_5 = NULL;
@@ -8583,21 +8659,21 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_3)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 448, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 464, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_GOTREF(__pyx_t_6);
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_kp_s_Image_Window, __pyx_v_cv2_main_image};
-          __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 448, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 464, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_GOTREF(__pyx_t_6);
         } else
         #endif
         {
-          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 448, __pyx_L1_error)
+          __pyx_t_2 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 464, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           if (__pyx_t_5) {
             __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -8608,34 +8684,34 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
           __Pyx_INCREF(__pyx_v_cv2_main_image);
           __Pyx_GIVEREF(__pyx_v_cv2_main_image);
           PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_10, __pyx_v_cv2_main_image);
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 448, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
+          __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 464, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         }
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "src/cythonExtensions/imageInverter/imageInverter.pyx":446
+        /* "src/cythonExtensions/imageUtils/imageUtils.pyx":462
  *                     os.startfile(os.getcwd())
  * 
  *             if color_picker_switch:             # <<<<<<<<<<<<<<
- *                 cv2_main_image = life_color_update(cv2_main_image, mouse_helper.x, mouse_helper.y)
+ *                 cv2_main_image = addColorBar(cv2_main_image, mouse_helper.x, mouse_helper.y)
  *                 cv2.imshow("Image Window", cv2_main_image)
  */
       }
     }
     __pyx_L6_break:;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":450
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":466
  *                 cv2.imshow("Image Window", cv2_main_image)
  * 
  *         cv2.destroyAllWindows()             # <<<<<<<<<<<<<<
  *     else:
- *         image_invert(image)
+ *         imageInvert(image)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 450, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 466, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_destroyAllWindows); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 450, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_destroyAllWindows); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 466, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -8648,14 +8724,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_DECREF_SET(__pyx_t_2, function);
       }
     }
-    __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+    __pyx_t_6 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 450, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 466, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":314
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":331
  * 
  *     image = PIL.ImageGrab.grabclipboard()
  *     if show_window:             # <<<<<<<<<<<<<<
@@ -8665,14 +8741,14 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     goto __pyx_L4;
   }
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":452
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":468
  *         cv2.destroyAllWindows()
  *     else:
- *         image_invert(image)             # <<<<<<<<<<<<<<
+ *         imageInvert(image)             # <<<<<<<<<<<<<<
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME)
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_image_invert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 452, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_imageInvert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 468, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -8684,26 +8760,26 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
         __Pyx_DECREF_SET(__pyx_t_2, function);
       }
     }
-    __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_image);
+    __pyx_t_6 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_image) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_image);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 452, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 468, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "src/cythonExtensions/imageInverter/imageInverter.pyx":453
+    /* "src/cythonExtensions/imageUtils/imageUtils.pyx":469
  *     else:
- *         image_invert(image)
+ *         imageInvert(image)
  *         winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME)             # <<<<<<<<<<<<<<
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 453, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 469, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 453, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_PlaySound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 469, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 453, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_winsound); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 469, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 453, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_SND_FILENAME); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 469, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -8721,23 +8797,23 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_5};
-      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 453, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 469, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else
     #endif
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_kp_s_SFX_coins_497_wav, __pyx_t_5};
-      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 453, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 469, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else
     #endif
     {
-      __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 453, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 469, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       if (__pyx_t_2) {
         __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -8748,19 +8824,19 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
       __Pyx_GIVEREF(__pyx_t_5);
       PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 453, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_9, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 469, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __pyx_L4:;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":305
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":322
  * 
  * 
- * def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
+ * def runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
  *     if save_near_module:
  *         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")
  */
@@ -8777,7 +8853,7 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("macropy.cythonExtensions.imageInverter.imageInverter.BeginImageProcessing", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("macropy.cythonExtensions.imageUtils.imageUtils.runScript", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_save_directory);
@@ -8785,7 +8861,6 @@ static PyObject *__pyx_pf_7macropy_16cythonExtensions_13imageInverter_13imageInv
   __Pyx_XDECREF(__pyx_v_ctypes);
   __Pyx_XDECREF(__pyx_v_win32api);
   __Pyx_XDECREF(__pyx_v_win32con);
-  __Pyx_XDECREF(__pyx_v_kbcon);
   __Pyx_XDECREF(__pyx_v_cv2_main_image);
   __Pyx_XDECREF(__pyx_v_mouse_helper);
   __Pyx_XDECREF(__pyx_v_k);
@@ -8803,17 +8878,17 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_imageInverter(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_imageUtils(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_imageInverter},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_imageUtils},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "imageInverter",
+    "imageUtils",
     0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -8855,7 +8930,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_AS_v, __pyx_k_AS_v, sizeof(__pyx_k_AS_v), 0, 0, 1, 1},
   {&__pyx_n_s_AS_w, __pyx_k_AS_w, sizeof(__pyx_k_AS_w), 0, 0, 1, 1},
   {&__pyx_n_s_BMP, __pyx_k_BMP, sizeof(__pyx_k_BMP), 0, 0, 1, 1},
-  {&__pyx_n_s_BeginImageProcessing, __pyx_k_BeginImageProcessing, sizeof(__pyx_k_BeginImageProcessing), 0, 0, 1, 1},
   {&__pyx_n_s_BytesIO, __pyx_k_BytesIO, sizeof(__pyx_k_BytesIO), 0, 0, 1, 1},
   {&__pyx_n_s_CF_DIB, __pyx_k_CF_DIB, sizeof(__pyx_k_CF_DIB), 0, 0, 1, 1},
   {&__pyx_n_s_COLOR_BGR2RGB, __pyx_k_COLOR_BGR2RGB, sizeof(__pyx_k_COLOR_BGR2RGB), 0, 0, 1, 1},
@@ -8878,10 +8952,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Image_Window, __pyx_k_Image_Window, sizeof(__pyx_k_Image_Window), 0, 0, 1, 0},
   {&__pyx_kp_s_Image_must_be_a_PIL_Image_object, __pyx_k_Image_must_be_a_PIL_Image_object, sizeof(__pyx_k_Image_must_be_a_PIL_Image_object), 0, 0, 1, 0},
   {&__pyx_n_s_Images, __pyx_k_Images, sizeof(__pyx_k_Images), 0, 0, 1, 1},
-  {&__pyx_n_s_KB_Con, __pyx_k_KB_Con, sizeof(__pyx_k_KB_Con), 0, 0, 1, 1},
-  {&__pyx_n_s_MouseHelper, __pyx_k_MouseHelper, sizeof(__pyx_k_MouseHelper), 0, 0, 1, 1},
-  {&__pyx_n_s_MouseHelper___init, __pyx_k_MouseHelper___init, sizeof(__pyx_k_MouseHelper___init), 0, 0, 1, 1},
-  {&__pyx_n_s_MouseHelper_update_life_data, __pyx_k_MouseHelper_update_life_data, sizeof(__pyx_k_MouseHelper_update_life_data), 0, 0, 1, 1},
+  {&__pyx_n_s_MouseTracker, __pyx_k_MouseTracker, sizeof(__pyx_k_MouseTracker), 0, 0, 1, 1},
+  {&__pyx_n_s_MouseTracker___init, __pyx_k_MouseTracker___init, sizeof(__pyx_k_MouseTracker___init), 0, 0, 1, 1},
+  {&__pyx_n_s_MouseTracker_updateMouseData, __pyx_k_MouseTracker_updateMouseData, sizeof(__pyx_k_MouseTracker_updateMouseData), 0, 0, 1, 1},
   {&__pyx_n_s_OpenClipboard, __pyx_k_OpenClipboard, sizeof(__pyx_k_OpenClipboard), 0, 0, 1, 1},
   {&__pyx_n_s_PIL, __pyx_k_PIL, sizeof(__pyx_k_PIL), 0, 0, 1, 1},
   {&__pyx_n_s_PIL_Image, __pyx_k_PIL_Image, sizeof(__pyx_k_PIL_Image), 0, 0, 1, 1},
@@ -8891,6 +8964,14 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_RGB, __pyx_k_RGB, sizeof(__pyx_k_RGB), 0, 0, 1, 1},
   {&__pyx_n_s_RGBA, __pyx_k_RGBA, sizeof(__pyx_k_RGBA), 0, 0, 1, 1},
   {&__pyx_n_s_ROTATE_90_CLOCKWISE, __pyx_k_ROTATE_90_CLOCKWISE, sizeof(__pyx_k_ROTATE_90_CLOCKWISE), 0, 0, 1, 1},
+  {&__pyx_n_s_SC_A, __pyx_k_SC_A, sizeof(__pyx_k_SC_A), 0, 0, 1, 1},
+  {&__pyx_n_s_SC_C, __pyx_k_SC_C, sizeof(__pyx_k_SC_C), 0, 0, 1, 1},
+  {&__pyx_n_s_SC_O, __pyx_k_SC_O, sizeof(__pyx_k_SC_O), 0, 0, 1, 1},
+  {&__pyx_n_s_SC_R, __pyx_k_SC_R, sizeof(__pyx_k_SC_R), 0, 0, 1, 1},
+  {&__pyx_n_s_SC_S, __pyx_k_SC_S, sizeof(__pyx_k_SC_S), 0, 0, 1, 1},
+  {&__pyx_n_s_SC_T, __pyx_k_SC_T, sizeof(__pyx_k_SC_T), 0, 0, 1, 1},
+  {&__pyx_n_s_SC_V, __pyx_k_SC_V, sizeof(__pyx_k_SC_V), 0, 0, 1, 1},
+  {&__pyx_n_s_SC_W, __pyx_k_SC_W, sizeof(__pyx_k_SC_W), 0, 0, 1, 1},
   {&__pyx_kp_s_SFX_coins_497_wav, __pyx_k_SFX_coins_497_wav, sizeof(__pyx_k_SFX_coins_497_wav), 0, 0, 1, 0},
   {&__pyx_n_s_SND_ASYNC, __pyx_k_SND_ASYNC, sizeof(__pyx_k_SND_ASYNC), 0, 0, 1, 1},
   {&__pyx_n_s_SND_FILENAME, __pyx_k_SND_FILENAME, sizeof(__pyx_k_SND_FILENAME), 0, 0, 1, 1},
@@ -8917,6 +8998,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u__8, __pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0, 0},
   {&__pyx_n_s_a, __pyx_k_a, sizeof(__pyx_k_a), 0, 0, 1, 1},
   {&__pyx_n_s_abspath, __pyx_k_abspath, sizeof(__pyx_k_abspath), 0, 0, 1, 1},
+  {&__pyx_n_s_addColorBar, __pyx_k_addColorBar, sizeof(__pyx_k_addColorBar), 0, 0, 1, 1},
   {&__pyx_n_s_all, __pyx_k_all, sizeof(__pyx_k_all), 0, 0, 1, 1},
   {&__pyx_n_s_asarray, __pyx_k_asarray, sizeof(__pyx_k_asarray), 0, 0, 1, 1},
   {&__pyx_n_s_astype, __pyx_k_astype, sizeof(__pyx_k_astype), 0, 0, 1, 1},
@@ -8935,9 +9017,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ctypes, __pyx_k_ctypes, sizeof(__pyx_k_ctypes), 0, 0, 1, 1},
   {&__pyx_n_s_cv2, __pyx_k_cv2, sizeof(__pyx_k_cv2), 0, 0, 1, 1},
   {&__pyx_n_s_cv2_main_image, __pyx_k_cv2_main_image, sizeof(__pyx_k_cv2_main_image), 0, 0, 1, 1},
-  {&__pyx_n_s_cv_to_pil, __pyx_k_cv_to_pil, sizeof(__pyx_k_cv_to_pil), 0, 0, 1, 1},
+  {&__pyx_n_s_cvToPil, __pyx_k_cvToPil, sizeof(__pyx_k_cvToPil), 0, 0, 1, 1},
   {&__pyx_n_s_cvtColor, __pyx_k_cvtColor, sizeof(__pyx_k_cvtColor), 0, 0, 1, 1},
-  {&__pyx_n_s_cythonExtensions_commonUtils_com, __pyx_k_cythonExtensions_commonUtils_com, sizeof(__pyx_k_cythonExtensions_commonUtils_com), 0, 0, 1, 1},
   {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
   {&__pyx_n_s_data_items, __pyx_k_data_items, sizeof(__pyx_k_data_items), 0, 0, 1, 1},
   {&__pyx_n_s_datetime, __pyx_k_datetime, sizeof(__pyx_k_datetime), 0, 0, 1, 1},
@@ -8967,7 +9048,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_glob, __pyx_k_glob, sizeof(__pyx_k_glob), 0, 0, 1, 1},
   {&__pyx_n_s_grabclipboard, __pyx_k_grabclipboard, sizeof(__pyx_k_grabclipboard), 0, 0, 1, 1},
   {&__pyx_n_s_image, __pyx_k_image, sizeof(__pyx_k_image), 0, 0, 1, 1},
-  {&__pyx_n_s_image_invert, __pyx_k_image_invert, sizeof(__pyx_k_image_invert), 0, 0, 1, 1},
+  {&__pyx_n_s_imageInvert, __pyx_k_imageInvert, sizeof(__pyx_k_imageInvert), 0, 0, 1, 1},
   {&__pyx_kp_s_image_must_be_a_valid_numpy_arra, __pyx_k_image_must_be_a_valid_numpy_arra, sizeof(__pyx_k_image_must_be_a_valid_numpy_arra), 0, 0, 1, 0},
   {&__pyx_n_s_img, __pyx_k_img, sizeof(__pyx_k_img), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
@@ -8983,12 +9064,11 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_k, __pyx_k_k, sizeof(__pyx_k_k), 0, 0, 1, 1},
   {&__pyx_n_s_kbcon, __pyx_k_kbcon, sizeof(__pyx_k_kbcon), 0, 0, 1, 1},
   {&__pyx_n_s_key, __pyx_k_key, sizeof(__pyx_k_key), 0, 0, 1, 1},
-  {&__pyx_n_s_life_color_update, __pyx_k_life_color_update, sizeof(__pyx_k_life_color_update), 0, 0, 1, 1},
   {&__pyx_n_s_line, __pyx_k_line, sizeof(__pyx_k_line), 0, 0, 1, 1},
   {&__pyx_n_s_list_of_files, __pyx_k_list_of_files, sizeof(__pyx_k_list_of_files), 0, 0, 1, 1},
-  {&__pyx_n_s_macropy_cythonExtensions_imageIn, __pyx_k_macropy_cythonExtensions_imageIn, sizeof(__pyx_k_macropy_cythonExtensions_imageIn), 0, 0, 1, 1},
+  {&__pyx_n_s_macropy_cythonExtensions_imageUt, __pyx_k_macropy_cythonExtensions_imageUt, sizeof(__pyx_k_macropy_cythonExtensions_imageUt), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
-  {&__pyx_n_s_make_transparent, __pyx_k_make_transparent, sizeof(__pyx_k_make_transparent), 0, 0, 1, 1},
+  {&__pyx_n_s_makeTransparent, __pyx_k_makeTransparent, sizeof(__pyx_k_makeTransparent), 0, 0, 1, 1},
   {&__pyx_n_s_makedirs, __pyx_k_makedirs, sizeof(__pyx_k_makedirs), 0, 0, 1, 1},
   {&__pyx_n_s_max, __pyx_k_max, sizeof(__pyx_k_max), 0, 0, 1, 1},
   {&__pyx_n_s_merge, __pyx_k_merge, sizeof(__pyx_k_merge), 0, 0, 1, 1},
@@ -9010,8 +9090,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_output_image, __pyx_k_output_image, sizeof(__pyx_k_output_image), 0, 0, 1, 1},
   {&__pyx_n_s_param, __pyx_k_param, sizeof(__pyx_k_param), 0, 0, 1, 1},
   {&__pyx_n_s_path, __pyx_k_path, sizeof(__pyx_k_path), 0, 0, 1, 1},
-  {&__pyx_n_s_pil_image_to_bmp, __pyx_k_pil_image_to_bmp, sizeof(__pyx_k_pil_image_to_bmp), 0, 0, 1, 1},
-  {&__pyx_n_s_pil_to_cv, __pyx_k_pil_to_cv, sizeof(__pyx_k_pil_to_cv), 0, 0, 1, 1},
+  {&__pyx_n_s_pilImageToBmp, __pyx_k_pilImageToBmp, sizeof(__pyx_k_pilImageToBmp), 0, 0, 1, 1},
+  {&__pyx_n_s_pilToCv, __pyx_k_pilToCv, sizeof(__pyx_k_pilToCv), 0, 0, 1, 1},
   {&__pyx_kp_s_png, __pyx_k_png, sizeof(__pyx_k_png), 0, 0, 1, 0},
   {&__pyx_kp_s_png_2, __pyx_k_png_2, sizeof(__pyx_k_png_2), 0, 0, 1, 0},
   {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
@@ -9026,20 +9106,21 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_return, __pyx_k_return, sizeof(__pyx_k_return), 0, 0, 1, 1},
   {&__pyx_n_s_rgb_image, __pyx_k_rgb_image, sizeof(__pyx_k_rgb_image), 0, 0, 1, 1},
   {&__pyx_n_s_rotate, __pyx_k_rotate, sizeof(__pyx_k_rotate), 0, 0, 1, 1},
+  {&__pyx_n_s_runScript, __pyx_k_runScript, sizeof(__pyx_k_runScript), 0, 0, 1, 1},
   {&__pyx_n_s_save, __pyx_k_save, sizeof(__pyx_k_save), 0, 0, 1, 1},
   {&__pyx_n_s_save_directory, __pyx_k_save_directory, sizeof(__pyx_k_save_directory), 0, 0, 1, 1},
   {&__pyx_n_s_save_near_module, __pyx_k_save_near_module, sizeof(__pyx_k_save_near_module), 0, 0, 1, 1},
   {&__pyx_n_s_screen_size, __pyx_k_screen_size, sizeof(__pyx_k_screen_size), 0, 0, 1, 1},
   {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
-  {&__pyx_n_s_send_to_clipboard, __pyx_k_send_to_clipboard, sizeof(__pyx_k_send_to_clipboard), 0, 0, 1, 1},
-  {&__pyx_n_s_setMouseCallback, __pyx_k_setMouseCallback, sizeof(__pyx_k_setMouseCallback), 0, 0, 1, 1},
+  {&__pyx_n_s_sendToClipboard, __pyx_k_sendToClipboard, sizeof(__pyx_k_sendToClipboard), 0, 0, 1, 1},
   {&__pyx_n_s_setWindowProperty, __pyx_k_setWindowProperty, sizeof(__pyx_k_setWindowProperty), 0, 0, 1, 1},
+  {&__pyx_n_s_setmouseCallback, __pyx_k_setmouseCallback, sizeof(__pyx_k_setmouseCallback), 0, 0, 1, 1},
   {&__pyx_n_s_shape, __pyx_k_shape, sizeof(__pyx_k_shape), 0, 0, 1, 1},
   {&__pyx_n_s_shcore, __pyx_k_shcore, sizeof(__pyx_k_shcore), 0, 0, 1, 1},
   {&__pyx_n_s_show_window, __pyx_k_show_window, sizeof(__pyx_k_show_window), 0, 0, 1, 1},
   {&__pyx_n_s_size, __pyx_k_size, sizeof(__pyx_k_size), 0, 0, 1, 1},
   {&__pyx_n_s_split, __pyx_k_split, sizeof(__pyx_k_split), 0, 0, 1, 1},
-  {&__pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_k_src_cythonExtensions_imageInvert, sizeof(__pyx_k_src_cythonExtensions_imageInvert), 0, 0, 1, 0},
+  {&__pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_k_src_cythonExtensions_imageUtils, sizeof(__pyx_k_src_cythonExtensions_imageUtils), 0, 0, 1, 0},
   {&__pyx_n_s_startfile, __pyx_k_startfile, sizeof(__pyx_k_startfile), 0, 0, 1, 1},
   {&__pyx_n_s_strftime, __pyx_k_strftime, sizeof(__pyx_k_strftime), 0, 0, 1, 1},
   {&__pyx_n_s_system, __pyx_k_system, sizeof(__pyx_k_system), 0, 0, 1, 1},
@@ -9048,7 +9129,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_tolist, __pyx_k_tolist, sizeof(__pyx_k_tolist), 0, 0, 1, 1},
   {&__pyx_n_u_tuple, __pyx_k_tuple, sizeof(__pyx_k_tuple), 0, 1, 0, 1},
   {&__pyx_n_s_uint8, __pyx_k_uint8, sizeof(__pyx_k_uint8), 0, 0, 1, 1},
-  {&__pyx_n_s_update_life_data, __pyx_k_update_life_data, sizeof(__pyx_k_update_life_data), 0, 0, 1, 1},
+  {&__pyx_n_s_updateMouseData, __pyx_k_updateMouseData, sizeof(__pyx_k_updateMouseData), 0, 0, 1, 1},
   {&__pyx_n_s_waitKey, __pyx_k_waitKey, sizeof(__pyx_k_waitKey), 0, 0, 1, 1},
   {&__pyx_n_s_win32api, __pyx_k_win32api, sizeof(__pyx_k_win32api), 0, 0, 1, 1},
   {&__pyx_n_s_win32clipboard, __pyx_k_win32clipboard, sizeof(__pyx_k_win32clipboard), 0, 0, 1, 1},
@@ -9060,9 +9141,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 32, __pyx_L1_error)
-  __pyx_builtin_max = __Pyx_GetBuiltinName(__pyx_n_s_max); if (!__pyx_builtin_max) __PYX_ERR(0, 177, __pyx_L1_error)
-  __pyx_builtin_all = __Pyx_GetBuiltinName(__pyx_n_s_all); if (!__pyx_builtin_all) __PYX_ERR(0, 185, __pyx_L1_error)
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_builtin_max = __Pyx_GetBuiltinName(__pyx_n_s_max); if (!__pyx_builtin_max) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_builtin_all = __Pyx_GetBuiltinName(__pyx_n_s_all); if (!__pyx_builtin_all) __PYX_ERR(0, 202, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -9072,235 +9153,235 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":32
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":49
  *     # Check that `image` is a valid PIL image object
  *     if not isinstance(image, PIL.Image.Image):
  *         raise TypeError("Image must be a PIL Image object.")             # <<<<<<<<<<<<<<
  * 
  *     # Create a BytesIO object to hold the BMP image data.
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Image_must_be_a_PIL_Image_object); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Image_must_be_a_PIL_Image_object); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":41
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":58
  * 
  *     # Get the byte data from the BytesIO object, ignoring the first 14 bytes (header data).
  *     data = output.getvalue()[14:]             # <<<<<<<<<<<<<<
  * 
  *     # Close the BytesIO object.
  */
-  __pyx_slice__2 = PySlice_New(__pyx_int_14, Py_None, Py_None); if (unlikely(!__pyx_slice__2)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_slice__2 = PySlice_New(__pyx_int_14, Py_None, Py_None); if (unlikely(!__pyx_slice__2)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__2);
   __Pyx_GIVEREF(__pyx_slice__2);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":63
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":80
  *     # Check that `image` is a valid numpy array or PIL image object
  *     if not isinstance(image, (np.ndarray, PIL.Image.Image)):
  *         raise TypeError("image must be a valid numpy array or PIL Image object")             # <<<<<<<<<<<<<<
  * 
  *     elif isinstance(image, np.ndarray):
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_image_must_be_a_valid_numpy_arra); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_image_must_be_a_valid_numpy_arra); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":186
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":203
  *         # If the pixel is close to the background color, make it transparent.
  *         if all([abs(item[0]-bg_color[0] < 10), abs(item[1]-bg_color[1] < 1), abs(item[2]-bg_color[2] < 1)]):
  *             output_image.append((255, 255, 255, 0))             # <<<<<<<<<<<<<<
  * 
  *         else: # Otherwise, keep the pixel's original color.
  */
-  __pyx_tuple__4 = PyTuple_Pack(4, __pyx_int_255, __pyx_int_255, __pyx_int_255, __pyx_int_0); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(4, __pyx_int_255, __pyx_int_255, __pyx_int_255, __pyx_int_0); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":295
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":312
  * 
  *     # Updating the first 20 rows of the image with the color of the pixel at (x,y).
  *     cv2_main_image[0:20] = cv2_main_image[0:20] * (0) + cv2_main_image[y, x]             # <<<<<<<<<<<<<<
  * 
  *     # Put text displaying the pixel color.
  */
-  __pyx_slice__5 = PySlice_New(__pyx_int_0, __pyx_int_20, Py_None); if (unlikely(!__pyx_slice__5)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_slice__5 = PySlice_New(__pyx_int_0, __pyx_int_20, Py_None); if (unlikely(!__pyx_slice__5)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__5);
   __Pyx_GIVEREF(__pyx_slice__5);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":299
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":316
  *     # Put text displaying the pixel color.
  *     cv2.putText(img=cv2_main_image, text=f"({x}, {y}) | {', '.join(cv2_main_image[y, x].astype(str))}",
  *                 org=(0, 15), fontFace=cv2.FONT_HERSHEY_SIMPLEX,             # <<<<<<<<<<<<<<
  *                 color=(~cv2_main_image[y, x]).tolist(), fontScale=0.5) # fontFace, fontScale, color, thickness
  * 
  */
-  __pyx_tuple__9 = PyTuple_Pack(2, __pyx_int_0, __pyx_int_15); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(2, __pyx_int_0, __pyx_int_15); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":305
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":322
  * 
  * 
- * def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
+ * def runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
  *     if save_near_module:
  *         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")
  */
-  __pyx_tuple__10 = PyTuple_Pack(2, __pyx_int_1920, __pyx_int_1080); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(2, __pyx_int_1920, __pyx_int_1080); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":363
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":379
  *                 # cv2.circle(cv2_main_image, (mouse_helper.x, mouse_helper.y), 5, (0, 0, 255), -1)
  * 
  *                 cv2.line(cv2_main_image, (mouse_helper.px, mouse_helper.py), (mouse_helper.x, mouse_helper.y), (0, 0, 255), 4)             # <<<<<<<<<<<<<<
  *                 cv2.imshow('Image Window', cv2_main_image)
  * 
  */
-  __pyx_tuple__11 = PyTuple_Pack(3, __pyx_int_0, __pyx_int_0, __pyx_int_255); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 363, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(3, __pyx_int_0, __pyx_int_0, __pyx_int_255); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 379, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":412
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":428
  *                 else:
  *                     # cv2.destroyWindow("Color Picker")
  *                     cv2_main_image = cv2_main_image[20:]             # <<<<<<<<<<<<<<
  *                     color_picker_switch = False
  *                     cv2.imshow("Image Window", cv2_main_image)
  */
-  __pyx_slice__12 = PySlice_New(__pyx_int_20, Py_None, Py_None); if (unlikely(!__pyx_slice__12)) __PYX_ERR(0, 412, __pyx_L1_error)
+  __pyx_slice__12 = PySlice_New(__pyx_int_20, Py_None, Py_None); if (unlikely(!__pyx_slice__12)) __PYX_ERR(0, 428, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__12);
   __Pyx_GIVEREF(__pyx_slice__12);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":421
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":437
  *                 # if cv2_main_image.shape[0] <= screen_size[0]/1.2 and cv2_main_image.shape[1] < screen_size[1]/1.2:
  * 
  *                 cv2_main_image = cv2.resize(cv2_main_image, (0, 0), fx=1.2, fy=1.2)             # <<<<<<<<<<<<<<
  *                 cv2.imshow("Image Window", cv2_main_image)
  *                 mouse_helper.shape = cv2_main_image.shape
  */
-  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_int_0, __pyx_int_0); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 421, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_int_0, __pyx_int_0); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 437, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":15
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":32
  * 
  * 
- * def pil_image_to_bmp(image: PIL.Image.Image) -> bytes:             # <<<<<<<<<<<<<<
+ * def pilImageToBmp(image: PIL.Image.Image) -> bytes:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_tuple__15 = PyTuple_Pack(3, __pyx_n_s_image, __pyx_n_s_output, __pyx_n_s_data); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(3, __pyx_n_s_image, __pyx_n_s_output, __pyx_n_s_data); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_pil_image_to_bmp, 15, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_pilImageToBmp, 32, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 32, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":49
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":66
  * 
  * 
- * def send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
+ * def sendToClipboard(image: np.ndarray | PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_n_s_image); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_n_s_image); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_send_to_clipboard, 49, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_sendToClipboard, 66, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 66, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":82
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":99
  * 
  * 
- * def pil_to_cv(image: PIL.Image.Image) -> np.ndarray:             # <<<<<<<<<<<<<<
+ * def pilToCv(image: PIL.Image.Image) -> np.ndarray:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_tuple__19 = PyTuple_Pack(2, __pyx_n_s_image, __pyx_n_s_cv2_main_image); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(2, __pyx_n_s_image, __pyx_n_s_cv2_main_image); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
-  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_pil_to_cv, 82, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_pilToCv, 99, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 99, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":106
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":123
  * 
  * 
- * def cv_to_pil(cv2_main_image: np.ndarray) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
+ * def cvToPil(cv2_main_image: np.ndarray) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_n_s_cv2_main_image); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_n_s_cv2_main_image); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_cv_to_pil, 106, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_cvToPil, 123, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 123, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":127
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":144
  * 
  * 
- * def image_invert(image: PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
+ * def imageInvert(image: PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_tuple__23 = PyTuple_Pack(10, __pyx_n_s_image, __pyx_n_s_r, __pyx_n_s_g, __pyx_n_s_b, __pyx_n_s_a, __pyx_n_s_rgb_image, __pyx_n_s_inverted_image, __pyx_n_s_r2, __pyx_n_s_g2, __pyx_n_s_b2); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_tuple__23 = PyTuple_Pack(10, __pyx_n_s_image, __pyx_n_s_r, __pyx_n_s_g, __pyx_n_s_b, __pyx_n_s_a, __pyx_n_s_rgb_image, __pyx_n_s_inverted_image, __pyx_n_s_r2, __pyx_n_s_g2, __pyx_n_s_b2); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 144, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_image_invert, 127, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_imageInvert, 144, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 144, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":155
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":172
  * 
  * 
- * def make_transparent(image: PIL.Image.Image) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
+ * def makeTransparent(image: PIL.Image.Image) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_tuple__25 = PyTuple_Pack(5, __pyx_n_s_image, __pyx_n_s_data_items, __pyx_n_s_output_image, __pyx_n_s_bg_color, __pyx_n_s_item); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_tuple__25 = PyTuple_Pack(5, __pyx_n_s_image, __pyx_n_s_data_items, __pyx_n_s_output_image, __pyx_n_s_bg_color, __pyx_n_s_item); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__25);
   __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_make_transparent, 155, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_makeTransparent, 172, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 172, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":221
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":238
  *     """
  * 
  *     def __init__(self, shape: tuple):             # <<<<<<<<<<<<<<
  *         """
  *         Parameters
  */
-  __pyx_tuple__27 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_shape); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_tuple__27 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_shape); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__27);
   __Pyx_GIVEREF(__pyx_tuple__27);
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_init, 221, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_init, 238, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 238, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":240
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":257
  * 
  *     # Mouse Callback function
- *     def update_life_data(self, event: int, x: int, y: int, flags: int, param) -> None:             # <<<<<<<<<<<<<<
+ *     def updateMouseData(self, event: int, x: int, y: int, flags: int, param) -> None:             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
-  __pyx_tuple__29 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_event, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_flags, __pyx_n_s_param); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_tuple__29 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_event, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_flags, __pyx_n_s_param); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__29);
   __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(6, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_update_life_data, 240, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(6, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_updateMouseData, 257, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 257, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":278
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":295
  * 
  * 
- * def life_color_update(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:             # <<<<<<<<<<<<<<
+ * def addColorBar(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_tuple__31 = PyTuple_Pack(3, __pyx_n_s_cv2_main_image, __pyx_n_s_x, __pyx_n_s_y); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_tuple__31 = PyTuple_Pack(3, __pyx_n_s_cv2_main_image, __pyx_n_s_x, __pyx_n_s_y); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__31);
   __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_life_color_update, 278, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_addColorBar, 295, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 295, __pyx_L1_error)
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":305
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":322
  * 
  * 
- * def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
+ * def runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
  *     if save_near_module:
  *         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")
  */
-  __pyx_tuple__33 = PyTuple_Pack(14, __pyx_n_s_show_window, __pyx_n_s_save_near_module, __pyx_n_s_screen_size, __pyx_n_s_save_directory, __pyx_n_s_image, __pyx_n_s_ctypes, __pyx_n_s_win32api, __pyx_n_s_win32con, __pyx_n_s_kbcon, __pyx_n_s_cv2_main_image, __pyx_n_s_color_picker_switch, __pyx_n_s_mouse_helper, __pyx_n_s_k, __pyx_n_s_list_of_files); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_tuple__33 = PyTuple_Pack(13, __pyx_n_s_show_window, __pyx_n_s_save_near_module, __pyx_n_s_screen_size, __pyx_n_s_save_directory, __pyx_n_s_image, __pyx_n_s_ctypes, __pyx_n_s_win32api, __pyx_n_s_win32con, __pyx_n_s_cv2_main_image, __pyx_n_s_color_picker_switch, __pyx_n_s_mouse_helper, __pyx_n_s_k, __pyx_n_s_list_of_files); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__33);
   __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(3, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageInvert, __pyx_n_s_BeginImageProcessing, 305, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(3, 0, 13, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cythonExtensions_imageUtils, __pyx_n_s_runScript, 322, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -9320,8 +9401,35 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   __pyx_int_10 = PyInt_FromLong(10); if (unlikely(!__pyx_int_10)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_14 = PyInt_FromLong(14); if (unlikely(!__pyx_int_14)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_15 = PyInt_FromLong(15); if (unlikely(!__pyx_int_15)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_17 = PyInt_FromLong(17); if (unlikely(!__pyx_int_17)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_19 = PyInt_FromLong(19); if (unlikely(!__pyx_int_19)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_20 = PyInt_FromLong(20); if (unlikely(!__pyx_int_20)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_24 = PyInt_FromLong(24); if (unlikely(!__pyx_int_24)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_30 = PyInt_FromLong(30); if (unlikely(!__pyx_int_30)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_31 = PyInt_FromLong(31); if (unlikely(!__pyx_int_31)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_43 = PyInt_FromLong(43); if (unlikely(!__pyx_int_43)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_45 = PyInt_FromLong(45); if (unlikely(!__pyx_int_45)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_46 = PyInt_FromLong(46); if (unlikely(!__pyx_int_46)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_47 = PyInt_FromLong(47); if (unlikely(!__pyx_int_47)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_61 = PyInt_FromLong(61); if (unlikely(!__pyx_int_61)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_65 = PyInt_FromLong(65); if (unlikely(!__pyx_int_65)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_67 = PyInt_FromLong(67); if (unlikely(!__pyx_int_67)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_79 = PyInt_FromLong(79); if (unlikely(!__pyx_int_79)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_82 = PyInt_FromLong(82); if (unlikely(!__pyx_int_82)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_83 = PyInt_FromLong(83); if (unlikely(!__pyx_int_83)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_84 = PyInt_FromLong(84); if (unlikely(!__pyx_int_84)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_86 = PyInt_FromLong(86); if (unlikely(!__pyx_int_86)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_87 = PyInt_FromLong(87); if (unlikely(!__pyx_int_87)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_95 = PyInt_FromLong(95); if (unlikely(!__pyx_int_95)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_97 = PyInt_FromLong(97); if (unlikely(!__pyx_int_97)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_99 = PyInt_FromLong(99); if (unlikely(!__pyx_int_99)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_100 = PyInt_FromLong(100); if (unlikely(!__pyx_int_100)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_111 = PyInt_FromLong(111); if (unlikely(!__pyx_int_111)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_114 = PyInt_FromLong(114); if (unlikely(!__pyx_int_114)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_115 = PyInt_FromLong(115); if (unlikely(!__pyx_int_115)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_116 = PyInt_FromLong(116); if (unlikely(!__pyx_int_116)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_118 = PyInt_FromLong(118); if (unlikely(!__pyx_int_118)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_119 = PyInt_FromLong(119); if (unlikely(!__pyx_int_119)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_255 = PyInt_FromLong(255); if (unlikely(!__pyx_int_255)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1080 = PyInt_FromLong(1080); if (unlikely(!__pyx_int_1080)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1920 = PyInt_FromLong(1920); if (unlikely(!__pyx_int_1920)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -9413,11 +9521,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC initimageInverter(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC initimageInverter(void)
+__Pyx_PyMODINIT_FUNC initimageUtils(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initimageUtils(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_imageInverter(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_imageInverter(void)
+__Pyx_PyMODINIT_FUNC PyInit_imageUtils(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_imageUtils(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -9484,7 +9592,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_imageInverter(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_imageUtils(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -9498,7 +9606,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_imageInverter(PyObject *__pyx_pyin
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'imageInverter' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'imageUtils' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -9513,7 +9621,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_imageInverter(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_imageUtils(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -9550,7 +9658,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("imageInverter", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("imageUtils", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -9568,14 +9676,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_macropy__cythonExtensions__imageInverter__imageInverter) {
+  if (__pyx_module_is_main_macropy__cythonExtensions__imageUtils__imageUtils) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "macropy.cythonExtensions.imageInverter.imageInverter")) {
-      if (unlikely(PyDict_SetItemString(modules, "macropy.cythonExtensions.imageInverter.imageInverter", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "macropy.cythonExtensions.imageUtils.imageUtils")) {
+      if (unlikely(PyDict_SetItemString(modules, "macropy.cythonExtensions.imageUtils.imageUtils", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -9596,7 +9704,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":4
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":4
  * # cython: language_level = 3str
  * 
  * import PIL.ImageOps, PIL.Image, PIL.ImageGrab             # <<<<<<<<<<<<<<
@@ -9616,7 +9724,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_PIL, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":5
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":5
  * 
  * import PIL.ImageOps, PIL.Image, PIL.ImageGrab
  * from io import BytesIO             # <<<<<<<<<<<<<<
@@ -9637,7 +9745,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":6
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":6
  * import PIL.ImageOps, PIL.Image, PIL.ImageGrab
  * from io import BytesIO
  * import win32clipboard             # <<<<<<<<<<<<<<
@@ -9649,7 +9757,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_win32clipboard, __pyx_t_2) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":7
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":7
  * from io import BytesIO
  * import win32clipboard
  * from glob import glob             # <<<<<<<<<<<<<<
@@ -9670,7 +9778,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":8
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":8
  * import win32clipboard
  * from glob import glob
  * import os             # <<<<<<<<<<<<<<
@@ -9682,7 +9790,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":9
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":9
  * from glob import glob
  * import os
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -9694,7 +9802,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":10
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":10
  * import os
  * import numpy as np
  * import cv2             # <<<<<<<<<<<<<<
@@ -9706,7 +9814,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_cv2, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":11
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":11
  * import numpy as np
  * import cv2
  * import winsound             # <<<<<<<<<<<<<<
@@ -9718,7 +9826,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_winsound, __pyx_t_1) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":12
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":12
  * import cv2
  * import winsound
  * from datetime import datetime as dt             # <<<<<<<<<<<<<<
@@ -9739,164 +9847,311 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":15
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":15
  * 
  * 
- * def pil_image_to_bmp(image: PIL.Image.Image) -> bytes:             # <<<<<<<<<<<<<<
+ * class kbcon:             # <<<<<<<<<<<<<<
+ *     AS_a = 97;  VK_A = 65;  SC_A = 30
+ *     AS_c = 99;  VK_C = 67;  SC_C = 46
+ */
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_kbcon, __pyx_n_s_kbcon, (PyObject *) NULL, __pyx_n_s_macropy_cythonExtensions_imageUt, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":16
+ * 
+ * class kbcon:
+ *     AS_a = 97;  VK_A = 65;  SC_A = 30             # <<<<<<<<<<<<<<
+ *     AS_c = 99;  VK_C = 67;  SC_C = 46
+ *     AS_o = 111; VK_O = 79;  SC_O = 24
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_a, __pyx_int_97) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_VK_A, __pyx_int_65) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_SC_A, __pyx_int_30) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":17
+ * class kbcon:
+ *     AS_a = 97;  VK_A = 65;  SC_A = 30
+ *     AS_c = 99;  VK_C = 67;  SC_C = 46             # <<<<<<<<<<<<<<
+ *     AS_o = 111; VK_O = 79;  SC_O = 24
+ *     AS_r = 114; VK_R = 82;  SC_R = 19
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_c, __pyx_int_99) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_VK_C, __pyx_int_67) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_SC_C, __pyx_int_46) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":18
+ *     AS_a = 97;  VK_A = 65;  SC_A = 30
+ *     AS_c = 99;  VK_C = 67;  SC_C = 46
+ *     AS_o = 111; VK_O = 79;  SC_O = 24             # <<<<<<<<<<<<<<
+ *     AS_r = 114; VK_R = 82;  SC_R = 19
+ *     AS_s = 115; VK_S = 83;  SC_S = 31
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_o, __pyx_int_111) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_VK_O, __pyx_int_79) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_SC_O, __pyx_int_24) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":19
+ *     AS_c = 99;  VK_C = 67;  SC_C = 46
+ *     AS_o = 111; VK_O = 79;  SC_O = 24
+ *     AS_r = 114; VK_R = 82;  SC_R = 19             # <<<<<<<<<<<<<<
+ *     AS_s = 115; VK_S = 83;  SC_S = 31
+ *     AS_t = 116; VK_T = 84;  SC_T = 20
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_r, __pyx_int_114) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_VK_R, __pyx_int_82) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_SC_R, __pyx_int_19) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":20
+ *     AS_o = 111; VK_O = 79;  SC_O = 24
+ *     AS_r = 114; VK_R = 82;  SC_R = 19
+ *     AS_s = 115; VK_S = 83;  SC_S = 31             # <<<<<<<<<<<<<<
+ *     AS_t = 116; VK_T = 84;  SC_T = 20
+ *     AS_v = 118; VK_V = 86;  SC_V = 47
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_s, __pyx_int_115) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_VK_S, __pyx_int_83) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_SC_S, __pyx_int_31) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":21
+ *     AS_r = 114; VK_R = 82;  SC_R = 19
+ *     AS_s = 115; VK_S = 83;  SC_S = 31
+ *     AS_t = 116; VK_T = 84;  SC_T = 20             # <<<<<<<<<<<<<<
+ *     AS_v = 118; VK_V = 86;  SC_V = 47
+ *     AS_w = 119; VK_W = 87;  SC_W = 17
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_t, __pyx_int_116) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_VK_T, __pyx_int_84) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_SC_T, __pyx_int_20) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":22
+ *     AS_s = 115; VK_S = 83;  SC_S = 31
+ *     AS_t = 116; VK_T = 84;  SC_T = 20
+ *     AS_v = 118; VK_V = 86;  SC_V = 47             # <<<<<<<<<<<<<<
+ *     AS_w = 119; VK_W = 87;  SC_W = 17
+ * 
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_v, __pyx_int_118) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_VK_V, __pyx_int_86) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_SC_V, __pyx_int_47) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":23
+ *     AS_t = 116; VK_T = 84;  SC_T = 20
+ *     AS_v = 118; VK_V = 86;  SC_V = 47
+ *     AS_w = 119; VK_W = 87;  SC_W = 17             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_w, __pyx_int_119) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_VK_W, __pyx_int_87) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_SC_W, __pyx_int_17) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":26
+ * 
+ * 
+ *     AS_EQUALS     = 61             # <<<<<<<<<<<<<<
+ *     AS_PLUS       = 43
+ *     AS_MINUS      = 45
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_EQUALS, __pyx_int_61) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":27
+ * 
+ *     AS_EQUALS     = 61
+ *     AS_PLUS       = 43             # <<<<<<<<<<<<<<
+ *     AS_MINUS      = 45
+ *     AS_UNDERSCORE = 95
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_PLUS, __pyx_int_43) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":28
+ *     AS_EQUALS     = 61
+ *     AS_PLUS       = 43
+ *     AS_MINUS      = 45             # <<<<<<<<<<<<<<
+ *     AS_UNDERSCORE = 95
+ * 
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_MINUS, __pyx_int_45) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":29
+ *     AS_PLUS       = 43
+ *     AS_MINUS      = 45
+ *     AS_UNDERSCORE = 95             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_AS_UNDERSCORE, __pyx_int_95) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":15
+ * 
+ * 
+ * class kbcon:             # <<<<<<<<<<<<<<
+ *     AS_a = 97;  VK_A = 65;  SC_A = 30
+ *     AS_c = 99;  VK_C = 67;  SC_C = 46
+ */
+  __pyx_t_1 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_kbcon, __pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_kbcon, __pyx_t_1) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":32
+ * 
+ * 
+ * def pilImageToBmp(image: PIL.Image.Image) -> bytes:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_1pil_image_to_bmp, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_1pilImageToBmp, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pil_image_to_bmp, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pilImageToBmp, __pyx_t_2) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":49
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":66
  * 
  * 
- * def send_to_clipboard(image: np.ndarray | PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
+ * def sendToClipboard(image: np.ndarray | PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_3send_to_clipboard, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_3sendToClipboard, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_send_to_clipboard, __pyx_t_2) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sendToClipboard, __pyx_t_2) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":82
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":99
  * 
  * 
- * def pil_to_cv(image: PIL.Image.Image) -> np.ndarray:             # <<<<<<<<<<<<<<
+ * def pilToCv(image: PIL.Image.Image) -> np.ndarray:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_5pil_to_cv, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_5pilToCv, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pil_to_cv, __pyx_t_2) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pilToCv, __pyx_t_2) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":106
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":123
  * 
  * 
- * def cv_to_pil(cv2_main_image: np.ndarray) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
+ * def cvToPil(cv2_main_image: np.ndarray) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_7cv_to_pil, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_7cvToPil, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_cv_to_pil, __pyx_t_2) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_cvToPil, __pyx_t_2) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":127
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":144
  * 
  * 
- * def image_invert(image: PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
+ * def imageInvert(image: PIL.Image.Image) -> None:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_9image_invert, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_9imageInvert, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 144, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_image_invert, __pyx_t_2) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_imageInvert, __pyx_t_2) < 0) __PYX_ERR(0, 144, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":155
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":172
  * 
  * 
- * def make_transparent(image: PIL.Image.Image) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
+ * def makeTransparent(image: PIL.Image.Image) -> PIL.Image.Image:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11make_transparent, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_11makeTransparent, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_make_transparent, __pyx_t_2) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_makeTransparent, __pyx_t_2) < 0) __PYX_ERR(0, 172, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":198
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":215
  * 
  * # Avoid using global variables by storing them as class members:
- * class MouseHelper:             # <<<<<<<<<<<<<<
+ * class MouseTracker:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_MouseHelper, __pyx_n_s_MouseHelper, (PyObject *) NULL, __pyx_n_s_macropy_cythonExtensions_imageIn, __pyx_kp_s_Description_A_class_that_helps); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_MouseTracker, __pyx_n_s_MouseTracker, (PyObject *) NULL, __pyx_n_s_macropy_cythonExtensions_imageUt, __pyx_kp_s_Description_A_class_that_helps); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":221
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":238
  *     """
  * 
  *     def __init__(self, shape: tuple):             # <<<<<<<<<<<<<<
  *         """
  *         Parameters
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_shape, __pyx_n_u_tuple) < 0) __PYX_ERR(0, 221, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_1__init__, 0, __pyx_n_s_MouseHelper___init, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 221, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_shape, __pyx_n_u_tuple) < 0) __PYX_ERR(0, 238, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_1__init__, 0, __pyx_n_s_MouseTracker___init, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_init, __pyx_t_3) < 0) __PYX_ERR(0, 221, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_init, __pyx_t_3) < 0) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":240
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":257
  * 
  *     # Mouse Callback function
- *     def update_life_data(self, event: int, x: int, y: int, flags: int, param) -> None:             # <<<<<<<<<<<<<<
+ *     def updateMouseData(self, event: int, x: int, y: int, flags: int, param) -> None:             # <<<<<<<<<<<<<<
  *         """
  *         Description:
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_event, __pyx_n_u_int) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x, __pyx_n_u_int) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_y, __pyx_n_u_int) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_flags, __pyx_n_u_int) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_11MouseHelper_3update_life_data, 0, __pyx_n_s_MouseHelper_update_life_data, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_event, __pyx_n_u_int) < 0) __PYX_ERR(0, 257, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_x, __pyx_n_u_int) < 0) __PYX_ERR(0, 257, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_y, __pyx_n_u_int) < 0) __PYX_ERR(0, 257, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_flags, __pyx_n_u_int) < 0) __PYX_ERR(0, 257, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_return, Py_None) < 0) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_12MouseTracker_3updateMouseData, 0, __pyx_n_s_MouseTracker_updateMouseData, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_update_life_data, __pyx_t_1) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_updateMouseData, __pyx_t_1) < 0) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":198
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":215
  * 
  * # Avoid using global variables by storing them as class members:
- * class MouseHelper:             # <<<<<<<<<<<<<<
+ * class MouseTracker:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_1 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_MouseHelper, __pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_MouseTracker, __pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_MouseHelper, __pyx_t_1) < 0) __PYX_ERR(0, 198, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_MouseTracker, __pyx_t_1) < 0) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":278
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":295
  * 
  * 
- * def life_color_update(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:             # <<<<<<<<<<<<<<
+ * def addColorBar(cv2_main_image: np.ndarray, x: int, y: int) -> np.ndarray:             # <<<<<<<<<<<<<<
  *     """
  *     Description:
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_13life_color_update, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_13addColorBar, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_life_color_update, __pyx_t_2) < 0) __PYX_ERR(0, 278, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_addColorBar, __pyx_t_2) < 0) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":305
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":322
  * 
  * 
- * def BeginImageProcessing(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
+ * def runScript(show_window=False, save_near_module=True, screen_size=(1920, 1080)):             # <<<<<<<<<<<<<<
  *     if save_near_module:
  *         save_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Images")
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_13imageInverter_13imageInverter_15BeginImageProcessing, NULL, __pyx_n_s_macropy_cythonExtensions_imageIn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7macropy_16cythonExtensions_10imageUtils_10imageUtils_15runScript, NULL, __pyx_n_s_macropy_cythonExtensions_imageUt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_BeginImageProcessing, __pyx_t_2) < 0) __PYX_ERR(0, 305, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_runScript, __pyx_t_2) < 0) __PYX_ERR(0, 322, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "src/cythonExtensions/imageInverter/imageInverter.pyx":1
+  /* "src/cythonExtensions/imageUtils/imageUtils.pyx":1
  * # cython: embedsignature = True             # <<<<<<<<<<<<<<
  * # cython: language_level = 3str
  * 
@@ -9915,11 +10170,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_3);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init macropy.cythonExtensions.imageInverter.imageInverter", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init macropy.cythonExtensions.imageUtils.imageUtils", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init macropy.cythonExtensions.imageInverter.imageInverter");
+    PyErr_SetString(PyExc_ImportError, "init macropy.cythonExtensions.imageUtils.imageUtils");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -11411,20 +11666,6 @@ bad:
     return module;
 }
 
-/* ImportFrom */
-static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
-    PyObject* value = __Pyx_PyObject_GetAttrStr(module, name);
-    if (unlikely(!value) && PyErr_ExceptionMatches(PyExc_AttributeError)) {
-        PyErr_Format(PyExc_ImportError,
-        #if PY_MAJOR_VERSION < 3
-            "cannot import name %.230s", PyString_AS_STRING(name));
-        #else
-            "cannot import name %S", name);
-        #endif
-    }
-    return value;
-}
-
 /* PyIntBinop */
 #if !CYTHON_COMPILING_IN_PYPY
 static PyObject* __Pyx_PyInt_AndObjC(PyObject *op1, PyObject *op2, CYTHON_UNUSED long intval, int inplace, int zerodivision_check) {
@@ -11535,6 +11776,126 @@ static PyObject* __Pyx_PyInt_AndObjC(PyObject *op1, PyObject *op2, CYTHON_UNUSED
     return (inplace ? PyNumber_InPlaceAnd : PyNumber_And)(op1, op2);
 }
 #endif
+
+/* ImportFrom */
+static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
+    PyObject* value = __Pyx_PyObject_GetAttrStr(module, name);
+    if (unlikely(!value) && PyErr_ExceptionMatches(PyExc_AttributeError)) {
+        PyErr_Format(PyExc_ImportError,
+        #if PY_MAJOR_VERSION < 3
+            "cannot import name %.230s", PyString_AS_STRING(name));
+        #else
+            "cannot import name %S", name);
+        #endif
+    }
+    return value;
+}
+
+/* CalculateMetaclass */
+static PyObject *__Pyx_CalculateMetaclass(PyTypeObject *metaclass, PyObject *bases) {
+    Py_ssize_t i, nbases = PyTuple_GET_SIZE(bases);
+    for (i=0; i < nbases; i++) {
+        PyTypeObject *tmptype;
+        PyObject *tmp = PyTuple_GET_ITEM(bases, i);
+        tmptype = Py_TYPE(tmp);
+#if PY_MAJOR_VERSION < 3
+        if (tmptype == &PyClass_Type)
+            continue;
+#endif
+        if (!metaclass) {
+            metaclass = tmptype;
+            continue;
+        }
+        if (PyType_IsSubtype(metaclass, tmptype))
+            continue;
+        if (PyType_IsSubtype(tmptype, metaclass)) {
+            metaclass = tmptype;
+            continue;
+        }
+        PyErr_SetString(PyExc_TypeError,
+                        "metaclass conflict: "
+                        "the metaclass of a derived class "
+                        "must be a (non-strict) subclass "
+                        "of the metaclasses of all its bases");
+        return NULL;
+    }
+    if (!metaclass) {
+#if PY_MAJOR_VERSION < 3
+        metaclass = &PyClass_Type;
+#else
+        metaclass = &PyType_Type;
+#endif
+    }
+    Py_INCREF((PyObject*) metaclass);
+    return (PyObject*) metaclass;
+}
+
+/* Py3ClassCreate */
+static PyObject *__Pyx_Py3MetaclassPrepare(PyObject *metaclass, PyObject *bases, PyObject *name,
+                                           PyObject *qualname, PyObject *mkw, PyObject *modname, PyObject *doc) {
+    PyObject *ns;
+    if (metaclass) {
+        PyObject *prep = __Pyx_PyObject_GetAttrStr(metaclass, __pyx_n_s_prepare);
+        if (prep) {
+            PyObject *pargs = PyTuple_Pack(2, name, bases);
+            if (unlikely(!pargs)) {
+                Py_DECREF(prep);
+                return NULL;
+            }
+            ns = PyObject_Call(prep, pargs, mkw);
+            Py_DECREF(prep);
+            Py_DECREF(pargs);
+        } else {
+            if (unlikely(!PyErr_ExceptionMatches(PyExc_AttributeError)))
+                return NULL;
+            PyErr_Clear();
+            ns = PyDict_New();
+        }
+    } else {
+        ns = PyDict_New();
+    }
+    if (unlikely(!ns))
+        return NULL;
+    if (unlikely(PyObject_SetItem(ns, __pyx_n_s_module, modname) < 0)) goto bad;
+    if (unlikely(PyObject_SetItem(ns, __pyx_n_s_qualname, qualname) < 0)) goto bad;
+    if (unlikely(doc && PyObject_SetItem(ns, __pyx_n_s_doc, doc) < 0)) goto bad;
+    return ns;
+bad:
+    Py_DECREF(ns);
+    return NULL;
+}
+static PyObject *__Pyx_Py3ClassCreate(PyObject *metaclass, PyObject *name, PyObject *bases,
+                                      PyObject *dict, PyObject *mkw,
+                                      int calculate_metaclass, int allow_py2_metaclass) {
+    PyObject *result, *margs;
+    PyObject *owned_metaclass = NULL;
+    if (allow_py2_metaclass) {
+        owned_metaclass = PyObject_GetItem(dict, __pyx_n_s_metaclass);
+        if (owned_metaclass) {
+            metaclass = owned_metaclass;
+        } else if (likely(PyErr_ExceptionMatches(PyExc_KeyError))) {
+            PyErr_Clear();
+        } else {
+            return NULL;
+        }
+    }
+    if (calculate_metaclass && (!metaclass || PyType_Check(metaclass))) {
+        metaclass = __Pyx_CalculateMetaclass((PyTypeObject*) metaclass, bases);
+        Py_XDECREF(owned_metaclass);
+        if (unlikely(!metaclass))
+            return NULL;
+        owned_metaclass = metaclass;
+    }
+    margs = PyTuple_Pack(3, name, bases, dict);
+    if (unlikely(!margs)) {
+        result = NULL;
+    } else {
+        result = PyObject_Call(metaclass, margs, mkw);
+        Py_DECREF(margs);
+    }
+    Py_XDECREF(owned_metaclass);
+    return result;
+}
 
 /* FetchCommonType */
 static PyTypeObject* __Pyx_FetchCommonType(PyTypeObject* type) {
@@ -12205,112 +12566,6 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml, int flags, PyObject* qual
         PyObject_GC_Track(op);
     }
     return op;
-}
-
-/* CalculateMetaclass */
-static PyObject *__Pyx_CalculateMetaclass(PyTypeObject *metaclass, PyObject *bases) {
-    Py_ssize_t i, nbases = PyTuple_GET_SIZE(bases);
-    for (i=0; i < nbases; i++) {
-        PyTypeObject *tmptype;
-        PyObject *tmp = PyTuple_GET_ITEM(bases, i);
-        tmptype = Py_TYPE(tmp);
-#if PY_MAJOR_VERSION < 3
-        if (tmptype == &PyClass_Type)
-            continue;
-#endif
-        if (!metaclass) {
-            metaclass = tmptype;
-            continue;
-        }
-        if (PyType_IsSubtype(metaclass, tmptype))
-            continue;
-        if (PyType_IsSubtype(tmptype, metaclass)) {
-            metaclass = tmptype;
-            continue;
-        }
-        PyErr_SetString(PyExc_TypeError,
-                        "metaclass conflict: "
-                        "the metaclass of a derived class "
-                        "must be a (non-strict) subclass "
-                        "of the metaclasses of all its bases");
-        return NULL;
-    }
-    if (!metaclass) {
-#if PY_MAJOR_VERSION < 3
-        metaclass = &PyClass_Type;
-#else
-        metaclass = &PyType_Type;
-#endif
-    }
-    Py_INCREF((PyObject*) metaclass);
-    return (PyObject*) metaclass;
-}
-
-/* Py3ClassCreate */
-static PyObject *__Pyx_Py3MetaclassPrepare(PyObject *metaclass, PyObject *bases, PyObject *name,
-                                           PyObject *qualname, PyObject *mkw, PyObject *modname, PyObject *doc) {
-    PyObject *ns;
-    if (metaclass) {
-        PyObject *prep = __Pyx_PyObject_GetAttrStr(metaclass, __pyx_n_s_prepare);
-        if (prep) {
-            PyObject *pargs = PyTuple_Pack(2, name, bases);
-            if (unlikely(!pargs)) {
-                Py_DECREF(prep);
-                return NULL;
-            }
-            ns = PyObject_Call(prep, pargs, mkw);
-            Py_DECREF(prep);
-            Py_DECREF(pargs);
-        } else {
-            if (unlikely(!PyErr_ExceptionMatches(PyExc_AttributeError)))
-                return NULL;
-            PyErr_Clear();
-            ns = PyDict_New();
-        }
-    } else {
-        ns = PyDict_New();
-    }
-    if (unlikely(!ns))
-        return NULL;
-    if (unlikely(PyObject_SetItem(ns, __pyx_n_s_module, modname) < 0)) goto bad;
-    if (unlikely(PyObject_SetItem(ns, __pyx_n_s_qualname, qualname) < 0)) goto bad;
-    if (unlikely(doc && PyObject_SetItem(ns, __pyx_n_s_doc, doc) < 0)) goto bad;
-    return ns;
-bad:
-    Py_DECREF(ns);
-    return NULL;
-}
-static PyObject *__Pyx_Py3ClassCreate(PyObject *metaclass, PyObject *name, PyObject *bases,
-                                      PyObject *dict, PyObject *mkw,
-                                      int calculate_metaclass, int allow_py2_metaclass) {
-    PyObject *result, *margs;
-    PyObject *owned_metaclass = NULL;
-    if (allow_py2_metaclass) {
-        owned_metaclass = PyObject_GetItem(dict, __pyx_n_s_metaclass);
-        if (owned_metaclass) {
-            metaclass = owned_metaclass;
-        } else if (likely(PyErr_ExceptionMatches(PyExc_KeyError))) {
-            PyErr_Clear();
-        } else {
-            return NULL;
-        }
-    }
-    if (calculate_metaclass && (!metaclass || PyType_Check(metaclass))) {
-        metaclass = __Pyx_CalculateMetaclass((PyTypeObject*) metaclass, bases);
-        Py_XDECREF(owned_metaclass);
-        if (unlikely(!metaclass))
-            return NULL;
-        owned_metaclass = metaclass;
-    }
-    margs = PyTuple_Pack(3, name, bases, dict);
-    if (unlikely(!margs)) {
-        result = NULL;
-    } else {
-        result = PyObject_Call(metaclass, margs, mkw);
-        Py_DECREF(margs);
-    }
-    Py_XDECREF(owned_metaclass);
-    return result;
 }
 
 /* CLineInTraceback */
