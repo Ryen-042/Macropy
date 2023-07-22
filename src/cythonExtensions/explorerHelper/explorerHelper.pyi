@@ -4,18 +4,14 @@ from win32com.client import CDispatch
 from typing import Callable, Optional
 
 
-def _filter(target: str, patterns: tuple[str]) -> bool:
-    """Returns `True` if the target string ends with any of the patterns, `False` otherwise."""
-    ...
-
-
-def GetUniqueName(directory: str, filename="New File", sequence_pattern=" (%s)", extension=".txt") -> str:
+# Source: https://stackoverflow.com/questions/17984809/how-do-i-create-an-incrementing-filename-in-python
+def getUniqueName(directory: str, filename="New File", sequence_pattern=" (%s)", extension=".txt") -> str:
     """
     Description:
         Finds the next unused incremental filename in the specified directory.
     ---
     Usage:
-        >>> GetUniqueName(directory, "New File", " (%s)", ".txt")
+        >>> getUniqueName(directory, "New File", " (%s)", ".txt")
     ---
     Returns:
         `str`: A string in this format `f"{directory}\\{filename}{pattern}{extension}"`.
@@ -30,17 +26,17 @@ def GetUniqueName(directory: str, filename="New File", sequence_pattern=" (%s)",
     ...
 
 
-def GetActiveExplorer(explorer_windows: Optional[CDispatch], check_desktop=True) -> CDispatch:
+def getActiveExplorer(explorer_windows: Optional[CDispatch], check_desktop=True) -> CDispatch:
     """Returns the active (focused) explorer/desktop window object."""
     ...
 
 
-def GetExplorerAddress(active_explorer: Optional[CDispatch]) -> str:
+def getExplorerAddress(active_explorer: Optional[CDispatch]) -> str:
     """Returns the address of the active explorer window."""
     ...
 
 
-def GetSelectedItemsFromActiveExplorer(active_explorer: Optional[CDispatch], patterns: Optional[tuple[str]]) -> list[str]:
+def getSelectedItemsFromActiveExplorer(active_explorer: Optional[CDispatch], patterns: Optional[tuple[str]]) -> list[str]:
     """
     Description:
         Returns the absolute paths of the selected items in the active explorer window.
@@ -58,7 +54,7 @@ def GetSelectedItemsFromActiveExplorer(active_explorer: Optional[CDispatch], pat
     ...
 
 
-def CopySelectedFileNames(active_explorer: Optional[CDispatch], check_desktop=True) -> list[str]:
+def copySelectedFileNames(active_explorer: Optional[CDispatch], check_desktop=True) -> list[str]:
     """
     Description:
         Copies the absolute paths of the selected files from the active explorer/desktop window.
@@ -69,8 +65,7 @@ def CopySelectedFileNames(active_explorer: Optional[CDispatch], check_desktop=Tr
     ...
 
 
-# https://learn.microsoft.com/en-us/windows/win32/dlgbox/open-and-save-as-dialog-boxes
-def OpenFileDialog(dialog_type: int, default_extension="", default_filename="", extra_flags=0,
+def openFileDialog(dialog_type: int, default_extension="", default_filename="", extra_flags=0,
                    filter="", multiselect=False, title="File Dialog", initial_dir="") -> list[str]:
     """
     Description:
@@ -95,12 +90,12 @@ def OpenFileDialog(dialog_type: int, default_extension="", default_filename="", 
 
 
 # https://mail.python.org/pipermail/python-win32/2012-September/012533.html
-def SelectFilesFromDirectory(directory: str, file_names: list[str]) -> None:
+def selectFilesFromDirectory(directory: str, file_names: list[str]) -> None:
     """Given an absolute directory path and the names of its items (names relative to the path), if an explorer window with the specified directory is present, use it, otherwise open a new one, then select all the items specified."""
     ...
 
 
-def CreateFile(active_explorer: Optional[CDispatch]) -> int:
+def createNewFile(active_explorer: Optional[CDispatch]) -> int:
     """
     Description:
         Creates a new file with an incremental name in the active explorer/desktop window then select it.
@@ -114,13 +109,7 @@ def CreateFile(active_explorer: Optional[CDispatch]) -> int:
     ...
 
 
-def ImagesToPDF(active_explorer: Optional[CDispatch]) -> None:
-    """Combines the selected images from the active explorer window into a PDF file with an incremental name then select it.
-    Please note that the function sorts the file names alphabetically before merging."""
-    ...
-
-
-def OfficeFileToPDF(active_explorer: Optional[CDispatch], office_application="Powerpoint") -> None:
+def officeFileToPDF(active_explorer: Optional[CDispatch], office_application="Powerpoint") -> None:
     """
     Description:
         Converts the selected files from the active explorer window that are associated with the specified office application into a PDF format.
@@ -137,7 +126,7 @@ def OfficeFileToPDF(active_explorer: Optional[CDispatch], office_application="Po
     ...
 
 
-def GenericFileConverter(active_explorer: Optional[CDispatch], patterns: Optional[tuple[str]], convert_func: Optional[Callable[[str, str], None]], new_extension="") -> None:
+def genericFileConverter(active_explorer: Optional[CDispatch], patterns: Optional[tuple[str]], convert_func: Optional[Callable[[str, str], None]], new_loc="", new_extension="") -> None:
     """
     Description:
         Converts the selected files from the active explorer window using the specified filter and convert functions.
@@ -152,19 +141,22 @@ def GenericFileConverter(active_explorer: Optional[CDispatch], patterns: Optiona
         `convert_func -> Callable[[str, str], None]`:
             A function that takes the input file path and the output file path and performs the conversion.
         
+        `new_loc -> str`:
+            The new location for the converted files. Defaults to the same location as the selected files.
+        
         `new_extension -> str`:
             The new file extension for the converted files (you can treat it as a suffix added at the end of filenames).
     ---
     Examples:
     >>> # To convert image files to .ico files
-    >>> GenericFileConverter(None, (".png", ".jpg"), lambda f1, f2: PIL.Image.open(f1).resize((512, 512)).save(f2), " - (512x512).ico")
+    >>> genericFileConverter(None, (".png", ".jpg"), lambda f1, f2: PIL.Image.open(f1).resize((512, 512)).save(f2), " - (512x512).ico")
     
     >>> # To convert audio files to .wav files
-    >>> GenericFileConverter(None, (".mp3", ), lambda f1, f2: subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', f1, f2]), ".wav")
+    >>> genericFileConverter(None, (".mp3", ), lambda f1, f2: subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', f1, f2]), new_extension=".wav")
     """
     ...
 
 
-def FlattenDirectories(active_explorer: Optional[CDispatch], files_only=False) -> None:
+def flattenDirectories(active_explorer: Optional[CDispatch], files_only=False) -> None:
     """Flattens the selected folders from the active explorer window to the explorer current location."""
     ...
