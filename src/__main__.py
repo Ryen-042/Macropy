@@ -3,6 +3,9 @@
 
 def main():
     """Starts the script by calling the `beginScript()` function from the `scriptRunner` extension module."""
+    
+    print("Attempting to start the script...")
+    
     import sys, os
     
     # Changing the working directory to where this script is.

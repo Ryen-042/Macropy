@@ -1,4 +1,4 @@
-.PHONY: compile clean-build clean compile-clean compile-force compile-profile run run-profile compile-run install publish-pypi ruff flake8 cython-lint lint
+.PHONY: compile clean-build clean compile-clean compile-force compile-profile run run-profile compile-run install install-reqs install-reqs-dev publish-pypi ruff flake8 cython-lint lint
 
 .DEFAULT_GOAL := run
 
@@ -38,7 +38,7 @@ compile-profile:
 
 run:
 	@echo "Running..."
-	python src/__main__.py
+	python src/__main__.py -e
 	@echo "Done."
 
 run-profile:
@@ -52,6 +52,18 @@ install: clean-build
 	@echo "Installing package from local..."
 	pip uninstall kb_macropy -y
 	pip install .
+	@echo "Done."
+
+install-reqs: requirements.txt
+	@echo "Installing requirements..."
+	python.exe -m pip install --upgrade pip
+	pip install --upgrade -r requirements.txt
+	@echo "Done."
+
+install-reqs-dev: requirements-dev.txt
+	@echo "Installing development requirements..."
+	python.exe -m pip install --upgrade pip
+	pip install --upgrade -r requirements-dev.txt
 	@echo "Done."
 
 publish-pypi:

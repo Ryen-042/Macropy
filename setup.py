@@ -2,6 +2,7 @@ import sys, os
 import glob
 from setuptools import setup, Extension
 from Cython.Build import cythonize
+from Cython.Compiler.Options import get_directive_defaults
 
 os.chdir(os.path.dirname(__file__))
 
@@ -29,12 +30,11 @@ Specify whether to use `Cython` to build the extensions from the `.pxd` files or
 """
 
 # Source: https://stackoverflow.com/questions/28301931/how-to-profile-cython-functions-line-by-line
+compiler_directives = get_directive_defaults()
 if ENABLE_PROFILING:
-    from Cython.Compiler.Options import get_directive_defaults
-    
-    directive_defaults = get_directive_defaults()
-    directive_defaults['linetrace'] = True
-    directive_defaults['binding'] = True
+    # Note that profiling is not supported in Python 3.12: # https://cython.readthedocs.io/en/latest/src/tutorial/profiling_tutorial.html#:~:text=profiling%20and%20tracing%20are%20non%2Dfunctional%20in%20CPython%203.12
+    compiler_directives['linetrace'] = True
+    compiler_directives['binding'] = True
 
 
 if USE_CYTHON:
@@ -79,5 +79,5 @@ for extension_path in cython_extensions:
 setup(
     packages=packages,
     cmdclass = cmdclass,
-    ext_modules=cythonize(ext_modules, language_level=3)
+    ext_modules=cythonize(ext_modules, language_level="3str", annotate=False, compiler_directives=compiler_directives)
 )
