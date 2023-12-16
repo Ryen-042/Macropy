@@ -59,6 +59,13 @@ def copySelectedFileNames(active_explorer: Optional[CDispatch], check_desktop=Tr
     Description:
         Copies the absolute paths of the selected files from the active explorer/desktop window.
     ---
+    Parameters:
+        `active_explorer -> CDispatch`:
+            The active explorer window object.
+        
+        `check_desktop=True`:
+            Whether to allow checking desktop items or not.
+    ---
     Returns:
         `list[str]`: A list containing the paths to the selected items in the active explorer/desktop window.
     """
@@ -75,8 +82,14 @@ def openFileDialog(dialog_type: int, default_extension="", default_filename="", 
         `dialog_type -> int`:
             Specify the dialog type. `0` for a file save dialog, `1` for a file select dialog.
         
+        `default_extension -> str`:
+            An extension that will be auto selected for filtering.
+        
         `default_filename -> str`:
             A name that will be automatically typed in the file name box.
+        
+        `extra_flags -> int`:
+            An int that will be passed to the file dialog api as a flag.
         
         `filter -> srt`:
             A string containing a filter that specifies acceptable files.
@@ -85,6 +98,16 @@ def openFileDialog(dialog_type: int, default_extension="", default_filename="", 
         
         `multiselect -> bool`:
             Allow selection of multiple files.
+        
+        `title -> str`:
+            The title of the file dialog window.
+        
+        `Initial_dir -> str`:
+            A path to a directory the file dialog will open in.
+    ---
+    Usage:
+        >>> # Api -> CreateFileDialog(FileSave_0/FileOpen_1, DefaultExtension, InitialFilename, Flags, Filter)
+        >>> o = win32ui.CreateFileDialog(1, ".txt", "default.txt", 0, "Text Files (*.txt)|*.txt|All Files (*.*)|*.*|")
     """
     ...
 
@@ -149,7 +172,7 @@ def genericFileConverter(active_explorer: Optional[CDispatch], patterns: Optiona
     ---
     Examples:
     >>> # To convert image files to .ico files
-    >>> genericFileConverter(None, (".png", ".jpg"), lambda f1, f2: PIL.Image.open(f1).resize((512, 512)).save(f2), " - (512x512).ico")
+    >>> genericFileConverter(None, (".png", ".jpg"), lambda f1, f2: PIL.Image.open(f1).resize((512, 512)).save(f2), new_extension=" - (512x512).ico")
     
     >>> # To convert audio files to .wav files
     >>> genericFileConverter(None, (".mp3", ), lambda f1, f2: subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', f1, f2]), new_extension=".wav")
@@ -157,6 +180,6 @@ def genericFileConverter(active_explorer: Optional[CDispatch], patterns: Optiona
     ...
 
 
-def flattenDirectories(active_explorer: Optional[CDispatch], files_only=False) -> None:
+def flattenDirectories(active_explorer: Optional[CDispatch]) -> None:
     """Flattens the selected folders from the active explorer window to the explorer current location."""
     ...

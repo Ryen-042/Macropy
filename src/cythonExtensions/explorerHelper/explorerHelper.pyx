@@ -1,17 +1,19 @@
-# cython: embedsignature = True
 # cython: language_level = 3str
 
 """This extension module provides functions for manipulating the `Windows Explorer` and the `Desktop`."""
+
+cimport cython
 
 import win32gui, win32ui, win32con, os, win32clipboard, winsound
 from win32com.client import Dispatch
 from win32com.shell import shell
 
 from cythonExtensions.commonUtils.commonUtils import ShellAutomationObjectWrapper as ShellWrapper, PThread, sendToClipboard
+from cythonExtensions.windowHelper import windowHelper as winHelper
 
 
 # Source: https://stackoverflow.com/questions/17984809/how-do-i-create-an-incrementing-filename-in-python
-cpdef str getUniqueName(str directory, str filename="New File", str sequence_pattern=" (%s)", extension=".txt"):
+cpdef getUniqueName(directory, filename="New File", sequence_pattern=" (%s)", extension=".txt"):
     """
     Description:
         Finds the next unused incremental filename in the specified directory.
@@ -53,7 +55,7 @@ cpdef str getUniqueName(str directory, str filename="New File", str sequence_pat
     return filename % b
 
 
-cpdef getActiveExplorer(explorer_windows=None, bint check_desktop=True):
+cdef getActiveExplorer(explorer_windows=None, bint check_desktop=True):
     """Returns the active (focused) explorer/desktop window object."""
     
     cdef bint initializer_called = PThread.coInitialize()
@@ -69,8 +71,6 @@ cpdef getActiveExplorer(explorer_windows=None, bint check_desktop=True):
     if not fg_hwnd:
         return None
     
-    
-    cdef str curr_className
     try:
         curr_className = win32gui.GetClassName(fg_hwnd)
     
@@ -97,11 +97,11 @@ cpdef getActiveExplorer(explorer_windows=None, bint check_desktop=True):
     return output
 
 
-cpdef str getExplorerAddress(active_explorer=None):
+cdef getExplorerAddress(active_explorer=None):
     """Returns the address of the active explorer window."""
     
     if not active_explorer:
-        active_explorer = getActiveExplorer(check_desktop=False)
+        active_explorer = getActiveExplorer(explorer_windows=None, check_desktop=False)
     
     if not active_explorer:
         return ""
@@ -110,7 +110,7 @@ cpdef str getExplorerAddress(active_explorer=None):
     return active_explorer.Document.Folder.Self.Path
 
 
-cpdef list getSelectedItemsFromActiveExplorer(active_explorer=None, tuple patterns=None):
+cdef list getSelectedItemsFromActiveExplorer(active_explorer=None, tuple patterns=None):
     """
     Description:
         Returns the absolute paths of the selected items in the active explorer window.
@@ -129,7 +129,7 @@ cpdef list getSelectedItemsFromActiveExplorer(active_explorer=None, tuple patter
     cdef bint initializer_called = PThread.coInitialize()
     
     if not active_explorer:
-        active_explorer = getActiveExplorer(check_desktop=True)
+        active_explorer = getActiveExplorer(explorer_windows=None, check_desktop=True)
     
     cdef list output = []
     
@@ -144,10 +144,17 @@ cpdef list getSelectedItemsFromActiveExplorer(active_explorer=None, tuple patter
     return output
 
 
-cpdef list copySelectedFileNames(active_explorer=None, bint check_desktop=True):
+def copySelectedFileNames(active_explorer=None, check_desktop=True) -> list[str]:
     """
     Description:
         Copies the absolute paths of the selected files from the active explorer/desktop window.
+    ---
+    Parameters:
+        `active_explorer -> CDispatch`:
+            The active explorer window object.
+        
+        `check_desktop=True`:
+            Whether to allow checking desktop items or not.
     ---
     Returns:
         `list[str]`: A list containing the paths to the selected items in the active explorer/desktop window.
@@ -157,11 +164,10 @@ cpdef list copySelectedFileNames(active_explorer=None, bint check_desktop=True):
     
     # If no automation object was passed (i.e., `None` was passed), create one.
     if not active_explorer:
-        active_explorer = getActiveExplorer(check_desktop=check_desktop)
+        active_explorer = getActiveExplorer(explorer_windows=None, check_desktop=check_desktop)
     
     cdef list selected_files_paths = []
     
-    cdef str concatenated_file_paths
     
     if active_explorer:
         selected_files_paths = getSelectedItemsFromActiveExplorer(active_explorer)
@@ -180,8 +186,8 @@ cpdef list copySelectedFileNames(active_explorer=None, bint check_desktop=True):
 
 
 # https://learn.microsoft.com/en-us/windows/win32/dlgbox/open-and-save-as-dialog-boxes
-cdef list openFileDialog(int dialog_type, str default_extension="", str default_filename="", int extra_flags=0,
-                         str filter="", bint multiselect=False, str title="File Dialog", str initial_dir=""):
+def openFileDialog(dialog_type: int, default_extension="", default_filename="", extra_flags=0,
+                   filter="", multiselect=False, title="File Dialog", initial_dir="") -> list[str]:
     """
     Description:
         Opens a file selection dialog window and returns a list of paths to the selected files/folders.
@@ -190,8 +196,14 @@ cdef list openFileDialog(int dialog_type, str default_extension="", str default_
         `dialog_type -> int`:
             Specify the dialog type. `0` for a file save dialog, `1` for a file select dialog.
         
+        `default_extension -> str`:
+            An extension that will be auto selected for filtering.
+        
         `default_filename -> str`:
             A name that will be automatically typed in the file name box.
+        
+        `extra_flags -> int`:
+            An int that will be passed to the file dialog api as a flag.
         
         `filter -> srt`:
             A string containing a filter that specifies acceptable files.
@@ -200,6 +212,16 @@ cdef list openFileDialog(int dialog_type, str default_extension="", str default_
         
         `multiselect -> bool`:
             Allow selection of multiple files.
+        
+        `title -> str`:
+            The title of the file dialog window.
+        
+        `Initial_dir -> str`:
+            A path to a directory the file dialog will open in.
+    ---
+    Usage:
+        >>> # Api -> CreateFileDialog(FileSave_0/FileOpen_1, DefaultExtension, InitialFilename, Flags, Filter)
+        >>> o = win32ui.CreateFileDialog(1, ".txt", "default.txt", 0, "Text Files (*.txt)|*.txt|All Files (*.*)|*.*|")
     """
     
     cdef int dialog_flags = extra_flags|win32con.OFN_OVERWRITEPROMPT|win32con.OFN_FILEMUSTEXIST # |win32con.OFN_EXPLORER
@@ -207,10 +229,7 @@ cdef list openFileDialog(int dialog_type, str default_extension="", str default_
     if multiselect and dialog_type:
         dialog_flags|=win32con.OFN_ALLOWMULTISELECT
     
-    ## API: createNewFileDialog(FileSave_0/FileOpen_1, DefaultExtension, InitialFilename, Flags, Filter)
-    # o = win32ui.createNewFileDialog(1, ".txt", "default.txt", 0, "Text Files (*.txt)|*.txt|All Files (*.*)|*.*|")
-    
-    dialog_window = win32ui.createNewFileDialog(dialog_type, default_extension, default_filename, dialog_flags, filter)
+    dialog_window = win32ui.CreateFileDialog(dialog_type, default_extension, default_filename, dialog_flags, filter)
     dialog_window.SetOFNTitle(title)
     
     if initial_dir:
@@ -223,7 +242,8 @@ cdef list openFileDialog(int dialog_type, str default_extension="", str default_
 
 
 # https://mail.python.org/pipermail/python-win32/2012-September/012533.html
-cpdef void selectFilesFromDirectory(str directory, list file_names):
+@cython.wraparound(False)
+def selectFilesFromDirectory(directory, file_names: list[str]) -> None:
     """Given an absolute directory path and the names of its items (names relative to the path), if an explorer window with the specified directory is present, use it, otherwise open a new one, then select all the items specified."""
     
     folder_pidl = shell.SHILCreateFromPath(directory, 0)[0]
@@ -244,7 +264,7 @@ cpdef void selectFilesFromDirectory(str directory, list file_names):
     shell.SHOpenFolderAndSelectItems(folder_pidl, to_show, 0)
 
 
-cpdef int createNewFile(active_explorer=None):
+def createNewFile(active_explorer=None) -> int:
     """
     Description:
         Creates a new file with an incremental name in the active explorer/desktop window then select it.
@@ -259,10 +279,9 @@ cpdef int createNewFile(active_explorer=None):
     cdef bint initializer_called = PThread.coInitialize()
     
     if not active_explorer:
-        active_explorer = getActiveExplorer(check_desktop=True)
+        active_explorer = getActiveExplorer(explorer_windows=None, check_desktop=True)
     
     cdef int output = 0
-    cdef str file_fullpath
     
     if active_explorer:
         file_fullpath = getUniqueName(directory=getExplorerAddress(active_explorer))
@@ -283,7 +302,8 @@ cpdef int createNewFile(active_explorer=None):
     return output
 
 
-cpdef void officeFileToPDF(active_explorer=None, str office_application="Powerpoint"):
+@cython.wraparound(False)
+def officeFileToPDF(active_explorer=None, office_application="Powerpoint"):
     """
     Description:
         Converts the selected files from the active explorer window that are associated with the specified office application into a PDF format.
@@ -301,7 +321,7 @@ cpdef void officeFileToPDF(active_explorer=None, str office_application="Powerpo
     cdef bint initializer_called = PThread.coInitialize()
     
     if not active_explorer:
-        active_explorer = getActiveExplorer(check_desktop=False)
+        active_explorer = getActiveExplorer(explorer_windows=None, check_desktop=False)
     
     if not active_explorer:
         if initializer_called:
@@ -309,7 +329,7 @@ cpdef void officeFileToPDF(active_explorer=None, str office_application="Powerpo
         
         return
     
-    cdef str office_application_char0 = office_application[0].lower()
+    office_application_char0 = office_application[0].lower()
     cdef list selected_files_paths = getSelectedItemsFromActiveExplorer(active_explorer,
                 patterns={"p": (".pptx", ".ppt"), "w": (".docx", ".doc")}.get(office_application_char0))
     
@@ -317,8 +337,6 @@ cpdef void officeFileToPDF(active_explorer=None, str office_application="Powerpo
     cdef int file_path_counter = 0
     
     cdef int len_selected_files = len(selected_files_paths)
-    
-    cdef str file_path, new_filepath
     
     for file_path in selected_files_paths[:]:
         new_filepath = os.path.splitext(file_path)[0] + ".pdf"
@@ -369,13 +387,15 @@ cpdef void officeFileToPDF(active_explorer=None, str office_application="Powerpo
     
     office_dispatch.Quit()
     
+    active_explorer.Document.SelectItem(new_filepath, 0x1F)
+    
     if initializer_called:
         PThread.coUninitialize()
     
     winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
 
 
-cpdef void genericFileConverter(active_explorer=None, tuple patterns=None, convert_func=None, str new_loc="", str new_extension=""):
+def genericFileConverter(active_explorer=None, tuple patterns=None, convert_func=None, new_loc="", str new_extension="") -> None:
     """
     Description:
         Converts the selected files from the active explorer window using the specified filter and convert functions.
@@ -398,16 +418,19 @@ cpdef void genericFileConverter(active_explorer=None, tuple patterns=None, conve
     ---
     Examples:
     >>> # To convert image files to .ico files
-    >>> genericFileConverter(None, (".png", ".jpg"), lambda f1, f2: PIL.Image.open(f1).resize((512, 512)).save(f2), " - (512x512).ico")
+    >>> genericFileConverter(None, (".png", ".jpg"), lambda f1, f2: PIL.Image.open(f1).resize((512, 512)).save(f2), new_extension=" - (512x512).ico")
     
     >>> # To convert audio files to .wav files
     >>> genericFileConverter(None, (".mp3", ), lambda f1, f2: subprocess.call(["ffmpeg", "-loglevel", "error", "-hide_banner", "-nostats",'-i', f1, f2]), new_extension=".wav")
     """
     
+    if winHelper.showMessageBox("Are you sure you want to convert the selected files?", "Confirmation", 2, win32con.MB_ICONQUESTION) == 7:
+        return
+    
     cdef bint initializer_called = PThread.coInitialize()
     
     if not active_explorer:
-        active_explorer = getActiveExplorer(check_desktop=False)
+        active_explorer = getActiveExplorer(explorer_windows=None, check_desktop=False)
     
     if not active_explorer:
         if initializer_called:
@@ -416,38 +439,44 @@ cpdef void genericFileConverter(active_explorer=None, tuple patterns=None, conve
         return
     
     cdef list selected_files_paths = getSelectedItemsFromActiveExplorer(active_explorer, patterns=patterns)
-    cdef str new_filepath
     
-    if selected_files_paths:
-        winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    if not selected_files_paths:
+        if initializer_called:
+            PThread.coUninitialize()
         
-        for file_path in selected_files_paths:
-            new_filepath = os.path.splitext(file_path)[0] + new_extension
-            
-            if new_loc:
-                new_filepath = os.path.join(new_loc, os.path.basename(new_filepath))
-            
-            if os.path.exists(new_filepath):
-                print("Warning, file already exists: %s" % new_filepath)
-                continue
-            
-            convert_func(file_path, new_filepath)
-            print(f"File converted: {new_filepath}")
+        return
+    
+    winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    
+    for file_path in selected_files_paths:
+        new_filepath = os.path.splitext(file_path)[0] + new_extension
         
-        winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+        if new_loc:
+            new_filepath = os.path.join(new_loc, os.path.basename(new_filepath))
+        
+        if os.path.exists(new_filepath):
+            print("Warning, file already exists: %s" % new_filepath)
+            continue
+        
+        convert_func(file_path, new_filepath)
+        print(f"File converted: {new_filepath}")
+    
+    winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    
+    active_explorer.Document.SelectItem(new_filepath, 0x1F)
     
     if initializer_called:
         PThread.coUninitialize()
 
 
-cpdef void flattenDirectories(active_explorer=None):
+def flattenDirectories(active_explorer=None) -> None:
     """Flattens the selected folders from the active explorer window to the explorer current location."""
     
     cdef bint initializer_called = PThread.coInitialize()
     
     # If no automation object was passed (i.e., `None` was passed), create one.
     if not active_explorer:
-        active_explorer = getActiveExplorer(check_desktop=False)
+        active_explorer = getActiveExplorer(explorer_windows=None, check_desktop=False)
     
     if not active_explorer:
         if initializer_called:
@@ -463,13 +492,11 @@ cpdef void flattenDirectories(active_explorer=None):
         
         return
     
-    cdef str src = getExplorerAddress(active_explorer)
+    src = getExplorerAddress(active_explorer)
     
-    cdef str dst = os.path.join(src, getUniqueName(src, "Flattened", extension=""))
+    dst = os.path.join(src, getUniqueName(src, "Flattened", extension=""))
     
     os.makedirs(dst, exist_ok=True)
-    
-    cdef str folder, file_name, target_src, target_dst
     
     # for root_dir, cur_dir, files in os.walk(target_path, topdown=True):
     for folder in os.listdir(src):

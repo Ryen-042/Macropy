@@ -1,4 +1,3 @@
-# cython: embedsignature = True
 # cython: language_level = 3str
 
 """This extension module provides functions for dealing with windows."""
@@ -6,7 +5,7 @@
 import win32gui, win32con, winsound, pywintypes, ctypes
 from time import sleep
 
-cpdef list[int] findHandleByClassName(str className, bint check_all=False):
+def findHandleByClassName(className: str, check_all=False) -> list[int]:
     """
     Description:
         Searches for a window with the specified class name and returns its handle if found. Otherwise, returns `0`.
@@ -41,7 +40,7 @@ cpdef list[int] findHandleByClassName(str className, bint check_all=False):
     return output
 
 
-cpdef int getHandleByTitle(str title):
+def getHandleByTitle(title: str) -> int:
     """searches for a window with the specified title and returns its handle if found. Otherwise, returns `0`."""
     
     cdef int hwnd = win32gui.GetTopWindow(0)
@@ -55,7 +54,7 @@ cpdef int getHandleByTitle(str title):
     return 0
 
 
-cpdef int showMessageBox(str msg, str title="Warning", int msgbox_type=1, int icon=win32con.MB_ICONERROR):
+def showMessageBox(msg: str, title="Warning", msgbox_type=1, int icon=win32con.MB_ICONERROR) -> int:
     """
     Description:
         Display an error message window with the specified message.
@@ -84,17 +83,29 @@ cpdef int showMessageBox(str msg, str title="Warning", int msgbox_type=1, int ic
             The icon of the message box.
     ---
     Returns:
-        `int`: The value associated with the click button.
+        `int`: The value associated with the click button. Below is a list of possible return values:
+            Constant   | Value | Description
+            -----------|-------|------------
+            IDOK       |   1   | The OK button was selected.
+            IDCANCEL   |   2   | The Cancel button was selected.
+            DABORT     |   3   | The Abort button was selected.
+            IDRETRY    |   4   | The Retry button was selected.
+            IDIGNORE   |   5   | The Ignore button was selected.
+            IDYES      |   6   | The Yes button was selected.
+            IDNO       |   7   | The No button was selected.
+            IDTRYAGAIN |   10  | The Try Again button was selected.
+            IDCONTINUE |   11  | The Continue button was selected.
     """
+    
     cdef int type = {1: win32con.MB_OK, 2: win32con.MB_YESNO, 3: win32con.MB_OKCANCEL,
                      4: win32con.MB_RETRYCANCEL, 5: win32con.MB_YESNOCANCEL}.get(msgbox_type)
     
-    # https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messageboxa
+    # https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messageboxw
     return ctypes.windll.user32.MessageBoxW(None, msg, title, type | icon | win32con.MB_TOPMOST | win32con.MB_SETFOREGROUND)
 
 
-cpdef void alwaysOnTop():
-    """Toggles `alwaysOnTop` on or off for the active window."""
+def alwaysOnTop() -> None:
+    """Toggles the alwaysOnTop feature for the active window."""
     
     cdef int hwnd = win32gui.GetForegroundWindow()
     
@@ -111,7 +122,7 @@ cpdef void alwaysOnTop():
 
 
 # Shake window - Doesn't work if the window is fullscreen
-cpdef void shakeActiveWindow(int cycles=5):
+def shakeActiveWindow(cycles=5) -> None:
     """Simulates shake effect on the active window for the specified number of times."""
     
     # Get the handle of the window
@@ -134,7 +145,7 @@ cpdef void shakeActiveWindow(int cycles=5):
     win32gui.SetWindowPos(hwnd, win32con.HWND_TOP, x, y, width, height, win32con.SWP_NOACTIVATE | win32con.SWP_NOSIZE)
 
 
-cpdef void moveActiveWindow(int hwnd=0, int delta_x=0, int delta_y=0, int width=0, int height=0):
+def moveActiveWindow(hwnd=0, delta_x=0, delta_y=0, width=0, height=0) -> None:
     """
     Description:
         Moves the active or specified window by an (x, y) pixels, and change its size by (width, height) if passed.
@@ -175,7 +186,7 @@ cpdef void moveActiveWindow(int hwnd=0, int delta_x=0, int delta_y=0, int width=
                           curr_width + width, curr_height + height, win32con.SWP_NOACTIVATE | flags)
 
 
-cpdef int changeWindowOpacity(int hwnd=0, int opcode=1, int increment=5):
+def changeWindowOpacity(hwnd=0, opcode=1, increment=5) -> int:
     """
     Description:
         Increments (`opcode=any non-zero value`) or decrements (`opcode=0`) the opacity of the specified window by an (`increment`) value.

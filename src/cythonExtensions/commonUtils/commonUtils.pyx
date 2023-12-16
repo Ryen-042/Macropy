@@ -1,10 +1,8 @@
-# cython: embedsignature = True
 # cython: language_level = 3str
 
 """This extension module provides class definitions used in other modules."""
 
 from cythonExtensions.commonUtils cimport commonUtils
-from cythonExtensions.commonUtils.commonUtils cimport KB_Con as kb_con
 
 import win32gui, win32api, win32con, win32clipboard, pythoncom
 import threading, queue, winsound
@@ -16,6 +14,117 @@ from typing import Callable
 
 import scriptConfigs as configs
 from cythonExtensions.windowHelper import windowHelper as winHelper
+
+
+cpdef enum KB_Con:
+    # """
+    # Description:
+    #     An enum class for storing keyboard `keyID` and `scancode` constants that are not present in the `win32con` module.
+    # ---
+    # Naming Scheme:
+    #     `AS`: Ascii value.
+    #     `VK`: Virtual keyID.
+    #     `SC`: Scancode
+    # ---
+    # Notes:
+    #     - Keys may send different `Ascii` values depending on the pressed modifier(s), but they send the same `keyID` and `scancode`.
+    #         - If you need a code that is independent of the pressed modifiers, use `keyID`.
+    #         - If you need a code that may have different values, use `Ascii`. Eg, Ascii of `=` is `61`, `+` (`Shift` + `=`) is `41`.
+    #     - The class has only one copy of `KeyID` and `scancode` constants for each physical key.
+    #         - These constants are named with respect to the pressed key with no modifiers.
+    #         - To keep the naming scheme consistent with capitalizing all characters, letter keys are named using the uppercase version.
+    #     - Capital letters (Shift + letter key) have Ascii values equal to their VK values. As such, the class only stores the Ascii of lowercase letters.
+    # """
+    
+    # Letter keys - Uppercase letters
+    AS_a = 97,  VK_A = 65,  SC_A = 30
+    AS_b = 98,  VK_B = 66,  SC_B = 48
+    AS_c = 99,  VK_C = 67,  SC_C = 46
+    AS_d = 100, VK_D = 68,  SC_D = 32
+    AS_e = 101, VK_E = 69,  SC_E = 18
+    AS_f = 102, VK_F = 70,  SC_F = 33
+    AS_g = 103, VK_G = 71,  SC_G = 34
+    AS_h = 104, VK_H = 72,  SC_H = 35
+    AS_i = 105, VK_I = 73,  SC_I = 23
+    AS_j = 106, VK_J = 74,  SC_J = 36
+    AS_k = 107, VK_K = 75,  SC_K = 37
+    AS_l = 108, VK_L = 76,  SC_L = 38
+    AS_m = 109, VK_M = 77,  SC_M = 50
+    AS_n = 110, VK_N = 78,  SC_N = 49
+    AS_o = 111, VK_O = 79,  SC_O = 24
+    AS_p = 112, VK_P = 80,  SC_P = 25
+    AS_q = 113, VK_Q = 81,  SC_Q = 16
+    AS_r = 114, VK_R = 82,  SC_R = 19
+    AS_s = 115, VK_S = 83,  SC_S = 31
+    AS_t = 116, VK_T = 84,  SC_T = 20
+    AS_u = 117, VK_U = 85,  SC_U = 22
+    AS_v = 118, VK_V = 86,  SC_V = 47
+    AS_w = 119, VK_W = 87,  SC_W = 17
+    AS_x = 120, VK_X = 88,  SC_X = 45
+    AS_y = 121, VK_Y = 89,  SC_Y = 21
+    AS_z = 122, VK_Z = 90,  SC_Z = 44
+    
+    # Number keys
+    VK_0 = 48,  SC_0 = 11
+    VK_1 = 49,  SC_1 = 2
+    VK_2 = 50,  SC_2 = 3
+    VK_3 = 51,  SC_3 = 4
+    VK_4 = 52,  SC_4 = 5
+    VK_5 = 53,  SC_5 = 6
+    VK_6 = 54,  SC_6 = 7
+    VK_7 = 55,  SC_7 = 8
+    VK_8 = 56,  SC_8 = 9
+    VK_9 = 57,  SC_9 = 10
+    
+    # Symbol keys
+    AS_EXCLAM               = 33
+    AS_DOUBLE_QUOTES        = 34,   VK_SINGLE_QUOTES = 222,       SC_SINGLE_QUOTES = 40
+    AS_HASH                 = 35
+    AS_DOLLAR               = 36
+    AS_PERCENT              = 37
+    AS_AMPERSAND            = 38
+    AS_SINGLE_QUOTE         = 39
+    AS_OPEN_PAREN           = 40
+    AS_CLOSE_PAREN          = 41
+    AS_ASTERISK             = 42
+    AS_PLUS                 = 43
+    AS_COMMA                = 44,   VK_COMMA  = 188,                SC_COMMA  = 51
+    AS_MINUS                = 45,   VK_MINUS  = 189,                SC_MINUS  = 12
+    AS_PERIOD               = 46,   VK_PERIOD = 190,                SC_PERIOD = 52
+    AS_SLASH                = 47,   VK_SLASH  = 191,                SC_SLASH  = 53
+    
+    AS_COLON                = 58
+    AS_SEMICOLON            = 59,   VK_SEMICOLON = 186,             SC_SEMICOLON = 39
+    AS_LESS_THAN            = 60
+    AS_EQUALS               = 61,   VK_EQUALS = 187,                SC_EQUALS = 13
+    AS_GREATER_THAN         = 62
+    AS_QUESTION_MARK        = 63
+    AS_AT                   = 64
+    
+    AS_OPEN_SQUARE_BRACKET  = 91,   VK_OPEN_SQUARE_BRACKET = 219,   SC_OPEN_SQUARE_BRACKET = 26
+    AS_BACKSLASH            = 92,   VK_BACKSLASH = 220,             SC_BACKSLASH = 43
+    AS_CLOSE_SQUARE_BRACKET = 93,   VK_CLOSE_SQUARE_BRACKET = 221,  SC_CLOSE_SQUARE_BRACKET = 27
+    AS_CARET                = 94
+    AS_UNDERSCORE           = 95
+    AS_BACKTICK             = 96,   VK_BACKTICK = 192,              SC_BACKTICK = 41 # '`'
+    
+    AS_OPEN_CURLY_BRACE     = 123
+    AS_PIPE                 = 124
+    AS_CLOSE_CURLY_BRACE    = 125
+    AS_TILDE                = 126
+    AS_OEM_102_CTRL         = 28,   VK_AS_OEM_102 = 226,            SC_OEM_102 = 86 # '\' in European keyboards (between LShift and Z).
+    
+    # Miscellaneous keys
+    SC_RETURN      = 28 # Enter
+    SC_BACK        = 14 # Backspace
+    SC_MENU        = 56 # 'LMenu' and 'RMenu'
+    SC_HOME        = 71
+    SC_UP          = 72
+    SC_RIGHT       = 77
+    SC_DOWN        = 80
+    SC_LEFT        = 75
+    SC_VOLUME_UP   = 48 # Make sure that this doesn't conflict with `KB_Con.SC_B` as both have the same value.
+    SC_VOLUME_DOWN = 46
 
 
 cdef class BaseEvent:
@@ -32,7 +141,7 @@ cdef class BaseEvent:
     """
     
     cdef public int EventId, Flags
-    cdef public str EventName
+    cdef public EventName
     
     def __init__(self, event_id: int, event_name: str, flags: int):
         self.EventId   = event_id
@@ -53,8 +162,6 @@ cdef class KeyboardEvent(commonUtils.BaseEvent):
         
         `EventName -> str`: The name of the event (message).
         
-        `Flags -> int`: The flags associated with the event.
-        
         `Key -> str`: The name of the key.
         
         `KeyID -> int`: The virtual key code.
@@ -62,6 +169,8 @@ cdef class KeyboardEvent(commonUtils.BaseEvent):
         `Scancode -> int`: The key scancode.
         
         `Ascii -> int`: The ASCII value of the key.
+        
+        `Flags -> int`: The flags associated with the event.
         
         `Injected -> bool`: Whether or not the event was injected.
         
@@ -75,11 +184,11 @@ cdef class KeyboardEvent(commonUtils.BaseEvent):
     """
     
     cdef public int KeyID, Scancode, Ascii
-    cdef public str Key
     cdef public bint Injected, Extended, Shift, Alt, Transition
+    cdef public Key
     
     def __init__(self, event_id: int, event_name: str, vkey_code: int, scancode: int, key_ascii: int, key_name: str,
-                 flags: int, injected: bint, extended: bint, shift: bint, alt: bint, transition: bint):
+                 flags: int, injected: bool, extended: bool, shift: bool, alt: bool, transition: bool):
         
         super(commonUtils.KeyboardEvent, self).__init__(event_id, event_name, flags)
         
@@ -175,7 +284,7 @@ cdef class MouseEvent(commonUtils.BaseEvent):
 
 
 class ControllerHouse:
-    """A class that stores information for managing and controlling keyboard."""
+    """A class that stores information for managing and controlling keyboard and mouse."""
     
     __slots__ = ()
     
@@ -237,20 +346,24 @@ class ControllerHouse:
     LWIN_RWIN       = LWIN   | RWIN              # 0b00000000001100 # 12
     FN_BACKTICK     = FN     | BACKTICK          # 0b00000000000011 # 3
     
+    # Boolean variables for storing the state of the lock keys.
+    CAPITAL = win32api.GetKeyState(win32con.VK_CAPITAL)
+    SCROLL  = win32api.GetKeyState(win32con.VK_SCROLL)
+    NUMLOCK = win32api.GetKeyState(win32con.VK_NUMLOCK)
     
-    
-    locks = (win32api.GetKeyState(win32con.VK_CAPITAL) << 2) | \
-            (win32api.GetKeyState(win32con.VK_SCROLL)  << 1) | \
-            win32api.GetKeyState(win32con.VK_NUMLOCK)
-    """An int packing the states of the keyboard lock keys (on or off)."""
+    # locks = (CAPITAL << 2) | (SCROLL << 1) | NUMLOCK
+    # """An int packing the states of the keyboard lock keys (on or off)."""
     
     # Masks for extracting individual lock keys from the `locks` packed int.
-    CAPITAL = 0b100
-    SCROLL  = 0b10
-    NUMLOCK = 0b1
+    CAPITAL_MASK = 0b100
+    SCROLL_MASK  = 0b10
+    NUMLOCK_MASK = 0b1
     
     pressed_chars = ""
     """Stores the pressed character keys for the key expansion events."""
+    
+    pressed_chars_backup = ""
+    """Stores a backup that lasts one keystroke to undo replacement of text if backspace is pressed immediately after expainsion."""
     
     heldMouseBtn = 0
     """Stores the mouse button that is currently being held down (by sending mouse events with keyboard shortcuts). Possible Values:
@@ -262,120 +375,16 @@ class ControllerHouse:
     3     | Middle"""
     
     abbreviations = configs.ABBREVIATIONS
-    """A dictionary of abbreviations and their corresponding expansion."""
+    """A dictionary of aliases and their corresponding expansion."""
+    
+    non_prefixed_abbreviations = configs.NON_PERFIXED_ABBREVIATIONS
+    """A dictionary of aliases and their corresponding expansion that are not prefixed with one of the defined prefixes."""
     
     locations = configs.LOCATIONS
-    """A dictionary of abbreviations and their corresponding path address."""
-
-
-cpdef inline void updateModifiersPress(commonUtils.KeyboardEvent event):
-    """Updates the state of the `modifiers` packed for keyDown events with the specified event."""
+    """A dictionary of aliases and their corresponding path address expansions."""
     
-    ControllerHouse.modifiers |= (
-        ((event.KeyID == win32con.VK_LCONTROL) | (event.KeyID == win32con.VK_RCONTROL)) << 13 | # CTRL
-        ((event.KeyID == win32con.VK_LSHIFT)   | (event.KeyID == win32con.VK_RSHIFT))   << 10 | # SHIFT
-        ((event.KeyID == win32con.VK_LMENU)    | (event.KeyID == win32con.VK_RMENU))    << 7  | # ALT
-        ((event.KeyID == win32con.VK_LWIN)     | (event.KeyID == win32con.VK_RWIN))     << 4  |  # WIM
-        
-        # (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
-        # (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
-        # (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
-        # (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
-        # (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
-        # (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
-        # (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
-        # (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
-        
-        (event.KeyID == 255)                  << 1  | # FN
-        (event.KeyID == kb_con.VK_BACKTICK)           # BACKTICK
-    )
-    
-    # ControllerHouse.modifiers |= (
-    #     ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
-    #     ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
-    #     ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
-    #     ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
-    # )
-
-
-cpdef inline void updateModifiersRelease(commonUtils.KeyboardEvent event):
-    """Updates the state of the `modifiers` packed for keyUp events with the specified event."""
-    
-    ControllerHouse.modifiers &= ~(
-        ((event.KeyID == win32con.VK_LCONTROL) | (event.KeyID == win32con.VK_RCONTROL)) << 13 | # CTRL
-        ((event.KeyID == win32con.VK_LSHIFT)   | (event.KeyID == win32con.VK_RSHIFT))   << 10 | # SHIFT
-        ((event.KeyID == win32con.VK_LMENU)    | (event.KeyID == win32con.VK_RMENU))    << 7  | # ALT
-        ((event.KeyID == win32con.VK_LWIN)     | (event.KeyID == win32con.VK_RWIN))     << 4  | # WIN
-        
-        # (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseting CTRL, SHIFT, ALT, WIN
-        # (event.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
-        # (event.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
-        # (event.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
-        # (event.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
-        # (event.KeyID == win32con.VK_LMENU)    << 6  | # LALT
-        # (event.KeyID == win32con.VK_RMENU)    << 5  | # RALT
-        # (event.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
-        # (event.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
-        
-        (event.KeyID == 255)                  << 1  | # FN
-        (event.KeyID == kb_con.VK_BACKTICK)           # BACKTICK
-    )
-    
-    # ControllerHouse.modifiers &= ~( # Reseeting CTRL, SHIFT, ALT, WIN
-    #     ((ControllerHouse.modifiers & ControllerHouse.LCTRL_RCTRL)   != 0) << 13 | # CTRL
-    #     ((ControllerHouse.modifiers & ControllerHouse.LSHIFT_RSHIFT) != 0) << 10 | # SHIFT
-    #     ((ControllerHouse.modifiers & ControllerHouse.LALT_RALT)     != 0) << 7  | # ALT
-    #     ((ControllerHouse.modifiers & ControllerHouse.LWIN_RWIN)     != 0) << 4    # WIM
-    # )
-
-
-cpdef inline void updateLocks(commonUtils.KeyboardEvent event):
-    """Updates the state of the `locks` packed for keyDown events with the specified event (no need to call for keyUp events)."""
-    
-    ControllerHouse.locks ^= (
-        (event.KeyID == win32con.VK_CAPITAL) << 2 | # CAPITAL
-        (event.KeyID == win32con.VK_SCROLL)  << 1 | # SCROLL
-        (event.KeyID == win32con.VK_NUMLOCK)        # NUMLOCK
-    )
-
-
-cpdef void sendMouseScroll(steps=1, direction=1, wheelDelta=40):
-    """
-    Description:
-        Sends a mouse scroll event with the specified number of steps and direction.
-    ---
-    Parameters:
-        `steps: int = 1`:
-            The number of steps to scroll. Can take negative values.
-        
-        `direction: int = 1`:
-            The direction to scroll in. `1` for vertical, `0` for horizontal.
-        
-        `wheelDelta: int = 40`:
-            The amount of scroll per step.
-    """
-    
-    # API doc: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mouse_event
-    win32api.mouse_event((win32con.MOUSEEVENTF_HWHEEL, win32con.MOUSEEVENTF_WHEEL)[direction], 0, 0, steps * wheelDelta, 0) # win32con.WHEEL_DELTA
-
-
-cpdef inline void printModifiers():
-    """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
-    
-    print(f"CTRL={bool(ControllerHouse.modifiers & ControllerHouse.CTRL)}", end=", ")
-    print(f"SHIFT={bool(ControllerHouse.modifiers & ControllerHouse.SHIFT)}", end=", ")
-    print(f"ALT={bool(ControllerHouse.modifiers & ControllerHouse.ALT)}", end=", ")
-    print(f"WIN={bool(ControllerHouse.modifiers & ControllerHouse.WIN)}", end=", ")
-    print(f"FN={bool(ControllerHouse.modifiers & ControllerHouse.FN)}", end=", ")
-    print(f"BACKTICK={bool(ControllerHouse.modifiers & ControllerHouse.BACKTICK)}", end=" | ")
-
-
-cpdef inline void printLockKeys():
-    """Prints the states of the lock keys after extracting them from the packed int `locks`."""
-    
-    print(f"CAPSLOCK={bool(ControllerHouse.locks & ControllerHouse.CAPITAL)}", end=", ")
-    print(f"SCROLL={bool(ControllerHouse.locks & ControllerHouse.SCROLL)}", end=", ")
-    print(f"NUMLOCK={bool(ControllerHouse.locks & ControllerHouse.NUMLOCK)}")
+    max_alias_length = configs.MAX_ALIAS_LENGTH
+    """The maximum length of an alias."""
 
 
 class MouseHouse:
@@ -412,53 +421,6 @@ class MouseHouse:
     # Composite button masks
     LRButton  = LButton | RButton
     LRX1X2Button = LRButton | X1Button | X2Button
-
-
-cpdef inline void updateButtonsPress(commonUtils.MouseEvent event):
-    """Updates the mouse postion, scroll delta and direction, and the state of the `buttons` packed for keyUp events with the specified event."""
-    
-    MouseHouse.x, MouseHouse.y = event.X, event.Y
-    
-    MouseHouse.delta = event.Delta
-    
-    MouseHouse.horizontal = event.IsWheelHorizontal
-    
-    MouseHouse.buttons |= (
-        (event.PressedButton == MouseHouse.LButton)  << 4 |
-        (event.PressedButton == MouseHouse.RButton)  << 3 |
-        (event.PressedButton == MouseHouse.MButton)  << 2 |
-        (event.PressedButton == MouseHouse.X1Button) << 1 |
-        (event.PressedButton == MouseHouse.X2Button)
-    )
-
-
-cpdef inline void updateButtonsRelease(commonUtils.MouseEvent event):
-    """Updates the mouse postion, scroll delta and direction, and the state of the `buttons` packed for keyUp events with the specified event."""
-    
-    MouseHouse.x, MouseHouse.y = event.X, event.Y
-    
-    MouseHouse.delta = event.Delta
-    
-    MouseHouse.horizontal = event.IsWheelHorizontal
-    
-    MouseHouse.buttons &= ~(
-        (event.PressedButton == MouseHouse.LButton)  << 4 |
-        (event.PressedButton == MouseHouse.RButton)  << 3 |
-        (event.PressedButton == MouseHouse.MButton)  << 2 |
-        (event.PressedButton == MouseHouse.X1Button) << 1 |
-        (event.PressedButton == MouseHouse.X2Button)
-    )
-
-
-cpdef inline void printButtons():
-    """Prints the states of the buttons after extracting them from the packed int `buttons`."""
-    
-    print(f"LB={(MouseHouse.buttons & MouseHouse.LButton) == MouseHouse.LButton},",
-          f"RB={(MouseHouse.buttons & MouseHouse.RButton) == MouseHouse.RButton},",
-          f"MB={(MouseHouse.buttons & MouseHouse.MButton) == MouseHouse.MButton},",
-          f"X1={(MouseHouse.buttons & MouseHouse.X1Button) == MouseHouse.X1Button},",
-          f"X2={(MouseHouse.buttons & MouseHouse.X2Button) == MouseHouse.X2Button}",
-          f"| pos=({MouseHouse.x}, {MouseHouse.y}) | WDelta={MouseHouse.delta} {'' if not MouseHouse.delta else 'H' if MouseHouse.horizontal else 'V'}\n")
 
 
 class Management:
@@ -539,12 +501,11 @@ class WindowHouse:
         Stores the title of the active window into the `closedExplorers` variable.
         The title of a windows explorer window is the address of the opened directory.
         """
-        ...
         
         if not fg_hwnd:
             fg_hwnd = win32gui.GetForegroundWindow()
         
-        cdef str explorerAddress = win32gui.GetWindowText(fg_hwnd)
+        explorerAddress = win32gui.GetWindowText(fg_hwnd)
         
         if not explorerAddress:
             print(f"Error: Could not get the title of the active window (id={fg_hwnd}) or the window does not have a title.")
@@ -609,8 +570,6 @@ class PThread(threading.Thread):
     
     # Propagating exceptions from a thread and showing an error message.
     def run(self):
-        cdef str error_msg, class_name
-        
         try:
             self.ret = self._target(*self._args, **self._kwargs)
         
@@ -742,7 +701,7 @@ class PThread(threading.Thread):
         return decorator
 
 
-cpdef str readFromClipboard(int CF=win32clipboard.CF_TEXT): # CF: Clipboard format.
+def readFromClipboard(int CF=win32clipboard.CF_TEXT) -> str: # CF: Clipboard format.
     """Reads the top of the clipboard if it was the same type as the specified."""
     
     win32clipboard.OpenClipboard()
@@ -756,7 +715,7 @@ cpdef str readFromClipboard(int CF=win32clipboard.CF_TEXT): # CF: Clipboard form
     return clipboard_data
 
 
-cpdef void sendToClipboard(data, int CF=win32clipboard.CF_UNICODETEXT):
+def sendToClipboard(data, CF=win32clipboard.CF_UNICODETEXT) -> None:
     """Copies the given data to the clipboard."""
     
     win32clipboard.OpenClipboard()

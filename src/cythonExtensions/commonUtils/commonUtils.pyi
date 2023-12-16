@@ -122,7 +122,7 @@ class KB_Con(IntEnum):
 class BaseEvent:
     """
     Description:
-        The base class for all events.
+        The base class for all windows hook events.
     ---
     Parameters:
         `EventID -> int`: The event ID (the message code).
@@ -136,6 +136,8 @@ class BaseEvent:
     
     def __init__(self, event_id: int, event_name: str, flags: int):
         ...
+    def __repr__(self) -> str:
+        return f"EvtId={self.EventId}, EvtName='{self.EventName}', Flags={self.Flags}"
 
 
 class KeyboardEvent(BaseEvent):
@@ -245,11 +247,11 @@ class MouseEvent(BaseEvent):
         return f"X={self.X}, Y={self.Y}, MouseData={self.MouseData}, IsMouseAbsolute={self.IsMouseAbsolute}, " \
                f"IsMouseInWindow={self.IsMouseInWindow}, Delta={self.Delta}, " \
                f"IsWheelHorizontal={self.IsWheelHorizontal}{f', PressedButton={buttonMapping[self.PressedButton]}' if self.PressedButton else ''}, " \
-               f"{super(MouseEvent, self).__repr__()}"
+               f"EvtId={self.EventId}, EvtName='{self.EventName}', Flags={self.Flags}"
 
 
 class ControllerHouse:
-    """A class that stores information for managing and controlling keyboard."""
+    """A class that stores information for managing and controlling keyboard and mouse."""
     
     __slots__ = ()
     
@@ -374,21 +376,29 @@ class ControllerHouse:
     FN_BACKTICK     = 0b00000000000011 # 3
     """A mask for extracting the `FN` and `BACKTICK` flags from the `modifiers` packed int."""
     
-    locks : int
-    """An int packing the states of the keyboard lock keys (on or off)."""
-    
-    # Masks for extracting individual lock keys from the `locks` packed int.
-    CAPITAL = 0b100
+    # Boolean variables for storing the state of the lock keys.
+    CAPITAL: bool
     """A mask for extracting the `CAPITAL` (CAPSLOCK) flag from the `locks` packed int."""
     
-    SCROLL  = 0b10
+    SCROLL: bool
     """A mask for extracting the `SCROLL` flag from the `locks` packed int."""
     
-    NUMLOCK = 0b1
+    NUMLOCK: bool
     """A mask for extracting the `NUMLOCK` flag from the `locks` packed int."""
+    
+    # locks : int
+    # """An int packing the states of the keyboard lock keys (on or off)."""
+    
+    # Masks for extracting individual lock keys from the `locks` packed int.
+    CAPITAL_MASK = 0b100
+    SCROLL_MASK  = 0b10
+    NUMLOCK_MASK = 0b1
     
     pressed_chars : str
     """Stores the pressed character keys for the key expansion events."""
+    
+    pressed_chars_backup : str
+    """Stores a backup that lasts one keystroke to undo replacement of text if backspace is pressed immediately after expainsion."""
     
     heldMouseBtn = 0
     """Stores the mouse button that is currently being held down (by sending mouse events with keyboard shortcuts). Possible Values:
@@ -400,53 +410,16 @@ class ControllerHouse:
     3     | Middle"""
     
     abbreviations = configs.ABBREVIATIONS
-    """A dictionary of abbreviations and their corresponding expansion."""
+    """A dictionary of aliases and their corresponding expansion."""
+    
+    non_prefixed_abbreviations = configs.NON_PERFIXED_ABBREVIATIONS
+    """A dictionary of aliases and their corresponding expansion that are not prefixed with one of the defined prefixes."""
     
     locations = configs.LOCATIONS
-    """A dictionary of abbreviations and their corresponding path address."""
-
-
-def updateModifiersPress(event: KeyboardEvent) -> None:
-    """Updates the state of the `modifiers` packed for keyDown events with the specified event."""
-    ...
-
-
-def updateModifiersRelease(event: KeyboardEvent) -> None:
-    """Updates the state of the `modifiers` packed for keyUp events with the specified event."""
-    ...
-
-
-def updateLocks(event: KeyboardEvent) -> None:
-    """Updates the state of the `locks` packed for keyDown events with the specified event (no need to call for keyUp events)."""
-    ...
-
-
-def sendMouseScroll(steps=1, direction=1, wheelDelta=40) -> None:
-    """
-    Description:
-        Sends a mouse scroll event with the specified number of steps and direction.
-    ---
-    Parameters:
-        `steps: int = 1`:
-            The number of steps to scroll. Can take negative values.
-        
-        `direction: int = 1`:
-            The direction to scroll in. `1` for vertical, `0` for horizontal.
-        
-        `wheelDelta: int = 40`:
-            The amount of scroll per step.
-    """
-    ...
-
-
-def printModifiers() -> None:
-    """Prints the states of the modifier keys after extracting them from the packed int `modifiers`."""
-    ...
-
-
-def printLockKeys() -> None:
-    """Prints the states of the lock keys after extracting them from the packed int `locks`."""
-    ...
+    """A dictionary of aliases and their corresponding path address expansions."""
+    
+    max_alias_length = configs.MAX_ALIAS_LENGTH
+    """The maximum length of an alias."""
 
 
 class MouseHouse:
@@ -483,21 +456,6 @@ class MouseHouse:
     # Composite button masks
     LRButton  = LButton | RButton
     LRX1X2Button = LRButton | X1Button | X2Button
-
-
-def updateButtonsPress(event: MouseEvent) -> None:
-    """Updates the mouse postion, scroll delta and direction, and the state of the `buttons` packed for keyUp events with the specified event."""
-    ...
-
-
-def updateButtonsRelease(event: MouseEvent) -> None:
-    """Updates the mouse postion, scroll delta and direction, and the state of the `buttons` packed for keyUp events with the specified event."""
-    ...
-
-
-def printButtons() -> None:
-    """Prints the states of the buttons after extracting them from the packed int `buttons`."""
-    ...
 
 
 class Management:
@@ -606,7 +564,7 @@ class PThread(threading.Thread):
         ---
         Returns:
             - `int > 0` (the parent thread id): if the current thread is not the main thread.
-            - `0`: if it was the main thread.
+            - `0`: if it is the main thread.
             - `-1`: if the parent thread is unknown (i.e., the current thread was not created using this class).
         """
         ...

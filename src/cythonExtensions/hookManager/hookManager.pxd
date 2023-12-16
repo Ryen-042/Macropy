@@ -55,8 +55,8 @@ cdef class HookManager:
 
 
 cdef class KeyboardHookManager:
-    cdef public list keyDownListeners, keyUpListeners
-    cdef public int hookId
+    cdef list keyDownListeners, keyUpListeners
+    cdef int hookId
     
     cdef bint keyboardCallback(self, int nCode, int wParam, void * lParam)
 
@@ -100,8 +100,8 @@ cdef enum RawMouse:
 cdef class MouseHookManager:
     """A class for managing mouse hooks and their event listeners."""
     
-    cdef public list mouseButtonDownListeners, mouseButtonUpListeners
-    cdef public int hookId
+    cdef list mouseButtonDownListeners, mouseButtonUpListeners
+    cdef int hookId
     
     
     cdef bint mouseCallback(self, int nCode, int wParam, void * lParam)

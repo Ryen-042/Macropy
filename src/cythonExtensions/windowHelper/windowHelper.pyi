@@ -59,13 +59,24 @@ def showMessageBox(msg: str, title="Warning", msgbox_type=1, icon=win32con.MB_IC
             The icon of the message box.
     ---
     Returns:
-        `int`: The value associated with the click button.
+        `int`: The value associated with the click button. Below is a list of possible return values:
+            Constant   | Value | Description
+            -----------|-------|------------
+            IDOK       |   1   | The OK button was selected.
+            IDCANCEL   |   2   | The Cancel button was selected.
+            DABORT     |   3   | The Abort button was selected.
+            IDRETRY    |   4   | The Retry button was selected.
+            IDIGNORE   |   5   | The Ignore button was selected.
+            IDYES      |   6   | The Yes button was selected.
+            IDNO       |   7   | The No button was selected.
+            IDTRYAGAIN |   10  | The Try Again button was selected.
+            IDCONTINUE |   11  | The Continue button was selected.
     """
     ...
 
 
 def alwaysOnTop() -> None:
-    """Toggles `alwaysOnTop` on or off for the active window."""
+    """Toggles the alwaysOnTop feature for the active window."""
     ...
 
 
