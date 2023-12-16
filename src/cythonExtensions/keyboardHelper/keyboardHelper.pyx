@@ -1,15 +1,13 @@
-# cython: embedsignature = True
 # cython: language_level = 3str
 
 """This extension module provides functions for manipulating keyboard presses and text expansion."""
 
-from cythonExtensions.commonUtils.commonUtils cimport KB_Con as kbcon
 
 import win32gui, win32ui, win32api, win32con, winsound, pywintypes
 import keyboard, os
 from time import sleep
 
-from cythonExtensions.commonUtils.commonUtils import WindowHouse as winHouse, ControllerHouse as ctrlHouse
+from cythonExtensions.commonUtils.commonUtils import KB_Con as kbcon, WindowHouse as winHouse, ControllerHouse as ctrlHouse
 
 # We must check before sending keys using keybd_event: https://stackoverflow.com/questions/21197257/keybd-event-keyeventf-extendedkey-explanation-required
 cdef set extended_keys = {
@@ -81,7 +79,7 @@ cpdef void simulateKeyPressSequence(tuple keys_list, float delay=0.2):
             scancode(key)
         sleep(delay)
 
-cpdef int findAndSendKeyToWindow(str target_className, key, send_function=None):
+def findAndSendKeyToWindow(target_className: str, key, send_function=None) -> int:
     """
     Description:
         Searches for a window with the specified class name, and, if found, sends the specified key using the passed function.
@@ -95,6 +93,9 @@ cpdef int findAndSendKeyToWindow(str target_className, key, send_function=None):
         
         `send_function -> Callable[[Any], Any] | None`:
             A function that simulates the specified key. If not set, `PostMessage` is used.
+    ---
+    Returns:
+        `int`: 1 if the window was found and the key was sent, 0 otherwise.
     """
     
     # Checking if there was a stored window handle for the specified window class name.
@@ -112,7 +113,10 @@ cpdef int findAndSendKeyToWindow(str target_className, key, send_function=None):
         try:
             target_window = win32ui.FindWindow(target_className, None)
         except win32ui.error: # Window not found.
+            print(f"Window with class name '{target_className}' not found.")
+            
             winHouse.setHandleByClassName(target_className, 0)
+            
             return 0
         
         winHouse.setHandleByClassName(target_className, target_window.GetSafeHwnd())
@@ -128,17 +132,17 @@ cpdef int findAndSendKeyToWindow(str target_className, key, send_function=None):
     ## SetForegroundWindow(hwnd)
     ## ShowWindow(hwnd, 1)
     
-    # Send a key down event for the letter 'a' to the window
+    ## Method (No.2) for setting focus to a specific window. Works if the window is minimized or visible: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow
+    win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+    
     if send_function:
-        ## Method (No.2) for setting focus to a specific window. Works if the window is minimized or visible: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow
-        win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
         
-        # Sometimes it seems to fail but then work after another call.
+        # Sometimes SetForegroundWindow seems to fail but then work after another call.
         try:
             win32gui.SetForegroundWindow(hwnd)
+            
         except pywintypes.error:
             sleep(0.5)
-            win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
             
             try:
                 win32gui.SetForegroundWindow(hwnd)
@@ -146,7 +150,7 @@ cpdef int findAndSendKeyToWindow(str target_className, key, send_function=None):
             except pywintypes.error:
                 print(f"Exception occurred while trying set {win32gui.GetWindowText(hwnd)} as the forground process.")
                 return 0
-        
+    
         send_function(key)
     
     else:
@@ -154,7 +158,7 @@ cpdef int findAndSendKeyToWindow(str target_className, key, send_function=None):
     
     return 1
 
-cpdef void simulateHotKeyPress(dict keys_id_dict):
+def simulateHotKeyPress(keys_id_dict: dict[int, int]) -> None:
     """
     Description:
         Simulates hotkey press by sending a keyDown event for each of the specified keys and then sending keyUp events.
@@ -173,7 +177,7 @@ cpdef void simulateHotKeyPress(dict keys_id_dict):
         flags = (key_id in extended_keys) * win32con.KEYEVENTF_EXTENDEDKEY
         win32api.keybd_event(key_id, key_scancode, flags | win32con.KEYEVENTF_KEYUP, 0) # Simulate KeyUp event.
 
-cpdef int getCaretPosition(str text, str caret="{!}"):
+cdef int getCaretPosition(text, caret="{!}"):
     """Returns the position of the caret in the given text."""
     # caret_pos = text[::-1].find("}!{")
     # return (caret_pos != -1 and len(text) - caret_pos) or -1
@@ -181,7 +185,7 @@ cpdef int getCaretPosition(str text, str caret="{!}"):
     cdef int caret_pos = text.find(caret)
     return (caret_pos != -1 and caret_pos) or len(text)
 
-cpdef void sendTextWithCaret(str text, str caret="{!}"):
+def sendTextWithCaret(text: str, caret="{!}") -> None:
     """
     Description:
         - Sends (writes) the specified string to the active window.
@@ -206,26 +210,37 @@ cpdef void sendTextWithCaret(str text, str caret="{!}"):
     # else:
     simulateKeyPress(win32con.VK_LEFT, kbcon.SC_LEFT, len(text) - caret_pos)
 
-cpdef void expandText():
-    """Replacing an abbreviated text with its respective substitution specified by the pressed characters `ctrlHouse.pressed_chars`."""
-    
-    text = ctrlHouse.pressed_chars
+def expandText() -> None:
+    """Replacing an abbreviated text with its respective substitution text."""
     
     # Sending ('`' => "Oem_3") then delete it before expansion to silence any suggestions like in the browser address bar.
     simulateKeyPress(kbcon.VK_BACKTICK, kbcon.SC_BACKTICK)
     
     # Deleting the abbreviation and the '`' character.
-    simulateKeyPress(win32con.VK_BACK, kbcon.SC_BACK, len(ctrlHouse.pressed_chars))
+    simulateKeyPress(win32con.VK_BACK, kbcon.SC_BACK, len(ctrlHouse.pressed_chars) + 1)
     
     # Substituting the abbreviation with its respective text.
-    keyboard.write(ctrlHouse.abbreviations.get(text))
+    keyboard.write(ctrlHouse.abbreviations.get(ctrlHouse.pressed_chars, ctrlHouse.non_prefixed_abbreviations.get(ctrlHouse.pressed_chars)))
     
     # Resetting the stored pressed keys.
     ctrlHouse.pressed_chars = ""
     
     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
 
-cpdef void openLocation():
+def undoTextExpansion() -> None:
+    """Undoes text expansion by replacing it with its abbreviation."""
+    
+    text = ctrlHouse.abbreviations.get(ctrlHouse.pressed_chars, ctrlHouse.non_prefixed_abbreviations.get(ctrlHouse.pressed_chars))
+    
+    # Deleting the expansion.
+    simulateKeyPress(win32con.VK_BACK, kbcon.SC_BACK, len(text))
+    
+    # Replacing the expansion with the abbreviation.
+    keyboard.write(ctrlHouse.pressed_chars)
+    
+    winsound.PlaySound(r"SFX\undo.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+
+def openLocation() -> None:
     """Opens a file or a directory specified by the pressed characters `ctrlHouse.pressed_chars`."""
     
     # Opening the file/folder.
@@ -236,7 +251,7 @@ cpdef void openLocation():
     
     winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
 
-cpdef void crudeOpenWith(int tool_number=4, int prog_index=0):
+def crudeOpenWith(tool_number=4, prog_index=0) -> None:
     """
         Description:
             A crude way for opening a program by using the `open` tool from the `Quick Access Toolbar`.

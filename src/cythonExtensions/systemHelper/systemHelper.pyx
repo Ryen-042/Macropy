@@ -1,17 +1,25 @@
-# cython: embedsignature = True
 # cython: language_level = 3str
 
 """This extension module provides system/script-specific functions."""
 
-import wmi, ctypes, os, sys, psutil, subprocess
+import wmi, ctypes, os, sys, psutil, subprocess, importlib
 import win32gui, win32api, win32process, win32con, winsound, win32security
 from time import sleep
 from win11toast import toast
 
 import scriptConfigs as configs
-from cythonExtensions.commonUtils.commonUtils import PThread, Management as mgmt
+from cythonExtensions.commonUtils.commonUtils import ControllerHouse as ctrlHouse, PThread, Management as mgmt
 from cythonExtensions.windowHelper import windowHelper as winHelper
 
+cpdef void reloadConfigs():
+    """Re-imports the `scriptConfigs` module and reloads the defined configurations."""
+    
+    importlib.reload(configs)
+    
+    ctrlHouse.abbreviations = configs.ABBREVIATIONS
+    ctrlHouse.non_prefixed_abbreviations = configs.NON_PERFIXED_ABBREVIATIONS
+    ctrlHouse.locations = configs.LOCATIONS
+    mgmt.silent = configs.SUPPRESS_TERMINAL_OUTPUT
 
 @PThread.throttle(10)
 def terminateScript(graceful=False) -> None:
@@ -21,7 +29,7 @@ def terminateScript(graceful=False) -> None:
     ---
     Parameters:
         `graceful -> bool`:
-            `True` : Does not terminate the script. Only sets the global Event variable `DebuggingHouse.terminateEvent`.
+            `True` : Does not terminate the script. Only sets the global Event variable `Management.terminateEvent`.
             `False`: Forcefully terminating the script.
     """
     
@@ -29,7 +37,7 @@ def terminateScript(graceful=False) -> None:
         print('Exitting...')
         winsound.PlaySound(r"SFX\crack_the_whip.wav", winsound.SND_FILENAME)
         
-        # Set the global Event variable `DebuggingHouse.terminateEvent` to signal the other threads to terminate.
+        # Set the global Event variable `Management.terminateEvent` to signal the other threads to terminate.
         mgmt.terminateEvent.set()
         
         # Post the quit message to the thread's message queue so that the `GetMessage` function returns `False` and the thread terminates.
@@ -76,7 +84,7 @@ cpdef bint isProcessElevated(int hwnd=0):
     return False
 
 
-cpdef int startWithElevatedPrivileges(bint terminate=True, bint cmder=False, int cmdShow=win32con.SW_SHOWNORMAL): # win32con.SW_FORCEMINIMIZE
+def startWithElevatedPrivileges(terminate=True, cmder=False, cmdShow=win32con.SW_SHOWNORMAL) -> int: # win32con.SW_FORCEMINIMIZE
     """Starts another instance of the main python process with elevated privileges."""
     
     if isProcessElevated(-1):
@@ -90,20 +98,20 @@ cpdef int startWithElevatedPrivileges(bint terminate=True, bint cmder=False, int
     if cmder:
         # Docs: Run with elevated privileges and disable ‘Press Enter or Esc to close console’: https://conemu.github.io/en/NewConsole.html
         # Docs: Run a command with elevation in cmder & configure where the command should started (in a split or new tab): https://conemu.github.io/en/csudo.html
-        return os.system(f'''start "" "c:\Cmder\Cmder.exe" /x "-run python \\"{configs.MAIN_MODULE_LOCATION}\\" -cur_console:a:n"''')
+        return os.system(f'''start "" "{os.path.join(os.getenv("CmderDir"), "Cmder.exe")}" /x "-run python \\"{os.path.join(configs.MAIN_MODULE_LOCATION, "__main__.py")}\\" -cur_console:a:n"''')
         
         # Useful: https://stackoverflow.com/questions/130763/request-uac-elevation-from-within-a-python-script
         # Useful: https://stackoverflow.com/questions/19672352/how-to-run-script-with-elevated-privilege-on-windows
         # MsDocs: https://learn.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutew
-        # return ctypes.windll.shell32.ShellExecuteW(None, None, "c:\Cmder\Cmder.exe", f'/x "-run python \\"{configs.MAIN_MODULE_LOCATION}\\" -cur_console:a:n"', None, win32con.SW_SHOWNORMAL)
+        # return ctypes.windll.shell32.ShellExecuteW(None, None, os.path.join(os.getenv("CmderDir"), "Cmder.exe"), f'/x "-run python \\"{os.path.join(configs.MAIN_MODULE_LOCATION, "__main__.py")}\\" -cur_console:a:n"', None, win32con.SW_SHOWNORMAL)
         
         # This does not use UAC so you would have to enter the password for the admin account.
-        # return os.system(fr'''runas /user:Administrator "c:\Cmder\Cmder.exe /x \"-run csudo python \\\"{__file__}\\\"\""''')
+        # return os.system(fr'''runas /user:Administrator "{os.path.join(os.getenv("CmderDir"), "Cmder.exe")} /x \"-run csudo python \\\"{__file__}\\\"\""''')
     
     return ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, subprocess.list2cmdline(sys.argv), None, cmdShow)
 
 
-cpdef void scheduleElevatedProcessChecker(float delay=10.0):
+def scheduleElevatedProcessChecker(delay=10.0) -> None:
     """Reprots each `delay` time if the active process window is elevated while the current python process is not elevated."""
     
     while not mgmt.terminateEvent.wait(delay):
@@ -122,9 +130,8 @@ cpdef void scheduleElevatedProcessChecker(float delay=10.0):
                 print(f"Attention: the active process '{windowTitle}' has elevated privileges and no keyboard events can be received.")
 
 
-cpdef void displayCPU_Usage():
+def displayCPU_Usage() -> None:
     """Prints the current CPU and Memort usage to the console."""
-    cdef str char_empty, char_fill, cpu_bar, mem_bar
     cdef double cpu_usage, scale, mem_usage
     cdef int columns, max_width, cpu_filled, cpu_remaining, mem_filled, mem_remaining
     
@@ -153,7 +160,7 @@ cpdef void displayCPU_Usage():
     print(f"\033[F\033[KCPU Usage: | {cpu_bar} | ({cpu_usage})\nMem Usage: | {mem_bar} | ({mem_usage})", end="")
 
 
-cpdef int enableDPI_Awareness():
+def enableDPI_Awareness() -> int:
     """Enables `DPI Awareness` for the current thread to allow for accurate dimensions reporting."""
     
     # Creator note: behavior on later OSes is undefined, although when I run it on my Windows 10 machine, it seems to work with effects identical to SetProcessDpiAwareness(1)
@@ -189,16 +196,21 @@ def sendScriptWorkingNotification(near_module=True) -> None:
     else:
         directory = os.getcwd()
     
-    cdef tuple buttons = ({'activationType': 'protocol', 'arguments': "0:", 'content': 'Exit Script', "hint-buttonStyle": "Critical"},
-                          {'activationType': 'protocol', 'arguments': directory, 'content': 'Open Script Folder'},
-                          {'activationType': 'protocol', 'arguments': "1:", 'content': 'Nice Work', "hint-buttonStyle": "Success"})
+    cdef tuple buttons = (
+        {'activationType': 'protocol', 'arguments': "0:", 'content': 'Exit Script', "hint-buttonStyle": "Critical"},
+        {'activationType': 'protocol', 'arguments': directory, 'content': 'Open Script Folder'},
+        # {'activationType': 'protocol', 'arguments': "1:", 'content': 'Nice Work', "hint-buttonStyle": "Success"},
+        {'activationType': 'protocol', 'arguments': "1:", 'content': 'Reload Configs', "hint-buttonStyle": "Success"},
+    )
     
     # notify() doesn't work properly here. Use toast() inside a thread instead.
-    toast('Script is Running.', 'The script is running in the background.', buttons=buttons,
-          on_click = lambda args: args["arguments"][0] == "0" and terminateScript(True),
-          icon  = {"src": os.path.join(directory, "Images", "static", "keyboard.png"), 'placement': 'appLogoOverride'},
-          image = {'src': os.path.join(directory, "Images", "static", "keyboard (0.5).png"), 'placement': 'hero'},
-          audio = {'silent': 'true'})
+    toast(
+        'Script is Running.', 'The script is running in the background.', buttons=buttons,
+        on_click = lambda args: (args["arguments"][0] == "0" and terminateScript(True)) or (args["arguments"][0] == "1" and reloadConfigs()),
+        icon  = {"src": os.path.join(directory, "Images", "static", "keyboard.png"), 'placement': 'appLogoOverride'},
+        image = {'src': os.path.join(directory, "Images", "static", "keyboard (0.5).png"), 'placement': 'hero'},
+        # audio = os.path.join(configs.MAIN_MODULE_LOCATION, "SFX", "bonk sound.mp3"), # {'silent': 'true'}
+    )
 
 
 @PThread.throttle(0.05)
@@ -227,12 +239,12 @@ def changeBrightness(opcode=1, increment=5) -> None:
     PThread.coUninitialize()
 
 
-cpdef void screenOff():
+def screenOff() -> None:
     """Turns off the screen."""
     win32gui.SendMessage(win32con.HWND_BROADCAST, win32con.WM_SYSCOMMAND, win32con.SC_MONITORPOWER, 2)
 
 
-cpdef void flashScreen(float delay=0.15):
+def flashScreen(delay=0.15) -> None:
     """Inverts the color of the screen for the specified number of seconds."""
     cdef int x, y
     
@@ -254,7 +266,7 @@ def goToSleep() -> None:
     winsound.PlaySound(r"C:\Windows\Media\Windows Logoff Sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
     print("Putting the device to sleep...")
     
-    os.system(r'"C:\Utilities\PSTools\psshutdown.exe" -d -t 0 -nobanner')
+    os.system(r'"C:\Program Files\Utilities\PSTools\psshutdown.exe" -d -t 0 -nobanner')
     print("Device is now active.")
 
 
@@ -282,7 +294,7 @@ def shutdown(request_confirmation=False) -> None:
     terminateScript(graceful=False)
 
 
-cpdef str getProcessFileAddress(int hwnd):
+def getProcessFileAddress(hwnd: int) -> str:
     """Given a window handle, returns its process file address."""
     
     process_handle = 0
@@ -308,7 +320,7 @@ cpdef str getProcessFileAddress(int hwnd):
 #       : https://www.pinvoke.net/default.aspx/ntdll/NtResumeProcess.html
 #       : https://undoc.airesoft.co.uk/user32.dll/HungWindowFromGhostWindow.php
 #       : https://undoc.airesoft.co.uk/user32.dll/GhostWindowFromHungWindow.php
-cpdef int suspendProcess(int hwnd=0):
+def suspendProcess(hwnd=0) -> int:
     """Suspends a process given its window handle. Uses the handle of the active window if no handle is passed."""
     
     if not hwnd:
@@ -352,7 +364,7 @@ cpdef int suspendProcess(int hwnd=0):
     return output
 
 
-cpdef int resumeProcess(int hwnd=0):
+def resumeProcess(hwnd=0) -> int:
     """Resumes a suspended process given its window handle. Uses the handle of the active window if no handle is passed."""
     
     if not hwnd:
@@ -400,7 +412,7 @@ cpdef int resumeProcess(int hwnd=0):
     return output
 
 
-cpdef int getHungwindowHandle(int hwnd=0):
+def getHungwindowHandle(hwnd=0) -> int:
     """Returns the actual hwnd of a hung window given its ghost window handle. Uses the handle of the active window if no handle is passed."""
     
     if not hwnd:
@@ -417,7 +429,7 @@ cpdef int getHungwindowHandle(int hwnd=0):
     return 0
 
 
-cpdef bint isProcessSuspended(int pid):
+cdef bint isProcessSuspended(int pid):
     """Returns whether a process is suspended or not."""
     
     try:

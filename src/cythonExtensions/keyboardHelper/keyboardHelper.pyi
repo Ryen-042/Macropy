@@ -68,6 +68,9 @@ def findAndSendKeyToWindow(target_className: str, key: Any, send_function: Calla
         
         `send_function -> Callable[[Any], Any] | None`:
             A function that simulates the specified key. If not set, `PostMessage` is used.
+    ---
+    Returns:
+        `int`: 1 if the window was found and the key was sent, 0 otherwise.
     """
     ...
 
@@ -101,7 +104,7 @@ def sendTextWithCaret(text: str, caret="{!}") -> None:
 
 
 def expandText() -> None:
-    """Replacing an abbreviated text with its respective substitution specified by the pressed characters `ctrlHouse.pressed_chars`."""
+    """Replacing an abbreviated text with its respective substitution text."""
     ...
 
 

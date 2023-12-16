@@ -3,6 +3,12 @@
 import win32con
 
 
+def reloadConfigs() -> None:
+    """Re-imports the `scriptConfigs` module and reloads the defined configurations."""
+    
+    ...
+
+
 def terminateScript(graceful=False) -> None:
     """
     Description:
@@ -10,7 +16,7 @@ def terminateScript(graceful=False) -> None:
     ---
     Parameters:
         `graceful -> bool`:
-            `True` : Does not terminate the script. Only sets the global Event variable `DebuggingHouse.terminateEvent`.
+            `True` : Does not terminate the script. Only sets the global Event variable `Management.terminateEvent`.
             `False`: Forcefully terminating the script.
     """
     ...

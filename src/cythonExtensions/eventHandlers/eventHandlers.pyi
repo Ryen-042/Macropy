@@ -2,6 +2,10 @@
 from cythonExtensions.commonUtils.commonUtils import KeyboardEvent, MouseEvent
 
 
+def reloadHotkeys() -> None:
+    """Reloads the defined hotkeys in the `callbacks` module."""
+    ...
+
 def keyPress(event: KeyboardEvent) -> bool:
     """
     Description:
