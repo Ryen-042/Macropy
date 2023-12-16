@@ -1,4 +1,3 @@
-# cython: embedsignature = True
 # cython: language_level = 3str
 
 """This extension module defines functions for setting up and starting the script."""
@@ -9,7 +8,7 @@ import os
 from contextlib import contextmanager
 
 
-def acquireScriptLock() -> int:
+def acquireScriptLock():
     """Acquires the script lock. This is used to prevent multiple instances of the script from running at the same time.
     If another instance of the script is already running, this instance will be terminated."""
     
@@ -40,20 +39,19 @@ def beginScript() -> None:
     """The main entry for the entire script. Acquires the script lock then configures and starts the keyboard listeners and other components."""
     
     mutexHandle = acquireScriptLock()
-    print("Script lock acquired.")
+    print("Script lock acquired.\nImporting modules...")
     
-    import threading
-    import winsound, pythoncom
+    import threading, winsound, pythoncom
+    from time import sleep, time
+    
+    import scriptConfigs as configs
     from cythonExtensions.systemHelper import systemHelper as sysHelper
     from cythonExtensions.commonUtils.commonUtils import Management as mgmt, PThread
     from cythonExtensions.eventHandlers.eventHandlers import keyPress, textExpansion, buttonPress
     from cythonExtensions.hookManager.hookManager import KeyboardHookManager, MouseHookManager
+    from cythonExtensions.trayIconHelper.trayIconHelper import createTrayIcon
     
-    from time import sleep, time
-    import scriptConfigs as configs
-    
-    winsound.PlaySound(r"SFX\achievement-message-tone.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
-    print("Initializing script...")
+    print("Loading core components...")
     
     #+ Initializing the uncaught exception logger.
     if configs.ENABLE_LOGGING:
@@ -74,6 +72,11 @@ def beginScript() -> None:
         print("Starting the elevated processes checker...")
         PThread(target=sysHelper.scheduleElevatedProcessChecker).start()
     
+    #+ Starting the system tray icon.
+    if configs.ENABLE_SYSTEM_TRAY_ICON:
+        print("Starting the system tray icon...")
+        createTrayIcon()
+    
     hookManager = HookManager()
     
     print("Initializing keyboard listeners...")
@@ -86,24 +89,24 @@ def beginScript() -> None:
     msHook.mouseButtonDownListeners.append(buttonPress)
     # msHook.mouseButtonUpListeners.append()
     
-    #+ Starting the application main loop.
     print("Activating keyboard listeners...")
-    
-    ## Installing the low level hooks.
+    #+ Installing the low level hooks.
     if not hookManager.installHook(kbHook.keyboardCallback,  HookTypes.WH_KEYBOARD_LL):
         print("\nWarning! Failed to install the keyboard hook!")
         os._exit(1)
     
     print("Activating mouse listeners...\n")
-    
     if not hookManager.installHook(msHook.mouseCallback, HookTypes.WH_MOUSE_LL):
         print("Failed to install the mouse hook!")
         os._exit(1)
     
-    # Begin listening for windows events. This function will not return until the hook stops.
+    #+ Playing a sound to notify that the script is ready.
+    winsound.PlaySound(r"SFX\achievement-message-tone.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    
+    #+ Starting the application main loop and listening for windows events. This function will not return until the hook stops.
     hookManager.beginListening()
     
-    ##! Reaching this point means that the script is being terminated.
+    ##! Reaching this point means that the script is being terminated and the main loop has stopped.
     
     from win32event import ReleaseMutex
     ReleaseMutex(mutexHandle)
@@ -193,7 +196,6 @@ def profilerManager(filename="", engine="yappi", clock="wall", output_type="psta
     from datetime import datetime as dt
     
     # Making a directory to store the profiling results.
-    cdef str output_location
     if save_near_module:
         output_location = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dumpfiles")
     else:
@@ -271,7 +273,6 @@ def beginScriptWithCProfiler(save_near_module=False) -> None:
     profiling_results.print_stats()
     
     # Making a directory to store the profiling results.
-    cdef str dump_loc
     if save_near_module:
         dump_loc = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dumpfiles")
     else:
