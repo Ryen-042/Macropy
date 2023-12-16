@@ -1,11 +1,11 @@
-# cython: embedsignature = True
 # cython: language_level = 3str
 
 import win32gui, os, winsound, pythoncom
+import PIL.Image
 from win32com.client import Dispatch
 
 
-cdef str getUniqueName(str directory, str filename="New File", str sequence_pattern=" (%s)", extension=".txt"):
+cdef getUniqueName(directory, filename="New File", sequence_pattern=" (%s)", extension=".txt"):
     """
     Description:
         Finds the next unused incremental filename in the specified directory.
@@ -50,8 +50,6 @@ cdef str getUniqueName(str directory, str filename="New File", str sequence_patt
 def iconize():
     """Converts the selected image files from the active explorer window into icons."""
     
-    import PIL.Image
-    
     pythoncom.CoInitialize()
     
     explorer = Dispatch("Shell.Application")
@@ -90,7 +88,7 @@ def iconize():
     os.makedirs("Images/Icons", exist_ok=True)
     
     for image_loc in image_locations:
-        image 	  = PIL.Image.open(image_loc)
+        image       = PIL.Image.open(image_loc)
         new_image = image.resize((512, 512))
         new_image.save(os.path.join("Images", "Icons", os.path.splitext(os.path.basename(image_loc))[0] + " - (512x512).ico"))
     
@@ -120,9 +118,8 @@ def imagesToPDF():
         
         return
     
-    
     # Check other explorer windows if any.
-    cdef active_explorer
+    cdef active_explorer = None
     for explorer_window in explorer_windows:
         if explorer_window.HWND == fg_hwnd:
             active_explorer = explorer_window
@@ -141,16 +138,60 @@ def imagesToPDF():
         if selected_item.Path.endswith(('.png', '.jpg', '.jpeg')):
             image_locations.append(selected_item.Path)
     
-    directory = os.path.dirname(image_locations[0])
+    minWidth = 100
+    minHeight = 100
+    
+    filtered_images = []
+    for path in image_locations:
+        img = PIL.Image.open(path)
+        width, height = img.size
+        
+        if width >= minWidth and height >= minHeight:
+            filtered_images.append(path)
+    
+    filtered_images.sort()
+    
+    directory = os.path.dirname(filtered_images[0])
     
     file_fullpath = getUniqueName(directory, "New PDF", " (%s)", ".pdf")
     
     with open(file_fullpath, "wb") as pdf_output_file:
-        pdf_output_file.write(img2pdf.convert(image_locations))
+        pdf_output_file.write(img2pdf.convert(filtered_images))
         
-        if len(image_locations) <= 20:
+        if len(filtered_images) <= 20:
             active_explorer.Document.SelectItem(file_fullpath, 1|4|8|16)
         
-        winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME)
     
     pythoncom.CoUninitialize()
+
+
+cdef void invertClipboardImage():
+    """Copies the image from the top of the clipboard, inverts it, then copies it back to the clipboard."""
+    
+    import PIL.ImageOps, PIL.ImageGrab, win32clipboard
+    from io import BytesIO
+    
+    image = PIL.ImageGrab.grabclipboard()
+
+    if image is None:
+        print("No image found in the clipboard. Try again after taking a screenshot.")
+        return
+
+    image = PIL.ImageOps.invert(image)
+
+    output = BytesIO()
+
+    image.convert('RGB').save(output, 'BMP')
+
+    image_data = output.getvalue()[14:]
+
+    # Close the BytesIO object.
+    output.close()
+
+    win32clipboard.OpenClipboard()
+    win32clipboard.EmptyClipboard()
+    win32clipboard.SetClipboardData(win32clipboard.CF_DIB, image_data)
+    win32clipboard.CloseClipboard()
+
+    winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME)
