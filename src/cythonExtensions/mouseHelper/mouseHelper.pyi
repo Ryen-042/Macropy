@@ -9,10 +9,10 @@ def sendMouseClick(x=0, y=0, button=1, op=1) -> None:
     ---
     Parameters:
         
-        `button -> int`: Specifies which mouse button to click.
-            `1`: left.
-            
-            `2`: right.
+        `button -> int`: Specifies which mouse button to click. One of the following values:
+            `1`: left button
+            `2`: right button
+            `3`: middle button (wheel)
         
         `op -> int`: parameter specifies the type of mouse event to send:
             `1`: send both a mouse down and up events.
@@ -25,7 +25,7 @@ def sendMouseClick(x=0, y=0, button=1, op=1) -> None:
 
 
 def sendMouseClickToWindow(hwnd: int, x: int, y: int, button=1) -> None:
-    """Sends a mouse click (`button` -> `1: left`, `2: right`) to the given location in the specified window without moving the mouse cursor."""
+    """Sends a mouse click (`button` -> `1: left`, `2: right`, `3: middle`) to the given location in the specified window without moving the mouse cursor."""
     ...
 
 
