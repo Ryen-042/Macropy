@@ -5,11 +5,13 @@
 cimport cython
 from cythonExtensions.commonUtils.commonUtils cimport KeyboardEvent, MouseEvent
 
-import win32gui, win32con, threading, importlib, winsound, os
+import win32gui, win32con, importlib, winsound, os, subprocess
 
 from cythonExtensions.commonUtils.commonUtils import  KB_Con as kbcon, ControllerHouse as ctrlHouse, MouseHouse as msHouse, PThread, Management as mgmt
 from cythonExtensions.eventHandlers import callbacks as cbs
 from cythonExtensions.keyboardHelper import keyboardHelper as kbHelper
+from cythonExtensions.windowHelper import windowHelper as winHelper
+from cythonExtensions.explorerHelper import explorerHelper as expHelper
 
 cdef void reloadHotkeys():
     """Reloads the defined hotkeys in the `callbacks` module."""
@@ -18,21 +20,76 @@ cdef void reloadHotkeys():
     
     winsound.PlaySound(r"SFX\completed-voice-ringtone.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
 
+cdef bint executeExplorerRelatedCallbacks(eventHandler):
+    suppressKeyPress = False
+    
+    # In some rare cases, after getting foreground window handle, if the window is destroyed before calling the
+    # GetClassName function, then it raises an exception.
+    try:
+        classNames = ("CabinetWClass", "WorkerW", "Progman") if eventHandler[2] else ("CabinetWClass",)
+        if win32gui.GetClassName(win32gui.GetForegroundWindow()) in classNames:
+            PThread(target=eventHandler[0], args=eventHandler[1]).start()
+            
+            suppressKeyPress = eventHandler[3]
+    
+    except Exception as e:
+        print(f"Error: {e}\nA problem occurred while retrieving the className of the foreground window.\n")
+    
+    return suppressKeyPress
+
+cdef bint openImageViewer():
+    if win32gui.GetClassName(win32gui.GetForegroundWindow()) not in ("CabinetWClass", "WorkerW", "Progman"):
+        return False
+    
+    selectedImage = expHelper.getSelectedItemsFromActiveExplorer(None, ("jpg", "png", "jpeg", "ico", "bmp", "gif", "webp"))
+    if not selectedImage:
+        return False
+    
+    hwnd = win32gui.FindWindow("ImageViewerClass", None) # winHelper.findHandleByClassName("ImageViewerClass", False)
+    
+    if hwnd:
+        # If the window title (which is the image path) is the same as the selected image, then close the window.
+        if win32gui.GetWindowText(hwnd) == selectedImage[0]:
+            win32gui.SendMessage(hwnd, win32con.WM_CLOSE, 0, 0)
+            return False
+        
+        WM_SETIMAGE = win32con.WM_USER + 1
+        PThread(target=subprocess.call, args=(("python", "-c", f"from cythonExtensions.guiHelper.imageViewer import BuildString; BuildString({hwnd}, {WM_SETIMAGE}).sendString(r\"{selectedImage[0]}\")"),)).start()
+        
+        return False
+    
+    else:
+        # If the image viewer is not already running, then start it.
+        PThread(target=subprocess.call, args=(("python", "-c", f"from cythonExtensions.guiHelper.imageViewer import ImageViewer; ImageViewer(r\"{selectedImage[0]}\", r\"{selectedImage[0]}\")"),)).start()
+        
+        return False
 
 def keyPress(KeyboardEvent event) -> bool:
     """
     Description:
-        The callback function responsible for handling hotkey press events.
+        The callback function that maps the pressed keys to their corresponding functions and executes them.
     ---
     Parameters:
         `event -> KeyboardEvent`:
             A keyboard event object.
     ---
     Return:
-        `suppressInput -> bool`: Whether to suppress the last pressed key or return it.
+        `suppressKeyPress -> bool`: Whether to suppress the last pressed key or return it.
     """
     
-    cdef bint suppressInput = mgmt.suppressKbInputs # and not (ctrlHouse.modifiers & ctrlHouse.FN) and
+    # This is used to prevent the `backtick` key from being sent when trying to trigger an internal hotkey.
+    # We also need to check if a modifier is pressed to prevent blocking any external hotkeys from other applications that use the `backtick` key.
+    if event.KeyID == kbcon.VK_BACKTICK:
+        mgmt.isBacktickTheOnlyModiferPressed = ctrlHouse.modifiers == ctrlHouse.BACKTICK
+    # elif ctrlHouse.modifiers & ctrlHouse.BACKTICK: # A key is pressed while the backtick is pressed, so don't send backtick when it is released.
+    else: # A key is pressed while the backtick is pressed, so don't send backtick when it is released.
+        mgmt.isBacktickTheOnlyModiferPressed = False
+    
+    # # Setting the shared variable to indicate that the mouse volume control hotkey (Ctrl + Shift) is pressed.
+    # if ctrlHouse.modifiers & ctrlHouse.CTRL_SHIFT:
+    #     mgmt.mouseVolumeControlSVar.value = True
+    
+    cdef bint suppressKeyPress = mgmt.suppressKbInputs or mgmt.isBacktickTheOnlyModiferPressed # and not (ctrlHouse.modifiers & ctrlHouse.FN) and
     
     eventHandler = cbs.kbEventHandlers.get((ctrlHouse.modifiers, event.KeyID)) or \
         (ctrlHouse.SCROLL and cbs.kbEventHandlersWithSCROLL_On.get((ctrlHouse.modifiers, event.KeyID))) or \
@@ -41,30 +98,48 @@ def keyPress(KeyboardEvent event) -> bool:
     if eventHandler:
         if len(eventHandler) == 2:
             PThread(target=eventHandler[0], args=eventHandler[1]).start()
-            suppressInput = True
+            suppressKeyPress = True
         
         elif len(eventHandler) == 4:
-            classNames = ("CabinetWClass", "WorkerW") if eventHandler[2] else ("CabinetWClass",)
-            
-            # In some rare cases, after getting foreground window handle, if the window is destroyed before calling the
-            # GetClassName function, then it raises an exception.
-            try:
-                if win32gui.GetClassName(win32gui.GetForegroundWindow()) in classNames:
-                    PThread(target=eventHandler[0], args=eventHandler[1]).start()
-                    suppressInput = eventHandler[3]
-            except Exception as e:
-                print(f"Error: {e}\nA problem occurred while retrieving the className of the foreground window.\n")
+            executeExplorerRelatedCallbacks(eventHandler)
+    
+    #+ Opening the selected image file from the active explorer window: 'Space'
+    elif not ctrlHouse.modifiers and event.KeyID == win32con.VK_SPACE:
+        suppressKeyPress |= openImageViewer()
     
     #+ Reload the hotkeys: Ctrl + Alt + Win + 'R'*
     elif (ctrlHouse.modifiers & ctrlHouse.CTRL_ALT_WIN) == ctrlHouse.CTRL_ALT_WIN and event.KeyID == kbcon.VK_R:
         PThread(target=reloadHotkeys).start()
         
-        suppressInput = True
+        suppressKeyPress = True
     
-    PThread.kbMsgQueue.put(suppressInput)
+    elif ctrlHouse.burstClicksActive and event.KeyID == win32con.VK_ESCAPE:
+        ctrlHouse.burstClicksActive = False
+        
+        suppressKeyPress = True
     
-    return suppressInput
+    PThread.kbMsgQueue.put(suppressKeyPress)
+    return suppressKeyPress
 
+def keyRelease(KeyboardEvent event) -> bool:
+    """
+    Description:
+        A callback function that is called when a key is released.
+    ---
+    Parameters:
+        `event -> KeyboardEvent`:
+            A keyboard event object.
+    ---
+    Return:
+        Always returns False.
+    """
+    
+    if not ctrlHouse.SCROLL and event.KeyID == kbcon.VK_BACKTICK and mgmt.isBacktickTheOnlyModiferPressed:
+        mgmt.isBacktickTheOnlyModiferPressed = False
+        PThread(target=kbHelper.simulateKeyPress, args=((kbcon.VK_BACKTICK,))).start()
+    
+    # if not ctrlHouse.modifiers & ctrlHouse.CTRL_SHIFT:
+    #     mgmt.mouseVolumeControlSVar.value = False
 
 ### Word listening operations ###
 def textExpansion(KeyboardEvent event) -> bool:
@@ -89,7 +164,7 @@ def textExpansion(KeyboardEvent event) -> bool:
     
     #+ Printing some relevant information about the pressed key and hardware metrics.
     if not mgmt.silent:
-        print(f"Thread Count: {threading.active_count()} |", event, f"| Counter={mgmt.counter}")
+        print(event, f"| Counter={mgmt.counter}") #, f"Thread Count: {threading.active_count()} |", )
         
         print(f"CTRL={    bool(ctrlHouse.modifiers & ctrlHouse.CTRL)    }", end=", ")
         print(f"SHIFT={   bool(ctrlHouse.modifiers & ctrlHouse.SHIFT)   }", end=", ")
@@ -98,9 +173,9 @@ def textExpansion(KeyboardEvent event) -> bool:
         print(f"FN={      bool(ctrlHouse.modifiers & ctrlHouse.FN)      }", end=", ")
         print(f"BACKTICK={bool(ctrlHouse.modifiers & ctrlHouse.BACKTICK)}", end=" | ")
         
+        print(f"NUMLOCK={ctrlHouse.NUMLOCK}")
         print(f"CAPSLOCK={ctrlHouse.CAPITAL}", end=", ")
         print(f"SCROLL={ctrlHouse.SCROLL}", end=", ")
-        print(f"NUMLOCK={ctrlHouse.NUMLOCK}")
         print("")
         
         # sysHelper.displayCPU_Usage(), print("\n")
@@ -192,6 +267,10 @@ def textExpansion(KeyboardEvent event) -> bool:
         os.system("cls")
         
     
+    elif ctrlHouse.pressed_chars == "!bst":
+        ctrlHouse.burstClicksActive = True
+        kbHelper.simulateBurstClicks()
+    
     #+ This is a crude way of opening a file using a specific program (open with).
     # elif ctrlHouse.pressed_chars == ":\\\\":
     #     # PThread(target=kbHelper.simulateKeyPressSequence, args=(((win32con.VK_LMENU, 56), (52, 5), (40, 80), (40, 80), (13, 28)))).start()
@@ -202,14 +281,15 @@ def textExpansion(KeyboardEvent event) -> bool:
     
     return True
 
-
 @cython.wraparound(False)
 def buttonPress(MouseEvent event) -> bool:
     """The callback function responsible for handling the button press and wheel movement events."""
     
+    #TODO: Handle when a mouse button is pressed in multiprocess mode.
     ctrlHouse.pressed_chars = ""
     ctrlHouse.pressed_chars_backup = ""
     
+    #TODO: Handle when the terminal logging option is changed in multiprocess mode.
     if not mgmt.silent and not event.Delta:
         print(
             f"LB={(msHouse.buttons & msHouse.LButton)  == msHouse.LButton},",
@@ -224,7 +304,8 @@ def buttonPress(MouseEvent event) -> bool:
     
     cdef bint suppressInput = False
     
-    if event.Delta and (ctrlHouse.modifiers & ctrlHouse.CTRL_SHIFT) == ctrlHouse.CTRL_SHIFT:
+    # if event.Delta and (ctrlHouse.modifiers & ctrlHouse.CTRL_SHIFT) == ctrlHouse.CTRL_SHIFT:
+    if event.Delta and mgmt.mouseVolumeControlSVar:
         PThread(target=kbHelper.simulateKeyPress, args=((win32con.VK_VOLUME_DOWN, win32con.VK_VOLUME_UP)[event.Delta > 0],)).start()
         
         suppressInput = True

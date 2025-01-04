@@ -71,6 +71,9 @@ def screenOff() -> None:
     """Turns off the screen."""
     ...
 
+def toggleMonitorMode(mode: int):
+    """Toggles the monitor mode between internal, external, extended, and clone."""
+    ...
 
 def flashScreen(delay=0.15) -> None:
     """Inverts the color of the screen for the specified number of seconds."""
@@ -84,11 +87,6 @@ def goToSleep() -> None:
 
 def shutdown(request_confirmation=False) -> None:
     """Shuts down the computer."""
-    ...
-
-
-def getProcessFileAddress(hwnd: int) -> str:
-    """Given a window handle, returns its process file address."""
     ...
 
 

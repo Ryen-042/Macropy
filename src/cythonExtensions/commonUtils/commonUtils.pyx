@@ -4,7 +4,7 @@
 
 from cythonExtensions.commonUtils cimport commonUtils
 
-import win32gui, win32api, win32con, win32clipboard, pythoncom
+import win32gui, win32api, win32con, win32clipboard, pythoncom, multiprocessing
 import threading, queue, winsound
 from win32com.client import Dispatch
 from time import time
@@ -326,10 +326,12 @@ class ControllerHouse:
     BACKTICK = 0b1              # 1 << 0  = 1
     
     # Composite Modifier keys masks
+    CTRL_SHIFT_ALT  = CTRL   | SHIFT | ALT       # 0b10010010000000 # 9216
     CTRL_ALT_WIN_FN = CTRL   | ALT   | WIN | FN  # 0b10000010010010 # 8338
     CTRL_ALT_WIN    = CTRL   | ALT   | WIN       # 0b10000010010000 # 8336
     CTRL_WIN_FN     = CTRL   | FN    | WIN       # 0b10000000010010 # 8210
     CTRL_SHIFT      = CTRL   | SHIFT             # 0b10010000000000 # 9216
+    CTRL_ALT        = CTRL   | ALT               # 0b10000010000000 # 8320
     CTRL_FN         = CTRL   | FN                # 0b10000000000010 # 8194
     CTRL_WIN        = CTRL   | WIN               # 0b10000000001100 # 8204
     CTRL_BACKTICK   = CTRL   | BACKTICK          # 0b10000000000001 # 8193
@@ -359,6 +361,10 @@ class ControllerHouse:
     SCROLL_MASK  = 0b10
     NUMLOCK_MASK = 0b1
     
+    # locks = (win32api.GetKeyState(win32con.VK_CAPITAL) << 2) | \
+    #         (win32api.GetKeyState(win32con.VK_SCROLL)  << 1) | \
+    #          win32api.GetKeyState(win32con.VK_NUMLOCK)
+    
     pressed_chars = ""
     """Stores the pressed character keys for the key expansion events."""
     
@@ -385,6 +391,29 @@ class ControllerHouse:
     
     max_alias_length = configs.MAX_ALIAS_LENGTH
     """The maximum length of an alias."""
+    
+    burstClicksActive = False
+    """A boolean that indicates whether burst-inputs is enable or not"""
+    
+    @staticmethod
+    def getModifiersStates() -> list[bool]:
+        """
+        Returns a list of boolean values representing the states of the modifier keys. The order of the returned values is:
+        `[CTRL, SHIFT, ALT, WIN, FN, BACKTICK]`
+        """
+        
+        masks = (ControllerHouse.CTRL, ControllerHouse.SHIFT, ControllerHouse.ALT,
+                 ControllerHouse.WIN, ControllerHouse.FN, ControllerHouse.BACKTICK)
+        return [bool(ControllerHouse.modifiers & mask) for mask in masks]
+    
+    
+    @staticmethod
+    def printPressedKeys(event: KeyboardEvent) -> None:
+        """Prints the pressed key along with the pressed modifier keys."""
+        
+        modifiers_names = ("CTRL", "SHIFT", "ALT", "WIN", "FN", "BACKTICK")
+        pressed_modifiers = ' + '.join([k for k, v in dict(zip(modifiers_names, ControllerHouse.getModifiersStates())).items() if v])
+        print(f"Pressed Keys: {event.Key}{' + ' if pressed_modifiers else ''}{pressed_modifiers}", end="")
 
 
 class MouseHouse:
@@ -439,6 +468,12 @@ class Management:
     
     terminateEvent = threading.Event()
     """An `Event` object that is set when the hotkey for terminating the script is pressed."""
+    
+    isBacktickTheOnlyModiferPressed = False
+    """Whether the backtick key is pressed with other modifier keys."""
+    
+    # mouseVolumeControlSVar = multiprocessing.RawValue('b', False)
+    # """A shared boolean value used for specifying whether the mouse volume control hotkey is pressed or not"""
     
     @staticmethod
     def toggleSilentMode() -> None:
@@ -611,11 +646,13 @@ class PThread(threading.Thread):
             return 0 # "MainThread"
     
     @staticmethod
-    def coInitialize() -> bool:
+    def coInitialize(silent=False) -> bool:
         """Initializes the COM library for the current thread if it was not previously initialized."""
         
         if not PThread.inMainThread() and not threading.current_thread().coInitializeCalled:
-            print(f"CoInitialize called from: {threading.current_thread().name}")
+            if not silent:
+                print(f"CoInitialize called from: {threading.current_thread().name}")
+            
             threading.current_thread().coInitializeCalled = True
             pythoncom.CoInitialize()
             
@@ -624,10 +661,12 @@ class PThread(threading.Thread):
         return False
     
     @staticmethod
-    def coUninitialize() -> None:
+    def coUninitialize(silent=False) -> None:
         """Uninitializes the COM library for the current thread if `initializer_called` is True."""
         if threading.current_thread().coInitializeCalled:
-            print(f"CoUninitialize called from: {threading.current_thread().name}")
+            if not silent:
+                print(f"CoUninitialize called from: {threading.current_thread().name}")
+            
             pythoncom.CoUninitialize()
             threading.current_thread().coInitializeCalled = False
     

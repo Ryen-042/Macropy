@@ -4,7 +4,7 @@
 
 cimport cython
 from cythonExtensions.commonUtils.commonUtils cimport KeyboardEvent, MouseEvent
-from cythonExtensions.hookManager.hookManager cimport HookTypes, KbEventIds, MsEventIds, RawMouse
+from cythonExtensions.hookManager.hookManager cimport HookTypes, KbMsgIds, MsMsgIds, RawMouse
 
 import ctypes, win32gui, win32api, win32con, atexit
 import ctypes.wintypes
@@ -58,12 +58,21 @@ cdef dict numRowCodeToSymbol = {48: ")", 49: "!", 50: "@", 51: "#", 52: "$", 53:
 cdef dict vKeyCodeToName = {v: k for k, v in vKeyNameToId.items()}
 """Mapping of virtual key codes to their names."""
 
-cdef dict kbEventIdToName = {
-    KbEventIds.WM_KEYDOWN    : "key down",      KbEventIds.WM_KEYUP       : "key up",
-    KbEventIds.WM_CHAR       : "key char",      KbEventIds.WM_DEADCHAR    : "key dead char",
-    KbEventIds.WM_SYSKEYDOWN : "key sys down",  KbEventIds.WM_SYSKEYUP    : "key sys up",
-    KbEventIds.WM_SYSCHAR    : "key sys char",  KbEventIds.WM_SYSDEADCHAR : "key sys dead char"}
-"""Mapping of event codes to their names."""
+cdef dict numPadCodeToName = {
+    0x60: "0", 0x61: "1", 0x62: "2",     0x63: "3", 0x64: "4",
+    0x65: "5", 0x66: "6", 0x67: "7",     0x68: "8", 0x69: "9",
+    0x6A: "*", 0x6B: "+", 0x6C: "ENTER", # 0x6C is the ENTER key on the number pad. It has the same code as the regular ENTER key.
+    0x6D: "-", 0x6E: ".", 0x6F: "/"
+}
+"""Mapping of number pad key codes to their names."""
+
+cdef dict kbMsgIdToName = {
+    KbMsgIds.WM_KEYDOWN    : "key down",      KbMsgIds.WM_KEYUP       : "key up",
+    KbMsgIds.WM_CHAR       : "key char",      KbMsgIds.WM_DEADCHAR    : "key dead char",
+    KbMsgIds.WM_SYSKEYDOWN : "key sys down",  KbMsgIds.WM_SYSKEYUP    : "key sys up",
+    KbMsgIds.WM_SYSCHAR    : "key sys char",  KbMsgIds.WM_SYSDEADCHAR : "key sys dead char"
+}
+"""Maps the Windows Message Ids for keyboard events to their respective names."""
 
 @cython.wraparound(False)
 cdef tuple[int, object] getKeyAsciiAndName(int vkey_code, bint shiftPressed=False):
@@ -91,6 +100,10 @@ cdef tuple[int, object] getKeyAsciiAndName(int vkey_code, bint shiftPressed=Fals
         
         # VK_0 : VK_9 have the same code as the ASCII of "0" : "9" (0x30 : 0x39).
         return (vkey_code, chr(vkey_code))
+    
+    # A number pad key.
+    elif 0x60 <= vkey_code <= 0x6F:
+        return (vkey_code, numPadCodeToName[vkey_code])
     
     # The key is letter.
     elif 0x41 <= vkey_code <= 0x5A:
@@ -169,7 +182,7 @@ cdef class HookManager:
         )
         
         if (hookType == HookTypes.WH_KEYBOARD_LL and self.kbHookId) or (hookType == HookTypes.WH_MOUSE_LL and self.msHookId):
-            print("Error, a hook has been already installed for the specified hook type.")
+            print(f"Warning: A {'keyboard' if hookType == HookTypes.WH_KEYBOARD_LL else 'mouse'} hook is already installed.")
             
             return False
         
@@ -242,7 +255,7 @@ cdef class HookManager:
             return False
         
         if (hookType == HookTypes.WH_KEYBOARD_LL and not self.kbHookId) or (hookType == HookTypes.WH_MOUSE_LL and not self.msHookId):
-            print("Warning: No hook is installed yet for the specified hook type.")
+            print(f"Warning: No {'keyboard' if hookType == HookTypes.WH_KEYBOARD_LL else 'mouse'} hook has been installed yet.")
             
             return False
         
@@ -290,10 +303,11 @@ cdef class KeyboardHookManager:
         """
         
         cdef int vkey_code, scancode, flags
-        cdef bint injected, extended, transition, shiftPressed, altPressed, suppressInput
+        cdef bint injected, extended, transition, shiftPressed, altPressed, suppressKeyPress
         cdef KeyboardEvent keyboardEvent
         
-        suppressInput = False
+        suppressKeyPress = False
+        
         # Checking if the event is valid. Docs: https://stackoverflow.com/questions/64449078/c-keyboard-hook-what-does-the-parameter-ncode-mean
         if nCode == win32con.HC_ACTION:
             # Casting lParam to KBDLLHOOKSTRUCT.
@@ -325,7 +339,7 @@ cdef class KeyboardHookManager:
             shiftPressed = ((win32api.GetAsyncKeyState(win32con.VK_SHIFT) & 0x8000) >> 15) | (vkey_code in (win32con.VK_LSHIFT, win32con.VK_RSHIFT))
             keyAscii, keyName= getKeyAsciiAndName(vkey_code, shiftPressed)
             
-            eventName = kbEventIdToName[wParam]
+            eventName = kbMsgIdToName[wParam]
             
             # Creating a keyboard event object.
             keyboardEvent = KeyboardEvent(event_id=wParam, event_name=eventName, vkey_code=vkey_code,
@@ -335,7 +349,7 @@ cdef class KeyboardHookManager:
             
             # Key down/press event.
             if wParam in (win32con.WM_KEYDOWN, win32con.WM_SYSKEYDOWN):
-                # Update the state of the lock keys to reflect the current state of being activated.
+                # Update the state of the lock keys to reflect their current state.
                 ctrlHouse.CAPITAL = win32api.GetKeyState(win32con.VK_CAPITAL)
                 ctrlHouse.SCROLL  = win32api.GetKeyState(win32con.VK_SCROLL)
                 ctrlHouse.NUMLOCK = win32api.GetKeyState(win32con.VK_NUMLOCK)
@@ -348,6 +362,16 @@ cdef class KeyboardHookManager:
                         ((keyboardEvent.KeyID == win32con.VK_LSHIFT)   | (keyboardEvent.KeyID == win32con.VK_RSHIFT))   << 10 | # SHIFT
                         ((keyboardEvent.KeyID == win32con.VK_LMENU)    | (keyboardEvent.KeyID == win32con.VK_RMENU))    << 7  | # ALT
                         ((keyboardEvent.KeyID == win32con.VK_LWIN)     | (keyboardEvent.KeyID == win32con.VK_RWIN))     << 4  | # WIM
+                        
+                        # (keyboardEvent.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
+                        # (keyboardEvent.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
+                        # (keyboardEvent.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
+                        # (keyboardEvent.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
+                        # (keyboardEvent.KeyID == win32con.VK_LMENU)    << 6  | # LALT
+                        # (keyboardEvent.KeyID == win32con.VK_RMENU)    << 5  | # RALT
+                        # (keyboardEvent.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
+                        # (keyboardEvent.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
+                        
                         (keyboardEvent.KeyID == 255)                    << 1  | # FN
                         (keyboardEvent.KeyID == kbcon.VK_BACKTICK)              # BACKTICK
                     )
@@ -358,51 +382,63 @@ cdef class KeyboardHookManager:
                     
                     # One of the keyDown listeners must put a signal in the PThread.kbMsgQueue to specify whether to return or suppress the pressed key.
                     if self.keyDownListeners and PThread.kbMsgQueue.get():
-                        suppressInput = True
+                        suppressKeyPress = True
             
             # Key up event.
             else:
-                # Update the state of the modifier keys to reflect their current state of being released.
-                ctrlHouse.modifiers &= ~(
-                    ((keyboardEvent.KeyID == win32con.VK_LCONTROL) | (keyboardEvent.KeyID == win32con.VK_RCONTROL)) << 13 | # CTRL
-                    ((keyboardEvent.KeyID == win32con.VK_LSHIFT)   | (keyboardEvent.KeyID == win32con.VK_RSHIFT))   << 10 | # SHIFT
-                    ((keyboardEvent.KeyID == win32con.VK_LMENU)    | (keyboardEvent.KeyID == win32con.VK_RMENU))    << 7  | # ALT
-                    ((keyboardEvent.KeyID == win32con.VK_LWIN)     | (keyboardEvent.KeyID == win32con.VK_RWIN))     << 4  | # WIN
-                    (keyboardEvent.KeyID == 255)                  << 1  | # FN
-                    (keyboardEvent.KeyID == kbcon.VK_BACKTICK)           # BACKTICK
-                )
-                
-                # Propagate the event to the registered keyUp listeners.
-                for listener in self.keyUpListeners:
-                    PThread(target=listener, args=(keyboardEvent,)).start()
+                if not injected:
+                    # Update the state of the modifier keys to reflect their current state of being released.
+                    ctrlHouse.modifiers &= ~(
+                        ((keyboardEvent.KeyID == win32con.VK_LCONTROL) | (keyboardEvent.KeyID == win32con.VK_RCONTROL)) << 13 | # CTRL
+                        ((keyboardEvent.KeyID == win32con.VK_LSHIFT)   | (keyboardEvent.KeyID == win32con.VK_RSHIFT))   << 10 | # SHIFT
+                        ((keyboardEvent.KeyID == win32con.VK_LMENU)    | (keyboardEvent.KeyID == win32con.VK_RMENU))    << 7  | # ALT
+                        ((keyboardEvent.KeyID == win32con.VK_LWIN)     | (keyboardEvent.KeyID == win32con.VK_RWIN))     << 4  | # WIN
+                        
+                        # (1 << 13) | (1 << 10) | (1 << 7) | (1 << 4) | # Reseting CTRL, SHIFT, ALT, WIN
+                        # (keyboardEvent.KeyID == win32con.VK_LCONTROL) << 12 | # LCTRL
+                        # (keyboardEvent.KeyID == win32con.VK_RCONTROL) << 11 | # RCTRL
+                        # (keyboardEvent.KeyID == win32con.VK_LSHIFT)   << 9  | # LSHIFT
+                        # (keyboardEvent.KeyID == win32con.VK_RSHIFT)   << 8  | # RSHIFT
+                        # (keyboardEvent.KeyID == win32con.VK_LMENU)    << 6  | # LALT
+                        # (keyboardEvent.KeyID == win32con.VK_RMENU)    << 5  | # RALT
+                        # (keyboardEvent.KeyID == win32con.VK_LWIN)     << 3  | # LWIN
+                        # (keyboardEvent.KeyID == win32con.VK_RWIN)     << 2  | # RWIN
+                        
+                        (keyboardEvent.KeyID == 255)                    << 1  | # FN
+                        (keyboardEvent.KeyID == kbcon.VK_BACKTICK)              # BACKTICK
+                    )
+                    
+                    # Propagate the event to the registered keyUp listeners.
+                    for listener in self.keyUpListeners:
+                        PThread(target=listener, args=(keyboardEvent,)).start()
             
             ctypes.windll.user32.CallNextHookEx(None, nCode, wParam, lParam)
             
-            return suppressInput
+            return suppressKeyPress
 
 # ======================================================================================================================
 
-cdef dict msEventIdToName = {
-    MsEventIds.WM_MOUSEMOVE       : "MOVE",
-    MsEventIds.WM_LBUTTONDOWN     : "LB CLK",
-    MsEventIds.WM_LBUTTONUP       : "LB UP",
-    MsEventIds.WM_LBUTTONDBLCLK   : "LB DBL CLK",
-    MsEventIds.WM_RBUTTONDOWN     : "RB CLK",
-    MsEventIds.WM_RBUTTONUP       : "RB UP",
-    MsEventIds.WM_RBUTTONDBLCLK   : "RB DBL CLK",
-    MsEventIds.WM_MBUTTONDOWN     : "MB CLK",
-    MsEventIds.WM_MBUTTONUP       : "MB UP",
-    MsEventIds.WM_MBUTTONDBLCLK   : "MB DBL CLK",
-    MsEventIds.WM_MOUSEWHEEL      : "WHEEL SCRL",
-    MsEventIds.WM_XBUTTONDOWN     : "XB CLK",
-    MsEventIds.WM_XBUTTONUP       : "XB UP",
-    MsEventIds.WM_XBUTTONDBLCLK   : "XB DBL CLK",
-    MsEventIds.WM_MOUSEHWHEEL     : "WHEEL H SCRL",
-    MsEventIds.WM_NCXBUTTONDOWN   : "NC XB CLK",
-    MsEventIds.WM_NCXBUTTONUP     : "NC XB UP",
-    MsEventIds.WM_NCXBUTTONDBLCLK : "NC XB DBL CLK",
+cdef dict msMsgIdToName = {
+    MsMsgIds.WM_MOUSEMOVE       : "MOVE",
+    MsMsgIds.WM_LBUTTONDOWN     : "LB CLK",
+    MsMsgIds.WM_LBUTTONUP       : "LB UP",
+    MsMsgIds.WM_LBUTTONDBLCLK   : "LB DBL CLK",
+    MsMsgIds.WM_RBUTTONDOWN     : "RB CLK",
+    MsMsgIds.WM_RBUTTONUP       : "RB UP",
+    MsMsgIds.WM_RBUTTONDBLCLK   : "RB DBL CLK",
+    MsMsgIds.WM_MBUTTONDOWN     : "MB CLK",
+    MsMsgIds.WM_MBUTTONUP       : "MB UP",
+    MsMsgIds.WM_MBUTTONDBLCLK   : "MB DBL CLK",
+    MsMsgIds.WM_MOUSEWHEEL      : "WHEEL SCRL",
+    MsMsgIds.WM_XBUTTONDOWN     : "XB CLK",
+    MsMsgIds.WM_XBUTTONUP       : "XB UP",
+    MsMsgIds.WM_XBUTTONDBLCLK   : "XB DBL CLK",
+    MsMsgIds.WM_MOUSEHWHEEL     : "WHEEL H SCRL",
+    MsMsgIds.WM_NCXBUTTONDOWN   : "NC XB CLK",
+    MsMsgIds.WM_NCXBUTTONUP     : "NC XB UP",
+    MsMsgIds.WM_NCXBUTTONDBLCLK : "NC XB DBL CLK",
 }
-"""Maps the event id to the event name."""
+"""Maps the Windows Message Ids for mouse events to their respective names."""
 
 
 # Docs: https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msllhookstruct
@@ -472,7 +508,7 @@ cdef class MouseHookManager:
         """
         
         # Filter out mouse move events.
-        if wParam == MsEventIds.WM_MOUSEMOVE:
+        if wParam == MsMsgIds.WM_MOUSEMOVE:
             return ctypes.windll.user32.CallNextHookEx(None, nCode, wParam, lParam)
         
         cdef int x, y, flags, pressedButton, wheelDelta # time, dwExtraInfo,
@@ -493,27 +529,27 @@ cdef class MouseHookManager:
             
             isMouseAbsolute = bool(flags & RawMouse.MOUSE_MOVE_ABSOLUTE)
             isMouseInWindow = bool(flags & RawMouse.MOUSE_MOVE_NOCOALESCE)
-            isWheelHorizontal = wParam == MsEventIds.WM_MOUSEHWHEEL
+            isWheelHorizontal = wParam == MsMsgIds.WM_MOUSEHWHEEL
             
             # isLeftButtonPressed   = wParam == win32con.WM_LBUTTONDOWN    # wParam == win32con.WM_LBUTTONUP
             # isRightButtonPressed  = wParam == win32con.WM_RBUTTONDOWN    # wParam == win32con.WM_RBUTTONUP
             # isMiddleButtonPressed = wParam == win32con.WM_MBUTTONDOWN    # wParam == win32con.WM_MBUTTONUP
-            # isXButton1Pressed, isXButton2Pressed = (wParam == MsEventIds.WM_XBUTTONDOWN, False) if (mouseData >> 16 == 1) else (False, wParam == MsEventIds.WM_XBUTTONDOWN)# wParam == WM_XBUTTONUP
+            # isXButton1Pressed, isXButton2Pressed = (wParam == MsMsgIds.WM_XBUTTONDOWN, False) if (mouseData >> 16 == 1) else (False, wParam == MsMsgIds.WM_XBUTTONDOWN)# wParam == WM_XBUTTONUP
             
             pressedButton = (
-                (wParam in (MsEventIds.WM_LBUTTONDOWN, MsEventIds.WM_LBUTTONUP)) << 4 |
-                (wParam in (MsEventIds.WM_RBUTTONDOWN, MsEventIds.WM_RBUTTONUP)) << 3 |
-                (wParam in (MsEventIds.WM_MBUTTONDOWN, MsEventIds.WM_MBUTTONUP)) << 2 |
-                (wParam in (MsEventIds.WM_XBUTTONDOWN, MsEventIds.WM_XBUTTONUP)) << (1 if (mouseData >> 16 == 1) else 0) # (mouseData >> 17 == 1)
+                (wParam in (MsMsgIds.WM_LBUTTONDOWN, MsMsgIds.WM_LBUTTONUP)) << 4 |
+                (wParam in (MsMsgIds.WM_RBUTTONDOWN, MsMsgIds.WM_RBUTTONUP)) << 3 |
+                (wParam in (MsMsgIds.WM_MBUTTONDOWN, MsMsgIds.WM_MBUTTONUP)) << 2 |
+                (wParam in (MsMsgIds.WM_XBUTTONDOWN, MsMsgIds.WM_XBUTTONUP)) << (1 if (mouseData >> 16 == 1) else 0) # (mouseData >> 17 == 1)
             )
             
             wheelDelta = 0
-            if wParam in (MsEventIds.WM_MOUSEWHEEL, MsEventIds.WM_MOUSEHWHEEL):
+            if wParam in (MsMsgIds.WM_MOUSEWHEEL, MsMsgIds.WM_MOUSEHWHEEL):
                 wheelDelta = ctypes.c_short((mouseData >> 16) & 0xFFFF).value
             
             mouseEvent = MouseEvent(
                 event_id=wParam,
-                event_name=msEventIdToName[wParam],
+                event_name=msMsgIdToName[wParam],
                 flags=flags,
                 x=x,
                 y=y,
@@ -526,7 +562,7 @@ cdef class MouseHookManager:
             )
             
             # Button down/press event.
-            if wParam in (MsEventIds.WM_LBUTTONDOWN, MsEventIds.WM_RBUTTONDOWN, MsEventIds.WM_MBUTTONDOWN, MsEventIds.WM_XBUTTONDOWN, MsEventIds.WM_NCXBUTTONDOWN, MsEventIds.WM_MOUSEWHEEL, MsEventIds.WM_MOUSEHWHEEL):
+            if wParam in (MsMsgIds.WM_LBUTTONDOWN, MsMsgIds.WM_RBUTTONDOWN, MsMsgIds.WM_MBUTTONDOWN, MsMsgIds.WM_XBUTTONDOWN, MsMsgIds.WM_NCXBUTTONDOWN, MsMsgIds.WM_MOUSEWHEEL, MsMsgIds.WM_MOUSEHWHEEL):
                 # Updating the state of the mouse for the button down and wheel movement events.
                 msHouse.delta = mouseEvent.Delta
                 

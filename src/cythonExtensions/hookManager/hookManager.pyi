@@ -65,8 +65,8 @@ class HookTypes(IntEnum):
     "The maximum value for a hook type. It is not a valid hook type itself."
 
 
-class KbEventIds(IntEnum):
-    """Contains the event type ids for keyboard messages."""
+class KbMsgIds(IntEnum):
+    """Contains the Windows Message Ids for keyboard events."""
     
     WM_KEYDOWN     = 0x0100
     """A keyboard key was pressed."""
@@ -143,13 +143,20 @@ numRowCodeToSymbol = {48: ")", 49: "!", 50: "@", 51: "#", 52: "$", 53: "%", 54: 
 vKeyCodeToName = {v: k for k, v in vKeyNameToId.items()}
 """Mapping of virtual key codes to their names."""
 
-kbEventIdToName = {
-    KbEventIds.WM_KEYDOWN    : "key down",      KbEventIds.WM_KEYUP       : "key up",
-    KbEventIds.WM_CHAR       : "key char",      KbEventIds.WM_DEADCHAR    : "key dead char",
-    KbEventIds.WM_SYSKEYDOWN : "key sys down",  KbEventIds.WM_SYSKEYUP    : "key sys up",
-    KbEventIds.WM_SYSCHAR    : "key sys char",  KbEventIds.WM_SYSDEADCHAR : "key sys dead char"}
-"""Mapping of event codes to their names."""
+numPadCodeToName = {
+    0x60: "0", 0x61: "1", 0x62: "2",     0x63: "3", 0x64: "4",
+    0x65: "5", 0x66: "6", 0x67: "7",     0x68: "8", 0x69: "9",
+    0x6A: "*", 0x6B: "+", 0x6C: "ENTER", # 0x6C is the ENTER key on the number pad. It has the same code as the regular ENTER key.
+    0x6D: "-", 0x6E: ".", 0x6F: "/"
+}
+"""Mapping of number pad key codes to their names."""
 
+kbMsgIdToName = {
+    KbMsgIds.WM_KEYDOWN    : "key down",      KbMsgIds.WM_KEYUP       : "key up",
+    KbMsgIds.WM_CHAR       : "key char",      KbMsgIds.WM_DEADCHAR    : "key dead char",
+    KbMsgIds.WM_SYSKEYDOWN : "key sys down",  KbMsgIds.WM_SYSKEYUP    : "key sys up",
+    KbMsgIds.WM_SYSCHAR    : "key sys char",  KbMsgIds.WM_SYSDEADCHAR : "key sys dead char"}
+"""Maps the Windows Message Ids for keyboard events to their respective names."""
 
 def getKeyAsciiAndName(vkey_code: int, shiftPressed=False) -> tuple[int, str]:
     """
@@ -250,8 +257,8 @@ class KeyboardHookManager:
 
 
 # Docs: https://learn.microsoft.com/en-us/windows/win32/inputdev/about-mouse-input
-class MsEventIds(IntEnum):
-    """Contains the event type ids for mouse messages."""
+class MsMsgIds(IntEnum):
+    """Contains the Windows Message Ids for mouse events."""
     
     WM_MOUSEMOVE       = 0x0200
     "The mouse was moved."
@@ -308,27 +315,27 @@ class MsEventIds(IntEnum):
     "Non-client area extended button double-click event."
 
 
-msEventIdToName = {
-    MsEventIds.WM_MOUSEMOVE       : "MOVE",
-    MsEventIds.WM_LBUTTONDOWN     : "LB CLK",
-    MsEventIds.WM_LBUTTONUP       : "LB UP",
-    MsEventIds.WM_LBUTTONDBLCLK   : "LB DBL CLK",
-    MsEventIds.WM_RBUTTONDOWN     : "RB CLK",
-    MsEventIds.WM_RBUTTONUP       : "RB UP",
-    MsEventIds.WM_RBUTTONDBLCLK   : "RB DBL CLK",
-    MsEventIds.WM_MBUTTONDOWN     : "MB CLK",
-    MsEventIds.WM_MBUTTONUP       : "MB UP",
-    MsEventIds.WM_MBUTTONDBLCLK   : "MB DBL CLK",
-    MsEventIds.WM_MOUSEWHEEL      : "WHEEL SCRL",
-    MsEventIds.WM_XBUTTONDOWN     : "XB CLK",
-    MsEventIds.WM_XBUTTONUP       : "XB UP",
-    MsEventIds.WM_XBUTTONDBLCLK   : "XB DBL CLK",
-    MsEventIds.WM_MOUSEHWHEEL     : "WHEEL H SCRL",
-    MsEventIds.WM_NCXBUTTONDOWN   : "NC XB CLK",
-    MsEventIds.WM_NCXBUTTONUP     : "NC XB UP",
-    MsEventIds.WM_NCXBUTTONDBLCLK : "NC XB DBL CLK",
+msMsgIdToName = {
+    MsMsgIds.WM_MOUSEMOVE       : "MOVE",
+    MsMsgIds.WM_LBUTTONDOWN     : "LB CLK",
+    MsMsgIds.WM_LBUTTONUP       : "LB UP",
+    MsMsgIds.WM_LBUTTONDBLCLK   : "LB DBL CLK",
+    MsMsgIds.WM_RBUTTONDOWN     : "RB CLK",
+    MsMsgIds.WM_RBUTTONUP       : "RB UP",
+    MsMsgIds.WM_RBUTTONDBLCLK   : "RB DBL CLK",
+    MsMsgIds.WM_MBUTTONDOWN     : "MB CLK",
+    MsMsgIds.WM_MBUTTONUP       : "MB UP",
+    MsMsgIds.WM_MBUTTONDBLCLK   : "MB DBL CLK",
+    MsMsgIds.WM_MOUSEWHEEL      : "WHEEL SCRL",
+    MsMsgIds.WM_XBUTTONDOWN     : "XB CLK",
+    MsMsgIds.WM_XBUTTONUP       : "XB UP",
+    MsMsgIds.WM_XBUTTONDBLCLK   : "XB DBL CLK",
+    MsMsgIds.WM_MOUSEHWHEEL     : "WHEEL H SCRL",
+    MsMsgIds.WM_NCXBUTTONDOWN   : "NC XB CLK",
+    MsMsgIds.WM_NCXBUTTONUP     : "NC XB UP",
+    MsMsgIds.WM_NCXBUTTONDBLCLK : "NC XB DBL CLK",
 }
-"""Maps the event id to the event name."""
+"""Maps the Windows Message Ids for mouse events to their respective names."""
 
 
 class RawMouse(IntEnum):

@@ -1,4 +1,4 @@
-.PHONY: compile clean-build clean compile-clean compile-force compile-profile run run-profile compile-run install install-reqs install-reqs-dev publish-pypi ruff flake8 cython-lint lint
+.PHONY: compile clean-build clean compile-clean compile-force compile-profile run run-profile compile-run install publish-pypi ruff flake8 cython-lint lint
 
 .DEFAULT_GOAL := run
 
@@ -9,82 +9,77 @@
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
 compile:
-	@echo "Compiling..."
+	@echo Compiling...
 	python setup.py build_ext --inplace
-	@echo "Done."
+	@echo Done.
 
 clean-build:
-	@echo "Removing the build related directories..."
+	@echo Removing the build related directories...
 	rm -rf build dist kb_macropy.egg-info
 	rm -rf $(call rwildcard,.,*__pycache__)
-	@echo "Done."
+	@echo Done.
 
 clean: clean-build
-	@echo "Removing the '.pyd', '.c' files..."
+	@echo Removing the '.pyd', '.c' files...
 	rm -rf $(call rwildcard,.,*.pyd *.c)
-	@echo "Done."
+	@echo Done.
 
 compile-clean: clean compile
 
 compile-force:
-	@echo "Forcing recompilation..."
+	@echo Forcing recompilation...
 	python setup.py build_ext --inplace --force
-	@echo "Done."
+	@echo Done.
 
 compile-profile:
-	@echo "Recompiling with profiling enabled..."
+	@echo Recompiling with profiling enabled...
 	python setup.py build_ext --inplace --force --profile
-	@echo "Done."
+	@echo Done.
 
 run:
-	@echo "Running..."
+	@echo Running...
 	python src/__main__.py -e
-	@echo "Done."
+	@echo Done.
 
 run-profile:
-	@echo "Running with profiling..."
+	@echo Running with profiling...
 	python src/__main__.py --profile
-	@echo "Done."
+	@echo Done.
 
 compile-run: compile run
 
 install: clean-build
-	@echo "Installing package from local..."
+	@echo Installing package from local...
 	pip uninstall kb_macropy -y
 	pip install .
-	@echo "Done."
+	@echo Done.
 
-install-reqs: requirements.txt
-	@echo "Installing requirements..."
+install-reqs: requirements.txt requirements-dev.txt
+	@echo Installing requirements...
 	python.exe -m pip install --upgrade pip
 	pip install --upgrade -r requirements.txt
-	@echo "Done."
-
-install-reqs-dev: requirements-dev.txt
-	@echo "Installing development requirements..."
-	python.exe -m pip install --upgrade pip
 	pip install --upgrade -r requirements-dev.txt
-	@echo "Done."
+	@echo Done.
 
 publish-pypi:
-	@echo "Publishing to PyPI..."
+	@echo Publishing to PyPI...
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
-	@echo "Done."
+	@echo Done.
 
 ruff:
-	@echo "Linting Python files..."
+	@echo Linting Python files...
 	-ruff .
-	@echo "Done."
+	@echo Done.
 
 flake8:
-	@echo "Linting Python files..."
+	@echo Linting Python files...
 	-flake8 --color always
-	@echo "Done."
+	@echo Done.
 
 cython-lint:
-	@echo "Linting Cython files..."
+	@echo Linting Cython files...
 	-cython-lint src/cythonExtensions/**/*.pyx --ignore W293,E702,E501,E303,E266,E265,E261,E221,E128,E127
-	@echo "Done."
+	@echo Done.
 
 lint: ruff flake8 cython-lint

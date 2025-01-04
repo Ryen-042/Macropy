@@ -5,7 +5,18 @@
 import win32gui, win32con, winsound, pywintypes, ctypes
 from time import sleep
 
-def findHandleByClassName(className: str, check_all=False) -> list[int]:
+def sendWindowsMessage(hwnd: int, message: int, wParam: int, lParam: str) -> int:
+    """
+    Description:
+        Sends a message to the specified window.
+    """
+    
+    encoded_path = lParam.encode('utf-16-le') + b'\0\0'  # Add null terminator
+    result = ctypes.windll.user32.SendMessageW(hwnd, message, wParam, ctypes.c_void_p(ctypes.cast(encoded_path, ctypes.c_void_p).value))
+    
+    return ctypes.get_last_error() if not result else 0
+
+def findHandleByClassName(className: str, check_all=False) -> list[int] | int:
     """
     Description:
         Searches for a window with the specified class name and returns its handle if found. Otherwise, returns `0`.
@@ -134,7 +145,7 @@ def shakeActiveWindow(cycles=5) -> None:
     
     # Shake the window for a few seconds
     for i in range(cycles):
-        # Move the window to a new position. The `win32gui.SetWindowPos`. You could also use `ctypes.windll.user32.SetWindowPos`,
+        # Move the window to a new position. You could also use `ctypes.windll.user32.SetWindowPos`,
         win32gui.SetWindowPos(hwnd, win32con.HWND_TOP, x + i, y + i, width, height, win32con.SWP_NOACTIVATE | win32con.SWP_NOSIZE)
         sleep(0.1)
         

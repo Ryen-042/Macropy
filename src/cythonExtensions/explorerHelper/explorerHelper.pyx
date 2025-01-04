@@ -110,7 +110,7 @@ cdef getExplorerAddress(active_explorer=None):
     return active_explorer.Document.Folder.Self.Path
 
 
-cdef list getSelectedItemsFromActiveExplorer(active_explorer=None, tuple patterns=None):
+def getSelectedItemsFromActiveExplorer(active_explorer=None, patterns: tuple[str, ...]=None) -> list[str]:
     """
     Description:
         Returns the absolute paths of the selected items in the active explorer window.
@@ -126,7 +126,7 @@ cdef list getSelectedItemsFromActiveExplorer(active_explorer=None, tuple pattern
         `list[str]`: A list containing the paths to the selected items in the active explorer window.
     """
     
-    cdef bint initializer_called = PThread.coInitialize()
+    cdef bint initializer_called = PThread.coInitialize(True)
     
     if not active_explorer:
         active_explorer = getActiveExplorer(explorer_windows=None, check_desktop=True)
@@ -139,9 +139,18 @@ cdef list getSelectedItemsFromActiveExplorer(active_explorer=None, tuple pattern
                 output.append(selected_item.Path)
     
     if initializer_called:
-        PThread.coUninitialize()
+        PThread.coUninitialize(True)
     
     return output
+
+
+def executeOnSelectedItems(patterns, function, check_desktop=False):
+    classNames = ("CabinetWClass", "WorkerW") if check_desktop else ("CabinetWClass",)
+    if win32gui.GetClassName(win32gui.GetForegroundWindow()) in classNames:
+        selectedFiles = getSelectedItemsFromActiveExplorer(None, patterns)
+    
+    if selectedFiles:
+        return function(selectedFiles)
 
 
 def copySelectedFileNames(active_explorer=None, check_desktop=True) -> list[str]:
@@ -187,7 +196,7 @@ def copySelectedFileNames(active_explorer=None, check_desktop=True) -> list[str]
 
 # https://learn.microsoft.com/en-us/windows/win32/dlgbox/open-and-save-as-dialog-boxes
 def openFileDialog(dialog_type: int, default_extension="", default_filename="", extra_flags=0,
-                   filter="", multiselect=False, title="File Dialog", initial_dir="") -> list[str]:
+                         filter="", multiselect=False, title="File Dialog", initial_dir="") -> list[str]:
     """
     Description:
         Opens a file selection dialog window and returns a list of paths to the selected files/folders.

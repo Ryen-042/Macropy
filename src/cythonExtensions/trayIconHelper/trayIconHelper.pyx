@@ -2,12 +2,12 @@
 
 from cythonExtensions.trayIconHelper cimport trayIconHelper
 
-import win32api, win32con, win32gui_struct,  win32gui, os, importlib, glob, itertools, time, atexit
+import win32api, win32con, win32gui_struct,  win32gui, os, importlib, glob, itertools, time, atexit, threading
 from traceback import print_exc
 from typing import Callable
 
 import scriptConfigs as configs
-from cythonExtensions.commonUtils.commonUtils import PThread
+from cythonExtensions.commonUtils.commonUtils import PThread, Management as mgmt
 from cythonExtensions.systemHelper import systemHelper as sysHelper
 from cythonExtensions.eventHandlers import eventHandlers
 
@@ -50,8 +50,9 @@ cdef class TrayIcon:
     """
     
     cdef int default_sc_menu_action, default_dc_menu_action, FIRST_ID, _next_action_id, hwnd
+    cdef float _counter
     cdef bint destroy_called
-    cdef icon, hover_text, window_class_name, QUIT, on_quit, menu_options, menu_actions_set, menu_actions_dict, SPECIAL_ACTIONS, notify_id, icons
+    cdef icon, hover_text, window_class_name, QUIT, on_quit, menu_options, menu_actions_set, menu_actions_dict, SPECIAL_ACTIONS, notify_id, icons, _timer
     
     def __init__(self, icons, hover_text: str, menu_options: tuple[tuple[str, str, object]], on_quit: Callable=None, window_class_name="Macropy", default_sc_menu_action: int=-1, default_dc_menu_action: int=-1):
         self.destroy_called = False
@@ -64,7 +65,9 @@ cdef class TrayIcon:
         self.icons = icons
         self.icon = next(self.icons)
         self.hover_text = hover_text
-        menu_options = menu_options + ((self.QUIT, "", self.QUIT),)  # Adding 'Quit' option to menu_options
+        
+        # Adding 'Quit' option to menu_options
+        menu_options = menu_options + ((self.QUIT, "", self.QUIT),)
         
         # Initialize action IDs and menu options
         self._next_action_id = self.FIRST_ID
@@ -74,15 +77,17 @@ cdef class TrayIcon:
         self._next_action_id = 0 # Reset the value of the temporary action ID
         
         self.on_quit = on_quit
-        self.window_class_name = window_class_name or "Macropy"
+        self.window_class_name = window_class_name
         
-        #TODO: Delay the execution of the single-click action by a few milliseconds to allow for double-click detection.
         self.default_sc_menu_action = (default_sc_menu_action if not None else -1)
         self.default_dc_menu_action = (default_dc_menu_action if not None else -1)
         
         atexit.register(self.destroyHandler, 0, 0, 0, 0)
         
         self.buildTrayIcon()
+        
+        self._timer = None  # A timer for delaying the execution of the single-click action to prevent its execution when double-clicking on the tray icon.
+        self._counter = 0   # A delay counter that prevents the single-click action from being executed for a short period of time after double-clicking on the tray icon.
 
     cdef list[tuple] _addIdsToMenuOptions(self, tuple[tuple] menu_options):
         """
@@ -124,7 +129,7 @@ cdef class TrayIcon:
             self._next_action_id += 1  # Increment the action ID for the next menu option.
         
         return result  # Return the list of processed menu options.
-    
+
     cdef void buildTrayIcon(self):
         """Creates a system tray icon."""
         
@@ -141,8 +146,8 @@ cdef class TrayIcon:
         }
         
         # Register the Window class
-        window_class = win32gui.WNDCLASS()                       # Create an instance of the WNDCLASS structure.
-        hinst = window_class.hInstance = win32gui.GetModuleHandle(None) # Set the instance for the window class.
+        window_class = win32gui.WNDCLASS()                                   # Create an instance of the WNDCLASS structure.
+        hinst = window_class.hInstance = win32gui.GetModuleHandle(None)      # Set the instance for the window class.
         window_class.lpszClassName = self.window_class_name                  # Set the class name for the window class.
         window_class.style = win32con.CS_VREDRAW | win32con.CS_HREDRAW       # Set the window class style.
         
@@ -151,10 +156,10 @@ cdef class TrayIcon:
         
         window_class.hbrBackground = win32con.COLOR_WINDOW                   # Set the background color for the window class.
         window_class.lpfnWndProc = message_map                               # Set the message map for handling window messages.
-        classAtom = win32gui.RegisterClass(window_class)       # Register the window class and obtain a class atom.
+        classAtom = win32gui.RegisterClass(window_class)                     # Register the window class and obtain a class atom.
         
         # Create a window using the registered window class.
-        style = win32con.WS_OVERLAPPED | win32con.WS_SYSMENU  # Set the window style.
+        style = win32con.WS_OVERLAPPED | win32con.WS_SYSMENU
         self.hwnd = win32gui.CreateWindow(
             classAtom,
             self.window_class_name,
@@ -172,7 +177,7 @@ cdef class TrayIcon:
         win32gui.UpdateWindow(self.hwnd)  # Update the window to ensure it's displayed.
         self.notify_id = None  # Initialize the notification ID.
         self.refreshIcon()
-    
+
     cdef void refreshIcon(self):
         """Refreshes the system tray icon by attempting to find an icon file and using the default icon if no icon file is found."""
         
@@ -212,7 +217,7 @@ cdef class TrayIcon:
             
             time.sleep(2)
             
-            print(".nRebuilding taskbar icon...")
+            print("Rebuilding taskbar icon...")
             
             self.notify_id = None # Reset the notification ID to force the creation of a new try icon.
             
@@ -276,13 +281,23 @@ cdef class TrayIcon:
         """
         
         if lparam == win32con.WM_LBUTTONDBLCLK:  # Handle double-click with left mouse button in the system tray icon
+            self._timer.cancel()
             self.executeMenuOption(self.default_dc_menu_action + self.FIRST_ID)
+            
+            self._counter = time.time() + 0.5
+        
+        elif lparam == win32con.WM_LBUTTONUP:  # Handle left-click in the system tray icon (no action for now)
+            if self._counter == 0 or time.time() - self._counter > 0:
+                self._timer = threading.Timer(0.5, self.executeMenuOption, args=(self.default_sc_menu_action + self.FIRST_ID,))
+                self._timer.start()
+            
+            self._counter = 0
         
         elif lparam == win32con.WM_RBUTTONUP:  # Handle right-click in the system tray icon
             self.showMenu()
         
-        elif lparam == win32con.WM_LBUTTONUP:  # Handle left-click in the system tray icon (no action for now)
-            self.executeMenuOption(self.default_sc_menu_action + self.FIRST_ID)
+        # elif lparam == win32con.WM_MBUTTONUP:  # Handle middle-click in the system tray icon
+        #     pass
         
         return True  # Indicate that the message has been processed
 
@@ -511,6 +526,18 @@ cdef int openScriptFolder(TrayIcon trayIcon):
     return 0
 
 
+cdef int clearConsoleLogs(TrayIcon trayIcon):
+    os.system("cls")
+    
+    return 0
+
+
+cdef int toggleSilentMode(TrayIcon trayIcon):
+    mgmt.toggleSilentMode()
+    
+    return 0
+
+
 # cdef void createTrayIcon(int default_sc_menu_action=2, int default_dc_menu_action=0, hover_text="Macropy", on_quit=None):
 def createTrayIcon(default_sc_menu_action=2, default_dc_menu_action=0, hover_text="Macropy", on_quit=None) -> None:
     """
@@ -543,7 +570,9 @@ def createTrayIcon(default_sc_menu_action=2, default_dc_menu_action=0, hover_tex
         ('Reload', next(icons), (
             ('Hotkeys', next(icons), reloadHotkeys),
             ('Configs', next(icons), reloadConfigs),
-        ))
+        )),
+        ('Clear Console Logs', "", clearConsoleLogs),
+        ('Toggle Silent Mode', "", toggleSilentMode),
     )
     
     TrayIcon(icons, hover_text, menu_options, on_quit=on_quit, default_sc_menu_action=default_sc_menu_action, default_dc_menu_action=default_dc_menu_action)

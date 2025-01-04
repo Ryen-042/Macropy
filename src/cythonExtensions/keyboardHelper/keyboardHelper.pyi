@@ -87,6 +87,10 @@ def simulateHotKeyPress(keys_id_dict: dict[int, int]) -> None:
     ...
 
 
+def resetModifierKeys() -> None:
+    """Reset the modifer keys bey sending keyUp events."""
+    ...
+
 def getCaretPosition(text: str, caret="{!}") -> int:
     """Returns the position of the caret in the given text."""
     ...
@@ -97,8 +101,8 @@ def sendTextWithCaret(text: str, caret="{!}") -> None:
     Description:
         - Sends (writes) the specified string to the active window.
         - If the string contains one or more carets:
-            - The first caret will be deleted, and
-            - The keyboard cursor will be placed where the deleted caret was.
+            - The first caret will be removed, and
+            - The keyboard cursor will be placed where the removed caret was.
     """
     ...
 

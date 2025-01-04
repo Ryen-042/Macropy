@@ -16,10 +16,24 @@ def keyPress(event: KeyboardEvent) -> bool:
             A keyboard event object.
     ---
     Return:
-        `suppressInput -> bool`: Whether to suppress the pressed key or return it.
+        `suppressKeyPress -> bool`: Whether to suppress the pressed key or return it.
     """
     ...
 
+
+def keyRelease(event: KeyboardEvent) -> bool:
+    """
+    Description:
+        A callback function that is called when a key is released.
+    ---
+    Parameters:
+        `event -> KeyboardEvent`:
+            A keyboard event object.
+    ---
+    Return:
+        Always returns False.
+    """
+    ...
 
 def textExpansion(event: KeyboardEvent) -> bool:
     """

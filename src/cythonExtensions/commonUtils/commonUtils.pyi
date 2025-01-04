@@ -1,6 +1,6 @@
 """This module provides class definitions used in other modules."""
 
-import threading, queue, win32clipboard
+import threading, queue, win32clipboard, multiprocessing
 from collections import deque
 from enum import IntEnum
 from win32com.client import CDispatch
@@ -319,6 +319,9 @@ class ControllerHouse:
     """A mask for extracting the `BACKTICK` flag from the `modifiers` packed int."""
     
     # Composite Modifier keys masks
+    CTRL_SHIFT_ALT  = 0b10010010000000 # 9216
+    """A mask for extracting the `CTRL`, `SHIFT` and `ALT` flags from the `modifiers` packed int."""
+    
     CTRL_ALT_WIN_FN = 0b10000010010010 # 8338
     """A mask for extracting the `CTRL`,` ALT`, `WIN` and `FN` flags from the `modifiers` packed int."""
     
@@ -330,6 +333,9 @@ class ControllerHouse:
     
     CTRL_SHIFT      = 0b10010000000000 # 9216
     """A mask for extracting the `CTRL` and `SHIFT` flags from the `modifiers` packed int."""
+    
+    CTRL_ALT        = 0b10000010000000 # 8320
+    """A mask for extracting the `CTRL` and `ALT` flags from the `modifiers` packed int."""
     
     CTRL_FN         = 0b10000000000010 # 8194
     """A mask for extracting the `CTRL` and `FN` flags from the `modifiers` packed int."""
@@ -420,6 +426,17 @@ class ControllerHouse:
     
     max_alias_length = configs.MAX_ALIAS_LENGTH
     """The maximum length of an alias."""
+    
+    burstClicksActive = False
+    """A boolean that indicates whether burst-inputs is enable or not"""
+    
+    @staticmethod
+    def getModifiersStates() -> list[bool]:
+        """
+        Returns a list of boolean values representing the states of the modifier keys. The order of the returned values is:
+        `[CTRL, SHIFT, ALT, WIN, FN, BACKTICK]`
+        """
+        ...
 
 
 class MouseHouse:
@@ -474,6 +491,12 @@ class Management:
     
     terminateEvent: threading.Event
     """An `Event` object that is set when the hotkey for terminating the script is pressed."""
+    
+    isBacktickTheOnlyModiferPressed: bool
+    """Whether the backtick key is pressed with other modifiers or not."""
+    
+    mouseVolumeControlSVar = multiprocessing.RawValue("b", False)
+    """A shared boolean value used for specifying whether the mouse volume control hotkey is pressed or not"""
     
     @staticmethod
     def toggleSilentMode() -> None:

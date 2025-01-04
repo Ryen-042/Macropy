@@ -3,7 +3,28 @@
 import win32con
 
 
-def findHandleByClassName(className: str, check_all=False) -> list[int]:
+def setWindowProperty(hwnd: int, property: str, value: int) -> None:
+    """
+    Description:
+        Sets the value of `property` to `value` for the specified window.
+    """
+    ...
+
+def getWindowProperty(hwnd: int, property: str) -> str:
+    """
+    Description:
+        Retrieves the value of `property` from the specified window.
+    """
+    ...
+
+def sendWindowsMessage(hwnd: int, message: int, wParam: int, lParam: int) -> int:
+    """
+    Description:
+        Sends a message to the specified window.
+    """
+    ...
+
+def findHandleByClassName(className: str, check_all=False) -> list[int] | int:
     """
     Description:
         Searches for a window with the specified class name and returns its handle if found. Otherwise, returns `0`.

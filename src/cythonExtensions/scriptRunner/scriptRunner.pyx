@@ -47,7 +47,7 @@ def beginScript() -> None:
     import scriptConfigs as configs
     from cythonExtensions.systemHelper import systemHelper as sysHelper
     from cythonExtensions.commonUtils.commonUtils import Management as mgmt, PThread
-    from cythonExtensions.eventHandlers.eventHandlers import keyPress, textExpansion, buttonPress
+    from cythonExtensions.eventHandlers.eventHandlers import keyPress, keyRelease, textExpansion, buttonPress
     from cythonExtensions.hookManager.hookManager import KeyboardHookManager, MouseHookManager
     from cythonExtensions.trayIconHelper.trayIconHelper import createTrayIcon
     
@@ -82,12 +82,12 @@ def beginScript() -> None:
     print("Initializing keyboard listeners...")
     kbHook = KeyboardHookManager()
     kbHook.keyDownListeners.extend((textExpansion, keyPress))
-    # kbHook.keyUpListeners.append()
+    kbHook.keyUpListeners.append(keyRelease)
     
-    print("Initializing mouse listeners...")
-    msHook = MouseHookManager()
-    msHook.mouseButtonDownListeners.append(buttonPress)
-    # msHook.mouseButtonUpListeners.append()
+    # print("Initializing mouse listeners...")
+    # msHook = MouseHookManager()
+    # msHook.mouseButtonDownListeners.append(buttonPress)
+    # # msHook.mouseButtonUpListeners.append()
     
     print("Activating keyboard listeners...")
     #+ Installing the low level hooks.
@@ -95,10 +95,10 @@ def beginScript() -> None:
         print("\nWarning! Failed to install the keyboard hook!")
         os._exit(1)
     
-    print("Activating mouse listeners...\n")
-    if not hookManager.installHook(msHook.mouseCallback, HookTypes.WH_MOUSE_LL):
-        print("Failed to install the mouse hook!")
-        os._exit(1)
+    # print("Activating mouse listeners...\n")
+    # if not hookManager.installHook(msHook.mouseCallback, HookTypes.WH_MOUSE_LL):
+    #     print("Failed to install the mouse hook!")
+    #     os._exit(1)
     
     #+ Playing a sound to notify that the script is ready.
     winsound.PlaySound(r"SFX\achievement-message-tone.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
@@ -114,7 +114,7 @@ def beginScript() -> None:
     
     print("Uninstalling the hooks...")
     hookManager.uninstallHook(HookTypes.WH_KEYBOARD_LL)
-    hookManager.uninstallHook(HookTypes.WH_MOUSE_LL)
+    # hookManager.uninstallHook(HookTypes.WH_MOUSE_LL)
     
     # Get a list of all running threads
     cdef list alive_threads = threading.enumerate()
@@ -125,22 +125,25 @@ def beginScript() -> None:
     # A flag to break the outer loop.
     cdef bint break_outer = False
     
-    cdef float countdown_start = time()
+    countdown_start = time()
     
+    #TODO: Check out why the script doesn't stop even after the delay ends.
     # Waiting for a certain number of seconds before forcefully stopping the running threads.
     for thread in alive_threads:
         if thread != threading.main_thread():
             print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
             while True:
                 if time() - countdown_start >= 10:
-                    print(f"\n{still_alive} threads are still running after 10s wait. The threads will be forcefully terminated...")
+                    print(f"\n\n{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active active after waiting for 10 seconds.")
+                    
                     break_outer = True
                     break
                 
                 if thread.is_alive():
                     sleep(0.2)
+                
                 else:
-                    print(f"{still_alive} threads are still active.", end="\r")
+                    print(f"{still_alive} thread{'s are' if still_alive > 1 else ' is'} still active.", end="\r")
                     break
         
         still_alive -= 1
@@ -154,7 +157,7 @@ def beginScript() -> None:
         pythoncom.CoUninitialize()
     
     #! Terminate the script.
-    # sysHelper.terminateScript(graceful=False)
+    sysHelper.terminateScript(graceful=False)
 
 
 # Source: https://dev.to/rydra/getting-started-on-profiling-with-python-3a4
@@ -256,7 +259,7 @@ def profilerManager(filename="", engine="yappi", clock="wall", output_type="psta
 
 
 def beginScriptWithCProfiler(save_near_module=False) -> None:
-    """Starts the main script with profiling."""
+    """Starts the main script with profiling using CProfiler."""
     
     import cProfile, pstats
     
@@ -290,7 +293,7 @@ def beginScriptWithCProfiler(save_near_module=False) -> None:
 
 
 def beginScriptWithProfiling(filename="", engine="yappi", clock="wall", output_type="pstat", profile_builtins=True, profile_threads=True, save_near_module=False) -> None:
-    """Starts the main script with profiling."""
+    """Starts the main script with profiling using the specified profiler."""
     
     with profilerManager(filename=filename, engine=engine, clock=clock, output_type=output_type, profile_builtins=profile_builtins, profile_threads=profile_threads, save_near_module=save_near_module):
         beginScript()

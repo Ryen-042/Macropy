@@ -1,8 +1,9 @@
 cdef class TrayIcon:
     
     cdef int default_sc_menu_action, default_dc_menu_action, FIRST_ID, _next_action_id, hwnd
+    cdef float _counter
     cdef bint destroy_called
-    cdef icon, hover_text, window_class_name, QUIT, on_quit, menu_options, menu_actions_set, menu_actions_dict, SPECIAL_ACTIONS, notify_id, icons
+    cdef icon, hover_text, window_class_name, QUIT, on_quit, menu_options, menu_actions_set, menu_actions_dict, SPECIAL_ACTIONS, notify_id, icons, _timer
     
     cdef list[tuple] _addIdsToMenuOptions(self, tuple[tuple] menu_options)
     

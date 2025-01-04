@@ -8,6 +8,7 @@ import keyboard, os
 from time import sleep
 
 from cythonExtensions.commonUtils.commonUtils import KB_Con as kbcon, WindowHouse as winHouse, ControllerHouse as ctrlHouse
+from cythonExtensions.guiHelper.inputWindow import SimpleWindow
 
 # We must check before sending keys using keybd_event: https://stackoverflow.com/questions/21197257/keybd-event-keyeventf-extendedkey-explanation-required
 cdef set extended_keys = {
@@ -177,6 +178,47 @@ def simulateHotKeyPress(keys_id_dict: dict[int, int]) -> None:
         flags = (key_id in extended_keys) * win32con.KEYEVENTF_EXTENDEDKEY
         win32api.keybd_event(key_id, key_scancode, flags | win32con.KEYEVENTF_KEYUP, 0) # Simulate KeyUp event.
 
+def simulateBurstClicks():
+    cdef int flags
+    cdef float delay
+    
+    window = SimpleWindow("Key & Delay Input", itemsHeight=30)
+    # window.createDynamicInputWindow(["Key", "Delay (ms)"])
+    window.createDynamicInputWindow(
+        input_labels = ["Delay (ms)"],
+        placeholders = ["100"],
+        enable_key_capture = True
+    )
+    
+    # If the user didn't provide any input, for example, by closing the window.
+    if not window.userInputs or not window.capturedKeyVK:
+        return
+    
+    flags = (window.capturedKeyVK in extended_keys) * win32con.KEYEVENTF_EXTENDEDKEY
+    
+    delay = int(window.userInputs[0]) / 1000
+    
+    while ctrlHouse.burstClicksActive:
+        win32api.keybd_event(window.capturedKeyVK, 0, flags, 0) # Simulate KeyDown event.
+        win32api.keybd_event(window.capturedKeyVK, 0, flags | win32con.KEYEVENTF_KEYUP, 0) # Simulate KeyUp event.
+        sleep(delay)
+
+def resetModifierKeys() -> None:
+    """Reset the modifer keys bey sending keyUp events."""
+    
+    modifiers = [
+        (win32con.VK_LCONTROL, 29),
+        (win32con.VK_LSHIFT, 42),
+        (win32con.VK_LMENU, 56),
+        (win32con.VK_LWIN, 91),
+        (255, 0),  # FN
+        (kbcon.VK_BACKTICK, 41)
+    ]
+    
+    for key_id, key_scancode in modifiers:
+        flags = (key_id in extended_keys) * win32con.KEYEVENTF_EXTENDEDKEY
+        win32api.keybd_event(key_id, key_scancode, win32con.KEYEVENTF_KEYUP | flags, 0)
+
 cdef int getCaretPosition(text, caret="{!}"):
     """Returns the position of the caret in the given text."""
     # caret_pos = text[::-1].find("}!{")
@@ -190,8 +232,8 @@ def sendTextWithCaret(text: str, caret="{!}") -> None:
     Description:
         - Sends (writes) the specified string to the active window.
         - If the string contains one or more carets:
-            - The first caret will be deleted, and
-            - The keyboard cursor will be placed where the deleted caret was.
+            - The first caret will be removed, and
+            - The keyboard cursor will be placed where the removed caret was.
     """
     
     cdef int caret_pos = getCaretPosition(text, caret)
@@ -249,7 +291,7 @@ def openLocation() -> None:
     # Resetting the stored pressed keys.
     ctrlHouse.pressed_chars = ""
     
-    winsound.PlaySound(r"SFX\knob-458.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    winsound.PlaySound(r"C:\Windows\Media\Windows Navigation Start.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
 
 def crudeOpenWith(tool_number=4, prog_index=0) -> None:
     """

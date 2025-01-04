@@ -3,13 +3,15 @@
 from cythonExtensions.commonUtils.commonUtils import KB_Con as kbcon, ControllerHouse as ctrlHouse, WindowHouse as winHouse, PThread, Management as mgmt
 
 import win32con, os, subprocess, winsound
-from typing import Callable
+from collections import defaultdict
+from typing import Callable, Tuple
 
 from cythonExtensions.explorerHelper import explorerHelper as expHelper
 from cythonExtensions.systemHelper   import systemHelper   as sysHelper
 from cythonExtensions.windowHelper   import windowHelper   as winHelper
 from cythonExtensions.keyboardHelper import keyboardHelper as kbHelper
 from cythonExtensions.mouseHelper    import mouseHelper    as msHelper
+import scriptConfigs as configs
 
 
 # Task-specific configuration values for the callbacks
@@ -79,6 +81,7 @@ def callSendMouseHoldingClick(button: int) -> bool:
     
     return True
 
+
 PThread.throttle(0.3)
 def callUndoRedo(undo=True) -> bool:
     keys = {win32con.VK_CONTROL: 29}
@@ -91,6 +94,52 @@ def callUndoRedo(undo=True) -> bool:
     kbHelper.simulateHotKeyPress(keys)
     
     return True
+
+
+def groupEntries(kbEventHandlers: dict[Tuple[int, int], Tuple[Callable, Tuple]]) -> dict[str, Tuple[Tuple[str, Tuple]]]:
+    grouped_entries = defaultdict(list)
+    
+    con_mappings = {getattr(win32con, name): name for name in dir(win32con) if name.startswith("VK_")}
+    ctrlHouse_mappings = {getattr(ctrlHouse, name): name for name in dir(ctrlHouse) if not name.startswith("__") and type(getattr(ctrlHouse, name)) is int and name.isupper() and "MASK" not in name and name not in ["NUMLOCK", "CAPITAL", "SCROLL"]}
+    kbcon_mappings = kbcon._value2member_map_
+    
+    for key, value in kbEventHandlers.items():
+        if key == (ctrlHouse.BACKTICK, kbcon.VK_H):
+            continue
+        
+        function_name = value[0].__name__
+        grouped_entries[function_name].append(([ctrlHouse_mappings.get(k, None) or con_mappings.get(k, None) or (kbcon_mappings[k]._name_ if k in kbcon_mappings else None) or k for k in key], str(value[1:] if len(value) > 2 else value[1])))
+    
+    return dict(grouped_entries)
+
+
+def printWrappedDict(grouped_entries, levels=2, indent='    '):
+    grouped_entries_text = '{\n'
+    
+    if levels == 2:
+        for key, value in grouped_entries.items():
+            grouped_entries_text += f"{indent}\"{key}\": [\n"
+            for v in value:
+                grouped_entries_text += f"{2 * indent}{v},\n"
+            
+            grouped_entries_text = grouped_entries_text.rstrip(',\n') + '\n' + indent + '],\n'
+    
+    else:
+        for key, value in grouped_entries.items():
+            grouped_entries_text += f"{indent}\"{key}\": {value},\n"
+    
+    grouped_entries_text = grouped_entries_text.rstrip(',\n') + '\n}\n'
+    print(grouped_entries_text)
+
+
+def printHotkeysAndTextExpansionTriggers():
+    os.system("cls")
+    print("Hotkeys:")
+    printWrappedDict(groupEntries(kbEventHandlers))
+    printWrappedDict(groupEntries(kbEventHandlersWithSCROLL_On))
+    printWrappedDict(groupEntries(kbEventHandlersWithExplorerFocus))
+    printWrappedDict(configs.LOCATIONS, 1)
+    printWrappedDict(configs.ABBREVIATIONS, 1)
 
 
 # Event handlers, which are called when the specified trigger is detected.
@@ -118,6 +167,11 @@ kbEventHandlers: dict[tuple[int, int], tuple[Callable, tuple]] = {
     (ctrlHouse.CTRL_ALT_WIN, kbcon.VK_Q): (sysHelper.shutdown, (True,)),
     (ctrlHouse.CTRL_WIN_FN, kbcon.VK_Q):  (sysHelper.shutdown, (True,)),
     
+    #+ Toggling the monitor mode: Ctrl + Alt + Win + (1, 2, 3)
+    (ctrlHouse.CTRL_ALT_WIN, kbcon.VK_1): (sysHelper.toggleMonitorMode, (1,)),
+    (ctrlHouse.CTRL_ALT_WIN, kbcon.VK_2): (sysHelper.toggleMonitorMode, (2,)),
+    (ctrlHouse.CTRL_ALT_WIN, kbcon.VK_3): (sysHelper.toggleMonitorMode, (3,)),
+    
     #+ Incresing/Decreasing the system volume: Ctrl + Shift + (['+'* | Add], ['-'* | Subtract])
     (ctrlHouse.CTRL_SHIFT, kbcon.VK_EQUALS): (kbHelper.simulateKeyPress, (win32con.VK_VOLUME_UP,)),
     (ctrlHouse.CTRL_SHIFT, kbcon.VK_MINUS):  (kbHelper.simulateKeyPress, (win32con.VK_VOLUME_DOWN,)),
@@ -137,16 +191,16 @@ kbEventHandlers: dict[tuple[int, int], tuple[Callable, tuple]] = {
     #+ Disabling the keyboard keys: ALT + Fn + 'D'*
     (ctrlHouse.ALT_FN, kbcon.VK_D): (mgmt.toggleKeyboardInputs, ()),
     
-    #+ Suspending the process of the active window: '`' + [PAUSE | HOME]
-    (ctrlHouse.BACKTICK, win32con.VK_PAUSE): (sysHelper.suspendProcess, ()),
-    (ctrlHouse.BACKTICK, win32con.VK_HOME):  (sysHelper.suspendProcess, ()),
+    # #+ Suspending the process of the active window: '`' + [PAUSE | HOME]
+    # (ctrlHouse.BACKTICK, win32con.VK_PAUSE): (sysHelper.suspendProcess, ()),
+    # (ctrlHouse.BACKTICK, win32con.VK_HOME):  (sysHelper.suspendProcess, ()),
     
-    #+ Resuming the suspended process of the active window: ALT + [PAUSE | HOME]
-    (ctrlHouse.ALT, win32con.VK_PAUSE): (sysHelper.resumeProcess, ()),
-    (ctrlHouse.ALT, win32con.VK_HOME):  (sysHelper.resumeProcess, ()),
+    # #+ Resuming the suspended process of the active window: ALT + [PAUSE | HOME]
+    # (ctrlHouse.ALT, win32con.VK_PAUSE): (sysHelper.resumeProcess, ()),
+    # (ctrlHouse.ALT, win32con.VK_HOME):  (sysHelper.resumeProcess, ()),
     
     ### Window management Operations ###
-    #+  Incresing/Decreasing the opacity of the active window: '`' + (['+'* | Add], ['-'* | Subtract])
+    #+ Incresing/Decreasing the opacity of the active window: '`' + (['+'* | Add], ['-'* | Subtract])
     (ctrlHouse.BACKTICK, kbcon.VK_EQUALS): (winHelper.changeWindowOpacity, (0, True)),
     (ctrlHouse.BACKTICK, win32con.VK_ADD): (winHelper.changeWindowOpacity, (0, True)),
     (ctrlHouse.BACKTICK, kbcon.VK_MINUS):  (winHelper.changeWindowOpacity, (0, False)),
@@ -154,6 +208,7 @@ kbEventHandlers: dict[tuple[int, int], tuple[Callable, tuple]] = {
     
     #+ Toggling the `alwaysOnTop` state for the focused window: # Fn + Ctrl + 'A'*
     (ctrlHouse.CTRL_FN, kbcon.VK_A): (winHelper.alwaysOnTop, ()),
+    (ctrlHouse.CTRL_WIN, kbcon.VK_A): (winHelper.alwaysOnTop, ()),
     
     #+ Moving the active window: '`' + (↑, →, ↓, ←) + {Alt | Shift}
     (ctrlHouse.SHIFT_BACKTICK, win32con.VK_UP):    (winHelper.moveActiveWindow, (0, 0, -WINDOW_MOVEMENT_DISTANCE_SMALL, 0, 0)),
@@ -197,11 +252,12 @@ kbEventHandlers: dict[tuple[int, int], tuple[Callable, tuple]] = {
     #+ Toggling ScrollLock (useful when the keyboard doesn't have the ScrLck key): [Fn | Win] + CapsLock
     (ctrlHouse.FN, win32con.VK_CAPITAL):  (lambda: (winsound.PlaySound(r"SFX\pedantic-490.wav" if not ctrlHouse.SCROLL else r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC), kbHelper.simulateKeyPress(win32con.VK_SCROLL, 0x46)), ()),
     (ctrlHouse.WIN, win32con.VK_CAPITAL): (lambda: (winsound.PlaySound(r"SFX\pedantic-490.wav" if not ctrlHouse.SCROLL else r"SFX\no-trespassing-368.wav", winsound.SND_FILENAME|winsound.SND_ASYNC), kbHelper.simulateKeyPress(win32con.VK_SCROLL, 0x46)), ()),
-    
-    #+ Test `reloadHotkeys`: '`' + 'H'*
-    # (ctrlHouse.BACKTICK, kbcon.VK_H): (reloadTrayIcon, ()),
 }
 """Dictionary of keyboard event handlers that ignore the state of the lock keys."""
+
+
+#+ Test: '`' + 'H'*
+kbEventHandlers[(ctrlHouse.BACKTICK, kbcon.VK_H)] = (printHotkeysAndTextExpansionTriggers, ())
 
 
 kbEventHandlersWithSCROLL_On: dict[tuple[int, int], tuple[Callable, tuple]] = {
@@ -219,12 +275,12 @@ kbEventHandlersWithSCROLL_On: dict[tuple[int, int], tuple[Callable, tuple]] = {
     (ctrlHouse.ALT, kbcon.VK_D): (msHelper.sendMouseScroll, (SCROLL_DISTANCE_MULTIPLIER,  0, WHEEL_SCROLL_DISTANCE)),
     
     #+ Zooming in by simulating mouse scroll events: ScrollLock + Ctrl + ('E'*, 'Q'*)
-    (ctrlHouse.CTRL, kbcon.VK_E): (msHelper.sendMouseScroll, (-ZOOMING_DISTANCE, 1, ZOOMING_DISTANCE_MULTIPLIER)),
-    (ctrlHouse.CTRL, kbcon.VK_Q): (msHelper.sendMouseScroll, (ZOOMING_DISTANCE,  1, ZOOMING_DISTANCE_MULTIPLIER)),
+    (ctrlHouse.CTRL, kbcon.VK_E): (msHelper.sendMouseScroll, (ZOOMING_DISTANCE,  1, ZOOMING_DISTANCE_MULTIPLIER)),
+    (ctrlHouse.CTRL, kbcon.VK_Q): (msHelper.sendMouseScroll, (-ZOOMING_DISTANCE, 1, ZOOMING_DISTANCE_MULTIPLIER)),
     
     #+ Sending mouse clicks: ScrollLock + ('E'*, 'Q'*, 2)
-    # (0, kbcon.VK_Q): (callSendMouseClick, (0,)),
-    # (0, kbcon.VK_E): (callSendMouseClick, (1,)),
+    (0, kbcon.VK_Q): (callSendMouseClick, (0,)),
+    (0, kbcon.VK_E): (callSendMouseClick, (1,)),
     (0, kbcon.VK_2): (callSendMouseClick, (2,)),
     
     #+ Sending mouse holding click: ScrollLock + BACKTICK + ('E'*, 'Q'*, 2)
@@ -275,12 +331,13 @@ kbEventHandlersWithExplorerFocus: dict[tuple[int, int], tuple[Callable, tuple, b
     (ctrlHouse.BACKTICK, kbcon.VK_P): (expHelper.officeFileToPDF, (None, "Powerpoint"), True, False),
     (ctrlHouse.BACKTICK, kbcon.VK_O): (expHelper.officeFileToPDF, (None, "Word"), True, False),
     
-    #+ Remember the title of the active explorer window (i.e., the path of the current directory).
+    #+ Remember the title of the active explorer window (i.e., the path of the current directory): Ctrl + Shift + 'R'*
     (ctrlHouse.CTRL, kbcon.VK_W):    (winHouse.rememberActiveProcessTitle, (), False, False),
     (ctrlHouse.ALT, win32con.VK_F4): (winHouse.rememberActiveProcessTitle, (), False, False),
     
     #+ Merging the selected images from the active explorer window into a PDF file: Ctrl + Shift + 'P'*
     (ctrlHouse.CTRL_SHIFT, kbcon.VK_P): (subprocess.call, (("python", "-c", "from cythonExtensions.imageUtils.imageHelper import imagesToPDF; imagesToPDF()"),), False, True),
+    (ctrlHouse.CTRL_SHIFT_ALT, kbcon.VK_P): (subprocess.call, (("python", "-c", "from cythonExtensions.imageUtils.imageHelper import imagesToPDF; imagesToPDF(2)"),), False, True),
     
     #+ Converting the selected image files from the active explorer window into '.ico' files: Ctrl + Alt + Win + 'I'*
     (ctrlHouse.CTRL_ALT_WIN, kbcon.VK_I): (subprocess.call, (("python", "-c", "from cythonExtensions.imageUtils.imageHelper import iconize; iconize()"),)),

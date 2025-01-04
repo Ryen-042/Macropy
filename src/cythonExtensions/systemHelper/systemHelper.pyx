@@ -10,6 +10,7 @@ from win11toast import toast
 import scriptConfigs as configs
 from cythonExtensions.commonUtils.commonUtils import ControllerHouse as ctrlHouse, PThread, Management as mgmt
 from cythonExtensions.windowHelper import windowHelper as winHelper
+from cythonExtensions.keyboardHelper import keyboardHelper as kbHelper
 
 cpdef void reloadConfigs():
     """Re-imports the `scriptConfigs` module and reloads the defined configurations."""
@@ -44,7 +45,7 @@ def terminateScript(graceful=False) -> None:
         ctypes.windll.user32.PostThreadMessageW(PThread.mainThreadId, win32con.WM_QUIT, 0, 0)
     
     elif not len(sys.argv) > 1 or sys.argv[1] not in ("-p", "--profile", "--prof"): # else:
-        print("Forcefully terminating the script...")
+        print("Forcefully terminating the script...", end="")
         
         # os._exit() vs sys.exit():
         # - `os._exit()` exits script immediately, without calling cleanup handlers, flushing stdio buffers, etc.
@@ -209,7 +210,7 @@ def sendScriptWorkingNotification(near_module=True) -> None:
         on_click = lambda args: (args["arguments"][0] == "0" and terminateScript(True)) or (args["arguments"][0] == "1" and reloadConfigs()),
         icon  = {"src": os.path.join(directory, "Images", "static", "keyboard.png"), 'placement': 'appLogoOverride'},
         image = {'src': os.path.join(directory, "Images", "static", "keyboard (0.5).png"), 'placement': 'hero'},
-        # audio = os.path.join(configs.MAIN_MODULE_LOCATION, "SFX", "bonk sound.mp3"), # {'silent': 'true'}
+        audio = os.path.join(configs.MAIN_MODULE_LOCATION, "SFX", "isnt-it-524.wav"), # {'silent': 'true'}
     )
 
 
@@ -244,6 +245,36 @@ def screenOff() -> None:
     win32gui.SendMessage(win32con.HWND_BROADCAST, win32con.WM_SYSCOMMAND, win32con.SC_MONITORPOWER, 2)
 
 
+def toggleMonitorMode(mode: int):
+    """Toggles the monitor mode between internal, external, extended, and clone."""
+    
+    modes = {
+        1: "/internal",  # Internal screen (primary display)
+        2: "/external",  # External screen (secondary display)
+        3: "/extend",    # Extended settings
+        4: "/clone",     # Duplicate displays
+    }
+    
+    if mode not in modes:
+        print("Invalid mode. Please choose a valid mode number.")
+        winsound.PlaySound(r"SFX\error.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+        
+        return
+    
+    display_switch_cmd = r"C:\Windows\System32\DisplaySwitch.exe"
+    cmd_args = [display_switch_cmd, modes[mode]]
+    
+    try:
+        subprocess.run(cmd_args, check=True)
+        
+        print(f"Successfully switched to mode {mode}.")
+        winsound.PlaySound(r"SFX\success.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+    
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
+        winsound.PlaySound(r"SFX\error.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
+
+
 def flashScreen(delay=0.15) -> None:
     """Inverts the color of the screen for the specified number of seconds."""
     cdef int x, y
@@ -266,7 +297,10 @@ def goToSleep() -> None:
     winsound.PlaySound(r"C:\Windows\Media\Windows Logoff Sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
     print("Putting the device to sleep...")
     
-    os.system(r'"C:\Program Files\Utilities\PSTools\psshutdown.exe" -d -t 0 -nobanner')
+    # os.system(r'"C:\Program Files\Applications\PSTools\psshutdown64.exe" -d -t 0 -nobanner')  # Doesn't work for some reason with windows 11: https://superuser.com/questions/42124/how-can-i-put-the-computer-to-sleep-from-command-prompt-run-menu
+    os.system(r'"C:\Program Files\Applications\PSTools\psshutdown64.exe" -x -t 0 -nobanner')
+    
+    kbHelper.resetModifierKeys()
     print("Device is now active.")
 
 

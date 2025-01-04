@@ -3,7 +3,9 @@
 import win32gui, os, winsound, pythoncom
 import PIL.Image
 from win32com.client import Dispatch
+from natsort import natsorted
 
+from cythonExtensions.guiHelper.inputWindow import SimpleWindow
 
 cdef getUniqueName(directory, filename="New File", sequence_pattern=" (%s)", extension=".txt"):
     """
@@ -98,9 +100,27 @@ def iconize():
     pythoncom.CoUninitialize()
 
 
-def imagesToPDF():
-    """Combines the selected images from the active explorer window into a PDF file with an incremental name then select it.
-    Please note that the function sorts the file names alphabetically before merging."""
+def imagesToPDF(mode=1, targetWidth=690, widthThreshold=1200, minWidth=100, minHeight=100) -> None:
+    """
+    Combines the selected images into a PDF file.
+    
+    Args:
+        `imageFiles -> list[str]`: List of file paths to the images to be combined into a PDF.
+        `mode -> str`: Mode of operation. Use `1` for normal mode or `2` for image-resize mode to resize images to a specific width, maintaining aspect ratio.
+        `targetWidth -> int`: Desired width for images in image-resize mode if they are smaller than widthThreshold.
+        `widthThreshold -> int`: Width threshold to determine if resizing is necessary in image-resize mode.
+        `minWidth -> int`: Minimum width of images to be included in the PDF.
+        `minHeight -> int`: Minimum height of images to be included in the PDF.
+    
+    Notes:
+        - The function filters out images that are smaller than a minimum width and height (100x100 pixels).
+        - In image-resize mode, images with width less than widthThreshold are resized to targetWidth while maintaining aspect ratio.
+        - Images are sorted alphabetically by their file names before being combined into a PDF.
+        - The resulting PDF is saved in the directory of the first image file with a unique name.
+        - If the number of images is 20 or fewer, the resulting PDF is selected in the active explorer window.
+        - A sound is played upon successful creation of the PDF.
+        - Temporary resized images in image-resize mode are cleaned up after the PDF is created.
+    """
     
     import img2pdf
     
@@ -133,34 +153,73 @@ def imagesToPDF():
     
     winsound.PlaySound(r"SFX\connection-sound.wav", winsound.SND_FILENAME|winsound.SND_ASYNC)
     
-    cdef list image_locations = []
+    cdef list imageFiles = []
     for selected_item in active_explorer.Document.SelectedItems():
         if selected_item.Path.endswith(('.png', '.jpg', '.jpeg')):
-            image_locations.append(selected_item.Path)
+            imageFiles.append(selected_item.Path)
     
-    minWidth = 100
-    minHeight = 100
-    
-    filtered_images = []
-    for path in image_locations:
-        img = PIL.Image.open(path)
-        width, height = img.size
+    outputDirectory = os.path.dirname(imageFiles[0])
+    filteredImages = []
+
+    if mode == 2:
+        window = SimpleWindow(
+            "Image Resize Mode - PDF Creator",
+            label_width = 150,
+            input_field_width = 250,
+            separator = 10
+        )
         
-        if width >= minWidth and height >= minHeight:
-            filtered_images.append(path)
-    
-    filtered_images.sort()
-    
-    directory = os.path.dirname(filtered_images[0])
-    
-    file_fullpath = getUniqueName(directory, "New PDF", " (%s)", ".pdf")
-    
-    with open(file_fullpath, "wb") as pdf_output_file:
-        pdf_output_file.write(img2pdf.convert(filtered_images))
+        window.createDynamicInputWindow(
+            input_labels = ["Target Width", "Width Threshold", "Min Width", "Min Height"],
+            placeholders = [targetWidth, widthThreshold, minWidth, minHeight],
+        )
         
-        if len(filtered_images) <= 20:
-            active_explorer.Document.SelectItem(file_fullpath, 1|4|8|16)
+        targetWidth, widthThreshold, minWidth, minHeight = [int(i) for i in window.userInputs]
         
+        # Temporary directory to store resized images
+        temp_dir = os.path.join(outputDirectory, "temp_resized_images")
+        os.makedirs(temp_dir, exist_ok=True)
+
+        for path in imageFiles:
+            img = PIL.Image.open(path)
+            width, height = img.size
+            
+            if width >= minWidth and height >= minHeight:
+                # Set the desired width for images with width less than widthThreshold
+                if width < widthThreshold:
+                    # Calculate new height to maintain aspect ratio
+                    new_height = int((targetWidth / width) * height)
+                    img = img.resize((targetWidth, new_height), PIL.Image.LANCZOS)
+                
+                imagePath = os.path.join(temp_dir, os.path.basename(path))
+                img.save(imagePath)
+                filteredImages.append(imagePath)
+
+    else:
+        for path in imageFiles:
+            img = PIL.Image.open(path)
+            width, height = img.size
+            
+            if width >= minWidth and height >= minHeight:
+                filteredImages.append(path)
+
+    filteredImages = natsorted(filteredImages)
+    fileFullPath = getUniqueName(outputDirectory, "New PDF", " (%s)", ".pdf")
+    
+    with open(fileFullPath, "wb") as pdf_output_file:
+        pdf_output_file.write(img2pdf.convert(filteredImages))
+        
+        if len(filteredImages) <= 20:
+            active_explorer.Document.SelectItem(fileFullPath, 1|4|8|16)
+    
+    print(f"PDF file created at: {fileFullPath}")
+    
+    # Clean up temporary resized images for image-resize mode
+    if mode == 2:
+        for image in filteredImages:
+            os.remove(image)
+        os.rmdir(temp_dir)
+    
     winsound.PlaySound(r"SFX\coins-497.wav", winsound.SND_FILENAME)
     
     pythoncom.CoUninitialize()

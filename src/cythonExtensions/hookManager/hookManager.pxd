@@ -27,8 +27,8 @@ cdef enum HookTypes:
     WH_MAX             = 15   # The maximum value for a hook type. It is not a valid hook type itself.
 
 
-cdef enum KbEventIds:
-    # Contains the event type ids for keyboard messages.
+cdef enum KbMsgIds:
+    # Contains the Windows Message Ids for keyboard events.
     WM_KEYDOWN     = 0x0100   # A keyboard key was pressed.
     WM_KEYUP       = 0x0101   # A keyboard key was released.
     WM_CHAR        = 0x0102   # A keyboard key was pressed down and released, and it represents a printable character.
@@ -62,8 +62,8 @@ cdef class KeyboardHookManager:
 
 
 # Docs: https://learn.microsoft.com/en-us/windows/win32/inputdev/about-mouse-input
-cdef enum MsEventIds:
-    # Contains the event type ids for mouse messages.
+cdef enum MsMsgIds:
+    # Contains the Windows Message Ids for mouse events.
     
     WM_MOUSEMOVE       = 0x0200 # The mouse was moved.
     WM_LBUTTONDOWN     = 0x0201 # The left mouse button was pressed.
